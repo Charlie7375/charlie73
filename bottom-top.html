@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko" class="theme-light">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>코스피 · SK하이닉스 바닥/천장 추적</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script>if (typeof Chart !== 'undefined') { Chart.defaults.animation = false; }</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html.theme-dark{--bg:#0A0A0A;--surface:#141414;--surface-hover:#1C1C1C;--border:rgba(255,255,255,0.06);--text:#EDEDED;--text-secondary:#8a8a8a;--accent:#7c3aed;--pos:#10b981;--neg:#f43f5e;--warn:#f59e0b;--grid:rgba(255,255,255,0.05)}
+html.theme-light{--bg:#FFFFFF;--surface:#F6F7F9;--surface-hover:#EDEFF3;--border:rgba(15,23,42,0.12);--text:#0f172a;--text-secondary:#475569;--accent:#6d28d9;--pos:#059669;--neg:#e11d48;--warn:#d97706;--grid:rgba(15,23,42,0.10)}
+body{font-family:'Inter','Noto Sans KR',-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;letter-spacing:-0.01em}
+h1,h2,h3,h4{color:var(--text);letter-spacing:-0.03em;line-height:1.14}
+h1{font-weight:800;font-size:2.6rem}h2{font-weight:700;font-size:1.45rem}h3{font-weight:600;font-size:1.1rem}
+.wrap{max-width:1120px;margin:0 auto;padding:56px 28px 80px}
+.nav{margin-bottom:22px}.nav a{color:var(--accent);text-decoration:none;font-size:.9rem;font-weight:600}
+.eyebrow{font-size:.82rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.sub{color:var(--text-secondary);font-size:1.05rem;margin-top:14px;max-width:820px}
+.asof{display:inline-flex;align-items:center;gap:8px;margin-top:18px;font-size:.85rem;color:var(--text-secondary);background:var(--surface);border:1px solid var(--border);padding:7px 14px;border-radius:999px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--warn);box-shadow:0 0 0 4px color-mix(in srgb,var(--warn) 20%,transparent)}
+section{margin-bottom:54px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:18px;flex-wrap:wrap}
+.sec-head .note{font-size:.85rem;color:var(--text-secondary)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:26px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.chart-container{position:relative;height:400px;padding:10px 4px 4px}
+.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px;position:relative;overflow:hidden}
+.stat .l{font-size:.78rem;color:var(--text-secondary)}
+.stat .v{font-size:1.9rem;font-weight:800;letter-spacing:-0.03em;margin-top:4px}
+.stat .s{font-size:.8rem;color:var(--text-secondary);margin-top:6px}
+.badge{display:inline-block;padding:3px 10px;border-radius:999px;font-size:.74rem;font-weight:700}
+.b-warn{background:color-mix(in srgb,var(--warn) 18%,transparent);color:var(--warn)}
+.b-neg{background:color-mix(in srgb,var(--neg) 16%,transparent);color:var(--neg)}
+.b-pos{background:color-mix(in srgb,var(--pos) 16%,transparent);color:var(--pos)}
+table.mini{width:100%;border-collapse:collapse;font-size:.92rem}
+table.mini th,table.mini td{text-align:right;padding:11px 12px;border-bottom:1px solid var(--border)}
+table.mini th:first-child,table.mini td:first-child{text-align:left}
+table.mini thead th{color:var(--text-secondary);font-weight:600;font-size:.8rem}
+table.mini td.neg{color:var(--neg)}
+.explain{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:12px;padding:20px 22px;margin-top:18px}
+.explain h4{font-size:1rem;margin-bottom:8px}
+.explain p{color:var(--text-secondary);font-size:.93rem;line-height:1.75;margin-bottom:10px}
+.explain p:last-child{margin-bottom:0}
+.explain b{color:var(--text)}
+.formula{font-family:ui-monospace,Menlo,monospace;background:var(--surface-hover);padding:2px 8px;border-radius:5px;font-size:.88em}
+.verdict{margin-top:22px;background:color-mix(in srgb,var(--warn) 10%,var(--bg));border:1px solid color-mix(in srgb,var(--warn) 30%,transparent);border-left:4px solid var(--warn);border-radius:10px;padding:16px 18px;font-size:.96rem;line-height:1.75}
+.verdict b{color:var(--text)}
+footer{border-top:1px solid var(--border);padding-top:24px;margin-top:20px;color:var(--text-secondary);font-size:.82rem;line-height:1.7}
+footer code{background:var(--surface-hover);padding:1px 6px;border-radius:4px}
+.toggle{position:fixed;top:18px;right:18px;width:42px;height:42px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:18px}
+@media(max-width:900px){.summary{grid-template-columns:repeat(2,1fr)}.two-col{grid-template-columns:1fr}h1{font-size:2rem}}
+</style></head><body>
+<button class="toggle" onclick="var h=document.documentElement;h.className=h.className==='theme-light'?'theme-dark':'theme-light';if(window.rebuild)window.rebuild()">☀</button>
+<div class="wrap">
+<div class="nav"><a href="index.html">← 대시보드</a></div>
+<div class="eyebrow">찰리 기술적 분석 · 바닥/천장 추적</div>
+<h1>코스피 · SK하이닉스<br>바닥·천장 추적 분석</h1>
+<p class="sub">50일 이격도가 "이동평균에서 얼마나 벌어졌나"를 재는 <b>위치 지표</b>라면, 이 덱은 <b>누가 팔고 있나(분산일)</b>, <b>바닥이 확인됐나(FTD·항복 거래량)</b>, <b>추세가 살아있나(미너비니 추세 템플릿)</b>를 봅니다. 세 도구는 각각 천장 경고 · 바닥 확인 · 국면 판정을 담당해, 이격도와 다른 각도에서 교차검증합니다.</p>
+<div class="asof"><span class="dot"></span> 기준일 2026년 7월 21일 · 일별 시가·고가·저가·거래량 실데이터</div>
+
+<div class="summary" style="margin-top:34px">
+  <div class="stat"><div class="l">분산일 (25일 창)</div><div class="v" style="color:var(--neg)">7 / 7</div><div class="s">코스피 / 하이닉스 · 5↑ 매도압력</div></div>
+  <div class="stat"><div class="l">추세 템플릿</div><div class="v">6 / 8</div><div class="s">두 종목 모두 · 50일선·고점거리 미충족</div></div>
+  <div class="stat"><div class="l">바닥 확인 (FTD)</div><div class="v" style="color:var(--warn)">미발생</div><div class="s">7/20 저점 후 반등 2일차</div></div>
+  <div class="stat"><div class="l">항복 거래량</div><div class="v" style="color:var(--warn)">미확인</div><div class="s">급락일 거래량비 0.7~1.6배</div></div>
+</div>
+
+<div class="verdict" style="margin-top:24px">종합 판정 — <b>천장 신호는 켜져 있고, 바닥 신호는 아직 안 켜졌습니다.</b> 분산일이 두 종목 모두 7개로 기관 매도 압력이 뚜렷하고, 추세 템플릿은 6/8이지만 <b>깨진 두 조건이 하필 "50일선 위" 와 "52주 고점 -25% 이내"</b>라 중기 추세가 흔들리는 구간입니다. 반면 7/20 저점 이후 아직 <b>FTD(팔로우스루데이) 성립 구간(4~7일차)에 도달하지 못했고</b>, 급락일에 <b>항복성 거래량 폭증도 없었습니다</b>. 즉 "떨어질 만큼 떨어졌다"는 근거는 이격도뿐이고, 수급·구조 지표는 아직 바닥을 인정하지 않고 있습니다.</div>
+
+<section style="margin-top:44px">
+  <div class="sec-head"><h2>① 분산일 카운트 — 천장 경고</h2><span class="note">25거래일 창 · 5개↑ 매도압력 · 6개↑ 위험</span></div>
+  <div class="card"><div class="chart-container"><canvas id="distChart" role="img" aria-label="코스피와 SK하이닉스의 25거래일 분산일 카운트 추이"></canvas></div></div>
+  <div class="explain">
+    <h4>무엇을 보는 지표인가</h4>
+    <p><b>분산일(Distribution Day)</b>은 <b>주가가 하락했는데 거래량은 오히려 늘어난 날</b>입니다. 개인의 소극적 매도로는 거래량이 늘지 않습니다. 거래량이 실린 하락은 기관·외국인 같은 <b>큰 손이 물량을 넘기고 있다(distribution)</b>는 뜻이라, 윌리엄 오닐과 미너비니가 시장 천장을 판단하는 핵심 도구로 씁니다.</p>
+    <p>계산식은 <span class="formula">종가 ≤ 전일 종가 × 0.998 (−0.2% 이상 하락) AND 거래량 &gt; 전일 거래량</span>이고, 이를 최근 <b>25거래일(약 5주) 창</b>에서 셉니다. 판정은 통상 <b>0~2개 정상 · 3~4개 주의 · 5개 이상 매도 압력 · 6개 이상 위험</b>입니다.</p>
+    <p>현재 <b>코스피 7개, SK하이닉스 7개</b>로 둘 다 위험 구간입니다(관측 기간 최대치는 코스피 9·하이닉스 10). 이격도가 "과매도라 반등할 만하다"고 말할 때, 분산일은 "그 반등을 팔 물량이 아직 남아 있다"고 말합니다. 이 지표는 <b>지수가 오르는 도중에도 켜진다</b>는 게 장점입니다 — 가격은 신고가인데 분산일이 쌓이면 천장이 가까운 신호입니다.</p>
+    <p>한계도 분명합니다. 지수가 큰 폭으로 하락한 뒤에는 분산일이 자연히 많아져 <b>후행적으로 보일 수 있고</b>, 25일이 지나면 카운트에서 빠지므로 하락이 멈추면 빠르게 식습니다. 그래서 <b>카운트가 줄어들기 시작하는 시점</b>이 압력 해소의 단서가 됩니다.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>② 바닥 확인 — 팔로우스루데이(FTD) · 항복 거래량</h2><span class="note">저점 후 4~7일차 대량 상승일 / 급락일 거래량 폭증</span></div>
+  <div class="card"><div class="chart-container"><canvas id="vrChart" role="img" aria-label="코스피와 SK하이닉스의 50일 평균 대비 거래량 비율 추이"></canvas></div></div>
+  <div class="two-col" style="margin-top:20px">
+    <div class="card"><h3 style="margin-bottom:10px">코스피 — 최근 급락일 거래량</h3>
+      <table class="mini"><thead><tr><th>일자</th><th>등락률</th><th>거래량비</th></tr></thead><tbody>
+          <tr><td>2026-06-23</td><td class="neg">-9.99%</td><td>0.7배</td></tr>
+          <tr><td>2026-07-13</td><td class="neg">-8.95%</td><td>0.83배</td></tr>
+          <tr><td>2026-07-02</td><td class="neg">-7.89%</td><td>0.8배</td></tr>
+          <tr><td>2026-07-16</td><td class="neg">-6.37%</td><td>0.77배</td></tr>
+          <tr><td>2026-06-26</td><td class="neg">-5.81%</td><td>0.78배</td></tr>
+          </tbody></table></div>
+    <div class="card"><h3 style="margin-bottom:10px">SK하이닉스 — 최근 급락일 거래량</h3>
+      <table class="mini"><thead><tr><th>일자</th><th>등락률</th><th>거래량비</th></tr></thead><tbody>
+          <tr><td>2026-07-13</td><td class="neg">-15.37%</td><td>1.36배</td></tr>
+          <tr><td>2026-07-02</td><td class="neg">-14.57%</td><td>1.39배</td></tr>
+          <tr><td>2026-06-23</td><td class="neg">-12.47%</td><td>1.55배</td></tr>
+          <tr><td>2026-07-16</td><td class="neg">-11.53%</td><td>0.92배</td></tr>
+          <tr><td>2026-06-26</td><td class="neg">-8.36%</td><td>1.38배</td></tr>
+          </tbody></table></div>
+  </div>
+  <div class="explain">
+    <h4>왜 저점만으로는 바닥이 아닌가</h4>
+    <p>가격이 낮아졌다는 사실은 바닥의 증거가 아닙니다. 오닐·미너비니는 <b>시장이 스스로 바닥을 증명하게(let the market prove it)</b> 하라고 하며, 그 증명 장치가 <b>팔로우스루데이(FTD)</b>입니다.</p>
+    <p>정의는 이렇습니다. 저점을 찍은 날을 <b>1일차</b>로 두고, 이후 반등이 이어지다가 <b>4~7일차(길게는 10일차) 사이에 거래량이 전일보다 늘면서 지수가 +1.5% 이상(개별주는 +1.7~2%) 상승</b>하면 FTD로 인정합니다. 왜 4일차부터인가 하면, 급락 직후 1~3일 반등은 <b>공매도 환매와 기술적 반사</b>인 경우가 많아 신뢰도가 낮기 때문입니다. 거래량 증가를 요구하는 이유는 <b>기관이 다시 사들이기 시작했는지</b>를 확인하기 위해서입니다.</p>
+    <p>현재 상태는 <b>두 종목 모두 7월 20일이 최근 저점(코스피 6,516.27 · 하이닉스 176.4만원)</b>이고, 7월 21일 반등은 <b>2일차</b>입니다. 즉 FTD가 성립할 수 있는 구간(4~7일차)에 <b>아직 도달하지 않았습니다</b>. 앞으로 며칠 안에 거래량을 동반한 강한 상승일이 나오는지가 바닥 확인의 분수령입니다.</p>
+    <p><b>항복 거래량(Capitulation)</b>은 또 다른 바닥 단서입니다. 투매가 절정에 달하면 <b>평균의 2배 안팎 거래량과 함께 큰 음봉</b>이 나오고, 그 지점에서 팔 사람이 소진되며 반전이 나오는 패턴입니다. 그런데 이번 하락은 다릅니다 — 코스피 급락일들(6/23 −9.99%, 7/13 −8.95%, 7/2 −7.89%)의 거래량비가 <b>0.70~0.83배로 오히려 평균 이하</b>였습니다. 하이닉스도 1.36~1.55배로 다소 늘었을 뿐 2배 폭증은 없었습니다.</p>
+    <p>이 조합의 해석은 <b>"매수자가 사라져서 빠진 하락"</b>입니다. 폭발적 투매(항복)로 바닥을 만든 게 아니라, 호가가 비어 조금만 팔아도 가격이 크게 밀린 형태죠. 이런 하락은 <b>바닥의 클라이맥스가 아직 오지 않았을 가능성</b>을 시사하며, 동시에 반등 시에도 거래량이 실리는지를 더 엄격히 봐야 한다는 뜻입니다.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>③ 미너비니 추세 템플릿 — 국면 판정</h2><span class="note">8개 조건 · 코스피 6/8 · 하이닉스 6/8</span></div>
+  <div class="card" style="padding:8px 20px"><table class="mini">
+    <thead><tr><th>조건</th><th>코스피</th><th>SK하이닉스</th></tr></thead>
+    <tbody>
+          <tr><td>1. 현재가 > 150일선 & 200일선</td><td><span style="color:var(--pos);font-weight:700">충족</span></td><td><span style="color:var(--pos);font-weight:700">충족</span></td></tr>
+          <tr><td>2. 150일선 > 200일선</td><td><span style="color:var(--pos);font-weight:700">충족</span></td><td><span style="color:var(--pos);font-weight:700">충족</span></td></tr>
+          <tr><td>3. 200일선 1개월 이상 상승</td><td><span style="color:var(--pos);font-weight:700">충족</span></td><td><span style="color:var(--pos);font-weight:700">충족</span></td></tr>
+          <tr><td>4. 50일선 > 150일선 & 200일선</td><td><span style="color:var(--pos);font-weight:700">충족</span></td><td><span style="color:var(--pos);font-weight:700">충족</span></td></tr>
+          <tr><td>5. 현재가 > 50일선</td><td><span style="color:var(--neg);font-weight:700">미충족</span></td><td><span style="color:var(--neg);font-weight:700">미충족</span></td></tr>
+          <tr><td>6. 52주 저점 대비 +30% 이상</td><td><span style="color:var(--pos);font-weight:700">충족</span></td><td><span style="color:var(--pos);font-weight:700">충족</span></td></tr>
+          <tr><td>7. 52주 고점 대비 -25% 이내</td><td><span style="color:var(--neg);font-weight:700">미충족</span></td><td><span style="color:var(--neg);font-weight:700">미충족</span></td></tr>
+          <tr><td>8. 최근 6개월 수익률 > 0 (RS 대용)</td><td><span style="color:var(--pos);font-weight:700">충족</span></td><td><span style="color:var(--pos);font-weight:700">충족</span></td></tr>
+          </tbody></table></div>
+  <div class="two-col" style="margin-top:18px">
+    <div class="card"><h3>코스피</h3><p style="color:var(--text-secondary);font-size:.92rem;margin-top:8px">52주 고점 <b>9,115</b> 대비 <b style="color:var(--neg)">-26.0%</b> · 52주 저점 <b>3,119</b> 대비 <b style="color:var(--pos)">+116.3%</b></p></div>
+    <div class="card"><h3>SK하이닉스</h3><p style="color:var(--text-secondary);font-size:.92rem;margin-top:8px">52주 고점 <b>291.9만원</b> 대비 <b style="color:var(--neg)">-37.1%</b> · 52주 저점 <b>24.5만원</b> 대비 <b style="color:var(--pos)">+649.4%</b></p></div>
+  </div>
+  <div class="explain">
+    <h4>추세 템플릿이 판정하는 것</h4>
+    <p>미너비니의 <b>추세 템플릿(Trend Template)</b>은 "이 종목이 지금 <b>상승 2단계(Stage 2)</b>에 있는가"를 8개 조건으로 기계적으로 판정하는 체크리스트입니다. 그는 매수 후보를 이 필터에 통과한 종목으로만 좁힙니다 — 아무리 좋아 보여도 2단계가 아니면 손대지 않는다는 원칙입니다.</p>
+    <p>핵심 논리는 <b>이동평균의 정배열</b>입니다. 현재가가 50일선 위, 50일선이 150·200일선 위, 150일선이 200일선 위, 그리고 200일선이 최소 한 달 이상 우상향이면 장기·중기·단기 매수세가 한 방향으로 정렬됐다는 뜻입니다. 여기에 <b>52주 저점 대비 +30% 이상</b>(바닥권 종목 배제)과 <b>52주 고점 대비 −25% 이내</b>(고점에서 크게 무너진 종목 배제) 조건이 붙습니다.</p>
+    <p>현재 두 종목 모두 <b>6/8</b>인데, 중요한 건 점수가 아니라 <b>어떤 조건이 깨졌는가</b>입니다. 깨진 둘은 <b>「현재가 &gt; 50일선」</b>과 <b>「52주 고점 −25% 이내」</b>입니다. 앞의 것은 단기 추세가 이미 꺾였다는 뜻이고(이격도가 100 아래인 것과 같은 말입니다), 뒤의 것은 <b>코스피 −26.0% · 하이닉스 −37.1%</b>로 고점에서 이탈 폭이 기준을 넘었다는 뜻입니다. 장기 구조(200일선 상승, 150&gt;200)는 아직 살아 있지만 <b>단기·중기가 먼저 무너진 전형적인 2단계 후반~3단계 전환 구간</b>의 모습입니다.</p>
+    <p>실전 적용은 단순합니다. <b>8/8이 되기 전까지는 신규 진입 대상이 아닙니다.</b> 회복 순서를 지켜보면 됩니다 — 먼저 현재가가 50일선을 회복하고(이격도 100 복귀와 동일), 고점 대비 낙폭이 25% 안으로 줄어들면 템플릿이 다시 채워집니다. 반대로 <b>200일선이 하향 전환하거나 150일선이 200일선을 하향 돌파</b>하면 장기 구조까지 깨지는 것이라 국면 판단을 하락 추세로 바꿔야 합니다.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>세 지표를 함께 읽는 법</h2></div>
+  <div class="explain" style="border-left-color:var(--neg)">
+    <h4>이격도와 교차검증</h4>
+    <p>네 지표는 서로 다른 질문에 답합니다. <b>이격도</b>는 "지금 얼마나 벌어졌나(위치)", <b>분산일</b>은 "누가 팔고 있나(수급)", <b>FTD·항복</b>은 "바닥이 확인됐나(증명)", <b>추세 템플릿</b>은 "구조가 살아있나(국면)"입니다.</p>
+    <p>이상적인 바닥은 <b>네 가지가 순서대로</b> 켜집니다 — ① 이격도가 극단적 과매도(현재 코스피 84.9·하이닉스 83.6 → <b>충족</b>) → ② 항복성 거래량으로 투매 소진(<b>미충족</b>) → ③ 4~7일차 FTD로 기관 복귀 확인(<b>미도달</b>) → ④ 분산일 카운트 감소 + 50일선 회복으로 템플릿 복구(<b>미충족</b>). 지금은 <b>첫 단계만 켜진 상태</b>입니다.</p>
+    <p>반대로 천장에서는 <b>이격도가 130을 넘고(2026-06-01 133.1 기록) → 분산일이 5개 이상 쌓이고 → 주도주가 무너지는</b> 순서로 진행됐습니다. 이번 사이클은 그 경로를 그대로 밟았습니다.</p>
+    <p>실무적으로는 <b>"이격도 하나로 바닥을 사지 않는다"</b>가 결론입니다. 과매도는 반등의 필요조건이지 충분조건이 아니며, 특히 이번처럼 <b>항복 거래량 없이 흘러내린 하락</b>은 저점을 더 낮출 여지를 남깁니다. 확인 순서를 기다리는 쪽이 손실 위험이 훨씬 작습니다.</p>
+  </div>
+</section>
+
+<footer><p><strong>데이터·계산.</strong> 소스 폴더의 실제 일별 시세(<code>코스피_일별_20230102_20260721.xlsx</code>, <code>SK하이닉스_일별_20230102_20260721.xlsx</code>)의 종가·거래량으로 직접 산출했습니다. 분산일=25거래일 창, 거래량비=당일 거래량÷50일 평균 거래량, 추세 템플릿=50/150/200일 이동평균 및 52주 고저 기준. 2026-07-21 기준.</p>
+<p style="margin-top:10px">본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.</p></footer>
+</div>
+<script>
+var D={"dates": ["2025-06-27", "2025-06-30", "2025-07-01", "2025-07-02", "2025-07-03", "2025-07-04", "2025-07-07", "2025-07-08", "2025-07-09", "2025-07-10", "2025-07-11", "2025-07-14", "2025-07-15", "2025-07-16", "2025-07-17", "2025-07-18", "2025-07-21", "2025-07-22", "2025-07-23", "2025-07-24", "2025-07-25", "2025-07-28", "2025-07-29", "2025-07-30", "2025-07-31", "2025-08-01", "2025-08-04", "2025-08-05", "2025-08-06", "2025-08-07", "2025-08-08", "2025-08-11", "2025-08-12", "2025-08-13", "2025-08-14", "2025-08-18", "2025-08-19", "2025-08-20", "2025-08-21", "2025-08-22", "2025-08-25", "2025-08-26", "2025-08-27", "2025-08-28", "2025-08-29", "2025-09-01", "2025-09-02", "2025-09-03", "2025-09-04", "2025-09-05", "2025-09-08", "2025-09-09", "2025-09-10", "2025-09-11", "2025-09-12", "2025-09-15", "2025-09-16", "2025-09-17", "2025-09-18", "2025-09-19", "2025-09-22", "2025-09-23", "2025-09-24", "2025-09-25", "2025-09-26", "2025-09-29", "2025-09-30", "2025-10-01", "2025-10-02", "2025-10-10", "2025-10-13", "2025-10-14", "2025-10-15", "2025-10-16", "2025-10-17", "2025-10-20", "2025-10-21", "2025-10-22", "2025-10-23", "2025-10-24", "2025-10-27", "2025-10-28", "2025-10-29", "2025-10-30", "2025-10-31", "2025-11-03", "2025-11-04", "2025-11-05", "2025-11-06", "2025-11-07", "2025-11-10", "2025-11-11", "2025-11-12", "2025-11-13", "2025-11-14", "2025-11-17", "2025-11-18", "2025-11-19", "2025-11-20", "2025-11-21", "2025-11-24", "2025-11-25", "2025-11-26", "2025-11-27", "2025-11-28", "2025-12-01", "2025-12-02", "2025-12-03", "2025-12-04", "2025-12-05", "2025-12-08", "2025-12-09", "2025-12-10", "2025-12-11", "2025-12-12", "2025-12-15", "2025-12-16", "2025-12-17", "2025-12-18", "2025-12-19", "2025-12-22", "2025-12-23", "2025-12-24", "2025-12-26", "2025-12-29", "2025-12-30", "2026-01-02", "2026-01-05", "2026-01-06", "2026-01-07", "2026-01-08", "2026-01-09", "2026-01-12", "2026-01-13", "2026-01-14", "2026-01-15", "2026-01-16", "2026-01-19", "2026-01-20", "2026-01-21", "2026-01-22", "2026-01-23", "2026-01-26", "2026-01-27", "2026-01-28", "2026-01-29", "2026-01-30", "2026-02-02", "2026-02-03", "2026-02-04", "2026-02-05", "2026-02-06", "2026-02-09", "2026-02-10", "2026-02-11", "2026-02-12", "2026-02-13", "2026-02-19", "2026-02-20", "2026-02-23", "2026-02-24", "2026-02-25", "2026-02-26", "2026-02-27", "2026-03-03", "2026-03-04", "2026-03-05", "2026-03-06", "2026-03-09", "2026-03-10", "2026-03-11", "2026-03-12", "2026-03-13", "2026-03-16", "2026-03-17", "2026-03-18", "2026-03-19", "2026-03-20", "2026-03-23", "2026-03-24", "2026-03-25", "2026-03-26", "2026-03-27", "2026-03-30", "2026-03-31", "2026-04-01", "2026-04-02", "2026-04-03", "2026-04-06", "2026-04-07", "2026-04-08", "2026-04-09", "2026-04-10", "2026-04-13", "2026-04-14", "2026-04-15", "2026-04-16", "2026-04-17", "2026-04-20", "2026-04-21", "2026-04-22", "2026-04-23", "2026-04-24", "2026-04-27", "2026-04-28", "2026-04-29", "2026-04-30", "2026-05-04", "2026-05-06", "2026-05-07", "2026-05-08", "2026-05-11", "2026-05-12", "2026-05-13", "2026-05-14", "2026-05-15", "2026-05-18", "2026-05-19", "2026-05-20", "2026-05-21", "2026-05-22", "2026-05-26", "2026-05-27", "2026-05-28", "2026-05-29", "2026-06-01", "2026-06-02", "2026-06-04", "2026-06-05", "2026-06-08", "2026-06-09", "2026-06-10", "2026-06-11", "2026-06-12", "2026-06-15", "2026-06-16", "2026-06-17", "2026-06-18", "2026-06-19", "2026-06-22", "2026-06-23", "2026-06-24", "2026-06-25", "2026-06-26", "2026-06-29", "2026-06-30", "2026-07-01", "2026-07-02", "2026-07-03", "2026-07-06", "2026-07-07", "2026-07-08", "2026-07-09", "2026-07-10", "2026-07-13", "2026-07-14", "2026-07-15", "2026-07-16", "2026-07-20", "2026-07-21"], "kdist": [3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 3, 3, 4, 4, 4, 4, 3, 3, 3, 4, 4, 4, 4, 3, 3, 4, 4, 5, 5, 5, 5, 5, 6, 5, 5, 5, 6, 5, 5, 5, 6, 6, 6, 6, 5, 5, 5, 5, 5, 5, 4, 4, 3, 3, 3, 3, 3, 2, 2, 3, 3, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 3, 3, 3, 3, 3, 3, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2, 3, 3, 3, 4, 4, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 2, 2, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 2, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 4, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 7, 7, 7, 6, 5, 6, 6, 7, 7, 7, 7, 6, 6, 6, 6, 5, 5, 5, 5, 5, 4, 4, 4, 3, 3, 2, 3, 3, 3, 4, 3, 3, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 5, 5, 5, 6, 7, 6, 6, 7, 7, 7, 6, 7, 7, 6, 7, 7, 7], "hdist": [3, 2, 2, 3, 3, 4, 4, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4, 5, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 4, 4, 4, 4, 5, 6, 6, 6, 7, 7, 8, 8, 7, 7, 7, 7, 7, 6, 6, 7, 7, 7, 6, 5, 6, 6, 6, 7, 7, 6, 6, 6, 6, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 4, 4, 3, 3, 3, 2, 2, 2, 2, 2, 2, 3, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 5, 4, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 8, 7, 6, 5, 5, 5, 4, 4, 4, 4, 5, 5, 5, 5, 5, 4, 3, 3, 3, 3, 3, 3, 2, 2, 2, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 5, 5, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 7, 7, 6, 6, 6, 6, 6, 7, 7], "kvr": [0.77, 0.94, 1.17, 1.41, 1.09, 1.05, 0.73, 1.49, 1.28, 1.18, 0.91, 0.87, 0.83, 1.05, 0.84, 0.79, 0.69, 0.76, 1.33, 0.85, 0.78, 1.0, 0.74, 0.67, 1.07, 1.0, 0.58, 0.54, 0.65, 0.65, 0.68, 0.61, 0.75, 0.64, 0.89, 0.66, 0.59, 0.69, 0.58, 0.5, 0.48, 0.73, 0.65, 0.73, 0.58, 0.62, 0.75, 0.82, 0.71, 0.81, 0.93, 1.1, 1.41, 1.1, 1.14, 0.97, 1.04, 0.85, 1.04, 0.94, 0.78, 0.98, 0.79, 0.81, 1.11, 1.16, 1.45, 1.35, 1.12, 1.13, 1.13, 2.01, 1.48, 1.33, 1.14, 1.12, 1.42, 1.58, 1.11, 1.12, 1.34, 1.05, 1.2, 1.44, 1.04, 1.19, 1.06, 1.47, 1.04, 0.92, 0.82, 0.91, 0.81, 1.02, 0.95, 0.82, 0.76, 0.8, 0.85, 0.75, 0.88, 0.66, 0.71, 0.63, 0.59, 0.73, 0.79, 0.72, 0.87, 1.18, 0.97, 0.98, 0.78, 1.3, 1.03, 0.84, 0.91, 0.89, 1.42, 1.08, 0.77, 0.96, 0.91, 1.28, 1.25, 1.02, 1.02, 1.29, 1.25, 1.38, 1.1, 1.0, 0.99, 1.09, 1.38, 1.37, 1.78, 1.41, 1.63, 1.45, 1.36, 1.45, 1.05, 1.12, 1.38, 1.6, 1.92, 1.26, 1.46, 1.68, 1.9, 1.53, 1.25, 1.41, 1.46, 1.43, 2.38, 2.11, 2.97, 2.43, 2.53, 2.17, 2.09, 1.7, 1.74, 2.24, 2.2, 1.58, 1.31, 1.17, 1.3, 0.98, 1.1, 1.28, 1.34, 1.32, 1.35, 1.66, 1.24, 1.27, 0.82, 0.98, 0.95, 0.76, 1.2, 0.98, 1.44, 1.18, 1.1, 0.97, 0.91, 0.99, 0.96, 1.02, 0.84, 0.86, 0.86, 0.64, 0.65, 0.74, 0.84, 0.97, 0.81, 0.78, 1.04, 0.66, 0.63, 0.81, 0.94, 0.73, 0.51, 0.72, 1.02, 0.74, 0.86, 0.91, 0.6, 0.57, 0.53, 0.68, 0.48, 0.58, 0.69, 0.75, 0.84, 0.73, 0.74, 0.52, 0.56, 0.56, 0.56, 0.58, 0.61, 0.63, 0.67, 0.77, 0.77, 0.7, 0.72, 0.54, 0.7, 0.61, 0.68, 0.78, 0.57, 0.7, 0.74, 0.8, 0.74, 0.72, 0.84, 0.83, 0.98, 0.77, 0.83, 0.86, 0.71, 0.77, 0.64, 0.73], "hvr": [1.55, 1.31, 1.09, 1.38, 1.07, 1.05, 0.73, 0.89, 0.76, 1.3, 1.06, 0.84, 1.18, 0.87, 2.53, 1.44, 0.66, 0.85, 0.84, 0.99, 0.59, 0.78, 0.8, 0.67, 0.94, 0.86, 0.61, 0.56, 0.37, 0.72, 0.71, 0.65, 0.81, 0.93, 0.57, 0.55, 0.48, 1.0, 1.75, 0.86, 0.9, 0.58, 0.81, 1.11, 0.55, 0.54, 0.47, 0.73, 0.67, 0.97, 0.64, 1.33, 1.66, 1.62, 1.33, 1.32, 1.79, 1.37, 1.36, 1.32, 1.31, 0.99, 1.25, 0.65, 1.15, 0.72, 0.71, 0.89, 2.3, 2.08, 1.31, 1.22, 0.8, 1.25, 1.33, 0.98, 1.2, 1.11, 1.02, 1.2, 0.95, 1.56, 1.31, 1.32, 0.9, 1.52, 1.54, 2.25, 1.34, 1.19, 1.21, 1.34, 0.69, 0.94, 1.38, 1.05, 0.83, 1.05, 1.07, 1.49, 1.41, 0.82, 1.13, 0.81, 0.6, 0.71, 0.61, 0.6, 0.66, 0.75, 1.0, 0.56, 0.94, 0.94, 0.62, 0.58, 0.76, 0.63, 0.7, 0.83, 0.7, 0.49, 0.53, 1.05, 1.03, 1.01, 1.03, 1.06, 1.18, 1.38, 1.55, 1.04, 0.8, 0.92, 1.18, 0.73, 0.92, 0.86, 0.71, 1.31, 0.92, 0.92, 0.82, 1.47, 1.73, 1.74, 1.96, 1.87, 1.29, 0.94, 1.36, 1.38, 1.05, 0.85, 0.77, 1.14, 0.87, 0.8, 1.22, 0.85, 0.99, 0.83, 1.07, 1.53, 1.58, 2.08, 1.43, 0.83, 1.57, 1.14, 0.84, 0.79, 0.77, 0.81, 0.71, 0.92, 0.71, 0.73, 0.84, 0.94, 0.97, 1.01, 0.98, 0.97, 1.54, 1.32, 1.28, 0.61, 0.65, 0.76, 1.39, 1.03, 0.65, 0.58, 1.0, 0.87, 0.63, 0.79, 0.83, 0.78, 0.65, 1.2, 0.71, 1.03, 0.68, 0.68, 0.76, 1.3, 1.48, 1.3, 0.94, 1.61, 1.95, 1.51, 1.29, 1.6, 1.39, 0.98, 1.19, 1.1, 0.68, 1.05, 1.6, 1.3, 1.74, 1.14, 1.18, 0.79, 1.15, 1.31, 1.16, 0.97, 1.29, 1.03, 0.76, 0.73, 0.8, 1.15, 1.46, 1.0, 1.55, 1.43, 1.28, 1.38, 0.96, 0.94, 0.78, 1.39, 1.42, 0.75, 1.11, 1.22, 1.08, 0.83, 1.36, 1.72, 0.99, 0.92, 0.96, 0.76]};
+function css(v){return getComputedStyle(document.documentElement).getPropertyValue(v).trim()}
+var C={};
+function reset(id){var o=document.getElementById(id);if(!o)return null;var p=o.parentNode;var c=document.createElement('canvas');c.id=id;c.setAttribute('role','img');c.setAttribute('aria-label',o.getAttribute('aria-label')||'chart');p.replaceChild(c,o);return c}
+function build(){
+if(typeof Chart==='undefined')return;
+var tx=css('--text-secondary'),grid=css('--grid');
+Chart.defaults.font.family="'Inter','Noto Sans KR',sans-serif";Chart.defaults.color=tx;
+Object.keys(C).forEach(function(k){try{C[k].destroy()}catch(e){}});C={};
+var tip={enabled:true,padding:12,cornerRadius:8};
+var c1=reset('distChart');
+if(c1)C.d=new Chart(c1.getContext('2d'),{type:'line',data:{labels:D.dates,datasets:[
+ {label:'코스피 분산일',data:D.kdist,borderColor:'#2563eb',backgroundColor:'rgba(37,99,235,0.08)',borderWidth:2.2,tension:0.2,pointRadius:0,pointHoverRadius:5,fill:true},
+ {label:'SK하이닉스 분산일',data:D.hdist,borderColor:'#8b5cf6',borderWidth:2.2,tension:0.2,pointRadius:0,pointHoverRadius:5,fill:false},
+ {label:'5개 (매도압력)',data:D.dates.map(function(){return 5}),borderColor:'#e11d48',borderWidth:1.4,borderDash:[6,6],pointRadius:0,fill:false}]},
+ options:{responsive:true,maintainAspectRatio:false,layout:{padding:10},interaction:{mode:'index',intersect:false},
+ plugins:{legend:{labels:{color:tx,boxWidth:14,font:{size:12}},position:'top'},tooltip:tip},
+ scales:{x:{ticks:{color:tx,maxRotation:0,autoSkip:true,maxTicksLimit:9,font:{size:11}},grid:{color:grid}},
+ y:{suggestedMin:0,suggestedMax:11,ticks:{color:tx,stepSize:1},grid:{color:grid},title:{display:true,text:'25일 창 분산일 수',color:tx}}}}});
+var c2=reset('vrChart');
+if(c2)C.v=new Chart(c2.getContext('2d'),{type:'line',data:{labels:D.dates,datasets:[
+ {label:'코스피 거래량비',data:D.kvr,borderColor:'#2563eb',borderWidth:2,tension:0.2,pointRadius:0,pointHoverRadius:5,fill:false},
+ {label:'SK하이닉스 거래량비',data:D.hvr,borderColor:'#8b5cf6',borderWidth:2,tension:0.2,pointRadius:0,pointHoverRadius:5,fill:false},
+ {label:'2배 (항복 기준)',data:D.dates.map(function(){return 2}),borderColor:'#e11d48',borderWidth:1.4,borderDash:[6,6],pointRadius:0,fill:false},
+ {label:'평균(1배)',data:D.dates.map(function(){return 1}),borderColor:tx,borderWidth:1,borderDash:[4,4],pointRadius:0,fill:false}]},
+ options:{responsive:true,maintainAspectRatio:false,layout:{padding:10},interaction:{mode:'index',intersect:false},
+ plugins:{legend:{labels:{color:tx,boxWidth:14,font:{size:12},filter:function(i){return i.text.indexOf('평균')<0}},position:'top'},tooltip:tip},
+ scales:{x:{ticks:{color:tx,maxRotation:0,autoSkip:true,maxTicksLimit:9,font:{size:11}},grid:{color:grid}},
+ y:{suggestedMin:0,suggestedMax:3,ticks:{color:tx},grid:{color:grid},title:{display:true,text:'거래량 ÷ 50일 평균',color:tx}}}}});
+}
+window.rebuild=build;
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',build);else build();
+window.addEventListener('load',build);
+</script></body></html>
