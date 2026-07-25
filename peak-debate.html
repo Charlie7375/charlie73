@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko" class="theme-light">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>찰리 기술적 분석 · 반도체 정점 논쟁</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html.theme-dark{--bg:#0A0A0A;--surface:#141414;--border:rgba(255,255,255,0.07);--text:#EDEDED;--text-secondary:#8a8a8a;--accent:#2563eb}
+html.theme-light{--bg:#FFFFFF;--surface:#F6F7F9;--border:rgba(15,23,42,0.12);--text:#0f172a;--text-secondary:#475569;--accent:#2563eb}
+body{font-family:'Inter','Noto Sans KR',-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;letter-spacing:-0.01em}
+.wrap{max-width:1040px;margin:0 auto;padding:40px 28px 80px}
+nav.tabs{display:flex;gap:8px;margin-bottom:34px;flex-wrap:wrap}
+.navtab{text-decoration:none;font-size:.92rem;font-weight:600;padding:9px 18px;border-radius:11px;color:var(--text-secondary);border:1px solid var(--border);background:var(--surface);transition:.15s}
+.navtab:hover{color:var(--text)}
+.navtab.active{color:#fff;background:var(--accent);border-color:var(--accent)}
+.eyebrow{font-size:.82rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+h1{font-weight:800;font-size:2.9rem;letter-spacing:-0.035em;line-height:1.1}
+.sub{color:var(--text-secondary);font-size:1.1rem;margin-top:16px;max-width:730px}
+.sub b{color:var(--text)}
+.upd{margin-top:12px;font-size:.85rem;color:var(--text-secondary)}
+.upd b{color:var(--accent)}
+h2.sec{font-size:1.3rem;font-weight:700;margin-top:46px;letter-spacing:-.02em}
+.stance{margin-top:30px;background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:14px;padding:22px 24px}
+.stance .lbl{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.stance .hl{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;margin-top:8px;line-height:1.35}
+.stance .cf{margin-top:10px;font-size:.9rem;color:var(--text-secondary)}
+.stance .cf b{color:var(--text)}
+.spec{margin-top:20px}
+.specbar{position:relative;height:10px;border-radius:6px;background:linear-gradient(90deg,#ef4444,#f59e0b,#2563eb)}
+.specdot{position:absolute;top:50%;width:18px;height:18px;border-radius:50%;background:var(--bg);border:3px solid var(--text);transform:translate(-50%,-50%)}
+.speclab{display:flex;justify-content:space-between;margin-top:9px;font-size:.78rem;color:var(--text-secondary)}
+.note{margin-top:14px;font-size:.9rem;color:var(--text-secondary);line-height:1.7}
+.camps{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+.camp{background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--c);border-radius:14px;padding:20px}
+.camp .who{font-size:.8rem;font-weight:700;color:var(--c)}
+.camp .view{font-size:1.12rem;font-weight:700;margin-top:6px;letter-spacing:-.02em}
+.camp ul{margin:12px 0 0 17px;color:var(--text-secondary);font-size:.9rem}
+.camp li{margin-bottom:5px}
+table{border-collapse:collapse;width:100%;font-size:.92rem;margin-top:16px;background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+thead th{text-align:left;padding:13px 14px;background:color-mix(in srgb,var(--accent) 8%,var(--surface));color:var(--text-secondary);font-size:.8rem;font-weight:700;border-bottom:1px solid var(--border)}
+tbody td{padding:12px 14px;border-bottom:1px solid var(--border)}
+tbody tr:last-child td{border-bottom:none}
+td.nm{font-weight:600}
+td.lag{font-weight:800;color:var(--accent);white-space:nowrap}
+.fal{display:flex;gap:14px;align-items:flex-start;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-top:10px}
+.fnum{font-size:1.2rem;font-weight:800;color:var(--accent);flex:0 0 auto;width:24px}
+.fbody{flex:1}
+.ftext{font-weight:600;font-size:.96rem}
+.fdetail{color:var(--text-secondary);font-size:.86rem;margin-top:5px;line-height:1.6}
+.fstat{flex:0 0 auto;font-size:.78rem;font-weight:700;padding:4px 12px;border-radius:999px;color:var(--c);background:color-mix(in srgb,var(--c) 15%,transparent);white-space:nowrap}
+ol.watch{margin:16px 0 0 20px;font-size:.95rem;line-height:1.9}
+ol.watch li::marker{color:var(--accent);font-weight:800}
+.timeline{margin-top:20px;position:relative;padding-left:26px}
+.timeline::before{content:'';position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:var(--border)}
+.entry{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px 22px;margin-bottom:16px}
+.entry::before{content:'';position:absolute;left:-24px;top:26px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)}
+.ehead{display:flex;flex-wrap:wrap;gap:9px;align-items:center;font-size:.76rem}
+.edate{font-weight:800;color:var(--text)}
+.ekind{font-weight:700;padding:3px 10px;border-radius:999px;color:var(--accent);background:color-mix(in srgb,var(--accent) 13%,transparent)}
+.econf{color:var(--text-secondary)}
+.entry h3{font-size:1.16rem;font-weight:700;margin-top:9px;letter-spacing:-.02em}
+.ebody{margin-top:10px;font-size:.95rem;line-height:1.8;color:var(--text-secondary)}
+.ebody b{color:var(--text)}
+.q{margin-top:13px;padding:10px 14px;border-left:3px solid var(--accent);background:color-mix(in srgb,var(--accent) 6%,transparent);border-radius:0 8px 8px 0;font-style:italic;font-size:.9rem;color:var(--text-secondary)}
+.delta{margin-top:12px;font-size:.84rem;font-weight:700;color:#b45309;background:color-mix(in srgb,#f59e0b 14%,transparent);padding:7px 12px;border-radius:8px;display:inline-block}
+footer{margin-top:52px;border-top:1px solid var(--border);padding-top:24px;color:var(--text-secondary);font-size:.82rem;line-height:1.7}
+.toggle{position:fixed;top:18px;right:18px;width:42px;height:42px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:18px}
+@media(max-width:720px){.camps{grid-template-columns:1fr}h1{font-size:2.1rem}.fal{flex-wrap:wrap}}
+</style></head><body>
+<button class="toggle" onclick="var h=document.documentElement;h.className=h.className==='theme-light'?'theme-dark':'theme-light'">&#9728;</button>
+<div class="wrap">
+<nav class="tabs">
+  <a class="navtab" href="index.html">50일 이격도</a>
+  <a class="navtab" href="bottom-top.html">바닥·천장 추적</a>
+  <a class="navtab active" href="peak-debate.html">반도체 정점 논쟁</a>
+  <a class="navtab" href="jeonjo.html">공황 전조현상</a>
+</nav>
+<div class="eyebrow">찰리 기술적 분석 · Semiconductor Peak Debate</div>
+<h1>반도체 정점 논쟁</h1>
+<p class="sub">"반도체는 정점을 찍었는가." 시투 주간보고서와 KB 이그전 리포트가 나올 때마다 판단을 갱신하고, <b>바뀐 근거와 틀렸던 부분을 지우지 않고 누적</b>합니다. 결론보다 중요한 것은 <b>내가 틀릴 조건</b>입니다.</p>
+<div class="upd">최종 갱신: <b>2026-07-25</b> · 누적 4건</div>
+
+<div class="stance">
+  <div class="lbl">현재 판단</div>
+  <div class="hl">1차 정점은 맞다. 그러나 최종 정점 단정은 이르다.</div>
+  <div class="cf">확신도 — <b>중간 (금리 리스크로 소폭 하향)</b></div>
+  <div class="spec">
+    <div class="specbar"><div class="specdot" style="left:62%"></div></div>
+    <div class="speclab"><span>&#9664; 정점 확정 (이야기꾼)</span><span>아직 진행 중 (이은택) &#9654;</span></div>
+  </div>
+  <div class="note">이번 주 자료로 이은택 쪽에 조금 더 가까워졌으나, 그의 낙관이 기대는 '완화적 연준' 전제가 W30의 금리 지표로 흔들리고 있어 확신도는 올리지 않음.</div>
+</div>
+
+<h2 class="sec">두 전문가가 정면으로 갈린다</h2>
+<div class="camps"><div class="camp" style="--c:#ef4444"><div class="who">이야기꾼 (시투 W30)</div><div class="view">코스피 상승장 마감 수순</div><ul><li>"빅테크·마이크론 속속 대세 상승 마감"</li><li>내년 중공황이 서서히 시작(전망 불변)</li><li>단 1999년식 2차 랠리·이중 천장 가능성 병기</li></ul></div><div class="camp" style="--c:#2563eb"><div class="who">이은택 (KB 이그전 7/9·7/22)</div><div class="view">조정은 비중확대 기회</div><ul><li>이익증가율 둔화는 기저효과일 뿐</li><li>핵심 지표는 영업이익률 — 추정 정점은 4Q</li><li>KB 매크로 슈퍼사이클, 아직 추세적 하락 아님</li></ul></div></div>
+
+<h2 class="sec">핵심 증거 — '증가율 고점'에서 '주가 고점'까지의 시차</h2>
+<table><thead><tr><th>사례</th><th>지표 고점</th><th>주가 고점</th><th>시차</th></tr></thead><tbody><tr><td class="nm">SK하이닉스 2013</td><td>EPS 증가율 고점 2013-09</td><td>주가 고점 2014-07</td><td class="lag">약 10개월</td></tr><tr><td class="nm">SK하이닉스 2017</td><td>EPS 증가율 고점 2017-08</td><td>주가 고점 2018-05</td><td class="lag">약 9개월</td></tr><tr><td class="nm">한미반도체 (자체 실측)</td><td>이격도 1차 정점 2023-07</td><td>주가 고점 2024-06</td><td class="lag">약 11개월</td></tr></tbody></table>
+<div class="note">세 사례가 9~11개월로 수렴. 지표가 꺾인 시점은 '정점이 왔다'가 아니라 '정점 국면에 진입했다'는 신호.</div>
+
+<h2 class="sec">내가 틀릴 조건 (반증 조건)</h2>
+<div class="note" style="margin-top:6px">결론만 적는 글은 검증할 수 없습니다. 이 견해가 깨지는 조건을 미리 적어두고 매주 상태를 갱신합니다.</div>
+<div class="fal"><div class="fnum">①</div><div class="fbody"><div class="ftext">반도체 <b>영업이익률 전망 하향</b> + <b>KB 매크로 슈퍼사이클 인덱스</b>의 추세적 하락 동반</div><div class="fdetail">추정 정점 4Q 유지. 인덱스 소폭 하락했으나 추세 전환 아님. (7/25 교체 — 기존: DRAM 현물가 2개월 연속 하락)</div></div><div class="fstat" style="--c:#22c55e">미발생</div></div><div class="fal"><div class="fnum">②</div><div class="fbody"><div class="ftext">하이퍼스케일러의 <b>투자 의지</b> 위축 — CAPEX 가이던스 하향</div><div class="fdetail">구글은 FCF 마이너스 전환에도 CAPEX 지속. 아마존·메타 실적이 다음 관문 — 볼 것은 FCF 수치가 아니라 가이던스의 톤</div></div><div class="fstat" style="--c:#22c55e">미발생</div></div><div class="fal"><div class="fnum">③</div><div class="fbody"><div class="ftext">신용 이벤트가 <b>다른 자산으로 전이</b></div><div class="fdetail">오라클 CDS 계속 상승 + MS·구글·아마존 CDS 동반 상승, 구글 FCF 첫 마이너스. 단 MOVE 바닥권·단기 자금시장 안정 → 아직 시스템 리스크 아님</div></div><div class="fstat" style="--c:#f59e0b">부분 발생</div></div><div class="fal"><div class="fnum">④</div><div class="fbody"><div class="ftext">코스피 <b>20주 생명선</b> 회복 실패가 4주 이상 지속</div><div class="fdetail">2주차. 7월 -21%, 이번 주 반등 실패(6,690p)</div></div><div class="fstat" style="--c:#f59e0b">진행 중</div></div>
+
+<h2 class="sec">감시 우선순위</h2>
+<ol class="watch"><li>반도체 영업이익률 전망 + KB 매크로 슈퍼사이클 (동반 둔화 여부)</li><li>금리 — 미 장기채 4.7%·모기지 6.7%·유가 90불. 4분기 인상 현실화 여부</li><li>AI 인프라 크레딧 — 오라클 CDS, 빅테크 CDS, 하이퍼스케일러 FCF</li><li>아마존·메타 실적의 '투자 의지' (수치가 아니라 톤)</li></ol>
+
+<h2 class="sec">판단 누적 로그</h2>
+<div class="timeline"><div class="entry"><div class="ehead"><span class="edate">2026-07-20</span><span class="ekind">시투 W29</span><span class="econf">확신도 중간</span></div><h3>최초 판단 — 정점 국면 진입, 그러나 최종 정점은 아니다</h3><div class="ebody">이번 주 데이터 중 가장 무겁게 본 것은 이격도나 SOX 하락률이 아니라 <b>TSMC가 CAPEX·매출 전망을 동시에 올리고도 −3.64% 빠진 것</b>이다. 하락률은 결과지만, 호재가 안 먹히는 건 한계 매수자가 사라졌다는 뜻이다.<br><br>반면 실물은 반대를 가리킨다. 메모리 매출은 사상 최대이고, 하닉 −15.4%의 방아쇠도 적자가 아니라 \"역대급 이익인데 컨센서스 대비 −8%\"였다. 실적 훼손이 아니라 <b>기대치 과잉 반영</b>의 문제다.</div><div class="delta">변경 — 반증조건 4개 최초 설정</div></div><div class="entry"><div class="ehead"><span class="edate">2026-07-20</span><span class="ekind">이그전 「Gravity Rules」</span><span class="econf">결론 유지, 감시 대상 변경</span></div><h3>보론 — '자본공급자' 프레임을 받아들인다</h3><div class="ebody">원래 나는 \"하이퍼스케일러가 CAPEX를 하향하면 사이클 종료\"라고 썼다. 이은택의 명제가 더 낫다. AI는 스케일링 법칙 탓에 자율 감속이 안 되므로 <b>CAPEX 하향은 가장 늦게 오는 신호</b>이고, 먼저 오는 건 자금조달 조건의 악화다.<br><br>그래서 볼 곳을 옮긴다. 오피스 CMBS보다 <b>오라클·코어위브·소프트뱅크의 크레딧</b>, 그리고 하이퍼스케일러 선행 FCF가 더 빠른 뇌관일 수 있다.</div><div class="q">빅테크는 못 멈춰도 자본공급자는 멈출 수 있다. — KB증권 이은택</div></div><div class="entry"><div class="ehead"><span class="edate">2026-07-25</span><span class="ekind">시투 W30</span><span class="econf">확신도 중간 → 소폭 하향</span></div><h3>검증 ① — 확장한 감시 항목이 5일 만에 적중</h3><div class="ebody">W30에 <b>\"오라클의 CDS는 계속 상승하며 위태로운 모습을 지속\"</b>, <b>\"MS·구글·아마존 CDS도 동반 상승\"</b>이 실렸다. 감시 대상을 AI 인프라 크레딧으로 옮긴 판단이 맞았다. 다만 MOVE는 바닥권이라 \"시스템 리스크가 아니라 자산가격 조정\"이라는 진단도 아직 유효하다.<br><br>이야기꾼도 1999년 사례를 직접 들며 <b>\"중공황은 최소한 이중 천장이 필요하다\"</b>고 썼다. 내 '2차 물결' 가설과 같은 구조다. W29의 단정에서 여지를 넓힌 것이다.<br><br>다만 나는 <b>금리를 과소평가했다.</b> 장기채 4.7%·모기지 6.7%는 중공황 금리 프로세스의 1단계다.</div><div class="delta">변경 — 새 근거: 삼전·하닉 12m fwd PER 4.4배·4.7배 / 감시에 금리 추가</div></div><div class="entry"><div class="ehead"><span class="edate">2026-07-25</span><span class="ekind">이그전 탑다운 1·2 + 구글 실적</span><span class="econf">이은택 쪽으로 소폭 이동, 확신도는 유지</span></div><h3>검증 ② — 반증조건 ①을 교체한다</h3><div class="ebody"><b>내가 틀렸던 부분:</b> 나는 \"DRAM 현물가\"를 1순위 반증조건으로 뒀는데, 이은택의 지적이 더 정확하다. 중요한 건 가격이나 증가율이 아니라 <b>영업이익률</b>이다. 마진은 관측 불가능한 수요·공급의 미세한 균형을 이미 반영하기 때문이다.<br><br>그리고 내 '2차 물결' 가설이 <b>정량적으로 뒷받침됐다</b> — 2013년 10개월, 2017년 9개월, 한미반도체 11개월. 세 사례가 수렴하는 건 우연으로 보기 어렵다.<br><br>구글 FCF가 사상 첫 마이너스로 전환해 <b>확장 기준 ④가 발생</b>했다. 단 1999년 월드컴은 매출이 정체된 상태였던 반면 구글은 클라우드 +82%·수주잔고 5,140억 달러다. <b>FCF 마이너스 자체보다, 그것을 감당할 성장이 있느냐가 관건이다.</b></div><div class="q">확인해야 할 것은 현금흐름이 아니라, 투자 의지가 꺾였는가다. — KB증권 이은택</div><div class="delta">변경 — 반증조건 ① 교체: DRAM 현물가 → 영업이익률 + KB 매크로 슈퍼사이클</div></div></div>
+
+<footer><p>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 저는 재무 상담사가 아니며, 투자의 최종 판단과 책임은 투자자 본인에게 있습니다. · 근거: 이야기꾼 주간 시투 보고서, KB증권 이그전 리포트, 자체 이격도·주가 실측.</p></footer>
+</div>
+</body></html>
