@@ -12,7 +12,7 @@ html.theme-dark{--bg:#0A0A0A;--surface:#141414;--border:rgba(255,255,255,0.07);-
 html.theme-light{--bg:#FFFFFF;--surface:#F6F7F9;--border:rgba(15,23,42,0.12);--text:#0f172a;--text-secondary:#475569;--accent:#2563eb;--grid:rgba(15,23,42,0.10)}
 body{font-family:'Inter','Noto Sans KR',-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;letter-spacing:-0.01em}
 .wrap{max-width:1040px;margin:0 auto;padding:40px 28px 80px}
-nav.tabs{display:flex;gap:8px;margin-bottom:34px}
+nav.tabs{display:flex;gap:8px;margin-bottom:34px;flex-wrap:wrap}
 .navtab{text-decoration:none;font-size:.92rem;font-weight:600;padding:9px 18px;border-radius:11px;color:var(--text-secondary);border:1px solid var(--border);background:var(--surface);transition:.15s}
 .navtab:hover{color:var(--text)}
 .navtab.active{color:#fff;background:var(--accent);border-color:var(--accent)}
@@ -29,9 +29,13 @@ h1{font-weight:800;font-size:2.9rem;letter-spacing:-0.035em;line-height:1.1}
 .distbar div{height:100%}
 .verdict{margin-top:26px;background:color-mix(in srgb,#ef4444 10%,var(--bg));border:1px solid color-mix(in srgb,#ef4444 30%,transparent);border-left:4px solid #ef4444;border-radius:12px;padding:16px 18px;font-size:.96rem;line-height:1.75}
 .verdict b{color:var(--text)}
+.expand{margin-top:18px;background:color-mix(in srgb,#2563eb 8%,var(--bg));border:1px solid color-mix(in srgb,#2563eb 26%,transparent);border-left:4px solid var(--accent);border-radius:12px;padding:16px 18px;font-size:.93rem;line-height:1.75}
+.expand h3{font-size:1rem;font-weight:700;margin-bottom:8px}
+.expand ol{margin:8px 0 0 18px}
+.expand .q{margin-top:10px;padding-left:12px;border-left:2px solid var(--border);color:var(--text-secondary);font-style:italic}
 .tbl-wrap{margin-top:34px;background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden}
 table{border-collapse:collapse;width:100%;font-size:.9rem}
-thead th{text-align:left;padding:14px 14px;background:color-mix(in srgb,var(--accent) 8%,var(--surface));color:var(--text-secondary);font-weight:700;font-size:.8rem;letter-spacing:.02em;border-bottom:1px solid var(--border)}
+thead th{text-align:left;padding:14px;background:color-mix(in srgb,var(--accent) 8%,var(--surface));color:var(--text-secondary);font-weight:700;font-size:.8rem;border-bottom:1px solid var(--border)}
 tbody td{padding:12px 14px;border-bottom:1px solid var(--border);vertical-align:top}
 tbody tr:last-child td{border-bottom:none}
 td.c{text-align:center;white-space:nowrap}
@@ -74,6 +78,18 @@ footer{margin-top:48px;border-top:1px solid var(--border);padding-top:24px;color
 
 <div class="verdict">이번 주(W29) <b>점등 13·1급 점등 8</b>으로 급증했습니다. 신규 점등: <b>신용 금리 스프레드</b>(0.696% 재상승) · <b>이격도 고점 하락</b>(반도체 정점 형성, 나스닥 100일 이격도 110→90% 전망) · <b>신용경색 선행</b>(미 오피스 CMBS 연체율 12%) · <b>대형주 초과상승 멈춤</b>(삼전닉스 -30% 폭락). 장단기 금리차·VIX는 주의로 상향. 다만 <b>메모리 실적은 내년까지 급증</b>(기업이익 안전), 주택 연체율 7%로 안전판도 남아 있어 단기 반등 여지는 열려 있습니다.</div>
 
+<div class="expand">
+  <h3>감시 항목 확장 (2026-07-20) — '신용경색 선행'에 AI 인프라 크레딧 추가</h3>
+  AI 투자는 스케일링 법칙 탓에 <b>빅테크가 스스로 멈추지 못하는</b> 구조입니다. 따라서 <b>CAPEX 하향은 가장 늦게 오는 신호</b>이고, 그보다 먼저 오는 것은 <b>자금을 대는 쪽의 조건 악화</b>입니다. 점등 기준을 다음 4가지로 확장했습니다.
+  <ol>
+    <li>하이일드·회사채 스프레드 확대</li>
+    <li>상업용부동산(CMBS) 연체율 급등 — 현재 미 오피스 <b>12%</b></li>
+    <li><b>AI 인프라 크레딧 악화</b> — 오라클(부채 $124.7B·FCF −$24.7B, 정크 직전) · 소프트뱅크(BB+·부채 $135B) · 코어위브(GPU담보 $25B)의 스프레드·신용등급</li>
+    <li><b>하이퍼스케일러 선행 FCF 마이너스 전환</b> — 합산 12개월 선행 FCF가 2024~25년 $300B대에서 2026년 0 부근까지 급락</li>
+  </ol>
+  <div class="q">"빅테크는 못 멈춰도 자본공급자는 멈출 수 있다." — KB증권 이은택, 「Gravity Rules」(2026-07-06)</div>
+</div>
+
 <div class="tbl-wrap">
 <table>
 <thead><tr><th style="width:44px">#</th><th>전조현상</th><th style="width:80px">상태</th><th>근거 (W29 기준)</th></tr></thead>
@@ -82,7 +98,7 @@ footer{margin-top:48px;border-top:1px solid var(--border);padding-top:24px;color
 <tr><td class="c">3</td><td class="nm">인플레이션 상승 → 긴축 <span class="g1">1급</span></td><td class="c"><span class="st" style="--c:#ef4444">점등</span></td><td class="note">워시 금리인상 시사+점진적 QT, 칩플레이션 심화</td></tr>
 <tr><td class="c">7</td><td class="nm">유로존 무역수지 적자 전환·감소 추세 <span class="g1">1급</span></td><td class="c"><span class="st" style="--c:#ef4444">점등</span></td><td class="note">적자 유지(W27 추가 데이터 없음)</td></tr>
 <tr><td class="c">8</td><td class="nm">일본 무역수지 적자 누적 <span class="g1">1급</span></td><td class="c"><span class="st" style="--c:#ef4444">점등</span></td><td class="note">적자 추세 유지</td></tr>
-<tr><td class="c">10</td><td class="nm">신용경색 선행 <span class="g1">1급</span></td><td class="c"><span class="st" style="--c:#ef4444">점등</span></td><td class="note">미국 오피스 CMBS 연체율 12% 위험 + 신용 스프레드 상승</td></tr>
+<tr><td class="c">10</td><td class="nm">신용경색 선행 <span class="g1">1급</span></td><td class="c"><span class="st" style="--c:#ef4444">점등</span></td><td class="note">미 오피스 CMBS 연체율 12% 위험 + 신용 스프레드 0.696% 상승. [확장] AI 인프라 크레딧 감시 추가 — 오라클 부채 $124.7B·FCF -$24.7B(정크 직전), 소프트뱅크 BB+·부채 $135B, 코어위브 GPU담보 부채 $25B, 하이퍼스케일러 합산 12M 선행 FCF 2026년 0 부근 급락(KB 이그전). &#x27;빅테크는 못 멈춰도 자본공급자는 멈출 수 있다&#x27; — CAPEX 하향보다 자금조달 악화가 선행</td></tr>
 <tr><td class="c">19</td><td class="nm">주식 공급 과잉(대형 IPO·락업 해제) <span class="g1">1급</span></td><td class="c"><span class="st" style="--c:#ef4444">점등</span></td><td class="note">대형 IPO·락업 대기 지속</td></tr>
 <tr><td class="c">25</td><td class="nm">신용융자 급증(개인 과열) <span class="g1">1급</span></td><td class="c"><span class="st" style="--c:#ef4444">점등</span></td><td class="note">美·韓·대만 신용거래 사상 최대! 코스피 신용융자 29.6조(삼전닉스 급증)</td></tr>
 <tr><td class="c">28</td><td class="nm">이격도 고점 하락(상승탄력 약화) <span class="g1">1급</span></td><td class="c"><span class="st" style="--c:#ef4444">점등</span></td><td class="note">반도체 주가 정점 형성한 듯. 나스닥 100일 이격도 110→90% 전망. 코스피/하닉/삼성 고점 하락 확인</td></tr>
@@ -110,6 +126,6 @@ footer{margin-top:48px;border-top:1px solid var(--border);padding-top:24px;color
 </table>
 </div>
 
-<footer><p>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다. · 근거: 이야기꾼 주간 시투 보고서(W29·2026-07-18) 및 자체 이격도 실측.</p></footer>
+<footer><p>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다. · 근거: 이야기꾼 주간 시투 보고서(W29·2026-07-18), KB증권 이그전 「Gravity Rules」, 자체 이격도 실측.</p></footer>
 </div>
 </body></html>
