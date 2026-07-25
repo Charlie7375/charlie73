@@ -22,18 +22,23 @@ h1{font-weight:800;font-size:2.9rem;letter-spacing:-0.035em;line-height:1.1}
 .upd{margin-top:14px;font-size:.85rem;color:var(--text-secondary)}
 .upd b{color:var(--accent)}
 .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:34px}
-.stat{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:20px 16px;text-align:center}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:20px 16px;text-align:center;position:relative}
 .stat .v{font-size:2.1rem;font-weight:800;letter-spacing:-0.03em;line-height:1}
 .stat .l{font-size:.82rem;color:var(--text-secondary);margin-top:8px}
+.stat .d{font-size:.72rem;font-weight:700;margin-top:6px}
+.up{color:#ef4444}.dn{color:#22c55e}.fl{color:var(--text-secondary)}
 .distbar{display:flex;height:14px;border-radius:8px;overflow:hidden;margin-top:22px;border:1px solid var(--border)}
 .distbar div{height:100%}
 .verdict{margin-top:26px;background:color-mix(in srgb,#ef4444 10%,var(--bg));border:1px solid color-mix(in srgb,#ef4444 30%,transparent);border-left:4px solid #ef4444;border-radius:12px;padding:16px 18px;font-size:.96rem;line-height:1.75}
 .verdict b{color:var(--text)}
-.expand{margin-top:18px;background:color-mix(in srgb,#2563eb 8%,var(--bg));border:1px solid color-mix(in srgb,#2563eb 26%,transparent);border-left:4px solid var(--accent);border-radius:12px;padding:16px 18px;font-size:.93rem;line-height:1.75}
-.expand h3{font-size:1rem;font-weight:700;margin-bottom:8px}
-.expand ol{margin:8px 0 0 18px}
-.expand .q{margin-top:10px;padding-left:12px;border-left:2px solid var(--border);color:var(--text-secondary);font-style:italic}
-.tbl-wrap{margin-top:34px;background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+.box{border-radius:12px;padding:16px 18px;font-size:.92rem;line-height:1.7}
+.box h3{font-size:.98rem;font-weight:700;margin-bottom:8px}
+.box.blue{background:color-mix(in srgb,#2563eb 8%,var(--bg));border:1px solid color-mix(in srgb,#2563eb 26%,transparent);border-left:4px solid var(--accent)}
+.box.green{background:color-mix(in srgb,#22c55e 9%,var(--bg));border:1px solid color-mix(in srgb,#22c55e 28%,transparent);border-left:4px solid #22c55e}
+.box ul{margin:6px 0 0 17px}.box li{margin-bottom:4px}
+.box .q{margin-top:10px;padding-left:12px;border-left:2px solid var(--border);color:var(--text-secondary);font-style:italic;font-size:.88rem}
+.tbl-wrap{margin-top:30px;background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden}
 table{border-collapse:collapse;width:100%;font-size:.9rem}
 thead th{text-align:left;padding:14px;background:color-mix(in srgb,var(--accent) 8%,var(--surface));color:var(--text-secondary);font-weight:700;font-size:.8rem;border-bottom:1px solid var(--border)}
 tbody td{padding:12px 14px;border-bottom:1px solid var(--border);vertical-align:top}
@@ -49,83 +54,96 @@ td.note{color:var(--text-secondary);font-size:.86rem;line-height:1.55}
 .legend i{width:11px;height:11px;border-radius:3px;display:inline-block}
 footer{margin-top:48px;border-top:1px solid var(--border);padding-top:24px;color:var(--text-secondary);font-size:.82rem;line-height:1.7}
 .toggle{position:fixed;top:18px;right:18px;width:42px;height:42px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:18px}
-@media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}h1{font-size:2.2rem}td.note{font-size:.8rem}}
+@media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}h1{font-size:2.2rem}td.note{font-size:.8rem}}
 </style></head><body>
 <button class="toggle" onclick="var h=document.documentElement;h.className=h.className==='theme-light'?'theme-dark':'theme-light'">☀</button>
 <div class="wrap">
 <nav class="tabs">
   <a class="navtab" href="index.html">50일 이격도</a>
+  <a class="navtab" href="bottom-top.html">바닥·천장 추적</a>
   <a class="navtab active" href="jeonjo.html">공황 전조현상</a>
 </nav>
 <div class="eyebrow">찰리 기술적 분석 · Crash Precursors</div>
 <h1>중공황 전조현상 현황</h1>
 <p class="sub">이야기꾼 주간 시투 보고서를 근거로 중공황(대폭락) 전조현상 28종을 매주 점검합니다. 점등이 늘고 특히 1급 전조가 겹칠수록 위험 신호입니다.</p>
-<div class="upd">업데이트: <b>W29 · 2026-07-18</b> — 이야기꾼 톤 전환: "공황이 접근 중"(장단기 금리차), "반도체 주가 정점 형성한 듯"</div>
+<div class="upd">업데이트: <b>W30 · 2026-07-25</b> — "코스피 상승장 마감 수순", "빅테크·마이크론 속속 대세 상승 마감", 내년 중공황 시작 전망 유지</div>
 
 <div class="stats">
-  <div class="stat"><div class="v" style="color:#ef4444">13</div><div class="l">점등 (위험)</div></div>
-  <div class="stat"><div class="v" style="color:#f59e0b">7</div><div class="l">주의</div></div>
-  <div class="stat"><div class="v" style="color:#64748b">4</div><div class="l">관찰</div></div>
-  <div class="stat"><div class="v" style="color:#22c55e">3</div><div class="l">안전</div></div>
-  <div class="stat"><div class="v" style="color:#b91c1c">8</div><div class="l">1급 점등</div></div>
+  <div class="stat"><div class="v" style="color:#ef4444">13</div><div class="l">점등 (위험)</div><div class="d fl">= 전주와 동일</div></div>
+  <div class="stat"><div class="v" style="color:#f59e0b">3</div><div class="l">주의</div><div class="d dn">▼ 7 → 3</div></div>
+  <div class="stat"><div class="v" style="color:#64748b">8</div><div class="l">관찰</div><div class="d dn">▲ 4 → 8</div></div>
+  <div class="stat"><div class="v" style="color:#22c55e">3</div><div class="l">안전</div><div class="d fl">= 유지</div></div>
+  <div class="stat"><div class="v" style="color:#b91c1c">7</div><div class="l">1급 점등</div><div class="d dn">▼ 8 → 7</div></div>
 </div>
-<div class="distbar"><div style="width:46.4286%;background:#ef4444" title="점등 13"></div><div style="width:25.0000%;background:#f59e0b" title="주의 7"></div><div style="width:14.2857%;background:#64748b" title="관찰 4"></div><div style="width:10.7143%;background:#22c55e" title="안전 3"></div><div style="width:3.5714%;background:#94a3b8" title="참고 1"></div></div>
+<div class="distbar"><div style="width:46.4286%;background:#ef4444" title="점등 13"></div><div style="width:10.7143%;background:#f59e0b" title="주의 3"></div><div style="width:28.5714%;background:#64748b" title="관찰 8"></div><div style="width:10.7143%;background:#22c55e" title="안전 3"></div><div style="width:3.5714%;background:#94a3b8" title="참고 1"></div></div>
 <div class="legend">
   <span><i style="background:#ef4444"></i>점등</span><span><i style="background:#f59e0b"></i>주의</span>
   <span><i style="background:#64748b"></i>관찰</span><span><i style="background:#22c55e"></i>안전</span>
   <span><i style="background:#94a3b8"></i>참고</span>
 </div>
 
-<div class="verdict">이번 주(W29) <b>점등 13·1급 점등 8</b>으로 급증했습니다. 신규 점등: <b>신용 금리 스프레드</b>(0.696% 재상승) · <b>이격도 고점 하락</b>(반도체 정점 형성, 나스닥 100일 이격도 110→90% 전망) · <b>신용경색 선행</b>(미 오피스 CMBS 연체율 12%) · <b>대형주 초과상승 멈춤</b>(삼전닉스 -30% 폭락). 장단기 금리차·VIX는 주의로 상향. 다만 <b>메모리 실적은 내년까지 급증</b>(기업이익 안전), 주택 연체율 7%로 안전판도 남아 있어 단기 반등 여지는 열려 있습니다.</div>
+<div class="verdict">이번 주(W30)는 <b>점등 수는 13으로 그대로인데 성격이 바뀌었습니다.</b> 과열·심리 지표(신용융자·VIX·거래량·낙관)가 대거 식어 '관찰'로 내려간 대신, <b>장단기 금리차가 신규 점등</b>했습니다. 미 장기채 <b>4.7%</b> 육박·모기지 <b>6.7%</b>(2월 6.1%→)로 중공황 금리 프로세스 1단계가 진행 중이고, 유가 90불·한국 PPI 급등이 겹쳐 4분기 인상이 불가피하다는 판단입니다. 신용융자는 <b>강제 해소</b> 국면 — 전체 신용잔고 38.5조→32.7조, 거래대금 100조→67조(−30%).</div>
 
-<div class="expand">
-  <h3>감시 항목 확장 (2026-07-20) — '신용경색 선행'에 AI 인프라 크레딧 추가</h3>
-  AI 투자는 스케일링 법칙 탓에 <b>빅테크가 스스로 멈추지 못하는</b> 구조입니다. 따라서 <b>CAPEX 하향은 가장 늦게 오는 신호</b>이고, 그보다 먼저 오는 것은 <b>자금을 대는 쪽의 조건 악화</b>입니다. 점등 기준을 다음 4가지로 확장했습니다.
-  <ol>
-    <li>하이일드·회사채 스프레드 확대</li>
-    <li>상업용부동산(CMBS) 연체율 급등 — 현재 미 오피스 <b>12%</b></li>
-    <li><b>AI 인프라 크레딧 악화</b> — 오라클(부채 $124.7B·FCF −$24.7B, 정크 직전) · 소프트뱅크(BB+·부채 $135B) · 코어위브(GPU담보 $25B)의 스프레드·신용등급</li>
-    <li><b>하이퍼스케일러 선행 FCF 마이너스 전환</b> — 합산 12개월 선행 FCF가 2024~25년 $300B대에서 2026년 0 부근까지 급락</li>
-  </ol>
-  <div class="q">"빅테크는 못 멈춰도 자본공급자는 멈출 수 있다." — KB증권 이은택, 「Gravity Rules」(2026-07-06)</div>
+<div class="grid2">
+  <div class="box blue">
+    <h3>⚠ '신용경색 선행' 확장 기준 첫 적중</h3>
+    지난주 감시 대상을 오피스 CMBS에서 <b>AI 인프라 크레딧</b>으로 넓혔는데, 이번 주 바로 확인됐습니다.
+    <ul>
+      <li><b>오라클 CDS 계속 상승</b> — 위태로운 모습 지속</li>
+      <li>MS·구글·아마존 <b>CDS도 동반 상승</b></li>
+      <li>M2 대비 신용대출 비중 = <b>2000년·2008년 수준</b></li>
+      <li>단, MOVE는 바닥권 — 시스템 신용경색은 아직 없음</li>
+    </ul>
+    <div class="q">"빅테크는 못 멈춰도 자본공급자는 멈출 수 있다." — KB증권 이은택 「Gravity Rules」<br>AI는 스케일링 법칙상 자율 감속이 안 되므로 <b>CAPEX 하향은 가장 늦은 신호</b>이고, 자금조달 조건 악화가 먼저 온다.</div>
+  </div>
+  <div class="box green">
+    <h3>남아 있는 안전판 · 2차 랠리 가능성</h3>
+    <ul>
+      <li>메모리 빅3 실적 <b>슈퍼사이클 진행 중</b></li>
+      <li>삼전·하닉 12m fwd PER <b>4.4배·4.7배</b> (2000년 코닝 100배·주니퍼 수백 배와 정반대)</li>
+      <li>유로존 ZEW 소비심리 반등 — "아직 공황 조짐 없음"</li>
+      <li>대만 수출 신기록, 한국 2Q GDP 선방</li>
+    </ul>
+    <div class="q">1999년엔 나스닥이 2000/3 정점 후에도 <b>실적이 탄탄했던 통신 인프라</b>(노텔·주니퍼·코닝·EMC)가 4~8월 <b>2차 랠리</b>를 했습니다. "중공황은 최소한 이중 천장이 필요하다"(W30) — 최종 정점 단정은 아직 이릅니다.</div>
+  </div>
 </div>
 
 <div class="tbl-wrap">
 <table>
-<thead><tr><th style="width:44px">#</th><th>전조현상</th><th style="width:80px">상태</th><th>근거 (W29 기준)</th></tr></thead>
+<thead><tr><th style="width:44px">#</th><th>전조현상</th><th style="width:80px">상태</th><th>근거 (W30 기준)</th></tr></thead>
 <tbody>
-<tr><td class="c">1</td><td class="nm">신용 금리 스프레드 확대 <span class="g1">1급</span></td><td class="c"><span class="st" style="--c:#ef4444">점등</span></td><td class="note">0.696%로 재상승 — 코스피 조정을 예견(W28 진정서 재점등)</td></tr>
-<tr><td class="c">3</td><td class="nm">인플레이션 상승 → 긴축 <span class="g1">1급</span></td><td class="c"><span class="st" style="--c:#ef4444">점등</span></td><td class="note">워시 금리인상 시사+점진적 QT, 칩플레이션 심화</td></tr>
+<tr><td class="c">1</td><td class="nm">신용 금리 스프레드 확대 <span class="g1">1급</span></td><td class="c"><span class="st" style="--c:#ef4444">점등</span></td><td class="note">0.694%(전주 0.7%서 소폭 하락)나 올해초 이후 상승 추세 지속. 美 신용스프레드 2.77% 바닥권</td></tr>
+<tr><td class="c">3</td><td class="nm">인플레이션 상승 → 긴축 <span class="g1">1급</span></td><td class="c"><span class="st" style="--c:#ef4444">점등</span></td><td class="note">유가 90불 돌파·농산물 상승, 한국 PPI 2021년 수준 급등(제조원가 압박). 금리인상 확률 올해 1.5회·내년 2회+ → 4Q 인상 불가피</td></tr>
 <tr><td class="c">7</td><td class="nm">유로존 무역수지 적자 전환·감소 추세 <span class="g1">1급</span></td><td class="c"><span class="st" style="--c:#ef4444">점등</span></td><td class="note">적자 유지(W27 추가 데이터 없음)</td></tr>
 <tr><td class="c">8</td><td class="nm">일본 무역수지 적자 누적 <span class="g1">1급</span></td><td class="c"><span class="st" style="--c:#ef4444">점등</span></td><td class="note">적자 추세 유지</td></tr>
-<tr><td class="c">10</td><td class="nm">신용경색 선행 <span class="g1">1급</span></td><td class="c"><span class="st" style="--c:#ef4444">점등</span></td><td class="note">미 오피스 CMBS 연체율 12% 위험 + 신용 스프레드 0.696% 상승. [확장] AI 인프라 크레딧 감시 추가 — 오라클 부채 $124.7B·FCF -$24.7B(정크 직전), 소프트뱅크 BB+·부채 $135B, 코어위브 GPU담보 부채 $25B, 하이퍼스케일러 합산 12M 선행 FCF 2026년 0 부근 급락(KB 이그전). &#x27;빅테크는 못 멈춰도 자본공급자는 멈출 수 있다&#x27; — CAPEX 하향보다 자금조달 악화가 선행</td></tr>
+<tr><td class="c">10</td><td class="nm">신용경색 선행 <span class="g1">1급</span></td><td class="c"><span class="st" style="--c:#ef4444">점등</span></td><td class="note">★오라클 CDS 계속 상승·위태, MS·구글·아마존 CDS도 동반 상승 → AI 인프라 크레딧 악화 확인. M2 대비 신용대출 비중 2000·2008년 수준. 단 MOVE 바닥권·신용경색 아직 없음</td></tr>
 <tr><td class="c">19</td><td class="nm">주식 공급 과잉(대형 IPO·락업 해제) <span class="g1">1급</span></td><td class="c"><span class="st" style="--c:#ef4444">점등</span></td><td class="note">대형 IPO·락업 대기 지속</td></tr>
-<tr><td class="c">25</td><td class="nm">신용융자 급증(개인 과열) <span class="g1">1급</span></td><td class="c"><span class="st" style="--c:#ef4444">점등</span></td><td class="note">美·韓·대만 신용거래 사상 최대! 코스피 신용융자 29.6조(삼전닉스 급증)</td></tr>
-<tr><td class="c">28</td><td class="nm">이격도 고점 하락(상승탄력 약화) <span class="g1">1급</span></td><td class="c"><span class="st" style="--c:#ef4444">점등</span></td><td class="note">반도체 주가 정점 형성한 듯. 나스닥 100일 이격도 110→90% 전망. 코스피/하닉/삼성 고점 하락 확인</td></tr>
-<tr><td class="c">11</td><td class="nm">미국 주택착공·인허가·NAHB 하락 </td><td class="c"><span class="st" style="--c:#ef4444">점등</span></td><td class="note">경기 상승장 2년차에도 주택 침체 지속</td></tr>
+<tr><td class="c">28</td><td class="nm">이격도 고점 하락(상승탄력 약화) <span class="g1">1급</span></td><td class="c"><span class="st" style="--c:#ef4444">점등</span></td><td class="note">나스닥 박스권 하단 붕괴·SOX 20주선 위협. 코스피 7월 -21%로 이격도 저점권(7/20 81.8% 2년 최저)</td></tr>
+<tr><td class="c">5</td><td class="nm">장단기 금리차 역전·재확대 </td><td class="c"><span class="st" style="--c:#ef4444">점등</span></td><td class="note">W30① 美 장기채 4.7% 육박·모기지 6.7%(2월 6.1%→). 중공황 금리 프로세스 1단계(장기채 선행 상승) 진행. 내년 공황 전 7%대 안착 전망</td></tr>
+<tr><td class="c">11</td><td class="nm">미국 주택착공·인허가·NAHB 하락 </td><td class="c"><span class="st" style="--c:#ef4444">점등</span></td><td class="note">6월 신규주택판매 62.8만건(+1.6% MoM)이나 침체 국면 지속, 특이사항 없음</td></tr>
 <tr><td class="c">14</td><td class="nm">주변부 증시 선행 하락 </td><td class="c"><span class="st" style="--c:#ef4444">점등</span></td><td class="note">주변부 약세 지속</td></tr>
-<tr><td class="c">15</td><td class="nm">주도주 일부 상승추세 마감 </td><td class="c"><span class="st" style="--c:#ef4444">점등</span></td><td class="note">반도체 주도주 정점 형성, 나스닥 추세 위험 — 주도주 무너지면 전체 붕괴</td></tr>
-<tr><td class="c">16</td><td class="nm">대형주 초과상승 멈춤 </td><td class="c"><span class="st" style="--c:#ef4444">점등</span></td><td class="note">삼전닉스 -30%대 폭락(중공황 수준), 쏠림 붕괴 — 삼전 -10.7%·하닉 -15.4%</td></tr>
+<tr><td class="c">15</td><td class="nm">주도주 일부 상승추세 마감 </td><td class="c"><span class="st" style="--c:#ef4444">점등</span></td><td class="note">7대 빅테크·마이크론 속속 대세 상승 마감(MS 작년 상반기·메타 작년 4Q부터). 나스닥 고공박스권 하단 붕괴·20주 생명선 근접, SOX 20주선 위협</td></tr>
+<tr><td class="c">16</td><td class="nm">대형주 초과상승 멈춤 </td><td class="c"><span class="st" style="--c:#ef4444">점등</span></td><td class="note">코스피 6,690p·7월 -21%. 20주 생명선 하회 후 반등 실패 → &#x27;상승장 마감 수순&#x27;</td></tr>
 <tr><td class="c">20</td><td class="nm">실질소득 감소 </td><td class="c"><span class="st" style="--c:#ef4444">점등</span></td><td class="note">미국 실질임금 마이너스 지속</td></tr>
 <tr><td class="c">6</td><td class="nm">OECD/컨퍼런스보드 선행지수 고점·오버슈팅 <span class="g1">1급</span></td><td class="c"><span class="st" style="--c:#f59e0b">주의</span></td><td class="note">추가 데이터 없음, 둔화 관찰 지속</td></tr>
-<tr><td class="c">21</td><td class="nm">ZEW·EC 소비심리 고점 후 반전 <span class="g1">1급</span></td><td class="c"><span class="st" style="--c:#f59e0b">주의</span></td><td class="note">유로존 소비 경기 작년 6월 이후 둔화 지속 — 선행지표 하락</td></tr>
-<tr><td class="c">5</td><td class="nm">장단기 금리차 역전·재확대 </td><td class="c"><span class="st" style="--c:#f59e0b">주의</span></td><td class="note">W29 ① &#x27;공황 접근 중, 장단기 금리차가 알려주고 있다&#x27; — 모기지 금리 상승 전환 임박</td></tr>
+<tr><td class="c">25</td><td class="nm">신용융자 급증(개인 과열) <span class="g1">1급</span></td><td class="c"><span class="st" style="--c:#f59e0b">주의</span></td><td class="note">★급감 전환 — 전체 신용잔고 38.5조→32.7조(-5.7조), 코스닥 6/19 9.08조→7/23 6.91조(-24%). 반대매매로 개인 이탈. 단 M2 대비 비중은 여전히 2000·2008 수준</td></tr>
 <tr><td class="c">17</td><td class="nm">코인 탐욕 오버슈팅 </td><td class="c"><span class="st" style="--c:#f59e0b">주의</span></td><td class="note">비트코인 6만불 위태 지속</td></tr>
-<tr><td class="c">18</td><td class="nm">VIX·MOVE 오버슈팅 </td><td class="c"><span class="st" style="--c:#f59e0b">주의</span></td><td class="note">VIX 18.77 바닥권 상승전환 초기, VKOSPI 88·일변동 5.5%, 서킷 올해 7번·사이드카 18번</td></tr>
-<tr><td class="c">22</td><td class="nm">일직선 급등·안일한 낙관 </td><td class="c"><span class="st" style="--c:#f59e0b">주의</span></td><td class="note">4~5월 탐욕이 6월부터 공포로 극적 전환(쏠림 반대 전환 가능)</td></tr>
-<tr><td class="c">27</td><td class="nm">거래량 급증·손바뀜 </td><td class="c"><span class="st" style="--c:#f59e0b">주의</span></td><td class="note">회전율 122%·파괴적 변동성, 외국인→개인 대규모 손바뀜</td></tr>
 <tr><td class="c">2</td><td class="nm">연준 금리 인하(Rate Cut) <span class="g1">1급</span></td><td class="c"><span class="st" style="--c:#64748b">관찰</span></td><td class="note">워시 인상 시사(물가 5년째 2%↑, 3년래 최고), 인하 없음</td></tr>
 <tr><td class="c">12</td><td class="nm">미국 주택가격 하락 반전 <span class="g1">1급</span></td><td class="c"><span class="st" style="--c:#64748b">관찰</span></td><td class="note">아직 가격 하락 전</td></tr>
+<tr><td class="c">21</td><td class="nm">ZEW·EC 소비심리 고점 후 반전 <span class="g1">1급</span></td><td class="c"><span class="st" style="--c:#64748b">관찰</span></td><td class="note">유로존 7월 ZEW 소비심리 반등 지속, 제조업도 약하나 상승 추세 — &#x27;아직 공황 조짐 없음&#x27;</td></tr>
 <tr><td class="c">24</td><td class="nm">대출심사 강화 비율(SLOOS) <span class="g1">1급</span></td><td class="c"><span class="st" style="--c:#64748b">관찰</span></td><td class="note">최신 SLOOS 데이터 확인 필요 — 아직 완화적 추정</td></tr>
 <tr><td class="c">4</td><td class="nm">유동성 감소(증시 선행 하락) </td><td class="c"><span class="st" style="--c:#64748b">관찰</span></td><td class="note">워시 &#x27;점진적 QT&#x27; 방침 시사(대차대조표 6.7조), 아직 미집행</td></tr>
-<tr><td class="c">9</td><td class="nm">기업 이익 QoQ 마이너스 1년간 반복 <span class="g1">1급</span></td><td class="c"><span class="st" style="--c:#22c55e">안전</span></td><td class="note">메모리 심각한 쇼티지, 실적 모멘텀 강</td></tr>
+<tr><td class="c">18</td><td class="nm">VIX·MOVE 오버슈팅 </td><td class="c"><span class="st" style="--c:#64748b">관찰</span></td><td class="note">VIX 18.58·VKOSPI 78.65로 오히려 하락, MOVE 바닥권 무변화. 풋/콜 0.82로 헷지 수요만 증가 — 오버슈팅 아님</td></tr>
+<tr><td class="c">22</td><td class="nm">일직선 급등·안일한 낙관 </td><td class="c"><span class="st" style="--c:#64748b">관찰</span></td><td class="note">CNN Fear&amp;Greed 39p로 7월 내내 Fear 영역. 낙관 해소 국면</td></tr>
+<tr><td class="c">27</td><td class="nm">거래량 급증·손바뀜 </td><td class="c"><span class="st" style="--c:#64748b">관찰</span></td><td class="note">일평균 거래대금 5~6월 100조→7/24 67조(-30%). 과열 거래 급감(단 삼전닉스 레버리지 ETF 거래대금 비중 40% 유지)</td></tr>
+<tr><td class="c">9</td><td class="nm">기업 이익 QoQ 마이너스 1년간 반복 <span class="g1">1급</span></td><td class="c"><span class="st" style="--c:#22c55e">안전</span></td><td class="note">메모리 빅3 실적 슈퍼사이클 유례없는 급증·진행 중. 삼전·하닉 12m fwd PER 4.4배·4.7배 극심한 저평가</td></tr>
 <tr><td class="c">26</td><td class="nm">단기 자금경색(TED·LIBOR-OIS·CDS) <span class="g1">1급</span></td><td class="c"><span class="st" style="--c:#22c55e">안전</span></td><td class="note">韓 CDS 22.4p 바닥·SOFR 안정 — 자금경색 없음</td></tr>
 <tr><td class="c">13</td><td class="nm">한국 악성미분양↑·전세가율 40%↓ </td><td class="c"><span class="st" style="--c:#22c55e">안전</span></td><td class="note">거리 있음</td></tr>
-<tr><td class="c">23</td><td class="nm">한미 금리 스프레드 역전 <span class="gb">보조</span></td><td class="c"><span class="st" style="--c:#94a3b8">참고</span></td><td class="note">美 3.5~3.75% vs 韓, 원화 초약세(1500원대)나 위기 아님 — 보조지표</td></tr>
+<tr><td class="c">23</td><td class="nm">한미 금리 스프레드 역전 <span class="gb">보조</span></td><td class="c"><span class="st" style="--c:#94a3b8">참고</span></td><td class="note">엔화 초약세·원화 초강세로 전환 — 위기 신호 아님(보조지표)</td></tr>
 </tbody>
 </table>
 </div>
 
-<footer><p>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다. · 근거: 이야기꾼 주간 시투 보고서(W29·2026-07-18), KB증권 이그전 「Gravity Rules」, 자체 이격도 실측.</p></footer>
+<footer><p>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다. · 근거: 이야기꾼 주간 시투 보고서(W30·2026-07-25), KB증권 이그전 「Gravity Rules」, 자체 이격도 실측.</p></footer>
 </div>
 </body></html>
