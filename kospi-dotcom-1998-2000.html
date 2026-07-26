@@ -129,6 +129,16 @@ nav.site-tabs a{text-decoration:none;font-size:.9rem;font-weight:600;padding:9px
   color:var(--text-secondary);border:1px solid var(--border);background:var(--surface);transition:.15s}
 nav.site-tabs a:hover{color:var(--text)}
 nav.site-tabs a.active{color:#fff;background:#2563eb;border-color:#2563eb}
+
+/* --- 출처 표기 --- */
+.srcline{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:14px;padding-top:13px;border-top:1px dashed var(--border);font-size:12.5px;color:var(--text-secondary);line-height:1.65}
+.srcline .lbl{font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:11px;color:var(--text-secondary)}
+a.srclink{display:inline-flex;align-items:center;gap:5px;text-decoration:none;font-weight:600;color:var(--accent);
+  border:1px solid color-mix(in srgb,var(--accent) 35%,transparent);background:color-mix(in srgb,var(--accent) 10%,transparent);
+  padding:4px 11px;border-radius:999px;transition:.15s;white-space:nowrap}
+a.srclink:hover{background:color-mix(in srgb,var(--accent) 20%,transparent)}
+a.inlink{color:var(--accent);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--accent) 45%,transparent)}
+a.inlink:hover{border-bottom-color:var(--accent)}
 </style>
 </head>
 <body>
@@ -165,7 +175,7 @@ nav.site-tabs a.active{color:#fff;background:#2563eb;border-color:#2563eb}
     <h1 class="animate delay-1">코스피 1998~2000<br>닷컴 랠리 실제 차트</h1>
     <p class="lead animate delay-2">
       IMF 저점(1998.6)에서 닷컴 정점(1999.12)까지 <b>18개월 +214%</b>, 그리고 붕괴.
-      출처는 <b>OECD 한국 주가지수 월별 원계열</b>(FRED <span class="mono">SPASTT01KRM661N</span>, 2015=100)이며,
+      출처는 <b>OECD 한국 주가지수 월별 원계열</b>(FRED <a class="inlink mono" href="https://fred.stlouisfed.org/data/SPASTT01KRM661N" target="_blank" rel="noopener">SPASTT01KRM661N</a>, 2015=100)이며,
       2015년 평균을 기준으로 코스피 포인트로 환산했습니다. <b>월평균</b> 기준이라 일간 고·저점보다 완만합니다.
     </p>
 
@@ -193,6 +203,11 @@ nav.site-tabs a.active{color:#fff;background:#2563eb;border-color:#2563eb}
         <canvas id="kospiChart"></canvas>
       </div>
       <p class="note" id="rangeNote"></p>
+      <div class="srcline">
+        <span class="lbl">출처</span>
+        <span>OECD “Financial Market: Share Prices for Korea” · 월별 원계열(Index 2015=100, 계절조정 없음) — 2015년 평균 ≈ 2,010 기준으로 코스피 포인트 환산(×20.1)</span>
+        <a class="srclink" href="https://fred.stlouisfed.org/data/SPASTT01KRM661N" target="_blank" rel="noopener">FRED · SPASTT01KRM661N &#8599;</a>
+      </div>
     </div>
   </section>
 
@@ -271,7 +286,7 @@ nav.site-tabs a.active{color:#fff;background:#2563eb;border-color:#2563eb}
 
   <section data-reveal>
     <div class="disclaimer">
-      <b>데이터 출처와 한계</b> · OECD "Financial Market: Share Prices for Korea"(FRED <span class="mono">SPASTT01KRM661N</span>, Index 2015=100, 월별, 계절조정 없음).
+      <b>데이터 출처와 한계</b> · OECD "Financial Market: Share Prices for Korea"(FRED <a class="inlink mono" href="https://fred.stlouisfed.org/data/SPASTT01KRM661N" target="_blank" rel="noopener">SPASTT01KRM661N</a>, Index 2015=100, 월별, 계절조정 없음).
       코스피 포인트 환산은 <b>2015년 평균 ≈ 2,010</b>을 기준으로 한 계수(×20.1) 적용값이며, 표기 수치는 <b>월평균</b>입니다.
       따라서 일간 종가·장중 고저(1,028.07 / 277.37 / 468.76 등)와는 차이가 납니다 — 본문에 해당 확인값을 함께 적었습니다.
       월평균 기준 최대 낙폭은 −48.8%, 종가 기준으로는 −54.4%입니다.
