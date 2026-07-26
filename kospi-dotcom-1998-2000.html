@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ko" class="theme-dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>코스피 1998~2000 닷컴 랠리 차트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script>if (typeof Chart !== 'undefined') { Chart.defaults.animation = false; }</script>
+<script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.js"></script>
+<style>
+  *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+  :root { interpolate-size: allow-keywords; }
+
+  html.theme-dark {
+    --bg:#08090B; --surface:#111317; --surface-hover:#181B20;
+    --border:rgba(255,255,255,0.08);
+    --text:#E9ECEF; --text-secondary:#8b929c;
+    --accent:#F0B429; --accent-secondary:#5EA0FF;
+    --positive:#2FBF71; --negative:#FF4D5E; --warning:#F0B429;
+    --grid:rgba(255,255,255,0.05); --onAccent:#100e07;
+    --band:rgba(240,180,41,0.055);
+  }
+  html.theme-light {
+    --bg:#FBFAF8; --surface:#FFFFFF; --surface-hover:#F4F3F0;
+    --border:rgba(0,0,0,0.09);
+    --text:#14171C; --text-secondary:#697180;
+    --accent:#B7791F; --accent-secondary:#1D5FCC;
+    --positive:#0F8A53; --negative:#D62839; --warning:#B7791F;
+    --grid:rgba(0,0,0,0.06); --onAccent:#FFFFFF;
+    --band:rgba(183,121,31,0.07);
+  }
+
+  body {
+    font-family:'Noto Sans KR','Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    background:var(--bg); color:var(--text); line-height:1.65;
+    -webkit-font-smoothing:antialiased; letter-spacing:-0.01em;
+    transition:background .35s,color .35s; scrollbar-gutter:stable;
+  }
+  h1,h2,h3 { color:var(--text); letter-spacing:-0.032em; line-height:1.15; text-wrap:balance; }
+  h1 { font-weight:800; font-size:clamp(2.1rem,4vw,3rem); }
+  h3 { font-weight:600; font-size:1.5rem; }
+  p,span,li,td,th { font-weight:400; font-size:1rem; }
+  .mono { font-family:'Inter',ui-monospace,monospace; font-variant-numeric:tabular-nums; }
+
+  .wrap { max-width:1240px; margin:0 auto; padding:52px 30px 76px; }
+  section { margin-bottom:52px; }
+
+  .eyebrow { display:inline-flex; align-items:center; gap:9px; font-size:12.5px; font-weight:700; letter-spacing:.1em; color:var(--accent); text-transform:uppercase; margin-bottom:16px; }
+  .eyebrow::before { content:""; width:24px; height:2px; background:var(--accent); border-radius:2px; }
+  .lead { font-size:clamp(1.04rem,1.5vw,1.18rem); color:var(--text-secondary); max-width:880px; margin-top:16px; }
+
+  .kpis { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:34px; }
+  .kpi { background:var(--surface); border:1px solid var(--border); border-radius:13px; padding:18px; transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s,border-color .25s; }
+  .kpi:hover { transform:translateY(-5px); box-shadow:0 14px 30px rgba(0,0,0,.16); border-color:color-mix(in srgb,var(--accent) 40%,var(--border)); }
+  .kpi .k { font-size:12px; font-weight:600; color:var(--text-secondary); }
+  .kpi .v { font-size:clamp(1.7rem,2.8vw,2.2rem); font-weight:800; letter-spacing:-.045em; line-height:1.05; margin-top:7px; font-family:'Inter',sans-serif; font-variant-numeric:tabular-nums; }
+  .kpi .s { font-size:12.5px; color:var(--text-secondary); margin-top:5px; }
+  .kpi.hl .v { color:var(--accent); }
+  .kpi .v.neg { color:var(--negative); }
+
+  .panel { background:var(--surface); border:1px solid var(--border); border-radius:20px; padding:30px 32px 26px; }
+  .panel-head { display:flex; justify-content:space-between; align-items:flex-end; gap:22px; flex-wrap:wrap; margin-bottom:22px; }
+  .panel-head p { color:var(--text-secondary); font-size:.95rem; margin-top:6px; max-width:640px; }
+  .chart-container { position:relative; height:min(60vh,540px); min-height:420px; }
+
+  .rng { display:flex; gap:8px; flex-wrap:wrap; }
+  .rng button { font-family:inherit; font-size:13.5px; font-weight:600; padding:9px 15px; border-radius:10px; border:1px solid var(--border); background:transparent; color:var(--text-secondary); cursor:pointer; transition:all .18s; }
+  .rng button:hover { background:var(--surface-hover); color:var(--text); }
+  .rng button.on { background:var(--accent); border-color:var(--accent); color:var(--onAccent); }
+
+  table { width:100%; border-collapse:collapse; margin-top:4px; }
+  th,td { text-align:left; padding:13px 12px; border-bottom:1px solid var(--border); font-size:.95rem; }
+  th { font-size:12px; font-weight:700; color:var(--text-secondary); letter-spacing:.05em; text-transform:uppercase; }
+  td.num { text-align:right; font-family:'Inter',sans-serif; font-variant-numeric:tabular-nums; font-weight:600; }
+  tbody tr { transition:background .15s; }
+  tbody tr:hover { background:var(--surface-hover); }
+  .tag { display:inline-block; font-size:11.5px; font-weight:700; padding:3px 9px; border-radius:999px; }
+  .tag.a { background:color-mix(in srgb,var(--accent) 18%,transparent); color:var(--accent); }
+  .tag.n { background:color-mix(in srgb,var(--negative) 16%,transparent); color:var(--negative); }
+  .tag.p { background:color-mix(in srgb,var(--positive) 16%,transparent); color:var(--positive); }
+
+  .note { font-size:.87rem; color:var(--text-secondary); opacity:.9; margin-top:18px; line-height:1.7; }
+  .disclaimer { border:1px dashed var(--border); border-radius:14px; padding:20px 24px; font-size:.87rem; color:var(--text-secondary); line-height:1.75; }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+  .animate { animation:fadeUp .62s cubic-bezier(.22,1,.36,1) both; }
+  .animate.delay-1{animation-delay:.07s} .animate.delay-2{animation-delay:.14s}
+  .animate.delay-3{animation-delay:.21s} .animate.delay-4{animation-delay:.28s}
+  .reveal { opacity:0; transform:translateY(24px); transition:opacity .7s ease,transform .7s ease; }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+  @media (prefers-reduced-motion: reduce){ *,*::before,*::after{animation:none!important;transition:none!important} .reveal{opacity:1;transform:none} }
+
+  .viz-menu { position:fixed; top:16px; right:16px; z-index:9999; }
+  .viz-menu-toggle { width:42px; height:42px; border-radius:11px; background:var(--surface); border:1px solid var(--border); color:var(--text); cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .2s; }
+  .viz-menu-toggle:hover { background:var(--surface-hover); }
+  .viz-menu-dropdown { position:absolute; top:50px; right:0; min-width:200px; background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:8px; opacity:0; visibility:hidden; transform:translateY(-8px); transition:all .2s; }
+  .viz-menu-dropdown.open { opacity:1; visibility:visible; transform:translateY(0); }
+  .viz-menu-dropdown button { width:100%; padding:10px 14px; border:none; border-radius:8px; background:transparent; color:var(--text); font-size:14px; font-family:inherit; cursor:pointer; text-align:left; display:flex; align-items:center; gap:10px; }
+  .viz-menu-dropdown button:hover { background:var(--surface-hover); }
+  .skip-to-content { position:absolute; top:-40px; left:6px; background:var(--accent); color:var(--onAccent); padding:8px 12px; border-radius:4px; opacity:0; z-index:10000; }
+  .skip-to-content:focus { top:6px; opacity:1; }
+
+  @media print {
+    .viz-menu,.rng { display:none!important; }
+    body { background:#fff!important; color:#000!important; }
+    .reveal { opacity:1!important; transform:none!important; }
+    .panel,.kpi { break-inside:avoid; border:1px solid #ddd; }
+    .chart-container { height:440px; }
+    * { print-color-adjust:exact; -webkit-print-color-adjust:exact; }
+  }
+  @page { margin:.6in; }
+
+  @media (max-width:900px){
+    .kpis { grid-template-columns:repeat(2,1fr); }
+    .wrap { padding:36px 18px 60px; }
+    .panel { padding:22px 18px 20px; }
+    .chart-container { height:400px; }
+    section { margin-bottom:44px; }
+  }
+  @media (max-width:375px){ body{overflow-x:hidden} .kpis{grid-template-columns:1fr} }
+
+/* --- 사이트 공통 탭 --- */
+nav.site-tabs{display:flex;gap:8px;margin:0 0 30px;flex-wrap:wrap}
+nav.site-tabs a{text-decoration:none;font-size:.9rem;font-weight:600;padding:9px 17px;border-radius:11px;
+  color:var(--text-secondary);border:1px solid var(--border);background:var(--surface);transition:.15s}
+nav.site-tabs a:hover{color:var(--text)}
+nav.site-tabs a.active{color:#fff;background:#2563eb;border-color:#2563eb}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-to-content">본문으로 건너뛰기</a>
+
+<div class="viz-menu">
+  <button class="viz-menu-toggle" onclick="toggleMenu()" aria-label="메뉴">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="5" x2="17" y2="5"/><line x1="3" y1="10" x2="17" y2="10"/><line x1="3" y1="15" x2="17" y2="15"/></svg>
+  </button>
+  <div class="viz-menu-dropdown" id="vizMenuDropdown">
+    <button onclick="cycleTheme()"><span id="themeIcon">🌙</span><span id="themeLabel">다크</span></button>
+    <button onclick="downloadImage()"><span>📥</span><span>PNG 저장</span></button>
+    <button onclick="window.print()"><span>🖨️</span><span>인쇄 / PDF</span></button>
+  </div>
+</div>
+
+<main id="main-content" role="main">
+<div class="wrap">
+
+  <nav class="site-tabs">
+    <a href="index.html">50일 이격도</a>
+    <a href="bottom-top.html">바닥·천장 추적</a>
+    <a href="peak-debate.html">반도체 정점 논쟁</a>
+    <a href="jeonjo.html">공황 전조현상</a>
+    <a class="active" href="kospi-dotcom-1998-2000.html">닷컴 랠리 1998~2000</a>
+  </nav>
+
+  <header>
+    <span class="eyebrow animate">OECD 원계열 · 실측 데이터</span>
+    <h1 class="animate delay-1">코스피 1998~2000<br>닷컴 랠리 실제 차트</h1>
+    <p class="lead animate delay-2">
+      IMF 저점(1998.6)에서 닷컴 정점(1999.12)까지 <b>18개월 +214%</b>, 그리고 붕괴.
+      출처는 <b>OECD 한국 주가지수 월별 원계열</b>(FRED <span class="mono">SPASTT01KRM661N</span>, 2015=100)이며,
+      2015년 평균을 기준으로 코스피 포인트로 환산했습니다. <b>월평균</b> 기준이라 일간 고·저점보다 완만합니다.
+    </p>
+
+    <div class="kpis">
+      <div class="kpi animate delay-1"><div class="k">IMF 저점 (1998.6)</div><div class="v">313</div><div class="s">일간 최저 277.37 (6/16)</div></div>
+      <div class="kpi hl animate delay-2"><div class="k">닷컴 정점 (1999.12)</div><div class="v">984</div><div class="s">연말 종가 1,028.07</div></div>
+      <div class="kpi animate delay-3"><div class="k">상승률 (18개월)</div><div class="v">+214%</div><div class="s">종가 기준으로는 +271%</div></div>
+      <div class="kpi animate delay-4"><div class="k">최종 저점 (2001.9)</div><div class="v neg">504</div><div class="s">일간 최저 468.76 (9/17)</div></div>
+    </div>
+  </header>
+
+  <section data-reveal>
+    <div class="panel">
+      <div class="panel-head">
+        <div>
+          <h3>코스피 월별 추이</h3>
+          <p>노란 음영이 <b>닷컴 랠리 구간(1998.6~1999.12)</b>입니다. 점으로 표시된 지점이 국면 전환점이며, 마우스를 올리면 수치가 나옵니다.</p>
+        </div>
+        <div class="rng" role="group" aria-label="기간 선택">
+          <button class="on" onclick="setRange('rally',this)">1998~2000</button>
+          <button onclick="setRange('full',this)">1998~2002 (전체 사이클)</button>
+        </div>
+      </div>
+      <div class="chart-container" role="img" aria-label="1998년부터 2000년까지 코스피 월별 추이 선형 차트. 1998년 6월 313에서 시작해 1999년 7월 971로 1차 고점을 만들고, 1999년 10월 828로 조정한 뒤 1999년 12월 984로 정점을 기록. 이후 2000년 4월 783까지 하락하고 2000년 6~7월 795로 2차 랠리를 만든 뒤 2000년 12월 522까지 붕괴.">
+        <canvas id="kospiChart"></canvas>
+      </div>
+      <p class="note" id="rangeNote"></p>
+    </div>
+  </section>
+
+  <section data-reveal>
+    <h2 style="font-size:2rem;font-weight:700;margin-bottom:20px;">국면 전환점</h2>
+    <div class="panel">
+      <table>
+        <thead><tr><th>시점</th><th>국면</th><th class="num">코스피</th><th>정점 대비</th><th>내용</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">1998.06</td><td><span class="tag n">바닥</span></td><td class="num">313</td><td>32%</td><td>IMF 외환위기 저점. 일간 최저 <b>277.37</b>(6/16)</td></tr>
+          <tr><td class="mono">1998.12</td><td><span class="tag p">금융장세</span></td><td class="num">524</td><td>53%</td><td>금리 안정 → 유동성 장세. 6개월 만에 +67%</td></tr>
+          <tr><td class="mono">1999.07</td><td><span class="tag a">1차 고점</span></td><td class="num">971</td><td><b>98.7%</b></td><td><b>이미 정점의 99%</b> — 1999년 안에 이중 천장이 만들어짐</td></tr>
+          <tr><td class="mono">1999.10</td><td><span class="tag n">중간 조정</span></td><td class="num">828</td><td>84%</td><td>대우 사태·투신 환매. −15% 조정</td></tr>
+          <tr><td class="mono">1999.12</td><td><span class="tag a">정점</span></td><td class="num">984</td><td><b>100%</b></td><td>연말 종가 <b>1,028.07</b> 사상 최고. 닷컴 광풍 절정</td></tr>
+          <tr><td class="mono">2000.04</td><td><span class="tag n">붕괴 시작</span></td><td class="num">783</td><td>80%</td><td>나스닥 폭락 동조. 4/17 장중 <b>−12.7%</b>(당시 사상 최대)</td></tr>
+          <tr><td class="mono">2000.07</td><td><span class="tag a">2차 랠리</span></td><td class="num">795</td><td><b>80.8%</b></td><td><b>이중 천장의 두 번째 봉우리</b> — 신고가 실패</td></tr>
+          <tr><td class="mono">2000.12</td><td><span class="tag n">1차 붕괴</span></td><td class="num">522</td><td>53%</td><td>1년 만에 반토막. 연말 종가 504.62</td></tr>
+          <tr><td class="mono">2001.09</td><td><span class="tag n">최종 저점</span></td><td class="num">504</td><td><b>51.2%</b></td><td>9.11 테러. 9/12 <b>−12.02%</b>, 9/17 장중 <b>468.76</b></td></tr>
+          <tr><td class="mono">2002.04</td><td><span class="tag p">회복</span></td><td class="num">895</td><td>91%</td><td>저점에서 +78%. 정점 회복까지는 결국 <b>6년</b> 소요</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section data-reveal>
+    <div class="panel">
+      <h3 style="margin-bottom:14px;">실측 데이터로 확인된 것</h3>
+      <p style="color:var(--text-secondary);margin-bottom:14px;">
+        <b>1. 1999년 안에 이미 이중 천장이 있었습니다.</b> 7월 971 → 10월 828 → 12월 984.
+        정점까지 마지막 5개월은 사실상 <b>횡보 + 변동성 확대</b>였습니다. 상승 탄력은 1999년 7월에 이미 꺾여 있었습니다.
+      </p>
+      <p style="color:var(--text-secondary);margin-bottom:14px;">
+        <b>2. 정점 후 2차 랠리는 정점의 80.8%에서 멈췄습니다.</b> 제가 앞서 근사치로 계산한 79.9%와 거의 일치합니다.
+        즉 <b>지수의 2차 랠리는 신고가가 아니라 낮은 고점</b>이라는 논지가 실측으로 확인됐습니다.
+      </p>
+      <p style="color:var(--text-secondary);">
+        <b>3. 회복은 매우 느렸습니다.</b> 2001년 9월 저점에서 반등은 빨랐지만(7개월 +78%),
+        1999년 12월 정점을 <b>실제로 회복한 것은 2005년</b>이었습니다. 붕괴는 21개월, 회복은 6년이 걸렸습니다.
+      </p>
+    </div>
+  </section>
+
+  <section data-reveal>
+    <div class="disclaimer">
+      <b>데이터 출처와 한계</b> · OECD "Financial Market: Share Prices for Korea"(FRED <span class="mono">SPASTT01KRM661N</span>, Index 2015=100, 월별, 계절조정 없음).
+      코스피 포인트 환산은 <b>2015년 평균 ≈ 2,010</b>을 기준으로 한 계수(×20.1) 적용값이며, 표기 수치는 <b>월평균</b>입니다.
+      따라서 일간 종가·장중 고저(1,028.07 / 277.37 / 468.76 등)와는 차이가 납니다 — 본문에 해당 확인값을 함께 적었습니다.
+      월평균 기준 최대 낙폭은 −48.8%, 종가 기준으로는 −54.4%입니다.
+      과거 차트는 역사적 사실이며, 현재 사이클의 결과를 예측하지 않습니다.
+      저는 투자자문업자가 아니며 이 문서는 매매 권유가 아닙니다.
+    </div>
+  </section>
+
+</div>
+</main>
+
+<script>
+  function toggleMenu(){ var d=document.getElementById('vizMenuDropdown'); if(d) d.classList.toggle('open'); }
+  document.addEventListener('click',function(e){ if(!e.target.closest('.viz-menu')){ var d=document.getElementById('vizMenuDropdown'); if(d) d.classList.remove('open'); } });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ var d=document.getElementById('vizMenuDropdown'); if(d) d.classList.remove('open'); } });
+
+  var savedTheme = localStorage.getItem('viz-theme');
+  var currentTheme = savedTheme || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light':'dark');
+  function applyTheme(t){
+    document.documentElement.className='theme-'+t;
+    document.getElementById('themeIcon').textContent = t==='dark'?'🌙':'☀️';
+    document.getElementById('themeLabel').textContent = t==='dark'?'다크':'라이트';
+    localStorage.setItem('viz-theme',t); currentTheme=t;
+    if (typeof onThemeChange==='function') onThemeChange();
+  }
+  function cycleTheme(){ applyTheme(currentTheme==='dark'?'light':'dark'); }
+
+  // ===== DATA: OECD SPASTT01KRM661N (2015=100) × 20.1 =====
+  var SERIES = [
+    ['1998.01',475],['1998.02',525],['1998.03',523],['1998.04',444],['1998.05',356],['1998.06',313],
+    ['1998.07',328],['1998.08',313],['1998.09',312],['1998.10',359],['1998.11',429],['1998.12',524],
+    ['1999.01',597],['1999.02',533],['1999.03',586],['1999.04',721],['1999.05',745],['1999.06',841],
+    ['1999.07',971],['1999.08',933],['1999.09',926],['1999.10',828],['1999.11',950],['1999.12',984],
+    ['2000.01',956],['2000.02',904],['2000.03',876],['2000.04',783],['2000.05',724],['2000.06',795],
+    ['2000.07',795],['2000.08',721],['2000.09',627],['2000.10',550],['2000.11',544],['2000.12',522],
+    ['2001.01',587],['2001.02',593],['2001.03',545],['2001.04',528],['2001.05',599],['2001.06',602],
+    ['2001.07',554],['2001.08',568],['2001.09',504],['2001.10',517],['2001.11',605],['2001.12',666],
+    ['2002.01',737],['2002.02',769],['2002.03',862],['2002.04',895]
+  ];
+  var PEAK = 984;
+
+  // 국면 전환점 (라벨 표시)
+  var MARKS = {
+    '1998.06':{t:'IMF 저점 313',dy:26,c:'neg'},
+    '1998.12':{t:'금융장세 524',dy:-14,c:'txt'},
+    '1999.07':{t:'1차 고점 971',dy:-18,c:'acc'},
+    '1999.10':{t:'조정 828',dy:26,c:'txt'},
+    '1999.12':{t:'정점 984',dy:-18,c:'acc'},
+    '2000.04':{t:'붕괴 시작 783',dy:26,c:'neg'},
+    '2000.07':{t:'2차 랠리 795 (81%)',dy:-16,c:'acc'},
+    '2000.12':{t:'반토막 522',dy:26,c:'neg'},
+    '2001.09':{t:'최종 저점 504',dy:26,c:'neg'},
+    '2002.04':{t:'회복 895',dy:-16,c:'pos'}
+  };
+
+  var RANGES = {
+    rally: { from:'1998.01', to:'2000.12',
+      note:'<b>1998~2000</b> — IMF 저점에서 닷컴 정점까지의 랠리와 그 직후 붕괴 구간입니다. 1999년 7월에 이미 정점의 98.7%에 도달했다는 점, 그리고 2000년 6~7월 2차 랠리가 정점의 80.8%에서 멈췄다는 점이 핵심입니다.' },
+    full: { from:'1998.01', to:'2002.04',
+      note:'<b>1998~2002 전체 사이클</b> — 붕괴는 정점(1999.12)에서 최종 저점(2001.9)까지 <b>21개월</b>, 낙폭 −48.8%(월평균 기준)였습니다. 2002년 4월까지 저점 대비 +78% 반등했지만, 1999년 정점을 실제로 회복한 것은 2005년입니다.' }
+  };
+
+  var BAND_FROM='1998.06', BAND_TO='1999.12';
+
+  // ===== annotation plugin =====
+  var anno = {
+    id:'anno',
+    beforeDatasetsDraw:function(chart){
+      // 랠리 구간 음영
+      var xs=chart.scales.x, ys=chart.scales.y, ctx=chart.ctx;
+      if(!xs||!ys) return;
+      var labs=chart.data.labels;
+      var i1=labs.indexOf(BAND_FROM), i2=labs.indexOf(BAND_TO);
+      if(i1<0||i2<0) return;
+      ctx.save();
+      ctx.fillStyle=cv('--band');
+      var x1=xs.getPixelForValue(i1), x2=xs.getPixelForValue(i2);
+      ctx.fillRect(x1, ys.top, x2-x1, ys.bottom-ys.top);
+      ctx.strokeStyle=hexA(cv('--accent'),0.28); ctx.setLineDash([4,4]); ctx.lineWidth=1;
+      ctx.beginPath(); ctx.moveTo(x1,ys.top); ctx.lineTo(x1,ys.bottom);
+      ctx.moveTo(x2,ys.top); ctx.lineTo(x2,ys.bottom); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle=hexA(cv('--accent'),0.85); ctx.font='700 11.5px Inter, sans-serif'; ctx.textAlign='center';
+      ctx.fillText('닷컴 랠리 +214% / 18개월', (x1+x2)/2, ys.top+16);
+      ctx.restore();
+    },
+    afterDatasetsDraw:function(chart){
+      var xs=chart.scales.x, ys=chart.scales.y, ctx=chart.ctx;
+      if(!xs||!ys) return;
+      var labs=chart.data.labels, data=chart.data.datasets[0].data;
+      var accent=cv('--accent'), neg=cv('--negative'), pos=cv('--positive'), txt=cv('--text-secondary'), surf=cv('--surface');
+      var narrow = (xs.width < 620);
+      ctx.save();
+      labs.forEach(function(l,i){
+        var m=MARKS[l]; if(!m) return;
+        var col = m.c==='acc'?accent : m.c==='neg'?neg : m.c==='pos'?pos : txt;
+        var x=xs.getPixelForValue(i), y=ys.getPixelForValue(data[i]);
+        ctx.beginPath(); ctx.arc(x,y,5.5,0,Math.PI*2); ctx.fillStyle=col; ctx.fill();
+        ctx.strokeStyle=surf; ctx.lineWidth=2; ctx.stroke();
+        if(narrow) return;
+        ctx.fillStyle=col; ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif';
+        ctx.textAlign = (i > labs.length*0.82) ? 'right' : (i < labs.length*0.08 ? 'left' : 'center');
+        ctx.fillText(m.t, x, y + m.dy);
+      });
+      ctx.restore();
+    }
+  };
+
+  var chart=null, currentRange='rally';
+  function cv(n){ return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); }
+  function hexA(h,a){
+    h=(h||'').trim(); if(h.charAt(0)!=='#') return h;
+    if(h.length===4) h='#'+h[1]+h[1]+h[2]+h[2]+h[3]+h[3];
+    var n=parseInt(h.slice(1),16);
+    return 'rgba('+((n>>16)&255)+','+((n>>8)&255)+','+(n&255)+','+a+')';
+  }
+
+  function buildChart(){
+    if (typeof Chart==='undefined'){ console.error('Chart.js not loaded'); return; }
+    var el=document.getElementById('kospiChart'); if(!el) return;
+    if(chart){ try{chart.destroy();}catch(e){} chart=null; }
+
+    var r=RANGES[currentRange];
+    var i1=0,i2=SERIES.length-1,i;
+    for(i=0;i<SERIES.length;i++){ if(SERIES[i][0]===r.from) i1=i; if(SERIES[i][0]===r.to) i2=i; }
+    var slice=SERIES.slice(i1,i2+1);
+    var labels=slice.map(function(d){return d[0];});
+    var vals=slice.map(function(d){return d[1];});
+
+    var text=cv('--text'), tsec=cv('--text-secondary'), grid=cv('--grid'), accent=cv('--accent');
+
+    chart=new Chart(el,{
+      type:'line',
+      plugins:[anno],
+      data:{ labels:labels, datasets:[{
+        label:'코스피 (월평균 환산)', data:vals,
+        borderColor:accent, backgroundColor:hexA(accent,0.13),
+        borderWidth:3.2, tension:.3, pointRadius:0, pointHoverRadius:6, fill:true
+      }]},
+      options:{
+        responsive:true, maintainAspectRatio:false,
+        layout:{ padding:{ top:30, right:16, bottom:4, left:4 } },
+        animation:{ duration:1000, easing:'easeOutQuart' },
+        interaction:{ mode:'index', intersect:false },
+        plugins:{
+          legend:{ display:false },
+          tooltip:{ enabled:true, padding:12, cornerRadius:8,
+            titleFont:{size:13,family:'Inter'}, bodyFont:{size:13,family:'Noto Sans KR'},
+            callbacks:{
+              label:function(c){
+                return ' 코스피 '+c.parsed.y.toLocaleString()+'  (정점 대비 '+(c.parsed.y/PEAK*100).toFixed(1)+'%)';
+              },
+              afterLabel:function(c){ var m=MARKS[c.label]; return m ? ' ▸ '+m.t.replace(/\s\d[\d,]*.*$/,'') : ''; }
+            } }
+        },
+        scales:{
+          x:{ ticks:{color:tsec,font:{family:'Inter',size:11.5},maxRotation:0,autoSkip:true,maxTicksLimit:12},
+              grid:{color:grid} },
+          y:{ beginAtZero:false, suggestedMin:250,
+              title:{display:true,text:'코스피 (월평균 환산)',color:tsec,font:{family:'Noto Sans KR',size:13}},
+              ticks:{color:tsec,font:{family:'Inter',size:12},callback:function(v){return v.toLocaleString();}},
+              grid:{color:grid} }
+        }
+      }
+    });
+  }
+  function onThemeChange(){ buildChart(); }
+
+  function setRange(kind,btn){
+    currentRange=kind;
+    document.querySelectorAll('.rng button').forEach(function(b){ b.classList.remove('on'); });
+    if(btn) btn.classList.add('on');
+    document.getElementById('rangeNote').innerHTML = RANGES[kind].note;
+    buildChart();
+  }
+
+  document.querySelectorAll('[data-reveal]').forEach(function(el){ el.classList.add('reveal'); });
+  var ro=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); ro.unobserve(e.target); } }); },{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(function(el){ ro.observe(el); });
+
+  async function downloadImage(){
+    var menu=document.querySelector('.viz-menu'); menu.style.display='none';
+    try{
+      var url=await htmlToImage.toPng(document.body,{quality:1,pixelRatio:2,backgroundColor:cv('--bg')});
+      var a=document.createElement('a'); a.href=url; a.download='kospi-1998-2000-dotcom.png'; a.click();
+    }catch(e){ console.error(e); }
+    menu.style.display='';
+  }
+
+  applyTheme(currentTheme);
+  document.getElementById('rangeNote').innerHTML = RANGES.rally.note;
+  if(document.readyState==='complete'){ buildChart(); } else { window.addEventListener('load', buildChart); }
+</script>
+</body>
+</html>
