@@ -74,19 +74,33 @@ ol.watch li::marker{color:var(--accent);font-weight:800}
 footer{margin-top:52px;border-top:1px solid var(--border);padding-top:24px;color:var(--text-secondary);font-size:.82rem;line-height:1.7}
 .toggle{position:fixed;top:18px;right:18px;width:42px;height:42px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:18px}
 @media(max-width:720px){.camps{grid-template-columns:1fr}h1{font-size:2.1rem}.fal{flex-wrap:wrap}}
+
+/* --- 사이트 공통 텍스트 메뉴 --- */
+nav.site-tabs{display:flex;gap:7px;margin:0 0 28px;flex-wrap:wrap;align-items:center}
+nav.site-tabs a{text-decoration:none;font-size:.84rem;font-weight:600;padding:7px 14px;border-radius:10px;
+  color:var(--text-secondary);border:1px solid var(--border);background:var(--surface);transition:.15s;white-space:nowrap}
+nav.site-tabs a:hover{color:var(--text)}
+nav.site-tabs a.active{color:#fff;background:#2563eb;border-color:#2563eb}
+@media(max-width:720px){nav.site-tabs a{font-size:.78rem;padding:6px 11px}}
 </style></head><body>
 <button class="toggle" onclick="var h=document.documentElement;h.className=h.className==='theme-light'?'theme-dark':'theme-light'">&#9728;</button>
 <div class="wrap">
-<nav class="tabs">
-  <a class="navtab" href="index.html">50일 이격도</a>
-  <a class="navtab" href="bottom-top.html">바닥·천장 추적</a>
-  <a class="navtab active" href="peak-debate.html">반도체 정점 논쟁</a>
-  <a class="navtab" href="jeonjo.html">공황 전조현상</a>
-</nav>
+  <nav class="site-tabs" aria-label="페이지 메뉴">
+    <a href="index.html">홈</a>
+    <a href="kospi-skhynix.html">코스피·하이닉스</a>
+    <a href="bottom-top.html">바닥·천장 추적</a>
+    <a href="kospi-dotcom-1998-2000.html">닷컴 랠리</a>
+    <a class="active" href="peak-debate.html">반도체 정점 논쟁</a>
+    <a href="jeonjo.html">공황 전조현상</a>
+    <a href="ecopro.html">에코프로</a>
+    <a href="hanmi.html">한미반도체</a>
+    <a href="samsung-em.html">삼성전기</a>
+  </nav>
+
 <div class="eyebrow">찰리 기술적 분석 · Semiconductor Peak Debate</div>
 <h1>반도체 정점 논쟁</h1>
 <p class="sub">"반도체는 정점을 찍었는가." 시투 주간보고서와 KB 이그전 리포트가 나올 때마다 판단을 갱신하고, <b>바뀐 근거와 틀렸던 부분을 지우지 않고 누적</b>합니다. 결론보다 중요한 것은 <b>내가 틀릴 조건</b>입니다.</p>
-<div class="upd">최종 갱신: <b>2026-07-25</b> · 누적 4건</div>
+<div class="upd">최종 갱신: <b>2026-07-26</b> · 누적 5건</div>
 
 <div class="stance">
   <div class="lbl">현재 판단</div>
@@ -96,15 +110,15 @@ footer{margin-top:52px;border-top:1px solid var(--border);padding-top:24px;color
     <div class="specbar"><div class="specdot" style="left:62%"></div></div>
     <div class="speclab"><span>&#9664; 정점 확정 (이야기꾼)</span><span>아직 진행 중 (이은택) &#9654;</span></div>
   </div>
-  <div class="note">이번 주 자료로 이은택 쪽에 조금 더 가까워졌으나, 그의 낙관이 기대는 '완화적 연준' 전제가 W30의 금리 지표로 흔들리고 있어 확신도는 올리지 않음.</div>
+  <div class="note">이번 주 자료로 이은택 쪽에 조금 더 가까워졌으나, 그의 낙관이 기대는 '완화적 연준' 전제가 W30의 금리 지표로 흔들리고 있어 확신도는 올리지 않음. 또한 닷컴 오버레이 결과, 2차 물결이 오더라도 지수는 신고가가 아닌 '낮은 고점'에 그칠 가능성이 크다.</div>
 </div>
 
 <h2 class="sec">두 전문가가 정면으로 갈린다</h2>
 <div class="camps"><div class="camp" style="--c:#ef4444"><div class="who">이야기꾼 (시투 W30)</div><div class="view">코스피 상승장 마감 수순</div><ul><li>"빅테크·마이크론 속속 대세 상승 마감"</li><li>내년 중공황이 서서히 시작(전망 불변)</li><li>단 1999년식 2차 랠리·이중 천장 가능성 병기</li></ul></div><div class="camp" style="--c:#2563eb"><div class="who">이은택 (KB 이그전 7/9·7/22)</div><div class="view">조정은 비중확대 기회</div><ul><li>이익증가율 둔화는 기저효과일 뿐</li><li>핵심 지표는 영업이익률 — 추정 정점은 4Q</li><li>KB 매크로 슈퍼사이클, 아직 추세적 하락 아님</li></ul><a class="src" href="https://blog.naver.com/egzion/224354308860" target="_blank" rel="noopener">탑다운 #2 원문 보기 &#8599;</a></div></div>
 
 <h2 class="sec">핵심 증거 — '증가율 고점'에서 '주가 고점'까지의 시차</h2>
-<table><thead><tr><th>사례</th><th>지표 고점</th><th>주가 고점</th><th>시차</th></tr></thead><tbody><tr><td class="nm">SK하이닉스 2013</td><td>EPS 증가율 고점 2013-09</td><td>주가 고점 2014-07</td><td class="lag">약 10개월</td></tr><tr><td class="nm">SK하이닉스 2017</td><td>EPS 증가율 고점 2017-08</td><td>주가 고점 2018-05</td><td class="lag">약 9개월</td></tr><tr><td class="nm">한미반도체 (자체 실측)</td><td>이격도 1차 정점 2023-07</td><td>주가 고점 2024-06</td><td class="lag">약 11개월</td></tr></tbody></table>
-<div class="note">세 사례가 9~11개월로 수렴. 지표가 꺾인 시점은 '정점이 왔다'가 아니라 '정점 국면에 진입했다'는 신호.</div>
+<table><thead><tr><th>사례</th><th>지표 고점</th><th>주가 고점</th><th>시차</th></tr></thead><tbody><tr><td class="nm">SK하이닉스 2013</td><td>EPS 증가율 고점 2013-09</td><td>주가 고점 2014-07</td><td class="lag">약 10개월</td></tr><tr><td class="nm">SK하이닉스 2017</td><td>EPS 증가율 고점 2017-08</td><td>주가 고점 2018-05</td><td class="lag">약 9개월</td></tr><tr><td class="nm">한미반도체 (자체 실측)</td><td>이격도 1차 정점 2023-07</td><td>주가 고점 2024-06</td><td class="lag">약 11개월</td></tr><tr><td class="nm">코스피 닷컴 (지수)</td><td>저점 대비 M+13 1차 고점</td><td>M+18 정점 · 2차 랠리는 80.8%</td><td class="lag">약 5개월</td></tr></tbody></table>
+<div class="note">세 개별주 사례가 9~11개월로 수렴. 다만 <b>지수는 다르다</b> — 코스피 닷컴은 1차 고점(M+13)에서 정점(M+18)까지 5개월이었고, 정점 후 2차 랠리는 신고가가 아니라 정점의 80.8%에서 멈췄다. 지표가 꺾인 시점은 '정점이 왔다'가 아니라 '정점 국면에 진입했다'는 신호다.</div>
 
 <h2 class="sec">내가 틀릴 조건 (반증 조건)</h2>
 <div class="note" style="margin-top:6px">결론만 적는 글은 검증할 수 없습니다. 이 견해가 깨지는 조건을 미리 적어두고 매주 상태를 갱신합니다.</div>
@@ -114,7 +128,7 @@ footer{margin-top:52px;border-top:1px solid var(--border);padding-top:24px;color
 <ol class="watch"><li>반도체 영업이익률 전망 + KB 매크로 슈퍼사이클 (동반 둔화 여부)</li><li>금리 — 미 장기채 4.7%·모기지 6.7%·유가 90불. 4분기 인상 현실화 여부</li><li>AI 인프라 크레딧 — 오라클 CDS, 빅테크 CDS, 하이퍼스케일러 FCF</li><li>아마존·메타 실적의 '투자 의지' (수치가 아니라 톤)</li></ol>
 
 <h2 class="sec">판단 누적 로그</h2>
-<div class="timeline"><div class="entry"><div class="ehead"><span class="edate">2026-07-20</span><span class="ekind">시투 W29</span><span class="econf">확신도 중간</span></div><h3>최초 판단 — 정점 국면 진입, 그러나 최종 정점은 아니다</h3><div class="ebody">이번 주 데이터 중 가장 무겁게 본 것은 이격도나 SOX 하락률이 아니라 <b>TSMC가 CAPEX·매출 전망을 동시에 올리고도 −3.64% 빠진 것</b>이다. 하락률은 결과지만, 호재가 안 먹히는 건 한계 매수자가 사라졌다는 뜻이다.<br><br>반면 실물은 반대를 가리킨다. 메모리 매출은 사상 최대이고, 하닉 −15.4%의 방아쇠도 적자가 아니라 “역대급 이익인데 컨센서스 대비 −8%”였다. 실적 훼손이 아니라 <b>기대치 과잉 반영</b>의 문제다.</div><div class="delta">변경 — 반증조건 4개 최초 설정</div></div><div class="entry"><div class="ehead"><span class="edate">2026-07-20</span><span class="ekind">이그전 「Gravity Rules」</span><span class="econf">결론 유지, 감시 대상 변경</span></div><h3>보론 — '자본공급자' 프레임을 받아들인다</h3><div class="ebody">원래 나는 “하이퍼스케일러가 CAPEX를 하향하면 사이클 종료”라고 썼다. 이은택의 명제가 더 낫다. AI는 스케일링 법칙 탓에 자율 감속이 안 되므로 <b>CAPEX 하향은 가장 늦게 오는 신호</b>이고, 먼저 오는 건 자금조달 조건의 악화다.<br><br>그래서 볼 곳을 옮긴다. 오피스 CMBS보다 <b>오라클·코어위브·소프트뱅크의 크레딧</b>, 그리고 하이퍼스케일러 선행 FCF가 더 빠른 뇌관일 수 있다.</div><div class="q">빅테크는 못 멈춰도 자본공급자는 멈출 수 있다. — KB증권 이은택</div></div><div class="entry"><div class="ehead"><span class="edate">2026-07-25</span><span class="ekind">시투 W30</span><span class="econf">확신도 중간 → 소폭 하향</span></div><h3>검증 ① — 확장한 감시 항목이 5일 만에 적중</h3><div class="ebody">W30에 <b>“오라클의 CDS는 계속 상승하며 위태로운 모습을 지속”</b>, <b>“MS·구글·아마존 CDS도 동반 상승”</b>이 실렸다. 감시 대상을 AI 인프라 크레딧으로 옮긴 판단이 맞았다. 다만 MOVE는 바닥권이라 “시스템 리스크가 아니라 자산가격 조정”이라는 진단도 아직 유효하다.<br><br>이야기꾼도 1999년 사례를 직접 들며 <b>“중공황은 최소한 이중 천장이 필요하다”</b>고 썼다. 내 '2차 물결' 가설과 같은 구조다. W29의 단정에서 여지를 넓힌 것이다.<br><br>다만 나는 <b>금리를 과소평가했다.</b> 장기채 4.7%·모기지 6.7%는 중공황 금리 프로세스의 1단계다.</div><div class="delta">변경 — 새 근거: 삼전·하닉 12m fwd PER 4.4배·4.7배 / 감시에 금리 추가</div></div><div class="entry"><div class="ehead"><span class="edate">2026-07-25</span><span class="ekind">이그전 탑다운 1·2 + 구글 실적</span><span class="econf">이은택 쪽으로 소폭 이동, 확신도는 유지</span></div><h3>검증 ② — 반증조건 ①을 교체한다</h3><div class="ebody"><b>내가 틀렸던 부분:</b> 나는 “DRAM 현물가”를 1순위 반증조건으로 뒀는데, 이은택의 지적이 더 정확하다. 중요한 건 가격이나 증가율이 아니라 <b>영업이익률</b>이다. 마진은 관측 불가능한 수요·공급의 미세한 균형을 이미 반영하기 때문이다.<br><br>그리고 내 '2차 물결' 가설이 <b>정량적으로 뒷받침됐다</b> — 2013년 10개월, 2017년 9개월, 한미반도체 11개월. 세 사례가 수렴하는 건 우연으로 보기 어렵다.<br><br>구글 FCF가 사상 첫 마이너스로 전환해 <b>확장 기준 ④가 발생</b>했다. 단 1999년 월드컴은 매출이 정체된 상태였던 반면 구글은 클라우드 +82%·수주잔고 5,140억 달러다. <b>FCF 마이너스 자체보다, 그것을 감당할 성장이 있느냐가 관건이다.</b></div><div class="q">확인해야 할 것은 현금흐름이 아니라, 투자 의지가 꺾였는가다. — KB증권 이은택</div><div class="delta">변경 — 반증조건 ① 교체: DRAM 현물가 → 영업이익률 + KB 매크로 슈퍼사이클</div><div class="srcs"><span class="srclbl">원문</span><a class="src" href="https://blog.naver.com/egzion/224341195034" target="_blank" rel="noopener">이그전 · 반도체 고점 탑다운 #1 (7/9) &#8599;</a><a class="src" href="https://blog.naver.com/egzion/224354308860" target="_blank" rel="noopener">이그전 · 반도체 고점 탑다운 #2 (7/22) &#8599;</a><a class="src" href="https://blog.naver.com/egzion/224356264780" target="_blank" rel="noopener">이그전 · 구글 실적 총평 (7/24) &#8599;</a></div></div></div>
+<div class="timeline"><div class="entry"><div class="ehead"><span class="edate">2026-07-20</span><span class="ekind">시투 W29</span><span class="econf">확신도 중간</span></div><h3>최초 판단 — 정점 국면 진입, 그러나 최종 정점은 아니다</h3><div class="ebody">이번 주 데이터 중 가장 무겁게 본 것은 이격도나 SOX 하락률이 아니라 <b>TSMC가 CAPEX·매출 전망을 동시에 올리고도 −3.64% 빠진 것</b>이다. 하락률은 결과지만, 호재가 안 먹히는 건 한계 매수자가 사라졌다는 뜻이다.<br><br>반면 실물은 반대를 가리킨다. 메모리 매출은 사상 최대이고, 하닉 −15.4%의 방아쇠도 적자가 아니라 “역대급 이익인데 컨센서스 대비 −8%”였다. 실적 훼손이 아니라 <b>기대치 과잉 반영</b>의 문제다.</div><div class="delta">변경 — 반증조건 4개 최초 설정</div></div><div class="entry"><div class="ehead"><span class="edate">2026-07-20</span><span class="ekind">이그전 「Gravity Rules」</span><span class="econf">결론 유지, 감시 대상 변경</span></div><h3>보론 — '자본공급자' 프레임을 받아들인다</h3><div class="ebody">원래 나는 “하이퍼스케일러가 CAPEX를 하향하면 사이클 종료”라고 썼다. 이은택의 명제가 더 낫다. AI는 스케일링 법칙 탓에 자율 감속이 안 되므로 <b>CAPEX 하향은 가장 늦게 오는 신호</b>이고, 먼저 오는 건 자금조달 조건의 악화다.<br><br>그래서 볼 곳을 옮긴다. 오피스 CMBS보다 <b>오라클·코어위브·소프트뱅크의 크레딧</b>, 그리고 하이퍼스케일러 선행 FCF가 더 빠른 뇌관일 수 있다.</div><div class="q">빅테크는 못 멈춰도 자본공급자는 멈출 수 있다. — KB증권 이은택</div></div><div class="entry"><div class="ehead"><span class="edate">2026-07-25</span><span class="ekind">시투 W30</span><span class="econf">확신도 중간 → 소폭 하향</span></div><h3>검증 ① — 확장한 감시 항목이 5일 만에 적중</h3><div class="ebody">W30에 <b>“오라클의 CDS는 계속 상승하며 위태로운 모습을 지속”</b>, <b>“MS·구글·아마존 CDS도 동반 상승”</b>이 실렸다. 감시 대상을 AI 인프라 크레딧으로 옮긴 판단이 맞았다. 다만 MOVE는 바닥권이라 “시스템 리스크가 아니라 자산가격 조정”이라는 진단도 아직 유효하다.<br><br>이야기꾼도 1999년 사례를 직접 들며 <b>“중공황은 최소한 이중 천장이 필요하다”</b>고 썼다. 내 '2차 물결' 가설과 같은 구조다. W29의 단정에서 여지를 넓힌 것이다.<br><br>다만 나는 <b>금리를 과소평가했다.</b> 장기채 4.7%·모기지 6.7%는 중공황 금리 프로세스의 1단계다.</div><div class="delta">변경 — 새 근거: 삼전·하닉 12m fwd PER 4.4배·4.7배 / 감시에 금리 추가</div></div><div class="entry"><div class="ehead"><span class="edate">2026-07-25</span><span class="ekind">이그전 탑다운 1·2 + 구글 실적</span><span class="econf">이은택 쪽으로 소폭 이동, 확신도는 유지</span></div><h3>검증 ② — 반증조건 ①을 교체한다</h3><div class="ebody"><b>내가 틀렸던 부분:</b> 나는 “DRAM 현물가”를 1순위 반증조건으로 뒀는데, 이은택의 지적이 더 정확하다. 중요한 건 가격이나 증가율이 아니라 <b>영업이익률</b>이다. 마진은 관측 불가능한 수요·공급의 미세한 균형을 이미 반영하기 때문이다.<br><br>그리고 내 '2차 물결' 가설이 <b>정량적으로 뒷받침됐다</b> — 2013년 10개월, 2017년 9개월, 한미반도체 11개월. 세 사례가 수렴하는 건 우연으로 보기 어렵다.<br><br>구글 FCF가 사상 첫 마이너스로 전환해 <b>확장 기준 ④가 발생</b>했다. 단 1999년 월드컴은 매출이 정체된 상태였던 반면 구글은 클라우드 +82%·수주잔고 5,140억 달러다. <b>FCF 마이너스 자체보다, 그것을 감당할 성장이 있느냐가 관건이다.</b></div><div class="q">확인해야 할 것은 현금흐름이 아니라, 투자 의지가 꺾였는가다. — KB증권 이은택</div><div class="delta">변경 — 반증조건 ① 교체: DRAM 현물가 → 영업이익률 + KB 매크로 슈퍼사이클</div><div class="srcs"><span class="srclbl">원문</span><a class="src" href="https://blog.naver.com/egzion/224341195034" target="_blank" rel="noopener">이그전 · 반도체 고점 탑다운 #1 (7/9) &#8599;</a><a class="src" href="https://blog.naver.com/egzion/224354308860" target="_blank" rel="noopener">이그전 · 반도체 고점 탑다운 #2 (7/22) &#8599;</a><a class="src" href="https://blog.naver.com/egzion/224356264780" target="_blank" rel="noopener">이그전 · 구글 실적 총평 (7/24) &#8599;</a></div></div><div class="entry"><div class="ehead"><span class="edate">2026-07-26</span><span class="ekind">자체 실측 · 닷컴 오버레이</span><span class="econf">결론 유지, 근거 보강</span></div><h3>검증 ③ — 지수 차원에서도 '2차 물결'의 형태가 보인다</h3><div class="ebody">1998~2000 닷컴 랠리(OECD 월평균)와 현재 코스피를 <b>각자의 저점 = 100</b>으로 맞춰 겹쳐봤다. 닷컴은 1998.06(313), 현재는 2025.04(2,472)가 기준점이다.<br><br><b>진행도가 놀랍도록 겹친다.</b> M+13에서 닷컴 310.2 vs 현재 311.7, M+15에서 295.8 vs 293.6이다. 다만 경로가 다르다 — 현재는 M+14에 <b>342.6</b>까지 더 가파르게 올라 닷컴 정점(314, M+18)을 이미 넘었다가 한 달 만에 급락했다. 닷컴이 M+13 1차 고점 이후 완만히 흘렀던 것과 대조적이다.<br><br>중요한 건 그 다음이다. 닷컴은 M+16에 −11% 조정을 거친 뒤 <b>M+17~18에 재상승해 신고가</b>를 만들었다. 이중 천장이다. 그리고 정점 후 M+30까지 <b>−47%</b> 붕괴했다.<br><br>여기서 개별주와 지수의 차이가 드러난다. [[한미반도체]]는 1차 정점 후 <b>4배</b>가 더 올랐지만, 지수의 2차 랠리는 정점의 <b>80.8%</b>에서 멈췄다. <b>2차 물결이 오더라도 지수는 신고가를 못 낼 수 있다</b>는 뜻이다. 내 '2차 물결' 가설을 지지하면서 동시에 그 <b>상단을 제한</b>하는 증거다.</div><div class="delta">변경 — '2차 물결' 기대치 하향 — 개별주형(신고가)이 아니라 지수형(낮은 고점)일 가능성</div><div class="srcs"><span class="srclbl">원문</span><a class="src" href="kospi-dotcom-1998-2000.html" target="_blank" rel="noopener">닷컴 랠리 1998~2000 덱 (오버레이 차트) &#8599;</a></div></div></div>
 
 <footer><p>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 저는 재무 상담사가 아니며, 투자의 최종 판단과 책임은 투자자 본인에게 있습니다. · 근거: 이야기꾼 주간 시투 보고서, KB증권 이그전 리포트, 자체 이격도·주가 실측.</p></footer>
 </div>

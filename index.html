@@ -35,9 +35,29 @@ footer{margin-top:56px;border-top:1px solid var(--border);padding-top:24px;color
 footer a{color:var(--accent);text-decoration:none}
 .toggle{position:fixed;top:18px;right:18px;width:42px;height:42px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:18px}
 @media(max-width:720px){.grid{grid-template-columns:1fr}.card.feat{grid-column:span 1}h1{font-size:2.2rem}.chart-box{height:320px}}
+
+/* --- 사이트 공통 텍스트 메뉴 --- */
+nav.site-tabs{display:flex;gap:7px;margin:0 0 28px;flex-wrap:wrap;align-items:center}
+nav.site-tabs a{text-decoration:none;font-size:.84rem;font-weight:600;padding:7px 14px;border-radius:10px;
+  color:var(--text-secondary);border:1px solid var(--border);background:var(--surface);transition:.15s;white-space:nowrap}
+nav.site-tabs a:hover{color:var(--text)}
+nav.site-tabs a.active{color:#fff;background:#2563eb;border-color:#2563eb}
+@media(max-width:720px){nav.site-tabs a{font-size:.78rem;padding:6px 11px}}
 </style></head><body>
 <button class="toggle" onclick="var h=document.documentElement;h.className=h.className==='theme-light'?'theme-dark':'theme-light';if(window.rebuild)window.rebuild()">☀</button>
 <div class="wrap">
+  <nav class="site-tabs" aria-label="페이지 메뉴">
+    <a class="active" href="index.html">홈</a>
+    <a href="kospi-skhynix.html">코스피·하이닉스</a>
+    <a href="bottom-top.html">바닥·천장 추적</a>
+    <a href="kospi-dotcom-1998-2000.html">닷컴 랠리</a>
+    <a href="peak-debate.html">반도체 정점 논쟁</a>
+    <a href="jeonjo.html">공황 전조현상</a>
+    <a href="ecopro.html">에코프로</a>
+    <a href="hanmi.html">한미반도체</a>
+    <a href="samsung-em.html">삼성전기</a>
+  </nav>
+
 <div class="eyebrow">찰리 기술적 분석 · Disparity Index</div>
 <h1>50일 이격도 분석 대시보드</h1>
 <p class="sub">50일 이격도로 과열·과매도를 진단합니다. 라이브 이격도·바닥천장 분석, 매주 누적되는 <b>반도체 정점 논쟁</b>과 <b>중공황 전조현상</b> 점검, 과거 테마주 사이클 케이스 스터디, 그리고 닷컴(1999)·AI(2026) 버블 비교까지 한곳에서 봅니다.</p>
@@ -46,16 +66,17 @@ footer a{color:var(--accent);text-decoration:none}
 
 <a class="card" href="bottom-top.html" style="margin-top:20px;display:block;border-left:4px solid #6d28d9"><span class="tag" style="background:color-mix(in srgb,#6d28d9 14%,transparent);color:#6d28d9">분석 툴 · 라이브</span><h2>바닥·천장 추적 분석</h2><p>이격도와 다른 각도의 3종 도구 — <b>분산일 카운트</b>(천장 경고)·<b>FTD/항복 거래량</b>(바닥 확인)·<b>미너비니 추세 템플릿</b>(국면 판정). 현재 분산일 코스피 8·하이닉스 9개, 7/23 코스피 FTD가 7/24 급락으로 실패.</p><span class="arrow" style="color:#6d28d9">덱 열기 →</span></a>
 
+<a class="card" href="kospi-dotcom-1998-2000.html" style="margin-top:20px;display:block;border-left:4px solid #F0B429"><span class="tag" style="background:color-mix(in srgb,#F0B429 16%,transparent);color:#b8860b">아카이브 · 지수</span><h2>코스피 닷컴 랠리 1998~2000</h2><p>IMF 저점(313)에서 닷컴 정점(984)까지 18개월 <b>+214%</b>. 1999년 안에 이미 <b>이중 천장</b>, 2차 랠리는 정점의 <b>80.8%</b>에서 멈춤. <b>2025.04 저점 기준 현재 코스피를 같은 자리에 겹친 오버레이</b> 포함 — M+15에서 닷컴 295.8 vs 현재 293.6으로 진행도가 거의 일치.</p><span class="arrow" style="color:#b8860b">덱 열기 →</span></a>
+
 <a class="card" href="peak-debate.html" style="margin-top:20px;display:block;border-left:4px solid #2563eb"><span class="tag">누적 분석 · 라이브</span><h2>반도체 정점 논쟁</h2><p>"반도체는 정점을 찍었는가." 시투 주간보고서와 KB 이그전 리포트가 나올 때마다 판단을 갱신하고 <b>틀렸던 부분까지 지우지 않고 누적</b>합니다. 현재 판단은 <b>"1차 정점은 맞다, 최종 정점 단정은 이르다"</b> — 이야기꾼(마감 수순)과 이은택(비중확대 기회)이 정면으로 갈리는 지점, 그리고 <b>내가 틀릴 조건 4가지</b>의 주간 상태를 함께 추적합니다.</p><span class="arrow">논쟁 열기 →</span></a>
 
 <a class="card" href="jeonjo.html" style="margin-top:20px;display:block;border-left:4px solid #ef4444"><span class="tag" style="background:color-mix(in srgb,#ef4444 14%,transparent);color:#ef4444">위험 · W30</span><h2>중공황 전조현상 현황</h2><p>이야기꾼 주간 시투 보고서 근거로 전조현상 28종을 매주 점검. 2026-07-25(W30) 기준 <b>13 점등 · 1급 점등 7</b> — 점등 수는 유지되나 과열·심리 지표가 식고 <b>장단기 금리차</b>가 신규 점등. 오라클·빅테크 CDS 상승으로 AI 인프라 크레딧 경보.</p><span class="arrow" style="color:#ef4444">현황 열기 →</span></a>
 
 <h2 style="margin-top:44px">과거 사이클 케이스 스터디</h2>
-<div class="grid" style="margin-top:20px;grid-template-columns:repeat(2,1fr)">
+<div class="grid" style="margin-top:20px;grid-template-columns:repeat(3,1fr)">
   <a class="card" href="ecopro.html"><span class="tag">케이스 스터디</span><h2>에코프로</h2><p>2022~2023 · 2차전지 파라볼릭. 이격도 최고 230 → 최저 63.6.</p><span class="arrow">덱 열기 →</span></a>
   <a class="card" href="hanmi.html"><span class="tag">케이스 스터디</span><h2>한미반도체</h2><p>2023~2024 · HBM 대장주. 이격도 고점(177.6)과 가격 고점이 어긋난 사례.</p><span class="arrow">덱 열기 →</span></a>
   <a class="card" href="samsung-em.html"><span class="tag">케이스 스터디 · 라이브</span><h2>삼성전기</h2><p>2024~2026 · 주가 21배 초파라볼릭. 이격도 최고 <b>266.7</b> → 현재 79.73(침체).</p><span class="arrow">덱 열기 →</span></a>
-  <a class="card" href="kospi-dotcom-1998-2000.html"><span class="tag">케이스 스터디 · 지수</span><h2>코스피 닷컴 랠리</h2><p>1998~2000 · IMF 저점(313)에서 닷컴 정점(984)까지 18개월 <b>+214%</b>. 1999년 안에 이미 <b>이중 천장</b>(7월 971 → 10월 828 → 12월 984), 2차 랠리는 정점의 <b>80.8%</b>에서 멈춤. OECD 월별 실측.</p><span class="arrow">덱 열기 →</span></a>
 </div>
 
 <h2 style="margin-top:52px">참고 · 두 버블의 50일 이격도 비교</h2><p class="panel-cap" style="margin-top:8px;margin-bottom:-8px">2026 AI 버블(실데이터)과 1999 닷컴 버블(시뮬레이션)을 동일 스케일로 비교한 아카이브 섹션입니다.</p>

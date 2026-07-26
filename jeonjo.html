@@ -55,14 +55,29 @@ td.note{color:var(--text-secondary);font-size:.86rem;line-height:1.55}
 footer{margin-top:48px;border-top:1px solid var(--border);padding-top:24px;color:var(--text-secondary);font-size:.82rem;line-height:1.7}
 .toggle{position:fixed;top:18px;right:18px;width:42px;height:42px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:18px}
 @media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}h1{font-size:2.2rem}td.note{font-size:.8rem}}
+
+/* --- 사이트 공통 텍스트 메뉴 --- */
+nav.site-tabs{display:flex;gap:7px;margin:0 0 28px;flex-wrap:wrap;align-items:center}
+nav.site-tabs a{text-decoration:none;font-size:.84rem;font-weight:600;padding:7px 14px;border-radius:10px;
+  color:var(--text-secondary);border:1px solid var(--border);background:var(--surface);transition:.15s;white-space:nowrap}
+nav.site-tabs a:hover{color:var(--text)}
+nav.site-tabs a.active{color:#fff;background:#2563eb;border-color:#2563eb}
+@media(max-width:720px){nav.site-tabs a{font-size:.78rem;padding:6px 11px}}
 </style></head><body>
 <button class="toggle" onclick="var h=document.documentElement;h.className=h.className==='theme-light'?'theme-dark':'theme-light'">☀</button>
 <div class="wrap">
-<nav class="tabs">
-  <a class="navtab" href="index.html">50일 이격도</a>
-  <a class="navtab" href="bottom-top.html">바닥·천장 추적</a>
-  <a class="navtab active" href="jeonjo.html">공황 전조현상</a>
-</nav>
+  <nav class="site-tabs" aria-label="페이지 메뉴">
+    <a href="index.html">홈</a>
+    <a href="kospi-skhynix.html">코스피·하이닉스</a>
+    <a href="bottom-top.html">바닥·천장 추적</a>
+    <a href="kospi-dotcom-1998-2000.html">닷컴 랠리</a>
+    <a href="peak-debate.html">반도체 정점 논쟁</a>
+    <a class="active" href="jeonjo.html">공황 전조현상</a>
+    <a href="ecopro.html">에코프로</a>
+    <a href="hanmi.html">한미반도체</a>
+    <a href="samsung-em.html">삼성전기</a>
+  </nav>
+
 <div class="eyebrow">찰리 기술적 분석 · Crash Precursors</div>
 <h1>중공황 전조현상 현황</h1>
 <p class="sub">이야기꾼 주간 시투 보고서를 근거로 중공황(대폭락) 전조현상 28종을 매주 점검합니다. 점등이 늘고 특히 1급 전조가 겹칠수록 위험 신호입니다.</p>

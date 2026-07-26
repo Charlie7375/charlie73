@@ -88,7 +88,15 @@
     @page{margin:.6in;}
     @media (max-width:900px){ .kpi-grid{grid-template-columns:repeat(2,1fr);} .two-col,.three-col,.insight{grid-template-columns:1fr;} h1{font-size:2.1rem;} }
     @media (max-width:375px){ .wrap{padding:40px 16px 60px;} .kpi-grid{grid-template-columns:1fr;} .kpi .val{font-size:2rem;} }
-  </style>
+  
+/* --- 사이트 공통 텍스트 메뉴 --- */
+nav.site-tabs{display:flex;gap:7px;margin:0 0 28px;flex-wrap:wrap;align-items:center}
+nav.site-tabs a{text-decoration:none;font-size:.84rem;font-weight:600;padding:7px 14px;border-radius:10px;
+  color:var(--text-secondary);border:1px solid var(--border);background:var(--surface);transition:.15s;white-space:nowrap}
+nav.site-tabs a:hover{color:var(--text)}
+nav.site-tabs a.active{color:#fff;background:#2563eb;border-color:#2563eb}
+@media(max-width:720px){nav.site-tabs a{font-size:.78rem;padding:6px 11px}}
+</style>
 </head>
 <body>
   <div class="viz-menu">
@@ -102,6 +110,18 @@
 
   <main id="main-content" role="main">
   <div class="wrap">
+  <nav class="site-tabs" aria-label="페이지 메뉴">
+    <a href="index.html">홈</a>
+    <a class="active" href="kospi-skhynix.html">코스피·하이닉스</a>
+    <a href="bottom-top.html">바닥·천장 추적</a>
+    <a href="kospi-dotcom-1998-2000.html">닷컴 랠리</a>
+    <a href="peak-debate.html">반도체 정점 논쟁</a>
+    <a href="jeonjo.html">공황 전조현상</a>
+    <a href="ecopro.html">에코프로</a>
+    <a href="hanmi.html">한미반도체</a>
+    <a href="samsung-em.html">삼성전기</a>
+  </nav>
+
     <header class="page-head animate">
       <div class="eyebrow">찰리 기술적 분석 · 50일 이격도(Disparity Index) · 실데이터</div>
       <h1>코스피 &amp; SK하이닉스<br>50일 이격도 분석</h1>
