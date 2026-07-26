@@ -67,10 +67,30 @@ footer code{background:var(--surface-hover);padding:1px 6px;border-radius:4px}
 @media print{body{background:#fff!important;color:#000!important}.viz-menu{display:none}.card{break-inside:avoid}*{print-color-adjust:exact}}
 @media(max-width:900px){.kpi-grid{grid-template-columns:repeat(2,1fr)}.two-col,.insight{grid-template-columns:1fr}h1{font-size:2.1rem}}
 @media(max-width:375px){.wrap{padding:40px 16px 60px}.kpi-grid{grid-template-columns:1fr}}
+
+/* --- 사이트 공통 텍스트 메뉴 --- */
+nav.site-tabs{display:flex;gap:7px;margin:0 0 28px;flex-wrap:wrap;align-items:center}
+nav.site-tabs a{text-decoration:none;font-size:.84rem;font-weight:600;padding:7px 14px;border-radius:10px;
+  color:var(--text-secondary);border:1px solid var(--border);background:var(--surface);transition:.15s;white-space:nowrap}
+nav.site-tabs a:hover{color:var(--text)}
+nav.site-tabs a.active{color:#fff;background:#2563eb;border-color:#2563eb}
+@media(max-width:720px){nav.site-tabs a{font-size:.78rem;padding:6px 11px}}
 </style></head><body>
 <div class="viz-menu"><button class="viz-menu-toggle" onclick="toggleMenu()" aria-label="메뉴"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="5" x2="17" y2="5"/><line x1="3" y1="10" x2="17" y2="10"/><line x1="3" y1="15" x2="17" y2="15"/></svg></button>
 <div class="viz-menu-dropdown" id="vizMenuDropdown"><button onclick="cycleTheme()"><span id="themeIcon">☀️</span><span id="themeLabel">Light</span></button><button onclick="downloadImage()"><span>📥</span><span>PNG 저장</span></button><button onclick="window.print()"><span>🖨️</span><span>인쇄 / PDF</span></button></div></div>
 <main id="main-content" role="main"><div class="wrap">
+  <nav class="site-tabs" aria-label="페이지 메뉴">
+    <a href="index.html">홈</a>
+    <a href="kospi-skhynix.html">코스피·하이닉스</a>
+    <a href="bottom-top.html">바닥·천장 추적</a>
+    <a href="kospi-dotcom-1998-2000.html">닷컴 랠리</a>
+    <a href="peak-debate.html">반도체 정점 논쟁</a>
+    <a href="jeonjo.html">공황 전조현상</a>
+    <a href="ecopro.html">에코프로</a>
+    <a class="active" href="hanmi.html">한미반도체</a>
+    <a href="samsung-em.html">삼성전기</a>
+  </nav>
+
 <header class="page-head animate">
 <div class="eyebrow">찰리 기술적 분석 · 50일 이격도 · 케이스 스터디</div>
 <h1>한미반도체 50일 이격도 분석</h1>

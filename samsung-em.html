@@ -50,10 +50,29 @@ footer code{background:var(--surface-hover);padding:1px 6px;border-radius:4px}
 .nav{margin-bottom:22px}.nav a{color:var(--accent);text-decoration:none;font-size:.9rem;font-weight:600}
 .toggle{position:fixed;top:18px;right:18px;width:42px;height:42px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:18px}
 @media(max-width:900px){.kpi-grid{grid-template-columns:repeat(2,1fr)}.two-col,.insight{grid-template-columns:1fr}h1{font-size:2.1rem}}
+
+/* --- 사이트 공통 텍스트 메뉴 --- */
+nav.site-tabs{display:flex;gap:7px;margin:0 0 28px;flex-wrap:wrap;align-items:center}
+nav.site-tabs a{text-decoration:none;font-size:.84rem;font-weight:600;padding:7px 14px;border-radius:10px;
+  color:var(--text-secondary);border:1px solid var(--border);background:var(--surface);transition:.15s;white-space:nowrap}
+nav.site-tabs a:hover{color:var(--text)}
+nav.site-tabs a.active{color:#fff;background:#2563eb;border-color:#2563eb}
+@media(max-width:720px){nav.site-tabs a{font-size:.78rem;padding:6px 11px}}
 </style></head><body>
 <button class="toggle" onclick="var h=document.documentElement;h.className=h.className==='theme-light'?'theme-dark':'theme-light';if(window.rebuild)window.rebuild()">☀</button>
 <div class="wrap">
-<div class="nav"><a href="index.html">← 대시보드</a></div>
+  <nav class="site-tabs" aria-label="페이지 메뉴">
+    <a href="index.html">홈</a>
+    <a href="kospi-skhynix.html">코스피·하이닉스</a>
+    <a href="bottom-top.html">바닥·천장 추적</a>
+    <a href="kospi-dotcom-1998-2000.html">닷컴 랠리</a>
+    <a href="peak-debate.html">반도체 정점 논쟁</a>
+    <a href="jeonjo.html">공황 전조현상</a>
+    <a href="ecopro.html">에코프로</a>
+    <a href="hanmi.html">한미반도체</a>
+    <a class="active" href="samsung-em.html">삼성전기</a>
+  </nav>
+
 <div class="eyebrow">찰리 기술적 분석 · 50일 이격도 · 케이스 스터디</div>
 <h1>삼성전기 50일 이격도 분석</h1>
 <p class="sub">2024~2026년 삼성전기 사이클을 이격도(종가÷50일 이동평균×100)로 추적합니다. 주가는 10.6만원에서 <strong>227만원</strong>까지 21배 오르는 초파라볼릭을 그렸고, 이격도는 <strong>2026-05-29 266.7</strong>(50일선 +167%)이라는 극단적 과열까지 치솟았다가 <strong>2026-07-20 78.3</strong>의 침체로 되돌려졌습니다.</p>
