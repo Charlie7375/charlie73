@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko" class="theme-light"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>찰리 기술적 분석 · 52주 신고가와 상대강도</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html.theme-dark{--bg:#0A0A0A;--surface:#141414;--border:rgba(255,255,255,.07);--text:#EDEDED;--text-secondary:#8a8a8a;--accent:#2563eb}
+html.theme-light{--bg:#fff;--surface:#F6F7F9;--border:rgba(15,23,42,.12);--text:#0f172a;--text-secondary:#475569;--accent:#2563eb}
+body{font-family:'Inter','Noto Sans KR',-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;letter-spacing:-.01em;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding:40px 28px 80px}
+nav.site-tabs{display:flex;gap:7px;margin:0 0 28px;flex-wrap:wrap}
+nav.site-tabs a{text-decoration:none;font-size:.84rem;font-weight:600;padding:7px 14px;border-radius:10px;color:var(--text-secondary);border:1px solid var(--border);background:var(--surface);white-space:nowrap;transition:.15s}
+nav.site-tabs a:hover{color:var(--text)} nav.site-tabs a.active{color:#fff;background:var(--accent);border-color:var(--accent)}
+.eyebrow{font-size:.82rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+h1{font-weight:800;font-size:2.7rem;letter-spacing:-.035em;line-height:1.12}
+.sub{color:var(--text-secondary);font-size:1.05rem;margin-top:15px;max-width:760px} .sub b{color:var(--text)}
+.upd{margin-top:12px;font-size:.85rem;color:var(--text-secondary)} .upd b{color:var(--accent)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:30px}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:15px;padding:18px}
+.stat .l{font-size:.78rem;color:var(--text-secondary)}
+.stat .v{font-size:1.95rem;font-weight:800;letter-spacing:-.03em;margin-top:5px}
+.stat .s{font-size:.78rem;color:var(--text-secondary);margin-top:4px}
+.verdict{margin-top:22px;background:color-mix(in srgb,var(--accent) 7%,var(--bg));border:1px solid color-mix(in srgb,var(--accent) 26%,transparent);border-left:4px solid var(--accent);border-radius:12px;padding:16px 18px;font-size:.95rem;line-height:1.75}
+.verdict b{color:var(--text)} .verdict code{background:var(--surface);padding:2px 7px;border-radius:5px;font-size:.9em}
+.panel{margin-top:26px;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:22px 24px}
+.panel h3{font-size:1.12rem;font-weight:700;letter-spacing:-.02em}
+.panel h3 .sub2{font-size:.82rem;font-weight:500;color:var(--text-secondary);margin-left:8px}
+.chart{position:relative;height:340px;margin-top:16px}
+table{border-collapse:collapse;width:100%;font-size:.9rem;margin-top:14px}
+thead th{text-align:left;padding:11px 10px;color:var(--text-secondary);font-size:.78rem;font-weight:700;border-bottom:1px solid var(--border)}
+tbody td{padding:10px;border-bottom:1px solid var(--border)} tbody tr:last-child td{border-bottom:none}
+td.c,th:nth-child(4),th:nth-child(8){text-align:center} td.n{text-align:right;font-variant-numeric:tabular-nums}
+td.nm{font-weight:600} td.pos{color:#059669} td.neg{color:#e11d48}
+.rs{display:inline-block;min-width:34px;padding:2px 8px;border-radius:999px;font-weight:800;font-size:.82rem;color:#fff;background:var(--accent)}
+.note{margin-top:12px;font-size:.85rem;color:var(--text-secondary);line-height:1.7}
+h2.sec{font-size:1.25rem;font-weight:700;margin-top:44px;letter-spacing:-.02em}
+.explain{margin-top:14px;background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:12px;padding:18px 20px;font-size:.93rem;line-height:1.8;color:var(--text-secondary)}
+.explain b{color:var(--text)} .explain p+p{margin-top:11px}
+.f{font-family:ui-monospace,Menlo,monospace;background:color-mix(in srgb,var(--accent) 10%,transparent);padding:2px 7px;border-radius:5px;font-size:.9em;color:var(--text)}
+footer{margin-top:48px;border-top:1px solid var(--border);padding-top:22px;color:var(--text-secondary);font-size:.82rem;line-height:1.7}
+.toggle{position:fixed;top:18px;right:18px;width:42px;height:42px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:18px}
+@media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}h1{font-size:2.05rem}}
+</style></head><body>
+<button class="toggle" onclick="var h=document.documentElement;h.className=h.className==='theme-light'?'theme-dark':'theme-light'">&#9728;</button>
+<div class="wrap">
+<nav class="site-tabs" aria-label="페이지 메뉴">
+    <a href="index.html">홈</a>
+    <a href="kospi-skhynix.html">코스피·하이닉스</a>
+    <a href="bottom-top.html">바닥·천장 추적</a>
+    <a href="kospi-dotcom-1998-2000.html">닷컴 랠리</a>
+    <a href="peak-debate.html">반도체 정점 논쟁</a>
+    <a class="active" href="breadth-rs.html">52주 신고가·RS</a>
+    <a href="jeonjo.html">공황 전조현상</a>
+    <a href="ecopro.html">에코프로</a>
+    <a href="hanmi.html">한미반도체</a>
+    <a href="samsung-em.html">삼성전기</a>
+</nav>
+<div class="eyebrow">찰리 기술적 분석 · Market Breadth &amp; Relative Strength</div>
+<h1>52주 신고가와 상대강도</h1>
+<p class="sub">지수 하나만 보면 <b>소수 대형주가 끄는 반등</b>과 <b>진짜 회복</b>을 구분할 수 없습니다. 코스피 전종목을 훑어 <b>얼마나 많은 종목이 신고가를 내는지(시장 폭)</b>와 <b>어느 종목이 지수를 이기고 있는지(상대강도)</b>를 봅니다.</p>
+<div class="upd">최종 갱신: <b>2026-07-24</b> · 코스피 전종목 · KRX Open API 실데이터</div>
+
+<div class="stats">
+  <div class="stat"><div class="l">52주 신고가</div><div class="v" style="color:#059669">26</div><div class="s">종목</div></div>
+  <div class="stat"><div class="l">52주 신저가</div><div class="v" style="color:#e11d48">22</div><div class="s">종목</div></div>
+  <div class="stat"><div class="l">신고가 − 신저가</div><div class="v">+0.4<span style="font-size:1rem">%p</span></div><div class="s">시장 폭 지표</div></div>
+  <div class="stat"><div class="l">RS 80+ 후보</div><div class="v" style="color:#2563eb">39</div><div class="s">고점 −25% 이내</div></div>
+</div>
+<div class="verdict">2026-07-24 기준 코스피 943종목 중 <b>신고가 26 · 신저가 22</b>입니다. 시장 폭이 <b>확장</b> 중입니다.
+지수가 반등해도 신고가 종목이 늘지 않으면 소수 대형주가 끄는 반등이라 신뢰도가 낮습니다.</div>
+<div class="panel"><h3>신고가 · 신저가 종목 수 추이</h3>
+  <div class="chart"><canvas id="bc"></canvas></div></div>
+<div class="panel"><h3>RS 80+ 주도주 후보 <span class="sub2">RS Rating 80 이상 · 52주 고점 −25% 이내</span></h3>
+  <table><thead><tr><th>코드</th><th>종목명</th><th>종가</th><th>RS</th><th>3M</th><th>지수대비</th><th>고점대비</th><th>RS선</th></tr></thead>
+  <tbody><tr><td class="c">006340</td><td class="nm">대원전선</td><td class="n">13,730</td><td class="c"><span class="rs">96</span></td><td class="n">114.5%</td><td class="n pos">+109.8%p</td><td class="n">-23.9%</td><td class="c"></td></tr>
+<tr><td class="c">475150</td><td class="nm">SK이터닉스</td><td class="n">80,900</td><td class="c"><span class="rs">95</span></td><td class="n">52.1%</td><td class="n pos">+47.3%p</td><td class="n">0%</td><td class="c"></td></tr>
+<tr><td class="c">005950</td><td class="nm">이수화학</td><td class="n">14,180</td><td class="c"><span class="rs">93</span></td><td class="n">53.3%</td><td class="n pos">+48.6%p</td><td class="n">-15.1%</td><td class="c"></td></tr>
+<tr><td class="c">010950</td><td class="nm">S-Oil</td><td class="n">151,200</td><td class="c"><span class="rs">92</span></td><td class="n">32.3%</td><td class="n pos">+27.6%p</td><td class="n">0%</td><td class="c"></td></tr>
+<tr><td class="c">078930</td><td class="nm">GS</td><td class="n">95,300</td><td class="c"><span class="rs">91</span></td><td class="n">34.6%</td><td class="n pos">+29.9%p</td><td class="n">0%</td><td class="c"></td></tr>
+<tr><td class="c">017670</td><td class="nm">SK텔레콤</td><td class="n">100,000</td><td class="c"><span class="rs">90</span></td><td class="n">-0.5%</td><td class="n neg">-5.2%p</td><td class="n">-20.1%</td><td class="c"></td></tr>
+<tr><td class="c">000810</td><td class="nm">삼성화재</td><td class="n">644,000</td><td class="c"><span class="rs">89</span></td><td class="n">37.6%</td><td class="n pos">+32.9%p</td><td class="n">-11.8%</td><td class="c"></td></tr>
+<tr><td class="c">001450</td><td class="nm">현대해상</td><td class="n">40,350</td><td class="c"><span class="rs">89</span></td><td class="n">33.8%</td><td class="n pos">+29.1%p</td><td class="n">-2.2%</td><td class="c"></td></tr>
+<tr><td class="c">417310</td><td class="nm">코람코더원리츠</td><td class="n">10,880</td><td class="c"><span class="rs">89</span></td><td class="n">5.8%</td><td class="n pos">+1.1%p</td><td class="n">0%</td><td class="c"></td></tr>
+<tr><td class="c">007340</td><td class="nm">DN오토모티브</td><td class="n">38,900</td><td class="c"><span class="rs">88</span></td><td class="n">-0.6%</td><td class="n neg">-5.4%p</td><td class="n">-24%</td><td class="c"></td></tr>
+<tr><td class="c">161390</td><td class="nm">한국타이어앤테크놀로지</td><td class="n">70,500</td><td class="c"><span class="rs">88</span></td><td class="n">13.5%</td><td class="n pos">+8.8%p</td><td class="n">-8.1%</td><td class="c"></td></tr>
+<tr><td class="c">278470</td><td class="nm">에이피알</td><td class="n">354,000</td><td class="c"><span class="rs">88</span></td><td class="n">-13.7%</td><td class="n neg">-18.4%p</td><td class="n">-22.9%</td><td class="c"></td></tr>
+<tr><td class="c">483650</td><td class="nm">달바글로벌</td><td class="n">240,500</td><td class="c"><span class="rs">88</span></td><td class="n">21%</td><td class="n pos">+16.3%p</td><td class="n">-7.5%</td><td class="c"></td></tr>
+<tr><td class="c">002810</td><td class="nm">삼영무역</td><td class="n">22,900</td><td class="c"><span class="rs">87</span></td><td class="n">17.4%</td><td class="n pos">+12.6%p</td><td class="n">-3%</td><td class="c"></td></tr>
+<tr><td class="c">007070</td><td class="nm">GS리테일</td><td class="n">25,750</td><td class="c"><span class="rs">87</span></td><td class="n">10.3%</td><td class="n pos">+5.5%p</td><td class="n">-12.6%</td><td class="c"></td></tr>
+<tr><td class="c">086790</td><td class="nm">하나금융지주</td><td class="n">132,400</td><td class="c"><span class="rs">87</span></td><td class="n">7.6%</td><td class="n pos">+2.9%p</td><td class="n">-3.2%</td><td class="c"></td></tr>
+<tr><td class="c">055550</td><td class="nm">신한지주</td><td class="n">104,400</td><td class="c"><span class="rs">86</span></td><td class="n">4.6%</td><td class="n neg">-0.1%p</td><td class="n">-4.4%</td><td class="c"></td></tr>
+<tr><td class="c">089860</td><td class="nm">롯데렌탈</td><td class="n">40,000</td><td class="c"><span class="rs">86</span></td><td class="n">19%</td><td class="n pos">+14.3%p</td><td class="n">0%</td><td class="c"></td></tr>
+<tr><td class="c">105560</td><td class="nm">KB금융</td><td class="n">171,500</td><td class="c"><span class="rs">86</span></td><td class="n">6.9%</td><td class="n pos">+2.2%p</td><td class="n">-7.9%</td><td class="c"></td></tr>
+<tr><td class="c">003690</td><td class="nm">코리안리</td><td class="n">13,950</td><td class="c"><span class="rs">85</span></td><td class="n">13.4%</td><td class="n pos">+8.7%p</td><td class="n">-4.1%</td><td class="c"></td></tr>
+<tr><td class="c">004430</td><td class="nm">송원산업</td><td class="n">12,700</td><td class="c"><span class="rs">85</span></td><td class="n">22%</td><td class="n pos">+17.3%p</td><td class="n">-19.9%</td><td class="c"></td></tr>
+<tr><td class="c">047810</td><td class="nm">한국항공우주</td><td class="n">158,100</td><td class="c"><span class="rs">85</span></td><td class="n">-13.4%</td><td class="n neg">-18.1%p</td><td class="n">-21.7%</td><td class="c"></td></tr>
+<tr><td class="c">161890</td><td class="nm">한국콜마</td><td class="n">100,200</td><td class="c"><span class="rs">85</span></td><td class="n">16.1%</td><td class="n pos">+11.4%p</td><td class="n">-14.9%</td><td class="c"></td></tr>
+<tr><td class="c">009970</td><td class="nm">영원무역홀딩스</td><td class="n">203,500</td><td class="c"><span class="rs">84</span></td><td class="n">-4%</td><td class="n neg">-8.7%p</td><td class="n">-18.6%</td><td class="c"></td></tr>
+<tr><td class="c">033780</td><td class="nm">KT&amp;G</td><td class="n">182,600</td><td class="c"><span class="rs">84</span></td><td class="n">5.5%</td><td class="n pos">+0.8%p</td><td class="n">-3.4%</td><td class="c"></td></tr></tbody></table>
+  <p class="note">RS선 ● 표시는 <b>종가÷코스피지수</b>가 52주 최고치라는 뜻입니다. 미너비니가 주가 돌파 <b>이전에</b> 확인하는 신호입니다.</p></div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script>
+new Chart(document.getElementById('bc'),{type:'line',
+ data:{labels:['01/27', '01/28', '01/29', '01/30', '02/02', '02/03', '02/04', '02/05', '02/06', '02/09', '02/10', '02/11', '02/12', '02/13', '02/19', '02/20', '02/23', '02/24', '02/25', '02/26', '02/27', '03/03', '03/04', '03/05', '03/06', '03/09', '03/10', '03/11', '03/12', '03/13', '03/16', '03/17', '03/18', '03/19', '03/20', '03/23', '03/24', '03/25', '03/26', '03/27', '03/30', '03/31', '04/01', '04/02', '04/03', '04/06', '04/07', '04/08', '04/09', '04/10', '04/13', '04/14', '04/15', '04/16', '04/17', '04/20', '04/21', '04/22', '04/23', '04/24', '04/27', '04/28', '04/29', '04/30', '05/04', '05/06', '05/07', '05/08', '05/11', '05/12', '05/13', '05/14', '05/15', '05/18', '05/19', '05/20', '05/21', '05/22', '05/26', '05/27', '05/28', '05/29', '06/01', '06/02', '06/04', '06/05', '06/08', '06/09', '06/10', '06/11', '06/12', '06/15', '06/16', '06/17', '06/18', '06/19', '06/22', '06/23', '06/24', '06/25', '06/26', '06/29', '06/30', '07/01', '07/02', '07/03', '07/06', '07/07', '07/08', '07/09', '07/10', '07/13', '07/14', '07/15', '07/16', '07/20', '07/21', '07/22', '07/23', '07/24'],datasets:[
+  {label:'52주 신고가',data:[64, 67, 77, 73, 21, 83, 107, 60, 51, 87, 100, 110, 141, 109, 162, 156, 132, 117, 120, 111, 72, 35, 17, 18, 22, 19, 16, 21, 34, 38, 27, 32, 48, 38, 65, 21, 22, 35, 29, 25, 22, 18, 27, 27, 35, 31, 22, 48, 44, 50, 48, 55, 66, 62, 59, 57, 70, 83, 72, 86, 104, 90, 106, 55, 92, 80, 59, 55, 56, 44, 55, 53, 30, 28, 22, 24, 35, 41, 43, 34, 29, 39, 37, 26, 23, 17, 16, 19, 18, 22, 21, 20, 26, 26, 21, 22, 22, 15, 15, 17, 17, 16, 18, 18, 15, 15, 19, 20, 19, 16, 22, 20, 18, 23, 29, 22, 20, 20, 28, 26],borderColor:'#059669',backgroundColor:'rgba(5,150,105,.08)',borderWidth:2,pointRadius:0,tension:.2,fill:true},
+  {label:'52주 신저가',data:[21, 21, 23, 29, 53, 27, 16, 20, 23, 16, 17, 19, 19, 23, 23, 26, 25, 16, 16, 28, 34, 65, 167, 20, 18, 71, 32, 22, 22, 25, 27, 27, 28, 37, 20, 47, 18, 17, 18, 20, 38, 49, 18, 44, 28, 36, 37, 19, 23, 18, 20, 20, 17, 17, 18, 19, 20, 20, 21, 19, 19, 22, 24, 22, 27, 41, 41, 42, 62, 83, 81, 30, 50, 83, 86, 132, 79, 21, 51, 141, 137, 171, 233, 184, 133, 170, 328, 61, 80, 51, 20, 20, 18, 17, 44, 103, 162, 318, 146, 219, 338, 26, 35, 24, 36, 23, 25, 40, 90, 97, 18, 63, 100, 36, 47, 151, 100, 68, 15, 22],borderColor:'#e11d48',borderWidth:2,pointRadius:0,tension:.2}]},
+ options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+  plugins:{legend:{labels:{boxWidth:14,font:{size:12}}}},
+  scales:{x:{ticks:{maxTicksLimit:10,font:{size:11}},grid:{display:false}},
+          y:{beginAtZero:true,title:{display:true,text:'종목 수'}}}}});
+</script>
+
+<h2 class="sec">지표 설명</h2>
+<div class="explain">
+<p><b>52주 신고가 종목 수 — 시장 폭(breadth)</b><br>
+지수가 오르는데 신고가 종목이 줄면, 그 상승은 소수 종목이 만든 착시입니다. 반대로 지수가 눌려도 신고가가 늘면 바닥에서 주도주가 형성되는 중입니다. <b>신고가 − 신저가</b>가 마이너스면 시장 폭이 수축한 상태입니다. 이야기꾼도 주간 보고서에서 이 비율을 인용합니다.</p>
+<p><b>RS Rating — 상대강도 등급 (1~99)</b><br>
+IBD·미너비니 방식입니다. <span class="f">(3M×2 + 6M + 9M + 12M) ÷ 5</span> 로 가중 수익률을 구한 뒤 <b>코스피 전종목 대비 백분위</b>로 환산합니다. RS 90이면 상위 10%입니다. 미너비니는 매수 후보를 <b>RS 80 이상</b>으로 좁힙니다. 최근 3개월에 2배 가중을 주는 이유는 <b>지금 힘이 실린 종목</b>을 찾기 위해서입니다.</p>
+<p><b>지수 대비 초과수익률</b><br>
+종목의 3개월 수익률에서 코스피 3개월 수익률을 뺀 값(%p)입니다. RS Rating이 상대 순위라면, 이쪽은 <b>지수를 몇 %p 이겼는지</b>를 직접 보여줍니다.</p>
+<p><b>RS선 신고가</b><br>
+<span class="f">종가 ÷ 코스피지수</span> 를 이은 선이 상대강도선입니다. 이 값이 52주 최고치면 ● 표시가 붙습니다. 미너비니는 <b>주가가 돌파하기 전에 RS선이 먼저 신고가를 내는 종목</b>을 가장 강한 후보로 봅니다. 주가는 아직 눌려 있어도 시장 대비로는 이미 이기고 있다는 뜻이기 때문입니다.</p>
+</div>
+
+<h2 class="sec">이격도·분산일과 함께 읽는 법</h2>
+<div class="explain">
+<p>이 사이트의 지표는 서로 다른 질문에 답합니다. <b>이격도</b>는 "얼마나 벌어졌나(위치)", <b>분산일</b>은 "누가 팔고 있나(수급)", <b>FTD</b>는 "바닥이 확인됐나(증명)", 그리고 <b>시장 폭·RS</b>는 <b>"어디가 살아 있나(범위와 주도주)"</b>입니다.</p>
+<p>실전에서 순서는 이렇습니다. 이격도가 과매도를 알리고 → 항복 거래량과 FTD로 바닥이 확인되면 → <b>그때 RS 상위 목록에서 주도주를 고릅니다.</b> 하락장에서도 신고가를 내는 종목은 시장과 다른 힘을 받고 있어, 다음 상승의 주도주가 여기서 나오는 경우가 많습니다.</p>
+</div>
+
+<footer><p>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다. · 데이터: KRX Open API 코스피 전종목 일별매매정보(2010년 이후 제공) 기반 자체 산출. RS Rating은 IBD 방식을 참고한 자체 계산값으로 IBD 공식 수치와 다를 수 있습니다.</p></footer>
+</div></body></html>
