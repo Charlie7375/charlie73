@@ -68,30 +68,73 @@ footer code{background:var(--surface-hover);padding:1px 6px;border-radius:4px}
 @media(max-width:900px){.kpi-grid{grid-template-columns:repeat(2,1fr)}.two-col,.insight{grid-template-columns:1fr}h1{font-size:2.1rem}}
 @media(max-width:375px){.wrap{padding:40px 16px 60px}.kpi-grid{grid-template-columns:1fr}}
 
-/* --- 사이트 공통 텍스트 메뉴 --- */
-nav.site-tabs{display:flex;gap:7px;margin:0 0 28px;flex-wrap:wrap;align-items:center}
-nav.site-tabs a{text-decoration:none;font-size:.84rem;font-weight:600;padding:7px 14px;border-radius:10px;
-  color:var(--text-secondary);border:1px solid var(--border);background:var(--surface);transition:.15s;white-space:nowrap}
-nav.site-tabs a:hover{color:var(--text)}
-nav.site-tabs a.active{color:#fff;background:#2563eb;border-color:#2563eb}
-@media(max-width:720px){nav.site-tabs a{font-size:.78rem;padding:6px 11px}}
+
+/* ── 사이트 공통 상단바 v2 ── */
+.site-bar{position:sticky;top:0;z-index:90;backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);
+  background:color-mix(in srgb,var(--bg) 80%,transparent);border-bottom:1px solid var(--border);margin:0 0 30px}
+.site-bar-in{max-width:1040px;margin:0 auto;padding:0 4px;height:50px;display:flex;align-items:center;gap:22px}
+.site-brand{font-size:14px;font-weight:700;color:var(--text);text-decoration:none;letter-spacing:-.02em;white-space:nowrap}
+.site-nav{display:flex;gap:4px;margin-left:auto}
+.site-group{position:relative}
+.site-group>button{display:flex;align-items:center;gap:5px;background:none;border:0;cursor:pointer;
+  font-family:inherit;font-size:13px;font-weight:600;letter-spacing:-.01em;color:var(--text-secondary);
+  padding:8px 12px;border-radius:9px;transition:.15s}
+.site-group>button:hover,.site-group.on>button{color:var(--text);background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>button .cv{font-size:9px;opacity:.55;transition:transform .2s}
+.site-group.on>button .cv{transform:rotate(180deg)}
+.site-group>button.here{color:var(--accent, #0071e3)}
+.site-dd{position:absolute;top:calc(100% + 8px);right:0;min-width:248px;padding:8px;
+  background:var(--surface, var(--bg));border:1px solid var(--border);border-radius:14px;
+  box-shadow:0 18px 44px rgba(0,0,0,.16);opacity:0;visibility:hidden;transform:translateY(-6px);
+  transition:opacity .18s,transform .18s,visibility .18s}
+html.theme-dark .site-dd{box-shadow:0 18px 44px rgba(0,0,0,.55)}
+.site-group.on .site-dd{opacity:1;visibility:visible;transform:translateY(0)}
+.site-dd a{display:block;padding:9px 12px;border-radius:9px;text-decoration:none;
+  font-size:13.5px;font-weight:500;letter-spacing:-.01em;color:var(--text);transition:.12s}
+.site-dd a:hover{background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-dd a.here{color:#fff;background:var(--accent, #0071e3);font-weight:600}
+.site-crumb{display:flex;align-items:center;gap:7px;margin:0 0 22px;font-size:12.5px;color:var(--text-secondary);letter-spacing:-.01em}
+.site-crumb a{color:var(--text-secondary);text-decoration:none}
+.site-crumb a:hover{color:var(--text)}
+.site-crumb .sep{opacity:.4}
+.site-crumb .cur{color:var(--text);font-weight:600}
+@media(max-width:760px){
+  .site-nav{gap:0}
+  .site-group>button{padding:8px 8px;font-size:12px}
+  .site-brand{font-size:12.5px}
+  .site-dd{right:auto;left:50%;transform:translate(-50%,-6px)}
+  .site-group.on .site-dd{transform:translate(-50%,0)}
+}
 </style></head><body>
+<div class="site-bar"><div class="site-bar-in">
+  <a class="site-brand" href="index.html">찰리의 시나리오투자전략 추종</a>
+  <nav class="site-nav">
+    <div class="site-group"><button class="" type="button">기술 분석 <span class="cv">▼</span></button>
+      <div class="site-dd">
+        <a href="kospi-skhynix.html">코스피 & SK하이닉스 이격도</a>
+        <a href="bottom-top.html">바닥·천장 추적 분석</a>
+        <a href="breadth-rs.html">52주 신고가와 상대강도</a>
+      </div></div>
+    <div class="site-group"><button class="" type="button">투자 인사이트 <span class="cv">▼</span></button>
+      <div class="site-dd">
+        <a href="peak-debate.html">반도체 정점 논쟁</a>
+        <a href="jeonjo.html">중공황 전조현상</a>
+        <a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a>
+      </div></div>
+    <div class="site-group"><button class="here" type="button">케이스 스터디 <span class="cv">▼</span></button>
+      <div class="site-dd">
+        <a href="ecopro.html">에코프로</a>
+        <a class="here" href="hanmi.html">한미반도체</a>
+      </div></div>
+  </nav>
+</div></div>
+
 <div class="viz-menu"><button class="viz-menu-toggle" onclick="toggleMenu()" aria-label="메뉴"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="5" x2="17" y2="5"/><line x1="3" y1="10" x2="17" y2="10"/><line x1="3" y1="15" x2="17" y2="15"/></svg></button>
 <div class="viz-menu-dropdown" id="vizMenuDropdown"><button onclick="cycleTheme()"><span id="themeIcon">☀️</span><span id="themeLabel">Light</span></button><button onclick="downloadImage()"><span>📥</span><span>PNG 저장</span></button><button onclick="window.print()"><span>🖨️</span><span>인쇄 / PDF</span></button></div></div>
 <main id="main-content" role="main"><div class="wrap">
-  <nav class="site-tabs" aria-label="페이지 메뉴">
-    <a href="index.html">홈</a>
-    <a href="kospi-skhynix.html">코스피·하이닉스</a>
-    <a href="bottom-top.html">바닥·천장 추적</a>
-    <a href="kospi-dotcom-1998-2000.html">닷컴 랠리</a>
-    <a href="peak-debate.html">반도체 정점 논쟁</a>
-    <a href="jeonjo.html">공황 전조현상</a>
-    <a href="ecopro.html">에코프로</a>
-    <a class="active" href="hanmi.html">한미반도체</a>
-    <a href="samsung-em.html">삼성전기</a>
-  </nav>
+  <div class="site-crumb"><a href="index.html">홈</a><span class="sep">›</span><span>케이스 스터디</span><span class="sep">›</span><span class="cur">한미반도체</span></div>
 
-<header class="page-head animate">
+  <header class="page-head animate">
 <div class="eyebrow">찰리 기술적 분석 · 50일 이격도 · 케이스 스터디</div>
 <h1>한미반도체 50일 이격도 분석</h1>
 <p class="sub">HBM 대장주 한미반도체의 2023~2024년 사이클을 이격도(종가÷50일 이동평균×100)로 복기합니다. 이격도는 <strong>2023-07-17 177.6</strong>(50일선 +78%)까지 과열됐고, 흥미롭게도 주가 정점(2024-06-13, 189,000원)은 그보다 늦게 나왔습니다. 이후 조정으로 이격도는 <strong>2024-08-05 64.7</strong>(50일선 −35%)까지 침체했습니다.</p>
@@ -183,4 +226,22 @@ built=true}
 function onThemeChange(){if(!built)return;Object.keys(CH).forEach(function(k){try{CH[k].destroy()}catch(e){}});CH={};built=false;build()}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',build);else build();
 window.addEventListener('load',build);
-</script></body></html>
+</script>
+<script>
+(function(){
+  var gs=document.querySelectorAll('.site-group');
+  gs.forEach(function(g){
+    var b=g.querySelector('button');
+    b.addEventListener('click',function(e){
+      e.stopPropagation();
+      var was=g.classList.contains('on');
+      gs.forEach(function(x){x.classList.remove('on')});
+      if(!was) g.classList.add('on');
+    });
+    g.addEventListener('mouseenter',function(){ if(window.matchMedia('(hover:hover)').matches){gs.forEach(function(x){x.classList.remove('on')}); g.classList.add('on');}});
+    g.addEventListener('mouseleave',function(){ if(window.matchMedia('(hover:hover)').matches) g.classList.remove('on');});
+  });
+  document.addEventListener('click',function(){gs.forEach(function(x){x.classList.remove('on')})});
+})();
+</script>
+</body></html>

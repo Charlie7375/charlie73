@@ -73,14 +73,39 @@ html.theme-dark .card.good .tag{color:#30d158}
 footer{border-top:1px solid var(--border);background:var(--bg2)}
 .foot-in{max-width:1000px;margin:0 auto;padding:34px 22px 44px;color:var(--text3);font-size:12px;line-height:1.75;letter-spacing:-.01em}
 @media(max-width:860px){.g3,.g2{grid-template-columns:1fr}.bar nav{display:none}.hero{padding:64px 22px 48px}.sec-head{padding:40px 0 20px}.chart-box{height:300px}}
+
+.bar nav.mm{display:flex;gap:6px;margin-left:auto}
+.mg{position:relative}
+.mg>a{display:block;font-size:12.5px;color:var(--text2);text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.mg>a:hover{color:var(--text);background:color-mix(in srgb,var(--text) 6%,transparent)}
+.md{position:absolute;top:calc(100% + 8px);right:0;min-width:238px;padding:8px;background:var(--surface);border:1px solid var(--border);border-radius:14px;box-shadow:0 18px 44px rgba(0,0,0,.14);opacity:0;visibility:hidden;transform:translateY(-6px);transition:.18s}
+html.theme-dark .md{box-shadow:0 18px 44px rgba(0,0,0,.55)}
+.mg:hover .md{opacity:1;visibility:visible;transform:translateY(0)}
+.md a{display:block;padding:9px 12px;border-radius:9px;text-decoration:none;font-size:13.5px;font-weight:500;color:var(--text);transition:.12s}
+.md a:hover{background:color-mix(in srgb,var(--text) 6%,transparent)}
+@media(max-width:860px){.bar nav.mm{display:none}}
 </style></head><body>
 
 <div class="bar"><div class="bar-in">
   <a class="brand" href="index.html">찰리의 시나리오투자전략 추종</a>
-  <nav>
-    <a href="#tech">기술 분석</a>
-    <a href="#insight">투자 인사이트</a>
-    <a href="#case">케이스 스터디</a>
+  <nav class="mm">
+    <div class="mg"><a href="#tech">기술 분석</a>
+      <div class="md">
+        <a href="kospi-skhynix.html">코스피 &amp; SK하이닉스 이격도</a>
+        <a href="bottom-top.html">바닥·천장 추적 분석</a>
+        <a href="breadth-rs.html">52주 신고가와 상대강도</a>
+      </div></div>
+    <div class="mg"><a href="#insight">투자 인사이트</a>
+      <div class="md">
+        <a href="peak-debate.html">반도체 정점 논쟁</a>
+        <a href="jeonjo.html">중공황 전조현상</a>
+        <a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a>
+      </div></div>
+    <div class="mg"><a href="#case">케이스 스터디</a>
+      <div class="md">
+        <a href="ecopro.html">에코프로</a>
+        <a href="hanmi.html">한미반도체</a>
+      </div></div>
   </nav>
   <button class="tg" onclick="var h=document.documentElement;h.className=h.className==='theme-light'?'theme-dark':'theme-light';if(window.rebuild)window.rebuild()" aria-label="테마 전환">&#9728;</button>
 </div></div>
