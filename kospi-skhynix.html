@@ -262,13 +262,13 @@ html.theme-dark .site-dd{box-shadow:0 18px 44px rgba(0,0,0,.55)}
     </section>
 
     <section data-reveal>
-      <div class="sec-head"><h2>이격도 구간과 주가의 관계</h2><span class="note">이격도(t) → 이후 20거래일 평균 수익률 · 선형 상관 코스피 +0.03 / 하이닉스 -0.01 / 삼성전자 -0.16 / 삼성전자 -0.16</span></div>
+      <div class="sec-head"><h2>이격도 구간과 주가의 관계</h2><span class="note">이격도(t) → 이후 20거래일 평균 수익률 · 선형 상관 코스피 +0.03 / 하이닉스 −0.01 / 삼성전자 −0.16</span></div>
       <div class="three-col" style="grid-template-columns:repeat(3,1fr)">
         <div class="card"><h3 style="font-size:1.1rem; margin-bottom:6px;">코스피</h3><div class="chart-container chart-sm"><canvas id="corrKospi" role="img" aria-label="코스피 이격도 구간별 이후 20거래일 평균 수익률 막대차트"></canvas></div></div>
         <div class="card"><h3 style="font-size:1.1rem; margin-bottom:6px;">SK하이닉스</h3><div class="chart-container chart-sm"><canvas id="corrHynix" role="img" aria-label="SK하이닉스 이격도 구간별 이후 20거래일 평균 수익률 막대차트"></canvas></div></div>
         <div class="card"><h3 style="font-size:1.1rem; margin-bottom:6px;">삼성전자</h3><div class="chart-container chart-sm"><canvas id="corrSec" role="img" aria-label="삼성전자 이격도 구간별 이후 20거래일 평균 수익률 막대차트"></canvas></div></div>
       </div>
-      <div class="card" style="margin-top:18px"><p style="color:var(--text-secondary);line-height:1.75;font-size:.95rem">코스피·SK하이닉스는 이격도와 이후 20거래일 수익률의 <strong>선형 상관이 0에 가깝습니다</strong>(코스피 +0.11, 하이닉스 +0.06). 그러나 구간별로 보면 특징이 있습니다. <strong>하이닉스는 과매도(&lt;100) 진입 후 이후 20일 평균 +10.9%·상승 79%</strong>로 반등 우위가 있지만, 전체기간으로 보면 이전(강세장 한정)보다 완만합니다(2024년 다운턴 포함). <strong>코스피는 극단 과열(120~135)에서 이후 성과가 약해지는</strong> 되돌림 성향이 보이고, 100~120의 정상 추세 구간이 상대적으로 좋았습니다. 이는 개별 테마주(에코프로·한미반도체)에서 이격도가 ‘모멘텀’처럼 작동해 과매도가 falling knife였던 것과 대비됩니다. &lt;90 등 표본이 적은 구간은 해석에 주의가 필요합니다.</p>
+      <div class="card" style="margin-top:18px"><p style="color:var(--text-secondary);line-height:1.75;font-size:.95rem">코스피·SK하이닉스·삼성전자는 이격도와 이후 20거래일 수익률의 <strong>선형 상관이 0에 가깝습니다</strong>(코스피 +0.03, 하이닉스 −0.01, 삼성전자 −0.16). 그러나 구간별로 보면 특징이 있습니다. <strong>하이닉스는 과매도(&lt;100) 진입 후 이후 20일 평균 +10.9%·상승 79%</strong>로 반등 우위가 있지만, 전체기간으로 보면 이전(강세장 한정)보다 완만합니다(2024년 다운턴 포함). <strong>코스피는 극단 과열(120~135)에서 이후 성과가 약해지는</strong> 되돌림 성향이 보이고, 100~120의 정상 추세 구간이 상대적으로 좋았습니다. 이는 개별 테마주(에코프로·한미반도체)에서 이격도가 ‘모멘텀’처럼 작동해 과매도가 falling knife였던 것과 대비됩니다. &lt;90 등 표본이 적은 구간은 해석에 주의가 필요합니다.</p>
       <div class="legend-inline" style="margin-top:10px"><span>막대 높이 = 해당 이격도 구간 진입 후 20거래일 평균 수익률(커서 시 표본수·상승확률)</span></div></div>
     </section>
 
@@ -296,7 +296,7 @@ html.theme-dark .site-dd{box-shadow:0 18px 44px rgba(0,0,0,.55)}
         <div class="card"><h4><span class="ic" style="background:color-mix(in srgb,var(--accent) 20%,transparent);color:var(--accent)">②</span>지난주 대비 추가 하락</h4>
           <p>코스피 이격도는 1주 전 89.59 → <b>72.0</b>(50일선 -28.0%), 하이닉스는 87.23 → <b>61.0</b>(50일선 -39.0%), 삼성전자는 88.47 → <b>69.1</b>(50일선 -30.9%)입니다. 7/28 −10.84%, 7/29 −5.98%에 이어 <b>7/30 코스피는 −1.23%로 낙폭이 크게 줄었지만</b>, 하이닉스는 <b>−5.64%</b>로 홀로 큰 폭 하락하며 신저가를 다시 썼습니다. 삼성전자는 <b>−0.72%</b>로 거의 보합이었습니다 — 지수·삼성전자는 진정, <b>주도주 하이닉스만 아직 매물이 남은</b> 그림입니다.</p></div>
         <div class="card"><h4><span class="ic" style="background:color-mix(in srgb,var(--warning) 18%,transparent);color:var(--warning)">③</span>관찰 포인트</h4>
-          <p>7/29에 <strong>항복(capitulation)의 조건</strong>이 처음 갖춰졌습니다 — 하이닉스 거래량 2.05배 + 장중 −19.6%에서 되돌린 긴 아래꼬리, 삼성전자도 2.05배였습니다. 그리고 <strong>7/30 거래량이 코스피 0.78배·하이닉스 1.57배·삼성전자 1.46배로 일제히 줄었습니다</strong> — 투매가 한 차례 소화됐다는 신호입니다.</p><p>다만 코스피가 7/30에 <strong>종가 신저점(5,593)을 다시 쓰면서 팔로우스루데이(FTD) 카운트는 7/30을 새 1일차로 재설정</strong>됐습니다. 관문은 <strong>4~7일차에 해당하는 8/5~8/10</strong>이며, 이 구간에서 대량 거래를 동반한 +1.7% 이상 상승이 나와야 바닥이 확인됩니다. 7/23에도 FTD가 나왔다가 다음 날 무효화된 전례가 있어, 확인 전까지는 관찰 국면입니다.</p></div>
+          <p>7/29에 <strong>항복(capitulation)의 조건</strong>이 처음 갖춰졌습니다 — 하이닉스 거래량 2.07배 + 장중 −19.6%에서 되돌린 긴 아래꼬리, 삼성전자도 2.07배였습니다. 그리고 <strong>7/30 거래량이 코스피 0.78배·하이닉스 1.57배·삼성전자 1.46배로 일제히 줄었습니다</strong> — 투매가 한 차례 소화됐다는 신호입니다.</p><p>다만 코스피가 7/30에 <strong>종가 신저점(5,593)을 다시 쓰면서 팔로우스루데이(FTD) 카운트는 7/30을 새 1일차로 재설정</strong>됐습니다. 관문은 <strong>4~7일차에 해당하는 8/5~8/10</strong>이며, 이 구간에서 대량 거래를 동반한 +1.7% 이상 상승이 나와야 바닥이 확인됩니다. 7/23에도 FTD가 나왔다가 다음 날 무효화된 전례가 있어, 확인 전까지는 관찰 국면입니다.</p></div>
       </div>
       <div class="callout"><h3>미너비니 관점의 체크리스트</h3>
         <p>마크 미너비니의 추세추종(SEPA)에서 이동평균에서 지나치게 확장된(over-extended) 상승은 추격 매수 금지 구간입니다. 이번 사례는 그 원칙이 교과서적으로 실현된 케이스로, 이격도 130~176의 극단적 확장이 결국 평균으로 강하게 되돌려졌습니다. 미너비니는 이런 급락 직후에는 <strong>싸다는 이유로 즉시 받기보다 주가가 스스로 바닥(base)을 만들고 변동성을 줄이며 50일선을 회복하는지</strong> 확인한 뒤 낮은 위험 지점(low-risk entry)에서 대응할 것을 강조합니다.</p>
