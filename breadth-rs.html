@@ -85,6 +85,23 @@ td.nm{font-weight:600} td.pos{color:#059669} td.neg{color:#e11d48}
 .warnbox{margin-top:12px;background:color-mix(in srgb,#f59e0b 9%,var(--bg));border:1px solid color-mix(in srgb,#f59e0b 30%,transparent);border-left:4px solid #f59e0b;border-radius:10px;padding:13px 16px;font-size:.9rem;line-height:1.7;color:var(--text-secondary)}
 .warnbox b{color:var(--text)}
 .note{margin-top:12px;font-size:.85rem;color:var(--text-secondary);line-height:1.7}
+.gloss{margin-top:16px;border-top:1px solid var(--border);padding-top:14px}
+.gloss>summary{cursor:pointer;font-size:.88rem;font-weight:700;color:var(--accent);list-style:none;
+  display:flex;align-items:center;gap:7px;user-select:none;padding:4px 0}
+.gloss>summary::-webkit-details-marker{display:none}
+.gloss>summary::before{content:'▸';font-size:.78rem;transition:transform .18s;display:inline-block}
+.gloss[open]>summary::before{transform:rotate(90deg)}
+.gloss>summary:hover{opacity:.8}
+.gloss dl{margin-top:12px;display:grid;grid-template-columns:132px 1fr;gap:0 18px}
+.gloss dt{font-weight:700;font-size:.87rem;color:var(--text);padding:11px 0 11px 0;
+  border-top:1px solid var(--border);letter-spacing:-.01em}
+.gloss dd{font-size:.88rem;line-height:1.78;color:var(--text-secondary);padding:11px 0;
+  border-top:1px solid var(--border)}
+.gloss dl>dt:first-of-type,.gloss dl>dt:first-of-type+dd{border-top:0;padding-top:2px}
+.gloss dd b{color:var(--text)}
+.gloss dd .mktb{vertical-align:baseline}
+@media(max-width:640px){.gloss dl{grid-template-columns:1fr;gap:0}
+  .gloss dt{padding-bottom:2px} .gloss dd{border-top:0;padding-top:2px;padding-bottom:14px}}
 h2.sec{font-size:1.25rem;font-weight:700;margin-top:44px;letter-spacing:-.02em}
 .explain{margin-top:14px;background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:12px;padding:18px 20px;font-size:.93rem;line-height:1.8;color:var(--text-secondary)}
 .explain b{color:var(--text)} .explain p+p{margin-top:11px}
@@ -93,6 +110,7 @@ footer{margin-top:48px;border-top:1px solid var(--border);padding-top:22px;color
 .toggle{position:fixed;top:18px;right:18px;width:42px;height:42px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:18px}
 @media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}h1{font-size:2.05rem}}
 </style></head><body>
+<button class="toggle" onclick="var h=document.documentElement;h.className=h.className==='theme-light'?'theme-dark':'theme-light'">&#9728;</button>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종</a>
   <nav class="site-nav">
@@ -118,12 +136,8 @@ footer{margin-top:48px;border-top:1px solid var(--border);padding-top:22px;color
       </div></div>
   </nav>
 </div></div>
-
-<button class="toggle" onclick="var h=document.documentElement;h.className=h.className==='theme-light'?'theme-dark':'theme-light'">&#9728;</button>
-
 <div class="wrap">
-  <div class="site-crumb"><a href="index.html">홈</a><span class="sep">›</span><span>기술 분석</span><span class="sep">›</span><span class="cur">52주 신고가와 상대강도</span></div>
-
+<div class="site-crumb"><a href="index.html">홈</a><span class="sep">›</span><span>기술 분석</span><span class="sep">›</span><span class="cur">52주 신고가와 상대강도</span></div>
 <div class="eyebrow">찰리 기술적 분석 · Market Breadth &amp; Relative Strength</div>
 <h1>52주 신고가와 상대강도</h1>
 <p class="sub">지수 하나만 보면 <b>소수 대형주가 끄는 반등</b>과 <b>진짜 회복</b>을 구분할 수 없습니다. 코스피·코스닥 전종목을 훑어 <b>얼마나 많은 종목이 신고가를 내는지(시장 폭)</b>와 <b>어느 종목이 지수를 이기고 있는지(상대강도)</b>를 봅니다.</p>
@@ -166,8 +180,46 @@ footer{margin-top:48px;border-top:1px solid var(--border);padding-top:22px;color
 <tr><td class="c" data-v="236200">236200</td><td class="nm" data-v="슈프리마">슈프리마</td><td class="c" data-v="코스닥"><span class="mktb mk2">코스닥</span></td><td class="n" data-v="45400">45,400</td><td class="n" data-v="316633719400">3,166억</td><td class="c" data-v="86"><span class="rs">86</span></td><td class="n" data-v="-18.5">-18.5%</td><td class="n neg" data-v="-5.9">-5.9%p</td><td class="n" data-v="-18.9">-18.9%</td><td class="n pos" data-v="11.69">+11.7%</td><td class="n pos" data-v="12.75">+12.8%</td><td class="c" data-v="0"></td></tr>
 <tr><td class="c" data-v="001800">001800</td><td class="nm" data-v="오리온홀딩스">오리온홀딩스</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="25100">25,100</td><td class="n" data-v="1509931965200">1.5조</td><td class="c" data-v="85"><span class="rs">85</span></td><td class="n" data-v="0.6">0.6%</td><td class="n pos" data-v="13.1">+13.1%p</td><td class="n" data-v="-11.3">-11.3%</td><td class="n pos" data-v="8.05">+8.1%</td><td class="n pos" data-v="6.73">+6.7%</td><td class="c" data-v="0"></td></tr>
 <tr><td class="c" data-v="081660">081660</td><td class="nm" data-v="미스토홀딩스">미스토홀딩스</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="44300">44,300</td><td class="n" data-v="2351968512000">2.4조</td><td class="c" data-v="85"><span class="rs">85</span></td><td class="n" data-v="7">7%</td><td class="n pos" data-v="19.6">+19.6%p</td><td class="n" data-v="-18.3">-18.3%</td><td class="n pos" data-v="8.59">+8.6%</td><td class="n pos" data-v="13.08">+13.1%</td><td class="c" data-v="0"></td></tr></tbody></table>
-  <p class="note">열 제목을 클릭하면 그 기준으로 정렬됩니다(다시 클릭하면 역순). RS선 ● 표시는 <b>종가÷코스피지수</b>가 52주 최고치라는 뜻입니다. 미너비니가 주가 돌파 <b>이전에</b> 확인하는 신호입니다.
-  </p></div>
+  <p class="note">열 제목을 클릭하면 그 기준으로 정렬됩니다(다시 클릭하면 역순).
+  </p>
+
+  <details class="gloss" open><summary>표의 각 항목은 무엇인가 — 열 설명</summary>
+  <dl>
+    <dt>코드 · 종목명</dt>
+    <dd>6자리 종목코드와 종목명입니다. 우선주(◯우·◯우B)와 <b>스팩·리츠 일부</b>는 목록에서 제외했습니다 — 본주와 중복되거나 추세 판단이 무의미하기 때문입니다.</dd>
+
+    <dt>시장</dt>
+    <dd><span class="mktb mk1">코스피</span> / <span class="mktb mk2">코스닥</span> 소속 구분입니다. RS Rating 백분위는 <b>두 시장을 합친 전종목</b>을 모수로 계산하므로, 코스닥 종목의 RS 90도 코스피 종목과 같은 기준에서 상위 10%라는 뜻입니다.</dd>
+
+    <dt>종가</dt>
+    <dd>기준일 종가(원). 수정주가가 아닌 <b>KRX 공시 종가 그대로</b>이므로, 액면분할·무상증자가 있었던 종목은 과거 수익률 계산에 왜곡이 있을 수 있습니다. 그래서 3M 수익률이 <b>+300%를 넘는 종목은 자동 제외</b>합니다.</dd>
+
+    <dt>시가총액</dt>
+    <dd>기준일 시총입니다. <b>3,000억 미만은 목록에서 제외</b>했습니다. 미너비니가 유동성이 얕은 종목을 피하는 이유와 같습니다 — 기관이 들어올 수 없는 크기면 추세가 오래 못 갑니다.</dd>
+
+    <dt>RS (Rating)</dt>
+    <dd>IBD·미너비니 방식의 <b>상대강도 등급(1~99)</b>입니다. <span class="f">(3M×2 + 6M + 9M + 12M) ÷ 5</span>로 가중 수익률을 구한 뒤 전종목 대비 백분위로 환산합니다. <b>RS 90 = 상위 10%</b>. 최근 3개월에 2배 가중을 주는 이유는 "과거에 좋았던 종목"이 아니라 <b>지금 힘이 실린 종목</b>을 찾기 위해서입니다. 미너비니는 매수 후보를 <b>RS 80 이상</b>으로 좁힙니다.</dd>
+
+    <dt>3M</dt>
+    <dd>최근 <b>3개월(63거래일) 수익률</b>입니다. RS Rating이 순위라면 이쪽은 실제 수익률 크기입니다. 둘을 같이 보는 이유 — 하락장에서는 <b>덜 빠진 것만으로도 RS가 높게</b> 나오므로, 3M이 마이너스인데 RS가 높다면 "강해서"가 아니라 "남들이 더 빠져서"입니다.</dd>
+
+    <dt>지수대비</dt>
+    <dd>종목의 3M 수익률에서 <b>코스피 3M 수익률을 뺀 값</b>(%p)입니다. 시장 전체가 빠진 국면에서 이 값이 크게 플러스면 <b>자금이 실제로 이 종목에 남아 있다</b>는 뜻입니다. 코스닥 종목도 벤치마크는 코스피로 통일해 같은 잣대로 비교합니다.</dd>
+
+    <dt>고점대비</dt>
+    <dd>52주 최고가 대비 현재 위치입니다. <b>−25% 이내</b>만 목록에 남깁니다(추세 템플릿 7번 조건). 고점에서 그보다 더 무너진 종목은 아무리 RS가 높아도 <b>이미 추세가 꺾인 것</b>으로 보기 때문입니다. 0%에 가까울수록 신고가 부근입니다.</dd>
+
+    <dt>OPM (영업이익률)</dt>
+    <dd>DART 전자공시 기준 <b>영업이익 ÷ 매출액</b>입니다. 최신 사업연도(연간) 우선, 없으면 최근 분기로 대체합니다. 미너비니의 SEPA에서 <b>펀더멘털 확인용</b> 항목 — 차트가 좋아도 이익을 못 내는 회사는 추세가 오래 못 간다는 전제입니다. 금융·지주사는 업종 특성상 낮게 나오니 <b>같은 업종끼리만</b> 비교하세요.</dd>
+
+    <dt>ROE (자기자본이익률)</dt>
+    <dd>DART 기준 <b>순이익 ÷ 자기자본</b>입니다. 자본을 얼마나 효율적으로 굴렸는지 보는 수익성 지표로, 미너비니는 대략 <b>ROE 17% 이상</b>을 선호 기준으로 언급합니다. 다만 부채를 많이 쓰면 ROE가 올라가는 착시가 있으니 OPM과 함께 봐야 합니다. <b>−</b>는 DART에 해당 지표가 없는 경우(리츠·인프라펀드 등)입니다.</dd>
+
+    <dt>RS선</dt>
+    <dd><b>종가 ÷ 코스피지수</b>를 이은 선(상대강도선)이 52주 최고치일 때 <b>●</b>가 붙습니다. 미너비니가 가장 중요하게 보는 신호 중 하나 — <b>주가가 돌파하기 전에 RS선이 먼저 신고가</b>를 내는 종목이 다음 주도주가 되는 경우가 많습니다. 주가는 아직 눌려 있어도 <b>시장 대비로는 이미 이기고 있다</b>는 뜻이기 때문입니다.</dd>
+  </dl>
+  <p class="note" style="margin-top:4px">이 표는 <b>기계적 필터의 결과이며 종목 추천이 아닙니다.</b> 그리고 순서가 중요합니다 — 미너비니는 <b>시장 국면이 나쁠 때는 아무리 좋은 종목도 사지 않습니다</b>. 이 목록은 바닥이 확인된 뒤(항복 거래량 → FTD) 주도주를 고를 <b>후보 풀</b>로 쓰는 것이 맞습니다.</p>
+  </details></div>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 <script>
 new Chart(document.getElementById('bc'),{type:'line',
