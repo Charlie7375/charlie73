@@ -122,6 +122,39 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .g1box ol{margin:8px 0 0 20px} .g1box li{color:var(--text);font-weight:600}
 .stats5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px}
 @media(max-width:720px){.stats5{grid-template-columns:repeat(2,1fr)}}
+
+/* 주차별 히스토리 */
+.hist{position:relative;padding-left:26px;margin-top:18px}
+.hist::before{content:'';position:absolute;left:7px;top:14px;bottom:14px;width:2px;background:var(--border)}
+.hw{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:20px 22px;margin-bottom:16px}
+.hw::before{content:'';position:absolute;left:-24px;top:26px;width:12px;height:12px;border-radius:50%;
+  background:var(--border);border:3px solid var(--bg)}
+.hw.cur{border-color:color-mix(in srgb,var(--accent) 45%,var(--border));
+  box-shadow:0 1px 14px color-mix(in srgb,var(--accent) 10%,transparent)}
+.hw.cur::before{background:var(--accent)}
+.hh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.hwk{font-size:1.02rem;font-weight:900;letter-spacing:-.02em}
+.hdt{font-size:.82rem;color:var(--text-secondary);font-variant-numeric:tabular-nums}
+.hnow{font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:999px;color:#fff;background:var(--accent)}
+.htitle{margin-top:8px;font-size:1.12rem;font-weight:800;letter-spacing:-.02em;line-height:1.4}
+.htone{margin-top:6px;font-size:.86rem;color:var(--text-secondary);font-style:italic}
+.hpills{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
+.hp{font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.hp.on{color:#e11d48;background:color-mix(in srgb,#e11d48 12%,transparent)}
+.hp.wa{color:#b45309;background:color-mix(in srgb,#f59e0b 15%,transparent)}
+.hp.ob{color:#475569;background:color-mix(in srgb,#64748b 14%,transparent)}
+.hp.sf{color:#047857;background:color-mix(in srgb,#059669 13%,transparent)}
+.hp.g1{color:#fff;background:#e11d48}
+.hbody{margin-top:13px;font-size:.93rem;line-height:1.78;color:var(--text-secondary)}
+.hbody b{color:var(--text)}
+.hchg{margin-top:14px;padding-top:12px;border-top:1px dashed var(--border)}
+.hct{font-size:.76rem;font-weight:800;letter-spacing:.02em;color:var(--accent);text-transform:none}
+.hchg ul{margin:8px 0 0 16px;font-size:.87rem;line-height:1.85;color:var(--text-secondary)}
+.hchg li b{color:var(--text)}
+.hchg .ar{white-space:nowrap}
+.to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
+@media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
 </style></head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종</a>
@@ -205,6 +238,15 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
       근거는 <b>"빅테크는 못 멈춰도 자본공급자는 멈출 수 있다"</b> — CAPEX 하향은 가장 늦게 오는 신호이고,
       자금조달 조건 악화가 먼저 옵니다.</p>
   </div>
+
+  
+  <h2 class="sec">주차별 히스토리 <span class="sub2">6주 · 최신순</span></h2>
+  <div class="explain" style="margin-bottom:18px">
+    <p>매주 갱신할 때마다 남긴 요약입니다. <b>점등 개수보다 무엇이 켜지고 꺼졌는지의 순서</b>가 국면을 말해줍니다.
+      집계와 변화 항목은 체크리스트 원본에서 자동 산출되므로 과거 수치가 나중에 바뀌지 않습니다.</p>
+  </div>
+  <div class="hist"><div class="hw cur"><div class="hh"><span class="hwk">W31</span><span class="hdt">2026-08-01</span><span class="hnow">최신</span></div><div class="htitle">원인 규명 — 폭락도 반등도 &#x27;레버리지 청산&#x27;이었다</div><div class="htone">&quot;코스피 밑꼬리 달며 극적인 반등, 당분간 자연 반등 기대&quot; · 나스닥은 바닥 미확인</div><div class="hpills"><span class="hp on">점등 14</span><span class="hp wa">주의 4</span><span class="hp ob">관찰 7</span><span class="hp sf">안전 2</span><span class="hp g1">1급 점등 8</span></div><div class="hbody">7월 폭락(−37.9%, 월간 역대 최고)과 7/31 폭등(+18%, 역대 최고)의 원인이 <b>하나</b>로 밝혀졌다. 아셴브레너의 <b>SA펀드가 반도체 롱·SW 숏에 4배 레버리지</b>를 걸었다가 마진콜을 맞았고, <b>시타델이 인수해 강제청산</b>하면서 투매 리스크가 소멸한 것이다(2021 아케고스 재현). 즉 <b>7/31 급등은 펀더멘털 개선이 아니라 매도압력의 소멸</b>이다.<br>점등은 <b>13→14</b>, 1급은 <b>7→8</b>. 신규 점등은 <b>신용융자 급증(1급)</b> — 미국 신용융자가 <b>GDP 대비 1999·2007을 "훌쩍 넘어섰다"</b>. 주식 공급 과잉도 급증(SpaceX 미 역대 최대 상장 · 중국 CXMT 첫날 +466% · 하닉 ADR 미국 역대 2번째 규모).</div><div class="hchg"><div class="hct">W30 대비 변화 · 3건</div><ul><li><b>신용융자 급증(개인 과열)</b> <span class="ar">주의 → <b class="to-b-on">점등</b></span></li><li><b>단기 자금경색(TED·LIBOR-OIS·CDS)</b> <span class="ar">안전 → <b class="to-b-wa">주의</b></span></li><li><b>거래량 급증·손바뀜</b> <span class="ar">관찰 → <b class="to-b-wa">주의</b></span></li></ul></div></div><div class="hw"><div class="hh"><span class="hwk">W30</span><span class="hdt">2026-07-25</span></div><div class="htitle">탐욕 해소 · 금리 압박 강화 — 점등 수는 같지만 성격이 바뀌다</div><div class="htone">&quot;코스피 상승장 마감 수순&quot;, &quot;내년에 중공황이 서서히 시작&quot;</div><div class="hpills"><span class="hp on">점등 13</span><span class="hp wa">주의 3</span><span class="hp ob">관찰 8</span><span class="hp sf">안전 3</span><span class="hp g1">1급 점등 7</span></div><div class="hbody">점등 13으로 <b>수는 그대로</b>지만 <b>내용이 교체</b>됐다. 과열·심리 지표(신용융자·거래대금·VIX·낙관)가 대거 식어 내려오고, 대신 <b>장단기 금리차</b>가 신규 점등됐다. 신용잔고 38.5조→32.7조(−5.7조), 일평균 거래대금 100조→67조. 다만 이 완화는 <b>자발적 진정이 아니라 반대매매에 의한 강제 해소</b>였다는 점이 중요하다 — 과열 해소인 동시에 수요 이탈이다. 1급은 8→7.</div><div class="hchg"><div class="hct">W29 대비 변화 · 6건</div><ul><li><b>장단기 금리차 역전·재확대</b> <span class="ar">주의 → <b class="to-b-on">점등</b></span></li><li><b>VIX·MOVE 오버슈팅</b> <span class="ar">주의 → <b class="to-b-ob">관찰</b></span></li><li><b>ZEW·EC 소비심리 고점 후 반전</b> <span class="ar">주의 → <b class="to-b-ob">관찰</b></span></li><li><b>일직선 급등·안일한 낙관</b> <span class="ar">주의 → <b class="to-b-ob">관찰</b></span></li><li><b>신용융자 급증(개인 과열)</b> <span class="ar">점등 → <b class="to-b-wa">주의</b></span></li><li><b>거래량 급증·손바뀜</b> <span class="ar">주의 → <b class="to-b-ob">관찰</b></span></li></ul></div></div><div class="hw"><div class="hh"><span class="hwk">W29</span><span class="hdt">2026-07-18</span></div><div class="htitle">매파 급전환 — 한 주에 6개 항목이 움직였다</div><div class="htone">&quot;공황이 접근 중&quot;, &quot;반도체 주가 정점 형성한 듯&quot;</div><div class="hpills"><span class="hp on">점등 13</span><span class="hp wa">주의 7</span><span class="hp ob">관찰 4</span><span class="hp sf">안전 3</span><span class="hp g1">1급 점등 8</span></div><div class="hbody">점등이 <b>9→13</b>, 1급이 <b>5→8</b>로 한 주 만에 급증한 전환점이다. <b>신용 금리 스프레드</b> 재점등, <b>신용경색 선행</b>(오피스 CMBS 연체율 12%), <b>대형주 초과상승 멈춤</b>(삼전닉스 −30%), <b>이격도 고점 하락</b>이 동시에 켜졌다. 이야기꾼의 톤도 이 주에 <b>"공황이 접근 중"</b>으로 바뀌었고, 코스피 20주 생명선 붕괴 위험을 처음 언급했다.</div><div class="hchg"><div class="hct">W28 대비 변화 · 6건</div><ul><li><b>신용 금리 스프레드 확대</b> <span class="ar">주의 → <b class="to-b-on">점등</b></span></li><li><b>장단기 금리차 역전·재확대</b> <span class="ar">참고 → <b class="to-b-wa">주의</b></span></li><li><b>신용경색 선행</b> <span class="ar">주의 → <b class="to-b-on">점등</b></span></li><li><b>대형주 초과상승 멈춤</b> <span class="ar">주의 → <b class="to-b-on">점등</b></span></li><li><b>VIX·MOVE 오버슈팅</b> <span class="ar">관찰 → <b class="to-b-wa">주의</b></span></li><li><b>이격도 고점 하락(상승탄력 약화)</b> <span class="ar">관찰 → <b class="to-b-on">점등</b></span></li></ul></div></div><div class="hw"><div class="hh"><span class="hwk">W28</span><span class="hdt">2026-07-11</span></div><div class="htitle">개인 신용융자가 사상 최대 — 과열의 정점</div><div class="htone">신용융자 점등, 신용스프레드는 일시 진정</div><div class="hpills"><span class="hp on">점등 9</span><span class="hp wa">주의 8</span><span class="hp ob">관찰 6</span><span class="hp sf">안전 3</span><span class="hp g1">1급 점등 5</span></div><div class="hbody"><b>신용융자 급증이 주의→점등</b>. 개인 레버리지가 사상 최대 수준까지 올라온 구간이다. 반면 <b>신용 금리 스프레드는 점등→주의</b>로 한 칸 내려왔고 VIX도 완화돼, 위험 지표들이 <b>엇갈리는</b> 모습을 보였다. 결과적으로 이 주가 <b>과열의 정점</b>이었다 — 2주 뒤 반대매매로 강제 해소되기 시작한다.</div><div class="hchg"><div class="hct">W27 대비 변화 · 4건</div><ul><li><b>신용 금리 스프레드 확대</b> <span class="ar">점등 → <b class="to-b-wa">주의</b></span></li><li><b>VIX·MOVE 오버슈팅</b> <span class="ar">주의 → <b class="to-b-ob">관찰</b></span></li><li><b>ZEW·EC 소비심리 고점 후 반전</b> <span class="ar">관찰 → <b class="to-b-wa">주의</b></span></li><li><b>신용융자 급증(개인 과열)</b> <span class="ar">주의 → <b class="to-b-on">점등</b></span></li></ul></div></div><div class="hw"><div class="hh"><span class="hwk">W27</span><span class="hdt">2026-07-04</span></div><div class="htitle">신용이 처음 반응하다</div><div class="htone">신용 금리 스프레드가 1급 중 처음으로 점등</div><div class="hpills"><span class="hp on">점등 9</span><span class="hp wa">주의 8</span><span class="hp ob">관찰 5</span><span class="hp sf">안전 3</span><span class="hp g1">1급 점등 5</span></div><div class="hbody"><b>신용 금리 스프레드가 주의→점등</b>으로 올라오며 1급 전조가 4→5가 됐다. 이야기꾼의 프레임에서 <b>한국 신용스프레드는 미국보다 선행</b>하는 지표다. 함께 <b>신용경색 선행</b>과 <b>대형주 초과상승 멈춤</b>이 관찰→주의로 올라와, 이 주부터 감시의 무게중심이 '과열 심리'에서 <b>'신용'</b>으로 옮겨갔다.</div><div class="hchg"><div class="hct">W26 대비 변화 · 3건</div><ul><li><b>신용 금리 스프레드 확대</b> <span class="ar">주의 → <b class="to-b-on">점등</b></span></li><li><b>신용경색 선행</b> <span class="ar">관찰 → <b class="to-b-wa">주의</b></span></li><li><b>대형주 초과상승 멈춤</b> <span class="ar">관찰 → <b class="to-b-wa">주의</b></span></li></ul></div></div><div class="hw"><div class="hh"><span class="hwk">W26</span><span class="hdt">2026-06-27</span></div><div class="htitle">관망 국면 — 과열은 있으나 신용은 조용하다</div><div class="htone">지수는 사상 최고권이나 전조는 아직 산발적</div><div class="hpills"><span class="hp on">점등 8</span><span class="hp wa">주의 5</span><span class="hp ob">관찰 6</span><span class="hp sf">안전 2</span><span class="hp g1">1급 점등 4</span></div><div class="hbody">점등 8·1급 4로 이번 사이클의 <b>기준선</b>에 해당하는 주다. 인플레이션·긴축, 무역수지, 주식 공급 과잉 같은 <b>구조적 항목</b>은 이미 켜져 있었지만, 신용·유동성 쪽은 아직 조용했다. 이후 주차들은 이 상태에서 무엇이 추가로 켜졌는지를 읽으면 된다.</div><div class="hchg"><div class="hct">기준 주차 — 이후 변화를 이 상태와 비교합니다</div></div></div></div>
+
 
   <footer>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.
     · 근거: 이야기꾼 주간 시투 보고서(W31·2026-08-01) 및 자체 실측.</footer>
