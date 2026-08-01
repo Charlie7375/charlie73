@@ -7,8 +7,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html.theme-dark{--bg:#0A0A0A;--surface:#141414;--border:rgba(255,255,255,.07);--text:#EDEDED;--text-secondary:#8a8a8a;--accent:#2563eb}
-html.theme-light{--bg:#fff;--surface:#F6F7F9;--border:rgba(15,23,42,.12);--text:#0f172a;--text-secondary:#475569;--accent:#2563eb}
+html.theme-dark{--bg:#0A0A0A;--surface:#141414;--border:rgba(255,255,255,.07);--text:#EDEDED;--text-secondary:#8a8a8a;--accent:#2563eb;--up:#ff6b7a;--up-bg:rgba(255,107,122,.14);--dn:#5aa9ff;--dn-bg:rgba(90,169,255,.14);--risk:#fbbf24;--risk-bg:rgba(251,191,36,.16);--mute:#9aa3ad;--mute-bg:rgba(154,163,173,.13);}
+html.theme-light{--bg:#fff;--surface:#F6F7F9;--border:rgba(15,23,42,.12);--text:#0f172a;--text-secondary:#475569;--accent:#2563eb;--up:#d21f3c;--up-bg:rgba(210,31,60,.09);--dn:#1161c4;--dn-bg:rgba(17,97,196,.09);--risk:#b45309;--risk-bg:rgba(245,158,11,.14);--mute:#5b6470;--mute-bg:rgba(91,100,112,.10);}
 body{font-family:'Inter','Noto Sans KR',-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;letter-spacing:-.01em;-webkit-font-smoothing:antialiased}
 .wrap{max-width:1040px;margin:0 auto;padding:40px 28px 80px}
 
@@ -167,7 +167,31 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .pb-src{opacity:.72}
 .pb-old{font-size:.7rem;font-weight:800;padding:2px 8px;border-radius:999px;
   color:#b45309;background:color-mix(in srgb,#f59e0b 18%,transparent)}
-</style></head><body>
+/* DESIGN:BEGIN */
+/* ── 숫자는 항상 고정폭 — 매일 바뀌는 값에 칸이 흔들리지 않게 ── */
+body{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+table,.st-v,.kpi,.kpis,.pbadge b{font-variant-numeric:tabular-nums}
+
+/* ── 표 밀도 — 행이 많은 화면(오디션 255행·RS 55행)은 조밀해야 훑기 쉽다 ── */
+table{font-size:13px}
+thead th{font-size:12px;letter-spacing:-.01em;white-space:nowrap}
+tbody td{padding-top:7px!important;padding-bottom:7px!important}
+tbody tr:hover{background:color-mix(in srgb,var(--text) 3.5%,transparent)}
+
+/* ── 등락 색 (한국 관행: 빨강=상승 · 파랑=하락) ──
+   ⚠ **가격 등락에만** 적용한다. 초록/빨강이 '충족·미충족'이나 '발생·미발생'을
+     뜻하는 자리(bottom-top의 .b-pos 추세템플릿, peak-debate의 .fstat)는 건드리지
+     않는다. 거기선 초록=좋음이 맞고, 뒤집으면 오히려 뜻이 깨진다. */
+td.pos,.delta.up,.up-t{color:var(--up)!important}
+td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
+
+/* ── 테마 토글 버튼 (전 페이지 공통) ── */
+.toggle{position:fixed;right:18px;bottom:18px;z-index:80;width:42px;height:42px;
+  border-radius:50%;border:1px solid var(--border);background:var(--surface);
+  color:var(--text);font-size:17px;cursor:pointer;line-height:1;
+  box-shadow:0 2px 14px rgba(0,0,0,.10);transition:transform .12s,box-shadow .12s}
+.toggle:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(0,0,0,.16)}
+/* DESIGN:END */</style></head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종</a>
   <nav class="site-nav">
@@ -264,7 +288,7 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
   <footer>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.
     · 근거: 이야기꾼 주간 시투 보고서(W31·2026-08-01) 및 자체 실측.</footer>
 </div>
-<button class="toggle" onclick="var h=document.documentElement;h.className=h.className==='theme-light'?'theme-dark':'theme-light'">&#9728;</button>
+<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 
 <script>
 (function(){
@@ -284,4 +308,14 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 })();
 </script>
 
+<script>/* THEME:BEGIN */
+(function(){
+  var h=document.documentElement;
+  try{var v=localStorage.getItem('charlie-theme'); if(v){h.className=v;}}catch(e){}
+  window.__toggleTheme=function(){
+    var n=h.className==='theme-light'?'theme-dark':'theme-light';
+    h.className=n; try{localStorage.setItem('charlie-theme',n);}catch(e){}
+  };
+})();
+/* THEME:END */</script>
 </body></html>

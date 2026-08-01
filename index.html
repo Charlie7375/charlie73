@@ -6,8 +6,8 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-html.theme-dark{--bg:#000;--bg2:#0b0b0d;--surface:#151517;--surface2:#1d1d20;--border:rgba(255,255,255,.10);--text:#f5f5f7;--text2:#a1a1a6;--text3:#6e6e73;--accent:#0071e3;--accent2:#2997ff;--grid:rgba(255,255,255,.07)}
-html.theme-light{--bg:#fff;--bg2:#fbfbfd;--surface:#fff;--surface2:#f5f5f7;--border:rgba(0,0,0,.10);--text:#1d1d1f;--text2:#6e6e73;--text3:#86868b;--accent:#0071e3;--accent2:#0071e3;--grid:rgba(0,0,0,.07)}
+html.theme-dark{--bg:#000;--bg2:#0b0b0d;--surface:#151517;--surface2:#1d1d20;--border:rgba(255,255,255,.10);--text:#f5f5f7;--text2:#a1a1a6;--text3:#6e6e73;--accent:#0071e3;--accent2:#2997ff;--grid:rgba(255,255,255,.07);--up:#ff6b7a;--up-bg:rgba(255,107,122,.14);--dn:#5aa9ff;--dn-bg:rgba(90,169,255,.14);--risk:#fbbf24;--risk-bg:rgba(251,191,36,.16);--mute:#9aa3ad;--mute-bg:rgba(154,163,173,.13);}
+html.theme-light{--bg:#fff;--bg2:#fbfbfd;--surface:#fff;--surface2:#f5f5f7;--border:rgba(0,0,0,.10);--text:#1d1d1f;--text2:#6e6e73;--text3:#86868b;--accent:#0071e3;--accent2:#0071e3;--grid:rgba(0,0,0,.07);--up:#d21f3c;--up-bg:rgba(210,31,60,.09);--dn:#1161c4;--dn-bg:rgba(17,97,196,.09);--risk:#b45309;--risk-bg:rgba(245,158,11,.14);--mute:#5b6470;--mute-bg:rgba(91,100,112,.10);}
 body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Inter','Pretendard','Noto Sans KR',sans-serif;
   background:var(--bg);color:var(--text);line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;letter-spacing:-.015em}
 
@@ -22,9 +22,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Inter','Pret
 .tg{background:none;border:0;color:var(--text2);cursor:pointer;font-size:15px;padding:0 2px}
 
 /* ── 히어로 ── */
-.hero{text-align:center;padding:96px 22px 72px;max-width:900px;margin:0 auto}
+.hero{text-align:center;padding:40px 22px 26px;max-width:900px;margin:0 auto}
 .hero .kicker{font-size:19px;font-weight:600;color:var(--accent2);letter-spacing:-.01em}
-.hero h1{margin-top:10px;font-size:clamp(40px,6.2vw,68px);font-weight:700;line-height:1.06;letter-spacing:-.035em}
+.hero h1{margin-top:10px;font-size:clamp(30px,4.2vw,42px);font-weight:700;line-height:1.06;letter-spacing:-.035em}
 .hero h1 .feat{display:block;font-size:.45em;font-weight:500;color:var(--text2);letter-spacing:-.02em;margin-top:16px}
 .hero p{margin:22px auto 0;max-width:600px;font-size:19px;line-height:1.55;color:var(--text2);letter-spacing:-.01em}
 .hero .meta{margin-top:26px;font-size:13px;color:var(--text3)}
@@ -105,6 +105,33 @@ html.theme-dark .md{box-shadow:0 18px 44px rgba(0,0,0,.55)}
 .st-c.up .st-v{color:#059669}.st-c.dn .st-v{color:#e11d48}.st-c.warn .st-v{color:#e11d48}
 .st-u{font-size:.9rem;font-weight:700;opacity:.55}
 .st-s{font-size:.74rem;color:var(--text-secondary);margin-top:4px;font-variant-numeric:tabular-nums}
+/* DESIGN:BEGIN */
+/* ── 숫자는 항상 고정폭 — 매일 바뀌는 값에 칸이 흔들리지 않게 ── */
+body{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+table,.st-v,.kpi,.kpis,.pbadge b{font-variant-numeric:tabular-nums}
+
+/* ── 표 밀도 — 행이 많은 화면(오디션 255행·RS 55행)은 조밀해야 훑기 쉽다 ── */
+table{font-size:13px}
+thead th{font-size:12px;letter-spacing:-.01em;white-space:nowrap}
+tbody td{padding-top:7px!important;padding-bottom:7px!important}
+tbody tr:hover{background:color-mix(in srgb,var(--text) 3.5%,transparent)}
+
+/* ── 등락 색 (한국 관행: 빨강=상승 · 파랑=하락) ──
+   ⚠ **가격 등락에만** 적용한다. 초록/빨강이 '충족·미충족'이나 '발생·미발생'을
+     뜻하는 자리(bottom-top의 .b-pos 추세템플릿, peak-debate의 .fstat)는 건드리지
+     않는다. 거기선 초록=좋음이 맞고, 뒤집으면 오히려 뜻이 깨진다. */
+td.pos,.delta.up,.up-t{color:var(--up)!important}
+td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
+
+/* ── 테마 토글 버튼 (전 페이지 공통) ── */
+.toggle{position:fixed;right:18px;bottom:18px;z-index:80;width:42px;height:42px;
+  border-radius:50%;border:1px solid var(--border);background:var(--surface);
+  color:var(--text);font-size:17px;cursor:pointer;line-height:1;
+  box-shadow:0 2px 14px rgba(0,0,0,.10);transition:transform .12s,box-shadow .12s}
+.toggle:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(0,0,0,.16)}
+/* DESIGN:END */.hero-lead{max-width:660px;margin:10px auto 0;font-size:14.5px;line-height:1.62;color:var(--text2)}
+@media(min-width:861px){#tech .g3>a.card:first-child{grid-column:span 2}}
+.g3>.card:first-child{}
 </style></head><body>
 
 <div class="bar"><div class="bar-in">
@@ -133,13 +160,13 @@ html.theme-dark .md{box-shadow:0 18px 44px rgba(0,0,0,.55)}
         <a href="samsung-em.html">삼성전기 이격도</a>
       </div></div>
   </nav>
-  <button class="tg" onclick="var h=document.documentElement;h.className=h.className==='theme-light'?'theme-dark':'theme-light'" aria-label="테마 전환">&#9728;</button>
+  <button class="tg" onclick="__toggleTheme()" aria-label="테마 전환">&#9728;</button>
 </div></div>
 
 <header class="hero">
   <div class="kicker">Scenario Investing Strategy</div>
   <h1>찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></h1>
-  <p>지수 하나로는 보이지 않는 것을 봅니다. 50일 이격도로 <b>위치</b>를, 분산일과 시장 폭으로 <b>수급</b>을, 전조현상으로 <b>국면</b>을 추적합니다. 모든 수치는 시투 주간보고서와 공개된 투자 관련 리포트, 시장 실데이터로 직접 산출합니다. <b>이 사이트의 정보는 시투 회원 한정으로 공개됩니다.</b></p>
+  <p class="hero-lead">지수 하나로는 보이지 않는 것을 봅니다. 50일 이격도로 <b>위치</b>를, 분산일과 시장 폭으로 <b>수급</b>을, 전조현상으로 <b>국면</b>을 추적합니다. 모든 수치는 시투 주간보고서와 공개된 투자 관련 리포트, 시장 실데이터로 직접 산출합니다. <b>이 사이트의 정보는 시투 회원 한정으로 공개됩니다.</b></p>
 </header>
 
 <!-- STATUS:BEGIN -->
@@ -192,4 +219,15 @@ html.theme-dark .md{box-shadow:0 18px 44px rgba(0,0,0,.55)}
 데이터: KRX 일별시세 실데이터 기반 자체 산출 · 근거: 이야기꾼 주간 시투 보고서, KB증권 이그전 리포트
 </div></footer>
 
+<script>/* THEME:BEGIN */
+(function(){
+  var h=document.documentElement;
+  try{var v=localStorage.getItem('charlie-theme'); if(v){h.className=v;}}catch(e){}
+  window.__toggleTheme=function(){
+    var n=h.className==='theme-light'?'theme-dark':'theme-light';
+    h.className=n; try{localStorage.setItem('charlie-theme',n);}catch(e){}
+  };
+})();
+/* THEME:END */</script>
+<button class="toggle" onclick="__toggleTheme()" aria-label="라이트·다크 전환">&#9728;</button>
 </body></html>
