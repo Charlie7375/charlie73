@@ -130,7 +130,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 .g3>.card:first-child{}
 /* STATUSCSS:BEGIN */
 /* ── 첫 화면 상태판 ── */
-.status{max-width:var(--w-data);margin:22px auto 34px;padding:0 22px}
+.status{max-width:1080px;margin:-28px auto 44px;padding:0 22px}
 .st-head{font-size:.82rem;color:var(--text-secondary);margin-bottom:12px;display:flex;
   align-items:center;gap:10px;flex-wrap:wrap}
 .st-head b{color:var(--text);font-variant-numeric:tabular-nums}
@@ -220,35 +220,20 @@ html.theme-dark .card:hover{box-shadow:none!important}
 .site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
   background:color-mix(in srgb,var(--text) 6%,transparent)}
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+
+/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
+.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
+  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
+.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
+  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
+  background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
 </style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&display=swap"></head><body>
 
 <div class="bar"><div class="bar-in">
   <a class="brand" href="index.html">찰리의 시투 추종</a>
-  <nav class="mm">
-    <!-- NAVX:BEGIN --><div class="mg"><a class="solo" href="methodology.html">방법론</a></div><!-- NAVX:END -->
-    <div class="mg"><a href="#tech">기술 분석</a>
-      <div class="md">
-        <a href="kospi-skhynix.html">코스피 &amp; SK하이닉스 이격도</a>
-        <a href="audition.html">오디션 피라미딩</a>
-        <a href="bottom-top.html">바닥·천장 추적 분석</a>
-        <a href="breadth-rs.html">52주 신고가와 상대강도</a>
-      </div></div>
-    <div class="mg"><a href="#insight">투자 인사이트</a>
-      <div class="md">
-        <a href="peak-debate.html">반도체 정점 논쟁</a>
-        <a href="jeonjo.html">중공황 전조현상</a>
-        <a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a>
-      </div></div>
-    <div class="mg"><a href="#case">케이스 스터디</a>
-      <div class="md">
-        <a href="audition-history.html">오디션 피라미딩 히스토리 2025~2026</a>
-        <a href="disparity-archive.html">두 버블의 50일 이격도</a>
-        <a href="stage-analysis.html">200일선과 와인스타인 스테이지</a>
-        <a href="ecopro.html">에코프로</a>
-        <a href="hanmi.html">한미반도체</a>
-        <a href="samsung-em.html">삼성전기 이격도</a>
-      </div></div>
-  </nav>
+  <nav class="mm"><!-- NAV:BEGIN --><div class="mg"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="md"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피 & SK하이닉스 이격도</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a></div></div><div class="mg"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="md"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a></div></div><div class="mg"><a class="solo" href="methodology.html">방법론</a></div><div class="mg"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="md"><span class="nav-h">갱신 없음</span><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="ecopro.html">에코프로</a><a href="hanmi.html">한미반도체</a><a href="samsung-em.html">삼성전기 이격도</a></div></div><!-- NAV:END --></nav>
   <button class="tg" onclick="__toggleTheme()" aria-label="테마 전환">&#9728;</button>
 </div></div>
 
@@ -262,38 +247,46 @@ html.theme-dark .card:hover{box-shadow:none!important}
 <!-- STATUS:END -->
 
 
-<section class="sec" id="tech">
-  <div class="sec-head"><div class="n">01 &nbsp;/&nbsp; Technical</div>
-    <h2>기술 분석</h2>
-    <p>지금 시장이 어디에 있는지를 숫자로 확인합니다. 이격도(위치) · 분산일과 FTD(수급) · 시장 폭과 상대강도(범위).</p></div>
+<section class="sec" id="today">
+  <div class="sec-head"><div class="n">01 &nbsp;/&nbsp; Daily</div>
+    <h2>오늘의 시장</h2>
+    <p>매일 갱신됩니다. 장 마감 뒤 여기만 보면 오늘 무엇이 바뀌었는지 끝납니다.</p></div>
   <div class="grid g3">
-  <a class="card " href="methodology.html"><span class="tag">방법론 · 기준</span><h3>이야기꾼 매매 5원칙</h3><p>이 사이트의 모든 숫자가 <b>무엇을 확인하려는 것인지</b>. 매수 5원칙·매도 5원칙과 <b>바닥 7단계</b>, 그리고 천장은 그것을 뒤집은 것. 2024년 기술분석 1·2탄 강의가 근거입니다.</p><span class="go">열기</span></a>
   <a class="card " href="kospi-skhynix.html"><span class="tag">라이브 · 2년</span><h3>코스피 &amp; SK하이닉스 이격도</h3><p>50일 이격도로 과열·과매도를 진단합니다. 이격도 추이, 종가 vs 50일선, 국면 분포, 반등확률 백테스트까지.</p><span class="go">열기</span></a>
-  <a class="card " href="audition.html"><span class="tag">종목 선정 · 라이브</span><h3>오디션 피라미딩</h3><p>시투의 종목 선정법 — <b>뽑는 게 아니라 떨어뜨립니다</b>. 시총 <b>1조 이상</b>에서 기준일 대비 상승률로 줄을 세우고 <b>누가 살아남는지</b>를 매일 추적합니다.</p><span class="go">열기</span></a>
   <a class="card " href="bottom-top.html"><span class="tag">분석 툴 · 라이브</span><h3>바닥·천장 추적 분석</h3><p>이격도와 다른 각도의 3종 도구 — <b>분산일 카운트</b>(천장 경고), <b>FTD·항복 거래량</b>(바닥 확인), <b>미너비니 추세 템플릿</b>(국면 판정).</p><span class="go">열기</span></a>
   <a class="card good" href="breadth-rs.html"><span class="tag">시장 폭 · 라이브</span><h3>52주 신고가와 상대강도</h3><p>코스피 전종목을 훑어 <b>시장 폭</b>과 <b>주도주</b>를 봅니다. RS Rating, 지수 대비 초과수익률, RS선 신고가.</p><span class="go">열기</span></a>
+  <a class="card " href="audition.html"><span class="tag">종목 선정 · 라이브</span><h3>오디션 피라미딩</h3><p>시투의 종목 선정법 — <b>뽑는 게 아니라 떨어뜨립니다</b>. 시총 <b>1조 이상</b>에서 기준일 대비 상승률로 줄을 세우고 <b>누가 살아남는지</b>를 매일 추적합니다.</p><span class="go">열기</span></a>
 </div>
 </section>
 
-<section class="sec" id="insight">
-  <div class="sec-head"><div class="n">02 &nbsp;/&nbsp; Insight</div>
-    <h2>투자 인사이트</h2>
-    <p>숫자에서 판단으로. 결론보다 <b>근거</b>와 <b>틀릴 조건</b>을 남기고, 주간 리포트가 나올 때마다 갱신합니다.</p></div>
-  <div class="grid g3">
-  <a class="card " href="peak-debate.html"><span class="tag">누적 분석 · 라이브</span><h3>반도체 정점 논쟁</h3><p>"반도체는 정점을 찍었는가." 리포트가 나올 때마다 판단을 갱신하고 <b>틀렸던 부분까지 지우지 않고 누적</b>합니다. 이야기꾼과 이은택이 갈리는 지점, 그리고 <b>내가 틀릴 조건</b>을 함께 추적합니다.</p><span class="go">열기</span></a>
-  <a class="card warn" href="jeonjo.html"><span class="tag">위험 · 주간 점검</span><h3>중공황 전조현상 현황</h3><p>이야기꾼 주간 시투 보고서를 근거로 전조현상 <b>28종</b>을 매주 점검합니다. 1급 전조가 겹칠수록 위험 신호입니다.</p><span class="go">열기</span></a>
-  <a class="card" href="kospi-dotcom-1998-2000.html"><span class="tag">아카이브 · 지수</span><h3>코스피 닷컴 랠리 1998~2000</h3><p>IMF 저점(313)에서 닷컴 정점(984)까지 18개월 <b>+214%</b>. 1999년 안에 이미 <b>이중 천장</b>, 2차 랠리는 정점의 <b>80.8%</b>에서 멈췄습니다. <b>2025.04 저점 기준 현재 코스피를 겹친 오버레이</b> 포함.</p><span class="go">열기</span></a>
-</div>
-</section>
-
-<section class="sec" id="case">
-  <div class="sec-head"><div class="n">03 &nbsp;/&nbsp; Case Study</div>
-    <h2>케이스 스터디</h2>
-    <p>지나간 사이클에서 지표가 실제로 어떻게 움직였는지 복기합니다. 지금 국면을 읽는 기준선이 됩니다.</p></div>
+<section class="sec" id="judge">
+  <div class="sec-head"><div class="n">02 &nbsp;/&nbsp; Judgment</div>
+    <h2>판단</h2>
+    <p>주 1회 갱신됩니다. 숫자에서 판단으로 — 결론보다 <b>근거</b>와 <b>틀릴 조건</b>을 남깁니다.</p></div>
   <div class="grid g2">
-  <a class="card " href="audition-history.html"><span class="tag">케이스 스터디 · 추적</span><h3>오디션 피라미딩 히스토리 2025~2026</h3><p>2025년 4월 저점을 기준으로 <b>3개월씩 구간을 늘려가며</b> 누가 살아남았는지 추적. 전력·조선 → 로봇·바이오 → 코스닥 소형 → <b>대형 반도체</b>로 이어진 주도주 교체와 그 끝을 복기합니다.</p><span class="go">열기</span></a>
+  <a class="card warn" href="jeonjo.html"><span class="tag">위험 · 주간 점검</span><h3>중공황 전조현상 현황</h3><p>이야기꾼 주간 시투 보고서를 근거로 전조현상 <b>28종</b>을 매주 점검합니다. 1급 전조가 겹칠수록 위험 신호입니다.</p><span class="go">열기</span></a>
+  <a class="card " href="peak-debate.html"><span class="tag">누적 분석 · 라이브</span><h3>반도체 정점 논쟁</h3><p>"반도체는 정점을 찍었는가." 리포트가 나올 때마다 판단을 갱신하고 <b>틀렸던 부분까지 지우지 않고 누적</b>합니다. 이야기꾼과 이은택이 갈리는 지점, 그리고 <b>내가 틀릴 조건</b>을 함께 추적합니다.</p><span class="go">열기</span></a>
+</div>
+</section>
+
+<section class="sec" id="method">
+  <div class="sec-head"><div class="n">03 &nbsp;/&nbsp; Method</div>
+    <h2>방법론</h2>
+    <p>갱신되지 않습니다. 위의 모든 숫자가 <b>무엇을 확인하려는 것인지</b>의 기준입니다.</p></div>
+  <div class="grid g2">
+  <a class="card " href="methodology.html"><span class="tag">방법론 · 기준</span><h3>이야기꾼 매매 5원칙</h3><p>이 사이트의 모든 숫자가 <b>무엇을 확인하려는 것인지</b>. 매수 5원칙·매도 5원칙과 <b>바닥 7단계</b>, 그리고 천장은 그것을 뒤집은 것. 2024년 기술분석 1·2탄 강의가 근거입니다.</p><span class="go">열기</span></a>
+</div>
+</section>
+
+<section class="sec" id="archive">
+  <div class="sec-head"><div class="n">04 &nbsp;/&nbsp; Archive</div>
+    <h2>아카이브</h2>
+    <p>갱신되지 않습니다. 지나간 사이클에서 지표가 실제로 어떻게 움직였는지의 기록입니다.</p></div>
+  <div class="grid g3">
   <a class="card " href="disparity-archive.html"><span class="tag">아카이브 · 이격도</span><h3>두 버블의 50일 이격도</h3><p>2026 AI(실데이터)와 1999 닷컴(시뮬레이션)을 동일 스케일로 비교. 둘 다 <b>이격도 130%대</b>에서 첫 정점을 찍었고, 갈린 것은 <b>식는 속도</b>였습니다.</p><span class="go">열기</span></a>
+  <a class="card" href="kospi-dotcom-1998-2000.html"><span class="tag">아카이브 · 지수</span><h3>코스피 닷컴 랠리 1998~2000</h3><p>IMF 저점(313)에서 닷컴 정점(984)까지 18개월 <b>+214%</b>. 1999년 안에 이미 <b>이중 천장</b>, 2차 랠리는 정점의 <b>80.8%</b>에서 멈췄습니다. <b>2025.04 저점 기준 현재 코스피를 겹친 오버레이</b> 포함.</p><span class="go">열기</span></a>
   <a class="card " href="stage-analysis.html"><span class="tag">아카이브 · 스테이지</span><h3>200일선과 와인스타인 스테이지</h3><p>1986~1990 3저 호황과 2003~2012 대세 상승을 <b>4단계 국면</b>으로 분해. 긴 사이클엔 이격도가 아니라 <b>200일선</b>이 답합니다.</p><span class="go">열기</span></a>
+  <a class="card " href="audition-history.html"><span class="tag">케이스 스터디 · 추적</span><h3>오디션 피라미딩 히스토리 2025~2026</h3><p>2025년 4월 저점을 기준으로 <b>3개월씩 구간을 늘려가며</b> 누가 살아남았는지 추적. 전력·조선 → 로봇·바이오 → 코스닥 소형 → <b>대형 반도체</b>로 이어진 주도주 교체와 그 끝을 복기합니다.</p><span class="go">열기</span></a>
   <a class="card " href="ecopro.html"><span class="tag">케이스 스터디</span><h3>에코프로</h3><p>2022~2023 · 2차전지 파라볼릭. 이격도 최고 <b>230</b> → 최저 <b>63.6</b>. 이격도 고점이 먼저 꺾이고 주가가 뒤늦게 정점을 만든 사례.</p><span class="go">열기</span></a>
   <a class="card " href="hanmi.html"><span class="tag">케이스 스터디</span><h3>한미반도체</h3><p>2023~2024 · HBM 대장주. 이격도 고점(<b>177.6</b>)과 가격 고점이 <b>11개월</b> 어긋난 사례. 지금 반도체 논쟁의 원형.</p><span class="go">열기</span></a>
   <a class="card " href="samsung-em.html"><span class="tag">케이스 스터디</span><h3>삼성전기</h3><p>2024~2026 · MLCC·AI 기판. 코스피·하이닉스와 다른 업종에서 이격도가 어떻게 움직였는지 비교하는 대조군.</p><span class="go">열기</span></a>

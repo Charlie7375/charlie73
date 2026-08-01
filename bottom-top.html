@@ -193,40 +193,25 @@ html.theme-dark .card:hover{box-shadow:none!important}
 .site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
   background:color-mix(in srgb,var(--text) 6%,transparent)}
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+
+/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
+.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
+  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
+.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
+  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
+  background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
 </style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&display=swap"></head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종</a>
-  <nav class="site-nav">
-    <!-- NAVX:BEGIN --><div class="site-group"><a class="solo" href="methodology.html">방법론</a></div><!-- NAVX:END -->
-    <div class="site-group"><button class="here" type="button">기술 분석 <span class="cv">▼</span></button>
-      <div class="site-dd">
-        <a href="kospi-skhynix.html">코스피 & SK하이닉스 이격도</a>
-        <a href="audition.html">오디션 피라미딩</a>
-        <a class="here" href="bottom-top.html">바닥·천장 추적 분석</a>
-        <a href="breadth-rs.html">52주 신고가와 상대강도</a>
-      </div></div>
-    <div class="site-group"><button class="" type="button">투자 인사이트 <span class="cv">▼</span></button>
-      <div class="site-dd">
-        <a href="peak-debate.html">반도체 정점 논쟁</a>
-        <a href="jeonjo.html">중공황 전조현상</a>
-        <a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a>
-      </div></div>
-    <div class="site-group"><button class="" type="button">케이스 스터디 <span class="cv">▼</span></button>
-      <div class="site-dd">
-        <a href="audition-history.html">오디션 피라미딩 히스토리 2025~2026</a>
-        <a href="disparity-archive.html">두 버블의 50일 이격도</a>
-        <a href="stage-analysis.html">200일선과 와인스타인 스테이지</a>
-        <a href="ecopro.html">에코프로</a>
-        <a href="hanmi.html">한미반도체</a>
-        <a href="samsung-em.html">삼성전기 이격도</a>
-      </div></div>
-  </nav>
+  <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="here" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피 & SK하이닉스 이격도</a><a class="here" href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a></div></div><div class="site-group"><a class="solo" href="methodology.html">방법론</a></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="ecopro.html">에코프로</a><a href="hanmi.html">한미반도체</a><a href="samsung-em.html">삼성전기 이격도</a></div></div><!-- NAV:END --></nav>
 </div></div>
 
 
 <button class="toggle" onclick="__toggleTheme()">☀</button>
 <div class="wrap">
-  <div class="site-crumb"><a href="index.html">홈</a><span class="sep">›</span><span>기술 분석</span><span class="sep">›</span><span class="cur">바닥·천장 추적 분석</span></div>
+  <div class="site-crumb"><a href="index.html">홈</a><span class="sep">›</span><span>오늘의 시장</span><span class="sep">›</span><span class="cur">바닥·천장 추적 분석</span></div>
 <!-- STAMP:BEGIN --><div class="pbadge"><span class="pb-k pb-live">매일 갱신</span><span>기준일 <b>2026-07-31</b></span><span class="pb-src">코스피·하닉·삼전 일별시세</span></div><!-- STAMP:END -->
 
   
@@ -235,7 +220,7 @@ html.theme-dark .card:hover{box-shadow:none!important}
   
   
   
-  <div class="eyebrow">찰리 기술적 분석 · 바닥/천장 추적</div>
+  <div class="eyebrow">찰리 오늘의 시장 · 바닥/천장 추적</div>
 <h1>코스피 · SK하이닉스 · 삼성전자<br>바닥·천장 추적 분석</h1>
 <p class="sub">50일 이격도가 "이동평균에서 얼마나 벌어졌나"를 재는 <b>위치 지표</b>라면, 이 덱은 <b>누가 팔고 있나(분산일)</b>, <b>바닥이 확인됐나(FTD·항복 거래량)</b>, <b>추세가 살아있나(미너비니 추세 템플릿)</b>를 봅니다. 세 도구는 각각 천장 경고 · 바닥 확인 · 국면 판정을 담당해, 이격도와 다른 각도에서 교차검증합니다.</p>
 <div class="asof"><span class="dot"></span> 기준일 2026년 7월 31일 · 일별 시가·고가·저가·거래량 실데이터</div>
