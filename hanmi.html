@@ -164,6 +164,14 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
   font-family:inherit}
 .explain h2,.explain h3,.explain h4,.ebody h2,.ebody h3,.ebody h4,.hbody h2,.hbody h3,.hbody h4,.verdict h2,.verdict h3,.verdict h4,.callout h2,.callout h3,.callout h4,.lesson h2,.lesson h3,.lesson h4,.note h2,.note h3,.note h4,.disclaimer h2,.disclaimer h3,.disclaimer h4,.fdetail h2,.fdetail h3,.fdetail h4,.panel-cap h2,.panel-cap h3,.panel-cap h4{font-family:inherit}
 
+/* 해설 박스 안의 소제목 — 박스 밖 h2와 같은 크기면 위계가 무너진다.
+   본문보다 한 단만 크게, 위로 여백을 줘서 문단 묶음이 눈에 보이게 한다. */
+.explain h2,.ebody h2,.hbody h2,.verdict h2,.callout h2,.lesson h2,.note h2,.disclaimer h2,.fdetail h2,.panel-cap h2{
+  font-size:1.06em;font-weight:700;margin:22px 0 9px;letter-spacing:-.01em}
+.explain h2:first-child,.ebody h2:first-child,.hbody h2:first-child,.verdict h2:first-child,.callout h2:first-child,.lesson h2:first-child,.note h2:first-child,.disclaimer h2:first-child,.fdetail h2:first-child,.panel-cap h2:first-child{margin-top:0}
+.explain p,.ebody p,.hbody p,.verdict p,.callout p,.lesson p,.note p,.disclaimer p,.fdetail p,.panel-cap p{margin:0 0 11px}
+.explain p:last-child,.ebody p:last-child,.hbody p:last-child,.verdict p:last-child,.callout p:last-child,.lesson p:last-child,.note p:last-child,.disclaimer p:last-child,.fdetail p:last-child,.panel-cap p:last-child{margin-bottom:0}
+
 /* ── 폰트 통일 — 나눔고딕 ──
    본문·제목·표·차트 라벨까지 한 벌로 간다. 예전엔 해설층만 세리프를 썼는데,
    서체가 둘이면 같은 페이지 안에서 글자 크기와 행간이 미묘하게 어긋난다. */
