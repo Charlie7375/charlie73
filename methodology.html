@@ -268,15 +268,31 @@ html.theme-dark .card:hover{box-shadow:none!important}
   background:color-mix(in srgb,var(--text) 6%,transparent)}
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
 /* BAR:BEGIN */
-/* 브랜드를 상단 가운데로 — flex 정렬이 아니라 절대 위치라야 메뉴 길이에 안 흔들린다 */
-.site-bar-in{position:relative;justify-content:flex-end}
-.site-brand{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
-  font-size:15px;font-weight:700;letter-spacing:-.02em}
-.site-nav{margin-left:0}
-@media(max-width:900px){
-  /* 좁아지면 제목과 메뉴가 겹친다 → 왼쪽으로 되돌린다 */
-  .site-bar-in{justify-content:space-between}
-  .site-brand{position:static;transform:none;font-size:13px}
+/* ── 브랜드를 상단 가운데로 ──
+   ⚠ 선택자를 `.site-brand`로만 쓰면 **정본 CSS가 뒤에 오는 페이지에서 밀린다**
+     (같은 특이도면 나중에 쓴 쪽이 이긴다). 블록 삽입 순서에 기대지 않도록
+     `html body`를 앞에 붙여 특이도를 올린다. 2026-08-01에 이걸로 한 번 헛돌았다.
+   ⚠ flex의 justify-content:center 로 가운데를 맞추면 **메뉴 길이에 따라 제목이 흔들린다.**
+     절대 위치라야 화면 정중앙에 고정된다. */
+html body .site-bar-in{position:relative;justify-content:flex-end;max-width:none;
+  padding-left:26px;padding-right:26px}
+html body .site-brand{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  font-size:15px;font-weight:700;letter-spacing:-.02em;line-height:1.15;text-align:center}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.82em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin-left:0}
+
+/* 제목이 메뉴와 부딪히기 전에 가운데 정렬을 포기한다 —
+   겹쳐서 읽히지 않는 것보다 왼쪽에 붙는 편이 낫다. */
+@media(max-width:1180px){
+  html body .site-bar-in{justify-content:space-between}
+  html body .site-brand{position:static;transform:none;text-align:left}
+}
+/* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 내린다 */
+@media(max-width:760px){
+  html body .site-brand{font-size:13px}
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{height:auto;padding-top:7px;padding-bottom:7px;align-items:center}
 }
 /* BAR:END */
 .scn{margin:6px auto 26px;max-width:1100px}
@@ -305,7 +321,7 @@ h3{letter-spacing:-.015em}
 .sub{max-width:none}
 </style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&display=swap"></head><body>
 <div class="site-bar"><div class="site-bar-in">
-  <a class="site-brand" href="index.html">찰리의 시투 추종</a>
+  <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피 & SK하이닉스 이격도</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a></div></div><div class="site-group"><button class="here" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a class="here" href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="ecopro.html">에코프로</a><a href="hanmi.html">한미반도체</a><a href="samsung-em.html">삼성전기 이격도</a></div></div><!-- NAV:END --></nav>
 </div></div>
 <div class="wrap">
