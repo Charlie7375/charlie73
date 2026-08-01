@@ -84,7 +84,7 @@ html.theme-dark .md{box-shadow:0 18px 44px rgba(0,0,0,.55)}
 @media(max-width:860px){.bar nav.mm{display:none}}
 
 /* ── 첫 화면 상태판 ── */
-.status{max-width:1080px;margin:-28px auto 44px;padding:0 22px}
+.status{max-width:var(--w-data);margin:22px auto 34px;padding:0 22px}
 .st-head{font-size:.82rem;color:var(--text-secondary);margin-bottom:12px;display:flex;
   align-items:center;gap:10px;flex-wrap:wrap}
 .st-head b{color:var(--text);font-variant-numeric:tabular-nums}
@@ -130,7 +130,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 .g3>.card:first-child{}
 /* STATUSCSS:BEGIN */
 /* ── 첫 화면 상태판 ── */
-.status{max-width:1080px;margin:-28px auto 44px;padding:0 22px}
+.status{max-width:var(--w-data);margin:22px auto 34px;padding:0 22px}
 .st-head{font-size:.82rem;color:var(--text-secondary);margin-bottom:12px;display:flex;
   align-items:center;gap:10px;flex-wrap:wrap}
 .st-head b{color:var(--text);font-variant-numeric:tabular-nums}
@@ -152,11 +152,80 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 .st-c.up .st-v{color:var(--up)}.st-c.dn .st-v{color:var(--dn)}.st-c.warn .st-v{color:var(--risk)}
 .st-u{font-size:.9rem;font-weight:700;opacity:.55}
 .st-s{font-size:.74rem;color:var(--text-secondary);margin-top:4px;font-variant-numeric:tabular-nums}
-/* STATUSCSS:END */</style></head><body>
+/* STATUSCSS:END */.site-lead{max-width:var(--w-prose);margin:0 0 16px;font-family:'Noto Serif KR',ui-serif,Georgia,serif;font-size:13.5px;line-height:1.8;color:var(--text2)}
+/* LAYOUT:BEGIN */
+:root{--w-data:1440px;--w-prose:660px;--w-chart:1100px}
+
+/* ── ① 데이터층은 전폭 ── */
+.wrap,.sec,.bar-in,.status,.foot-in{max-width:var(--w-data)!important}
+.wrap{padding-left:32px!important;padding-right:32px!important}
+
+/* ── ② 해설층은 좁은 단 + 세리프 ──
+   숫자·표·라벨은 산세리프로 남는다. 서체가 바뀌는 지점이 곧 층이 바뀌는 지점이다. */
+.explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{
+  max-width:var(--w-prose);margin-left:auto!important;margin-right:auto!important;
+  font-family:'Noto Serif KR',ui-serif,Georgia,serif;
+  font-size:15px;line-height:1.88;letter-spacing:-.004em}
+.explain b,.explain strong,.ebody b,.ebody strong,.hbody b,.hbody strong,.verdict b,.verdict strong,.callout b,.callout strong,.lesson b,.lesson strong,.note b,.note strong,.disclaimer b,.disclaimer strong,.fdetail b,.fdetail strong,.panel-cap b,.panel-cap strong{font-weight:600}
+.explain code,.explain .num,.explain table,.ebody code,.ebody .num,.ebody table,.hbody code,.hbody .num,.hbody table,.verdict code,.verdict .num,.verdict table,.callout code,.callout .num,.callout table,.lesson code,.lesson .num,.lesson table,.note code,.note .num,.note table,.disclaimer code,.disclaimer .num,.disclaimer table,.fdetail code,.fdetail .num,.fdetail table,.panel-cap code,.panel-cap .num,.panel-cap table{
+  font-family:-apple-system,BlinkMacSystemFont,'SF Mono','Pretendard',sans-serif}
+.explain h2,.explain h3,.explain h4,.ebody h2,.ebody h3,.ebody h4,.hbody h2,.hbody h3,.hbody h4,.verdict h2,.verdict h3,.verdict h4,.callout h2,.callout h3,.callout h4,.lesson h2,.lesson h3,.lesson h4,.note h2,.note h3,.note h4,.disclaimer h2,.disclaimer h3,.disclaimer h4,.fdetail h2,.fdetail h3,.fdetail h4,.panel-cap h2,.panel-cap h3,.panel-cap h4{
+  font-family:-apple-system,BlinkMacSystemFont,'Pretendard','Noto Sans KR',sans-serif}
+
+/* 차트는 전폭까지 늘리면 납작해진다 — 따로 잡는다 */
+.chart,.chart-box,.chart-container{max-width:var(--w-chart);margin-left:auto;margin-right:auto}
+
+/* 푸터 본문은 1440px 전폭으로 흐르면 한 줄이 100자를 넘는다 */
+.foot-in p,.foot-in>br{max-width:var(--w-prose)}
+.foot-in{padding-left:32px!important;padding-right:32px!important}
+
+/* 섹션 제목도 랜딩 크기(40px)라 밀도와 안 맞는다 */
+.sec-head h2{font-size:clamp(22px,2.2vw,26px)!important}
+.sec-head p{font-size:13.5px!important;max-width:var(--w-prose)!important}
+.sec,.status{padding-left:32px!important;padding-right:32px!important}
+
+/* ── ③ 세로 간격 압축 ── */
+.sec{padding-bottom:48px!important}
+.sec-head{padding:28px 0 16px!important}
+.wrap{padding-top:28px!important}
+
+/* ── ④ 카드 밀도 ── */
+.card{padding:18px 20px 16px!important;border-radius:12px!important}
+.card::after{border-radius:12px!important}
+.card h3{margin-top:12px!important;font-size:17px!important}
+.card p{margin-top:7px!important;font-size:13px!important;line-height:1.6!important}
+.card .tag{font-size:11px!important;padding:3px 9px!important}
+.card .go{margin-top:14px!important;font-size:13px!important}
+.grid{gap:12px!important}
+@media(min-width:1200px){.g3{grid-template-columns:repeat(4,1fr)!important}
+  .g2{grid-template-columns:repeat(3,1fr)!important}}
+
+/* ── ⑤ CDS 컴포넌트 문법 — 헤어라인, 그림자 없음 ── */
+.card::after,.st-c,.compare::after,.panel,table td,table th{border-width:.5px!important}
+.card:hover{transform:none!important;box-shadow:none!important}
+.card:hover::after{border-color:var(--text3)!important}
+html.theme-dark .card:hover{box-shadow:none!important}
+
+/* 상태판은 숫자가 주인공이라 굵기를 안 내린다 */
+.st-v{font-weight:700!important}
+
+@media(max-width:900px){
+  .wrap{padding-left:18px!important;padding-right:18px!important}
+  .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:14.5px;line-height:1.8}
+}
+/* LAYOUT:END */
+/* 단독 내비 링크(방법론) — 옆의 드롭다운 버튼과 같은 모양으로 맞춘다 */
+.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text-secondary,var(--text2));
+  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
+  background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&display=swap"></head><body>
 
 <div class="bar"><div class="bar-in">
   <a class="brand" href="index.html">찰리의 시투 추종</a>
   <nav class="mm">
+    <!-- NAVX:BEGIN --><div class="mg"><a class="solo" href="methodology.html">방법론</a></div><!-- NAVX:END -->
     <div class="mg"><a href="#tech">기술 분석</a>
       <div class="md">
         <a href="kospi-skhynix.html">코스피 &amp; SK하이닉스 이격도</a>
@@ -183,11 +252,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
   <button class="tg" onclick="__toggleTheme()" aria-label="테마 전환">&#9728;</button>
 </div></div>
 
-<header class="hero">
-  <div class="kicker">Scenario Investing Strategy</div>
-  <h1>찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></h1>
-  <p class="hero-lead">지수 하나로는 보이지 않는 것을 봅니다. 50일 이격도로 <b>위치</b>를, 분산일과 시장 폭으로 <b>수급</b>을, 전조현상으로 <b>국면</b>을 추적합니다. 모든 수치는 시투 주간보고서와 공개된 투자 관련 리포트, 시장 실데이터로 직접 산출합니다. <b>이 사이트의 정보는 시투 회원 한정으로 공개됩니다.</b></p>
-</header>
+
 
 <!-- STATUS:BEGIN -->
 <section class="status">
@@ -202,6 +267,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
     <h2>기술 분석</h2>
     <p>지금 시장이 어디에 있는지를 숫자로 확인합니다. 이격도(위치) · 분산일과 FTD(수급) · 시장 폭과 상대강도(범위).</p></div>
   <div class="grid g3">
+  <a class="card " href="methodology.html"><span class="tag">방법론 · 기준</span><h3>이야기꾼 매매 5원칙</h3><p>이 사이트의 모든 숫자가 <b>무엇을 확인하려는 것인지</b>. 매수 5원칙·매도 5원칙과 <b>바닥 7단계</b>, 그리고 천장은 그것을 뒤집은 것. 2024년 기술분석 1·2탄 강의가 근거입니다.</p><span class="go">열기</span></a>
   <a class="card " href="kospi-skhynix.html"><span class="tag">라이브 · 2년</span><h3>코스피 &amp; SK하이닉스 이격도</h3><p>50일 이격도로 과열·과매도를 진단합니다. 이격도 추이, 종가 vs 50일선, 국면 분포, 반등확률 백테스트까지.</p><span class="go">열기</span></a>
   <a class="card " href="audition.html"><span class="tag">종목 선정 · 라이브</span><h3>오디션 피라미딩</h3><p>시투의 종목 선정법 — <b>뽑는 게 아니라 떨어뜨립니다</b>. 시총 <b>1조 이상</b>에서 기준일 대비 상승률로 줄을 세우고 <b>누가 살아남는지</b>를 매일 추적합니다.</p><span class="go">열기</span></a>
   <a class="card " href="bottom-top.html"><span class="tag">분석 툴 · 라이브</span><h3>바닥·천장 추적 분석</h3><p>이격도와 다른 각도의 3종 도구 — <b>분산일 카운트</b>(천장 경고), <b>FTD·항복 거래량</b>(바닥 확인), <b>미너비니 추세 템플릿</b>(국면 판정).</p><span class="go">열기</span></a>
@@ -235,6 +301,8 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 </section>
 
 <footer><div class="foot-in">
+<p class="site-lead">지수 하나로는 보이지 않는 것을 봅니다. 50일 이격도로 <b>위치</b>를, 분산일과 시장 폭으로 <b>수급</b>을, 전조현상으로 <b>국면</b>을 추적합니다. 모든 수치는 시투 주간보고서와 공개된 투자 관련 리포트, 시장 실데이터로 직접 산출합니다. <b>이 사이트의 정보는 시투 회원 한정으로 공개됩니다.</b></p>
+
 본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.<br>
 데이터: KRX 일별시세 실데이터 기반 자체 산출 · 근거: 이야기꾼 주간 시투 보고서, KB증권 이그전 리포트
 </div></footer>
