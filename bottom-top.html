@@ -90,6 +90,18 @@ html.theme-dark .site-dd{box-shadow:0 18px 44px rgba(0,0,0,.55)}
   .site-dd{right:auto;left:50%;transform:translate(-50%,-6px)}
   .site-group.on .site-dd{transform:translate(-50%,0)}
 }
+
+/* ── 공통 기준일 배지 ── */
+.pbadge{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:2px 0 18px;
+  font-size:.79rem;color:var(--text-secondary)}
+.pbadge b{color:var(--text);font-variant-numeric:tabular-nums}
+.pb-k{font-size:.7rem;font-weight:800;padding:2px 8px;border-radius:999px;letter-spacing:.01em}
+.pb-live{color:#047857;background:color-mix(in srgb,#059669 14%,transparent)}
+.pb-weekly{color:#1d4ed8;background:color-mix(in srgb,#2563eb 13%,transparent)}
+.pb-fixed{color:#475569;background:color-mix(in srgb,#64748b 15%,transparent)}
+.pb-src{opacity:.72}
+.pb-old{font-size:.7rem;font-weight:800;padding:2px 8px;border-radius:999px;
+  color:#b45309;background:color-mix(in srgb,#f59e0b 18%,transparent)}
 </style></head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종</a>
@@ -123,6 +135,7 @@ html.theme-dark .site-dd{box-shadow:0 18px 44px rgba(0,0,0,.55)}
 <button class="toggle" onclick="var h=document.documentElement;h.className=h.className==='theme-light'?'theme-dark':'theme-light';if(window.rebuild)window.rebuild()">☀</button>
 <div class="wrap">
   <div class="site-crumb"><a href="index.html">홈</a><span class="sep">›</span><span>기술 분석</span><span class="sep">›</span><span class="cur">바닥·천장 추적 분석</span></div>
+<!-- STAMP:BEGIN --><div class="pbadge"><span class="pb-k pb-live">매일 갱신</span><span>기준일 <b>2026-07-31</b></span><span class="pb-src">코스피·하닉·삼전 일별시세</span></div><!-- STAMP:END -->
 
   
   

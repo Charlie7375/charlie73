@@ -82,6 +82,29 @@ html.theme-dark .md{box-shadow:0 18px 44px rgba(0,0,0,.55)}
 .md a{display:block;padding:9px 12px;border-radius:9px;text-decoration:none;font-size:13.5px;font-weight:500;color:var(--text);transition:.12s}
 .md a:hover{background:color-mix(in srgb,var(--text) 6%,transparent)}
 @media(max-width:860px){.bar nav.mm{display:none}}
+
+/* ── 첫 화면 상태판 ── */
+.status{max-width:1080px;margin:-28px auto 44px;padding:0 22px}
+.st-head{font-size:.82rem;color:var(--text-secondary);margin-bottom:12px;display:flex;
+  align-items:center;gap:10px;flex-wrap:wrap}
+.st-head b{color:var(--text);font-variant-numeric:tabular-nums}
+.st-old{font-size:.72rem;font-weight:800;padding:2px 8px;border-radius:999px;
+  color:#b45309;background:color-mix(in srgb,#f59e0b 16%,transparent)}
+.st-gen{margin-left:auto;opacity:.6}
+.st-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+@media(max-width:1000px){.st-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:620px){.st-grid{grid-template-columns:repeat(2,1fr)}}
+.st-c{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px 15px}
+.st-c.up{border-color:color-mix(in srgb,#059669 32%,var(--border))}
+.st-c.dn{border-color:color-mix(in srgb,#e11d48 32%,var(--border))}
+.st-c.warn{border-color:color-mix(in srgb,#e11d48 42%,var(--border));
+  background:color-mix(in srgb,#e11d48 5%,var(--surface))}
+.st-l{font-size:.74rem;font-weight:700;color:var(--text-secondary);letter-spacing:.01em}
+.st-v{font-size:1.5rem;font-weight:900;letter-spacing:-.03em;margin-top:5px;
+  font-variant-numeric:tabular-nums;line-height:1.15}
+.st-c.up .st-v{color:#059669}.st-c.dn .st-v{color:#e11d48}.st-c.warn .st-v{color:#e11d48}
+.st-u{font-size:.9rem;font-weight:700;opacity:.55}
+.st-s{font-size:.74rem;color:var(--text-secondary);margin-top:4px;font-variant-numeric:tabular-nums}
 </style></head><body>
 
 <div class="bar"><div class="bar-in">
@@ -118,6 +141,14 @@ html.theme-dark .md{box-shadow:0 18px 44px rgba(0,0,0,.55)}
   <h1>찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></h1>
   <p>지수 하나로는 보이지 않는 것을 봅니다. 50일 이격도로 <b>위치</b>를, 분산일과 시장 폭으로 <b>수급</b>을, 전조현상으로 <b>국면</b>을 추적합니다. 모든 수치는 시투 주간보고서와 공개된 투자 관련 리포트, 시장 실데이터로 직접 산출합니다. <b>이 사이트의 정보는 시투 회원 한정으로 공개됩니다.</b></p>
 </header>
+
+<!-- STATUS:BEGIN -->
+<section class="status">
+  <div class="st-head">데이터 기준일 <b>2026-07-31</b><span class="st-gen">갱신 2026-08-01</span></div>
+  <div class="st-grid"><div class="st-c up"><div class="st-l">코스피</div><div class="st-v">6,595</div><div class="st-s">+17.91% · 이격도 85.1</div></div><div class="st-c"><div class="st-l">SK하이닉스 이격도</div><div class="st-v">79.3</div><div class="st-s">1,718,000원</div></div><div class="st-c"><div class="st-l">삼성전자 이격도</div><div class="st-v">87.6</div><div class="st-s">262,500원</div></div><div class="st-c dn"><div class="st-l">신고가 − 신저가</div><div class="st-v">-16</div><div class="st-s">신고가 63 · 신저가 79</div></div><div class="st-c warn"><div class="st-l">전조현상 점등</div><div class="st-v">14<span class="st-u">/28</span></div><div class="st-s">1급 8개 W31</div></div><div class="st-c"><div class="st-l">오디션 생존</div><div class="st-v">267<span class="st-u">/296</span></div><div class="st-s">90% · 기준일 07-29</div></div></div>
+</section>
+<!-- STATUS:END -->
+
 
 <section class="sec" id="tech">
   <div class="sec-head"><div class="n">01 &nbsp;/&nbsp; Technical</div>
