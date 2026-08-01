@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>삼성전기 50일 이격도 분석 (2024~2026)</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 <script>if (typeof Chart !== 'undefined') { Chart.defaults.animation = false; }</script>
 <style>
@@ -124,7 +124,12 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
   box-shadow:0 2px 14px rgba(0,0,0,.10);transition:transform .12s,box-shadow .12s}
 .toggle:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(0,0,0,.16)}
 /* DESIGN:END *//* LAYOUT:BEGIN */
-:root{--w-data:1440px;--w-prose:660px;--w-chart:1100px}
+:root{--w-data:1440px;--w-chart:1100px;
+  /* 산문 폭은 **고정 px이 아니라 em**이다.
+     ① px로 고정하면 글자를 키워도 한 줄에 담기는 글자 수가 늘어나 도로 길어진다.
+        em이면 글자 크기에 비례해 폭도 같이 자라서 **한 줄 글자 수가 유지**된다.
+     ② min(…,100%)이라 좁은 화면에서는 알아서 줄어든다. 유동이다. */
+  --w-prose:min(50em,100%)}
 
 /* ── ① 데이터층은 전폭 ── */
 .wrap,.sec,.bar-in,.status,.foot-in{max-width:var(--w-data)!important}
@@ -133,14 +138,22 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 /* ── ② 해설층은 좁은 단 + 세리프 ──
    숫자·표·라벨은 산세리프로 남는다. 서체가 바뀌는 지점이 곧 층이 바뀌는 지점이다. */
 .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{
-  max-width:var(--w-prose);margin-left:auto!important;margin-right:auto!important;
-  font-family:'Noto Serif KR',ui-serif,Georgia,serif;
-  font-size:15px;line-height:1.88;letter-spacing:-.004em}
+  /* ⚠ 가운데 정렬하면 제목은 왼쪽 끝, 본문은 화면 한가운데가 되어 **둘이 따로 논다.**
+       2026-08-02에 2600px 화면에서 그게 드러났다. 제목과 왼쪽을 맞춘다. */
+  max-width:var(--w-prose);margin-left:0!important;margin-right:auto!important;
+  font-size:16.5px;line-height:1.85;letter-spacing:-.004em}
 .explain b,.explain strong,.ebody b,.ebody strong,.hbody b,.hbody strong,.verdict b,.verdict strong,.callout b,.callout strong,.lesson b,.lesson strong,.note b,.note strong,.disclaimer b,.disclaimer strong,.fdetail b,.fdetail strong,.panel-cap b,.panel-cap strong{font-weight:600}
 .explain code,.explain .num,.explain table,.ebody code,.ebody .num,.ebody table,.hbody code,.hbody .num,.hbody table,.verdict code,.verdict .num,.verdict table,.callout code,.callout .num,.callout table,.lesson code,.lesson .num,.lesson table,.note code,.note .num,.note table,.disclaimer code,.disclaimer .num,.disclaimer table,.fdetail code,.fdetail .num,.fdetail table,.panel-cap code,.panel-cap .num,.panel-cap table{
-  font-family:-apple-system,BlinkMacSystemFont,'SF Mono','Pretendard',sans-serif}
-.explain h2,.explain h3,.explain h4,.ebody h2,.ebody h3,.ebody h4,.hbody h2,.hbody h3,.hbody h4,.verdict h2,.verdict h3,.verdict h4,.callout h2,.callout h3,.callout h4,.lesson h2,.lesson h3,.lesson h4,.note h2,.note h3,.note h4,.disclaimer h2,.disclaimer h3,.disclaimer h4,.fdetail h2,.fdetail h3,.fdetail h4,.panel-cap h2,.panel-cap h3,.panel-cap h4{
-  font-family:-apple-system,BlinkMacSystemFont,'Pretendard','Noto Sans KR',sans-serif}
+  font-family:inherit}
+.explain h2,.explain h3,.explain h4,.ebody h2,.ebody h3,.ebody h4,.hbody h2,.hbody h3,.hbody h4,.verdict h2,.verdict h3,.verdict h4,.callout h2,.callout h3,.callout h4,.lesson h2,.lesson h3,.lesson h4,.note h2,.note h3,.note h4,.disclaimer h2,.disclaimer h3,.disclaimer h4,.fdetail h2,.fdetail h3,.fdetail h4,.panel-cap h2,.panel-cap h3,.panel-cap h4{font-family:inherit}
+
+/* ── 폰트 통일 — 나눔고딕 ──
+   본문·제목·표·차트 라벨까지 한 벌로 간다. 예전엔 해설층만 세리프를 썼는데,
+   서체가 둘이면 같은 페이지 안에서 글자 크기와 행간이 미묘하게 어긋난다. */
+html body,html body h1,html body h2,html body h3,html body h4,
+html body table,html body button,html body input,html body .site-brand,
+html body .eyebrow,html body .sub,html body .card,html body .st-v,html body .st-l{
+  font-family:'Nanum Gothic','나눔고딕',AppleGothic,sans-serif!important}
 
 /* 차트는 전폭까지 늘리면 납작해진다 — 따로 잡는다 */
 .chart,.chart-box,.chart-container{max-width:var(--w-chart);margin-left:auto;margin-right:auto}
@@ -151,7 +164,8 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* 섹션 제목도 랜딩 크기(40px)라 밀도와 안 맞는다 */
 .sec-head h2{font-size:clamp(22px,2.2vw,26px)!important}
-.sec-head p{font-size:13.5px!important;max-width:var(--w-prose)!important}
+.sec-head p{font-size:15px!important;max-width:var(--w-prose)!important;margin-left:0}
+.sub{font-size:16px!important;max-width:var(--w-prose)!important;line-height:1.7}
 .sec,.status{padding-left:32px!important;padding-right:32px!important}
 
 /* ── ③ 세로 간격 압축 ── */
@@ -181,7 +195,7 @@ html.theme-dark .card:hover{box-shadow:none!important}
 
 @media(max-width:900px){
   .wrap{padding-left:18px!important;padding-right:18px!important}
-  .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:14.5px;line-height:1.8}
+  .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
 }
 /* LAYOUT:END */
 /* 단독 내비 링크(방법론) — 옆의 드롭다운 버튼과 같은 모양으로 맞춘다 */
@@ -216,10 +230,10 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
   html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
   html body .site-bar-in{padding:9px 14px 7px}
 }
-/* BAR:END */</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&display=swap"></head><body>
+/* BAR:END */</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"></head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
-  <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피 & SK하이닉스 이격도</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a></div></div><div class="site-group"><button class="here" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="ecopro.html">에코프로</a><a href="hanmi.html">한미반도체</a><a class="here" href="samsung-em.html">삼성전기 이격도</a></div></div><!-- NAV:END --></nav>
+  <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피 & SK하이닉스 이격도</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a></div></div><div class="site-group"><button class="here" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="ecopro.html">에코프로</a><a href="hanmi.html">한미반도체</a><a class="here" href="samsung-em.html">삼성전기 이격도</a></div></div><!-- NAV:END --></nav>
 </div></div>
 
 
