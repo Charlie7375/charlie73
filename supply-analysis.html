@@ -352,7 +352,11 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
      → figure 자체는 본문 폭에 두고, 안의 svg·차트·표만 넓힌다.
        캡션은 자연히 본문과 같은 선에서 시작한다. */
 .paper figure{width:auto;margin-left:0;margin-right:0}
-.paper figure>svg,.paper figure>.cbox,.paper figure>table,
+/* ⚠ SVG 도해는 breakout 에서 뺀다.
+     도해는 데이터가 아니라 그림이라 넓힐 이유가 없고,
+     넓히면 도해 안 글자가 본문보다 왼쪽에서 시작해 선이 어긋나 보인다.
+     넓혀야 하는 것은 **숫자가 빽빽한 것**(차트·표)뿐이다. */
+.paper figure>.cbox,.paper figure>table,
 .paper figure>.tblwrap,.paper .cchart,.paper .wide,.paper>.tblwrap{
   width:min(var(--w-wide), 100vw - 2*var(--gut));
   margin-left:calc(50% - min(var(--w-wide), 100vw - 2*var(--gut))/2);
@@ -529,7 +533,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 /* ── 모바일 ── 줄일 수 없는 것만 손본다 */
 @media(max-width:760px){
-  .paper figure>svg,.paper figure>.cbox,.paper figure>table,
+  .paper figure>.cbox,.paper figure>table,
   .paper figure>.tblwrap,.paper .cchart,.paper .wide,.paper>.tblwrap{
     width:calc(100vw - 2*var(--gut));
     margin-left:calc(50% - (100vw - 2*var(--gut))/2);
