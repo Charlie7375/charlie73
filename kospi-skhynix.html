@@ -419,17 +419,24 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   color:var(--text2,#6e6e73)}
 .paper .disclaimer{border-top:1px solid var(--rule)!important}
 
-/* ── 제목류 가운데 정렬 ──
-   본문은 왼쪽 그대로 둔다. 문단까지 가운데로 놓으면 줄 시작점이 매줄 달라져
-   눈이 다음 줄을 못 찾는다. 제목·부제·표제만 가운데로 모은다. */
-.paper h1,.paper h2,.paper h3,.paper h4,
-.paper .eyebrow,.paper .sub,.paper .pauth,.paper .site-crumb,.paper .crumb,
-.paper .abstract h4,.paper figure>figcaption{text-align:center}
-.paper h2{margin-left:auto;margin-right:auto}
-.paper .sub,.paper .pauth{margin-left:auto;margin-right:auto}
-.paper .site-crumb,.paper .crumb{justify-content:center;display:flex;
-  flex-wrap:wrap;gap:4px}
-.wrap .phead{text-align:center}
+/* ── 정렬 ──
+   **제목(맨 위 표제부)만 가운데.** 소제목(h2·h3)과 본문은 왼쪽이다.
+   소제목까지 가운데로 두면 문단 첫 줄과 제목의 시작점이 매번 어긋나
+   눈이 다음 줄을 찾는 데 시간이 걸린다. 표제부는 한 번뿐이라 가운데가 낫고,
+   반복되는 소제목은 왼쪽이 낫다. */
+.wrap .phead,
+.paper>.site-crumb,.paper>.crumb,.paper>.eyebrow,.paper>h1,.paper>.sub,
+.paper .phead .eyebrow,.paper .phead h1,.paper .phead .pauth{text-align:center}
+.paper>.site-crumb,.paper>.crumb{justify-content:center;display:flex;
+  flex-wrap:wrap;gap:4px;align-items:center}
+.paper>.sub,.paper .pauth{margin-left:auto;margin-right:auto}
+
+/* 소제목·본문은 왼쪽 */
+.paper h2,.paper h3,.paper h4,.paper p,.paper li,.paper figure>figcaption,
+.paper .explain,.paper .ebody,.paper .hbody,.paper .verdict,.paper .callout,
+.paper .lesson,.paper .note,.paper .abstract,.paper .disclaimer{text-align:left}
+.paper h2{margin-left:0;margin-right:0}
+
 /* 표 안 제목은 가운데로 몰면 칸이 어긋난다 */
 .paper table th,.paper table td{text-align:left}
 .paper table th.n,.paper table td.n{text-align:right}
