@@ -155,7 +155,8 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
   --w-prose:min(50em,100%)}
 
 /* ── ① 데이터층은 전폭 ── */
-.wrap,.sec,.bar-in,.status,.foot-in{max-width:var(--w-data)!important}
+/* 폭은 apply_paper.py 가 정한다. 여기서 !important 로 잡으면 그쪽이 못 이긴다.
+   두 곳에서 폭을 정하면 반드시 한쪽이 조용히 진다. */
 .wrap{padding-left:32px!important;padding-right:32px!important}
 
 /* ── ② 해설층은 좁은 단 + 세리프 ──
@@ -262,58 +263,93 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
   html body .site-bar-in{padding:9px 14px 7px}
 }
 /* BAR:END *//* PAPER:BEGIN */
-/* ── 논문 판형 ──────────────────────────────────────────────
-   Khandani & Lo (MIT, 2007) 조판을 화면용으로 옮긴 것.
-   서체는 나눔고딕 유지 — 구조만 가져온다. */
+/* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
-  /* 화면이 커지면 본문도 넓어진다. 다만 무한정은 아니다(가독 한계 ~52rem). */
-  --w-prose: clamp(17rem, 63vw, 52rem);
-  --w-wide:  clamp(17rem, 94vw, 1500px);
-  --rule:    var(--border,#e3e3e6);
-  /* apply_layout.py 가 `.wrap{max-width:var(--w-data)!important}` 를 심어 뒀다.
-     !important라 여기서 이길 수 없으므로 **변수 쪽을 갈아끼운다.**
-     선택자 싸움을 하는 것보다 값을 바꾸는 쪽이 깨지지 않는다. */
-  --w-data:  clamp(17rem, 94vw, 1500px);
+  /* 읽기 기둥. em이라 글자 크기를 키우면 폭도 같이 는다. */
+  --w-col:  clamp(18rem, 90vw, 58rem);
+  /* 표·차트가 삐져나올 수 있는 최대 폭 */
+  --w-wide: clamp(18rem, 96vw, 1500px);
+  --w-data: var(--w-wide);
+  --w-prose: 100%;
+  --rule: var(--border,#e3e3e6);
+  --gut: clamp(14px, 4vw, 30px);
 }
 
-/* 제목부 — 논문 표제지 */
+/* 본문 기둥 — 가운데. 제목·문단·목록이 모두 같은 왼쪽 선에서 시작한다. */
+html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
+  margin-right:auto!important;padding-left:var(--gut);padding-right:var(--gut);
+  box-sizing:border-box}
+.paper .sec,.paper .status,.paper .foot-in{max-width:none}
+
+/* 자료 breakout — 기둥 밖으로 나오되 가운데는 유지 */
+.paper figure,.paper .cchart,.paper .cbox,.paper .wide,.paper .tblwrap{
+  width:min(var(--w-wide), 100vw - 2*var(--gut));
+  margin-left:calc(50% - min(var(--w-wide), 100vw - 2*var(--gut))/2);
+  margin-right:calc(50% - min(var(--w-wide), 100vw - 2*var(--gut))/2)}
+.paper figure svg,.paper .cchart svg{width:100%;height:auto;display:block}
+
+/* 제목부 */
 .wrap .phead{margin:6px 0 26px;padding-bottom:20px;border-bottom:2px solid var(--text,#1d1d1f)}
 .wrap .phead h1{margin:6px 0 8px;letter-spacing:-.03em;line-height:1.22}
-.wrap .phead .pauth{margin:0;font-size:15px;color:var(--text2,#6e6e73);line-height:1.6;
-  max-width:var(--w-prose)}
+.wrap .phead .pauth{margin:0;font-size:15px;color:var(--text2,#6e6e73);line-height:1.6}
 
-/* 요약(초록) — 본문보다 한 단 좁고 안쪽으로 들여쓴다 */
-.wrap .abstract{max-width:min(var(--w-prose),46rem);margin:0 0 34px;padding:20px 24px;
+/* 요약(초록) */
+.wrap .abstract{margin:0 0 34px;padding:20px clamp(16px,3.4vw,24px);
   background:var(--surface,#fafafa);border:1px solid var(--rule);border-radius:4px}
 .wrap .abstract h4{margin:0 0 10px;font-size:12px;font-weight:700;letter-spacing:.14em;
   text-transform:uppercase;color:var(--text2,#6e6e73)}
-.wrap .abstract p{margin:0 0 10px;font-size:14.5px;line-height:1.82}
+.wrap .abstract p{margin:0 0 10px;font-size:15px;line-height:1.82}
 .wrap .abstract p:last-child{margin-bottom:0}
 
-/* 절 번호 자동 매김 — 손으로 적으면 순서를 바꿀 때마다 어긋난다 */
-.paper{counter-reset:sec fig tbl}
-.paper section.s{counter-reset:sub;margin:0 0 42px}
-.paper section.s>h2{counter-increment:sec;margin:34px 0 14px;font-size:21px;font-weight:700;
-  letter-spacing:-.02em;padding-bottom:7px;border-bottom:1px solid var(--rule)}
-.paper section.s>h2::before{content:counter(sec) ".  ";color:var(--text2,#6e6e73);
-  font-variant-numeric:tabular-nums}
-.paper section.s h3{counter-increment:sub;margin:26px 0 9px;font-size:16.5px;font-weight:700;
-  letter-spacing:-.015em}
-.paper section.s h3::before{content:counter(sec) "." counter(sub) "  ";
-  color:var(--text2,#6e6e73);font-weight:600;font-variant-numeric:tabular-nums}
+/* 절 번호 자동 매김 — 손으로 적으면 순서를 바꿀 때마다 어긋난다.
 
-/* 본문 — 한 단, 왼쪽 정렬. 논문처럼 문단 사이를 벌리지 않고 촘촘히 */
-.paper p{max-width:var(--w-prose);margin:0 0 13px;font-size:16.5px;line-height:1.85;
+   ⚠ 선택자를 **뒤집어서** 쓴다. 처음엔 "직계 자식만 센다"로 짰는데,
+     페이지마다 껍데기가 달라(.sec-head, section.compare, 무클래스 section …)
+     19장 중 6장이 번호를 못 받았다.
+     → **전부 세고, 해설 박스 안만 뺀다.** 예외 목록이 훨씬 짧고 안 샌다. */
+.paper{counter-reset:sec fig tbl}
+.paper h2{
+  counter-increment:sec;margin:34px 0 14px;font-size:clamp(18px,2.4vw,21px);
+  font-weight:700;letter-spacing:-.02em;padding-bottom:7px;
+  border-bottom:1px solid var(--rule)}
+.paper h2::before{content:counter(sec) ".  ";color:var(--text2,#6e6e73);
+  font-variant-numeric:tabular-nums}
+.paper h3{
+  counter-increment:sub;margin:26px 0 9px;font-size:clamp(15.5px,1.9vw,16.5px);
+  font-weight:700;letter-spacing:-.015em}
+.paper h3::before{content:counter(sec) "." counter(sub) "  ";
+  color:var(--text2,#6e6e73);font-weight:600;font-variant-numeric:tabular-nums}
+.paper .sec,.paper section,.paper .sec-head{counter-reset:sub}
+
+/* 예외 — 해설 박스·요약·표제부 안의 제목은 절이 아니다 */
+.paper .explain h2,.paper .ebody h2,.paper .hbody h2,.paper .verdict h2,
+.paper .callout h2,.paper .lesson h2,.paper .note h2,.paper .abstract h2,
+.paper .disclaimer h2,.paper .fdetail h2,.paper .phead h2,
+.paper .explain h3,.paper .ebody h3,.paper .hbody h3,.paper .verdict h3,
+.paper .callout h3,.paper .lesson h3,.paper .abstract h3,.paper .disclaimer h3{
+  counter-increment:none;font-size:1.06em;font-weight:700;margin:22px 0 9px;
+  letter-spacing:-.01em;border:none;padding:0}
+.paper .explain h2::before,.paper .ebody h2::before,.paper .hbody h2::before,
+.paper .verdict h2::before,.paper .callout h2::before,.paper .lesson h2::before,
+.paper .note h2::before,.paper .abstract h2::before,.paper .disclaimer h2::before,
+.paper .fdetail h2::before,.paper .phead h2::before,
+.paper .explain h3::before,.paper .ebody h3::before,.paper .hbody h3::before,
+.paper .verdict h3::before,.paper .callout h3::before,.paper .lesson h3::before,
+.paper .abstract h3::before,.paper .disclaimer h3::before{content:none}
+.paper .explain h2:first-child,.paper .abstract h2:first-child{margin-top:0}
+
+/* 본문 */
+.paper p,.paper li{font-size:clamp(15.5px,1.85vw,16.5px);line-height:1.85;
   letter-spacing:-.004em}
+.paper p{margin:0 0 13px}
 .paper p.note{font-size:15px;color:var(--text2,#6e6e73);padding-left:14px;
   border-left:2px solid var(--rule);line-height:1.75}
 
-/* 그림·표 — 캡션에 번호를 자동으로 붙인다 */
-.paper figure{margin:22px 0 26px;max-width:var(--w-wide)}
-.paper figure svg{width:100%;height:auto;display:block}
-.paper figure>figcaption{margin-top:11px;font-size:13px;line-height:1.7;
-  color:var(--text2,#6e6e73);max-width:var(--w-prose)}
+/* 그림·표 캡션 자동 번호 */
+.paper figure{margin-top:22px;margin-bottom:26px}
+.paper figure>figcaption{margin-top:11px;font-size:13.5px;line-height:1.7;
+  color:var(--text2,#6e6e73)}
 .paper figure.fig{counter-increment:fig}
 .paper figure.fig>figcaption::before{content:"그림 " counter(fig) ".  ";
   font-weight:700;color:var(--text,#1d1d1f)}
@@ -322,65 +358,65 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
 .paper figure.tw>figcaption::before{content:"표 " counter(tbl) ".  ";
   font-weight:700;color:var(--text,#1d1d1f)}
 
-/* 표 — 가로줄만. 논문 조판(booktabs)의 핵심이다.
-   세로줄은 눈이 칸을 따라가는 흐름을 끊는다. */
-.paper table,.paper .tbl{width:100%;border-collapse:collapse;font-size:14.5px;
+/* 표 — 가로줄만(booktabs). 세로줄은 칸을 따라가는 눈의 흐름을 끊는다. */
+.paper table{width:100%;border-collapse:collapse;font-size:clamp(13px,1.6vw,14.5px);
   font-variant-numeric:tabular-nums}
-.paper table thead th{text-align:left;font-size:12.5px;font-weight:700;padding:8px 12px 7px;
+.paper table thead th{text-align:left;font-size:.9em;font-weight:700;
+  padding:8px 12px 7px;background:transparent;color:var(--text,#1d1d1f);
   border-top:1.6px solid var(--text,#1d1d1f);
-  border-bottom:1px solid var(--text,#1d1d1f);
-  background:transparent;color:var(--text,#1d1d1f);letter-spacing:.01em}
+  border-bottom:1px solid var(--text,#1d1d1f);letter-spacing:.01em}
 .paper table tbody td{padding:8px 12px;border-bottom:1px solid var(--rule);
   vertical-align:top;line-height:1.6}
 .paper table tbody tr:last-child td{border-bottom:1.6px solid var(--text,#1d1d1f)}
 .paper table th.n,.paper table td.n{text-align:right}
 .paper table tbody tr:hover{background:var(--surface,#fafafa)}
+/* 칸이 많은 표는 줄이지 말고 옆으로 굴린다 — 글자를 줄이면 못 읽는다 */
+.paper .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 
-/* 차트 상자 */
-.paper .cbox{position:relative;width:100%;height:360px}
+/* 차트 */
+.paper .cbox{position:relative;height:clamp(240px,42vw,380px)}
 
-/* 참고문헌 — 번호를 매기고 들여쓴다. 링크는 밑줄 없이 색만 준다. */
-.paper ol.refs{max-width:var(--w-prose);margin:10px 0 20px;padding-left:0;list-style:none;
-  counter-reset:none}
-.paper ol.refs li{position:relative;padding-left:32px;margin:0 0 11px;font-size:15px;
-  line-height:1.72;color:var(--text,#1d1d1f)}
+/* 참고문헌 */
+.paper ol.refs{margin:10px 0 20px;padding-left:0;list-style:none;counter-reset:refitem}
+.paper ol.refs li{position:relative;padding-left:32px;margin:0 0 11px;
+  font-size:15px;line-height:1.72;color:var(--text,#1d1d1f)}
 .paper ol.refs li::before{content:"[" counter(refitem) "]";counter-increment:refitem;
   position:absolute;left:0;top:0;font-variant-numeric:tabular-nums;font-size:13.5px;
   color:var(--text2,#6e6e73);font-weight:600}
-.paper ol.refs{counter-reset:refitem}
 .paper ol.refs[start="6"]{counter-reset:refitem 5}
 .paper ol.refs[start="11"]{counter-reset:refitem 10}
 .paper ol.refs a{color:var(--accent,#1161c4);text-decoration:none;
-  border-bottom:1px solid color-mix(in srgb,var(--accent,#1161c4) 35%,transparent)}
+  border-bottom:1px solid currentColor;border-bottom-color:transparent}
 .paper ol.refs a:hover{border-bottom-color:currentColor}
-.paper ol.refs i{font-style:italic}
 .paper .refs-sec h3{margin-top:24px}
 
-/* 맺음말·출처 */
-.paper .disclaimer{max-width:var(--w-prose);margin-top:38px;padding-top:16px;
-  border-top:1px solid var(--rule);font-size:13px;line-height:1.75;color:var(--text2,#6e6e73)}
-.paper .disclaimer p{font-size:13px;line-height:1.75;margin-bottom:9px}
+/* 맺음말 */
+.paper .disclaimer{margin-top:38px;padding-top:16px;border-top:1px solid var(--rule);
+  font-size:13.5px;line-height:1.75;color:var(--text2,#6e6e73)}
+.paper .disclaimer p{font-size:13.5px;line-height:1.75;margin-bottom:9px}
 
+/* ── 모바일 ── 줄일 수 없는 것만 손본다 */
 @media(max-width:760px){
-  .paper section.s>h2{font-size:19px}
-  .paper p{font-size:15.5px}
-  .paper .cbox{height:300px}
-  .paper figure{margin:18px 0 22px}
+  .paper figure,.paper .cchart,.paper .cbox,.paper .wide,.paper .tblwrap{
+    width:calc(100vw - 2*var(--gut));
+    margin-left:calc(50% - (100vw - 2*var(--gut))/2);
+    margin-right:calc(50% - (100vw - 2*var(--gut))/2)}
+  .paper table thead th,.paper table tbody td{padding:7px 9px}
+  .paper figure{margin-top:18px;margin-bottom:22px}
+  .paper .abstract{padding:16px 15px}
+  .wrap .phead{margin-bottom:20px;padding-bottom:16px}
 }
-
-/* ── 기존 페이지에도 같은 폭 규칙을 적용 ──
-   .paper 마크업을 쓰지 않는 옛 페이지들이 있다. 폭만이라도 맞춰야
-   한 사이트처럼 보인다. 상단바·메뉴는 건드리지 않는다. */
-.wrap,.sec,.status,.foot-in{max-width:var(--w-wide)}
-.explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap,.sub{
-  max-width:var(--w-prose)}
+@media(max-width:430px){
+  .paper table{font-size:12.5px}
+  .paper p.note{padding-left:11px}
+}
 /* PAPER:END */</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
 <button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="here" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피 & SK하이닉스 이격도</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a class="here" href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a><a href="samsung-em.html">삼성전기 이격도</a><a href="ecopro.html">에코프로</a><a href="hanmi.html">한미반도체</a></div></div><!-- NAV:END --></nav>
 </div></div>
-<div class="wrap">
+<div class="wrap paper">
 <div class="site-crumb"><a href="index.html">홈</a><span class="sep">›</span><span>오늘의 시장</span><span class="sep">›</span><span class="cur">52주 신고가와 상대강도</span></div>
 <!-- STAMP:BEGIN --><div class="pbadge"><span class="pb-k pb-live">매일 갱신</span><span>기준일 <b>2026-08-02</b></span><span class="pb-src">KRX 전종목 캐시</span></div><!-- STAMP:END -->
 <div class="eyebrow">찰리 오늘의 시장 · Market Breadth &amp; Relative Strength</div>
@@ -399,7 +435,7 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
 <div class="panel"><h3>신고가 · 신저가 종목 수 추이</h3>
   <div class="chart"><canvas id="bc"></canvas></div></div>
 <div class="panel"><h3>RS 80+ 주도주 후보 <span class="sub2">RS Rating 80 이상 · 52주 고점 −25% 이내</span></h3>
-  <table class="sortable" id="tbl-rs"><thead><tr><th>코드</th><th>종목명</th><th>시장</th><th>종가</th><th>시가총액</th><th>RS</th><th>3M</th><th>지수대비</th><th>고점대비</th><th>OPM</th><th>ROE</th><th>RS선</th></tr></thead>
+  <div class="tblwrap"><table class="sortable" id="tbl-rs"><thead><tr><th>코드</th><th>종목명</th><th>시장</th><th>종가</th><th>시가총액</th><th>RS</th><th>3M</th><th>지수대비</th><th>고점대비</th><th>OPM</th><th>ROE</th><th>RS선</th></tr></thead>
   <tbody><tr><td class="c" data-v="079940">079940</td><td class="nm" data-v="가비아">가비아</td><td class="c" data-v="코스닥"><span class="mktb mk2">코스닥</span></td><td class="n" data-v="47000">47,000</td><td class="n" data-v="630772148000">6,308억</td><td class="c" data-v="91"><span class="rs">91</span></td><td class="n" data-v="59.6">59.6%</td><td class="n pos" data-v="60.3">+60.3%p</td><td class="n" data-v="-1.2">-1.2%</td><td class="n pos" data-v="12.62">+12.6%</td><td class="n pos" data-v="9.52">+9.5%</td><td class="c" data-v="0"></td></tr>
 <tr><td class="c" data-v="078930">078930</td><td class="nm" data-v="GS">GS</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="89000">89,000</td><td class="n" data-v="8267699055000">8.3조</td><td class="c" data-v="90"><span class="rs">90</span></td><td class="n" data-v="15.9">15.9%</td><td class="n pos" data-v="16.6">+16.6%p</td><td class="n" data-v="-6.6">-6.6%</td><td class="n pos" data-v="18.39">+18.4%</td><td class="n pos" data-v="16.69">+16.7%</td><td class="c" data-v="0"></td></tr>
 <tr><td class="c" data-v="144960">144960</td><td class="nm" data-v="뉴파워프라즈마">뉴파워프라즈마</td><td class="c" data-v="코스닥"><span class="mktb mk2">코스닥</span></td><td class="n" data-v="10010">10,010</td><td class="n" data-v="437363166240">4,374억</td><td class="c" data-v="90"><span class="rs">90</span></td><td class="n" data-v="52.1">52.1%</td><td class="n pos" data-v="52.8">+52.8%p</td><td class="n" data-v="-13.9">-13.9%</td><td class="n pos" data-v="9.12">+9.1%</td><td class="n pos" data-v="13.78">+13.8%</td><td class="c" data-v="0"></td></tr>
@@ -424,7 +460,7 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
 <tr><td class="c" data-v="028670">028670</td><td class="nm" data-v="팬오션">팬오션</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="5470">5,470</td><td class="n" data-v="2924095230640">2.9조</td><td class="c" data-v="85"><span class="rs">85</span></td><td class="n" data-v="-2">-2%</td><td class="n neg" data-v="-1.3">-1.3%p</td><td class="n" data-v="-11.8">-11.8%</td><td class="n pos" data-v="9.34">+9.3%</td><td class="n pos" data-v="6.24">+6.2%</td><td class="c" data-v="0"></td></tr>
 <tr><td class="c" data-v="033780">033780</td><td class="nm" data-v="KT&amp;G">KT&amp;G</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="179100">179,100</td><td class="n" data-v="18592452669600">18.6조</td><td class="c" data-v="85"><span class="rs">85</span></td><td class="n" data-v="0.6">0.6%</td><td class="n pos" data-v="1.3">+1.3%p</td><td class="n" data-v="-5.2">-5.2%</td><td class="n pos" data-v="21.4">+21.4%</td><td class="n pos" data-v="16.22">+16.2%</td><td class="c" data-v="0"></td></tr>
 <tr><td class="c" data-v="161890">161890</td><td class="nm" data-v="한국콜마">한국콜마</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="95200">95,200</td><td class="n" data-v="2247203330400">2.2조</td><td class="c" data-v="85"><span class="rs">85</span></td><td class="n" data-v="5.9">5.9%</td><td class="n pos" data-v="6.6">+6.6%p</td><td class="n" data-v="-19.2">-19.2%</td><td class="n pos" data-v="10.84">+10.8%</td><td class="n pos" data-v="14.12">+14.1%</td><td class="c" data-v="0"></td></tr>
-<tr><td class="c" data-v="316140">316140</td><td class="nm" data-v="우리금융지주">우리금융지주</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="33600">33,600</td><td class="n" data-v="24463813315200">24.5조</td><td class="c" data-v="85"><span class="rs">85</span></td><td class="n" data-v="0.3">0.3%</td><td class="n pos" data-v="1">+1.0%p</td><td class="n" data-v="-17.6">-17.6%</td><td class="n pos" data-v="14.98">+15.0%</td><td class="n pos" data-v="6.41">+6.4%</td><td class="c" data-v="0"></td></tr></tbody></table>
+<tr><td class="c" data-v="316140">316140</td><td class="nm" data-v="우리금융지주">우리금융지주</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="33600">33,600</td><td class="n" data-v="24463813315200">24.5조</td><td class="c" data-v="85"><span class="rs">85</span></td><td class="n" data-v="0.3">0.3%</td><td class="n pos" data-v="1">+1.0%p</td><td class="n" data-v="-17.6">-17.6%</td><td class="n pos" data-v="14.98">+15.0%</td><td class="n pos" data-v="6.41">+6.4%</td><td class="c" data-v="0"></td></tr></tbody></table></div>
   <p class="note">열 제목을 클릭하면 그 기준으로 정렬됩니다(다시 클릭하면 역순).
   </p>
 
@@ -481,13 +517,13 @@ new Chart(document.getElementById('bc'),{type:'line',
   <h3>미너비니 VCP · 피벗 후보 <span class="sub2">변동성 수축 + 거래량 마름</span></h3>
   <p class="note" style="margin-top:6px">RS 80+ · 시총 3천억+ · 추세 템플릿 7/8+ · <b>조정폭 순차 축소</b> · 10일 고저폭 12% 이내 · 5일 거래량 ≤ 50일 평균 · 52주 고점 −20% 이내</p>
   <div class="warnbox">통과 종목이 <b>1개</b>뿐입니다. 강세장에서는 수십 개가 나옵니다. 미너비니는 <b>시장 국면이 나쁠 때 돌파를 사지 않습니다</b> — 지금은 후보만 모아두는 시기입니다.</div>
-  <table class="sortable" id="tbl-vcp"><thead><tr><th>등급</th><th>종목명</th><th>시장</th><th>종가</th><th>시가총액</th><th>RS</th><th>템플릿</th><th>고점대비</th><th>수축 수열</th><th>10일 폭</th><th>거래량비</th><th>OPM</th><th>ROE</th></tr></thead>
+  <div class="tblwrap"><table class="sortable" id="tbl-vcp"><thead><tr><th>등급</th><th>종목명</th><th>시장</th><th>종가</th><th>시가총액</th><th>RS</th><th>템플릿</th><th>고점대비</th><th>수축 수열</th><th>10일 폭</th><th>거래량비</th><th>OPM</th><th>ROE</th></tr></thead>
   <tbody><tr><td class="c" data-v="1"><span class="gd g1">엄격</span></td><td class="nm" data-v="현대그린푸드">현대그린푸드</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="18080.0">18,080</td><td class="n" data-v="587086292960.0">5,871억</td><td class="c" data-v="84"><span class="rs">84</span></td><td class="c" data-v="7">7/8</td><td class="n" data-v="-8.2">-8.2%</td><td class="c seq" data-v="7.9">18.4 → 14.1 → 7.9</td><td class="n" data-v="6.3">6.3%</td><td class="n" data-v="0.76">0.76</td><td class="n" data-v="7.46">+7.5%</td><td class="n" data-v="19.23">+19.2%</td></tr>
 <tr><td class="c" data-v="0"><span class="gd g2">완화</span></td><td class="nm" data-v="가비아">가비아</td><td class="c" data-v="코스닥"><span class="mktb mk2">코스닥</span></td><td class="n" data-v="47000.0">47,000</td><td class="n" data-v="630772148000.0">6,308억</td><td class="c" data-v="91"><span class="rs">91</span></td><td class="c" data-v="8">8/8</td><td class="n" data-v="-1.9">-1.9%</td><td class="c seq" data-v="7.7">16.1 → 10.9 → 7.7</td><td class="n" data-v="8.7">8.7%</td><td class="n" data-v="1.22">1.22</td><td class="n" data-v="12.62">+12.6%</td><td class="n" data-v="9.52">+9.5%</td></tr>
 <tr><td class="c" data-v="0"><span class="gd g2">완화</span></td><td class="nm" data-v="F&amp;F">F&amp;F</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="80500.0">80,500</td><td class="n" data-v="3083719537500.0">3.1조</td><td class="c" data-v="85"><span class="rs">85</span></td><td class="c" data-v="8">8/8</td><td class="n" data-v="-9.6">-9.6%</td><td class="c seq" data-v="12.6">22.0 → 20.4 → 12.6</td><td class="n" data-v="13.3">13.3%</td><td class="n" data-v="0.9">0.9</td><td class="n" data-v="27.36">+27.4%</td><td class="n" data-v="39.89">+39.9%</td></tr>
 <tr><td class="c" data-v="0"><span class="gd g2">완화</span></td><td class="nm" data-v="동양생명">동양생명</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="8330.0">8,330</td><td class="n" data-v="1300001299730.0">1.3조</td><td class="c" data-v="83"><span class="rs">83</span></td><td class="c" data-v="7">7/8</td><td class="n" data-v="-11.2">-11.2%</td><td class="c seq" data-v="18.3">23.5 → 18.3</td><td class="n" data-v="14.6">14.6%</td><td class="n" data-v="1.34">1.34</td><td class="n" data-v="11.18">+11.2%</td><td class="n" data-v="5.43">+5.4%</td></tr>
 <tr><td class="c" data-v="0"><span class="gd g2">완화</span></td><td class="nm" data-v="LF">LF</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="22400.0">22,400</td><td class="n" data-v="654976000000.0">6,550억</td><td class="c" data-v="82"><span class="rs">82</span></td><td class="c" data-v="7">7/8</td><td class="n" data-v="-15.3">-15.3%</td><td class="c seq" data-v="12.0">22.9 → 18.9 → 12.0</td><td class="n" data-v="12.7">12.7%</td><td class="n" data-v="0.59">0.59</td><td class="n" data-v="9.61">+9.6%</td><td class="n" data-v="6.91">+6.9%</td></tr>
-<tr><td class="c" data-v="0"><span class="gd g2">완화</span></td><td class="nm" data-v="네오팜">네오팜</td><td class="c" data-v="코스닥"><span class="mktb mk2">코스닥</span></td><td class="n" data-v="19120.0">19,120</td><td class="n" data-v="306455149680.0">3,065억</td><td class="c" data-v="80"><span class="rs">80</span></td><td class="c" data-v="6">6/8</td><td class="n" data-v="-15.6">-15.6%</td><td class="c seq" data-v="14.3">27.7 → 14.3</td><td class="n" data-v="7.2">7.2%</td><td class="n" data-v="0.8">0.8</td><td class="n" data-v="24.03">+24.0%</td><td class="n" data-v="17.96">+18.0%</td></tr></tbody></table>
+<tr><td class="c" data-v="0"><span class="gd g2">완화</span></td><td class="nm" data-v="네오팜">네오팜</td><td class="c" data-v="코스닥"><span class="mktb mk2">코스닥</span></td><td class="n" data-v="19120.0">19,120</td><td class="n" data-v="306455149680.0">3,065억</td><td class="c" data-v="80"><span class="rs">80</span></td><td class="c" data-v="6">6/8</td><td class="n" data-v="-15.6">-15.6%</td><td class="c seq" data-v="14.3">27.7 → 14.3</td><td class="n" data-v="7.2">7.2%</td><td class="n" data-v="0.8">0.8</td><td class="n" data-v="24.03">+24.0%</td><td class="n" data-v="17.96">+18.0%</td></tr></tbody></table></div>
   <p class="note">열 제목을 클릭하면 그 기준으로 정렬됩니다(다시 클릭하면 역순). <b>수축 수열</b>은 최근 조정폭입니다. 18.4 → 14.1 → 7.9 처럼 <b>절반씩 줄어드는 모양</b>이 VCP입니다. 매물이 소화되며 변동성이 마르는 과정이고, 거래량비가 1 아래면 그 마름이 거래량으로도 확인된 것입니다.</p>
   <p class="note" style="opacity:.85">기계적 필터 결과이며 종목 추천이 아닙니다. 조건을 조금만 바꿔도 목록은 달라집니다.</p>
 </div>

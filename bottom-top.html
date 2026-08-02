@@ -135,7 +135,8 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
   --w-prose:min(50em,100%)}
 
 /* ── ① 데이터층은 전폭 ── */
-.wrap,.sec,.bar-in,.status,.foot-in{max-width:var(--w-data)!important}
+/* 폭은 apply_paper.py 가 정한다. 여기서 !important 로 잡으면 그쪽이 못 이긴다.
+   두 곳에서 폭을 정하면 반드시 한쪽이 조용히 진다. */
 .wrap{padding-left:32px!important;padding-right:32px!important}
 
 /* ── ② 해설층은 좁은 단 + 세리프 ──
@@ -242,58 +243,93 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
   html body .site-bar-in{padding:9px 14px 7px}
 }
 /* BAR:END *//* PAPER:BEGIN */
-/* ── 논문 판형 ──────────────────────────────────────────────
-   Khandani & Lo (MIT, 2007) 조판을 화면용으로 옮긴 것.
-   서체는 나눔고딕 유지 — 구조만 가져온다. */
+/* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
-  /* 화면이 커지면 본문도 넓어진다. 다만 무한정은 아니다(가독 한계 ~52rem). */
-  --w-prose: clamp(17rem, 63vw, 52rem);
-  --w-wide:  clamp(17rem, 94vw, 1500px);
-  --rule:    var(--border,#e3e3e6);
-  /* apply_layout.py 가 `.wrap{max-width:var(--w-data)!important}` 를 심어 뒀다.
-     !important라 여기서 이길 수 없으므로 **변수 쪽을 갈아끼운다.**
-     선택자 싸움을 하는 것보다 값을 바꾸는 쪽이 깨지지 않는다. */
-  --w-data:  clamp(17rem, 94vw, 1500px);
+  /* 읽기 기둥. em이라 글자 크기를 키우면 폭도 같이 는다. */
+  --w-col:  clamp(18rem, 90vw, 58rem);
+  /* 표·차트가 삐져나올 수 있는 최대 폭 */
+  --w-wide: clamp(18rem, 96vw, 1500px);
+  --w-data: var(--w-wide);
+  --w-prose: 100%;
+  --rule: var(--border,#e3e3e6);
+  --gut: clamp(14px, 4vw, 30px);
 }
 
-/* 제목부 — 논문 표제지 */
+/* 본문 기둥 — 가운데. 제목·문단·목록이 모두 같은 왼쪽 선에서 시작한다. */
+html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
+  margin-right:auto!important;padding-left:var(--gut);padding-right:var(--gut);
+  box-sizing:border-box}
+.paper .sec,.paper .status,.paper .foot-in{max-width:none}
+
+/* 자료 breakout — 기둥 밖으로 나오되 가운데는 유지 */
+.paper figure,.paper .cchart,.paper .cbox,.paper .wide,.paper .tblwrap{
+  width:min(var(--w-wide), 100vw - 2*var(--gut));
+  margin-left:calc(50% - min(var(--w-wide), 100vw - 2*var(--gut))/2);
+  margin-right:calc(50% - min(var(--w-wide), 100vw - 2*var(--gut))/2)}
+.paper figure svg,.paper .cchart svg{width:100%;height:auto;display:block}
+
+/* 제목부 */
 .wrap .phead{margin:6px 0 26px;padding-bottom:20px;border-bottom:2px solid var(--text,#1d1d1f)}
 .wrap .phead h1{margin:6px 0 8px;letter-spacing:-.03em;line-height:1.22}
-.wrap .phead .pauth{margin:0;font-size:15px;color:var(--text2,#6e6e73);line-height:1.6;
-  max-width:var(--w-prose)}
+.wrap .phead .pauth{margin:0;font-size:15px;color:var(--text2,#6e6e73);line-height:1.6}
 
-/* 요약(초록) — 본문보다 한 단 좁고 안쪽으로 들여쓴다 */
-.wrap .abstract{max-width:min(var(--w-prose),46rem);margin:0 0 34px;padding:20px 24px;
+/* 요약(초록) */
+.wrap .abstract{margin:0 0 34px;padding:20px clamp(16px,3.4vw,24px);
   background:var(--surface,#fafafa);border:1px solid var(--rule);border-radius:4px}
 .wrap .abstract h4{margin:0 0 10px;font-size:12px;font-weight:700;letter-spacing:.14em;
   text-transform:uppercase;color:var(--text2,#6e6e73)}
-.wrap .abstract p{margin:0 0 10px;font-size:14.5px;line-height:1.82}
+.wrap .abstract p{margin:0 0 10px;font-size:15px;line-height:1.82}
 .wrap .abstract p:last-child{margin-bottom:0}
 
-/* 절 번호 자동 매김 — 손으로 적으면 순서를 바꿀 때마다 어긋난다 */
-.paper{counter-reset:sec fig tbl}
-.paper section.s{counter-reset:sub;margin:0 0 42px}
-.paper section.s>h2{counter-increment:sec;margin:34px 0 14px;font-size:21px;font-weight:700;
-  letter-spacing:-.02em;padding-bottom:7px;border-bottom:1px solid var(--rule)}
-.paper section.s>h2::before{content:counter(sec) ".  ";color:var(--text2,#6e6e73);
-  font-variant-numeric:tabular-nums}
-.paper section.s h3{counter-increment:sub;margin:26px 0 9px;font-size:16.5px;font-weight:700;
-  letter-spacing:-.015em}
-.paper section.s h3::before{content:counter(sec) "." counter(sub) "  ";
-  color:var(--text2,#6e6e73);font-weight:600;font-variant-numeric:tabular-nums}
+/* 절 번호 자동 매김 — 손으로 적으면 순서를 바꿀 때마다 어긋난다.
 
-/* 본문 — 한 단, 왼쪽 정렬. 논문처럼 문단 사이를 벌리지 않고 촘촘히 */
-.paper p{max-width:var(--w-prose);margin:0 0 13px;font-size:16.5px;line-height:1.85;
+   ⚠ 선택자를 **뒤집어서** 쓴다. 처음엔 "직계 자식만 센다"로 짰는데,
+     페이지마다 껍데기가 달라(.sec-head, section.compare, 무클래스 section …)
+     19장 중 6장이 번호를 못 받았다.
+     → **전부 세고, 해설 박스 안만 뺀다.** 예외 목록이 훨씬 짧고 안 샌다. */
+.paper{counter-reset:sec fig tbl}
+.paper h2{
+  counter-increment:sec;margin:34px 0 14px;font-size:clamp(18px,2.4vw,21px);
+  font-weight:700;letter-spacing:-.02em;padding-bottom:7px;
+  border-bottom:1px solid var(--rule)}
+.paper h2::before{content:counter(sec) ".  ";color:var(--text2,#6e6e73);
+  font-variant-numeric:tabular-nums}
+.paper h3{
+  counter-increment:sub;margin:26px 0 9px;font-size:clamp(15.5px,1.9vw,16.5px);
+  font-weight:700;letter-spacing:-.015em}
+.paper h3::before{content:counter(sec) "." counter(sub) "  ";
+  color:var(--text2,#6e6e73);font-weight:600;font-variant-numeric:tabular-nums}
+.paper .sec,.paper section,.paper .sec-head{counter-reset:sub}
+
+/* 예외 — 해설 박스·요약·표제부 안의 제목은 절이 아니다 */
+.paper .explain h2,.paper .ebody h2,.paper .hbody h2,.paper .verdict h2,
+.paper .callout h2,.paper .lesson h2,.paper .note h2,.paper .abstract h2,
+.paper .disclaimer h2,.paper .fdetail h2,.paper .phead h2,
+.paper .explain h3,.paper .ebody h3,.paper .hbody h3,.paper .verdict h3,
+.paper .callout h3,.paper .lesson h3,.paper .abstract h3,.paper .disclaimer h3{
+  counter-increment:none;font-size:1.06em;font-weight:700;margin:22px 0 9px;
+  letter-spacing:-.01em;border:none;padding:0}
+.paper .explain h2::before,.paper .ebody h2::before,.paper .hbody h2::before,
+.paper .verdict h2::before,.paper .callout h2::before,.paper .lesson h2::before,
+.paper .note h2::before,.paper .abstract h2::before,.paper .disclaimer h2::before,
+.paper .fdetail h2::before,.paper .phead h2::before,
+.paper .explain h3::before,.paper .ebody h3::before,.paper .hbody h3::before,
+.paper .verdict h3::before,.paper .callout h3::before,.paper .lesson h3::before,
+.paper .abstract h3::before,.paper .disclaimer h3::before{content:none}
+.paper .explain h2:first-child,.paper .abstract h2:first-child{margin-top:0}
+
+/* 본문 */
+.paper p,.paper li{font-size:clamp(15.5px,1.85vw,16.5px);line-height:1.85;
   letter-spacing:-.004em}
+.paper p{margin:0 0 13px}
 .paper p.note{font-size:15px;color:var(--text2,#6e6e73);padding-left:14px;
   border-left:2px solid var(--rule);line-height:1.75}
 
-/* 그림·표 — 캡션에 번호를 자동으로 붙인다 */
-.paper figure{margin:22px 0 26px;max-width:var(--w-wide)}
-.paper figure svg{width:100%;height:auto;display:block}
-.paper figure>figcaption{margin-top:11px;font-size:13px;line-height:1.7;
-  color:var(--text2,#6e6e73);max-width:var(--w-prose)}
+/* 그림·표 캡션 자동 번호 */
+.paper figure{margin-top:22px;margin-bottom:26px}
+.paper figure>figcaption{margin-top:11px;font-size:13.5px;line-height:1.7;
+  color:var(--text2,#6e6e73)}
 .paper figure.fig{counter-increment:fig}
 .paper figure.fig>figcaption::before{content:"그림 " counter(fig) ".  ";
   font-weight:700;color:var(--text,#1d1d1f)}
@@ -302,58 +338,58 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
 .paper figure.tw>figcaption::before{content:"표 " counter(tbl) ".  ";
   font-weight:700;color:var(--text,#1d1d1f)}
 
-/* 표 — 가로줄만. 논문 조판(booktabs)의 핵심이다.
-   세로줄은 눈이 칸을 따라가는 흐름을 끊는다. */
-.paper table,.paper .tbl{width:100%;border-collapse:collapse;font-size:14.5px;
+/* 표 — 가로줄만(booktabs). 세로줄은 칸을 따라가는 눈의 흐름을 끊는다. */
+.paper table{width:100%;border-collapse:collapse;font-size:clamp(13px,1.6vw,14.5px);
   font-variant-numeric:tabular-nums}
-.paper table thead th{text-align:left;font-size:12.5px;font-weight:700;padding:8px 12px 7px;
+.paper table thead th{text-align:left;font-size:.9em;font-weight:700;
+  padding:8px 12px 7px;background:transparent;color:var(--text,#1d1d1f);
   border-top:1.6px solid var(--text,#1d1d1f);
-  border-bottom:1px solid var(--text,#1d1d1f);
-  background:transparent;color:var(--text,#1d1d1f);letter-spacing:.01em}
+  border-bottom:1px solid var(--text,#1d1d1f);letter-spacing:.01em}
 .paper table tbody td{padding:8px 12px;border-bottom:1px solid var(--rule);
   vertical-align:top;line-height:1.6}
 .paper table tbody tr:last-child td{border-bottom:1.6px solid var(--text,#1d1d1f)}
 .paper table th.n,.paper table td.n{text-align:right}
 .paper table tbody tr:hover{background:var(--surface,#fafafa)}
+/* 칸이 많은 표는 줄이지 말고 옆으로 굴린다 — 글자를 줄이면 못 읽는다 */
+.paper .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 
-/* 차트 상자 */
-.paper .cbox{position:relative;width:100%;height:360px}
+/* 차트 */
+.paper .cbox{position:relative;height:clamp(240px,42vw,380px)}
 
-/* 참고문헌 — 번호를 매기고 들여쓴다. 링크는 밑줄 없이 색만 준다. */
-.paper ol.refs{max-width:var(--w-prose);margin:10px 0 20px;padding-left:0;list-style:none;
-  counter-reset:none}
-.paper ol.refs li{position:relative;padding-left:32px;margin:0 0 11px;font-size:15px;
-  line-height:1.72;color:var(--text,#1d1d1f)}
+/* 참고문헌 */
+.paper ol.refs{margin:10px 0 20px;padding-left:0;list-style:none;counter-reset:refitem}
+.paper ol.refs li{position:relative;padding-left:32px;margin:0 0 11px;
+  font-size:15px;line-height:1.72;color:var(--text,#1d1d1f)}
 .paper ol.refs li::before{content:"[" counter(refitem) "]";counter-increment:refitem;
   position:absolute;left:0;top:0;font-variant-numeric:tabular-nums;font-size:13.5px;
   color:var(--text2,#6e6e73);font-weight:600}
-.paper ol.refs{counter-reset:refitem}
 .paper ol.refs[start="6"]{counter-reset:refitem 5}
 .paper ol.refs[start="11"]{counter-reset:refitem 10}
 .paper ol.refs a{color:var(--accent,#1161c4);text-decoration:none;
-  border-bottom:1px solid color-mix(in srgb,var(--accent,#1161c4) 35%,transparent)}
+  border-bottom:1px solid currentColor;border-bottom-color:transparent}
 .paper ol.refs a:hover{border-bottom-color:currentColor}
-.paper ol.refs i{font-style:italic}
 .paper .refs-sec h3{margin-top:24px}
 
-/* 맺음말·출처 */
-.paper .disclaimer{max-width:var(--w-prose);margin-top:38px;padding-top:16px;
-  border-top:1px solid var(--rule);font-size:13px;line-height:1.75;color:var(--text2,#6e6e73)}
-.paper .disclaimer p{font-size:13px;line-height:1.75;margin-bottom:9px}
+/* 맺음말 */
+.paper .disclaimer{margin-top:38px;padding-top:16px;border-top:1px solid var(--rule);
+  font-size:13.5px;line-height:1.75;color:var(--text2,#6e6e73)}
+.paper .disclaimer p{font-size:13.5px;line-height:1.75;margin-bottom:9px}
 
+/* ── 모바일 ── 줄일 수 없는 것만 손본다 */
 @media(max-width:760px){
-  .paper section.s>h2{font-size:19px}
-  .paper p{font-size:15.5px}
-  .paper .cbox{height:300px}
-  .paper figure{margin:18px 0 22px}
+  .paper figure,.paper .cchart,.paper .cbox,.paper .wide,.paper .tblwrap{
+    width:calc(100vw - 2*var(--gut));
+    margin-left:calc(50% - (100vw - 2*var(--gut))/2);
+    margin-right:calc(50% - (100vw - 2*var(--gut))/2)}
+  .paper table thead th,.paper table tbody td{padding:7px 9px}
+  .paper figure{margin-top:18px;margin-bottom:22px}
+  .paper .abstract{padding:16px 15px}
+  .wrap .phead{margin-bottom:20px;padding-bottom:16px}
 }
-
-/* ── 기존 페이지에도 같은 폭 규칙을 적용 ──
-   .paper 마크업을 쓰지 않는 옛 페이지들이 있다. 폭만이라도 맞춰야
-   한 사이트처럼 보인다. 상단바·메뉴는 건드리지 않는다. */
-.wrap,.sec,.status,.foot-in{max-width:var(--w-wide)}
-.explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap,.sub{
-  max-width:var(--w-prose)}
+@media(max-width:430px){
+  .paper table{font-size:12.5px}
+  .paper p.note{padding-left:11px}
+}
 /* PAPER:END */</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
@@ -362,7 +398,7 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
 
 
 <button class="toggle" onclick="__toggleTheme()">☀</button>
-<div class="wrap">
+<div class="wrap paper">
   <div class="site-crumb"><a href="index.html">홈</a><span class="sep">›</span><span>오늘의 시장</span><span class="sep">›</span><span class="cur">바닥·천장 추적 분석</span></div>
 <!-- STAMP:BEGIN --><div class="pbadge"><span class="pb-k pb-live">매일 갱신</span><span>기준일 <b>2026-08-02</b></span><span class="pb-src">코스피·하닉·삼전 일별시세</span></div><!-- STAMP:END -->
 
@@ -403,26 +439,26 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
   <div class="card"><div class="chart-container"><canvas id="vrChart" role="img" aria-label="코스피·SK하이닉스·삼성전자의 50일 평균 대비 거래량 비율 추이"></canvas></div></div>
   <div class="two-col" style="margin-top:20px;grid-template-columns:repeat(3,1fr)">
     <div class="card"><h3 style="margin-bottom:10px">코스피 — 최근 급락일 거래량</h3>
-      <table class="mini"><thead><tr><th>일자</th><th>등락률</th><th>거래량비</th></tr></thead><tbody><tr><td>7/13</td><td class="neg">-8.95%</td><td class="">0.83배</td></tr>
+      <div class="tblwrap"><table class="mini"><thead><tr><th>일자</th><th>등락률</th><th>거래량비</th></tr></thead><tbody><tr><td>7/13</td><td class="neg">-8.95%</td><td class="">0.83배</td></tr>
 <tr><td>7/16</td><td class="neg">-6.37%</td><td class="">0.77배</td></tr>
 <tr><td>7/20</td><td class="neg">-4.46%</td><td class="">0.64배</td></tr>
 <tr><td>7/24</td><td class="neg">-5.72%</td><td class="">0.78배</td></tr>
 <tr><td>7/28</td><td class="neg">-10.84%</td><td class="">0.67배</td></tr>
-<tr><td>7/29</td><td class="neg">-5.98%</td><td class="">0.95배</td></tr></tbody></table></div>
+<tr><td>7/29</td><td class="neg">-5.98%</td><td class="">0.95배</td></tr></tbody></table></div></div>
     <div class="card"><h3 style="margin-bottom:10px">SK하이닉스 — 최근 급락일 거래량</h3>
-      <table class="mini"><thead><tr><th>일자</th><th>등락률</th><th>거래량비</th></tr></thead><tbody><tr><td>7/16</td><td class="neg">-11.53%</td><td class="">0.92배</td></tr>
+      <div class="tblwrap"><table class="mini"><thead><tr><th>일자</th><th>등락률</th><th>거래량비</th></tr></thead><tbody><tr><td>7/16</td><td class="neg">-11.53%</td><td class="">0.92배</td></tr>
 <tr><td>7/20</td><td class="neg">-4.23%</td><td class="">0.96배</td></tr>
 <tr><td>7/24</td><td class="neg">-8.34%</td><td class="">0.83배</td></tr>
 <tr><td>7/28</td><td class="neg">-14.65%</td><td class="">1.37배</td></tr>
 <tr><td>7/29</td><td class="neg">-9.61%</td><td class="pos">2.07배</td></tr>
-<tr><td>7/30</td><td class="neg">-5.64%</td><td class="">1.57배</td></tr></tbody></table></div>
+<tr><td>7/30</td><td class="neg">-5.64%</td><td class="">1.57배</td></tr></tbody></table></div></div>
     <div class="card"><h3 style="margin-bottom:10px">삼성전자 — 최근 급락일 거래량</h3>
-      <table class="mini"><thead><tr><th>일자</th><th>등락률</th><th>거래량비</th></tr></thead><tbody><tr><td>7/13</td><td class="neg">-10.70%</td><td class="">0.97배</td></tr>
+      <div class="tblwrap"><table class="mini"><thead><tr><th>일자</th><th>등락률</th><th>거래량비</th></tr></thead><tbody><tr><td>7/13</td><td class="neg">-10.70%</td><td class="">0.97배</td></tr>
 <tr><td>7/16</td><td class="neg">-8.77%</td><td class="">0.82배</td></tr>
 <tr><td>7/20</td><td class="neg">-4.31%</td><td class="">0.82배</td></tr>
 <tr><td>7/24</td><td class="neg">-7.59%</td><td class="">0.84배</td></tr>
 <tr><td>7/28</td><td class="neg">-13.39%</td><td class="">1.34배</td></tr>
-<tr><td>7/29</td><td class="neg">-5.23%</td><td class="pos">2.07배</td></tr></tbody></table></div>
+<tr><td>7/29</td><td class="neg">-5.23%</td><td class="pos">2.07배</td></tr></tbody></table></div></div>
   </div>
   <div class="explain">
     <h4>왜 저점만으로는 바닥이 아닌가</h4>
@@ -436,7 +472,7 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
 
 <section>
   <div class="sec-head"><h2>③ 미너비니 추세 템플릿 — 국면 판정</h2><span class="note">8개 조건 · 코스피 6/8 · 하이닉스 6/8 · 삼성전자 6/8</span></div>
-  <div class="card" style="padding:8px 20px"><table class="mini">
+  <div class="card" style="padding:8px 20px"><div class="tblwrap"><table class="mini">
     <thead><tr><th>조건</th><th>코스피</th><th>SK하이닉스</th><th>삼성전자</th></tr></thead>
     <tbody>
           <tr><td>1. 현재가 > 150일선 &amp; 200일선</td><td><span style="color:var(--pos);font-weight:700">충족</span></td><td><span style="color:var(--pos);font-weight:700">충족</span></td><td><span style="color:var(--pos);font-weight:700">충족</span></td></tr>
@@ -447,7 +483,7 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
           <tr><td>6. 52주 저점 대비 +30% 이상</td><td><span style="color:var(--pos);font-weight:700">충족</span></td><td><span style="color:var(--pos);font-weight:700">충족</span></td><td><span style="color:var(--pos);font-weight:700">충족</span></td></tr>
           <tr><td>7. 52주 고점 대비 -25% 이내</td><td><span style="color:var(--neg);font-weight:700">미충족</span></td><td><span style="color:var(--neg);font-weight:700">미충족</span></td><td><span style="color:var(--neg);font-weight:700">미충족</span></td></tr>
           <tr><td>8. 최근 6개월 수익률 > 0 (RS 대용)</td><td><span style="color:var(--pos);font-weight:700">충족</span></td><td><span style="color:var(--pos);font-weight:700">충족</span></td><td><span style="color:var(--pos);font-weight:700">충족</span></td></tr>
-          </tbody></table></div>
+          </tbody></table></div></div>
   <div class="two-col" style="margin-top:18px;grid-template-columns:repeat(3,1fr)">
     <div class="card"><h3>코스피</h3><p style="color:var(--text-secondary);font-size:.92rem;margin-top:8px">52주 고점 <b>9,386</b> 대비 <b style="color:var(--neg)">-29.7%</b> · 52주 저점 <b>3,079</b> 대비 <b style="color:var(--pos)">+114.2%</b></p></div>
     <div class="card"><h3>SK하이닉스</h3><p style="color:var(--text-secondary);font-size:.92rem;margin-top:8px">52주 고점 <b>298.7만원</b> 대비 <b style="color:var(--neg)">-42.5%</b> · 52주 저점 <b>24.5만원</b> 대비 <b style="color:var(--pos)">+601.2%</b></p></div>
@@ -464,7 +500,7 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
 
 <section>
   <div class="sec-head"><h2>④ 25거래일 낙폭 — 이 하락의 크기</h2><span class="note">금융위기 이후 · 종가 ÷ 25거래일 전 종가</span></div>
-  <div class="card" style="padding:8px 20px"><table class="mini">
+  <div class="card" style="padding:8px 20px"><div class="tblwrap"><table class="mini">
     <thead><tr><th>일자</th><th>KOSPI</th><th>25일 낙폭</th><th style="text-align:left">비고</th></tr></thead>
     <tbody>
           <tr><td>2020-03-19</td><td>1,457.64</td><td class="neg"><b>-34.7%</b></td><td style="text-align:left">팬데믹</td></tr>
@@ -476,7 +512,7 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
           <tr><td>2018-10-29</td><td>1,996.05</td><td class="neg"><b>-13.3%</b></td><td style="text-align:left">미중 무역분쟁</td></tr>
           <tr><td>2024-08-05</td><td>2,441.55</td><td class="neg"><b>-12.9%</b></td><td style="text-align:left">엔캐리 청산 우려</td></tr>
           <tr><td>2022-01-27</td><td>2,614.49</td><td class="neg"><b>-12.4%</b></td><td style="text-align:left">러-우 전쟁</td></tr>
-          </tbody></table></div>
+          </tbody></table></div></div>
   <div class="explain">
     <h4>지금 하락은 금융위기 이후 두 번째다</h4>
     <p>25거래일(약 5주) 전 종가와 비교한 낙폭입니다. 이번 사이클 최대치는 <b>7/30의 −34.0%</b>로 2020년 팬데믹(<b>−34.7%</b>)에 0.7%p까지 근접했습니다. 7/31 급등으로 현재는 <b>-26.1%</b>까지 줄었습니다. 미국 신용등급 강등(−20.3%), 금리인상 발작(−14.1%), 엔캐리 청산(−12.9%) 같은 과거 충격들과는 <b>자릿수가 다릅니다</b>.</p>

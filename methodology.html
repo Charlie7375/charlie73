@@ -200,7 +200,8 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
   --w-prose:min(50em,100%)}
 
 /* ── ① 데이터층은 전폭 ── */
-.wrap,.sec,.bar-in,.status,.foot-in{max-width:var(--w-data)!important}
+/* 폭은 apply_paper.py 가 정한다. 여기서 !important 로 잡으면 그쪽이 못 이긴다.
+   두 곳에서 폭을 정하면 반드시 한쪽이 조용히 진다. */
 .wrap{padding-left:32px!important;padding-right:32px!important}
 
 /* ── ② 해설층은 좁은 단 + 세리프 ──
@@ -332,58 +333,93 @@ h2{margin-top:52px;font-size:23px;letter-spacing:-.02em;padding-bottom:8px;borde
 h3{letter-spacing:-.015em}
 .sub{max-width:none}
 /* PAPER:BEGIN */
-/* ── 논문 판형 ──────────────────────────────────────────────
-   Khandani & Lo (MIT, 2007) 조판을 화면용으로 옮긴 것.
-   서체는 나눔고딕 유지 — 구조만 가져온다. */
+/* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
-  /* 화면이 커지면 본문도 넓어진다. 다만 무한정은 아니다(가독 한계 ~52rem). */
-  --w-prose: clamp(17rem, 63vw, 52rem);
-  --w-wide:  clamp(17rem, 94vw, 1500px);
-  --rule:    var(--border,#e3e3e6);
-  /* apply_layout.py 가 `.wrap{max-width:var(--w-data)!important}` 를 심어 뒀다.
-     !important라 여기서 이길 수 없으므로 **변수 쪽을 갈아끼운다.**
-     선택자 싸움을 하는 것보다 값을 바꾸는 쪽이 깨지지 않는다. */
-  --w-data:  clamp(17rem, 94vw, 1500px);
+  /* 읽기 기둥. em이라 글자 크기를 키우면 폭도 같이 는다. */
+  --w-col:  clamp(18rem, 90vw, 58rem);
+  /* 표·차트가 삐져나올 수 있는 최대 폭 */
+  --w-wide: clamp(18rem, 96vw, 1500px);
+  --w-data: var(--w-wide);
+  --w-prose: 100%;
+  --rule: var(--border,#e3e3e6);
+  --gut: clamp(14px, 4vw, 30px);
 }
 
-/* 제목부 — 논문 표제지 */
+/* 본문 기둥 — 가운데. 제목·문단·목록이 모두 같은 왼쪽 선에서 시작한다. */
+html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
+  margin-right:auto!important;padding-left:var(--gut);padding-right:var(--gut);
+  box-sizing:border-box}
+.paper .sec,.paper .status,.paper .foot-in{max-width:none}
+
+/* 자료 breakout — 기둥 밖으로 나오되 가운데는 유지 */
+.paper figure,.paper .cchart,.paper .cbox,.paper .wide,.paper .tblwrap{
+  width:min(var(--w-wide), 100vw - 2*var(--gut));
+  margin-left:calc(50% - min(var(--w-wide), 100vw - 2*var(--gut))/2);
+  margin-right:calc(50% - min(var(--w-wide), 100vw - 2*var(--gut))/2)}
+.paper figure svg,.paper .cchart svg{width:100%;height:auto;display:block}
+
+/* 제목부 */
 .wrap .phead{margin:6px 0 26px;padding-bottom:20px;border-bottom:2px solid var(--text,#1d1d1f)}
 .wrap .phead h1{margin:6px 0 8px;letter-spacing:-.03em;line-height:1.22}
-.wrap .phead .pauth{margin:0;font-size:15px;color:var(--text2,#6e6e73);line-height:1.6;
-  max-width:var(--w-prose)}
+.wrap .phead .pauth{margin:0;font-size:15px;color:var(--text2,#6e6e73);line-height:1.6}
 
-/* 요약(초록) — 본문보다 한 단 좁고 안쪽으로 들여쓴다 */
-.wrap .abstract{max-width:min(var(--w-prose),46rem);margin:0 0 34px;padding:20px 24px;
+/* 요약(초록) */
+.wrap .abstract{margin:0 0 34px;padding:20px clamp(16px,3.4vw,24px);
   background:var(--surface,#fafafa);border:1px solid var(--rule);border-radius:4px}
 .wrap .abstract h4{margin:0 0 10px;font-size:12px;font-weight:700;letter-spacing:.14em;
   text-transform:uppercase;color:var(--text2,#6e6e73)}
-.wrap .abstract p{margin:0 0 10px;font-size:14.5px;line-height:1.82}
+.wrap .abstract p{margin:0 0 10px;font-size:15px;line-height:1.82}
 .wrap .abstract p:last-child{margin-bottom:0}
 
-/* 절 번호 자동 매김 — 손으로 적으면 순서를 바꿀 때마다 어긋난다 */
-.paper{counter-reset:sec fig tbl}
-.paper section.s{counter-reset:sub;margin:0 0 42px}
-.paper section.s>h2{counter-increment:sec;margin:34px 0 14px;font-size:21px;font-weight:700;
-  letter-spacing:-.02em;padding-bottom:7px;border-bottom:1px solid var(--rule)}
-.paper section.s>h2::before{content:counter(sec) ".  ";color:var(--text2,#6e6e73);
-  font-variant-numeric:tabular-nums}
-.paper section.s h3{counter-increment:sub;margin:26px 0 9px;font-size:16.5px;font-weight:700;
-  letter-spacing:-.015em}
-.paper section.s h3::before{content:counter(sec) "." counter(sub) "  ";
-  color:var(--text2,#6e6e73);font-weight:600;font-variant-numeric:tabular-nums}
+/* 절 번호 자동 매김 — 손으로 적으면 순서를 바꿀 때마다 어긋난다.
 
-/* 본문 — 한 단, 왼쪽 정렬. 논문처럼 문단 사이를 벌리지 않고 촘촘히 */
-.paper p{max-width:var(--w-prose);margin:0 0 13px;font-size:16.5px;line-height:1.85;
+   ⚠ 선택자를 **뒤집어서** 쓴다. 처음엔 "직계 자식만 센다"로 짰는데,
+     페이지마다 껍데기가 달라(.sec-head, section.compare, 무클래스 section …)
+     19장 중 6장이 번호를 못 받았다.
+     → **전부 세고, 해설 박스 안만 뺀다.** 예외 목록이 훨씬 짧고 안 샌다. */
+.paper{counter-reset:sec fig tbl}
+.paper h2{
+  counter-increment:sec;margin:34px 0 14px;font-size:clamp(18px,2.4vw,21px);
+  font-weight:700;letter-spacing:-.02em;padding-bottom:7px;
+  border-bottom:1px solid var(--rule)}
+.paper h2::before{content:counter(sec) ".  ";color:var(--text2,#6e6e73);
+  font-variant-numeric:tabular-nums}
+.paper h3{
+  counter-increment:sub;margin:26px 0 9px;font-size:clamp(15.5px,1.9vw,16.5px);
+  font-weight:700;letter-spacing:-.015em}
+.paper h3::before{content:counter(sec) "." counter(sub) "  ";
+  color:var(--text2,#6e6e73);font-weight:600;font-variant-numeric:tabular-nums}
+.paper .sec,.paper section,.paper .sec-head{counter-reset:sub}
+
+/* 예외 — 해설 박스·요약·표제부 안의 제목은 절이 아니다 */
+.paper .explain h2,.paper .ebody h2,.paper .hbody h2,.paper .verdict h2,
+.paper .callout h2,.paper .lesson h2,.paper .note h2,.paper .abstract h2,
+.paper .disclaimer h2,.paper .fdetail h2,.paper .phead h2,
+.paper .explain h3,.paper .ebody h3,.paper .hbody h3,.paper .verdict h3,
+.paper .callout h3,.paper .lesson h3,.paper .abstract h3,.paper .disclaimer h3{
+  counter-increment:none;font-size:1.06em;font-weight:700;margin:22px 0 9px;
+  letter-spacing:-.01em;border:none;padding:0}
+.paper .explain h2::before,.paper .ebody h2::before,.paper .hbody h2::before,
+.paper .verdict h2::before,.paper .callout h2::before,.paper .lesson h2::before,
+.paper .note h2::before,.paper .abstract h2::before,.paper .disclaimer h2::before,
+.paper .fdetail h2::before,.paper .phead h2::before,
+.paper .explain h3::before,.paper .ebody h3::before,.paper .hbody h3::before,
+.paper .verdict h3::before,.paper .callout h3::before,.paper .lesson h3::before,
+.paper .abstract h3::before,.paper .disclaimer h3::before{content:none}
+.paper .explain h2:first-child,.paper .abstract h2:first-child{margin-top:0}
+
+/* 본문 */
+.paper p,.paper li{font-size:clamp(15.5px,1.85vw,16.5px);line-height:1.85;
   letter-spacing:-.004em}
+.paper p{margin:0 0 13px}
 .paper p.note{font-size:15px;color:var(--text2,#6e6e73);padding-left:14px;
   border-left:2px solid var(--rule);line-height:1.75}
 
-/* 그림·표 — 캡션에 번호를 자동으로 붙인다 */
-.paper figure{margin:22px 0 26px;max-width:var(--w-wide)}
-.paper figure svg{width:100%;height:auto;display:block}
-.paper figure>figcaption{margin-top:11px;font-size:13px;line-height:1.7;
-  color:var(--text2,#6e6e73);max-width:var(--w-prose)}
+/* 그림·표 캡션 자동 번호 */
+.paper figure{margin-top:22px;margin-bottom:26px}
+.paper figure>figcaption{margin-top:11px;font-size:13.5px;line-height:1.7;
+  color:var(--text2,#6e6e73)}
 .paper figure.fig{counter-increment:fig}
 .paper figure.fig>figcaption::before{content:"그림 " counter(fig) ".  ";
   font-weight:700;color:var(--text,#1d1d1f)}
@@ -392,64 +428,64 @@ h3{letter-spacing:-.015em}
 .paper figure.tw>figcaption::before{content:"표 " counter(tbl) ".  ";
   font-weight:700;color:var(--text,#1d1d1f)}
 
-/* 표 — 가로줄만. 논문 조판(booktabs)의 핵심이다.
-   세로줄은 눈이 칸을 따라가는 흐름을 끊는다. */
-.paper table,.paper .tbl{width:100%;border-collapse:collapse;font-size:14.5px;
+/* 표 — 가로줄만(booktabs). 세로줄은 칸을 따라가는 눈의 흐름을 끊는다. */
+.paper table{width:100%;border-collapse:collapse;font-size:clamp(13px,1.6vw,14.5px);
   font-variant-numeric:tabular-nums}
-.paper table thead th{text-align:left;font-size:12.5px;font-weight:700;padding:8px 12px 7px;
+.paper table thead th{text-align:left;font-size:.9em;font-weight:700;
+  padding:8px 12px 7px;background:transparent;color:var(--text,#1d1d1f);
   border-top:1.6px solid var(--text,#1d1d1f);
-  border-bottom:1px solid var(--text,#1d1d1f);
-  background:transparent;color:var(--text,#1d1d1f);letter-spacing:.01em}
+  border-bottom:1px solid var(--text,#1d1d1f);letter-spacing:.01em}
 .paper table tbody td{padding:8px 12px;border-bottom:1px solid var(--rule);
   vertical-align:top;line-height:1.6}
 .paper table tbody tr:last-child td{border-bottom:1.6px solid var(--text,#1d1d1f)}
 .paper table th.n,.paper table td.n{text-align:right}
 .paper table tbody tr:hover{background:var(--surface,#fafafa)}
+/* 칸이 많은 표는 줄이지 말고 옆으로 굴린다 — 글자를 줄이면 못 읽는다 */
+.paper .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 
-/* 차트 상자 */
-.paper .cbox{position:relative;width:100%;height:360px}
+/* 차트 */
+.paper .cbox{position:relative;height:clamp(240px,42vw,380px)}
 
-/* 참고문헌 — 번호를 매기고 들여쓴다. 링크는 밑줄 없이 색만 준다. */
-.paper ol.refs{max-width:var(--w-prose);margin:10px 0 20px;padding-left:0;list-style:none;
-  counter-reset:none}
-.paper ol.refs li{position:relative;padding-left:32px;margin:0 0 11px;font-size:15px;
-  line-height:1.72;color:var(--text,#1d1d1f)}
+/* 참고문헌 */
+.paper ol.refs{margin:10px 0 20px;padding-left:0;list-style:none;counter-reset:refitem}
+.paper ol.refs li{position:relative;padding-left:32px;margin:0 0 11px;
+  font-size:15px;line-height:1.72;color:var(--text,#1d1d1f)}
 .paper ol.refs li::before{content:"[" counter(refitem) "]";counter-increment:refitem;
   position:absolute;left:0;top:0;font-variant-numeric:tabular-nums;font-size:13.5px;
   color:var(--text2,#6e6e73);font-weight:600}
-.paper ol.refs{counter-reset:refitem}
 .paper ol.refs[start="6"]{counter-reset:refitem 5}
 .paper ol.refs[start="11"]{counter-reset:refitem 10}
 .paper ol.refs a{color:var(--accent,#1161c4);text-decoration:none;
-  border-bottom:1px solid color-mix(in srgb,var(--accent,#1161c4) 35%,transparent)}
+  border-bottom:1px solid currentColor;border-bottom-color:transparent}
 .paper ol.refs a:hover{border-bottom-color:currentColor}
-.paper ol.refs i{font-style:italic}
 .paper .refs-sec h3{margin-top:24px}
 
-/* 맺음말·출처 */
-.paper .disclaimer{max-width:var(--w-prose);margin-top:38px;padding-top:16px;
-  border-top:1px solid var(--rule);font-size:13px;line-height:1.75;color:var(--text2,#6e6e73)}
-.paper .disclaimer p{font-size:13px;line-height:1.75;margin-bottom:9px}
+/* 맺음말 */
+.paper .disclaimer{margin-top:38px;padding-top:16px;border-top:1px solid var(--rule);
+  font-size:13.5px;line-height:1.75;color:var(--text2,#6e6e73)}
+.paper .disclaimer p{font-size:13.5px;line-height:1.75;margin-bottom:9px}
 
+/* ── 모바일 ── 줄일 수 없는 것만 손본다 */
 @media(max-width:760px){
-  .paper section.s>h2{font-size:19px}
-  .paper p{font-size:15.5px}
-  .paper .cbox{height:300px}
-  .paper figure{margin:18px 0 22px}
+  .paper figure,.paper .cchart,.paper .cbox,.paper .wide,.paper .tblwrap{
+    width:calc(100vw - 2*var(--gut));
+    margin-left:calc(50% - (100vw - 2*var(--gut))/2);
+    margin-right:calc(50% - (100vw - 2*var(--gut))/2)}
+  .paper table thead th,.paper table tbody td{padding:7px 9px}
+  .paper figure{margin-top:18px;margin-bottom:22px}
+  .paper .abstract{padding:16px 15px}
+  .wrap .phead{margin-bottom:20px;padding-bottom:16px}
 }
-
-/* ── 기존 페이지에도 같은 폭 규칙을 적용 ──
-   .paper 마크업을 쓰지 않는 옛 페이지들이 있다. 폭만이라도 맞춰야
-   한 사이트처럼 보인다. 상단바·메뉴는 건드리지 않는다. */
-.wrap,.sec,.status,.foot-in{max-width:var(--w-wide)}
-.explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap,.sub{
-  max-width:var(--w-prose)}
+@media(max-width:430px){
+  .paper table{font-size:12.5px}
+  .paper p.note{padding-left:11px}
+}
 /* PAPER:END */</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피 & SK하이닉스 이격도</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a></div></div><div class="site-group"><button class="here" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a class="here" href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a><a href="samsung-em.html">삼성전기 이격도</a><a href="ecopro.html">에코프로</a><a href="hanmi.html">한미반도체</a></div></div><!-- NAV:END --></nav>
 </div></div>
-<div class="wrap">
+<div class="wrap paper">
 <div class="site-crumb"><a href="index.html">홈</a><span class="sep">›</span><span class="cur">방법론</span></div>
 <!-- STAMP:BEGIN --><div class="pbadge"><span class="pb-k pb-fixed">고정 자료</span><span class="pb-src">기술분석 1·2탄 강의(2024)</span><span class="pb-note">시장 데이터로 갱신되지 않습니다</span></div><!-- STAMP:END -->
 
@@ -468,14 +504,14 @@ h3{letter-spacing:-.015em}
 <b>뽑는 게 아니라 떨어뜨립니다.</b> 매수 5원칙의 2번(주도주)을 실행 절차로 옮긴 것입니다.
 2,500종목에서 고를 방법을 찾는 대신, <b>탈락시킬 이유</b>를 계속 적용해 남는 쪽을 봅니다.
 </div>
-<table><thead><tr><th style="width:56px">단계</th><th style="width:190px">거르는 기준</th><th>이유</th></tr></thead><tbody>
+<div class="tblwrap"><table><thead><tr><th style="width:56px">단계</th><th style="width:190px">거르는 기준</th><th>이유</th></tr></thead><tbody>
 <tr><td>1</td><td><b>시가총액 1조 이상</b></td><td>기관이 담을 수 있는 크기여야 주도주가 된다</td></tr>
 <tr><td>2</td><td><b>기준일(그라운드 제로)</b></td><td>저점·항복 거래량일을 0으로 두고 모두 같은 출발선에 세운다</td></tr>
 <tr><td>3</td><td>기준일 대비 <b>상승률로 줄 세우기</b></td><td>예측이 아니라 <b>실제로 오른 것</b>만 남긴다</td></tr>
 <tr><td>4</td><td><b>시간이 지날수록 누가 남는가</b></td><td>선별은 구간이 길어져야 시작된다</td></tr>
 <tr><td>5</td><td><b>240일선 위에서 반등하는가</b></td><td>같은 상승률이라도 추세 위인 쪽이 진짜다</td></tr>
 <tr><td>6</td><td><b>OPM · ROE</b></td><td>매수 5원칙 3번(재무)을 두 칸으로 끝낸다</td></tr>
-</tbody></table>
+</tbody></table></div>
 <div class="explain">
 <b>저점 직후의 높은 생존율은 선별이 아닙니다.</b> 바닥에서 올라올 때는 거의 다 오릅니다.
 그때 생존율 90%는 "선별이 안 됐다"가 아니라 <b>반등이 전 종목으로 퍼졌다</b>는 뜻,
@@ -509,13 +545,13 @@ h3{letter-spacing:-.015em}
 </div>
 
 <h3 style="margin-top:34px;font-size:18px">매수 5원칙</h3>
-<table><thead><tr><th style="width:52px">#</th><th style="width:180px">원칙</th><th>무엇을 결정하나</th></tr></thead><tbody>
+<div class="tblwrap"><table><thead><tr><th style="width:52px">#</th><th style="width:180px">원칙</th><th>무엇을 결정하나</th></tr></thead><tbody>
 <tr><td>1</td><td><b>거시경제와 시간차</b></td><td>안전자산(현금·달러·채권·금) 비중. "지금이 주식의 시대인가"</td></tr>
 <tr><td>2</td><td><b>주도주 · 메가트렌드</b></td><td>2,500종목 중 99%를 여기서 걸러낸다</td></tr>
 <tr><td>3</td><td><b>재무</b></td><td>OPM과 ROE <b>둘만</b> 본다</td></tr>
 <tr><td>4</td><td><b>수급</b></td><td>외국인·기관 순매수, 신용 감소, 품절주(대주주 80%+)</td></tr>
 <tr><td>5</td><td><b>추세</b></td><td>20주 이평선, 52주 신고가, 상승 각도</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <div class="explain">
 <b>1번이 이야기꾼만의 것입니다.</b> 미너비니·오닐·다바스에게는 1번이 아예 없습니다.
@@ -533,13 +569,13 @@ h3{letter-spacing:-.015em}
 <div class="explain">
 원래 3원칙이었다가 4번이 추가됐고, 매수와 개수를 맞추려고 5번이 붙었습니다.
 </div>
-<table><thead><tr><th style="width:52px">#</th><th style="width:230px">원칙</th><th>성격</th></tr></thead><tbody>
+<div class="tblwrap"><table><thead><tr><th style="width:52px">#</th><th style="width:230px">원칙</th><th>성격</th></tr></thead><tbody>
 <tr><td>1</td><td><b>매수 사유 소멸</b></td><td>매수 5원칙 중 하나라도 깨지면</td></tr>
 <tr><td>2</td><td><b>가격 급등 또는 각도 급증</b></td><td>관성이 아니라 가속이 붙을 때</td></tr>
 <tr><td>3</td><td><b>더 좋은 대안이 나올 때</b></td><td>기회비용</td></tr>
 <tr><td>4</td><td><b>생명선(20주선) 이탈</b></td><td>기계적으로</td></tr>
 <tr><td>5</td><td>20일선 이격도 따먹기</td><td>비중 20% 안에서. <b>안 해도 된다</b></td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <div class="explain">
 <b>미너비니와 갈리는 지점이 여기입니다.</b> 미너비니의 SEPA 5요소는 추세·펀더멘털·재료·매수시점·매도시점인데,
@@ -551,11 +587,11 @@ h3{letter-spacing:-.015em}
 <div class="explain">
 이동평균 세 개가 <b>각각 다른 역할</b>을 맡습니다. 같은 '이탈'이라도 어느 선이냐에 따라 행동이 다릅니다.
 </div>
-<table><thead><tr><th style="width:150px">선</th><th style="width:120px">역할</th><th>이탈 시</th></tr></thead><tbody>
+<div class="tblwrap"><table><thead><tr><th style="width:150px">선</th><th style="width:120px">역할</th><th>이탈 시</th></tr></thead><tbody>
 <tr><td><b>5일선</b></td><td>보험료</td><td><b>10% 현금화</b>, 더 빠지면 또 10%</td></tr>
 <tr><td><b>20일선</b></td><td>방어선</td><td><b>절반</b> 매도</td></tr>
 <tr><td><b>20주선</b></td><td>생사선</td><td><b>전량</b> — "묻지도 따지지도 않고"</td></tr>
-</tbody></table>
+</tbody></table></div>
 <div class="scn"><svg viewBox="0 0 1100 300" role="img" aria-label="세 개의 이동평균선과 계단식 현금화 비중"><text class="ttl" x="0" y="16">계단식 현금화 — 선을 하나씩 잃을 때마다</text><text class="cap" x="0" y="34">막대 높이 = 누적 현금 비중 · 아래로 갈수록 지키는 선이 굵어진다</text><g transform="translate(0,52)"><rect x="60" y="184" width="150" height="6" rx="6" fill="var(--text3,#86868b)" opacity=".16"/><rect x="60" y="184" width="150" height="3" rx="1.5" fill="var(--text3,#86868b)"/><text class="wt" x="135" y="174" text-anchor="middle" style="fill:var(--text3,#86868b);font-size:15px">0%</text><text class="lb" x="135" y="212" text-anchor="middle">정상</text><text class="cap" x="135" y="230" text-anchor="middle">세 선 위</text><rect x="255" y="175" width="150" height="15" rx="6" fill="var(--risk,#b45309)" opacity=".16"/><rect x="255" y="175" width="150" height="3" rx="1.5" fill="var(--risk,#b45309)"/><text class="wt" x="330" y="165" text-anchor="middle" style="fill:var(--risk,#b45309);font-size:15px">10%</text><text class="lb" x="330" y="212" text-anchor="middle">5일선 붕괴</text><text class="cap" x="330" y="230" text-anchor="middle">보험료</text><rect x="450" y="159" width="150" height="31" rx="6" fill="var(--risk,#b45309)" opacity=".16"/><rect x="450" y="159" width="150" height="3" rx="1.5" fill="var(--risk,#b45309)"/><text class="wt" x="525" y="149" text-anchor="middle" style="fill:var(--risk,#b45309);font-size:15px">20%</text><text class="lb" x="525" y="212" text-anchor="middle">또 붕괴</text><text class="cap" x="525" y="230" text-anchor="middle">보험료 재차</text><rect x="645" y="113" width="150" height="77" rx="6" fill="var(--dn,#1161c4)" opacity=".16"/><rect x="645" y="113" width="150" height="3" rx="1.5" fill="var(--dn,#1161c4)"/><text class="wt" x="720" y="103" text-anchor="middle" style="fill:var(--dn,#1161c4);font-size:15px">50%</text><text class="lb" x="720" y="212" text-anchor="middle">20일선 이탈</text><text class="cap" x="720" y="230" text-anchor="middle">방어선 — 절반</text><rect x="860" y="35" width="150" height="155" rx="6" fill="var(--up,#d21f3c)" opacity=".16"/><rect x="860" y="35" width="150" height="3" rx="1.5" fill="var(--up,#d21f3c)"/><text class="wt" x="935" y="25" text-anchor="middle" style="fill:var(--up,#d21f3c);font-size:15px">100%</text><text class="lb" x="935" y="212" text-anchor="middle">20주선 이탈</text><text class="cap" x="935" y="230" text-anchor="middle">생사선 — 전량</text><line class="gl" x1="40" y1="190" x2="1070" y2="190"/><text class="cap" x="1070" y="260" text-anchor="end">20일선에 닿을 때쯤이면 이미 30%가 현금이다 — 판단이 아니라 절차</text></g></svg></div>
 <div class="explain">
 <b>계단식이라는 게 핵심입니다.</b> 한 번에 다 파는 게 아니라 선을 하나씩 잃을 때마다 10%씩 던집니다.
@@ -574,7 +610,7 @@ h3{letter-spacing:-.015em}
 
 <h3 style="margin-top:38px;font-size:18px">바닥 7단계 — 매수의 기술적 시나리오</h3>
 <div class="scn"><svg viewBox="0 0 1100 352" role="img" aria-label="바닥 7단계 — 매수의 기술적 시나리오"><text class="ttl" x="0" y="16">바닥 7단계 — 매수의 기술적 시나리오</text><text class="cap" x="0" y="34">점선 = 20주 이평선(생명선) · 숫자 = 단계 · 아래 = 주식 비중</text><g transform="translate(0,48)"><rect class="zn" x="30" y="150" width="380" height="130" fill="var(--dn,#1161c4)"/><line class="gl" x1="0" y1="40" x2="1100" y2="40" opacity=".45"/><line class="gl" x1="0" y1="110" x2="1100" y2="110" opacity=".45"/><line class="gl" x1="0" y1="180" x2="1100" y2="180" opacity=".45"/><line class="gl" x1="0" y1="250" x2="1100" y2="250" opacity=".45"/><path class="ma" d="M40,140 L200,190 L340,224 L430,232 L520,230 L620,222 L720,206 L820,180 L920,146 L1060,112"/><path class="px" d="M40,110 L90,150 L120,120 L160,190 L195,160 L235,232 L275,205 L320,238 L360,214 L410,196 L455,205 L500,190 L545,198 L590,186 L640,192 L690,168 L740,150 L800,120 L870,88 L940,58 L1010,44 L1060,40"/><circle cx="160" cy="190" r="11" fill="var(--dn,#1161c4)"/><text class="num" x="160" y="194" text-anchor="middle">1</text><circle cx="410" cy="196" r="11" fill="var(--dn,#1161c4)"/><text class="num" x="410" y="200" text-anchor="middle">2</text><circle cx="500" cy="190" r="11" fill="var(--up,#d21f3c)"/><text class="num" x="500" y="194" text-anchor="middle">3</text><circle cx="590" cy="186" r="11" fill="var(--up,#d21f3c)"/><text class="num" x="590" y="190" text-anchor="middle">4</text><circle cx="640" cy="192" r="11" fill="var(--up,#d21f3c)"/><text class="num" x="640" y="196" text-anchor="middle">5</text><circle cx="700" cy="170" r="11" fill="var(--up,#d21f3c)"/><text class="num" x="700" y="174" text-anchor="middle">6</text><circle cx="870" cy="88" r="11" fill="var(--up,#d21f3c)"/><text class="num" x="870" y="92" text-anchor="middle">7</text><line class="gl" x1="160" y1="252" x2="160" y2="257" opacity=".35"/><text class="cap" x="160" y="268" text-anchor="middle">공포의 삼각지</text><line class="gl" x1="410" y1="252" x2="410" y2="257" opacity=".35"/><text class="cap" x="410" y="268" text-anchor="middle">20일선 통과</text><line class="gl" x1="500" y1="252" x2="500" y2="274" opacity=".35"/><text class="cap" x="500" y="285" text-anchor="middle">20주선 돌파</text><line class="gl" x1="600" y1="252" x2="600" y2="257" opacity=".35"/><text class="cap" x="600" y="268" text-anchor="middle">거래량 폭발</text><line class="gl" x1="660" y1="252" x2="660" y2="274" opacity=".35"/><text class="cap" x="660" y="285" text-anchor="middle">20주선 평평</text><line class="gl" x1="730" y1="252" x2="730" y2="257" opacity=".35"/><text class="cap" x="730" y="268" text-anchor="middle">물이 고인다</text><line class="gl" x1="880" y1="252" x2="880" y2="274" opacity=".35"/><text class="cap" x="880" y="285" text-anchor="middle">상승</text><text class="wt" x="500" y="246" text-anchor="middle">30%</text><text class="wt" x="700" y="246" text-anchor="middle">50%</text><text class="wt" x="940" y="246" text-anchor="middle">100%</text></g></svg></div>
-<table><thead><tr><th style="width:60px">단계</th><th>신호</th><th style="width:120px">주식 비중</th></tr></thead><tbody>
+<div class="tblwrap"><table><thead><tr><th style="width:60px">단계</th><th>신호</th><th style="width:120px">주식 비중</th></tr></thead><tbody>
 <tr><td>1</td><td><b>공포의 삼각지</b> — 투매가 최소 3번은 나와야 끝난다</td><td>0%</td></tr>
 <tr><td>2</td><td>20일선을 가볍게 통과</td><td>0%</td></tr>
 <tr><td>3</td><td><b>20주선 돌파</b> — 여기서 프로세스가 시작된다</td><td><b>30%</b></td></tr>
@@ -582,7 +618,7 @@ h3{letter-spacing:-.015em}
 <tr><td>5</td><td>20주선이 <b>평평해진다</b></td><td>증가</td></tr>
 <tr><td>6</td><td><b>물이 고인다</b></td><td>증가</td></tr>
 <tr><td>7</td><td>상승</td><td>공격 100% / 보수 50%</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <div class="explain">
 보수적으로 간다면 7단계에서 50%만 채우고 <b>두 번째 베이스</b>에서 나머지 50%를 넣습니다.
@@ -598,12 +634,12 @@ h3{letter-spacing:-.015em}
 
 <h3 style="margin-top:34px;font-size:18px">천장은 바닥을 뒤집은 것</h3>
 <div class="scn"><svg viewBox="0 0 1100 352" role="img" aria-label="천장 — 바닥을 뒤집은 것"><text class="ttl" x="0" y="16">천장 — 바닥을 뒤집은 것</text><text class="cap" x="0" y="34">점선 = 20주 이평선 · 숫자 = 매도 신호 순서</text><g transform="translate(0,48)"><rect class="zn" x="180" y="20" width="360" height="120" fill="var(--up,#d21f3c)"/><line class="gl" x1="0" y1="40" x2="1100" y2="40" opacity=".45"/><line class="gl" x1="0" y1="110" x2="1100" y2="110" opacity=".45"/><line class="gl" x1="0" y1="180" x2="1100" y2="180" opacity=".45"/><line class="gl" x1="0" y1="250" x2="1100" y2="250" opacity=".45"/><path class="ma" d="M40,96 L200,74 L360,66 L500,74 L640,96 L780,130 L920,172 L1060,210"/><path class="px" d="M40,60 L110,44 L180,52 L250,36 L320,60 L390,50 L460,78 L520,64 L580,96 L640,74 L700,120 L760,96 L820,150 L880,120 L940,186 L1000,152 L1060,220"/><circle cx="250" cy="36" r="11" fill="var(--up,#d21f3c)"/><text class="num" x="250" y="40" text-anchor="middle">1</text><circle cx="520" cy="64" r="11" fill="var(--up,#d21f3c)"/><text class="num" x="520" y="68" text-anchor="middle">2</text><circle cx="700" cy="120" r="11" fill="var(--dn,#1161c4)"/><text class="num" x="700" y="124" text-anchor="middle">3</text><circle cx="880" cy="120" r="11" fill="var(--dn,#1161c4)"/><text class="num" x="880" y="124" text-anchor="middle">4</text><circle cx="1000" cy="152" r="11" fill="var(--dn,#1161c4)"/><text class="num" x="1000" y="156" text-anchor="middle">5</text><line class="gl" x1="250" y1="252" x2="250" y2="257" opacity=".35"/><text class="cap" x="250" y="268" text-anchor="middle">탐욕의 삼각지</text><line class="gl" x1="520" y1="252" x2="520" y2="274" opacity=".35"/><text class="cap" x="520" y="285" text-anchor="middle">각도 급증</text><line class="gl" x1="700" y1="252" x2="700" y2="257" opacity=".35"/><text class="cap" x="700" y="268" text-anchor="middle">20주선 하향</text><line class="gl" x1="880" y1="252" x2="880" y2="274" opacity=".35"/><text class="cap" x="880" y="285" text-anchor="middle">역VCP · 변동성 확대</text><line class="gl" x1="1000" y1="252" x2="1000" y2="257" opacity=".35"/><text class="cap" x="1000" y="268" text-anchor="middle">역피벗</text><text class="wt" x="700" y="246" text-anchor="middle">절반</text><text class="wt" x="1000" y="246" text-anchor="middle">전량 매도</text></g></svg></div>
-<table><thead><tr><th>바닥</th><th>천장</th></tr></thead><tbody>
+<div class="tblwrap"><table><thead><tr><th>바닥</th><th>천장</th></tr></thead><tbody>
 <tr><td>공포의 삼각지</td><td><b>탐욕의 삼각지</b></td></tr>
 <tr><td>20주선 <b>상향</b> 돌파</td><td>20주선 <b>하향</b> 돌파</td></tr>
 <tr><td>VCP — 변동성 <b>수축</b></td><td><b>역VCP</b> — 변동성 <b>확대</b></td></tr>
 <tr><td>피벗 돌파 → 매수</td><td><b>역피벗</b> → 전량 매도</td></tr>
-</tbody></table>
+</tbody></table></div>
 <div class="explain">
 20주선 하향이 박스권 하향보다 <b>먼저</b> 옵니다. 그래서 20주선을 먼저 봅니다.
 <a href="bottom-top.html">바닥·천장 추적 분석</a>이 이 표를 매일 확인하는 페이지입니다.
@@ -613,11 +649,11 @@ h3{letter-spacing:-.015em}
 <div class="explain">
 1탄의 핵심입니다. <b>국면에 따라 완전히 다른 도구를 씁니다.</b>
 </div>
-<table><thead><tr><th style="width:130px"></th><th>박스권 (80%)</th><th>추세권 (20%)</th></tr></thead><tbody>
+<div class="tblwrap"><table><thead><tr><th style="width:130px"></th><th>박스권 (80%)</th><th>추세권 (20%)</th></tr></thead><tbody>
 <tr><td>지배 법칙</td><td>평균회귀 — 오르면 떨어진다</td><td>추세추종 — 오르면 더 오른다</td></tr>
 <tr><td>뉴턴</td><td>작용·반작용</td><td>관성·가속도</td></tr>
 <tr><td>도구</td><td>오실레이터 (MACD·RSI·스토캐스틱)</td><td>추세선·차트 패턴·이평선</td></tr>
-</tbody></table>
+</tbody></table></div>
 <div class="explain">
 <b>강력한 수익은 20%의 추세권에서 나옵니다.</b> 나머지 80%는 그것을 기다리는 시간입니다.
 <br><br>
@@ -630,11 +666,11 @@ h3{letter-spacing:-.015em}
 <div class="explain">
 거래량으로 방향을 맞히지 않습니다. <b>추세 변화의 신뢰도</b>만 판정합니다.
 </div>
-<table><thead><tr><th>상황</th><th>해석</th></tr></thead><tbody>
+<div class="tblwrap"><table><thead><tr><th>상황</th><th>해석</th></tr></thead><tbody>
 <tr><td>상승추세 중 대량 거래 + 20주선 위협</td><td><b>위험</b> — 추세 전환 가능성</td></tr>
 <tr><td>하락추세 중 반등에 거래량 없음</td><td>추세 안 바뀜 → 더 하락</td></tr>
 <tr><td>바닥권 대량 거래 + 20주선 상향 돌파 + 물 고임</td><td><b>추세 전환 신뢰</b></td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <h3 style="margin-top:34px;font-size:18px">강세 함정과 약세 함정</h3>
 <div class="explain">
@@ -647,12 +683,12 @@ h3{letter-spacing:-.015em}
 </div>
 
 <h3 style="margin-top:34px;font-size:18px">미너비니와의 대조 — 같은 것을 다르게 부를 뿐</h3>
-<table><thead><tr><th>이야기꾼</th><th>미너비니</th><th>다바스 · 오닐 · 리버모어</th></tr></thead><tbody>
+<div class="tblwrap"><table><thead><tr><th>이야기꾼</th><th>미너비니</th><th>다바스 · 오닐 · 리버모어</th></tr></thead><tbody>
 <tr><td><b>물이 고인다</b></td><td>VCP (변동성 수축)</td><td>박스권 형성</td></tr>
 <tr><td>돌파 지점</td><td>피벗</td><td>박스 상단 돌파</td></tr>
 <tr><td>떨어내기</td><td>셰이크아웃</td><td>페이크</td></tr>
 <tr><td>베이스</td><td>베이스</td><td>박스</td></tr>
-</tbody></table>
+</tbody></table></div>
 <div class="explain">
 다바스는 박스를 돌파하면 20%, 추가로 오르면 40%, 또 오르면 나머지를 샀습니다 —
 <b>결국 피라미딩입니다.</b> 이름만 다를 뿐 같은 것을 말하고 있다는 게 2탄의 결론입니다.
