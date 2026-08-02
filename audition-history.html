@@ -252,9 +252,10 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
 :root{
   /* 읽기 기둥. em이라 글자 크기를 키우면 폭도 같이 는다. */
   --w-col:  clamp(18rem, 93vw, 68rem);
-  /* 표·차트가 삐져나올 수 있는 최대 폭 */
-  --w-wide: clamp(18rem, 97vw, 1680px);
-  --w-data: var(--w-wide);
+  /* (더 이상 쓰지 않음) 예전에 표·차트를 본문보다 넓힐 때 쓰던 폭.
+     2026-08-03 부터 표·차트도 --w-col 안에 둔다. 남겨만 둔다. */
+  --w-wide: var(--w-col);
+  --w-data: var(--w-col);
   --w-prose: 100%;
   --rule: var(--border,#e3e3e6);
   --gut: clamp(12px, 3vw, 26px);
@@ -278,18 +279,20 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
      → figure 자체는 본문 폭에 두고, 안의 svg·차트·표만 넓힌다.
        캡션은 자연히 본문과 같은 선에서 시작한다. */
 .paper figure{width:auto;margin-left:0;margin-right:0}
-/* ⚠ SVG 도해는 breakout 에서 뺀다.
-     도해는 데이터가 아니라 그림이라 넓힐 이유가 없고,
-     넓히면 도해 안 글자가 본문보다 왼쪽에서 시작해 선이 어긋나 보인다.
-     넓혀야 하는 것은 **숫자가 빽빽한 것**(차트·표)뿐이다. */
+/* ⚠ breakout(표·차트를 본문보다 넓히는 것)을 **쓰지 않는다.** 2026-08-03 결정.
+     넓히면 데이터는 시원하게 보이지만 왼쪽 선이 본문과 어긋나 눈이 계속 튄다.
+     논문 판형의 값어치는 **모든 것이 한 줄에서 시작하는 것**이라 그쪽을 택했다.
+     표·차트·도해·캡션 전부 본문 기둥(--w-col) 안에 둔다.
+     넘치는 표는 .tblwrap 의 가로 스크롤로 처리한다(아래). */
 .paper figure>.cbox,.paper figure>table,
-.paper figure>.tblwrap,.paper .cchart,.paper .wide,.paper>.tblwrap{
-  width:min(var(--w-wide), 100vw - 2*var(--gut));
-  margin-left:calc(50% - min(var(--w-wide), 100vw - 2*var(--gut))/2);
-  margin-right:calc(50% - min(var(--w-wide), 100vw - 2*var(--gut))/2)}
+.paper figure>.tblwrap,.paper .cchart,.paper .wide,.paper>.tblwrap,
+.paper figure>figcaption{
+  width:auto!important;max-width:100%!important;
+  margin-left:0!important;margin-right:0!important}
 .paper figure svg,.paper .cchart svg{width:100%;height:auto;display:block}
-/* 캡션은 본문과 같은 폭·같은 왼쪽 선 */
-.paper figure>figcaption{width:auto;margin-left:0;margin-right:0}
+/* 좁은 화면에서 표가 넘치면 잘리지 말고 가로로 밀리게 한다 */
+.paper .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.paper .tblwrap>table{min-width:100%}
 
 /* 제목부 */
 .wrap .phead{margin:6px 0 26px;padding-bottom:20px;border-bottom:2px solid var(--text,#1d1d1f)}
@@ -472,11 +475,12 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 /* ── 모바일 ── 줄일 수 없는 것만 손본다 */
 @media(max-width:760px){
+  /* ⚠ 모바일에도 breakout 을 두지 않는다(2026-08-03).
+       여기 남겨두면 좁은 화면에서만 표가 본문 밖으로 튀어나와
+       "왜 폰에서만 다르지" 하는 상태가 된다. 데스크톱과 같은 규칙으로 간다. */
   .paper figure>.cbox,.paper figure>table,
   .paper figure>.tblwrap,.paper .cchart,.paper .wide,.paper>.tblwrap{
-    width:calc(100vw - 2*var(--gut));
-    margin-left:calc(50% - (100vw - 2*var(--gut))/2);
-    margin-right:calc(50% - (100vw - 2*var(--gut))/2)}
+    width:auto;max-width:100%;margin-left:0;margin-right:0}
   .paper table thead th,.paper table tbody td{padding:7px 9px}
   .paper figure{margin-top:18px;margin-bottom:22px}
   .paper .abstract{padding:16px 15px}
