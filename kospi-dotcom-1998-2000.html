@@ -482,6 +482,21 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 .paper table th,.paper table td{text-align:left}
 .paper table th.n,.paper table td.n{text-align:right}
 
+/* ── 본문 볼드 제거 ──
+   문단·목록·캡션 안의 <b>/<strong> 은 굵기를 없앤다.
+   `font-weight:inherit` 를 쓰는 이유: 부모의 굵기를 그대로 따르므로
+   문단(400) 안에서는 보통 글씨가 되고, **제목이나 표 머리글 안에서는
+   그대로 굵게** 남는다. 400으로 못박으면 제목 속 강조까지 풀려 버린다.
+
+   제목(h1~h4)·표(th/td)·상단바는 손대지 않는다 — 본문만이다. */
+.paper p b,.paper p strong,
+.paper li b,.paper li strong,
+.paper figcaption b,.paper figcaption strong,
+.paper .sub b,.paper .sub strong,
+.paper .pauth b,.paper .pauth strong,
+.paper .disclaimer b,.paper .disclaimer strong,
+.paper ol.refs li b,.paper ol.refs li strong{font-weight:inherit}
+
 /* 참고문헌 */
 .paper ol.refs{margin:10px 0 20px;padding-left:0;list-style:none;counter-reset:refitem}
 .paper ol.refs li{position:relative;padding-left:32px;margin:0 0 11px;
