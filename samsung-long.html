@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="ko" class="theme-light"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>삼성전자 27년 · 찰리의 시투 추종</title>
+
+
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html.theme-dark{--bg:#0A0A0A;--surface:#141414;--border:rgba(255,255,255,.07);--text:#EDEDED;--text-secondary:#8a8a8a;--accent:#2563eb;--up:#ff6b7a;--up-bg:rgba(255,107,122,.14);--dn:#5aa9ff;--dn-bg:rgba(90,169,255,.14);--risk:#fbbf24;--risk-bg:rgba(251,191,36,.16);--mute:#9aa3ad;--mute-bg:rgba(154,163,173,.13);}
+html.theme-light{--bg:#fff;--surface:#F6F7F9;--border:rgba(15,23,42,.12);--text:#0f172a;--text-secondary:#475569;--accent:#2563eb;--up:#d21f3c;--up-bg:rgba(210,31,60,.09);--dn:#1161c4;--dn-bg:rgba(17,97,196,.09);--risk:#b45309;--risk-bg:rgba(245,158,11,.14);--mute:#5b6470;--mute-bg:rgba(91,100,112,.10);}
+body{font-family:'Inter','Noto Sans KR',-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;letter-spacing:-.01em;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding:40px 28px 80px}
+
+/* ── 사이트 공통 상단바 v2 ── */
+.site-bar{position:sticky;top:0;z-index:90;backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);
+  background:color-mix(in srgb,var(--bg) 80%,transparent);border-bottom:1px solid var(--border);margin:0 0 30px}
+.site-bar-in{max-width:1040px;margin:0 auto;padding:0 4px;height:50px;display:flex;align-items:center;gap:22px}
+.site-brand{font-size:14px;font-weight:700;color:var(--text);text-decoration:none;letter-spacing:-.02em;white-space:nowrap}
+.site-nav{display:flex;gap:4px;margin-left:auto}
+.site-group{position:relative}
+.site-group>button{display:flex;align-items:center;gap:5px;background:none;border:0;cursor:pointer;
+  font-family:inherit;font-size:13px;font-weight:600;letter-spacing:-.01em;color:var(--text-secondary);
+  padding:8px 12px;border-radius:9px;transition:.15s}
+.site-group>button:hover,.site-group.on>button{color:var(--text);background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>button .cv{font-size:9px;opacity:.55;transition:transform .2s}
+.site-group.on>button .cv{transform:rotate(180deg)}
+.site-group>button.here{color:var(--accent, #0071e3)}
+.site-dd{position:absolute;top:calc(100% + 8px);right:0;min-width:248px;padding:8px;
+  background:var(--surface, var(--bg));border:1px solid var(--border);border-radius:14px;
+  box-shadow:0 18px 44px rgba(0,0,0,.16);opacity:0;visibility:hidden;transform:translateY(-6px);
+  transition:opacity .18s,transform .18s,visibility .18s}
+html.theme-dark .site-dd{box-shadow:0 18px 44px rgba(0,0,0,.55)}
+.site-group.on .site-dd{opacity:1;visibility:visible;transform:translateY(0)}
+.site-dd a{display:block;padding:9px 12px;border-radius:9px;text-decoration:none;
+  font-size:13.5px;font-weight:500;letter-spacing:-.01em;color:var(--text);transition:.12s}
+.site-dd a:hover{background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-dd a.here{color:#fff;background:var(--accent, #0071e3);font-weight:600}
+.site-crumb{display:flex;align-items:center;gap:7px;margin:0 0 22px;font-size:12.5px;color:var(--text-secondary);letter-spacing:-.01em}
+.site-crumb a{color:var(--text-secondary);text-decoration:none}
+.site-crumb a:hover{color:var(--text)}
+.site-crumb .sep{opacity:.4}
+.site-crumb .cur{color:var(--text);font-weight:600}
+@media(max-width:760px){
+  .site-nav{gap:0}
+  .site-group>button{padding:8px 8px;font-size:12px}
+  .site-brand{font-size:12.5px}
+  .site-dd{right:auto;left:50%;transform:translate(-50%,-6px)}
+  .site-group.on .site-dd{transform:translate(-50%,0)}
+}
+
+.eyebrow{font-size:.82rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+h1{font-weight:800;font-size:2.7rem;letter-spacing:-.035em;line-height:1.12}
+.sub{color:var(--text-secondary);font-size:1.05rem;margin-top:15px;max-width:760px} .sub b{color:var(--text)}
+.upd{margin-top:12px;font-size:.85rem;color:var(--text-secondary)} .upd b{color:var(--accent)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:30px}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:15px;padding:18px}
+.stat .l{font-size:.78rem;color:var(--text-secondary)}
+.stat .v{font-size:1.95rem;font-weight:800;letter-spacing:-.03em;margin-top:5px}
+.stat .s{font-size:.78rem;color:var(--text-secondary);margin-top:4px}
+.verdict{margin-top:22px;background:color-mix(in srgb,var(--accent) 7%,var(--bg));border:1px solid color-mix(in srgb,var(--accent) 26%,transparent);border-left:4px solid var(--accent);border-radius:12px;padding:16px 18px;font-size:.95rem;line-height:1.75}
+.verdict b{color:var(--text)} .verdict code{background:var(--surface);padding:2px 7px;border-radius:5px;font-size:.9em}
+.panel{margin-top:26px;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:22px 24px}
+.panel h3{font-size:1.12rem;font-weight:700;letter-spacing:-.02em}
+.panel h3 .sub2{font-size:.82rem;font-weight:500;color:var(--text-secondary);margin-left:8px}
+.chart{position:relative;height:340px;margin-top:16px}
+table{border-collapse:collapse;width:100%;font-size:.9rem;margin-top:14px}
+thead th{text-align:left;padding:11px 10px;color:var(--text-secondary);font-size:.78rem;font-weight:700;border-bottom:1px solid var(--border)}
+table.sortable thead th{cursor:pointer;user-select:none;position:relative;transition:color .15s}
+table.sortable thead th:hover{color:var(--text)}
+table.sortable thead th::after{content:'';display:inline-block;margin-left:5px;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;opacity:.35;vertical-align:middle}
+table.sortable thead th.sort-asc::after{border-bottom:5px solid var(--accent);opacity:1}
+table.sortable thead th.sort-desc::after{border-top:5px solid var(--accent);opacity:1}
+tbody td{padding:10px;border-bottom:1px solid var(--border)} tbody tr:last-child td{border-bottom:none}
+td.c,th:nth-child(4),th:nth-child(8){text-align:center} td.n{text-align:right;font-variant-numeric:tabular-nums}
+td.nm{font-weight:600} td.pos{color:#059669} td.neg{color:#e11d48}
+.rs{display:inline-block;min-width:34px;padding:2px 8px;border-radius:999px;font-weight:800;font-size:.82rem;color:#fff;background:var(--accent)}
+.gd{display:inline-block;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:6px}
+.g1{color:#fff;background:var(--accent)}
+.g2{color:var(--text-secondary);background:color-mix(in srgb,#94a3b8 22%,transparent)}
+.mktb{display:inline-block;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.mk1{color:var(--accent);background:color-mix(in srgb,var(--accent) 14%,transparent)}
+.mk2{color:#c026d3;background:color-mix(in srgb,#c026d3 14%,transparent)}
+.seq{font-variant-numeric:tabular-nums;font-size:.85rem;color:var(--text-secondary);white-space:nowrap}
+.warnbox{margin-top:12px;background:color-mix(in srgb,#f59e0b 9%,var(--bg));border:1px solid color-mix(in srgb,#f59e0b 30%,transparent);border-left:4px solid #f59e0b;border-radius:10px;padding:13px 16px;font-size:.9rem;line-height:1.7;color:var(--text-secondary)}
+.warnbox b{color:var(--text)}
+.note{margin-top:12px;font-size:.85rem;color:var(--text-secondary);line-height:1.7}
+.gloss{margin-top:16px;border-top:1px solid var(--border);padding-top:14px}
+.gloss>summary{cursor:pointer;font-size:.88rem;font-weight:700;color:var(--accent);list-style:none;
+  display:flex;align-items:center;gap:7px;user-select:none;padding:4px 0}
+.gloss>summary::-webkit-details-marker{display:none}
+.gloss>summary::before{content:'▸';font-size:.78rem;transition:transform .18s;display:inline-block}
+.gloss[open]>summary::before{transform:rotate(90deg)}
+.gloss>summary:hover{opacity:.8}
+.gloss dl{margin-top:12px;display:grid;grid-template-columns:132px 1fr;gap:0 18px}
+.gloss dt{font-weight:700;font-size:.87rem;color:var(--text);padding:11px 0 11px 0;
+  border-top:1px solid var(--border);letter-spacing:-.01em}
+.gloss dd{font-size:.88rem;line-height:1.78;color:var(--text-secondary);padding:11px 0;
+  border-top:1px solid var(--border)}
+.gloss dl>dt:first-of-type,.gloss dl>dt:first-of-type+dd{border-top:0;padding-top:2px}
+.gloss dd b{color:var(--text)}
+.gloss dd .mktb{vertical-align:baseline}
+@media(max-width:640px){.gloss dl{grid-template-columns:1fr;gap:0}
+  .gloss dt{padding-bottom:2px} .gloss dd{border-top:0;padding-top:2px;padding-bottom:14px}}
+h2.sec{font-size:1.25rem;font-weight:700;margin-top:44px;letter-spacing:-.02em}
+.explain{margin-top:14px;background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:12px;padding:18px 20px;font-size:.93rem;line-height:1.8;color:var(--text-secondary)}
+.explain b{color:var(--text)} .explain p+p{margin-top:11px}
+.f{font-family:ui-monospace,Menlo,monospace;background:color-mix(in srgb,var(--accent) 10%,transparent);padding:2px 7px;border-radius:5px;font-size:.9em;color:var(--text)}
+footer{margin-top:48px;border-top:1px solid var(--border);padding-top:22px;color:var(--text-secondary);font-size:.82rem;line-height:1.7}
+.toggle{position:fixed;top:18px;right:18px;width:42px;height:42px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:18px}
+@media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}h1{font-size:2.05rem}}
+
+.bg{display:inline-block;min-width:44px;text-align:center;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:800;color:#fff}
+.b-on{background:#e11d48}.b-wa{background:#f59e0b}.b-ob{background:#64748b}.b-sf{background:#059669}.b-rf{background:#94a3b8}
+.gr{display:inline-block;font-size:.68rem;font-weight:800;padding:1px 6px;border-radius:5px;margin-left:6px;
+  color:#e11d48;background:color-mix(in srgb,#e11d48 13%,transparent);vertical-align:middle}
+.chg{font-size:.7rem;font-weight:700;color:var(--accent);margin-left:6px;white-space:nowrap}
+.star{color:#e11d48;font-weight:800}
+td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
+.chl{margin:12px 0 0 18px;font-size:.92rem;line-height:1.9}
+.g1box{margin-top:12px;font-size:.9rem;line-height:1.85;color:var(--text-secondary)}
+.g1box ol{margin:8px 0 0 20px} .g1box li{color:var(--text);font-weight:600}
+.stats5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px}
+@media(max-width:720px){.stats5{grid-template-columns:repeat(2,1fr)}}
+
+/* 주차별 히스토리 */
+.hist{position:relative;padding-left:26px;margin-top:18px}
+.hist::before{content:'';position:absolute;left:7px;top:14px;bottom:14px;width:2px;background:var(--border)}
+.hw{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:20px 22px;margin-bottom:16px}
+.hw::before{content:'';position:absolute;left:-24px;top:26px;width:12px;height:12px;border-radius:50%;
+  background:var(--border);border:3px solid var(--bg)}
+.hw.cur{border-color:color-mix(in srgb,var(--accent) 45%,var(--border));
+  box-shadow:0 1px 14px color-mix(in srgb,var(--accent) 10%,transparent)}
+.hw.cur::before{background:var(--accent)}
+.hh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.hwk{font-size:1.02rem;font-weight:900;letter-spacing:-.02em}
+.hdt{font-size:.82rem;color:var(--text-secondary);font-variant-numeric:tabular-nums}
+.hnow{font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:999px;color:#fff;background:var(--accent)}
+.htitle{margin-top:8px;font-size:1.12rem;font-weight:800;letter-spacing:-.02em;line-height:1.4}
+.htone{margin-top:6px;font-size:.86rem;color:var(--text-secondary);font-style:italic}
+.hpills{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
+.hp{font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.hp.on{color:#e11d48;background:color-mix(in srgb,#e11d48 12%,transparent)}
+.hp.wa{color:#b45309;background:color-mix(in srgb,#f59e0b 15%,transparent)}
+.hp.ob{color:#475569;background:color-mix(in srgb,#64748b 14%,transparent)}
+.hp.sf{color:#047857;background:color-mix(in srgb,#059669 13%,transparent)}
+.hp.g1{color:#fff;background:#e11d48}
+.hbody{margin-top:13px;font-size:.93rem;line-height:1.78;color:var(--text-secondary)}
+.hbody b{color:var(--text)}
+.hchg{margin-top:14px;padding-top:12px;border-top:1px dashed var(--border)}
+.hct{font-size:.76rem;font-weight:800;letter-spacing:.02em;color:var(--accent);text-transform:none}
+.hchg ul{margin:8px 0 0 16px;font-size:.87rem;line-height:1.85;color:var(--text-secondary)}
+.hchg li b{color:var(--text)}
+.hchg .ar{white-space:nowrap}
+.to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
+@media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
+
+/* ── 공통 기준일 배지 ── */
+.pbadge{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:2px 0 18px;
+  font-size:.79rem;color:var(--text-secondary)}
+.pbadge b{color:var(--text);font-variant-numeric:tabular-nums}
+.pb-k{font-size:.7rem;font-weight:800;padding:2px 8px;border-radius:999px;letter-spacing:.01em}
+.pb-live{color:#047857;background:color-mix(in srgb,#059669 14%,transparent)}
+.pb-weekly{color:#1d4ed8;background:color-mix(in srgb,#2563eb 13%,transparent)}
+.pb-fixed{color:#475569;background:color-mix(in srgb,#64748b 15%,transparent)}
+.pb-src{opacity:.72}
+.pb-old{font-size:.7rem;font-weight:800;padding:2px 8px;border-radius:999px;
+  color:#b45309;background:color-mix(in srgb,#f59e0b 18%,transparent)}
+/* DESIGN:BEGIN */
+/* ── 숫자는 항상 고정폭 — 매일 바뀌는 값에 칸이 흔들리지 않게 ── */
+body{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+table,.st-v,.kpi,.kpis,.pbadge b{font-variant-numeric:tabular-nums}
+
+/* ── 표 밀도 — 행이 많은 화면(오디션 255행·RS 55행)은 조밀해야 훑기 쉽다 ── */
+table{font-size:13px}
+thead th{font-size:12px;letter-spacing:-.01em;white-space:nowrap}
+tbody td{padding-top:7px!important;padding-bottom:7px!important}
+tbody tr:hover{background:color-mix(in srgb,var(--text) 3.5%,transparent)}
+
+/* ── 등락 색 (한국 관행: 빨강=상승 · 파랑=하락) ──
+   ⚠ **가격 등락에만** 적용한다. 초록/빨강이 '충족·미충족'이나 '발생·미발생'을
+     뜻하는 자리(bottom-top의 .b-pos 추세템플릿, peak-debate의 .fstat)는 건드리지
+     않는다. 거기선 초록=좋음이 맞고, 뒤집으면 오히려 뜻이 깨진다. */
+td.pos,.delta.up,.up-t{color:var(--up)!important}
+td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
+
+/* ── 테마 토글 버튼 (전 페이지 공통) ── */
+.toggle{position:fixed;right:18px;bottom:18px;z-index:80;width:42px;height:42px;
+  border-radius:50%;border:1px solid var(--border);background:var(--surface);
+  color:var(--text);font-size:17px;cursor:pointer;line-height:1;
+  box-shadow:0 2px 14px rgba(0,0,0,.10);transition:transform .12s,box-shadow .12s}
+.toggle:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(0,0,0,.16)}
+/* DESIGN:END *//* LAYOUT:BEGIN */
+:root{--w-data:1440px;--w-chart:1100px;
+  /* 산문 폭은 **고정 px이 아니라 em**이다.
+     ① px로 고정하면 글자를 키워도 한 줄에 담기는 글자 수가 늘어나 도로 길어진다.
+        em이면 글자 크기에 비례해 폭도 같이 자라서 **한 줄 글자 수가 유지**된다.
+     ② min(…,100%)이라 좁은 화면에서는 알아서 줄어든다. 유동이다. */
+  --w-prose:min(50em,100%)}
+
+/* ── ① 데이터층은 전폭 ── */
+/* 폭은 apply_paper.py 가 정한다. 여기서 !important 로 잡으면 그쪽이 못 이긴다.
+   두 곳에서 폭을 정하면 반드시 한쪽이 조용히 진다. */
+.wrap{padding-left:32px!important;padding-right:32px!important}
+
+/* ── ② 해설층은 좁은 단 + 세리프 ──
+   숫자·표·라벨은 산세리프로 남는다. 서체가 바뀌는 지점이 곧 층이 바뀌는 지점이다. */
+.explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{
+  /* ⚠ 가운데 정렬하면 제목은 왼쪽 끝, 본문은 화면 한가운데가 되어 **둘이 따로 논다.**
+       2026-08-02에 2600px 화면에서 그게 드러났다. 제목과 왼쪽을 맞춘다. */
+  max-width:var(--w-prose);margin-left:0!important;margin-right:auto!important;
+  font-size:16.5px;line-height:1.85;letter-spacing:-.004em}
+.explain b,.explain strong,.ebody b,.ebody strong,.hbody b,.hbody strong,.verdict b,.verdict strong,.callout b,.callout strong,.lesson b,.lesson strong,.note b,.note strong,.disclaimer b,.disclaimer strong,.fdetail b,.fdetail strong,.panel-cap b,.panel-cap strong{font-weight:600}
+.explain code,.explain .num,.explain table,.ebody code,.ebody .num,.ebody table,.hbody code,.hbody .num,.hbody table,.verdict code,.verdict .num,.verdict table,.callout code,.callout .num,.callout table,.lesson code,.lesson .num,.lesson table,.note code,.note .num,.note table,.disclaimer code,.disclaimer .num,.disclaimer table,.fdetail code,.fdetail .num,.fdetail table,.panel-cap code,.panel-cap .num,.panel-cap table{
+  font-family:inherit}
+.explain h2,.explain h3,.explain h4,.ebody h2,.ebody h3,.ebody h4,.hbody h2,.hbody h3,.hbody h4,.verdict h2,.verdict h3,.verdict h4,.callout h2,.callout h3,.callout h4,.lesson h2,.lesson h3,.lesson h4,.note h2,.note h3,.note h4,.disclaimer h2,.disclaimer h3,.disclaimer h4,.fdetail h2,.fdetail h3,.fdetail h4,.panel-cap h2,.panel-cap h3,.panel-cap h4{font-family:inherit}
+
+/* 해설 박스 안의 소제목 — 박스 밖 h2와 같은 크기면 위계가 무너진다.
+   본문보다 한 단만 크게, 위로 여백을 줘서 문단 묶음이 눈에 보이게 한다. */
+.explain h2,.ebody h2,.hbody h2,.verdict h2,.callout h2,.lesson h2,.note h2,.disclaimer h2,.fdetail h2,.panel-cap h2{
+  font-size:1.06em;font-weight:700;margin:22px 0 9px;letter-spacing:-.01em}
+.explain h2:first-child,.ebody h2:first-child,.hbody h2:first-child,.verdict h2:first-child,.callout h2:first-child,.lesson h2:first-child,.note h2:first-child,.disclaimer h2:first-child,.fdetail h2:first-child,.panel-cap h2:first-child{margin-top:0}
+.explain p,.ebody p,.hbody p,.verdict p,.callout p,.lesson p,.note p,.disclaimer p,.fdetail p,.panel-cap p{margin:0 0 11px}
+.explain p:last-child,.ebody p:last-child,.hbody p:last-child,.verdict p:last-child,.callout p:last-child,.lesson p:last-child,.note p:last-child,.disclaimer p:last-child,.fdetail p:last-child,.panel-cap p:last-child{margin-bottom:0}
+
+/* ── 폰트 통일 — 나눔고딕 ──
+   본문·제목·표·차트 라벨까지 한 벌로 간다. 예전엔 해설층만 세리프를 썼는데,
+   서체가 둘이면 같은 페이지 안에서 글자 크기와 행간이 미묘하게 어긋난다. */
+html body,html body h1,html body h2,html body h3,html body h4,
+html body table,html body button,html body input,html body .site-brand,
+html body .eyebrow,html body .sub,html body .card,html body .st-v,html body .st-l{
+  font-family:'Nanum Gothic','나눔고딕',AppleGothic,sans-serif!important}
+
+/* 차트는 전폭까지 늘리면 납작해진다 — 따로 잡는다 */
+.chart,.chart-box,.chart-container{max-width:var(--w-chart);margin-left:auto;margin-right:auto}
+
+/* 푸터 본문은 1440px 전폭으로 흐르면 한 줄이 100자를 넘는다 */
+.foot-in p,.foot-in>br{max-width:var(--w-prose)}
+.foot-in{padding-left:32px!important;padding-right:32px!important}
+
+/* 섹션 제목도 랜딩 크기(40px)라 밀도와 안 맞는다 */
+.sec-head h2{font-size:clamp(22px,2.2vw,26px)!important}
+.sec-head p{font-size:15px!important;max-width:var(--w-prose)!important;margin-left:0}
+.sub{font-size:16px!important;max-width:var(--w-prose)!important;line-height:1.7}
+.sec,.status{padding-left:32px!important;padding-right:32px!important}
+
+/* ── ③ 세로 간격 압축 ── */
+.sec{padding-bottom:48px!important}
+.sec-head{padding:28px 0 16px!important}
+.wrap{padding-top:28px!important}
+
+/* ── ④ 카드 밀도 ── */
+.card{padding:18px 20px 16px!important;border-radius:12px!important}
+.card::after{border-radius:12px!important}
+.card h3{margin-top:12px!important;font-size:17px!important}
+.card p{margin-top:7px!important;font-size:13px!important;line-height:1.6!important}
+.card .tag{font-size:11px!important;padding:3px 9px!important}
+.card .go{margin-top:14px!important;font-size:13px!important}
+.grid{gap:12px!important}
+@media(min-width:1200px){.g3{grid-template-columns:repeat(4,1fr)!important}
+  .g2{grid-template-columns:repeat(3,1fr)!important}}
+
+/* ── ⑤ CDS 컴포넌트 문법 — 헤어라인, 그림자 없음 ── */
+.card::after,.st-c,.compare::after,.panel,table td,table th{border-width:.5px!important}
+.card:hover{transform:none!important;box-shadow:none!important}
+.card:hover::after{border-color:var(--text3)!important}
+html.theme-dark .card:hover{box-shadow:none!important}
+
+/* 상태판은 숫자가 주인공이라 굵기를 안 내린다 */
+.st-v{font-weight:700!important}
+
+@media(max-width:900px){
+  .wrap{padding-left:18px!important;padding-right:18px!important}
+  .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
+}
+/* LAYOUT:END */
+/* 단독 내비 링크(방법론) — 옆의 드롭다운 버튼과 같은 모양으로 맞춘다 */
+.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text-secondary,var(--text2));
+  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
+  background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+
+/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
+.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
+  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
+.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
+  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
+  background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+/* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END *//* PAPER:BEGIN */
+/* ── 논문 판형 ─────────────────────────────────────────────── */
+
+:root{
+  /* 읽기 기둥. em이라 글자 크기를 키우면 폭도 같이 는다. */
+  --w-col:  clamp(18rem, 93vw, 68rem);
+  /* 표·차트가 삐져나올 수 있는 최대 폭 */
+  --w-wide: clamp(18rem, 97vw, 1680px);
+  --w-data: var(--w-wide);
+  --w-prose: 100%;
+  --rule: var(--border,#e3e3e6);
+  --gut: clamp(12px, 3vw, 26px);
+}
+
+/* breakout이 스크롤바 폭만큼 넘칠 수 있다(100vw는 스크롤바를 포함한다).
+   clip은 hidden과 달리 position:sticky 를 깨지 않는다. */
+html{overflow-x:clip}
+
+/* 본문 기둥 — 가운데. 제목·문단·목록이 모두 같은 왼쪽 선에서 시작한다. */
+html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
+  margin-right:auto!important;padding-left:var(--gut);padding-right:var(--gut);
+  box-sizing:border-box}
+.paper .sec,.paper .status,.paper .foot-in{max-width:none}
+
+/* 자료 breakout — **그림·표 알맹이만** 기둥 밖으로. 가운데는 유지.
+
+   ⚠ 처음엔 <figure> 통째로 넓혔다가 2026-08-02에 문제가 드러났다.
+     figure 안의 **캡션까지 같이 넓어져서** 캡션 왼쪽 선이 본문보다 46px 왼쪽에 섰다.
+     한 화면에 왼쪽 선이 두 개 생기니 글이 들쭉날쭉해 보인다.
+     → figure 자체는 본문 폭에 두고, 안의 svg·차트·표만 넓힌다.
+       캡션은 자연히 본문과 같은 선에서 시작한다. */
+.paper figure{width:auto;margin-left:0;margin-right:0}
+/* ⚠ SVG 도해는 breakout 에서 뺀다.
+     도해는 데이터가 아니라 그림이라 넓힐 이유가 없고,
+     넓히면 도해 안 글자가 본문보다 왼쪽에서 시작해 선이 어긋나 보인다.
+     넓혀야 하는 것은 **숫자가 빽빽한 것**(차트·표)뿐이다. */
+.paper figure>.cbox,.paper figure>table,
+.paper figure>.tblwrap,.paper .cchart,.paper .wide,.paper>.tblwrap{
+  width:min(var(--w-wide), 100vw - 2*var(--gut));
+  margin-left:calc(50% - min(var(--w-wide), 100vw - 2*var(--gut))/2);
+  margin-right:calc(50% - min(var(--w-wide), 100vw - 2*var(--gut))/2)}
+.paper figure svg,.paper .cchart svg{width:100%;height:auto;display:block}
+/* 캡션은 본문과 같은 폭·같은 왼쪽 선 */
+.paper figure>figcaption{width:auto;margin-left:0;margin-right:0}
+
+/* 제목부 */
+.wrap .phead{margin:6px 0 26px;padding-bottom:20px;border-bottom:2px solid var(--text,#1d1d1f)}
+.wrap .phead h1{margin:6px 0 8px;letter-spacing:-.03em;line-height:1.22}
+.wrap .phead .pauth{margin:0;font-size:15px;color:var(--text2,#6e6e73);line-height:1.6}
+
+/* 요약(초록) */
+.wrap .abstract{margin:0 0 34px;padding:20px clamp(16px,3.4vw,24px);
+  background:var(--surface,#fafafa);border:1px solid var(--rule);border-radius:4px}
+.wrap .abstract h4{margin:0 0 10px;font-size:12px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--text2,#6e6e73)}
+.wrap .abstract p{margin:0 0 10px;font-size:15px;line-height:1.82}
+.wrap .abstract p:last-child{margin-bottom:0}
+
+/* 절 번호 자동 매김 — 손으로 적으면 순서를 바꿀 때마다 어긋난다.
+
+   ⚠ 선택자를 **뒤집어서** 쓴다. 처음엔 "직계 자식만 센다"로 짰는데,
+     페이지마다 껍데기가 달라(.sec-head, section.compare, 무클래스 section …)
+     19장 중 6장이 번호를 못 받았다.
+     → **전부 세고, 해설 박스 안만 뺀다.** 예외 목록이 훨씬 짧고 안 샌다. */
+.paper{counter-reset:sec fig tbl}
+.paper h2{
+  counter-increment:sec;margin:34px 0 14px;font-size:clamp(18px,2.4vw,21px);
+  font-weight:700;letter-spacing:-.02em;padding-bottom:7px;
+  border-bottom:1px solid var(--rule)}
+.paper h2::before{content:counter(sec) ".  ";color:var(--text2,#6e6e73);
+  font-variant-numeric:tabular-nums}
+/* h3에는 번호를 붙이지 않는다.
+   ⚠ 2026-08-02: h2보다 h3가 먼저 나오는 페이지가 4장 있어 "0.1 탈락 하위 10"처럼
+     절 번호 0이 찍혔다. CSS 카운터는 "앞에 h2가 있었는지"를 조건으로 못 쓴다.
+     한 단계만 번호를 매기는 편이 안전하고, 읽기에도 충분하다. */
+.paper h3{margin:28px 0 10px;font-size:clamp(16px,2vw,17.5px);
+  font-weight:700;letter-spacing:-.015em}
+
+/* 예외 — 해설 박스·요약·표제부 안의 제목은 절이 아니다 */
+.paper .explain h2,.paper .ebody h2,.paper .hbody h2,.paper .verdict h2,
+.paper .callout h2,.paper .lesson h2,.paper .note h2,.paper .abstract h2,
+.paper .disclaimer h2,.paper .fdetail h2,.paper .phead h2,
+.paper .explain h3,.paper .ebody h3,.paper .hbody h3,.paper .verdict h3,
+.paper .callout h3,.paper .lesson h3,.paper .abstract h3,.paper .disclaimer h3{
+  counter-increment:none;font-size:1.06em;font-weight:700;margin:22px 0 9px;
+  letter-spacing:-.01em;border:none;padding:0}
+.paper .explain h2::before,.paper .ebody h2::before,.paper .hbody h2::before,
+.paper .verdict h2::before,.paper .callout h2::before,.paper .lesson h2::before,
+.paper .note h2::before,.paper .abstract h2::before,.paper .disclaimer h2::before,
+.paper .fdetail h2::before,.paper .phead h2::before,
+.paper .explain h3::before,.paper .ebody h3::before,.paper .hbody h3::before,
+.paper .verdict h3::before,.paper .callout h3::before,.paper .lesson h3::before,
+.paper .abstract h3::before,.paper .disclaimer h3::before{content:none}
+.paper .explain h2:first-child,.paper .abstract h2:first-child{margin-top:0}
+
+/* 본문 */
+.paper p,.paper li{font-size:clamp(15.5px,1.85vw,16.5px);line-height:1.85;
+  letter-spacing:-.004em}
+.paper p{margin:0 0 13px}
+.paper p.note{font-size:15px;color:var(--text2,#6e6e73);padding-left:14px;
+  border-left:2px solid var(--rule);line-height:1.75}
+
+/* 그림·표 캡션 자동 번호 */
+.paper figure{margin-top:22px;margin-bottom:26px}
+.paper figure>figcaption{margin-top:11px;font-size:13.5px;line-height:1.7;
+  color:var(--text2,#6e6e73)}
+.paper figure.fig{counter-increment:fig}
+.paper figure.fig>figcaption::before{content:"그림 " counter(fig) ".  ";
+  font-weight:700;color:var(--text,#1d1d1f)}
+.paper figure.tw{counter-increment:tbl}
+.paper figure.tw>figcaption{margin:0 0 9px}
+.paper figure.tw>figcaption::before{content:"표 " counter(tbl) ".  ";
+  font-weight:700;color:var(--text,#1d1d1f)}
+
+/* 표 — 가로줄만(booktabs). 세로줄은 칸을 따라가는 눈의 흐름을 끊는다. */
+.paper table{width:100%;border-collapse:collapse;font-size:clamp(13px,1.6vw,14.5px);
+  font-variant-numeric:tabular-nums}
+.paper table thead th{text-align:left;font-size:.9em;font-weight:700;
+  padding:8px 12px 7px;background:transparent;color:var(--text,#1d1d1f);
+  border-top:1.6px solid var(--text,#1d1d1f);
+  border-bottom:1px solid var(--text,#1d1d1f);letter-spacing:.01em}
+.paper table tbody td{padding:8px 12px;border-bottom:1px solid var(--rule);
+  vertical-align:top;line-height:1.6}
+.paper table tbody tr:last-child td{border-bottom:1.6px solid var(--text,#1d1d1f)}
+.paper table th.n,.paper table td.n{text-align:right}
+.paper table tbody tr:hover{background:var(--surface,#fafafa)}
+/* 칸이 많은 표는 줄이지 말고 옆으로 굴린다 — 글자를 줄이면 못 읽는다 */
+.paper .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+/* 차트 */
+.paper .cbox{position:relative;height:clamp(240px,42vw,380px)}
+
+/* ── 박스 벗기기 ──
+   해설·요약·섹션을 감싸던 회색 상자와 파란 왼쪽 띠를 모두 걷어낸다.
+   구분은 **여백과 얇은 선**으로만 한다. 상자가 많으면 화면이 조각나 보이고,
+   좁은 폰에서는 상자 안쪽 여백까지 겹쳐 글 폭이 더 좁아진다. */
+.paper .sec,.paper .sec-head,.paper .explain,.paper .ebody,.paper .hbody,
+.paper .verdict,.paper .callout,.paper .lesson,.paper .note,.paper .fdetail,
+.paper .abstract,.paper .panel,.paper figure.tw,.paper figure.fig{
+  background:none!important;border:0!important;border-radius:0!important;
+  box-shadow:none!important;padding-left:0!important;padding-right:0!important}
+.paper .sec{padding-top:0!important;padding-bottom:0!important;margin:0 0 8px}
+.paper .explain,.paper .ebody,.paper .hbody,.paper .verdict,.paper .callout,
+.paper .lesson,.paper .fdetail{padding-top:0!important;padding-bottom:0!important;
+  margin:14px 0 22px}
+.paper .abstract{padding:0!important;margin:0 0 32px}
+.paper .abstract p{font-size:clamp(15.5px,1.9vw,17px)}
+/* 요약만 위아래 가는 선으로 구분 — 상자 대신 */
+.paper .abstract{border-top:1px solid var(--rule)!important;
+  border-bottom:1px solid var(--rule)!important;padding:18px 0!important}
+/* note 는 왼쪽 띠 대신 색만 옅게 */
+.paper p.note,.paper .note{padding-left:0!important;border-left:0!important;
+  color:var(--text2,#6e6e73)}
+.paper .disclaimer{border-top:1px solid var(--rule)!important}
+
+/* ── 정렬 ──
+   **제목(맨 위 표제부)만 가운데.** 소제목(h2·h3)과 본문은 왼쪽이다.
+   소제목까지 가운데로 두면 문단 첫 줄과 제목의 시작점이 매번 어긋나
+   눈이 다음 줄을 찾는 데 시간이 걸린다. 표제부는 한 번뿐이라 가운데가 낫고,
+   반복되는 소제목은 왼쪽이 낫다. */
+.wrap .phead,
+.paper>.site-crumb,.paper>.crumb,.paper>.eyebrow,.paper>h1,.paper>.sub,
+.paper .phead .eyebrow,.paper .phead h1,.paper .phead .pauth{text-align:center}
+.paper>.site-crumb,.paper>.crumb{justify-content:center;display:flex;
+  flex-wrap:wrap;gap:4px;align-items:center}
+.paper>.sub,.paper .pauth{margin-left:auto;margin-right:auto}
+
+/* 소제목·본문은 왼쪽 */
+.paper h2,.paper h3,.paper h4,.paper p,.paper li,.paper figure>figcaption,
+.paper .explain,.paper .ebody,.paper .hbody,.paper .verdict,.paper .callout,
+.paper .lesson,.paper .note,.paper .abstract,.paper .disclaimer{text-align:left}
+.paper h2{margin-left:0;margin-right:0}
+
+/* 표 안 제목은 가운데로 몰면 칸이 어긋난다 */
+.paper table th,.paper table td{text-align:left}
+.paper table th.n,.paper table td.n{text-align:right}
+
+/* ── 본문 볼드 제거 ──
+   문단·목록·캡션 안의 <b>/<strong> 은 굵기를 없앤다.
+   `font-weight:inherit` 를 쓰는 이유: 부모의 굵기를 그대로 따르므로
+   문단(400) 안에서는 보통 글씨가 되고, **제목이나 표 머리글 안에서는
+   그대로 굵게** 남는다. 400으로 못박으면 제목 속 강조까지 풀려 버린다.
+
+   제목(h1~h4)·표(th/td)·상단바는 손대지 않는다 — 본문만이다. */
+.paper p b,.paper p strong,
+.paper li b,.paper li strong,
+.paper figcaption b,.paper figcaption strong,
+.paper .sub b,.paper .sub strong,
+.paper .pauth b,.paper .pauth strong,
+.paper .disclaimer b,.paper .disclaimer strong,
+.paper ol.refs li b,.paper ol.refs li strong{font-weight:inherit}
+
+/* 해설 박스 안의 참고문헌 소제목 — 절 번호를 붙이지 않고 작게 */
+.paper .explain h3.sub-h{font-size:1.02em;font-weight:700;margin:24px 0 8px;
+  color:var(--text,#1d1d1f)}
+.paper .explain h3.sub-h::before{content:none}
+
+/* 인용문 — 박스를 안 쓰기로 했으니 **왼쪽 괘선**으로만 구분한다.
+     들여쓰기만 하면 본문 문단과 구별이 안 돼서 그냥 흘러가 버린다(2026-08-03 확인). */
+.paper .quote{margin:22px 0!important;padding:2px 0 2px 18px!important;
+  border:0!important;border-left:3px solid var(--accent,#1161c4)!important;
+  background:none!important;border-radius:0!important;
+  color:var(--text,#1d1d1f);font-size:.99em;line-height:1.75}
+.paper .quote .src{display:block;margin-top:6px;font-size:.86em;color:var(--muted,#6b7280)}
+
+/* 참고문헌 */
+.paper ol.refs{margin:10px 0 20px;padding-left:0;list-style:none;counter-reset:refitem}
+.paper ol.refs li{position:relative;padding-left:32px;margin:0 0 11px;
+  font-size:15px;line-height:1.72;color:var(--text,#1d1d1f)}
+.paper ol.refs li::before{content:"[" counter(refitem) "]";counter-increment:refitem;
+  position:absolute;left:0;top:0;font-variant-numeric:tabular-nums;font-size:13.5px;
+  color:var(--text2,#6e6e73);font-weight:600}
+.paper ol.refs[start="6"]{counter-reset:refitem 5}
+.paper ol.refs[start="11"]{counter-reset:refitem 10}
+.paper ol.refs a{color:var(--accent,#1161c4);text-decoration:none;
+  border-bottom:1px solid currentColor;border-bottom-color:transparent}
+.paper ol.refs a:hover{border-bottom-color:currentColor}
+.paper .refs-sec h3{margin-top:24px}
+
+/* 맺음말 */
+.paper .disclaimer{margin-top:38px;padding-top:16px;border-top:1px solid var(--rule);
+  font-size:13.5px;line-height:1.75;color:var(--text2,#6e6e73)}
+.paper .disclaimer p{font-size:13.5px;line-height:1.75;margin-bottom:9px}
+
+/* ── 모바일 ── 줄일 수 없는 것만 손본다 */
+@media(max-width:760px){
+  .paper figure>.cbox,.paper figure>table,
+  .paper figure>.tblwrap,.paper .cchart,.paper .wide,.paper>.tblwrap{
+    width:calc(100vw - 2*var(--gut));
+    margin-left:calc(50% - (100vw - 2*var(--gut))/2);
+    margin-right:calc(50% - (100vw - 2*var(--gut))/2)}
+  .paper table thead th,.paper table tbody td{padding:7px 9px}
+  .paper figure{margin-top:18px;margin-bottom:22px}
+  .paper .abstract{padding:16px 15px}
+  .wrap .phead{margin-bottom:20px;padding-bottom:16px}
+}
+@media(max-width:430px){
+  .paper table{font-size:12.5px}
+  .paper p.note{padding-left:11px}
+}
+/* PAPER:END */</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
+<div class="site-bar"><div class="site-bar-in">
+  <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
+  <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피 & SK하이닉스 이격도</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a></div></div><div class="site-group"><button class="here" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a class="here" href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a><a href="samsung-em.html">삼성전기 이격도</a><a href="ecopro.html">에코프로</a><a href="hanmi.html">한미반도체</a></div></div><!-- NAV:END --></nav>
+</div></div>
+<div class="wrap paper">
+<div class="phead">
+
+<!-- STAMP:BEGIN --><div class="pbadge"><span class="pb-k pb-fixed">고정 자료</span><span class="pb-note">시장 데이터로 갱신되지 않습니다</span></div><!-- STAMP:END --><div class="eyebrow">찰리 아카이브 · 삼성전자 27년</div>
+<h1>삼성전자 27년</h1>
+<p class="sub">스테이지 · 이격도 · 제오지산수 세 가지 잣대로 2000년부터 지금까지를 봤습니다.
+셋 다 교과서와 다른 답이 나왔습니다.</p>
+<p class="pauth">2000-01-04 ~ 2026-07-31 · 일별 6,644행 · 분할 조정 종가</p>
+</div>
+
+<div class="abstract">
+<p><b>요약.</b> 삼성전자는 27년 동안 <b>43.0배</b>가 됐습니다.
+그런데 <b>와인스타인 규칙이 뒤집힙니다</b> — 2단계 상승에서 산 쪽이 12개월 뒤 +8.0%,
+4단계 하락에서 산 쪽이 <b>+44.8%</b>였습니다.
+이격도는 낮을수록 좋았고(90 미만 +38.1%), 지금은 <b>87.6</b>로 백분위 <b>3.5%</b>입니다.
+그리고 거시지표는 <b>삼성전자보다 코스피를 더 잘 설명합니다</b> — 네 지표 전부에서 상관이 낮습니다.</p>
+</div>
+
+<h2>27년의 모양</h2>
+
+<figure class="fig"><div class="cbox"><canvas id="s1"></canvas></div><figcaption>월말 종가로 그렸습니다. 세로축은 로그입니다 — 43배가 오른 계열이라 일반 축으로는 초기 20년이 바닥에 눌려 안 보입니다.</figcaption></figure><script>(window.__SS=window.__SS||[]).push({"id": "s1", "t": "삼성전자 27년 — 종가와 200일선 (로그축)", "log": true, "l": ["2000-01", "2000-02", "2000-03", "2000-04", "2000-05", "2000-06", "2000-07", "2000-08", "2000-09", "2000-10", "2000-11", "2000-12", "2001-01", "2001-02", "2001-03", "2001-04", "2001-05", "2001-06", "2001-07", "2001-08", "2001-09", "2001-10", "2001-11", "2001-12", "2002-01", "2002-02", "2002-03", "2002-04", "2002-05", "2002-06", "2002-07", "2002-08", "2002-09", "2002-10", "2002-11", "2002-12", "2003-01", "2003-02", "2003-03", "2003-04", "2003-05", "2003-06", "2003-07", "2003-08", "2003-09", "2003-10", "2003-11", "2003-12", "2004-01", "2004-02", "2004-03", "2004-04", "2004-05", "2004-06", "2004-07", "2004-08", "2004-09", "2004-10", "2004-11", "2004-12", "2005-01", "2005-02", "2005-03", "2005-04", "2005-05", "2005-06", "2005-07", "2005-08", "2005-09", "2005-10", "2005-11", "2005-12", "2006-01", "2006-02", "2006-03", "2006-04", "2006-05", "2006-06", "2006-07", "2006-08", "2006-09", "2006-10", "2006-11", "2006-12", "2007-01", "2007-02", "2007-03", "2007-04", "2007-05", "2007-06", "2007-07", "2007-08", "2007-09", "2007-10", "2007-11", "2007-12", "2008-01", "2008-02", "2008-03", "2008-04", "2008-05", "2008-06", "2008-07", "2008-08", "2008-09", "2008-10", "2008-11", "2008-12", "2009-01", "2009-02", "2009-03", "2009-04", "2009-05", "2009-06", "2009-07", "2009-08", "2009-09", "2009-10", "2009-11", "2009-12", "2010-01", "2010-02", "2010-03", "2010-04", "2010-05", "2010-06", "2010-07", "2010-08", "2010-09", "2010-10", "2010-11", "2010-12", "2011-01", "2011-02", "2011-03", "2011-04", "2011-05", "2011-06", "2011-07", "2011-08", "2011-09", "2011-10", "2011-11", "2011-12", "2012-01", "2012-02", "2012-03", "2012-04", "2012-05", "2012-06", "2012-07", "2012-08", "2012-09", "2012-10", "2012-11", "2012-12", "2013-01", "2013-02", "2013-03", "2013-04", "2013-05", "2013-06", "2013-07", "2013-08", "2013-09", "2013-10", "2013-11", "2013-12", "2014-01", "2014-02", "2014-03", "2014-04", "2014-05", "2014-06", "2014-07", "2014-08", "2014-09", "2014-10", "2014-11", "2014-12", "2015-01", "2015-02", "2015-03", "2015-04", "2015-05", "2015-06", "2015-07", "2015-08", "2015-09", "2015-10", "2015-11", "2015-12", "2016-01", "2016-02", "2016-03", "2016-04", "2016-05", "2016-06", "2016-07", "2016-08", "2016-09", "2016-10", "2016-11", "2016-12", "2017-01", "2017-02", "2017-03", "2017-04", "2017-05", "2017-06", "2017-07", "2017-08", "2017-09", "2017-10", "2017-11", "2017-12", "2018-01", "2018-02", "2018-03", "2018-04", "2018-05", "2018-06", "2018-07", "2018-08", "2018-09", "2018-10", "2018-11", "2018-12", "2019-01", "2019-02", "2019-03", "2019-04", "2019-05", "2019-06", "2019-07", "2019-08", "2019-09", "2019-10", "2019-11", "2019-12", "2020-01", "2020-02", "2020-03", "2020-04", "2020-05", "2020-06", "2020-07", "2020-08", "2020-09", "2020-10", "2020-11", "2020-12", "2021-01", "2021-02", "2021-03", "2021-04", "2021-05", "2021-06", "2021-07", "2021-08", "2021-09", "2021-10", "2021-11", "2021-12", "2022-01", "2022-02", "2022-03", "2022-04", "2022-05", "2022-06", "2022-07", "2022-08", "2022-09", "2022-10", "2022-11", "2022-12", "2023-01", "2023-02", "2023-03", "2023-04", "2023-05", "2023-06", "2023-07", "2023-08", "2023-09", "2023-10", "2023-11", "2023-12", "2024-01", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07", "2024-08", "2024-09", "2024-10", "2024-11", "2024-12", "2025-01", "2025-02", "2025-03", "2025-04", "2025-05", "2025-06", "2025-07", "2025-08", "2025-09", "2025-10", "2025-11", "2025-12", "2026-01", "2026-02", "2026-03", "2026-04", "2026-05", "2026-06", "2026-07"], "yt": "원 (분할 조정)", "dp": 0, "u": "원", "xt": 14, "d": [{"label": "종가", "data": [5580, 5120, 6700, 6000, 6160, 7380, 5900, 5470, 4040, 2850, 3240, 3160, 4400, 3740, 4160, 4580, 4240, 3840, 3790, 3800, 2810, 3470, 4360, 5580, 6060, 6860, 7360, 7640, 6840, 6580, 6650, 6620, 5970, 6900, 7740, 6280, 5830, 5590, 5680, 6100, 6480, 7100, 8320, 8700, 7840, 9400, 9300, 9020, 10480, 10900, 11440, 11140, 10120, 9540, 8340, 9020, 9160, 8790, 8690, 9010, 9900, 10540, 10040, 9040, 9780, 9880, 11300, 10880, 11760, 11060, 12000, 13160, 14800, 13740, 12600, 12880, 12440, 12060, 12160, 13000, 13280, 12220, 12800, 12260, 11600, 11400, 11260, 11480, 10700, 11320, 12280, 11820, 11500, 11000, 11300, 11120, 11900, 11200, 12460, 14220, 14820, 12500, 11280, 10320, 10780, 10540, 9720, 9020, 9780, 9540, 11360, 11840, 11160, 11840, 14480, 15420, 16300, 14460, 14400, 15980, 15680, 14880, 16360, 16980, 15520, 15480, 16200, 15120, 15540, 14900, 16520, 18980, 19620, 18460, 18640, 17860, 18040, 16520, 16880, 14880, 16800, 19360, 20080, 21160, 22140, 24120, 25500, 27800, 24220, 24020, 26180, 24660, 26920, 26200, 28120, 30440, 28960, 30880, 30540, 30400, 30760, 26840, 25600, 27360, 27340, 29300, 29880, 27440, 25600, 26980, 26860, 26860, 28860, 26440, 26860, 24680, 23680, 24880, 25740, 26540, 27300, 27140, 28820, 28200, 26140, 25360, 23700, 21780, 22680, 27440, 25680, 25200, 23000, 23560, 26240, 24900, 25840, 28500, 30780, 32400, 31960, 32780, 34920, 36040, 39460, 38440, 41200, 44620, 44700, 47540, 48200, 46320, 51280, 55080, 50800, 50960, 49900, 47060, 49220, 53000, 50700, 46650, 46250, 48450, 46450, 42400, 41850, 38700, 46150, 45100, 44650, 45850, 42500, 47000, 45350, 44000, 49050, 50400, 50300, 55800, 56400, 54200, 47750, 50000, 50700, 52800, 57900, 54000, 58200, 56600, 66700, 81000, 82000, 82500, 81400, 81500, 80500, 80700, 78500, 76700, 74100, 69800, 71300, 78300, 73300, 71900, 69600, 67400, 67400, 57000, 61400, 59700, 53100, 59400, 62200, 55300, 61400, 60600, 64000, 65500, 71400, 72200, 69800, 66900, 68400, 66900, 72800, 78500, 72700, 73400, 82400, 77500, 73500, 81500, 83900, 74300, 61500, 59200, 54200, 53200, 52400, 54500, 57800, 55500, 56200, 59800, 71400, 69700, 83900, 107500, 100500, 119900, 160500, 216500, 167200, 220500, 317000, 334000, 262500], "borderColor": "#1161c4", "borderWidth": 2, "pointRadius": 0, "tension": 0.1}, {"label": "200일선", "data": [null, null, null, null, null, null, null, null, null, 5763, 5542, 5303, 5010, 4777, 4478, 4137, 3952, 3850, 3856, 3930, 3924, 3861, 3862, 4004, 4243, 4455, 4746, 5210, 5602, 5932, 6367, 6654, 6815, 6849, 6929, 6952, 6794, 6638, 6516, 6411, 6381, 6418, 6639, 6790, 6925, 7194, 7545, 7908, 8367, 8829, 9300, 9758, 9944, 10002, 9994, 9925, 9938, 9867, 9658, 9402, 9127, 9096, 9172, 9286, 9410, 9483, 9654, 9920, 10272, 10515, 10731, 10984, 11388, 11813, 12124, 12403, 12566, 12588, 12602, 12720, 12804, 12776, 12633, 12546, 12464, 12327, 12232, 12239, 12160, 12030, 11973, 11894, 11747, 11595, 11496, 11497, 11410, 11415, 11446, 11634, 11848, 12040, 12106, 12170, 12106, 12018, 11808, 11557, 11234, 10791, 10421, 10371, 10338, 10418, 10711, 11236, 11977, 12541, 13041, 13618, 14108, 14454, 14960, 15473, 15634, 15709, 15751, 15862, 15897, 15829, 15829, 16150, 16412, 16616, 16876, 17107, 17271, 17430, 17613, 17590, 17476, 17405, 17434, 17710, 18033, 18507, 19262, 20177, 21135, 22105, 22881, 23615, 24172, 24752, 25384, 25930, 26377, 26693, 27221, 27916, 28511, 28746, 28684, 28599, 28576, 28467, 28469, 28279, 27883, 27464, 27042, 27144, 27364, 27537, 27402, 26996, 26496, 25934, 25798, 25791, 25869, 25852, 25927, 26145, 26158, 26228, 26404, 26337, 26096, 25969, 25857, 25595, 24987, 24545, 24404, 24425, 24522, 25132, 25882, 26530, 27072, 27758, 28799, 30040, 31235, 32525, 34159, 35493, 36926, 38434, 40269, 41889, 43591, 45046, 46980, 48080, 49041, 49528, 49971, 50335, 50495, 50629, 50256, 49321, 48560, 47803, 47124, 46448, 45538, 45146, 44500, 44308, 43972, 43869, 43910, 43984, 44375, 45510, 46459, 47237, 48588, 49939, 50746, 51117, 51393, 52404, 53145, 53719, 54413, 54812, 55193, 56872, 60786, 63818, 67270, 70658, 73026, 75718, 77956, 79778, 80636, 80065, 78432, 77900, 77286, 76456, 75388, 73976, 72717, 71162, 69466, 68360, 66656, 64601, 62984, 61539, 60626, 60164, 59598, 60236, 60846, 62152, 63840, 64844, 65715, 66632, 67692, 68830, 70224, 71018, 71786, 72703, 73388, 74481, 76186, 77002, 76465, 74932, 73020, 71058, 69072, 66586, 64534, 61944, 59174, 57469, 57278, 58428, 60694, 64570, 69229, 74783, 84102, 94789, 108589, 125030, 144645, 172408, 193163], "borderColor": "#b45309", "borderWidth": 1.6, "pointRadius": 0, "tension": 0.2}]});</script>
+
+<p>2000년 1월 <b>6,110원</b>에서 시작해 지금 <b>262,500원</b>입니다.
+분할 조정된 값이라 당시 실제 호가는 이것의 50배(30만원대)였습니다.
+2018년 5월 50대 1 액면분할을 과거로 소급해 이어 붙인 것이고,
+<b>수익률을 볼 때는 이 조정값이 맞습니다.</b></p>
+
+<figure class="fig"><div class="tblwrap"><table class="tw">
+<thead><tr><th class="n">낙폭</th><th class="n">고점</th><th class="n">저점</th><th class="n">걸린 기간</th></tr></thead>
+<tbody><tr><td class="n">-64.8%</td><td class="n">2000-07-14</td><td class="n">2000-10-18</td><td class="n">96일</td></tr><tr><td class="n">-47.4%</td><td class="n">2008-05-19</td><td class="n">2008-10-24</td><td class="n">158일</td></tr><tr><td class="n">-45.2%</td><td class="n">2021-01-13</td><td class="n">2024-11-14</td><td class="n">1401일</td></tr><tr><td class="n">-42.9%</td><td class="n">2026-06-19</td><td class="n">2026-07-30</td><td class="n">41일</td></tr><tr><td class="n">-37.6%</td><td class="n">2002-04-25</td><td class="n">2003-02-10</td><td class="n">291일</td></tr></tbody></table></div>
+<figcaption>27년 최대 낙폭 다섯 번. 맨 아래 2026년 것은 <b>41일</b>밖에 안 걸렸습니다 — 나머지가 96~1,401일인 것과 비교됩니다.</figcaption></figure>
+
+<h2>스테이지 — 와인스타인 규칙이 뒤집힙니다</h2>
+
+<p>200일선의 기울기와 가격 위치로 네 국면을 나눴습니다.
+<a href="stage-analysis.html" style="color:var(--accent)">코스피로 한 것</a>과 같은 규칙입니다.</p>
+
+<figure class="fig"><div class="tblwrap"><table class="tw">
+<thead><tr><th>단계</th><th class="n">일수</th><th class="n">비중</th><th class="n">3개월 뒤</th><th class="n">6개월 뒤</th><th class="n">12개월 뒤</th></tr></thead>
+<tbody><tr><td><b>1단계 바닥</b></td><td class="n">644일</td><td class="n">10.0%</td><td class="n">+4.9%</td><td class="n">+15.1%</td><td class="n good"><b>+36.9%</b></td></tr><tr class="cur"><td><b>2단계 상승</b></td><td class="n">3,305일</td><td class="n">51.4%</td><td class="n">+5.6%</td><td class="n">+10.2%</td><td class="n"><b>+8.0%</b></td></tr><tr><td><b>3단계 천장</b></td><td class="n">690일</td><td class="n">10.7%</td><td class="n">+5.6%</td><td class="n">+8.6%</td><td class="n"><b>+21.2%</b></td></tr><tr><td><b>4단계 하락</b></td><td class="n">1,786일</td><td class="n">27.8%</td><td class="n">+6.7%</td><td class="n">+15.5%</td><td class="n good"><b>+44.8%</b></td></tr>
+<tr class="sig"><td>(무조건)</td><td class="n">6,425</td><td class="n">100%</td><td class="n">—</td><td class="n">—</td><td class="n">+21.3%</td></tr>
+</tbody></table></div>
+<figcaption>각 단계에 있던 모든 날의 이후 수익률 평균. 현재는 <b>2단계 상승</b>입니다.</figcaption></figure>
+
+<figure class="fig"><div class="cbox"><canvas id="s2"></canvas></div><figcaption>초록이 4단계 하락, 빨강이 2단계 상승입니다. 회색이 무조건 평균입니다.</figcaption></figure><script>(window.__SS=window.__SS||[]).push({"id": "s2", "t": "스테이지별 이후 12개월 수익률 — 와인스타인 규칙이 뒤집힌다", "k": "bar", "l": ["1단계 바닥", "2단계 상승", "3단계 천장", "4단계 하락", "(무조건)"], "yt": "%", "u": "%", "leg": false, "d": [{"label": "12개월 뒤", "data": [36.9, 8.0, 21.2, 44.8, 21.3], "backgroundColor": ["#9ca3af", "#047857", "#b45309", "#b91c1c", "#cbd5e1"], "borderWidth": 0}]});</script>
+
+<div class="verdict">
+<p><b>"2단계에서만 사라"가 삼성전자에서는 최악이었습니다.</b>
+2단계 상승 중에 산 쪽이 12개월 뒤 +8.0%로 네 단계 중 <b>꼴찌</b>이고,
+4단계 하락 중에 산 쪽이 +44.8%로 <b>1등</b>입니다. 무조건 평균 +21.3%보다도 두 배 넘게 높습니다.</p>
+<p>이유는 삼성전자가 <b>경기민감주</b>이기 때문입니다.
+반도체 사이클을 타는 종목은 평균회귀가 추세추종을 이깁니다.
+4단계는 사이클 바닥 근처이고, 2단계는 이미 많이 오른 자리입니다.</p>
+</div>
+
+<div class="callout">
+<p><b>그렇다고 "4단계에서 사라"로 읽으면 위험합니다.</b>
+평균이 높다는 것과 견딜 수 있다는 것은 다릅니다.
+2000년 고점에서 산 사람은 3개월 만에 <b>−64.8%</b>를 맞았고,
+2021년 고점에서 산 사람은 회복까지 <b>1,401일</b>이 걸렸습니다.
+와인스타인 규칙의 값어치는 수익률이 아니라 <b>그 구간을 피하는 데</b> 있습니다.</p>
+</div>
+
+<h2>이격도 — 낮을수록 좋았습니다</h2>
+
+<figure class="fig"><div class="cbox"><canvas id="s3"></canvas></div><figcaption>보라색이 50일 이격도입니다. 100이 50일선과 같은 자리이고, 초록 점선 90 아래가 과매도, 붉은 점선 110 위가 과열입니다.</figcaption></figure><script>(window.__SS=window.__SS||[]).push({"id": "s3", "t": "50일 이격도 27년 — 과열과 과매도", "l": ["2000-01", "2000-02", "2000-03", "2000-04", "2000-05", "2000-06", "2000-07", "2000-08", "2000-09", "2000-10", "2000-11", "2000-12", "2001-01", "2001-02", "2001-03", "2001-04", "2001-05", "2001-06", "2001-07", "2001-08", "2001-09", "2001-10", "2001-11", "2001-12", "2002-01", "2002-02", "2002-03", "2002-04", "2002-05", "2002-06", "2002-07", "2002-08", "2002-09", "2002-10", "2002-11", "2002-12", "2003-01", "2003-02", "2003-03", "2003-04", "2003-05", "2003-06", "2003-07", "2003-08", "2003-09", "2003-10", "2003-11", "2003-12", "2004-01", "2004-02", "2004-03", "2004-04", "2004-05", "2004-06", "2004-07", "2004-08", "2004-09", "2004-10", "2004-11", "2004-12", "2005-01", "2005-02", "2005-03", "2005-04", "2005-05", "2005-06", "2005-07", "2005-08", "2005-09", "2005-10", "2005-11", "2005-12", "2006-01", "2006-02", "2006-03", "2006-04", "2006-05", "2006-06", "2006-07", "2006-08", "2006-09", "2006-10", "2006-11", "2006-12", "2007-01", "2007-02", "2007-03", "2007-04", "2007-05", "2007-06", "2007-07", "2007-08", "2007-09", "2007-10", "2007-11", "2007-12", "2008-01", "2008-02", "2008-03", "2008-04", "2008-05", "2008-06", "2008-07", "2008-08", "2008-09", "2008-10", "2008-11", "2008-12", "2009-01", "2009-02", "2009-03", "2009-04", "2009-05", "2009-06", "2009-07", "2009-08", "2009-09", "2009-10", "2009-11", "2009-12", "2010-01", "2010-02", "2010-03", "2010-04", "2010-05", "2010-06", "2010-07", "2010-08", "2010-09", "2010-10", "2010-11", "2010-12", "2011-01", "2011-02", "2011-03", "2011-04", "2011-05", "2011-06", "2011-07", "2011-08", "2011-09", "2011-10", "2011-11", "2011-12", "2012-01", "2012-02", "2012-03", "2012-04", "2012-05", "2012-06", "2012-07", "2012-08", "2012-09", "2012-10", "2012-11", "2012-12", "2013-01", "2013-02", "2013-03", "2013-04", "2013-05", "2013-06", "2013-07", "2013-08", "2013-09", "2013-10", "2013-11", "2013-12", "2014-01", "2014-02", "2014-03", "2014-04", "2014-05", "2014-06", "2014-07", "2014-08", "2014-09", "2014-10", "2014-11", "2014-12", "2015-01", "2015-02", "2015-03", "2015-04", "2015-05", "2015-06", "2015-07", "2015-08", "2015-09", "2015-10", "2015-11", "2015-12", "2016-01", "2016-02", "2016-03", "2016-04", "2016-05", "2016-06", "2016-07", "2016-08", "2016-09", "2016-10", "2016-11", "2016-12", "2017-01", "2017-02", "2017-03", "2017-04", "2017-05", "2017-06", "2017-07", "2017-08", "2017-09", "2017-10", "2017-11", "2017-12", "2018-01", "2018-02", "2018-03", "2018-04", "2018-05", "2018-06", "2018-07", "2018-08", "2018-09", "2018-10", "2018-11", "2018-12", "2019-01", "2019-02", "2019-03", "2019-04", "2019-05", "2019-06", "2019-07", "2019-08", "2019-09", "2019-10", "2019-11", "2019-12", "2020-01", "2020-02", "2020-03", "2020-04", "2020-05", "2020-06", "2020-07", "2020-08", "2020-09", "2020-10", "2020-11", "2020-12", "2021-01", "2021-02", "2021-03", "2021-04", "2021-05", "2021-06", "2021-07", "2021-08", "2021-09", "2021-10", "2021-11", "2021-12", "2022-01", "2022-02", "2022-03", "2022-04", "2022-05", "2022-06", "2022-07", "2022-08", "2022-09", "2022-10", "2022-11", "2022-12", "2023-01", "2023-02", "2023-03", "2023-04", "2023-05", "2023-06", "2023-07", "2023-08", "2023-09", "2023-10", "2023-11", "2023-12", "2024-01", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07", "2024-08", "2024-09", "2024-10", "2024-11", "2024-12", "2025-01", "2025-02", "2025-03", "2025-04", "2025-05", "2025-06", "2025-07", "2025-08", "2025-09", "2025-10", "2025-11", "2025-12", "2026-01", "2026-02", "2026-03", "2026-04", "2026-05", "2026-06", "2026-07"], "yt": "이격도 (100 = 50일선)", "xt": 14, "d": [{"label": "과열 110", "data": [110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110], "borderColor": "#b91c1c", "borderWidth": 1, "borderDash": [5, 4], "pointRadius": 0}, {"label": "과매도 90", "data": [90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90], "borderColor": "#047857", "borderWidth": 1, "borderDash": [5, 4], "pointRadius": 0}, {"label": "50일 이격도", "data": [null, null, 119.0, 99.8, 96.3, 112.7, 85.8, 82.3, 74.0, 67.7, 95.7, 96.2, 120.4, 95.7, 103.2, 114.4, 98.7, 89.0, 96.8, 101.7, 77.6, 103.0, 121.6, 123.9, 109.1, 110.3, 110.0, 104.2, 91.4, 91.0, 96.1, 99.1, 91.2, 107.4, 115.9, 87.9, 85.2, 90.6, 96.9, 103.7, 106.8, 109.0, 112.6, 106.9, 92.0, 107.4, 104.4, 98.7, 110.5, 107.3, 105.6, 97.9, 91.0, 94.6, 92.1, 103.8, 103.5, 96.7, 96.7, 103.1, 110.8, 109.6, 99.3, 90.2, 100.1, 102.2, 110.6, 100.3, 102.9, 96.0, 101.8, 108.2, 113.6, 100.8, 94.7, 99.3, 96.8, 97.6, 102.2, 106.7, 104.3, 94.5, 99.9, 97.8, 94.6, 95.9, 96.5, 98.5, 93.3, 99.1, 103.5, 97.8, 97.5, 98.8, 103.8, 100.2, 106.8, 99.5, 108.2, 115.4, 108.2, 89.3, 88.2, 88.4, 97.4, 100.4, 97.1, 96.6, 104.6, 98.7, 111.9, 107.8, 97.5, 103.5, 118.1, 112.5, 107.8, 93.9, 96.0, 106.5, 99.6, 94.3, 104.1, 104.7, 95.0, 96.6, 102.0, 95.2, 99.1, 97.3, 106.2, 112.3, 106.3, 97.4, 99.9, 98.5, 100.2, 94.2, 98.6, 92.5, 107.8, 118.5, 109.6, 105.6, 106.2, 110.7, 109.0, 110.7, 93.9, 95.2, 109.1, 101.1, 105.9, 101.3, 104.7, 109.0, 98.7, 103.7, 102.9, 100.7, 102.3, 92.2, 94.0, 106.1, 103.8, 105.4, 103.5, 94.9, 92.6, 102.2, 103.3, 100.4, 105.1, 95.2, 98.5, 94.8, 94.2, 105.9, 109.6, 106.9, 104.0, 100.8, 102.6, 98.1, 92.7, 95.2, 93.1, 90.6, 99.0, 116.7, 101.9, 97.1, 93.2, 99.1, 109.2, 99.3, 100.9, 107.0, 108.1, 106.0, 101.2, 102.1, 108.4, 106.9, 110.0, 102.2, 103.8, 108.6, 103.2, 105.0, 101.4, 96.4, 105.3, 109.4, 94.0, 95.4, 97.6, 95.9, 100.8, 107.0, 100.3, 93.0, 96.6, 104.9, 100.7, 94.2, 95.3, 92.4, 112.3, 105.9, 99.5, 100.7, 95.1, 106.3, 100.4, 97.4, 107.3, 105.6, 99.1, 106.3, 102.0, 92.9, 86.3, 98.1, 104.5, 103.6, 108.3, 97.6, 101.4, 97.0, 109.2, 120.8, 105.8, 99.9, 97.8, 98.4, 98.1, 99.4, 97.8, 97.5, 96.1, 94.7, 99.0, 105.6, 95.9, 94.6, 95.8, 96.8, 99.6, 88.3, 99.8, 100.1, 90.6, 104.3, 106.9, 92.4, 102.3, 99.8, 103.5, 104.5, 109.6, 105.3, 98.0, 95.8, 98.9, 97.6, 104.4, 109.5, 98.4, 98.7, 110.6, 100.2, 92.9, 104.3, 103.6, 92.1, 82.9, 89.7, 92.7, 95.8, 96.1, 99.3, 103.4, 98.1, 99.5, 105.0, 116.5, 104.8, 115.2, 129.9, 105.9, 115.2, 130.4, 144.7, 94.6, 110.9, 136.9, 114.7, 87.6], "borderColor": "#7c3aed", "borderWidth": 1.7, "pointRadius": 0, "tension": 0.15}]});</script>
+
+<figure class="fig"><div class="tblwrap"><table class="tw">
+<thead><tr><th class="n">분위</th><th class="n">50일 이격도</th></tr></thead>
+<tbody><tr><td class="n">1%</td><td class="n">81.1</td></tr><tr><td class="n">5%</td><td class="n">89.7</td></tr><tr><td class="n">25%</td><td class="n">96.5</td></tr><tr><td class="n">50%</td><td class="n">101.2</td></tr><tr><td class="n">75%</td><td class="n">106.4</td></tr><tr><td class="n">95%</td><td class="n">114.8</td></tr><tr><td class="n">99%</td><td class="n">129.7</td></tr></tbody></table></div>
+<figcaption>27년 분포. 절반이 101.2 근처이고 양끝 1%는 81.1 / 129.7입니다.</figcaption></figure>
+
+<figure class="fig"><div class="cbox"><canvas id="s4"></canvas></div><figcaption>초록 막대가 무조건 평균보다 높은 구간입니다.</figcaption></figure><script>(window.__SS=window.__SS||[]).push({"id": "s4", "t": "이격도 구간별 이후 12개월 수익률", "k": "bar", "l": ["90 미만", "90~95", "95~100", "100~105", "105~110", "110~120", "120 이상"], "yt": "%", "u": "%", "leg": false, "d": [{"label": "12개월 뒤", "data": [38.1, 19.6, 24.1, 19.8, 21.2, 14.2, 20.2], "backgroundColor": ["#047857", "#94a3b8", "#047857", "#94a3b8", "#94a3b8", "#94a3b8", "#94a3b8"], "borderWidth": 0}]});</script>
+
+<p><b>이격도가 낮을수록 이후 수익률이 높았습니다.</b>
+90 미만 구간이 <b>+38.1%</b>로 가장 높고, 110~120 구간이 +14.2%로 가장 낮습니다.
+단조롭게 줄지는 않지만 방향은 분명합니다.</p>
+
+<figure class="fig"><div class="tblwrap"><table class="tw">
+<thead><tr><th class="n">국면</th><th class="n">최저 이격도</th><th class="n">이후 12개월</th></tr></thead>
+<tbody><tr><td class="n">2008-07-04 ~ 2008-07-18</td><td class="n">81.6</td><td class="n good">+8.9%</td></tr><tr><td class="n">2008-07-25 ~ 2008-08-05</td><td class="n">84.2</td><td class="n good">+25.9%</td></tr><tr><td class="n">2008-08-27 ~ 2008-09-02</td><td class="n">87.1</td><td class="n good">+48.4%</td></tr><tr><td class="n">2008-10-23 ~ 2008-10-28</td><td class="n">75.5</td><td class="n good">+60.7%</td></tr><tr><td class="n">2008-11-14 ~ 2008-11-25</td><td class="n">83.1</td><td class="n good">+67.2%</td></tr><tr><td class="n">2011-08-18 ~ 2011-08-26</td><td class="n">82.6</td><td class="n good">+67.4%</td></tr><tr><td class="n">2013-06-20 ~ 2013-06-26</td><td class="n">86.2</td><td class="n good">+2.5%</td></tr><tr><td class="n">2013-07-05 ~ 2013-07-10</td><td class="n">85.6</td><td class="n good">+8.4%</td></tr><tr><td class="n">2015-08-21 ~ 2015-08-28</td><td class="n">87.9</td><td class="n good">+52.0%</td></tr><tr><td class="n">2016-01-11 ~ 2016-01-18</td><td class="n">89.2</td><td class="n good">+69.4%</td></tr><tr><td class="n">2020-03-11 ~ 2020-04-06</td><td class="n">74.8</td><td class="n good">+72.5%</td></tr><tr><td class="n">2022-06-29 ~ 2022-07-06</td><td class="n">87.4</td><td class="n good">+27.5%</td></tr><tr><td class="n">2024-09-04 ~ 2024-11-01</td><td class="n">81.4</td><td class="n good">+67.8%</td></tr><tr><td class="n">2024-11-05 ~ 2024-11-15</td><td class="n">81.1</td><td class="n good">+93.3%</td></tr><tr class="cur"><td class="n">2026-07-16 ~ 2026-07-31</td><td class="n">69.1</td><td class="n">진행 중</td></tr></tbody></table></div>
+<figcaption>2008년 이후 이격도가 90 아래로 내려간 국면들. 27년 전체로는 26번 있었고 그중 <b>23 / 25</b>가 12개월 뒤 플러스였습니다.</figcaption></figure>
+
+<div class="verdict">
+<p><b>지금 이격도 87.6은 27년에서 두 번째로 낮습니다.</b>
+백분위 <b>3.5%</b> — 100번 중 3번밖에 없던 자리입니다.
+더 낮았던 것은 2000년 8월 닷컴 붕괴 때(56.5) 한 번뿐이고,
+2020년 3월 코로나(74.8)보다도 낮습니다.</p>
+<p>다만 <b>200일선 이격도는 135.9</b>입니다. 단기로는 극단적으로 눌렸는데
+장기선 기준으로는 여전히 한참 위에 있습니다. 이 둘이 갈라져 있다는 것이 지금의 특징입니다.</p>
+</div>
+
+<h2>제오지산수 — 삼성전자보다 코스피를 더 잘 설명합니다</h2>
+
+<p><a href="jeoji-kospi.html" style="color:var(--accent)">제오지산수 페이지</a>에서
+코스피로 잰 것을 삼성전자에 그대로 적용했습니다.
+삼성전자가 코스피 시가총액의 큰 덩어리이니 더 잘 맞을 것 같은데, <b>반대였습니다.</b></p>
+
+<figure class="fig"><div class="cbox"><canvas id="s5"></canvas></div><figcaption>네 지표 모두 파랑(삼성전자)이 빨강(코스피)보다 낮습니다.</figcaption></figure><script>(window.__SS=window.__SS||[]).push({"id": "s5", "t": "거시지표가 설명하는 것 — 삼성전자보다 코스피가 더 잘 맞는다", "k": "bar", "l": ["오 · OECD CLI (수준)", "오 · CLI 전년차", "수 · 한국수출 YoY", "산 · 미국산업생산 YoY"], "yt": "상관계수 r", "dp": 3, "d": [{"label": "삼성전자", "data": [0.474, 0.462, 0.392, 0.086], "backgroundColor": "#1161c4", "borderWidth": 0}, {"label": "코스피", "data": [0.649, 0.621, 0.531, 0.283], "backgroundColor": "#d21f3c", "borderWidth": 0}]});</script>
+
+<figure class="fig"><div class="tblwrap"><table class="tw">
+<thead><tr><th>지표</th><th class="n">삼성전자 r</th><th class="n">코스피 r</th><th class="n">차이</th></tr></thead>
+<tbody><tr><td>오 · OECD CLI (수준)</td><td class="n">0.474</td><td class="n"><b>0.649</b></td><td class="n bad">-0.175</td></tr><tr><td>오 · CLI 전년차</td><td class="n">0.462</td><td class="n"><b>0.621</b></td><td class="n bad">-0.159</td></tr><tr><td>수 · 한국수출 YoY</td><td class="n">0.392</td><td class="n"><b>0.531</b></td><td class="n bad">-0.139</td></tr><tr><td>산 · 미국산업생산 YoY</td><td class="n">0.086</td><td class="n"><b>0.283</b></td><td class="n bad">-0.197</td></tr></tbody></table></div>
+<figcaption>2000년 이후 전년비 기준 동행 상관. <b>네 지표 전부에서 삼성전자가 낮습니다.</b></figcaption></figure>
+
+<div class="callout">
+<p><b>왜 개별 종목이 지수보다 거시에 덜 맞을까요.</b>
+지수는 수백 종목의 평균이라 개별 기업의 사정이 서로 상쇄됩니다. 남는 것이 거시 성분입니다.
+삼성전자 하나에는 반도체 가격, 경쟁사 동향, 파운드리 수주, 자사주 매입 같은
+<b>거시로 설명 안 되는 것</b>이 그대로 남아 있습니다.</p>
+<p>실무적으로는 이런 뜻입니다 — <b>거시지표로 삼성전자를 맞히려 하지 말 것.</b>
+거시는 시장 전체의 국면을 보는 데 쓰고, 종목은 그 안에서 따로 봐야 합니다.</p>
+</div>
+
+<figure class="fig"><div class="tblwrap"><table class="tw">
+<thead><tr><th>지표</th><th class="n">삼성 최적시차</th><th class="n">r</th><th class="n">코스피 최적시차</th><th class="n">r</th></tr></thead>
+<tbody><tr><td>오 · CLI 전년차</td><td class="n">-2개월</td><td class="n">0.479</td><td class="n">+1개월</td><td class="n">0.627</td></tr><tr><td>수 · 한국수출 YoY</td><td class="n">-4개월</td><td class="n">0.566</td><td class="n">-3개월</td><td class="n">0.676</td></tr><tr><td>산 · 미국산업생산 YoY</td><td class="n">-9개월</td><td class="n">0.338</td><td class="n">-4개월</td><td class="n">0.470</td></tr></tbody></table></div>
+<figcaption>+는 지표가 먼저, −는 주가가 먼저입니다. <b>삼성전자에 대해서는 CLI 마저 후행합니다</b>(−2개월).
+코스피에는 +1로 앞섰는데 말입니다.</figcaption></figure>
+
+<figure class="fig"><div class="cbox"><canvas id="s6"></canvas></div><figcaption>둘이 거의 겹칩니다. 삼성전자의 진폭이 조금 더 큽니다.</figcaption></figure><script>(window.__SS=window.__SS||[]).push({"id": "s6", "t": "삼성전자와 코스피 전년비 — 거의 한 몸 (r 0.821)", "l": ["2001-01", "2001-02", "2001-03", "2001-04", "2001-05", "2001-06", "2001-07", "2001-08", "2001-09", "2001-10", "2001-11", "2001-12", "2002-01", "2002-02", "2002-03", "2002-04", "2002-05", "2002-06", "2002-07", "2002-08", "2002-09", "2002-10", "2002-11", "2002-12", "2003-01", "2003-02", "2003-03", "2003-04", "2003-05", "2003-06", "2003-07", "2003-08", "2003-09", "2003-10", "2003-11", "2003-12", "2004-01", "2004-02", "2004-03", "2004-04", "2004-05", "2004-06", "2004-07", "2004-08", "2004-09", "2004-10", "2004-11", "2004-12", "2005-01", "2005-02", "2005-03", "2005-04", "2005-05", "2005-06", "2005-07", "2005-08", "2005-09", "2005-10", "2005-11", "2005-12", "2006-01", "2006-02", "2006-03", "2006-04", "2006-05", "2006-06", "2006-07", "2006-08", "2006-09", "2006-10", "2006-11", "2006-12", "2007-01", "2007-02", "2007-03", "2007-04", "2007-05", "2007-06", "2007-07", "2007-08", "2007-09", "2007-10", "2007-11", "2007-12", "2008-01", "2008-02", "2008-03", "2008-04", "2008-05", "2008-06", "2008-07", "2008-08", "2008-09", "2008-10", "2008-11", "2008-12", "2009-01", "2009-02", "2009-03", "2009-04", "2009-05", "2009-06", "2009-07", "2009-08", "2009-09", "2009-10", "2009-11", "2009-12", "2010-01", "2010-02", "2010-03", "2010-04", "2010-05", "2010-06", "2010-07", "2010-08", "2010-09", "2010-10", "2010-11", "2010-12", "2011-01", "2011-02", "2011-03", "2011-04", "2011-05", "2011-06", "2011-07", "2011-08", "2011-09", "2011-10", "2011-11", "2011-12", "2012-01", "2012-02", "2012-03", "2012-04", "2012-05", "2012-06", "2012-07", "2012-08", "2012-09", "2012-10", "2012-11", "2012-12", "2013-01", "2013-02", "2013-03", "2013-04", "2013-05", "2013-06", "2013-07", "2013-08", "2013-09", "2013-10", "2013-11", "2013-12", "2014-01", "2014-02", "2014-03", "2014-04", "2014-05", "2014-06", "2014-07", "2014-08", "2014-09", "2014-10", "2014-11", "2014-12", "2015-01", "2015-02", "2015-03", "2015-04", "2015-05", "2015-06", "2015-07", "2015-08", "2015-09", "2015-10", "2015-11", "2015-12", "2016-01", "2016-02", "2016-03", "2016-04", "2016-05", "2016-06", "2016-07", "2016-08", "2016-09", "2016-10", "2016-11", "2016-12", "2017-01", "2017-02", "2017-03", "2017-04", "2017-05", "2017-06", "2017-07", "2017-08", "2017-09", "2017-10", "2017-11", "2017-12", "2018-01", "2018-02", "2018-03", "2018-04", "2018-05", "2018-06", "2018-07", "2018-08", "2018-09", "2018-10", "2018-11", "2018-12", "2019-01", "2019-02", "2019-03", "2019-04", "2019-05", "2019-06", "2019-07", "2019-08", "2019-09", "2019-10", "2019-11", "2019-12", "2020-01", "2020-02", "2020-03", "2020-04", "2020-05", "2020-06", "2020-07", "2020-08", "2020-09", "2020-10", "2020-11", "2020-12", "2021-01", "2021-02", "2021-03", "2021-04", "2021-05", "2021-06", "2021-07", "2021-08", "2021-09", "2021-10", "2021-11", "2021-12", "2022-01", "2022-02", "2022-03", "2022-04", "2022-05", "2022-06", "2022-07", "2022-08", "2022-09", "2022-10", "2022-11", "2022-12", "2023-01", "2023-02", "2023-03", "2023-04", "2023-05", "2023-06", "2023-07", "2023-08", "2023-09", "2023-10", "2023-11", "2023-12", "2024-01", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07", "2024-08", "2024-09", "2024-10", "2024-11", "2024-12", "2025-01", "2025-02", "2025-03", "2025-04", "2025-05", "2025-06", "2025-07", "2025-08", "2025-09", "2025-10", "2025-11", "2025-12", "2026-01", "2026-02", "2026-03", "2026-04", "2026-05", "2026-06"], "yt": "전년동월비 (%)", "u": "%", "xt": 14, "d": [{"label": "0", "data": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "borderColor": "#9ca3af", "borderWidth": 1, "borderDash": [3, 3], "pointRadius": 0}, {"label": "삼성전자", "data": [-21.1, -27.0, -37.9, -23.7, -31.2, -48.0, -35.8, -30.5, -30.4, 21.8, 34.6, 76.6, 37.7, 83.4, 76.9, 66.8, 61.3, 71.4, 75.5, 74.2, 112.5, 98.8, 77.5, 12.5, -3.8, -18.5, -22.8, -20.2, -5.3, 7.9, 25.1, 31.4, 31.3, 36.2, 20.2, 43.6, 79.8, 95.0, 101.4, 82.6, 56.2, 34.4, 0.2, 3.7, 16.8, -6.5, -6.6, -0.1, -5.5, -3.3, -12.2, -18.9, -3.4, 3.6, 35.5, 20.6, 28.4, 25.8, 38.1, 46.1, 49.5, 30.4, 25.5, 42.5, 27.2, 22.1, 7.6, 19.5, 12.9, 10.5, 6.7, -6.8, -21.6, -17.0, -10.6, -10.9, -14.0, -6.1, 1.0, -9.1, -13.4, -10.0, -11.7, -9.3, 2.6, -1.8, 10.7, 23.9, 38.5, 10.4, -8.1, -12.7, -6.3, -4.2, -14.0, -18.9, -17.8, -14.8, -8.8, -16.7, -24.7, -5.3, 28.4, 49.4, 51.2, 37.2, 48.1, 77.2, 60.3, 56.0, 44.0, 43.4, 39.1, 30.7, 11.9, -1.9, -4.7, 3.0, 14.7, 18.8, 25.1, 24.1, 13.9, 5.2, 16.2, 6.7, 4.2, -1.6, 8.1, 29.9, 21.5, 11.5, 12.8, 30.7, 36.8, 55.7, 34.3, 45.4, 55.1, 65.7, 60.2, 35.3, 40.0, 43.9, 30.8, 28.0, 19.8, 9.4, 27.0, 11.7, -2.2, 10.9, 1.6, 11.8, 6.3, -9.9, -11.6, -12.6, -12.0, -11.6, -6.2, -1.5, 4.9, -9.8, -13.4, -15.1, -13.9, -3.3, 6.6, 0.6, 7.3, 5.0, -9.4, -4.1, -11.8, -11.8, -4.2, 10.3, -0.2, -5.0, -15.8, -13.2, -9.0, -11.7, -1.1, 12.4, 29.9, 48.8, 40.9, 19.5, 36.0, 43.0, 71.6, 63.2, 57.0, 79.2, 73.0, 66.8, 56.6, 43.0, 60.5, 68.0, 45.5, 41.4, 26.5, 22.4, 19.5, 18.8, 13.4, -1.9, -4.0, 4.6, -9.4, -23.0, -17.6, -24.1, -7.5, -4.2, -9.3, -13.5, -16.2, 0.8, -1.9, -9.2, 5.6, 18.9, 20.2, 44.2, 22.2, 20.2, 6.9, 9.1, 19.3, 12.3, 27.7, 22.7, 18.7, 12.3, 32.6, 45.2, 45.4, 52.2, 70.5, 63.0, 58.8, 52.8, 35.6, 42.0, 27.3, 23.3, 6.9, -3.3, -10.6, -12.8, -14.5, -17.3, -16.3, -29.4, -21.8, -22.2, -28.3, -14.9, -12.8, -29.4, -16.2, -15.7, -8.0, -2.8, 5.9, 26.7, 13.7, 12.1, 28.8, 12.6, 17.0, 42.0, 18.4, 21.1, 28.8, 18.3, 2.9, 12.9, 20.2, 11.1, -10.1, -11.5, -25.5, -32.2, -27.9, -25.7, -29.9, -28.4, -23.5, -26.6, -14.9, -6.2, 36.4, 81.6, 85.4, 125.4, 206.3, 297.2, 189.3, 297.3, 464.1, 458.5], "borderColor": "#1161c4", "borderWidth": 1.8, "pointRadius": 0, "tension": 0.15}, {"label": "코스피", "data": [-38.6, -34.4, -37.8, -32.6, -17.2, -24.2, -30.4, -21.2, -19.7, -5.9, 11.2, 27.6, 25.5, 29.6, 58.1, 69.4, 40.4, 30.7, 36.1, 25.5, 39.5, 24.1, 12.4, 4.4, -14.6, -23.1, -36.1, -34.5, -27.3, -15.9, -6.6, 2.6, 6.1, 17.5, 16.1, 15.1, 34.5, 46.6, 59.0, 54.7, 30.9, 16.5, 6.0, 5.3, 12.0, 12.5, 9.4, 9.1, 6.8, 10.9, 12.9, 5.5, 17.1, 28.4, 41.9, 43.2, 40.2, 40.4, 45.2, 53.4, 52.7, 39.4, 34.8, 48.0, 48.0, 26.3, 20.6, 19.2, 15.8, 13.6, 12.0, 6.0, 0.2, 7.0, 7.3, 7.1, 16.1, 40.1, 49.8, 38.0, 39.0, 48.0, 37.1, 33.9, 25.9, 17.8, 15.4, 17.0, 14.4, 0.5, -18.0, -15.2, -23.2, -39.6, -44.2, -41.3, -33.9, -32.6, -30.9, -25.5, -24.2, -20.8, -7.0, 2.5, 14.6, 34.7, 47.4, 47.8, 46.4, 40.3, 45.8, 30.9, 17.9, 21.1, 18.6, 11.7, 9.6, 15.8, 21.6, 21.5, 24.3, 25.9, 20.3, 24.4, 28.9, 22.9, 24.2, 5.9, -1.4, -3.5, -3.4, -7.1, -9.3, -0.5, 1.2, -7.3, -11.2, -11.1, -15.0, 2.9, 9.4, 6.8, 2.5, 6.2, 4.8, -1.2, -1.6, -2.9, 4.6, 2.3, 2.5, -1.2, 1.3, 4.1, 5.5, 0.7, -1.8, -2.1, -2.0, 2.7, 0.8, 5.7, 8.0, 8.6, 2.8, -4.0, -2.5, -2.5, -1.5, 1.2, 3.1, 5.8, 6.4, 3.4, 1.8, -5.2, -5.1, 3.9, 2.4, 1.6, -1.2, -3.0, -1.9, -5.3, -7.1, -4.2, -2.7, 4.3, 5.0, 0.8, -1.2, 2.5, 8.7, 9.4, 8.1, 8.3, 16.4, 20.0, 20.5, 16.4, 16.5, 20.7, 27.8, 22.0, 22.0, 17.0, 14.8, 13.8, 7.5, 1.2, -5.3, -3.7, -2.5, -12.0, -17.8, -16.2, -16.6, -9.4, -11.7, -10.0, -14.9, -12.4, -9.0, -14.8, -11.5, -4.7, 2.2, 4.0, 5.1, -1.9, -17.4, -16.2, -6.5, 1.5, 5.6, 21.0, 15.8, 14.2, 17.6, 28.4, 39.5, 42.7, 69.7, 70.7, 61.6, 52.7, 48.2, 35.3, 32.6, 26.9, 18.4, 8.1, -7.2, -12.1, -11.1, -14.6, -17.0, -23.5, -27.4, -22.0, -25.6, -25.5, -18.4, -21.2, -17.2, -9.8, -10.3, -6.7, -4.1, 4.3, 9.8, 3.3, 8.5, 7.8, 1.7, 8.7, 6.7, 7.3, 11.6, 6.0, 7.3, 5.6, 8.3, 3.3, 2.2, 8.1, 1.8, -4.7, -0.8, -1.9, -4.2, -7.6, -3.6, 6.8, 12.8, 20.3, 29.4, 44.6, 60.2, 67.7, 90.8, 115.8, 115.1, 145.2, 191.9, 189.5], "borderColor": "#d21f3c", "borderWidth": 1.5, "pointRadius": 0, "tension": 0.15}]});</script>
+
+<p>삼성전자와 코스피의 전년비 상관은 <b>0.821</b>이고 최적시차는 <b>0개월</b>입니다.
+거의 한 몸으로 움직입니다. 그런데도 거시지표와의 상관은 코스피 쪽이 더 높습니다 —
+<b>같이 움직이는 부분은 거시가 설명하고, 삼성전자가 따로 움직이는 부분은 설명이 안 됩니다.</b></p>
+
+<h2>지금은 어디인가</h2>
+
+<figure class="fig"><div class="tblwrap"><table class="tw">
+<thead><tr><th>잣대</th><th class="n">현재</th><th>읽는 법</th></tr></thead>
+<tbody>
+<tr class="cur"><td><b>스테이지</b></td><td class="n"><b>2단계 상승</b></td>
+<td>200일선이 아직 상승 중이고 가격이 그 위입니다. <b>−42.9% 폭락에도 아직 2단계인 이유</b>가 여기 있습니다</td></tr>
+<tr class="cur"><td><b>50일 이격도</b></td><td class="n"><b>87.6</b></td>
+<td>백분위 3.5% — 27년에서 <b>두 번째로 낮은</b> 자리. 이 구간의 12개월 성적은 +38.1%였습니다</td></tr>
+<tr><td>20주선 이격도</td><td class="n">101.9</td><td>중립. 20주선 바로 위입니다</td></tr>
+<tr><td>200일선 이격도</td><td class="n">135.9</td><td><b>여전히 한참 위</b>. 장기선 기준으로는 과열이 안 풀렸습니다</td></tr>
+<tr><td>거시(제오지산수)</td><td class="n">—</td><td>CLI 102.21·수출 +48.8%로 좋지만, 삼성전자에 대한 설명력은 코스피보다 낮습니다</td></tr>
+</tbody></table></div>
+<figcaption>2026-07-31 기준.</figcaption></figure>
+
+<div class="verdict">
+<p><b>세 잣대가 서로 다른 말을 합니다.</b></p>
+<p><b>단기 이격도는 극단적으로 눌렸다</b>고 하고(백분위 3.5%),
+<b>장기 이격도는 아직 안 풀렸다</b>고 하고(200일선 대비 135.9),
+<b>스테이지는 아직 2단계</b>라고 합니다.</p>
+<p>모순이 아니라 <b>급락이 짧아서</b> 생긴 그림입니다.
+41일 만에 −42.9%가 빠지면 50일선은 따라 내려오지만 200일선은 아직 못 따라옵니다.
+지금 판단이 갈리는 지점은 <b>200일선(193,163원)을 지키느냐</b>입니다.</p>
+</div>
+
+<h2>이 분석이 틀릴 수 있는 지점</h2>
+
+<p><b>하나. 겹치는 표본.</b> 향후수익률을 매일 계산해서 12개월치가 서로 겹칩니다.
+같은 사건을 250번 세는 셈이라 평균은 맞아도 <b>통계적 유의성은 크게 부풀려집니다.</b>
+"4단계가 +44.8%"는 사실상 <b>몇 번의 사이클 바닥</b>을 반복해서 센 결과입니다.</p>
+
+<p><b>둘. 27년은 반도체 사이클 몇 바퀴뿐입니다.</b>
+2000·2008·2018·2021·2026 — 다섯 번 정도입니다. 통계라기엔 적습니다.</p>
+
+<p><b>셋. 생존 편향.</b> 삼성전자는 27년을 살아남아 43배가 된 종목입니다.
+"4단계에서 사는 게 낫다"는 결론은 <b>망하지 않은 종목에서만</b> 성립합니다.
+같은 규칙을 아무 경기민감주에 적용하면 상장폐지를 만납니다.</p>
+
+<p><b>넷. 1997년 IMF 가 빠져 있습니다.</b> 2000년부터라 외환위기 구간이 없습니다.
+그 구간은 <a href="stage-analysis.html" style="color:var(--accent)">코스피 지수(1981~)</a>로 봐야 합니다.</p>
+
+<h2>출처</h2>
+<ol class="refs">
+<li>삼성전자 일별 종가 — Yahoo Finance <code>005930.KS</code>, 2000-01-04~2026-07-31, 6,644행.
+분할 조정 종가(2018-05-04 50:1 반영). yfinance 라이브러리로 수집.</li>
+<li>OECD, <i>Composite Leading Indicator, Normalized, Korea</i> — OECD SDMX
+<code>DSD_STES@DF_CLI,4.1</code>.
+<a href="https://www.oecd.org/en/data/indicators/composite-leading-indicator-cli.html" target="_blank" rel="noopener">지표 설명</a></li>
+<li>OECD, <i>Exports: Commodities for Korea</i> — FRED
+<a href="https://fred.stlouisfed.org/series/XTEXVA01KRM659S" target="_blank" rel="noopener">XTEXVA01KRM659S</a></li>
+<li>Federal Reserve, <i>Industrial Production: Total Index</i> — FRED
+<a href="https://fred.stlouisfed.org/series/INDPRO" target="_blank" rel="noopener">INDPRO</a></li>
+<li>OECD, <i>Share Prices for Korea</i> — FRED
+<a href="https://fred.stlouisfed.org/series/SPASTT01KRM661N" target="_blank" rel="noopener">SPASTT01KRM661N</a></li>
+<li>Stan Weinstein (1988), <i>Secrets for Profiting in Bull and Bear Markets</i>, McGraw-Hill —
+4단계론의 원전. 학술적 근거와 반박은
+<a href="stage-analysis.html" style="color:var(--accent)">스테이지 페이지</a>에 정리했습니다.</li>
+</ol>
+
+<div class="disclaimer">
+<p><b>데이터.</b> 원계열은 볼트 <code>_sources/종목별_일별시세/</code>에 보관하며
+계산은 <code>scripts/build_samsung_long.py</code>로 전부 재현됩니다.
+1980~90년대 데이터를 구하지 못한 경위는 <code>references/장기데이터_조달경로.md</code>에 남겼습니다.</p>
+<p><b>주의.</b> 과거 관계가 앞으로도 유지된다는 보장은 없습니다.
+특히 "4단계가 유리하다"는 결과는 겹치는 표본과 생존 편향에 기대고 있습니다.
+본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다.
+저는 투자 전문가가 아니며, 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.</p>
+</div>
+</div>
+<footer>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.
+    · 근거: 이야기꾼 주간 시투 보고서(W31·2026-08-01) 및 자체 실측.</footer>
+</div>
+<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
+
+<script>
+(function(){
+  var gs=document.querySelectorAll('.site-group');
+  gs.forEach(function(g){
+    var b=g.querySelector('button');
+    b.addEventListener('click',function(e){
+      e.stopPropagation();
+      var was=g.classList.contains('on');
+      gs.forEach(function(x){x.classList.remove('on')});
+      if(!was) g.classList.add('on');
+    });
+    g.addEventListener('mouseenter',function(){ if(window.matchMedia('(hover:hover)').matches){gs.forEach(function(x){x.classList.remove('on')}); g.classList.add('on');}});
+    g.addEventListener('mouseleave',function(){ if(window.matchMedia('(hover:hover)').matches) g.classList.remove('on');});
+  });
+  document.addEventListener('click',function(){gs.forEach(function(x){x.classList.remove('on')})});
+})();
+</script>
+
+<script>/* THEME:BEGIN */
+(function(){
+  var h=document.documentElement;
+  try{var v=localStorage.getItem('charlie-theme'); if(v){h.className=v;}}catch(e){}
+  window.__toggleTheme=function(){
+    var n=h.className==='theme-light'?'theme-dark':'theme-light';
+    h.className=n; try{localStorage.setItem('charlie-theme',n);}catch(e){}
+  };
+})();
+/* THEME:END */</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+(window.__SS||[]).forEach(function(c){
+  var el=document.getElementById(c.id); if(!el||!window.Chart) return;
+  var opt={responsive:true,maintainAspectRatio:false,
+    interaction:{mode:'index',intersect:false,axis:'x'},
+    plugins:{legend:{display:c.leg!==false,position:'bottom',
+        labels:{boxWidth:10,boxHeight:10,font:{size:11.5},usePointStyle:true}},
+      title:{display:true,align:'start',text:c.t,font:{size:13,weight:'500'}},
+      tooltip:{callbacks:{title:function(x){return (c.xp||'')+c.l[x[0].dataIndex];},
+        label:function(x){ if(x.parsed.y===null) return null;
+          return x.dataset.label+'  '+Number(x.parsed.y).toLocaleString(undefined,
+            {maximumFractionDigits:(c.dp===undefined?1:c.dp)})+(c.u||'');}}}},
+    scales:{y:{type:c.log?'logarithmic':'linear',position:'left',
+        grid:{color:'rgba(128,128,128,.15)'},title:{display:!!c.yt,text:c.yt||''},
+        suggestedMin:c.ymin,suggestedMax:c.ymax},
+      y1:{position:'right',grid:{display:false},
+          display:c.d.some(function(x){return x.yAxisID==='y1';}),title:{display:!!c.y1t,text:c.y1t||''}},
+      x:{grid:{display:false},ticks:{maxTicksLimit:c.xt||14}}}};
+  if(c.k==='bar'){opt.interaction={mode:'nearest',intersect:true};}
+  new Chart(el,{type:c.k||'line',data:{labels:c.l,datasets:c.d},options:opt});
+});
+</script></body></html>
