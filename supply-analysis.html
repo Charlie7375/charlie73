@@ -325,13 +325,13 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
 
 :root{
   /* 읽기 기둥. em이라 글자 크기를 키우면 폭도 같이 는다. */
-  --w-col:  clamp(18rem, 90vw, 58rem);
+  --w-col:  clamp(18rem, 93vw, 68rem);
   /* 표·차트가 삐져나올 수 있는 최대 폭 */
-  --w-wide: clamp(18rem, 96vw, 1500px);
+  --w-wide: clamp(18rem, 97vw, 1680px);
   --w-data: var(--w-wide);
   --w-prose: 100%;
   --rule: var(--border,#e3e3e6);
-  --gut: clamp(14px, 4vw, 30px);
+  --gut: clamp(12px, 3vw, 26px);
 }
 
 /* breakout이 스크롤바 폭만큼 넘칠 수 있다(100vw는 스크롤바를 포함한다).
@@ -377,12 +377,12 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   border-bottom:1px solid var(--rule)}
 .paper h2::before{content:counter(sec) ".  ";color:var(--text2,#6e6e73);
   font-variant-numeric:tabular-nums}
-.paper h3{
-  counter-increment:sub;margin:26px 0 9px;font-size:clamp(15.5px,1.9vw,16.5px);
+/* h3에는 번호를 붙이지 않는다.
+   ⚠ 2026-08-02: h2보다 h3가 먼저 나오는 페이지가 4장 있어 "0.1 탈락 하위 10"처럼
+     절 번호 0이 찍혔다. CSS 카운터는 "앞에 h2가 있었는지"를 조건으로 못 쓴다.
+     한 단계만 번호를 매기는 편이 안전하고, 읽기에도 충분하다. */
+.paper h3{margin:28px 0 10px;font-size:clamp(16px,2vw,17.5px);
   font-weight:700;letter-spacing:-.015em}
-.paper h3::before{content:counter(sec) "." counter(sub) "  ";
-  color:var(--text2,#6e6e73);font-weight:600;font-variant-numeric:tabular-nums}
-.paper .sec,.paper section,.paper .sec-head{counter-reset:sub}
 
 /* 예외 — 해설 박스·요약·표제부 안의 제목은 절이 아니다 */
 .paper .explain h2,.paper .ebody h2,.paper .hbody h2,.paper .verdict h2,
@@ -437,6 +437,44 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 /* 차트 */
 .paper .cbox{position:relative;height:clamp(240px,42vw,380px)}
+
+/* ── 박스 벗기기 ──
+   해설·요약·섹션을 감싸던 회색 상자와 파란 왼쪽 띠를 모두 걷어낸다.
+   구분은 **여백과 얇은 선**으로만 한다. 상자가 많으면 화면이 조각나 보이고,
+   좁은 폰에서는 상자 안쪽 여백까지 겹쳐 글 폭이 더 좁아진다. */
+.paper .sec,.paper .sec-head,.paper .explain,.paper .ebody,.paper .hbody,
+.paper .verdict,.paper .callout,.paper .lesson,.paper .note,.paper .fdetail,
+.paper .abstract,.paper .panel,.paper figure.tw,.paper figure.fig{
+  background:none!important;border:0!important;border-radius:0!important;
+  box-shadow:none!important;padding-left:0!important;padding-right:0!important}
+.paper .sec{padding-top:0!important;padding-bottom:0!important;margin:0 0 8px}
+.paper .explain,.paper .ebody,.paper .hbody,.paper .verdict,.paper .callout,
+.paper .lesson,.paper .fdetail{padding-top:0!important;padding-bottom:0!important;
+  margin:14px 0 22px}
+.paper .abstract{padding:0!important;margin:0 0 32px}
+.paper .abstract p{font-size:clamp(15.5px,1.9vw,17px)}
+/* 요약만 위아래 가는 선으로 구분 — 상자 대신 */
+.paper .abstract{border-top:1px solid var(--rule)!important;
+  border-bottom:1px solid var(--rule)!important;padding:18px 0!important}
+/* note 는 왼쪽 띠 대신 색만 옅게 */
+.paper p.note,.paper .note{padding-left:0!important;border-left:0!important;
+  color:var(--text2,#6e6e73)}
+.paper .disclaimer{border-top:1px solid var(--rule)!important}
+
+/* ── 제목류 가운데 정렬 ──
+   본문은 왼쪽 그대로 둔다. 문단까지 가운데로 놓으면 줄 시작점이 매줄 달라져
+   눈이 다음 줄을 못 찾는다. 제목·부제·표제만 가운데로 모은다. */
+.paper h1,.paper h2,.paper h3,.paper h4,
+.paper .eyebrow,.paper .sub,.paper .pauth,.paper .site-crumb,.paper .crumb,
+.paper .abstract h4,.paper figure>figcaption{text-align:center}
+.paper h2{margin-left:auto;margin-right:auto}
+.paper .sub,.paper .pauth{margin-left:auto;margin-right:auto}
+.paper .site-crumb,.paper .crumb{justify-content:center;display:flex;
+  flex-wrap:wrap;gap:4px}
+.wrap .phead{text-align:center}
+/* 표 안 제목은 가운데로 몰면 칸이 어긋난다 */
+.paper table th,.paper table td{text-align:left}
+.paper table th.n,.paper table td.n{text-align:right}
 
 /* 참고문헌 */
 .paper ol.refs{margin:10px 0 20px;padding-left:0;list-style:none;counter-reset:refitem}
