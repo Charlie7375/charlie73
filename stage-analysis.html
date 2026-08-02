@@ -222,11 +222,107 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
   html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
   html body .site-bar-in{padding:9px 14px 7px}
 }
-/* BAR:END */</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"></head><body>
+/* BAR:END *//* PAPER:BEGIN */
+/* ── 논문 판형 ──────────────────────────────────────────────
+   Khandani & Lo (MIT, 2007) 조판을 화면용으로 옮긴 것.
+   서체는 나눔고딕 유지 — 구조만 가져온다. */
+
+:root{
+  /* 화면이 커지면 본문도 넓어진다. 다만 무한정은 아니다(가독 한계 ~52rem). */
+  --w-prose: clamp(17rem, 63vw, 52rem);
+  --w-wide:  clamp(17rem, 94vw, 1500px);
+  --rule:    var(--border,#e3e3e6);
+  /* apply_layout.py 가 `.wrap{max-width:var(--w-data)!important}` 를 심어 뒀다.
+     !important라 여기서 이길 수 없으므로 **변수 쪽을 갈아끼운다.**
+     선택자 싸움을 하는 것보다 값을 바꾸는 쪽이 깨지지 않는다. */
+  --w-data:  clamp(17rem, 94vw, 1500px);
+}
+
+/* 제목부 — 논문 표제지 */
+.wrap .phead{margin:6px 0 26px;padding-bottom:20px;border-bottom:2px solid var(--text,#1d1d1f)}
+.wrap .phead h1{margin:6px 0 8px;letter-spacing:-.03em;line-height:1.22}
+.wrap .phead .pauth{margin:0;font-size:15px;color:var(--text2,#6e6e73);line-height:1.6;
+  max-width:var(--w-prose)}
+
+/* 요약(초록) — 본문보다 한 단 좁고 안쪽으로 들여쓴다 */
+.wrap .abstract{max-width:min(var(--w-prose),46rem);margin:0 0 34px;padding:20px 24px;
+  background:var(--surface,#fafafa);border:1px solid var(--rule);border-radius:4px}
+.wrap .abstract h4{margin:0 0 10px;font-size:12px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--text2,#6e6e73)}
+.wrap .abstract p{margin:0 0 10px;font-size:14.5px;line-height:1.82}
+.wrap .abstract p:last-child{margin-bottom:0}
+
+/* 절 번호 자동 매김 — 손으로 적으면 순서를 바꿀 때마다 어긋난다 */
+.paper{counter-reset:sec fig tbl}
+.paper section.s{counter-reset:sub;margin:0 0 42px}
+.paper section.s>h2{counter-increment:sec;margin:34px 0 14px;font-size:21px;font-weight:700;
+  letter-spacing:-.02em;padding-bottom:7px;border-bottom:1px solid var(--rule)}
+.paper section.s>h2::before{content:counter(sec) ".  ";color:var(--text2,#6e6e73);
+  font-variant-numeric:tabular-nums}
+.paper section.s h3{counter-increment:sub;margin:26px 0 9px;font-size:16.5px;font-weight:700;
+  letter-spacing:-.015em}
+.paper section.s h3::before{content:counter(sec) "." counter(sub) "  ";
+  color:var(--text2,#6e6e73);font-weight:600;font-variant-numeric:tabular-nums}
+
+/* 본문 — 한 단, 왼쪽 정렬. 논문처럼 문단 사이를 벌리지 않고 촘촘히 */
+.paper p{max-width:var(--w-prose);margin:0 0 13px;font-size:16.5px;line-height:1.85;
+  letter-spacing:-.004em}
+.paper p.note{font-size:15px;color:var(--text2,#6e6e73);padding-left:14px;
+  border-left:2px solid var(--rule);line-height:1.75}
+
+/* 그림·표 — 캡션에 번호를 자동으로 붙인다 */
+.paper figure{margin:22px 0 26px;max-width:var(--w-wide)}
+.paper figure svg{width:100%;height:auto;display:block}
+.paper figure>figcaption{margin-top:11px;font-size:13px;line-height:1.7;
+  color:var(--text2,#6e6e73);max-width:var(--w-prose)}
+.paper figure.fig{counter-increment:fig}
+.paper figure.fig>figcaption::before{content:"그림 " counter(fig) ".  ";
+  font-weight:700;color:var(--text,#1d1d1f)}
+.paper figure.tw{counter-increment:tbl}
+.paper figure.tw>figcaption{margin:0 0 9px}
+.paper figure.tw>figcaption::before{content:"표 " counter(tbl) ".  ";
+  font-weight:700;color:var(--text,#1d1d1f)}
+
+/* 표 — 가로줄만. 논문 조판(booktabs)의 핵심이다.
+   세로줄은 눈이 칸을 따라가는 흐름을 끊는다. */
+.paper table,.paper .tbl{width:100%;border-collapse:collapse;font-size:14.5px;
+  font-variant-numeric:tabular-nums}
+.paper table thead th{text-align:left;font-size:12.5px;font-weight:700;padding:8px 12px 7px;
+  border-top:1.6px solid var(--text,#1d1d1f);
+  border-bottom:1px solid var(--text,#1d1d1f);
+  background:transparent;color:var(--text,#1d1d1f);letter-spacing:.01em}
+.paper table tbody td{padding:8px 12px;border-bottom:1px solid var(--rule);
+  vertical-align:top;line-height:1.6}
+.paper table tbody tr:last-child td{border-bottom:1.6px solid var(--text,#1d1d1f)}
+.paper table th.n,.paper table td.n{text-align:right}
+.paper table tbody tr:hover{background:var(--surface,#fafafa)}
+
+/* 차트 상자 */
+.paper .cbox{position:relative;width:100%;height:360px}
+
+/* 맺음말·출처 */
+.paper .disclaimer{max-width:var(--w-prose);margin-top:38px;padding-top:16px;
+  border-top:1px solid var(--rule);font-size:13px;line-height:1.75;color:var(--text2,#6e6e73)}
+.paper .disclaimer p{font-size:13px;line-height:1.75;margin-bottom:9px}
+
+@media(max-width:760px){
+  .paper section.s>h2{font-size:19px}
+  .paper p{font-size:15.5px}
+  .paper .cbox{height:300px}
+  .paper figure{margin:18px 0 22px}
+}
+
+/* ── 기존 페이지에도 같은 폭 규칙을 적용 ──
+   .paper 마크업을 쓰지 않는 옛 페이지들이 있다. 폭만이라도 맞춰야
+   한 사이트처럼 보인다. 상단바·메뉴는 건드리지 않는다. */
+.wrap,.sec,.status,.foot-in{max-width:var(--w-wide)}
+.explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap,.sub{
+  max-width:var(--w-prose)}
+/* PAPER:END */</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"></head><body>
 <button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
-  <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피 & SK하이닉스 이격도</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a></div></div><div class="site-group"><button class="here" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a><a class="here" href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="ecopro.html">에코프로</a><a href="hanmi.html">한미반도체</a><a href="samsung-em.html">삼성전기 이격도</a></div></div><!-- NAV:END --></nav>
+  <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피 & SK하이닉스 이격도</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a></div></div><div class="site-group"><button class="here" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a><a class="here" href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="ecopro.html">에코프로</a><a href="hanmi.html">한미반도체</a><a href="samsung-em.html">삼성전기 이격도</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a></div></div><!-- NAV:END --></nav>
 </div></div>
 <div class="wrap">
 <div class="site-crumb"><a href="index.html">홈</a><span class="sep">›</span><span>아카이브</span><span class="sep">›</span><span class="cur">200일선과 와인스타인 스테이지</span></div>
