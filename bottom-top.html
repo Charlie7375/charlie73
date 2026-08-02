@@ -256,6 +256,10 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
   --gut: clamp(14px, 4vw, 30px);
 }
 
+/* breakout이 스크롤바 폭만큼 넘칠 수 있다(100vw는 스크롤바를 포함한다).
+   clip은 hidden과 달리 position:sticky 를 깨지 않는다. */
+html{overflow-x:clip}
+
 /* 본문 기둥 — 가운데. 제목·문단·목록이 모두 같은 왼쪽 선에서 시작한다. */
 html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   margin-right:auto!important;padding-left:var(--gut);padding-right:var(--gut);
