@@ -113,6 +113,32 @@ html.theme-dark .site-dd{box-shadow:0 18px 44px rgba(0,0,0,.55)}
   .site-group.on .site-dd{transform:translate(-50%,0)}
 }
 
+/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
+.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
+  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
+.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
+  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
+  background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+/* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END */
 /* ── 공통 기준일 배지 ── */
 .pbadge{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:2px 0 18px;
   font-size:.79rem;color:var(--text-secondary)}
@@ -122,6 +148,7 @@ html.theme-dark .site-dd{box-shadow:0 18px 44px rgba(0,0,0,.55)}
 .pb-weekly{color:#1d4ed8;background:color-mix(in srgb,#2563eb 13%,transparent)}
 .pb-fixed{color:#475569;background:color-mix(in srgb,#64748b 15%,transparent)}
 .pb-src{opacity:.72}
+.pb-note{opacity:.55;font-size:.74rem}
 .pb-old{font-size:.7rem;font-weight:800;padding:2px 8px;border-radius:999px;
   color:#b45309;background:color-mix(in srgb,#f59e0b 18%,transparent)}
 /* DESIGN:BEGIN */
@@ -231,40 +258,7 @@ html.theme-dark .card:hover{box-shadow:none!important}
   .wrap{padding-left:18px!important;padding-right:18px!important}
   .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
 }
-/* LAYOUT:END */
-/* 단독 내비 링크(방법론) — 옆의 드롭다운 버튼과 같은 모양으로 맞춘다 */
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text-secondary,var(--text2));
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-
-/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
-.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
-  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END *//* PAPER:BEGIN */
+/* LAYOUT:END *//* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -516,7 +510,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 <div class="wrap paper">
 <div class="site-crumb"><a href="index.html">홈</a><span class="sep">›</span><span>판단</span><span class="sep">›</span><span class="cur">반도체 정점 논쟁</span></div>
-<!-- STAMP:BEGIN --><div class="pbadge"><span class="pb-k pb-weekly">주 1회 갱신</span><span>기준일 <b>2026-08-03</b></span><span class="pb-src">시투 주간보고서 · 증권사 리포트</span></div><!-- STAMP:END -->
+<!-- STAMP:BEGIN --><div class="pbadge"><span class="pb-k pb-weekly">주 1회 갱신</span><span>기준일 <b>2026-08-01</b></span><span class="pb-src">시투 주간보고서 · 증권사 리포트</span><span class="pb-old">데이터 2일 뒤처짐</span></div><!-- STAMP:END -->
 <div class="eyebrow">찰리 판단 · Semiconductor Peak Debate</div>
 <h1>반도체 정점 논쟁</h1>
 <p class="sub">"반도체는 정점을 찍었는가." 시투 주간보고서와 KB 이그전 리포트가 나올 때마다 판단을 갱신하고, <b>바뀐 근거와 틀렸던 부분을 지우지 않고 누적</b>합니다. 결론보다 중요한 것은 <b>내가 틀릴 조건</b>입니다.</p>
