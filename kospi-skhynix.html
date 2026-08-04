@@ -562,7 +562,8 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 </div></div>
 <div class="wrap paper">
 <div class="phead">
-<div class="eyebrow">오늘의 시장 · KOSPI</div>
+
+<!-- STAMP:BEGIN --><div class="pbadge"><span class="pb-k pb-live">매일 갱신</span><span>기준일 <b>2026-08-04</b></span><span class="pb-src">코스피·하닉·삼전 일별시세</span></div><!-- STAMP:END --><div class="eyebrow">오늘의 시장 · KOSPI</div>
 <h1>코스피</h1>
 <p class="sub">지수를 <b>일반 종목처럼</b> 분석합니다 — 이격도, 바닥 7단계, 시장 수급, 그리고
 <b>개인 수급 사분면</b>. 삼성전자·SK하이닉스는 각자 페이지에서 다룹니다.</p>
@@ -591,9 +592,11 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 <figure class="fig"><div class="tblwrap"><table class="tw">
 <thead><tr><th>구간</th><th class="n">개인</th><th class="n">외국인</th><th class="n">기관</th></tr></thead>
-<tbody><tr><td>올해 전체</td><td class="n good">+151.8</td><td class="n bad">-182.0</td><td class="n good">+20.8</td></tr><tr><td>최근 60일</td><td class="n good">+133.9</td><td class="n bad">-148.9</td><td class="n good">+9.2</td></tr><tr><td>최근 20일</td><td class="n good">+8.7</td><td class="n bad">-5.6</td><td class="n bad">-4.6</td></tr><tr><td>최근 5일</td><td class="n bad">-6.7</td><td class="n good">+4.4</td><td class="n good">+1.8</td></tr></tbody></table></div>
+<tbody><tr><td><b>오늘 (2026-08-04)</b></td><td class="n good">+1.0</td><td class="n bad">-0.9</td><td class="n bad">-0.1</td></tr><tr><td>최근 5일</td><td class="n bad">-6.7</td><td class="n good">+4.4</td><td class="n good">+1.8</td></tr><tr><td>최근 20일</td><td class="n good">+8.7</td><td class="n bad">-5.6</td><td class="n bad">-4.6</td></tr><tr><td>최근 60일</td><td class="n good">+133.9</td><td class="n bad">-148.9</td><td class="n good">+9.2</td></tr><tr><td>올해 전체</td><td class="n good">+151.8</td><td class="n bad">-182.0</td><td class="n good">+20.8</td></tr></tbody></table></div>
 <figcaption>단위 <b>조원(근사)</b> — 코스피 전 종목의 «순매수 주수 × 그날 종가»를 합산한 값입니다.
 플러스가 순매수. 종목·주체별 상세는 <a href="supply.html">투자자 수급</a>.</figcaption></figure>
+
+<p class="note">오늘은 <b>개인</b>이 사고 <b>외국인 · 기관</b>이 팔았습니다. 큰손(외국인·기관)이 함께 파는 자리라 개인이 받고 있습니다 — <b>분배</b>의 모양입니다.</p>
 
 
 <h2 style="margin-top:44px">개인 수급 사분면 — 개인마저 던진 날은 언제인가</h2>
@@ -603,12 +606,12 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 개인의 습관은 왼쪽 위(<b>2사분면 — 떨어지면 산다</b>)에 찍힙니다.
 그래서 왼쪽 아래 <b>3사분면(떨어지는데 판다)</b>이 드물고, 나왔다면 그건
 습관이 부러진 날 — <b>투항(capitulation)</b>입니다.</p>
-<p>올해 142거래일 중 3사분면은 <b>3일</b>입니다 — 4/13(-0.9% · -0.4) · 7/29(-6.0% · -1.7) · 7/30(-1.2% · -0.6). 개인은 올해 내내 «떨어지면 사는» 쪽이었는데, 이 날들만 <b>개인마저 던졌습니다.</b> 강제청산(반대매매)과 투항이 겹치는 자리이고, 역사적으로 바닥은 이런 날들 «근처»에서 나왔습니다 — 다만 그날이 곧 바닥이라는 뜻은 아닙니다.</p>
+<p>올해 142거래일 중 3사분면은 <b>3일</b>입니다. 다만 그중 <b>규모까지 큰 날은 1일</b>입니다 — 나머지는 부호만 마이너스인 소액이라 신호로 보기 어렵습니다. 아래 날짜는 규모가 큰 쪽입니다. 7/29(-6.0% · -1.72). 개인은 올해 내내 «떨어지면 사는» 쪽이었는데, 이 날들만 <b>개인마저 던졌습니다.</b> 강제청산(반대매매)과 투항이 겹치는 자리이고, 역사적으로 바닥은 이런 날들 «근처»에서 나왔습니다 — 다만 그날이 곧 바닥이라는 뜻은 아닙니다.</p>
 </div>
 
 <figure class="fig"><div class="cbox" style="height:460px"><canvas id="quad"></canvas></div>
 <figcaption>2026년 전 거래일. 붉은 점 = 3사분면 · 주황 점 = 개인 대량 매매일 · 점선 = 추세선.
-개인 순매수(조원)는 «순매수 주수 × 종가» 환산 근사입니다.
+개인 순매수(조원)는 «순매수 주수 × 종가» 환산 근사입니다. <b>3사분면은 부호만 마이너스인 날을 빼려고 붉은 점은 3사분면 전부이고, 본문의 «규모가 큰 날»은 그 시장 일간 순매수 절대값의 중앙값을 넘는 날입니다.</b>
 착상 — KB증권 이그전의 「개인 수급과 코스피 등락률」. 데이터·계산은 자체.</figcaption></figure>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>

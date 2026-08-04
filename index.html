@@ -310,7 +310,32 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
   html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
   html body .site-bar-in{padding:9px 14px 7px}
 }
-/* BAR:END */</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
+/* BAR:END *//* WFCSS:BEGIN */
+/* ── 오늘의 수급 (watch_flow.py) ── */
+.wf{max-width:1080px;margin:0 auto 46px;padding:0 22px}
+.wf-head{font-size:.95rem;font-weight:800;margin-bottom:12px;display:flex;
+  align-items:baseline;gap:10px;flex-wrap:wrap}
+.wf-head b{font-variant-numeric:tabular-nums}
+.wf-sub{font-size:.74rem;font-weight:600;color:var(--text-secondary)}
+.wf-grid{display:grid;grid-template-columns:minmax(240px,.8fr) 1.6fr;gap:14px}
+@media(max-width:860px){.wf-grid{grid-template-columns:1fr}}
+.wf-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px 16px}
+.wf-t{font-size:.8rem;font-weight:800;color:var(--text-secondary);margin-bottom:8px}
+.wf-note{font-weight:600;opacity:.75}
+.wf-scroll{max-height:340px;overflow:auto}
+.wf-tbl{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+.wf-tbl th{font-size:11.5px;color:var(--text-secondary);text-align:left;font-weight:700;
+  padding:4px 6px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--surface)}
+.wf-tbl td{padding:5px 6px;border-bottom:1px solid var(--border)}
+.wf-tbl tr:last-child td{border-bottom:0}
+.wf-tbl .n{text-align:right;white-space:nowrap}
+.wf-tbl a{color:inherit;text-decoration:none;border-bottom:1px solid var(--border)}
+.wf-tbl .up{color:var(--up)}.wf-tbl .dn{color:var(--dn)}
+.wf-both{background:color-mix(in srgb,var(--up) 7%,transparent)}
+.wf-tag{font-size:10px;font-weight:800;padding:1px 6px;border-radius:999px;
+  background:color-mix(in srgb,var(--up) 16%,transparent);color:var(--up);vertical-align:1px}
+.wf-foot{font-size:12.5px;color:var(--text-secondary);margin-top:10px;line-height:1.7}
+/* WFCSS:END */</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
 
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
@@ -326,6 +351,31 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
   <div class="st-grid"><div class="st-c up"><div class="st-l">코스피</div><div class="st-v">6,359</div><div class="st-s">+1.62% · 이격도 82.5</div></div><div class="st-c up"><div class="st-l">코스닥</div><div class="st-v">780.7</div><div class="st-s">+5.88% · 08/04</div></div><div class="st-c up"><div class="st-l">수급 5일 · 외국인</div><div class="st-v">+4.3<span class="st-u">조</span></div><div class="st-s">개인 -6.7 · 기관 +1.8 (근사)</div></div><div class="st-c warn"><div class="st-l">코스피 바닥 7단계</div><div class="st-v">0<span class="st-u">/7단계</span></div><div class="st-s">투매 2회 확인</div></div><div class="st-c up"><div class="st-l">신고가 − 신저가</div><div class="st-v">+11</div><div class="st-s">신고가 76 · 신저가 65</div></div><div class="st-c warn"><div class="st-l">전조현상 점등</div><div class="st-v">14<span class="st-u">/28</span></div><div class="st-s">1급 8개 W31</div></div><div class="st-c"><div class="st-l">오디션 생존</div><div class="st-v">274<span class="st-u">/299</span></div><div class="st-s">92% · 기준일 07-29</div></div></div>
 </section>
 <!-- STATUS:END -->
+
+<!-- WATCHFLOW:BEGIN -->
+<section class="wf">
+  <div class="wf-head">오늘의 수급
+    <span class="wf-sub">단위 시장=조원 · 종목=억원 (근사) · 플러스가 순매수</span></div>
+  <div class="wf-grid">
+    <div class="wf-card">
+      <div class="wf-t">시장 전체 <span class="wf-note">2026-07-31</span></div>
+      <table class="wf-tbl"><thead><tr><th>시장</th><th class="n">개인</th>
+        <th class="n">외국인</th><th class="n">기관</th></tr></thead>
+        <tbody><tr><td><b>코스피</b></td><td class="n dn">-10.57</td><td class="n up">+9.15</td><td class="n up">+1.06</td></tr><tr><td><b>코스닥</b></td><td class="n dn">-0.05</td><td class="n up">+0.03</td><td class="n up">+0.02</td></tr></tbody></table>
+    </div>
+    <div class="wf-card">
+      <div class="wf-t">관심종목 · 오늘의 시장 <span class="wf-note">2026-08-04 · 외인·기관 쌍끌이 3종목</span></div>
+      <div class="wf-scroll"><table class="wf-tbl"><thead><tr><th>종목</th><th class="n">종가</th>
+        <th class="n">등락</th><th class="n">개인</th><th class="n">외국인</th><th class="n">기관</th>
+        </tr></thead><tbody><tr class="wf-both"><td><a href="stock-lig-defense.html">LIG디펜스앤에어로스페이스</a> <span class="wf-tag">쌍끌이</span></td><td class="n">793,000</td><td class="n up">+13.45%</td><td class="n dn">-281</td><td class="n up">+231</td><td class="n up">+51</td></tr><tr class="wf-both"><td><a href="stock-samyang.html">삼양식품</a> <span class="wf-tag">쌍끌이</span></td><td class="n">1,210,000</td><td class="n up">+5.13%</td><td class="n dn">-206</td><td class="n up">+15</td><td class="n up">+228</td></tr><tr class="wf-both"><td><a href="stock-doosan-enerbility.html">두산에너빌리티</a> <span class="wf-tag">쌍끌이</span></td><td class="n">72,900</td><td class="n up">+7.68%</td><td class="n dn">-21</td><td class="n up">+11</td><td class="n up">+10</td></tr><tr><td><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a></td><td class="n">713,000</td><td class="n up">+5.94%</td><td class="n dn">-65</td><td class="n up">+89</td><td class="n dn">-24</td></tr><tr><td><a href="stock-sk-telecom.html">SK텔레콤</a></td><td class="n">91,600</td><td class="n up">+11.71%</td><td class="n dn">-19</td><td class="n dn">-34</td><td class="n up">+52</td></tr><tr><td><a href="stock-apr.html">에이피알</a></td><td class="n">358,000</td><td class="n up">+5.92%</td><td class="n dn">-5</td><td class="n dn">-64</td><td class="n up">+70</td></tr><tr><td><a href="stock-hive.html">하이브</a></td><td class="n">180,700</td><td class="n up">+3.67%</td><td class="n dn">-5</td><td class="n dn">-6</td><td class="n up">+11</td></tr><tr><td><a href="stock-wonik-ips.html">원익IPS</a></td><td class="n">96,500</td><td class="n up">+2.99%</td><td class="n up">+1</td><td class="n dn">-6</td><td class="n up">+5</td></tr><tr><td><a href="stock-hanmi-semi.html">한미반도체</a></td><td class="n">203,500</td><td class="n up">+0.49%</td><td class="n up">+76</td><td class="n dn">-77</td><td class="n up">+0</td></tr><tr><td><a href="stock-hyundai-motor.html">현대차</a></td><td class="n">392,000</td><td class="n dn">-0.25%</td><td class="n up">+116</td><td class="n dn">-50</td><td class="n dn">-63</td></tr><tr><td><a href="stock-samsung.html">삼성전자</a></td><td class="n">240,500</td><td class="n up">+0.42%</td><td class="n up">+1658</td><td class="n up">+487</td><td class="n dn">-2232</td></tr><tr><td><a href="stock-skhynix.html">SK하이닉스</a></td><td class="n">1,588,000</td><td class="n up">+1.34%</td><td class="n up">+9040</td><td class="n dn">-10092</td><td class="n up">+492</td></tr></tbody></table></div>
+    </div>
+  </div>
+  <div class="wf-foot">수급 원자료는 KB증권(IVU10430)이며 주식 수를 종가로 환산한 근사값입니다.
+    전종목 합산(시장 전체)은 공표가 늦어 관심종목보다 하루이틀 앞선 날짜입니다 — 각 표에 기준일을 적었습니다. <b>외국인·기관이 함께 사는 «쌍끌이»</b>가 이야기꾼 매수 5원칙 ④가 보는 자리입니다 —
+    자세한 것은 <a href="supply.html">투자자 수급</a>과 각 종목 페이지에 있습니다.</div>
+</section>
+<!-- WATCHFLOW:END -->
+
 
 
 <section class="sec" id="today">

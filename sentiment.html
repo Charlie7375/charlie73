@@ -307,7 +307,26 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
   html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
   html body .site-bar-in{padding:9px 14px 7px}
 }
-/* BAR:END *//* PAPER:BEGIN */
+/* BAR:END */</style>
+<style>
+.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:10px;margin:22px 0 6px}
+.kcard{border:1px solid var(--line,#e5e5ea);border-radius:12px;padding:12px 14px;
+  background:var(--card,#fff)}
+.kcard .kn{font-size:11.5px;color:var(--text3,#86868b);letter-spacing:.01em}
+.kcard .kv{font-size:21px;font-weight:650;margin:3px 0 1px;letter-spacing:-.02em;
+  font-variant-numeric:tabular-nums}
+.kcard .ks{font-size:12px;color:var(--text2,#6e6e73);font-variant-numeric:tabular-nums}
+.kcard.up .ks{color:#d21f3c}.kcard.dn .ks{color:#1161c4}
+.paper table.tw td.dim,.paper .dim{color:var(--text3,#86868b);font-size:11.5px;font-weight:400}
+.paper table.tw tr.cur{background:color-mix(in srgb,#b45309 8%,transparent)}
+.paper table.tw td.bad{color:#b91c1c}
+.paper ul.cond li{margin:7px 0}
+.paper .callout{border:1px solid var(--line,#e5e5ea);border-left:3px solid #9ca3af;
+  border-radius:8px;padding:13px 16px;margin:20px 0;background:var(--card2,#fafafa)}
+.paper .callout.warn{border-left-color:#b91c1c}
+.paper .callout.ok{border-left-color:#047857}
+.paper .src-note{font-size:12.5px;color:var(--text3,#86868b);margin-top:16px}
+/* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -555,27 +574,8 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap">
-<style>
-.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:10px;margin:22px 0 6px}
-.kcard{border:1px solid var(--line,#e5e5ea);border-radius:12px;padding:12px 14px;
-  background:var(--card,#fff)}
-.kcard .kn{font-size:11.5px;color:var(--text3,#86868b);letter-spacing:.01em}
-.kcard .kv{font-size:21px;font-weight:650;margin:3px 0 1px;letter-spacing:-.02em;
-  font-variant-numeric:tabular-nums}
-.kcard .ks{font-size:12px;color:var(--text2,#6e6e73);font-variant-numeric:tabular-nums}
-.kcard.up .ks{color:#d21f3c}.kcard.dn .ks{color:#1161c4}
-.paper table.tw td.dim,.paper .dim{color:var(--text3,#86868b);font-size:11.5px;font-weight:400}
-.paper table.tw tr.cur{background:color-mix(in srgb,#b45309 8%,transparent)}
-.paper table.tw td.bad{color:#b91c1c}
-.paper ul.cond li{margin:7px 0}
-.paper .callout{border:1px solid var(--line,#e5e5ea);border-left:3px solid #9ca3af;
-  border-radius:8px;padding:13px 16px;margin:20px 0;background:var(--card2,#fafafa)}
-.paper .callout.warn{border-left-color:#b91c1c}
-.paper .callout.ok{border-left-color:#047857}
-.paper .src-note{font-size:12.5px;color:var(--text3,#86868b);margin-top:16px}
-</style>
-<!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><style id="arcv2">
+/* PAPER:END */</style>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><style id="arcv2">
 /* ═ 아카이브 스타일 v2 — 스테이지·닷컴·이격도 3편과 판형 통일 · restyle_archive.py 가 관리 ═ */
 /* 종이 카드 제거 */
 .wrap.paper{background:transparent!important;box-shadow:none!important;border:0!important;
@@ -644,7 +644,8 @@ ul.cond{background:var(--surface);border:1px solid var(--border);border-radius:1
 </div></div>
 <div class="wrap paper">
 <div class="phead">
-<div class="eyebrow">찰리 아카이브 · 투자심리</div>
+
+<!-- STAMP:BEGIN --><div class="pbadge"><span class="pb-k pb-fixed">고정 자료</span><span class="pb-note">시장 데이터로 갱신되지 않습니다</span></div><!-- STAMP:END --><div class="eyebrow">찰리 아카이브 · 투자심리</div>
 <h1>빚과 현금과 강제청산</h1>
 <p class="sub">빚 · 현금 · 강제청산. 이 셋을 코스피·코스닥과 나란히 놓고
 <b>28년 전부</b>를 세어 봤습니다. 통념 셋이 무너졌습니다 —
