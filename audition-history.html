@@ -103,7 +103,69 @@ footer{margin-top:48px;border-top:1px solid var(--border);padding-top:22px;color
 .site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
   background:color-mix(in srgb,var(--text) 6%,transparent)}
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-</style><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
+</style><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><style id="arcv2">
+/* ═ 아카이브 스타일 v2 — 스테이지·닷컴·이격도 3편과 판형 통일 · restyle_archive.py 가 관리 ═ */
+/* 종이 카드 제거 */
+.wrap.paper{background:transparent!important;box-shadow:none!important;border:0!important;
+  border-radius:0!important;max-width:var(--w-col,1040px)!important}
+/* 머리 — 전부 가운데 */
+.phead{border-bottom:0!important;text-align:center!important;padding:30px 0 6px!important}
+.phead .eyebrow,.wrap>.eyebrow{display:block;text-align:center!important;letter-spacing:.18em}
+.phead h1,.wrap h1{font-weight:800!important;font-size:clamp(2.02rem,4vw,2.7rem)!important;
+  letter-spacing:-.035em!important;line-height:1.13!important;text-wrap:balance;
+  text-align:center!important;margin:10px auto 4px!important}
+.phead .deck{border-left:0!important;padding:0!important;margin:12px auto 0!important;
+  max-width:44em;font-size:1.1rem!important;font-weight:700!important;
+  color:var(--accent)!important;text-align:center!important;text-wrap:balance}
+.phead .sub,.wrap>.sub{display:block;margin:16px auto 0!important;max-width:var(--w-prose,50em);
+  text-align:center!important;color:var(--text-secondary)!important}
+.phead .pauth,.pauth,.upd{border-bottom:0!important;text-align:center!important;
+  color:var(--text-secondary)!important;font-size:13.5px!important;
+  padding-bottom:0!important;margin:14px auto 0!important}
+.site-crumb{justify-content:center;text-align:center}
+/* 소제목 — 가운데 + 악센트 밑줄 */
+.wrap h2{text-align:center!important;font-weight:800!important;
+  font-size:clamp(1.28rem,2.3vw,1.58rem)!important;letter-spacing:-.025em!important;
+  margin:62px auto 18px!important;text-wrap:balance;max-width:none!important}
+.wrap h2::after{content:'';display:block;width:46px;height:3px;border-radius:2px;
+  background:var(--accent);margin:12px auto 0}
+.wrap h3{text-align:center!important;font-weight:700!important;font-size:1.07rem!important;
+  margin:34px auto 12px!important;text-wrap:balance}
+/* 요약 카드 (verdict 문법) */
+.abstract{background:var(--surface)!important;border:1px solid var(--border)!important;
+  border-radius:16px!important;padding:22px 26px!important;margin:26px auto!important;
+  box-shadow:none!important}
+.abstract h4{display:none}
+/* 콜아웃 (explain 문법) */
+.callout{background:var(--surface)!important;border:1px solid var(--border)!important;
+  border-left:4px solid var(--accent)!important;border-radius:12px!important}
+.callout.warn{border-left-color:#d97706!important}
+.callout.bad{border-left-color:#dc2626!important}
+/* 차트 카드 */
+.fig .cbox,.cbox{background:var(--surface);border:1px solid var(--border);
+  border-radius:14px;padding:16px 14px 10px}
+figcaption{font-size:13.5px!important;color:var(--text-secondary)!important;
+  line-height:1.7!important;margin-top:10px!important}
+/* 표 카드 */
+.tblwrap{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:4px 14px}
+.tblwrap table th{border-bottom:1px solid var(--border)!important;
+  color:var(--text-secondary)!important;font-weight:600!important;font-size:12px!important}
+.tblwrap table td{border-bottom:1px solid var(--border)!important}
+.tblwrap table tr:last-child td{border-bottom:0!important}
+figure.tw{background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:10px 16px;margin:22px 0}
+figure.tw table th{border-bottom:1px solid var(--border);color:var(--text-secondary);
+  font-weight:600;font-size:12px}
+figure.tw table td{border-bottom:1px solid var(--border)}
+figure.tw table tr:last-child td{border-bottom:0}
+/* 인용·반증 조건·출처 */
+.wrap blockquote{background:var(--surface)!important;border:1px solid var(--border)!important;
+  border-left:3px solid var(--accent)!important;border-radius:0 12px 12px 0!important}
+ul.cond{background:var(--surface);border:1px solid var(--border);border-radius:12px;
+  padding:18px 24px 18px 42px}
+.src-note{border-top:1px solid var(--border)!important;color:var(--text-secondary)!important}
+</style>
+</head><body>
 <button class="toggle" onclick="var h=document.documentElement;h.className=h.className==='theme-light'?'theme-dark':'theme-light'">&#9728;</button>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종</a>

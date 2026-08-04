@@ -555,7 +555,69 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
+/* PAPER:END */</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><style id="arcv2">
+/* ═ 아카이브 스타일 v2 — 스테이지·닷컴·이격도 3편과 판형 통일 · restyle_archive.py 가 관리 ═ */
+/* 종이 카드 제거 */
+.wrap.paper{background:transparent!important;box-shadow:none!important;border:0!important;
+  border-radius:0!important;max-width:var(--w-col,1040px)!important}
+/* 머리 — 전부 가운데 */
+.phead{border-bottom:0!important;text-align:center!important;padding:30px 0 6px!important}
+.phead .eyebrow,.wrap>.eyebrow{display:block;text-align:center!important;letter-spacing:.18em}
+.phead h1,.wrap h1{font-weight:800!important;font-size:clamp(2.02rem,4vw,2.7rem)!important;
+  letter-spacing:-.035em!important;line-height:1.13!important;text-wrap:balance;
+  text-align:center!important;margin:10px auto 4px!important}
+.phead .deck{border-left:0!important;padding:0!important;margin:12px auto 0!important;
+  max-width:44em;font-size:1.1rem!important;font-weight:700!important;
+  color:var(--accent)!important;text-align:center!important;text-wrap:balance}
+.phead .sub,.wrap>.sub{display:block;margin:16px auto 0!important;max-width:var(--w-prose,50em);
+  text-align:center!important;color:var(--text-secondary)!important}
+.phead .pauth,.pauth,.upd{border-bottom:0!important;text-align:center!important;
+  color:var(--text-secondary)!important;font-size:13.5px!important;
+  padding-bottom:0!important;margin:14px auto 0!important}
+.site-crumb{justify-content:center;text-align:center}
+/* 소제목 — 가운데 + 악센트 밑줄 */
+.wrap h2{text-align:center!important;font-weight:800!important;
+  font-size:clamp(1.28rem,2.3vw,1.58rem)!important;letter-spacing:-.025em!important;
+  margin:62px auto 18px!important;text-wrap:balance;max-width:none!important}
+.wrap h2::after{content:'';display:block;width:46px;height:3px;border-radius:2px;
+  background:var(--accent);margin:12px auto 0}
+.wrap h3{text-align:center!important;font-weight:700!important;font-size:1.07rem!important;
+  margin:34px auto 12px!important;text-wrap:balance}
+/* 요약 카드 (verdict 문법) */
+.abstract{background:var(--surface)!important;border:1px solid var(--border)!important;
+  border-radius:16px!important;padding:22px 26px!important;margin:26px auto!important;
+  box-shadow:none!important}
+.abstract h4{display:none}
+/* 콜아웃 (explain 문법) */
+.callout{background:var(--surface)!important;border:1px solid var(--border)!important;
+  border-left:4px solid var(--accent)!important;border-radius:12px!important}
+.callout.warn{border-left-color:#d97706!important}
+.callout.bad{border-left-color:#dc2626!important}
+/* 차트 카드 */
+.fig .cbox,.cbox{background:var(--surface);border:1px solid var(--border);
+  border-radius:14px;padding:16px 14px 10px}
+figcaption{font-size:13.5px!important;color:var(--text-secondary)!important;
+  line-height:1.7!important;margin-top:10px!important}
+/* 표 카드 */
+.tblwrap{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:4px 14px}
+.tblwrap table th{border-bottom:1px solid var(--border)!important;
+  color:var(--text-secondary)!important;font-weight:600!important;font-size:12px!important}
+.tblwrap table td{border-bottom:1px solid var(--border)!important}
+.tblwrap table tr:last-child td{border-bottom:0!important}
+figure.tw{background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:10px 16px;margin:22px 0}
+figure.tw table th{border-bottom:1px solid var(--border);color:var(--text-secondary);
+  font-weight:600;font-size:12px}
+figure.tw table td{border-bottom:1px solid var(--border)}
+figure.tw table tr:last-child td{border-bottom:0}
+/* 인용·반증 조건·출처 */
+.wrap blockquote{background:var(--surface)!important;border:1px solid var(--border)!important;
+  border-left:3px solid var(--accent)!important;border-radius:0 12px 12px 0!important}
+ul.cond{background:var(--surface);border:1px solid var(--border);border-radius:12px;
+  padding:18px 24px 18px 42px}
+.src-note{border-top:1px solid var(--border)!important;color:var(--text-secondary)!important}
+</style>
+</head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피 이격도</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="here" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a class="here" href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><!-- NAV:END --></nav>
