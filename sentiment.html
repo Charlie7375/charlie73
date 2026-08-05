@@ -107,7 +107,7 @@ h2.sec{font-size:1.25rem;font-weight:700;margin-top:44px;letter-spacing:-.02em}
 .explain b{color:var(--text)} .explain p+p{margin-top:11px}
 .f{font-family:ui-monospace,Menlo,monospace;background:color-mix(in srgb,var(--accent) 10%,transparent);padding:2px 7px;border-radius:5px;font-size:.9em;color:var(--text)}
 footer{margin-top:48px;border-top:1px solid var(--border);padding-top:22px;color:var(--text-secondary);font-size:.82rem;line-height:1.7}
-.toggle{position:fixed;top:18px;right:18px;width:42px;height:42px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:18px}
+.toggle{top:62px;z-index:88;position:fixed;right:18px;width:42px;height:42px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:18px}
 @media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}h1{font-size:2.05rem}}
 
 .bg{display:inline-block;min-width:44px;text-align:center;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:800;color:#fff}
@@ -366,7 +366,7 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
 .callout.warn{border-left-color:#d97706!important}
 .callout.bad{border-left-color:#dc2626!important}
 /* 차트 카드 */
-.fig .cbox,.cbox{background:var(--surface);border:1px solid var(--border);
+.fig .cbox,.cbox{position:relative;height:clamp(240px,42vw,380px);background:var(--surface);border:1px solid var(--border);
   border-radius:14px;padding:16px 14px 10px}
 figcaption{font-size:13.5px!important;color:var(--text-secondary)!important;
   line-height:1.7!important;margin-top:10px!important}

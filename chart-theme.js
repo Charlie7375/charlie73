@@ -1,14 +1,22 @@
 /* 차트 공통 그림체 — 흰 바탕 FT · 검은 바탕 블룸버그 단말.
    생성: scripts/chart_theme.py · 이 파일이 그림체의 유일한 원본이다.
 
-   ⚠ 반드시 «차트가 다 만들어진 뒤에» 돈다. 생성 과정에 끼어들지 않는다.
-     끼어들었다가 전 페이지 차트를 날린 적이 있다(2026-08-05).
-     여기서 예외가 나도 차트는 이미 화면에 있다.
+   ⚠ 이 파일은 **chart.umd.js 바로 뒤**에 실려야 한다.
+     차트를 만드는 인라인 스크립트보다 앞이어야 생성자를 감쌀 수 있다.
 
-   손볼 때 여기만 고치면 된다 — 페이지 재생성은 필요 없다.
-   다만 고친 뒤엔 chart_theme.py 를 다시 돌려야 `?v=` 해시가 갱신된다(캐시). */
+   왜 생성자를 감싸나 — 두 번 틀리고 알아낸 것(2026-08-05)
+     · beforeInit 에서 해석된 options 를 고쳤다 → 전 페이지 차트가 사라졌다
+     · 다 그린 뒤 chart.options 를 고쳤다 → 아무것도 안 바뀌었다.
+       Chart.js 4 의 chart.options 는 해석이 끝난 프록시라 update() 때 버려진다.
+       게다가 프록시에 쓰다 내부가 꼬여 «Recursion detected» 로 마우스오버까지 죽었다.
+     · 지금 — 페이지가 넘기는 «날것» 설정을 Chart 가 보기 전에 고친다.
+       프록시가 아직 없으니 꼬일 것이 없다. 실패하면 원래 설정 그대로 넘긴다.
+
+   손볼 때 여기만 고치면 된다. 고친 뒤엔 chart_theme.py 를 다시 돌려라(`?v=` 갱신). */
 (function(){
 'use strict';
+var _C = window.Chart;
+if (!_C || _C.__ct) return;          /* Chart.js 가 아직 없거나 이미 감쌌으면 그만 */
 
 /* 한 팔레트로 두 배경을 못 덮는다.
    앰버 #FFA726 은 흰 배경 대비 1.94 — 형광펜을 칠한 꼴이 된다. */
@@ -53,8 +61,65 @@ function isBase(d){
   return true;
 }
 
+/* ── 날것 설정 고치기 ─ Chart 가 보기 전에. 여러 번 돌려도 같은 결과가 되게 한다 ── */
+function tweak(cfg){
+  var P = pal(), o = cfg.options = cfg.options || {};
+  o.plugins = o.plugins || {};
+  o.plugins.legend = Object.assign({}, o.plugins.legend, {display:false});
+  o.plugins.tooltip = Object.assign({}, o.plugins.tooltip, {
+    enabled:true, mode:'index', intersect:false,
+    backgroundColor: dark() ? 'rgba(14,17,22,.97)' : 'rgba(255,255,255,.97)',
+    titleColor: ink(), bodyColor: ink(),
+    borderColor: dark() ? 'rgba(255,255,255,.14)' : 'rgba(15,23,42,.12)',
+    borderWidth:1, cornerRadius:10, padding:11,
+    usePointStyle:true, boxWidth:8, boxHeight:8, boxPadding:6,
+    titleFont:{size:12, weight:'600'}, bodyFont:{size:12.5}
+  });
+  o.interaction = {mode:'index', intersect:false};
+
+  o.scales = o.scales || {};
+  Object.keys(o.scales).forEach(function(k){
+    var s = o.scales[k] = Object.assign({}, o.scales[k]);
+    s.border = {display:false};                                  /* 축 테두리 제거 */
+    s.grid = Object.assign({}, s.grid, {color:grid(), drawTicks:false, lineWidth:1});
+    if (/^x/.test(k)) s.grid.display = false;                    /* 세로 격자 없음 */
+    s.ticks = Object.assign({}, s.ticks, {color:dim(), padding:8, font:{size:11.5}});
+    if (/^y/.test(k) && s.ticks.maxTicksLimit === undefined) s.ticks.maxTicksLimit = 5;
+  });
+
+  var bar0 = (cfg.type === 'bar');
+  ((cfg.data && cfg.data.datasets) || []).forEach(function(d, i){
+    if (d.__c0 === undefined) d.__c0 = d.borderColor;   /* 원래 색을 한 번만 보관 */
+    if (isBase(d)) { d.borderColor = base(); d.borderWidth = 1; d.pointRadius = 0; return; }
+    if (typeof d.__c0 === 'string') d.borderColor = P[i % P.length];
+    if (bar0 || d.type === 'bar') {
+      if (typeof d.backgroundColor === 'string') d.backgroundColor = P[i % P.length];
+      d.borderRadius = 4; d.borderSkipped = false;
+    } else {
+      d.borderWidth = 2; d.pointRadius = 0;
+      d.pointHoverRadius = 4; d.pointHitRadius = 10;
+      if (d.tension === undefined) d.tension = .28;
+    }
+  });
+}
+
+/* ── 생성자 감싸기 ── */
+var LIVE = [];
+function Wrapped(item, cfg){
+  try { tweak(cfg); } catch(e) { /* 실패해도 원래 설정 그대로 만든다 */ }
+  var c = new _C(item, cfg);
+  try { LIVE.push({c:c, cfg:cfg}); } catch(e) {}
+  return c;
+}
+Object.setPrototypeOf(Wrapped, _C);
+Object.assign(Wrapped, _C);
+Wrapped.prototype = _C.prototype;
+Wrapped.__ct = 1;
+window.Chart = Wrapped;
+
 /* ① 선 끝에 마지막 값 ─ 축 눈금을 눈으로 세지 않게 한다 */
-var endlabel = {
+try{
+_C.register({
   id: 'charttheme-endlabel',
   afterDatasetsDraw: function(ch){
     try{
@@ -95,7 +160,8 @@ var endlabel = {
       cx.restore();
     }catch(e){}
   }
-};
+});
+}catch(e){}
 
 /* ② 차트 위 «지금 값» 타일 ─ 큰 숫자로 한눈에. 범례 노릇도 겸한다. */
 function tiles(ch){
@@ -103,7 +169,7 @@ function tiles(ch){
     var box = ch.canvas.parentNode;
     if (!box) return;
     var prev = box.previousElementSibling;
-    if (prev && prev.classList.contains('ct-now')) prev.remove();  /* 테마 바뀌면 다시 */
+    if (prev && prev.classList.contains('ct-now')) prev.remove();   /* 테마 바뀌면 다시 */
 
     var items = [];
     (ch.data.datasets || []).forEach(function(d, i){
@@ -143,69 +209,29 @@ function tiles(ch){
   }catch(e){}
 }
 
-/* ③ 축·격자·선·툴팁 ─ 걷어내는 쪽으로만 */
-function restyle(ch){
-  var P = pal(), o = ch.options;
-  o.plugins = o.plugins || {};
-  o.plugins.legend = o.plugins.legend || {};
-  o.plugins.legend.display = false;              /* 위 타일이 범례 노릇을 한다 */
+function paint(){ LIVE.forEach(function(e){ tiles(e.c); }); }
 
-  var T = o.plugins.tooltip = o.plugins.tooltip || {};
-  T.enabled = true;
-  T.mode = 'index'; T.intersect = false;
-  T.backgroundColor = dark() ? 'rgba(14,17,22,.97)' : 'rgba(255,255,255,.97)';
-  T.titleColor = ink(); T.bodyColor = ink();
-  T.borderColor = dark() ? 'rgba(255,255,255,.14)' : 'rgba(15,23,42,.12)';
-  T.borderWidth = 1; T.cornerRadius = 10; T.padding = 11;
-  T.usePointStyle = true; T.boxWidth = 8; T.boxHeight = 8; T.boxPadding = 6;
-  T.titleFont = {size:12, weight:'600'}; T.bodyFont = {size:12.5};
-  o.interaction = {mode:'index', intersect:false};
-
-  Object.keys(o.scales || {}).forEach(function(k){
-    var s = o.scales[k];
-    s.border = {display:false};                                  /* 축 테두리 제거 */
-    s.grid = s.grid || {};
-    s.grid.color = grid(); s.grid.drawTicks = false; s.grid.lineWidth = 1;
-    if (/^x/.test(k) || s.axis === 'x') s.grid.display = false;   /* 세로 격자 없음 */
-    s.ticks = s.ticks || {};
-    s.ticks.color = dim(); s.ticks.padding = 8; s.ticks.font = {size:11.5};
-    if (/^y/.test(k) || s.axis === 'y') s.ticks.maxTicksLimit = 5;
+/* 테마를 바꾸면 팔레트가 통째로 갈린다.
+   만들어진 차트의 옵션은 못 고친다(프록시) — 그래서 **다시 만든다.**
+   날것 설정을 들고 있으니 가능하다. */
+var t0 = null;
+function repaint(){
+  LIVE.forEach(function(e){
+    try{
+      var cv = e.c.canvas;
+      e.c.destroy();
+      tweak(e.cfg);
+      e.c = new _C(cv, e.cfg);
+    }catch(err){}
   });
-
-  (ch.data.datasets || []).forEach(function(d, i){
-    if (isBase(d)) { d.borderColor = base(); d.borderWidth = 1; d.pointRadius = 0; return; }
-    if (d.__slot === undefined) d.__slot = i;     /* 색은 계열에 붙는다. 순서가 아니라 */
-    if (typeof d.borderColor === 'string') d.borderColor = P[d.__slot % P.length];
-    var bar = (d.type === 'bar') || (ch.config.type === 'bar');
-    if (bar) {
-      if (typeof d.backgroundColor === 'string') d.backgroundColor = P[d.__slot % P.length];
-      d.borderRadius = 4; d.borderSkipped = false;
-    } else {
-      d.borderWidth = 2; d.pointRadius = 0;
-      d.pointHoverRadius = 4; d.pointHitRadius = 10;
-      if (d.tension === undefined) d.tension = .28;
-    }
-  });
+  paint();
 }
-
-function run(){
-  if (!window.Chart) return;
-  try { Chart.register(endlabel); } catch(e){}
-  document.querySelectorAll('canvas').forEach(function(cv){
-    var ch;
-    try { ch = Chart.getChart(cv); } catch(e){ return; }
-    if (!ch) return;
-    try { restyle(ch); ch.update('none'); } catch(e){}
-    try { tiles(ch); } catch(e){}
-  });
-}
-
-/* 테마 버튼을 누르면 팔레트가 통째로 갈린다 — 다시 칠한다 */
 try{
-  new MutationObserver(function(){ setTimeout(run, 40); })
-    .observe(document.documentElement, {attributes:true, attributeFilter:['class']});
+  new MutationObserver(function(){
+    clearTimeout(t0); t0 = setTimeout(repaint, 60);
+  }).observe(document.documentElement, {attributes:true, attributeFilter:['class']});
 }catch(e){}
 
-if (document.readyState === 'complete') setTimeout(run, 150);
-else window.addEventListener('load', function(){ setTimeout(run, 150); });
+if (document.readyState === 'complete') setTimeout(paint, 120);
+else window.addEventListener('load', function(){ setTimeout(paint, 120); });
 })();
