@@ -250,12 +250,17 @@ function paint(){ LIVE.forEach(function(e){ tiles(e.c); }); }
    날것 설정을 들고 있으니 가능하다. */
 var t0 = null;
 function repaint(){
+  /* ⚠ 애니메이션을 끄고 다시 만든다. 켜 두면 차트 5장을 한꺼번에 새로 그리느라
+     테마 버튼 한 번에 화면이 수 초 멎는다(2026-08-05 실측). 되돌려 놓는 것도 잊지 않는다. */
   LIVE.forEach(function(e){
     try{
       var cv = e.c.canvas;
+      var keep = e.cfg.options ? e.cfg.options.animation : undefined;
       e.c.destroy();
       tweak(e.cfg);
+      e.cfg.options.animation = false;
       e.c = new _C(cv, e.cfg);
+      e.cfg.options.animation = keep;      /* 다음 생성 때는 원래대로 */
     }catch(err){}
   });
   paint();
