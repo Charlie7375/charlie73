@@ -18,13 +18,45 @@
 var _C = window.Chart;
 if (!_C || _C.__ct) return;          /* Chart.js 가 아직 없거나 이미 감쌌으면 그만 */
 
-/* 한 팔레트로 두 배경을 못 덮는다.
-   앰버 #FFA726 은 흰 배경 대비 1.94 — 형광펜을 칠한 꼴이 된다. */
-var FT  = ['#1161c4','#d21f3c','#0D7680','#B4884D','#7c7a73'];
-var BLM = ['#FFA726','#4DD0E1','#66BB6A','#EF5350','#9AA3AD'];
-
+/* ⚠ 색은 «갈아 끼우지» 않는다. 색조(hue)를 그대로 두고 **밝기만** 올린다.
+   처음엔 흰 바탕 FT · 검은 바탕 블룸버그로 팔레트를 통째로 바꿨는데,
+   본문이 «신용융자(주황)», «파란 선», «붉은 점»처럼 **색을 말로 지칭한 곳이 209군데**였다.
+   팔레트를 갈면 그 209군데가 전부 거짓말이 된다(실제로 주황 선이 청록이 됐다).
+   → 주황은 주황으로, 파랑은 파랑으로 두고, 검은 배경에서만 밝게 띄운다.
+     블룸버그 단말이 앰버·시안을 쓰는 이유도 «그 색이라서»가 아니라
+     «검은 배경에서 뜨는 밝기라서»다. 우리는 밝기만 빌린다. */
 function dark(){ return document.documentElement.classList.contains('theme-dark'); }
-function pal(){  return dark() ? BLM : FT; }
+
+function _hsl(c){
+  if (typeof c !== 'string') return null;
+  var s = c.trim(), r, g, b, m;
+  if (s.charAt(0) === '#') {
+    if (s.length === 4) s = '#' + s[1]+s[1] + s[2]+s[2] + s[3]+s[3];
+    if (s.length !== 7) return null;
+    r = parseInt(s.substr(1,2),16); g = parseInt(s.substr(3,2),16); b = parseInt(s.substr(5,2),16);
+  } else if ((m = s.match(/^rgba?\(([^)]+)\)$/i))) {
+    var q = m[1].split(',');
+    r = parseFloat(q[0]); g = parseFloat(q[1]); b = parseFloat(q[2]);
+    if (q.length > 3 && parseFloat(q[3]) < .5) return null;   /* 반투명은 손대지 않는다 */
+  } else return null;
+  if (!isFinite(r) || !isFinite(g) || !isFinite(b)) return null;
+  r/=255; g/=255; b/=255;
+  var mx = Math.max(r,g,b), mn = Math.min(r,g,b), h = 0, sa = 0, l = (mx+mn)/2, d2 = mx-mn;
+  if (d2) {
+    sa = l > .5 ? d2/(2-mx-mn) : d2/(mx+mn);
+    h = mx === r ? ((g-b)/d2 + (g<b?6:0)) : mx === g ? ((b-r)/d2 + 2) : ((r-g)/d2 + 4);
+    h *= 60;
+  }
+  return [h, sa, l];
+}
+/* 검은 배경에서 뜨도록 밝기를 올린다. 색조는 그대로. */
+function shade(c){
+  if (!dark()) return c;                       /* 흰 바탕이면 페이지 색 그대로 */
+  var v = _hsl(c);
+  if (!v) return c;
+  var h = v[0], s = Math.min(.92, Math.max(v[1], .55)), l = Math.max(v[2], .62);
+  return 'hsl(' + Math.round(h) + ',' + Math.round(s*100) + '%,' + Math.round(l*100) + '%)';
+}
 function grid(){ return dark() ? 'rgba(255,255,255,.075)' : 'rgba(15,23,42,.07)'; }
 function dim(){  return dark() ? '#8B949E' : '#5b6470'; }
 function ink(){  return dark() ? '#E8E6E1' : '#0f172a'; }
@@ -63,7 +95,7 @@ function isBase(d){
 
 /* ── 날것 설정 고치기 ─ Chart 가 보기 전에. 여러 번 돌려도 같은 결과가 되게 한다 ── */
 function tweak(cfg){
-  var P = pal(), o = cfg.options = cfg.options || {};
+  var o = cfg.options = cfg.options || {};
   o.plugins = o.plugins || {};
   o.plugins.legend = Object.assign({}, o.plugins.legend, {display:false});
   o.plugins.tooltip = Object.assign({}, o.plugins.tooltip, {
@@ -89,11 +121,13 @@ function tweak(cfg){
 
   var bar0 = (cfg.type === 'bar');
   ((cfg.data && cfg.data.datasets) || []).forEach(function(d, i){
-    if (d.__c0 === undefined) d.__c0 = d.borderColor;   /* 원래 색을 한 번만 보관 */
+    /* 원래 색을 한 번만 보관한다. 테마를 오갈 때 이 값에서 다시 계산한다 */
+    if (d.__c0 === undefined) d.__c0 = d.borderColor;
+    if (d.__b0 === undefined) d.__b0 = d.backgroundColor;
     if (isBase(d)) { d.borderColor = base(); d.borderWidth = 1; d.pointRadius = 0; return; }
-    if (typeof d.__c0 === 'string') d.borderColor = P[i % P.length];
+    d.borderColor = shade(d.__c0);              /* 색조 유지 · 어두울 때만 밝기 ↑ */
+    if (typeof d.__b0 === 'string') d.backgroundColor = shade(d.__b0);
     if (bar0 || d.type === 'bar') {
-      if (typeof d.backgroundColor === 'string') d.backgroundColor = P[i % P.length];
       d.borderRadius = 4; d.borderSkipped = false;
     } else {
       d.borderWidth = 2; d.pointRadius = 0;
