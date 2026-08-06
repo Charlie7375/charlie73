@@ -110,51 +110,14 @@ footer{margin-top:48px;border-top:1px solid var(--border);padding-top:22px;color
 .toggle{top:62px;z-index:88;position:fixed;right:18px;width:42px;height:42px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:18px}
 @media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}h1{font-size:2.05rem}}
 
-.bg{display:inline-block;min-width:44px;text-align:center;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:800;color:#fff}
-.b-on{background:#e11d48}.b-wa{background:#f59e0b}.b-ob{background:#64748b}.b-sf{background:#059669}.b-rf{background:#94a3b8}
-.gr{display:inline-block;font-size:.68rem;font-weight:800;padding:1px 6px;border-radius:5px;margin-left:6px;
-  color:#e11d48;background:color-mix(in srgb,#e11d48 13%,transparent);vertical-align:middle}
-.chg{font-size:.7rem;font-weight:700;color:var(--accent);margin-left:6px;white-space:nowrap}
-.star{color:#e11d48;font-weight:800}
-td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
-.chl{margin:12px 0 0 18px;font-size:.92rem;line-height:1.9}
-.g1box{margin-top:12px;font-size:.9rem;line-height:1.85;color:var(--text-secondary)}
-.g1box ol{margin:8px 0 0 20px} .g1box li{color:var(--text);font-weight:600}
-.stats5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px}
-@media(max-width:720px){.stats5{grid-template-columns:repeat(2,1fr)}}
-
-/* 주차별 히스토리 */
-.hist{position:relative;padding-left:26px;margin-top:18px}
-.hist::before{content:'';position:absolute;left:7px;top:14px;bottom:14px;width:2px;background:var(--border)}
-.hw{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:14px;
-  padding:20px 22px;margin-bottom:16px}
-.hw::before{content:'';position:absolute;left:-24px;top:26px;width:12px;height:12px;border-radius:50%;
-  background:var(--border);border:3px solid var(--bg)}
-.hw.cur{border-color:color-mix(in srgb,var(--accent) 45%,var(--border));
-  box-shadow:0 1px 14px color-mix(in srgb,var(--accent) 10%,transparent)}
-.hw.cur::before{background:var(--accent)}
-.hh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.hwk{font-size:1.02rem;font-weight:900;letter-spacing:-.02em}
-.hdt{font-size:.82rem;color:var(--text-secondary);font-variant-numeric:tabular-nums}
-.hnow{font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:999px;color:#fff;background:var(--accent)}
-.htitle{margin-top:8px;font-size:1.12rem;font-weight:800;letter-spacing:-.02em;line-height:1.4}
-.htone{margin-top:6px;font-size:.86rem;color:var(--text-secondary);font-style:italic}
-.hpills{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
-.hp{font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
-.hp.on{color:#e11d48;background:color-mix(in srgb,#e11d48 12%,transparent)}
-.hp.wa{color:#b45309;background:color-mix(in srgb,#f59e0b 15%,transparent)}
-.hp.ob{color:#475569;background:color-mix(in srgb,#64748b 14%,transparent)}
-.hp.sf{color:#047857;background:color-mix(in srgb,#059669 13%,transparent)}
-.hp.g1{color:#fff;background:#e11d48}
-.hbody{margin-top:13px;font-size:.93rem;line-height:1.78;color:var(--text-secondary)}
-.hbody b{color:var(--text)}
-.hchg{margin-top:14px;padding-top:12px;border-top:1px dashed var(--border)}
-.hct{font-size:.76rem;font-weight:800;letter-spacing:.02em;color:var(--accent);text-transform:none}
-.hchg ul{margin:8px 0 0 16px;font-size:.87rem;line-height:1.85;color:var(--text-secondary)}
-.hchg li b{color:var(--text)}
-.hchg .ar{white-space:nowrap}
-.to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
-@media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
+/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
+.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
+  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
+.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
+  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
+  background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
 
 /* ── 공통 기준일 배지 ── */
 .pbadge{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:2px 0 18px;
@@ -163,8 +126,10 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .pb-k{font-size:.7rem;font-weight:800;padding:2px 8px;border-radius:999px;letter-spacing:.01em}
 .pb-live{color:#047857;background:color-mix(in srgb,#059669 14%,transparent)}
 .pb-weekly{color:#1d4ed8;background:color-mix(in srgb,#2563eb 13%,transparent)}
+.pb-monthly{color:#6d28d9;background:color-mix(in srgb,#7c3aed 13%,transparent)}
 .pb-fixed{color:#475569;background:color-mix(in srgb,#64748b 15%,transparent)}
 .pb-src{opacity:.72}
+.pb-note{opacity:.55;font-size:.74rem}
 .pb-old{font-size:.7rem;font-weight:800;padding:2px 8px;border-radius:999px;
   color:#b45309;background:color-mix(in srgb,#f59e0b 18%,transparent)}
 /* DESIGN:BEGIN */
@@ -275,21 +240,51 @@ html.theme-dark .card:hover{box-shadow:none!important}
   .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
 }
 /* LAYOUT:END */
-/* 단독 내비 링크(방법론) — 옆의 드롭다운 버튼과 같은 모양으로 맞춘다 */
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text-secondary,var(--text2));
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+.bg{display:inline-block;min-width:44px;text-align:center;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:800;color:#fff}
+.b-on{background:#e11d48}.b-wa{background:#f59e0b}.b-ob{background:#64748b}.b-sf{background:#059669}.b-rf{background:#94a3b8}
+.gr{display:inline-block;font-size:.68rem;font-weight:800;padding:1px 6px;border-radius:5px;margin-left:6px;
+  color:#e11d48;background:color-mix(in srgb,#e11d48 13%,transparent);vertical-align:middle}
+.chg{font-size:.7rem;font-weight:700;color:var(--accent);margin-left:6px;white-space:nowrap}
+.star{color:#e11d48;font-weight:800}
+td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
+.chl{margin:12px 0 0 18px;font-size:.92rem;line-height:1.9}
+.g1box{margin-top:12px;font-size:.9rem;line-height:1.85;color:var(--text-secondary)}
+.g1box ol{margin:8px 0 0 20px} .g1box li{color:var(--text);font-weight:600}
+.stats5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px}
+@media(max-width:720px){.stats5{grid-template-columns:repeat(2,1fr)}}
 
-/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
-.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
-  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+/* 주차별 히스토리 */
+.hist{position:relative;padding-left:26px;margin-top:18px}
+.hist::before{content:'';position:absolute;left:7px;top:14px;bottom:14px;width:2px;background:var(--border)}
+.hw{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:20px 22px;margin-bottom:16px}
+.hw::before{content:'';position:absolute;left:-24px;top:26px;width:12px;height:12px;border-radius:50%;
+  background:var(--border);border:3px solid var(--bg)}
+.hw.cur{border-color:color-mix(in srgb,var(--accent) 45%,var(--border));
+  box-shadow:0 1px 14px color-mix(in srgb,var(--accent) 10%,transparent)}
+.hw.cur::before{background:var(--accent)}
+.hh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.hwk{font-size:1.02rem;font-weight:900;letter-spacing:-.02em}
+.hdt{font-size:.82rem;color:var(--text-secondary);font-variant-numeric:tabular-nums}
+.hnow{font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:999px;color:#fff;background:var(--accent)}
+.htitle{margin-top:8px;font-size:1.12rem;font-weight:800;letter-spacing:-.02em;line-height:1.4}
+.htone{margin-top:6px;font-size:.86rem;color:var(--text-secondary);font-style:italic}
+.hpills{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
+.hp{font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.hp.on{color:#e11d48;background:color-mix(in srgb,#e11d48 12%,transparent)}
+.hp.wa{color:#b45309;background:color-mix(in srgb,#f59e0b 15%,transparent)}
+.hp.ob{color:#475569;background:color-mix(in srgb,#64748b 14%,transparent)}
+.hp.sf{color:#047857;background:color-mix(in srgb,#059669 13%,transparent)}
+.hp.g1{color:#fff;background:#e11d48}
+.hbody{margin-top:13px;font-size:.93rem;line-height:1.78;color:var(--text-secondary)}
+.hbody b{color:var(--text)}
+.hchg{margin-top:14px;padding-top:12px;border-top:1px dashed var(--border)}
+.hct{font-size:.76rem;font-weight:800;letter-spacing:.02em;color:var(--accent);text-transform:none}
+.hchg ul{margin:8px 0 0 16px;font-size:.87rem;line-height:1.85;color:var(--text-secondary)}
+.hchg li b{color:var(--text)}
+.hchg .ar{white-space:nowrap}
+.to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
+@media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
 /* BAR:BEGIN */
 /* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
    flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
@@ -575,7 +570,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 </div></div>
 <div class="wrap paper">
 <div class="site-crumb"><a href="index.html">홈</a><span class="sep">›</span><span>아카이브</span><span class="sep">›</span><span class="cur">하이닉스와 미국 반도체</span></div>
-<!-- STAMP:BEGIN --><div class="pbadge"><span class="pb-k pb-live">매일 갱신</span><span>기준일 <b>2026-08-03</b></span><span class="pb-src">KB증권 해외 일봉(GSC10060) · SK하이닉스 일별시세</span><span class="pb-old">데이터 2일 뒤처짐</span></div><!-- STAMP:END -->
+<!-- STAMP:BEGIN --><div class="pbadge"><span class="pb-k pb-live">매일 갱신</span><span>기준일 <b>2026-08-06</b></span><span class="pb-src">KB증권 해외 일봉(GSC10060) · SK하이닉스 일별시세</span></div><!-- STAMP:END -->
 <div class="phead">
 <div class="eyebrow">아카이브 · Lead–Lag</div>
 <h1>하이닉스는 따라가기만 하지 않는다</h1>
@@ -644,7 +639,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <h2>시차 프로파일 — 관계가 진짜라는 증거</h2>
 <figure class="fig"><div class="cbox" style="height:370px"><canvas id="g2"></canvas></div><figcaption><b>모든 상대가 +1일에서만 봉우리를 만들고 나머지 시차는 0 근처</b>입니다. 관계가 진짜라면 이 모양이 나와야 합니다 — 아무 시차에서나 값이 높으면 잡음입니다.</figcaption></figure>
 <figure class="fig"><div class="tblwrap"><table class="tw">
-<thead><tr><th>상대</th><th class="n">-2일</th><th class="n">-1일</th><th class="n">+0일</th><th class="n">+1일</th><th class="n">+2일</th><th class="n">+3일</th></tr></thead><tbody><tr class="cur"><td><b>마이크론</b></td><td class="n">0.064</td><td class="n">-0.067</td><td class="n">0.302</td><td class="n good">0.449</td><td class="n">-0.051</td><td class="n">0.038</td></tr><tr><td><b>반도체 ETF (SOX 대리)</b></td><td class="n">0.030</td><td class="n">-0.051</td><td class="n">0.224</td><td class="n good">0.437</td><td class="n">-0.101</td><td class="n">0.015</td></tr><tr><td><b>반도체 ETF (SMH)</b></td><td class="n">0.017</td><td class="n">-0.046</td><td class="n">0.223</td><td class="n good">0.437</td><td class="n">-0.098</td><td class="n">0.018</td></tr><tr><td><b>TSMC</b></td><td class="n">-0.037</td><td class="n">-0.045</td><td class="n">0.195</td><td class="n good">0.353</td><td class="n">-0.084</td><td class="n">0.019</td></tr><tr><td><b>나스닥100 (QQQ)</b></td><td class="n">-0.004</td><td class="n">-0.011</td><td class="n">0.168</td><td class="n good">0.390</td><td class="n">-0.091</td><td class="n">0.006</td></tr><tr><td><b>엔비디아</b></td><td class="n">-0.009</td><td class="n">-0.058</td><td class="n">0.107</td><td class="n good">0.171</td><td class="n">-0.047</td><td class="n">-0.013</td></tr><tr><td><b>브로드컴</b></td><td class="n">0.012</td><td class="n">-0.010</td><td class="n">0.086</td><td class="n good">0.211</td><td class="n">0.013</td><td class="n">0.016</td></tr></tbody></table></div>
+<thead><tr><th>상대</th><th class="n">-2일</th><th class="n">-1일</th><th class="n">+0일</th><th class="n">+1일</th><th class="n">+2일</th><th class="n">+3일</th></tr></thead><tbody><tr class="cur"><td><b>마이크론</b></td><td class="n">0.064</td><td class="n">-0.067</td><td class="n">0.302</td><td class="n good">0.449</td><td class="n">-0.058</td><td class="n">0.038</td></tr><tr><td><b>반도체 ETF (SOX 대리)</b></td><td class="n">0.030</td><td class="n">-0.051</td><td class="n">0.224</td><td class="n good">0.437</td><td class="n">-0.110</td><td class="n">0.014</td></tr><tr><td><b>반도체 ETF (SMH)</b></td><td class="n">0.017</td><td class="n">-0.046</td><td class="n">0.223</td><td class="n good">0.437</td><td class="n">-0.106</td><td class="n">0.016</td></tr><tr><td><b>TSMC</b></td><td class="n">-0.037</td><td class="n">-0.045</td><td class="n">0.195</td><td class="n good">0.353</td><td class="n">-0.088</td><td class="n">0.018</td></tr><tr><td><b>나스닥100 (QQQ)</b></td><td class="n">-0.004</td><td class="n">-0.011</td><td class="n">0.168</td><td class="n good">0.390</td><td class="n">-0.099</td><td class="n">0.000</td></tr><tr><td><b>엔비디아</b></td><td class="n">-0.009</td><td class="n">-0.058</td><td class="n">0.107</td><td class="n good">0.171</td><td class="n">-0.048</td><td class="n">-0.016</td></tr><tr><td><b>브로드컴</b></td><td class="n">0.012</td><td class="n">-0.010</td><td class="n">0.086</td><td class="n good">0.211</td><td class="n">0.008</td><td class="n">0.016</td></tr></tbody></table></div>
 <figcaption>음수 시차가 전부 0 근처라는 것은 <b>하닉의 영향이 그날 밤 안에 소진된다</b>는 뜻입니다.
 하루 이상은 끌지 못합니다.</figcaption></figure>
 
@@ -692,7 +687,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 (function(){
 function tone(){return (getComputedStyle(document.documentElement)
   .getPropertyValue('--text')||'#111').trim();}
-var CFG=[{"id": "g1", "k": "bar", "t": "양방향 — 미국이 하닉에 주는 정보 vs 하닉이 미국에 주는 정보", "l": ["마이크론", "반도체 ETF (SOX 대리)", "반도체 ETF (SMH)", "TSMC", "나스닥100 (QQQ)", "엔비디아", "브로드컴"], "yt": "상관", "dp": 3, "d": [{"label": "미국 → 하닉 (다음날)", "data": [0.449, 0.437, 0.437, 0.353, 0.39, 0.171, 0.211], "backgroundColor": "#1161c4"}, {"label": "하닉 → 미국 (그날 밤, 보정)", "data": [0.356, 0.308, 0.303, 0.263, 0.211, 0.111, 0.082], "backgroundColor": "#d21f3c"}]},{"id": "g2", "t": "시차 프로파일 — 미국 D 와 하닉 D+k", "l": ["-2일", "-1일", "+0일", "+1일", "+2일", "+3일"], "yt": "상관", "dp": 3, "xt": 6, "d": [{"label": "마이크론", "data": [0.064, -0.067, 0.302, 0.449, -0.051, 0.038], "borderColor": "#d21f3c", "borderWidth": 2.4, "pointRadius": 3, "tension": 0.2}, {"label": "반도체 ETF (SOX 대리)", "data": [0.03, -0.051, 0.224, 0.437, -0.101, 0.015], "borderColor": "#1161c4", "borderWidth": 1.5, "pointRadius": 3, "tension": 0.2}, {"label": "반도체 ETF (SMH)", "data": [0.017, -0.046, 0.223, 0.437, -0.098, 0.018], "borderColor": "#047857", "borderWidth": 1.5, "pointRadius": 3, "tension": 0.2}, {"label": "TSMC", "data": [-0.037, -0.045, 0.195, 0.353, -0.084, 0.019], "borderColor": "#eb6834", "borderWidth": 1.5, "pointRadius": 3, "tension": 0.2}, {"label": "나스닥100 (QQQ)", "data": [-0.004, -0.011, 0.168, 0.39, -0.091, 0.006], "borderColor": "#7c3aed", "borderWidth": 1.5, "pointRadius": 3, "tension": 0.2}, {"label": "엔비디아", "data": [-0.009, -0.058, 0.107, 0.171, -0.047, -0.013], "borderColor": "#7c7a73", "borderWidth": 1.5, "pointRadius": 3, "tension": 0.2}, {"label": "브로드컴", "data": [0.012, -0.01, 0.086, 0.211, 0.013, 0.016], "borderColor": "#0891b2", "borderWidth": 1.5, "pointRadius": 3, "tension": 0.2}]}], CH=[];
+var CFG=[{"id": "g1", "k": "bar", "t": "양방향 — 미국이 하닉에 주는 정보 vs 하닉이 미국에 주는 정보", "l": ["마이크론", "반도체 ETF (SOX 대리)", "반도체 ETF (SMH)", "TSMC", "나스닥100 (QQQ)", "엔비디아", "브로드컴"], "yt": "상관", "dp": 3, "d": [{"label": "미국 → 하닉 (다음날)", "data": [0.449, 0.437, 0.437, 0.353, 0.39, 0.171, 0.211], "backgroundColor": "#1161c4"}, {"label": "하닉 → 미국 (그날 밤, 보정)", "data": [0.356, 0.308, 0.303, 0.263, 0.211, 0.111, 0.082], "backgroundColor": "#d21f3c"}]},{"id": "g2", "t": "시차 프로파일 — 미국 D 와 하닉 D+k", "l": ["-2일", "-1일", "+0일", "+1일", "+2일", "+3일"], "yt": "상관", "dp": 3, "xt": 6, "d": [{"label": "마이크론", "data": [0.064, -0.067, 0.302, 0.449, -0.058, 0.038], "borderColor": "#d21f3c", "borderWidth": 2.4, "pointRadius": 3, "tension": 0.2}, {"label": "반도체 ETF (SOX 대리)", "data": [0.03, -0.051, 0.224, 0.437, -0.11, 0.014], "borderColor": "#1161c4", "borderWidth": 1.5, "pointRadius": 3, "tension": 0.2}, {"label": "반도체 ETF (SMH)", "data": [0.017, -0.046, 0.223, 0.437, -0.106, 0.016], "borderColor": "#047857", "borderWidth": 1.5, "pointRadius": 3, "tension": 0.2}, {"label": "TSMC", "data": [-0.037, -0.045, 0.195, 0.353, -0.088, 0.018], "borderColor": "#eb6834", "borderWidth": 1.5, "pointRadius": 3, "tension": 0.2}, {"label": "나스닥100 (QQQ)", "data": [-0.004, -0.011, 0.168, 0.39, -0.099, 0.0], "borderColor": "#7c3aed", "borderWidth": 1.5, "pointRadius": 3, "tension": 0.2}, {"label": "엔비디아", "data": [-0.009, -0.058, 0.107, 0.171, -0.048, -0.016], "borderColor": "#7c7a73", "borderWidth": 1.5, "pointRadius": 3, "tension": 0.2}, {"label": "브로드컴", "data": [0.012, -0.01, 0.086, 0.211, 0.008, 0.016], "borderColor": "#0891b2", "borderWidth": 1.5, "pointRadius": 3, "tension": 0.2}]}], CH=[];
 function draw(c){
  var el=document.getElementById(c.id);
  if(!el||!window.Chart){setTimeout(function(){draw(c)},300);return;}
@@ -714,7 +709,7 @@ CFG.forEach(draw);
 <footer>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.
     · 근거: 이야기꾼 주간 시투 보고서(W31·2026-08-01) 및 자체 실측.</footer>
 </div>
-<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
+
 
 <script>
 (function(){
@@ -744,4 +739,7 @@ CFG.forEach(draw);
   };
 })();
 /* THEME:END */</script>
+
+
+<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 </body></html>
