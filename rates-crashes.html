@@ -110,52 +110,6 @@ footer{margin-top:48px;border-top:1px solid var(--border);padding-top:22px;color
 .toggle{top:62px;z-index:88;position:fixed;right:18px;width:42px;height:42px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:18px}
 @media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}h1{font-size:2.05rem}}
 
-.bg{display:inline-block;min-width:44px;text-align:center;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:800;color:#fff}
-.b-on{background:#e11d48}.b-wa{background:#f59e0b}.b-ob{background:#64748b}.b-sf{background:#059669}.b-rf{background:#94a3b8}
-.gr{display:inline-block;font-size:.68rem;font-weight:800;padding:1px 6px;border-radius:5px;margin-left:6px;
-  color:#e11d48;background:color-mix(in srgb,#e11d48 13%,transparent);vertical-align:middle}
-.chg{font-size:.7rem;font-weight:700;color:var(--accent);margin-left:6px;white-space:nowrap}
-.star{color:#e11d48;font-weight:800}
-td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
-.chl{margin:12px 0 0 18px;font-size:.92rem;line-height:1.9}
-.g1box{margin-top:12px;font-size:.9rem;line-height:1.85;color:var(--text-secondary)}
-.g1box ol{margin:8px 0 0 20px} .g1box li{color:var(--text);font-weight:600}
-.stats5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px}
-@media(max-width:720px){.stats5{grid-template-columns:repeat(2,1fr)}}
-
-/* 주차별 히스토리 */
-.hist{position:relative;padding-left:26px;margin-top:18px}
-.hist::before{content:'';position:absolute;left:7px;top:14px;bottom:14px;width:2px;background:var(--border)}
-.hw{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:14px;
-  padding:20px 22px;margin-bottom:16px}
-.hw::before{content:'';position:absolute;left:-24px;top:26px;width:12px;height:12px;border-radius:50%;
-  background:var(--border);border:3px solid var(--bg)}
-.hw.cur{border-color:color-mix(in srgb,var(--accent) 45%,var(--border));
-  box-shadow:0 1px 14px color-mix(in srgb,var(--accent) 10%,transparent)}
-.hw.cur::before{background:var(--accent)}
-.hh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.hwk{font-size:1.02rem;font-weight:900;letter-spacing:-.02em}
-.hdt{font-size:.82rem;color:var(--text-secondary);font-variant-numeric:tabular-nums}
-.hnow{font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:999px;color:#fff;background:var(--accent)}
-.htitle{margin-top:8px;font-size:1.12rem;font-weight:800;letter-spacing:-.02em;line-height:1.4}
-.htone{margin-top:6px;font-size:.86rem;color:var(--text-secondary);font-style:italic}
-.hpills{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
-.hp{font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
-.hp.on{color:#e11d48;background:color-mix(in srgb,#e11d48 12%,transparent)}
-.hp.wa{color:#b45309;background:color-mix(in srgb,#f59e0b 15%,transparent)}
-.hp.ob{color:#475569;background:color-mix(in srgb,#64748b 14%,transparent)}
-.hp.sf{color:#047857;background:color-mix(in srgb,#059669 13%,transparent)}
-.hp.g1{color:#fff;background:#e11d48}
-.hbody{margin-top:13px;font-size:.93rem;line-height:1.78;color:var(--text-secondary)}
-.hbody b{color:var(--text)}
-.hchg{margin-top:14px;padding-top:12px;border-top:1px dashed var(--border)}
-.hct{font-size:.76rem;font-weight:800;letter-spacing:.02em;color:var(--accent);text-transform:none}
-.hchg ul{margin:8px 0 0 16px;font-size:.87rem;line-height:1.85;color:var(--text-secondary)}
-.hchg li b{color:var(--text)}
-.hchg .ar{white-space:nowrap}
-.to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
-@media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
-
 /* ── 공통 기준일 배지 ── */
 .pbadge{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:2px 0 18px;
   font-size:.79rem;color:var(--text-secondary)}
@@ -163,8 +117,10 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .pb-k{font-size:.7rem;font-weight:800;padding:2px 8px;border-radius:999px;letter-spacing:.01em}
 .pb-live{color:#047857;background:color-mix(in srgb,#059669 14%,transparent)}
 .pb-weekly{color:#1d4ed8;background:color-mix(in srgb,#2563eb 13%,transparent)}
+.pb-monthly{color:#6d28d9;background:color-mix(in srgb,#7c3aed 13%,transparent)}
 .pb-fixed{color:#475569;background:color-mix(in srgb,#64748b 15%,transparent)}
 .pb-src{opacity:.72}
+.pb-note{opacity:.55;font-size:.74rem}
 .pb-old{font-size:.7rem;font-weight:800;padding:2px 8px;border-radius:999px;
   color:#b45309;background:color-mix(in srgb,#f59e0b 18%,transparent)}
 /* DESIGN:BEGIN */
@@ -275,12 +231,51 @@ html.theme-dark .card:hover{box-shadow:none!important}
   .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
 }
 /* LAYOUT:END */
-/* 단독 내비 링크(방법론) — 옆의 드롭다운 버튼과 같은 모양으로 맞춘다 */
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text-secondary,var(--text2));
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+.bg{display:inline-block;min-width:44px;text-align:center;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:800;color:#fff}
+.b-on{background:#e11d48}.b-wa{background:#f59e0b}.b-ob{background:#64748b}.b-sf{background:#059669}.b-rf{background:#94a3b8}
+.gr{display:inline-block;font-size:.68rem;font-weight:800;padding:1px 6px;border-radius:5px;margin-left:6px;
+  color:#e11d48;background:color-mix(in srgb,#e11d48 13%,transparent);vertical-align:middle}
+.chg{font-size:.7rem;font-weight:700;color:var(--accent);margin-left:6px;white-space:nowrap}
+.star{color:#e11d48;font-weight:800}
+td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
+.chl{margin:12px 0 0 18px;font-size:.92rem;line-height:1.9}
+.g1box{margin-top:12px;font-size:.9rem;line-height:1.85;color:var(--text-secondary)}
+.g1box ol{margin:8px 0 0 20px} .g1box li{color:var(--text);font-weight:600}
+.stats5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px}
+@media(max-width:720px){.stats5{grid-template-columns:repeat(2,1fr)}}
+
+/* 주차별 히스토리 */
+.hist{position:relative;padding-left:26px;margin-top:18px}
+.hist::before{content:'';position:absolute;left:7px;top:14px;bottom:14px;width:2px;background:var(--border)}
+.hw{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:20px 22px;margin-bottom:16px}
+.hw::before{content:'';position:absolute;left:-24px;top:26px;width:12px;height:12px;border-radius:50%;
+  background:var(--border);border:3px solid var(--bg)}
+.hw.cur{border-color:color-mix(in srgb,var(--accent) 45%,var(--border));
+  box-shadow:0 1px 14px color-mix(in srgb,var(--accent) 10%,transparent)}
+.hw.cur::before{background:var(--accent)}
+.hh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.hwk{font-size:1.02rem;font-weight:900;letter-spacing:-.02em}
+.hdt{font-size:.82rem;color:var(--text-secondary);font-variant-numeric:tabular-nums}
+.hnow{font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:999px;color:#fff;background:var(--accent)}
+.htitle{margin-top:8px;font-size:1.12rem;font-weight:800;letter-spacing:-.02em;line-height:1.4}
+.htone{margin-top:6px;font-size:.86rem;color:var(--text-secondary);font-style:italic}
+.hpills{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
+.hp{font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.hp.on{color:#e11d48;background:color-mix(in srgb,#e11d48 12%,transparent)}
+.hp.wa{color:#b45309;background:color-mix(in srgb,#f59e0b 15%,transparent)}
+.hp.ob{color:#475569;background:color-mix(in srgb,#64748b 14%,transparent)}
+.hp.sf{color:#047857;background:color-mix(in srgb,#059669 13%,transparent)}
+.hp.g1{color:#fff;background:#e11d48}
+.hbody{margin-top:13px;font-size:.93rem;line-height:1.78;color:var(--text-secondary)}
+.hbody b{color:var(--text)}
+.hchg{margin-top:14px;padding-top:12px;border-top:1px dashed var(--border)}
+.hct{font-size:.76rem;font-weight:800;letter-spacing:.02em;color:var(--accent);text-transform:none}
+.hchg ul{margin:8px 0 0 16px;font-size:.87rem;line-height:1.85;color:var(--text-secondary)}
+.hchg li b{color:var(--text)}
+.hchg .ar{white-space:nowrap}
+.to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
+@media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
 
 /* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
 .site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
@@ -311,68 +306,6 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
 .phead .deck{margin:10px 0 0;padding-left:14px;border-left:3px solid var(--accent,#0b4fa8);
   font-size:19px;font-weight:600;line-height:1.5;letter-spacing:-.01em;color:var(--text,#1d1d1f)}
 @media (max-width:640px){.phead .deck{font-size:17px;padding-left:11px}}
-</style>
-<!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><style id="arcv2">
-/* ═ 아카이브 스타일 v2 — 스테이지·닷컴·이격도 3편과 판형 통일 · restyle_archive.py 가 관리 ═ */
-/* 종이 카드 제거 */
-.wrap.paper{background:transparent!important;box-shadow:none!important;border:0!important;
-  border-radius:0!important;max-width:var(--w-col,1040px)!important}
-/* 머리 — 전부 가운데 */
-.phead{border-bottom:0!important;text-align:center!important;padding:30px 0 6px!important}
-.phead .eyebrow,.wrap>.eyebrow{display:block;text-align:center!important;letter-spacing:.18em}
-.phead h1,.wrap h1{font-weight:800!important;font-size:clamp(2.02rem,4vw,2.7rem)!important;
-  letter-spacing:-.035em!important;line-height:1.13!important;text-wrap:balance;
-  text-align:center!important;margin:10px auto 4px!important}
-.phead .deck{border-left:0!important;padding:0!important;margin:12px auto 0!important;
-  max-width:44em;font-size:1.1rem!important;font-weight:700!important;
-  color:var(--accent)!important;text-align:center!important;text-wrap:balance}
-.phead .sub,.wrap>.sub{display:block;margin:16px auto 0!important;max-width:var(--w-prose,50em);
-  text-align:center!important;color:var(--text-secondary)!important}
-.phead .pauth,.pauth,.upd{border-bottom:0!important;text-align:center!important;
-  color:var(--text-secondary)!important;font-size:13.5px!important;
-  padding-bottom:0!important;margin:14px auto 0!important}
-.site-crumb{justify-content:center;text-align:center}
-/* 소제목 — 가운데 + 악센트 밑줄 */
-.wrap h2{text-align:center!important;font-weight:800!important;
-  font-size:clamp(1.28rem,2.3vw,1.58rem)!important;letter-spacing:-.025em!important;
-  margin:62px auto 18px!important;text-wrap:balance;max-width:none!important}
-.wrap h2::after{content:'';display:block;width:46px;height:3px;border-radius:2px;
-  background:var(--accent);margin:12px auto 0}
-.wrap h3{text-align:center!important;font-weight:700!important;font-size:1.07rem!important;
-  margin:34px auto 12px!important;text-wrap:balance}
-/* 요약 카드 (verdict 문법) */
-.abstract{background:var(--surface)!important;border:1px solid var(--border)!important;
-  border-radius:16px!important;padding:22px 26px!important;margin:26px auto!important;
-  box-shadow:none!important}
-.abstract h4{display:none}
-/* 콜아웃 (explain 문법) */
-.callout{background:var(--surface)!important;border:1px solid var(--border)!important;
-  border-left:4px solid var(--accent)!important;border-radius:12px!important}
-.callout.warn{border-left-color:#d97706!important}
-.callout.bad{border-left-color:#dc2626!important}
-/* 차트 카드 */
-.fig .cbox,.cbox{position:relative;height:clamp(240px,42vw,380px);background:var(--surface);border:1px solid var(--border);
-  border-radius:14px;padding:16px 14px 10px}
-figcaption{font-size:13.5px!important;color:var(--text-secondary)!important;
-  line-height:1.7!important;margin-top:10px!important}
-/* 표 카드 */
-.tblwrap{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:4px 14px}
-.tblwrap table th{border-bottom:1px solid var(--border)!important;
-  color:var(--text-secondary)!important;font-weight:600!important;font-size:12px!important}
-.tblwrap table td{border-bottom:1px solid var(--border)!important}
-.tblwrap table tr:last-child td{border-bottom:0!important}
-figure.tw{background:var(--surface);border:1px solid var(--border);border-radius:14px;
-  padding:10px 16px;margin:22px 0}
-figure.tw table th{border-bottom:1px solid var(--border);color:var(--text-secondary);
-  font-weight:600;font-size:12px}
-figure.tw table td{border-bottom:1px solid var(--border)}
-figure.tw table tr:last-child td{border-bottom:0}
-/* 인용·반증 조건·출처 */
-.wrap blockquote{background:var(--surface)!important;border:1px solid var(--border)!important;
-  border-left:3px solid var(--accent)!important;border-radius:0 12px 12px 0!important}
-ul.cond{background:var(--surface);border:1px solid var(--border);border-radius:12px;
-  padding:18px 24px 18px 42px}
-.src-note{border-top:1px solid var(--border)!important;color:var(--text-secondary)!important}
 /* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
@@ -638,11 +571,10 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"></head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
-  <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="here" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a class="here" href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><!-- NAV:END --></nav>
+  <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a class="" href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><!-- NAV:END --></nav>
 </div></div>
 <div class="wrap paper">
 <div class="phead">
-
 <div class="eyebrow">찰리 아카이브 · 금리와 주가</div>
 <h1>금리 5%는 공황선인가</h1>
 <p class="deck">저금리 18년 위에 지어진 구조가 5%를 만나본 적이 없다</p>
@@ -650,8 +582,8 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <b>미 10년 국채 64년치 일별 자료</b>로 하루씩 세어 봤습니다.
 결론부터 적으면, <b>숫자 5%에는 아무 힘이 없습니다.</b>
 힘은 <b>그 숫자를 만나는 쪽</b>에 있습니다.</p>
-<p class="pauth">FRED DGS10 일별 (1962-01 ~ 2026-07-30) · 역사 판정은 GS10 월봉(1953-04~) ·
-신용 스프레드는 무디스 Aaa·Baa · 갱신 2026-08-05</p>
+<p class="pauth">FRED DGS10 일별 (1962-01 ~ 2026-08-04) · 역사 판정은 GS10 월봉(1953-04~) ·
+신용 스프레드는 무디스 Aaa·Baa · 갱신 2026-08-06</p>
 </div>
 
 <div class="abstract">
@@ -665,7 +597,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 평균 2.76%를 전제로 설계됐다</b>는 사실. 1985년의 5%와 2026년의 5%는
 같은 숫자이지만 다른 사건입니다.
 ④ 그 구조가 시험받는 선은 5%가 아니라 <b>20년래 고점 5.26%</b>(2007-06-12)입니다.
-지금 <b>4.68%</b>(2026-07-30) — <b>0.58%p</b> 남았습니다.</p>
+지금 <b>4.63%</b>(2026-08-04) — <b>0.63%p</b> 남았습니다.</p>
 </div>
 
 <h2>왜 10년 국채인가</h2>
@@ -674,7 +606,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 주식에는 <b>경쟁 상대</b>입니다 — 국채가 가만히 앉아 5%를 주면, 위험한 주식은
 그보다 훨씬 더 벌어 줘야 팔립니다. 그래서 이 금리가 오르면 주가에 중력이 걸립니다.</p>
 
-<figure class="fig"><div class="cbox"><canvas id="r1"></canvas></div><figcaption>미 10년 국채 73년. 1981년 9월 <b>15.32%</b>가 꼭대기, 2020년 8월 <b>0.65%</b>가 바닥입니다. 지금은 <b>4.68% (일별)</b>입니다.</figcaption></figure><script>(window.__RT=window.__RT||[]).push({"id": "r1", "t": "미 10년 국채 금리 — 1953년 이후 73년", "l": ["1953-07", "1954-01", "1954-07", "1955-01", "1955-07", "1956-01", "1956-07", "1957-01", "1957-07", "1958-01", "1958-07", "1959-01", "1959-07", "1960-01", "1960-07", "1961-01", "1961-07", "1962-01", "1962-07", "1963-01", "1963-07", "1964-01", "1964-07", "1965-01", "1965-07", "1966-01", "1966-07", "1967-01", "1967-07", "1968-01", "1968-07", "1969-01", "1969-07", "1970-01", "1970-07", "1971-01", "1971-07", "1972-01", "1972-07", "1973-01", "1973-07", "1974-01", "1974-07", "1975-01", "1975-07", "1976-01", "1976-07", "1977-01", "1977-07", "1978-01", "1978-07", "1979-01", "1979-07", "1980-01", "1980-07", "1981-01", "1981-07", "1982-01", "1982-07", "1983-01", "1983-07", "1984-01", "1984-07", "1985-01", "1985-07", "1986-01", "1986-07", "1987-01", "1987-07", "1988-01", "1988-07", "1989-01", "1989-07", "1990-01", "1990-07", "1991-01", "1991-07", "1992-01", "1992-07", "1993-01", "1993-07", "1994-01", "1994-07", "1995-01", "1995-07", "1996-01", "1996-07", "1997-01", "1997-07", "1998-01", "1998-07", "1999-01", "1999-07", "2000-01", "2000-07", "2001-01", "2001-07", "2002-01", "2002-07", "2003-01", "2003-07", "2004-01", "2004-07", "2005-01", "2005-07", "2006-01", "2006-07", "2007-01", "2007-07", "2008-01", "2008-07", "2009-01", "2009-07", "2010-01", "2010-07", "2011-01", "2011-07", "2012-01", "2012-07", "2013-01", "2013-07", "2014-01", "2014-07", "2015-01", "2015-07", "2016-01", "2016-07", "2017-01", "2017-07", "2018-01", "2018-07", "2019-01", "2019-07", "2020-01", "2020-07", "2021-01", "2021-07", "2022-01", "2022-07", "2023-01", "2023-07", "2024-01", "2024-07", "2025-01", "2025-07", "2026-01", "2026-06"], "yt": "연 %", "dp": 2, "xt": 12, "d": [{"label": "미 10년 국채", "data": [2.93, 2.48, 2.3, 2.61, 2.9, 2.9, 3.11, 3.46, 3.93, 3.09, 3.2, 4.02, 4.4, 4.72, 3.9, 3.84, 3.92, 4.08, 4.01, 3.83, 4.02, 4.17, 4.19, 4.19, 4.2, 4.61, 5.02, 4.58, 5.16, 5.53, 5.5, 6.04, 6.72, 7.79, 7.46, 6.24, 6.73, 5.95, 6.11, 6.46, 7.13, 6.99, 7.81, 7.5, 8.06, 7.74, 7.83, 7.21, 7.33, 7.96, 8.64, 9.1, 8.95, 10.8, 10.25, 12.57, 14.28, 14.59, 13.95, 10.46, 11.38, 11.67, 13.36, 11.38, 10.31, 9.19, 7.3, 7.08, 8.45, 8.67, 9.06, 9.09, 8.02, 8.21, 8.47, 8.09, 8.27, 7.03, 6.84, 6.6, 5.81, 5.75, 7.3, 7.78, 6.28, 5.65, 6.87, 6.58, 6.22, 5.54, 5.46, 4.72, 5.79, 6.66, 6.05, 5.16, 5.24, 5.04, 4.65, 4.05, 3.98, 4.15, 4.5, 4.22, 4.18, 4.42, 5.09, 4.76, 5.0, 3.74, 4.01, 2.52, 3.56, 3.73, 3.01, 3.39, 3.0, 1.97, 1.53, 1.91, 2.58, 2.86, 2.54, 1.88, 2.32, 2.09, 1.5, 2.43, 2.32, 2.58, 2.89, 2.71, 2.06, 1.76, 0.62, 1.08, 1.32, 1.76, 2.9, 3.53, 3.9, 4.06, 4.25, 4.63, 4.39, 4.21, 4.47], "borderColor": "#0b4fa8", "borderWidth": 2.0, "pointRadius": 0, "tension": 0.15}]});</script>
+<figure class="fig"><div class="cbox"><canvas id="r1"></canvas></div><figcaption>미 10년 국채 73년. 1981년 9월 <b>15.32%</b>가 꼭대기, 2020년 8월 <b>0.65%</b>가 바닥입니다. 지금은 <b>4.63% (일별)</b>입니다.</figcaption></figure><script>(window.__RT=window.__RT||[]).push({"id": "r1", "t": "미 10년 국채 금리 — 1953년 이후 73년", "l": ["1953-07", "1954-01", "1954-07", "1955-01", "1955-07", "1956-01", "1956-07", "1957-01", "1957-07", "1958-01", "1958-07", "1959-01", "1959-07", "1960-01", "1960-07", "1961-01", "1961-07", "1962-01", "1962-07", "1963-01", "1963-07", "1964-01", "1964-07", "1965-01", "1965-07", "1966-01", "1966-07", "1967-01", "1967-07", "1968-01", "1968-07", "1969-01", "1969-07", "1970-01", "1970-07", "1971-01", "1971-07", "1972-01", "1972-07", "1973-01", "1973-07", "1974-01", "1974-07", "1975-01", "1975-07", "1976-01", "1976-07", "1977-01", "1977-07", "1978-01", "1978-07", "1979-01", "1979-07", "1980-01", "1980-07", "1981-01", "1981-07", "1982-01", "1982-07", "1983-01", "1983-07", "1984-01", "1984-07", "1985-01", "1985-07", "1986-01", "1986-07", "1987-01", "1987-07", "1988-01", "1988-07", "1989-01", "1989-07", "1990-01", "1990-07", "1991-01", "1991-07", "1992-01", "1992-07", "1993-01", "1993-07", "1994-01", "1994-07", "1995-01", "1995-07", "1996-01", "1996-07", "1997-01", "1997-07", "1998-01", "1998-07", "1999-01", "1999-07", "2000-01", "2000-07", "2001-01", "2001-07", "2002-01", "2002-07", "2003-01", "2003-07", "2004-01", "2004-07", "2005-01", "2005-07", "2006-01", "2006-07", "2007-01", "2007-07", "2008-01", "2008-07", "2009-01", "2009-07", "2010-01", "2010-07", "2011-01", "2011-07", "2012-01", "2012-07", "2013-01", "2013-07", "2014-01", "2014-07", "2015-01", "2015-07", "2016-01", "2016-07", "2017-01", "2017-07", "2018-01", "2018-07", "2019-01", "2019-07", "2020-01", "2020-07", "2021-01", "2021-07", "2022-01", "2022-07", "2023-01", "2023-07", "2024-01", "2024-07", "2025-01", "2025-07", "2026-01", "2026-07"], "yt": "연 %", "dp": 2, "xt": 12, "d": [{"label": "미 10년 국채", "data": [2.93, 2.48, 2.3, 2.61, 2.9, 2.9, 3.11, 3.46, 3.93, 3.09, 3.2, 4.02, 4.4, 4.72, 3.9, 3.84, 3.92, 4.08, 4.01, 3.83, 4.02, 4.17, 4.19, 4.19, 4.2, 4.61, 5.02, 4.58, 5.16, 5.53, 5.5, 6.04, 6.72, 7.79, 7.46, 6.24, 6.73, 5.95, 6.11, 6.46, 7.13, 6.99, 7.81, 7.5, 8.06, 7.74, 7.83, 7.21, 7.33, 7.96, 8.64, 9.1, 8.95, 10.8, 10.25, 12.57, 14.28, 14.59, 13.95, 10.46, 11.38, 11.67, 13.36, 11.38, 10.31, 9.19, 7.3, 7.08, 8.45, 8.67, 9.06, 9.09, 8.02, 8.21, 8.47, 8.09, 8.27, 7.03, 6.84, 6.6, 5.81, 5.75, 7.3, 7.78, 6.28, 5.65, 6.87, 6.58, 6.22, 5.54, 5.46, 4.72, 5.79, 6.66, 6.05, 5.16, 5.24, 5.04, 4.65, 4.05, 3.98, 4.15, 4.5, 4.22, 4.18, 4.42, 5.09, 4.76, 5.0, 3.74, 4.01, 2.52, 3.56, 3.73, 3.01, 3.39, 3.0, 1.97, 1.53, 1.91, 2.58, 2.86, 2.54, 1.88, 2.32, 2.09, 1.5, 2.43, 2.32, 2.58, 2.89, 2.71, 2.06, 1.76, 0.62, 1.08, 1.32, 1.76, 2.9, 3.53, 3.9, 4.06, 4.25, 4.63, 4.39, 4.21, 4.6], "borderColor": "#0b4fa8", "borderWidth": 2.0, "pointRadius": 0, "tension": 0.15}]});</script>
 
 <h2>「금리 5% 넘으면 공황」이 맞는가</h2>
 
@@ -683,7 +615,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 <div class="callout warn">
 <p><b>결과는 반대입니다. 5%는 «평상값»이었습니다.</b><br><br>
-16,129일 중 <b>8,688일(54%)</b>이 5% 위였습니다. 절반이 넘습니다.
+16,132일 중 <b>8,688일(54%)</b>이 5% 위였습니다. 절반이 넘습니다.
 특히 <b>1968년부터 1997년까지 30년은 단 하루도 빠짐없이</b> 5% 위였습니다.<br><br>
 이 30년 동안 큰 하락장이 없었다는 뜻은 아닙니다. 1973~74년(−48%)도, 1987년 블랙먼데이도
 이 안에 있습니다. 요점은 다른 데 있습니다 — <b>금리가 내내 5% 위였으니 «5%를 넘는 사건» 자체가
@@ -721,16 +653,16 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 그걸 기억하기 쉽게 반올림한 것이 «5%»입니다. <b>같은 이야기의 두 표현</b>이었습니다.</p>
 
 <figure class="fig"><div class="tblwrap"><table class="tw">
-<thead><tr><th>잣대</th><th>고점</th><th>현재(2026-07-30) 4.68%와 거리</th><th>판정</th></tr></thead>
+<thead><tr><th>잣대</th><th>고점</th><th>현재(2026-08-04) 4.63%와 거리</th><th>판정</th></tr></thead>
 <tbody>
 <tr><td>10년래 고점</td><td class="n">4.98% <span class="dim">(2023-10-19)</span></td>
-<td class="n">-0.30%p</td><td class="n">미돌파</td></tr>
+<td class="n">-0.35%p</td><td class="n">미돌파</td></tr>
 <tr class="cur"><td><b>20년래 고점</b> <span class="dim">= «5%»의 실체</span></td>
 <td class="n"><b>5.26%</b> <span class="dim">(2007-06-12)</span></td>
-<td class="n"><b>-0.58%p</b></td>
+<td class="n"><b>-0.63%p</b></td>
 <td class="n">미돌파</td></tr>
 <tr><td>25년래 고점</td><td class="n">5.44% <span class="dim">(2001-07-05)</span></td>
-<td class="n">-0.76%p</td><td class="n">미돌파</td></tr>
+<td class="n">-0.81%p</td><td class="n">미돌파</td></tr>
 </tbody></table></div>
 <figcaption>일별 기준입니다. 뉴스에 나오는 숫자와 같은 값으로 비교할 수 있습니다.</figcaption></figure>
 
@@ -849,21 +781,21 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <p><b>여기서부터는 «일별» 숫자입니다 — 뉴스에 나오는 그 값입니다.</b><br><br>
 위의 73년 분석은 <b>월평균</b>을 썼습니다. 하루짜리 출렁임에 역사 판정이 흔들리면 안 되기 때문입니다.
 그런데 월평균은 «한 달을 평균 낸 값»인 데다 <b>한 달쯤 늦게</b> 나옵니다
-(지금 월봉의 최신은 2026-06로 <b>4.47%</b>).<br><br>
-그래서 <b>«지금»을 말할 때는 일별을 씁니다.</b> 최신 <b>2026-07-30</b> 기준 <b>4.68%</b>입니다.
+(지금 월봉의 최신은 2026-07로 <b>4.60%</b>).<br><br>
+그래서 <b>«지금»을 말할 때는 일별을 씁니다.</b> 최신 <b>2026-08-04</b> 기준 <b>4.63%</b>입니다.
 </p></div>
 
-<figure class="fig"><div class="cbox"><canvas id="r4"></canvas></div><figcaption>최근 3년 일별 움직임입니다. 월평균 차트에서는 안 보이는 출렁임이 드러납니다.</figcaption></figure><script>(window.__RT=window.__RT||[]).push({"id": "r4", "t": "미 10년 국채 — 최근 3년 (일별)", "l": ["2023-07-31", "2023-08-01", "2023-08-02", "2023-08-03", "2023-08-04", "2023-08-07", "2023-08-08", "2023-08-09", "2023-08-10", "2023-08-11", "2023-08-14", "2023-08-15", "2023-08-16", "2023-08-17", "2023-08-18", "2023-08-21", "2023-08-22", "2023-08-23", "2023-08-24", "2023-08-25", "2023-08-28", "2023-08-29", "2023-08-30", "2023-08-31", "2023-09-01", "2023-09-05", "2023-09-06", "2023-09-07", "2023-09-08", "2023-09-11", "2023-09-12", "2023-09-13", "2023-09-14", "2023-09-15", "2023-09-18", "2023-09-19", "2023-09-20", "2023-09-21", "2023-09-22", "2023-09-25", "2023-09-26", "2023-09-27", "2023-09-28", "2023-09-29", "2023-10-02", "2023-10-03", "2023-10-04", "2023-10-05", "2023-10-06", "2023-10-10", "2023-10-11", "2023-10-12", "2023-10-13", "2023-10-16", "2023-10-17", "2023-10-18", "2023-10-19", "2023-10-20", "2023-10-23", "2023-10-24", "2023-10-25", "2023-10-26", "2023-10-27", "2023-10-30", "2023-10-31", "2023-11-01", "2023-11-02", "2023-11-03", "2023-11-06", "2023-11-07", "2023-11-08", "2023-11-09", "2023-11-10", "2023-11-13", "2023-11-14", "2023-11-15", "2023-11-16", "2023-11-17", "2023-11-20", "2023-11-21", "2023-11-22", "2023-11-24", "2023-11-27", "2023-11-28", "2023-11-29", "2023-11-30", "2023-12-01", "2023-12-04", "2023-12-05", "2023-12-06", "2023-12-07", "2023-12-08", "2023-12-11", "2023-12-12", "2023-12-13", "2023-12-14", "2023-12-15", "2023-12-18", "2023-12-19", "2023-12-20", "2023-12-21", "2023-12-22", "2023-12-26", "2023-12-27", "2023-12-28", "2023-12-29", "2024-01-02", "2024-01-03", "2024-01-04", "2024-01-05", "2024-01-08", "2024-01-09", "2024-01-10", "2024-01-11", "2024-01-12", "2024-01-16", "2024-01-17", "2024-01-18", "2024-01-19", "2024-01-22", "2024-01-23", "2024-01-24", "2024-01-25", "2024-01-26", "2024-01-29", "2024-01-30", "2024-01-31", "2024-02-01", "2024-02-02", "2024-02-05", "2024-02-06", "2024-02-07", "2024-02-08", "2024-02-09", "2024-02-12", "2024-02-13", "2024-02-14", "2024-02-15", "2024-02-16", "2024-02-20", "2024-02-21", "2024-02-22", "2024-02-23", "2024-02-26", "2024-02-27", "2024-02-28", "2024-02-29", "2024-03-01", "2024-03-04", "2024-03-05", "2024-03-06", "2024-03-07", "2024-03-08", "2024-03-11", "2024-03-12", "2024-03-13", "2024-03-14", "2024-03-15", "2024-03-18", "2024-03-19", "2024-03-20", "2024-03-21", "2024-03-22", "2024-03-25", "2024-03-26", "2024-03-27", "2024-03-28", "2024-04-01", "2024-04-02", "2024-04-03", "2024-04-04", "2024-04-05", "2024-04-08", "2024-04-09", "2024-04-10", "2024-04-11", "2024-04-12", "2024-04-15", "2024-04-16", "2024-04-17", "2024-04-18", "2024-04-19", "2024-04-22", "2024-04-23", "2024-04-24", "2024-04-25", "2024-04-26", "2024-04-29", "2024-04-30", "2024-05-01", "2024-05-02", "2024-05-03", "2024-05-06", "2024-05-07", "2024-05-08", "2024-05-09", "2024-05-10", "2024-05-13", "2024-05-14", "2024-05-15", "2024-05-16", "2024-05-17", "2024-05-20", "2024-05-21", "2024-05-22", "2024-05-23", "2024-05-24", "2024-05-28", "2024-05-29", "2024-05-30", "2024-05-31", "2024-06-03", "2024-06-04", "2024-06-05", "2024-06-06", "2024-06-07", "2024-06-10", "2024-06-11", "2024-06-12", "2024-06-13", "2024-06-14", "2024-06-17", "2024-06-18", "2024-06-20", "2024-06-21", "2024-06-24", "2024-06-25", "2024-06-26", "2024-06-27", "2024-06-28", "2024-07-01", "2024-07-02", "2024-07-03", "2024-07-05", "2024-07-08", "2024-07-09", "2024-07-10", "2024-07-11", "2024-07-12", "2024-07-15", "2024-07-16", "2024-07-17", "2024-07-18", "2024-07-19", "2024-07-22", "2024-07-23", "2024-07-24", "2024-07-25", "2024-07-26", "2024-07-29", "2024-07-30", "2024-07-31", "2024-08-01", "2024-08-02", "2024-08-05", "2024-08-06", "2024-08-07", "2024-08-08", "2024-08-09", "2024-08-12", "2024-08-13", "2024-08-14", "2024-08-15", "2024-08-16", "2024-08-19", "2024-08-20", "2024-08-21", "2024-08-22", "2024-08-23", "2024-08-26", "2024-08-27", "2024-08-28", "2024-08-29", "2024-08-30", "2024-09-03", "2024-09-04", "2024-09-05", "2024-09-06", "2024-09-09", "2024-09-10", "2024-09-11", "2024-09-12", "2024-09-13", "2024-09-16", "2024-09-17", "2024-09-18", "2024-09-19", "2024-09-20", "2024-09-23", "2024-09-24", "2024-09-25", "2024-09-26", "2024-09-27", "2024-09-30", "2024-10-01", "2024-10-02", "2024-10-03", "2024-10-04", "2024-10-07", "2024-10-08", "2024-10-09", "2024-10-10", "2024-10-11", "2024-10-15", "2024-10-16", "2024-10-17", "2024-10-18", "2024-10-21", "2024-10-22", "2024-10-23", "2024-10-24", "2024-10-25", "2024-10-28", "2024-10-29", "2024-10-30", "2024-10-31", "2024-11-01", "2024-11-04", "2024-11-05", "2024-11-06", "2024-11-07", "2024-11-08", "2024-11-12", "2024-11-13", "2024-11-14", "2024-11-15", "2024-11-18", "2024-11-19", "2024-11-20", "2024-11-21", "2024-11-22", "2024-11-25", "2024-11-26", "2024-11-27", "2024-11-29", "2024-12-02", "2024-12-03", "2024-12-04", "2024-12-05", "2024-12-06", "2024-12-09", "2024-12-10", "2024-12-11", "2024-12-12", "2024-12-13", "2024-12-16", "2024-12-17", "2024-12-18", "2024-12-19", "2024-12-20", "2024-12-23", "2024-12-24", "2024-12-26", "2024-12-27", "2024-12-30", "2024-12-31", "2025-01-02", "2025-01-03", "2025-01-06", "2025-01-07", "2025-01-08", "2025-01-09", "2025-01-10", "2025-01-13", "2025-01-14", "2025-01-15", "2025-01-16", "2025-01-17", "2025-01-21", "2025-01-22", "2025-01-23", "2025-01-24", "2025-01-27", "2025-01-28", "2025-01-29", "2025-01-30", "2025-01-31", "2025-02-03", "2025-02-04", "2025-02-05", "2025-02-06", "2025-02-07", "2025-02-10", "2025-02-11", "2025-02-12", "2025-02-13", "2025-02-14", "2025-02-18", "2025-02-19", "2025-02-20", "2025-02-21", "2025-02-24", "2025-02-25", "2025-02-26", "2025-02-27", "2025-02-28", "2025-03-03", "2025-03-04", "2025-03-05", "2025-03-06", "2025-03-07", "2025-03-10", "2025-03-11", "2025-03-12", "2025-03-13", "2025-03-14", "2025-03-17", "2025-03-18", "2025-03-19", "2025-03-20", "2025-03-21", "2025-03-24", "2025-03-25", "2025-03-26", "2025-03-27", "2025-03-28", "2025-03-31", "2025-04-01", "2025-04-02", "2025-04-03", "2025-04-04", "2025-04-07", "2025-04-08", "2025-04-09", "2025-04-10", "2025-04-11", "2025-04-14", "2025-04-15", "2025-04-16", "2025-04-17", "2025-04-21", "2025-04-22", "2025-04-23", "2025-04-24", "2025-04-25", "2025-04-28", "2025-04-29", "2025-04-30", "2025-05-01", "2025-05-02", "2025-05-05", "2025-05-06", "2025-05-07", "2025-05-08", "2025-05-09", "2025-05-12", "2025-05-13", "2025-05-14", "2025-05-15", "2025-05-16", "2025-05-19", "2025-05-20", "2025-05-21", "2025-05-22", "2025-05-23", "2025-05-27", "2025-05-28", "2025-05-29", "2025-05-30", "2025-06-02", "2025-06-03", "2025-06-04", "2025-06-05", "2025-06-06", "2025-06-09", "2025-06-10", "2025-06-11", "2025-06-12", "2025-06-13", "2025-06-16", "2025-06-17", "2025-06-18", "2025-06-20", "2025-06-23", "2025-06-24", "2025-06-25", "2025-06-26", "2025-06-27", "2025-06-30", "2025-07-01", "2025-07-02", "2025-07-03", "2025-07-07", "2025-07-08", "2025-07-09", "2025-07-10", "2025-07-11", "2025-07-14", "2025-07-15", "2025-07-16", "2025-07-17", "2025-07-18", "2025-07-21", "2025-07-22", "2025-07-23", "2025-07-24", "2025-07-25", "2025-07-28", "2025-07-29", "2025-07-30", "2025-07-31", "2025-08-01", "2025-08-04", "2025-08-05", "2025-08-06", "2025-08-07", "2025-08-08", "2025-08-11", "2025-08-12", "2025-08-13", "2025-08-14", "2025-08-15", "2025-08-18", "2025-08-19", "2025-08-20", "2025-08-21", "2025-08-22", "2025-08-25", "2025-08-26", "2025-08-27", "2025-08-28", "2025-08-29", "2025-09-02", "2025-09-03", "2025-09-04", "2025-09-05", "2025-09-08", "2025-09-09", "2025-09-10", "2025-09-11", "2025-09-12", "2025-09-15", "2025-09-16", "2025-09-17", "2025-09-18", "2025-09-19", "2025-09-22", "2025-09-23", "2025-09-24", "2025-09-25", "2025-09-26", "2025-09-29", "2025-09-30", "2025-10-01", "2025-10-02", "2025-10-03", "2025-10-06", "2025-10-07", "2025-10-08", "2025-10-09", "2025-10-10", "2025-10-14", "2025-10-15", "2025-10-16", "2025-10-17", "2025-10-20", "2025-10-21", "2025-10-22", "2025-10-23", "2025-10-24", "2025-10-27", "2025-10-28", "2025-10-29", "2025-10-30", "2025-10-31", "2025-11-03", "2025-11-04", "2025-11-05", "2025-11-06", "2025-11-07", "2025-11-10", "2025-11-12", "2025-11-13", "2025-11-14", "2025-11-17", "2025-11-18", "2025-11-19", "2025-11-20", "2025-11-21", "2025-11-24", "2025-11-25", "2025-11-26", "2025-11-28", "2025-12-01", "2025-12-02", "2025-12-03", "2025-12-04", "2025-12-05", "2025-12-08", "2025-12-09", "2025-12-10", "2025-12-11", "2025-12-12", "2025-12-15", "2025-12-16", "2025-12-17", "2025-12-18", "2025-12-19", "2025-12-22", "2025-12-23", "2025-12-24", "2025-12-26", "2025-12-29", "2025-12-30", "2025-12-31", "2026-01-02", "2026-01-05", "2026-01-06", "2026-01-07", "2026-01-08", "2026-01-09", "2026-01-12", "2026-01-13", "2026-01-14", "2026-01-15", "2026-01-16", "2026-01-20", "2026-01-21", "2026-01-22", "2026-01-23", "2026-01-26", "2026-01-27", "2026-01-28", "2026-01-29", "2026-01-30", "2026-02-02", "2026-02-03", "2026-02-04", "2026-02-05", "2026-02-06", "2026-02-09", "2026-02-10", "2026-02-11", "2026-02-12", "2026-02-13", "2026-02-17", "2026-02-18", "2026-02-19", "2026-02-20", "2026-02-23", "2026-02-24", "2026-02-25", "2026-02-26", "2026-02-27", "2026-03-02", "2026-03-03", "2026-03-04", "2026-03-05", "2026-03-06", "2026-03-09", "2026-03-10", "2026-03-11", "2026-03-12", "2026-03-13", "2026-03-16", "2026-03-17", "2026-03-18", "2026-03-19", "2026-03-20", "2026-03-23", "2026-03-24", "2026-03-25", "2026-03-26", "2026-03-27", "2026-03-30", "2026-03-31", "2026-04-01", "2026-04-02", "2026-04-03", "2026-04-06", "2026-04-07", "2026-04-08", "2026-04-09", "2026-04-10", "2026-04-13", "2026-04-14", "2026-04-15", "2026-04-16", "2026-04-17", "2026-04-20", "2026-04-21", "2026-04-22", "2026-04-23", "2026-04-24", "2026-04-27", "2026-04-28", "2026-04-29", "2026-04-30", "2026-05-01", "2026-05-04", "2026-05-05", "2026-05-06", "2026-05-07", "2026-05-08", "2026-05-11", "2026-05-12", "2026-05-13", "2026-05-14", "2026-05-15", "2026-05-18", "2026-05-19", "2026-05-20", "2026-05-21", "2026-05-22", "2026-05-26", "2026-05-27", "2026-05-28", "2026-05-29", "2026-06-01", "2026-06-02", "2026-06-03", "2026-06-04", "2026-06-05", "2026-06-08", "2026-06-09", "2026-06-10", "2026-06-11", "2026-06-12", "2026-06-15", "2026-06-16", "2026-06-17", "2026-06-18", "2026-06-22", "2026-06-23", "2026-06-24", "2026-06-25", "2026-06-26", "2026-06-29", "2026-06-30", "2026-07-01", "2026-07-02", "2026-07-06", "2026-07-07", "2026-07-08", "2026-07-09", "2026-07-10", "2026-07-13", "2026-07-14", "2026-07-15", "2026-07-16", "2026-07-17", "2026-07-20", "2026-07-21", "2026-07-22", "2026-07-23", "2026-07-24", "2026-07-27", "2026-07-28", "2026-07-29", "2026-07-30"], "yt": "연 %", "dp": 2, "xt": 12, "d": [{"label": "미 10년 국채 (일별)", "data": [3.97, 4.05, 4.08, 4.2, 4.05, 4.09, 4.02, 4.0, 4.09, 4.16, 4.19, 4.21, 4.28, 4.3, 4.26, 4.34, 4.34, 4.19, 4.23, 4.25, 4.2, 4.12, 4.12, 4.09, 4.18, 4.27, 4.3, 4.27, 4.26, 4.29, 4.27, 4.25, 4.29, 4.33, 4.32, 4.37, 4.35, 4.49, 4.44, 4.55, 4.56, 4.61, 4.59, 4.59, 4.69, 4.81, 4.73, 4.72, 4.78, 4.66, 4.58, 4.7, 4.63, 4.71, 4.83, 4.91, 4.98, 4.93, 4.86, 4.83, 4.95, 4.86, 4.84, 4.88, 4.88, 4.77, 4.67, 4.57, 4.67, 4.58, 4.49, 4.62, 4.61, 4.63, 4.44, 4.53, 4.45, 4.44, 4.42, 4.41, 4.42, 4.47, 4.39, 4.34, 4.27, 4.37, 4.22, 4.28, 4.18, 4.12, 4.14, 4.23, 4.23, 4.2, 4.04, 3.92, 3.91, 3.95, 3.93, 3.86, 3.89, 3.9, 3.89, 3.79, 3.84, 3.88, 3.95, 3.91, 3.99, 4.05, 4.01, 4.02, 4.04, 3.98, 3.96, 4.07, 4.1, 4.14, 4.15, 4.11, 4.14, 4.18, 4.14, 4.15, 4.08, 4.06, 3.99, 3.87, 4.03, 4.17, 4.09, 4.09, 4.15, 4.17, 4.17, 4.31, 4.27, 4.24, 4.3, 4.27, 4.32, 4.33, 4.26, 4.28, 4.31, 4.27, 4.25, 4.19, 4.22, 4.13, 4.11, 4.09, 4.09, 4.1, 4.16, 4.19, 4.29, 4.31, 4.34, 4.3, 4.27, 4.27, 4.22, 4.25, 4.24, 4.2, 4.2, 4.33, 4.36, 4.36, 4.31, 4.39, 4.42, 4.36, 4.55, 4.56, 4.5, 4.63, 4.67, 4.59, 4.64, 4.62, 4.62, 4.61, 4.65, 4.7, 4.67, 4.63, 4.69, 4.63, 4.58, 4.5, 4.49, 4.47, 4.48, 4.45, 4.5, 4.48, 4.45, 4.36, 4.38, 4.42, 4.44, 4.41, 4.43, 4.47, 4.46, 4.54, 4.61, 4.55, 4.51, 4.41, 4.33, 4.29, 4.28, 4.43, 4.47, 4.39, 4.31, 4.24, 4.2, 4.28, 4.22, 4.25, 4.25, 4.25, 4.23, 4.32, 4.29, 4.36, 4.48, 4.43, 4.36, 4.28, 4.28, 4.3, 4.28, 4.2, 4.18, 4.23, 4.17, 4.16, 4.2, 4.25, 4.26, 4.25, 4.28, 4.27, 4.2, 4.17, 4.15, 4.09, 3.99, 3.8, 3.78, 3.9, 3.96, 3.99, 3.94, 3.9, 3.85, 3.83, 3.92, 3.89, 3.86, 3.82, 3.79, 3.86, 3.81, 3.82, 3.83, 3.84, 3.87, 3.91, 3.84, 3.77, 3.73, 3.72, 3.7, 3.65, 3.65, 3.68, 3.66, 3.63, 3.65, 3.7, 3.73, 3.73, 3.75, 3.74, 3.79, 3.79, 3.75, 3.81, 3.74, 3.79, 3.85, 3.98, 4.03, 4.04, 4.06, 4.09, 4.08, 4.03, 4.02, 4.09, 4.08, 4.19, 4.2, 4.24, 4.21, 4.25, 4.28, 4.28, 4.29, 4.28, 4.37, 4.31, 4.26, 4.42, 4.31, 4.3, 4.43, 4.44, 4.43, 4.43, 4.42, 4.39, 4.41, 4.43, 4.41, 4.27, 4.3, 4.25, 4.18, 4.19, 4.23, 4.19, 4.17, 4.15, 4.2, 4.22, 4.26, 4.32, 4.4, 4.39, 4.4, 4.5, 4.57, 4.52, 4.59, 4.59, 4.58, 4.62, 4.55, 4.58, 4.57, 4.6, 4.62, 4.67, 4.67, 4.68, 4.77, 4.79, 4.78, 4.66, 4.61, 4.61, 4.57, 4.6, 4.65, 4.63, 4.53, 4.55, 4.55, 4.52, 4.58, 4.54, 4.52, 4.43, 4.45, 4.49, 4.51, 4.54, 4.62, 4.52, 4.47, 4.55, 4.53, 4.5, 4.42, 4.4, 4.3, 4.25, 4.29, 4.24, 4.16, 4.22, 4.28, 4.29, 4.32, 4.22, 4.28, 4.32, 4.27, 4.31, 4.31, 4.29, 4.25, 4.24, 4.25, 4.34, 4.31, 4.35, 4.38, 4.27, 4.23, 4.17, 4.2, 4.06, 4.01, 4.15, 4.26, 4.34, 4.4, 4.48, 4.38, 4.35, 4.29, 4.34, 4.42, 4.41, 4.4, 4.32, 4.29, 4.23, 4.19, 4.17, 4.25, 4.33, 4.36, 4.3, 4.26, 4.37, 4.37, 4.45, 4.49, 4.53, 4.45, 4.43, 4.46, 4.48, 4.58, 4.54, 4.51, 4.43, 4.47, 4.43, 4.41, 4.46, 4.46, 4.37, 4.4, 4.51, 4.49, 4.47, 4.41, 4.36, 4.41, 4.46, 4.39, 4.38, 4.38, 4.34, 4.3, 4.29, 4.26, 4.29, 4.24, 4.26, 4.3, 4.35, 4.4, 4.42, 4.34, 4.35, 4.43, 4.43, 4.5, 4.46, 4.47, 4.44, 4.38, 4.35, 4.4, 4.43, 4.4, 4.42, 4.34, 4.38, 4.37, 4.23, 4.22, 4.22, 4.22, 4.23, 4.27, 4.27, 4.29, 4.24, 4.29, 4.33, 4.34, 4.3, 4.29, 4.33, 4.26, 4.28, 4.26, 4.24, 4.22, 4.23, 4.28, 4.22, 4.17, 4.1, 4.05, 4.08, 4.04, 4.01, 4.06, 4.05, 4.04, 4.06, 4.11, 4.14, 4.15, 4.12, 4.16, 4.18, 4.2, 4.15, 4.16, 4.12, 4.1, 4.13, 4.18, 4.14, 4.13, 4.14, 4.05, 4.03, 4.05, 3.99, 4.02, 4.0, 3.98, 3.97, 4.01, 4.02, 4.01, 3.99, 4.08, 4.11, 4.11, 4.13, 4.1, 4.17, 4.11, 4.11, 4.13, 4.08, 4.11, 4.14, 4.13, 4.12, 4.13, 4.1, 4.06, 4.04, 4.01, 4.0, 4.02, 4.09, 4.09, 4.06, 4.11, 4.14, 4.17, 4.18, 4.13, 4.14, 4.19, 4.18, 4.15, 4.16, 4.12, 4.16, 4.17, 4.18, 4.15, 4.14, 4.12, 4.14, 4.18, 4.19, 4.17, 4.18, 4.15, 4.19, 4.18, 4.19, 4.18, 4.15, 4.17, 4.24, 4.3, 4.26, 4.26, 4.24, 4.22, 4.24, 4.26, 4.24, 4.26, 4.29, 4.28, 4.29, 4.21, 4.22, 4.22, 4.16, 4.18, 4.09, 4.04, 4.05, 4.09, 4.08, 4.08, 4.03, 4.04, 4.05, 4.02, 3.97, 4.05, 4.06, 4.09, 4.13, 4.15, 4.12, 4.15, 4.21, 4.27, 4.28, 4.23, 4.2, 4.26, 4.25, 4.39, 4.34, 4.39, 4.33, 4.42, 4.44, 4.35, 4.3, 4.33, 4.31, 4.35, 4.34, 4.33, 4.29, 4.29, 4.31, 4.3, 4.26, 4.29, 4.32, 4.26, 4.26, 4.3, 4.3, 4.34, 4.31, 4.35, 4.36, 4.42, 4.4, 4.39, 4.45, 4.43, 4.36, 4.41, 4.38, 4.42, 4.46, 4.46, 4.47, 4.59, 4.61, 4.67, 4.57, 4.57, 4.56, 4.5, 4.48, 4.45, 4.45, 4.47, 4.46, 4.49, 4.47, 4.55, 4.56, 4.53, 4.55, 4.45, 4.48, 4.47, 4.43, 4.49, 4.46, 4.51, 4.5, 4.41, 4.4, 4.38, 4.38, 4.44, 4.48, 4.49, 4.48, 4.55, 4.56, 4.54, 4.56, 4.62, 4.58, 4.55, 4.57, 4.55, 4.6, 4.63, 4.67, 4.71, 4.69, 4.65, 4.61, 4.67, 4.68], "borderColor": "#0b4fa8", "borderWidth": 1.7, "pointRadius": 0, "tension": 0.15}]});</script>
+<figure class="fig"><div class="cbox"><canvas id="r4"></canvas></div><figcaption>최근 3년 일별 움직임입니다. 월평균 차트에서는 안 보이는 출렁임이 드러납니다.</figcaption></figure><script>(window.__RT=window.__RT||[]).push({"id": "r4", "t": "미 10년 국채 — 최근 3년 (일별)", "l": ["2023-08-04", "2023-08-07", "2023-08-08", "2023-08-09", "2023-08-10", "2023-08-11", "2023-08-14", "2023-08-15", "2023-08-16", "2023-08-17", "2023-08-18", "2023-08-21", "2023-08-22", "2023-08-23", "2023-08-24", "2023-08-25", "2023-08-28", "2023-08-29", "2023-08-30", "2023-08-31", "2023-09-01", "2023-09-05", "2023-09-06", "2023-09-07", "2023-09-08", "2023-09-11", "2023-09-12", "2023-09-13", "2023-09-14", "2023-09-15", "2023-09-18", "2023-09-19", "2023-09-20", "2023-09-21", "2023-09-22", "2023-09-25", "2023-09-26", "2023-09-27", "2023-09-28", "2023-09-29", "2023-10-02", "2023-10-03", "2023-10-04", "2023-10-05", "2023-10-06", "2023-10-10", "2023-10-11", "2023-10-12", "2023-10-13", "2023-10-16", "2023-10-17", "2023-10-18", "2023-10-19", "2023-10-20", "2023-10-23", "2023-10-24", "2023-10-25", "2023-10-26", "2023-10-27", "2023-10-30", "2023-10-31", "2023-11-01", "2023-11-02", "2023-11-03", "2023-11-06", "2023-11-07", "2023-11-08", "2023-11-09", "2023-11-10", "2023-11-13", "2023-11-14", "2023-11-15", "2023-11-16", "2023-11-17", "2023-11-20", "2023-11-21", "2023-11-22", "2023-11-24", "2023-11-27", "2023-11-28", "2023-11-29", "2023-11-30", "2023-12-01", "2023-12-04", "2023-12-05", "2023-12-06", "2023-12-07", "2023-12-08", "2023-12-11", "2023-12-12", "2023-12-13", "2023-12-14", "2023-12-15", "2023-12-18", "2023-12-19", "2023-12-20", "2023-12-21", "2023-12-22", "2023-12-26", "2023-12-27", "2023-12-28", "2023-12-29", "2024-01-02", "2024-01-03", "2024-01-04", "2024-01-05", "2024-01-08", "2024-01-09", "2024-01-10", "2024-01-11", "2024-01-12", "2024-01-16", "2024-01-17", "2024-01-18", "2024-01-19", "2024-01-22", "2024-01-23", "2024-01-24", "2024-01-25", "2024-01-26", "2024-01-29", "2024-01-30", "2024-01-31", "2024-02-01", "2024-02-02", "2024-02-05", "2024-02-06", "2024-02-07", "2024-02-08", "2024-02-09", "2024-02-12", "2024-02-13", "2024-02-14", "2024-02-15", "2024-02-16", "2024-02-20", "2024-02-21", "2024-02-22", "2024-02-23", "2024-02-26", "2024-02-27", "2024-02-28", "2024-02-29", "2024-03-01", "2024-03-04", "2024-03-05", "2024-03-06", "2024-03-07", "2024-03-08", "2024-03-11", "2024-03-12", "2024-03-13", "2024-03-14", "2024-03-15", "2024-03-18", "2024-03-19", "2024-03-20", "2024-03-21", "2024-03-22", "2024-03-25", "2024-03-26", "2024-03-27", "2024-03-28", "2024-04-01", "2024-04-02", "2024-04-03", "2024-04-04", "2024-04-05", "2024-04-08", "2024-04-09", "2024-04-10", "2024-04-11", "2024-04-12", "2024-04-15", "2024-04-16", "2024-04-17", "2024-04-18", "2024-04-19", "2024-04-22", "2024-04-23", "2024-04-24", "2024-04-25", "2024-04-26", "2024-04-29", "2024-04-30", "2024-05-01", "2024-05-02", "2024-05-03", "2024-05-06", "2024-05-07", "2024-05-08", "2024-05-09", "2024-05-10", "2024-05-13", "2024-05-14", "2024-05-15", "2024-05-16", "2024-05-17", "2024-05-20", "2024-05-21", "2024-05-22", "2024-05-23", "2024-05-24", "2024-05-28", "2024-05-29", "2024-05-30", "2024-05-31", "2024-06-03", "2024-06-04", "2024-06-05", "2024-06-06", "2024-06-07", "2024-06-10", "2024-06-11", "2024-06-12", "2024-06-13", "2024-06-14", "2024-06-17", "2024-06-18", "2024-06-20", "2024-06-21", "2024-06-24", "2024-06-25", "2024-06-26", "2024-06-27", "2024-06-28", "2024-07-01", "2024-07-02", "2024-07-03", "2024-07-05", "2024-07-08", "2024-07-09", "2024-07-10", "2024-07-11", "2024-07-12", "2024-07-15", "2024-07-16", "2024-07-17", "2024-07-18", "2024-07-19", "2024-07-22", "2024-07-23", "2024-07-24", "2024-07-25", "2024-07-26", "2024-07-29", "2024-07-30", "2024-07-31", "2024-08-01", "2024-08-02", "2024-08-05", "2024-08-06", "2024-08-07", "2024-08-08", "2024-08-09", "2024-08-12", "2024-08-13", "2024-08-14", "2024-08-15", "2024-08-16", "2024-08-19", "2024-08-20", "2024-08-21", "2024-08-22", "2024-08-23", "2024-08-26", "2024-08-27", "2024-08-28", "2024-08-29", "2024-08-30", "2024-09-03", "2024-09-04", "2024-09-05", "2024-09-06", "2024-09-09", "2024-09-10", "2024-09-11", "2024-09-12", "2024-09-13", "2024-09-16", "2024-09-17", "2024-09-18", "2024-09-19", "2024-09-20", "2024-09-23", "2024-09-24", "2024-09-25", "2024-09-26", "2024-09-27", "2024-09-30", "2024-10-01", "2024-10-02", "2024-10-03", "2024-10-04", "2024-10-07", "2024-10-08", "2024-10-09", "2024-10-10", "2024-10-11", "2024-10-15", "2024-10-16", "2024-10-17", "2024-10-18", "2024-10-21", "2024-10-22", "2024-10-23", "2024-10-24", "2024-10-25", "2024-10-28", "2024-10-29", "2024-10-30", "2024-10-31", "2024-11-01", "2024-11-04", "2024-11-05", "2024-11-06", "2024-11-07", "2024-11-08", "2024-11-12", "2024-11-13", "2024-11-14", "2024-11-15", "2024-11-18", "2024-11-19", "2024-11-20", "2024-11-21", "2024-11-22", "2024-11-25", "2024-11-26", "2024-11-27", "2024-11-29", "2024-12-02", "2024-12-03", "2024-12-04", "2024-12-05", "2024-12-06", "2024-12-09", "2024-12-10", "2024-12-11", "2024-12-12", "2024-12-13", "2024-12-16", "2024-12-17", "2024-12-18", "2024-12-19", "2024-12-20", "2024-12-23", "2024-12-24", "2024-12-26", "2024-12-27", "2024-12-30", "2024-12-31", "2025-01-02", "2025-01-03", "2025-01-06", "2025-01-07", "2025-01-08", "2025-01-09", "2025-01-10", "2025-01-13", "2025-01-14", "2025-01-15", "2025-01-16", "2025-01-17", "2025-01-21", "2025-01-22", "2025-01-23", "2025-01-24", "2025-01-27", "2025-01-28", "2025-01-29", "2025-01-30", "2025-01-31", "2025-02-03", "2025-02-04", "2025-02-05", "2025-02-06", "2025-02-07", "2025-02-10", "2025-02-11", "2025-02-12", "2025-02-13", "2025-02-14", "2025-02-18", "2025-02-19", "2025-02-20", "2025-02-21", "2025-02-24", "2025-02-25", "2025-02-26", "2025-02-27", "2025-02-28", "2025-03-03", "2025-03-04", "2025-03-05", "2025-03-06", "2025-03-07", "2025-03-10", "2025-03-11", "2025-03-12", "2025-03-13", "2025-03-14", "2025-03-17", "2025-03-18", "2025-03-19", "2025-03-20", "2025-03-21", "2025-03-24", "2025-03-25", "2025-03-26", "2025-03-27", "2025-03-28", "2025-03-31", "2025-04-01", "2025-04-02", "2025-04-03", "2025-04-04", "2025-04-07", "2025-04-08", "2025-04-09", "2025-04-10", "2025-04-11", "2025-04-14", "2025-04-15", "2025-04-16", "2025-04-17", "2025-04-21", "2025-04-22", "2025-04-23", "2025-04-24", "2025-04-25", "2025-04-28", "2025-04-29", "2025-04-30", "2025-05-01", "2025-05-02", "2025-05-05", "2025-05-06", "2025-05-07", "2025-05-08", "2025-05-09", "2025-05-12", "2025-05-13", "2025-05-14", "2025-05-15", "2025-05-16", "2025-05-19", "2025-05-20", "2025-05-21", "2025-05-22", "2025-05-23", "2025-05-27", "2025-05-28", "2025-05-29", "2025-05-30", "2025-06-02", "2025-06-03", "2025-06-04", "2025-06-05", "2025-06-06", "2025-06-09", "2025-06-10", "2025-06-11", "2025-06-12", "2025-06-13", "2025-06-16", "2025-06-17", "2025-06-18", "2025-06-20", "2025-06-23", "2025-06-24", "2025-06-25", "2025-06-26", "2025-06-27", "2025-06-30", "2025-07-01", "2025-07-02", "2025-07-03", "2025-07-07", "2025-07-08", "2025-07-09", "2025-07-10", "2025-07-11", "2025-07-14", "2025-07-15", "2025-07-16", "2025-07-17", "2025-07-18", "2025-07-21", "2025-07-22", "2025-07-23", "2025-07-24", "2025-07-25", "2025-07-28", "2025-07-29", "2025-07-30", "2025-07-31", "2025-08-01", "2025-08-04", "2025-08-05", "2025-08-06", "2025-08-07", "2025-08-08", "2025-08-11", "2025-08-12", "2025-08-13", "2025-08-14", "2025-08-15", "2025-08-18", "2025-08-19", "2025-08-20", "2025-08-21", "2025-08-22", "2025-08-25", "2025-08-26", "2025-08-27", "2025-08-28", "2025-08-29", "2025-09-02", "2025-09-03", "2025-09-04", "2025-09-05", "2025-09-08", "2025-09-09", "2025-09-10", "2025-09-11", "2025-09-12", "2025-09-15", "2025-09-16", "2025-09-17", "2025-09-18", "2025-09-19", "2025-09-22", "2025-09-23", "2025-09-24", "2025-09-25", "2025-09-26", "2025-09-29", "2025-09-30", "2025-10-01", "2025-10-02", "2025-10-03", "2025-10-06", "2025-10-07", "2025-10-08", "2025-10-09", "2025-10-10", "2025-10-14", "2025-10-15", "2025-10-16", "2025-10-17", "2025-10-20", "2025-10-21", "2025-10-22", "2025-10-23", "2025-10-24", "2025-10-27", "2025-10-28", "2025-10-29", "2025-10-30", "2025-10-31", "2025-11-03", "2025-11-04", "2025-11-05", "2025-11-06", "2025-11-07", "2025-11-10", "2025-11-12", "2025-11-13", "2025-11-14", "2025-11-17", "2025-11-18", "2025-11-19", "2025-11-20", "2025-11-21", "2025-11-24", "2025-11-25", "2025-11-26", "2025-11-28", "2025-12-01", "2025-12-02", "2025-12-03", "2025-12-04", "2025-12-05", "2025-12-08", "2025-12-09", "2025-12-10", "2025-12-11", "2025-12-12", "2025-12-15", "2025-12-16", "2025-12-17", "2025-12-18", "2025-12-19", "2025-12-22", "2025-12-23", "2025-12-24", "2025-12-26", "2025-12-29", "2025-12-30", "2025-12-31", "2026-01-02", "2026-01-05", "2026-01-06", "2026-01-07", "2026-01-08", "2026-01-09", "2026-01-12", "2026-01-13", "2026-01-14", "2026-01-15", "2026-01-16", "2026-01-20", "2026-01-21", "2026-01-22", "2026-01-23", "2026-01-26", "2026-01-27", "2026-01-28", "2026-01-29", "2026-01-30", "2026-02-02", "2026-02-03", "2026-02-04", "2026-02-05", "2026-02-06", "2026-02-09", "2026-02-10", "2026-02-11", "2026-02-12", "2026-02-13", "2026-02-17", "2026-02-18", "2026-02-19", "2026-02-20", "2026-02-23", "2026-02-24", "2026-02-25", "2026-02-26", "2026-02-27", "2026-03-02", "2026-03-03", "2026-03-04", "2026-03-05", "2026-03-06", "2026-03-09", "2026-03-10", "2026-03-11", "2026-03-12", "2026-03-13", "2026-03-16", "2026-03-17", "2026-03-18", "2026-03-19", "2026-03-20", "2026-03-23", "2026-03-24", "2026-03-25", "2026-03-26", "2026-03-27", "2026-03-30", "2026-03-31", "2026-04-01", "2026-04-02", "2026-04-03", "2026-04-06", "2026-04-07", "2026-04-08", "2026-04-09", "2026-04-10", "2026-04-13", "2026-04-14", "2026-04-15", "2026-04-16", "2026-04-17", "2026-04-20", "2026-04-21", "2026-04-22", "2026-04-23", "2026-04-24", "2026-04-27", "2026-04-28", "2026-04-29", "2026-04-30", "2026-05-01", "2026-05-04", "2026-05-05", "2026-05-06", "2026-05-07", "2026-05-08", "2026-05-11", "2026-05-12", "2026-05-13", "2026-05-14", "2026-05-15", "2026-05-18", "2026-05-19", "2026-05-20", "2026-05-21", "2026-05-22", "2026-05-26", "2026-05-27", "2026-05-28", "2026-05-29", "2026-06-01", "2026-06-02", "2026-06-03", "2026-06-04", "2026-06-05", "2026-06-08", "2026-06-09", "2026-06-10", "2026-06-11", "2026-06-12", "2026-06-15", "2026-06-16", "2026-06-17", "2026-06-18", "2026-06-22", "2026-06-23", "2026-06-24", "2026-06-25", "2026-06-26", "2026-06-29", "2026-06-30", "2026-07-01", "2026-07-02", "2026-07-06", "2026-07-07", "2026-07-08", "2026-07-09", "2026-07-10", "2026-07-13", "2026-07-14", "2026-07-15", "2026-07-16", "2026-07-17", "2026-07-20", "2026-07-21", "2026-07-22", "2026-07-23", "2026-07-24", "2026-07-27", "2026-07-28", "2026-07-29", "2026-07-30", "2026-07-31", "2026-08-03", "2026-08-04"], "yt": "연 %", "dp": 2, "xt": 12, "d": [{"label": "미 10년 국채 (일별)", "data": [4.05, 4.09, 4.02, 4.0, 4.09, 4.16, 4.19, 4.21, 4.28, 4.3, 4.26, 4.34, 4.34, 4.19, 4.23, 4.25, 4.2, 4.12, 4.12, 4.09, 4.18, 4.27, 4.3, 4.27, 4.26, 4.29, 4.27, 4.25, 4.29, 4.33, 4.32, 4.37, 4.35, 4.49, 4.44, 4.55, 4.56, 4.61, 4.59, 4.59, 4.69, 4.81, 4.73, 4.72, 4.78, 4.66, 4.58, 4.7, 4.63, 4.71, 4.83, 4.91, 4.98, 4.93, 4.86, 4.83, 4.95, 4.86, 4.84, 4.88, 4.88, 4.77, 4.67, 4.57, 4.67, 4.58, 4.49, 4.62, 4.61, 4.63, 4.44, 4.53, 4.45, 4.44, 4.42, 4.41, 4.42, 4.47, 4.39, 4.34, 4.27, 4.37, 4.22, 4.28, 4.18, 4.12, 4.14, 4.23, 4.23, 4.2, 4.04, 3.92, 3.91, 3.95, 3.93, 3.86, 3.89, 3.9, 3.89, 3.79, 3.84, 3.88, 3.95, 3.91, 3.99, 4.05, 4.01, 4.02, 4.04, 3.98, 3.96, 4.07, 4.1, 4.14, 4.15, 4.11, 4.14, 4.18, 4.14, 4.15, 4.08, 4.06, 3.99, 3.87, 4.03, 4.17, 4.09, 4.09, 4.15, 4.17, 4.17, 4.31, 4.27, 4.24, 4.3, 4.27, 4.32, 4.33, 4.26, 4.28, 4.31, 4.27, 4.25, 4.19, 4.22, 4.13, 4.11, 4.09, 4.09, 4.1, 4.16, 4.19, 4.29, 4.31, 4.34, 4.3, 4.27, 4.27, 4.22, 4.25, 4.24, 4.2, 4.2, 4.33, 4.36, 4.36, 4.31, 4.39, 4.42, 4.36, 4.55, 4.56, 4.5, 4.63, 4.67, 4.59, 4.64, 4.62, 4.62, 4.61, 4.65, 4.7, 4.67, 4.63, 4.69, 4.63, 4.58, 4.5, 4.49, 4.47, 4.48, 4.45, 4.5, 4.48, 4.45, 4.36, 4.38, 4.42, 4.44, 4.41, 4.43, 4.47, 4.46, 4.54, 4.61, 4.55, 4.51, 4.41, 4.33, 4.29, 4.28, 4.43, 4.47, 4.39, 4.31, 4.24, 4.2, 4.28, 4.22, 4.25, 4.25, 4.25, 4.23, 4.32, 4.29, 4.36, 4.48, 4.43, 4.36, 4.28, 4.28, 4.3, 4.28, 4.2, 4.18, 4.23, 4.17, 4.16, 4.2, 4.25, 4.26, 4.25, 4.28, 4.27, 4.2, 4.17, 4.15, 4.09, 3.99, 3.8, 3.78, 3.9, 3.96, 3.99, 3.94, 3.9, 3.85, 3.83, 3.92, 3.89, 3.86, 3.82, 3.79, 3.86, 3.81, 3.82, 3.83, 3.84, 3.87, 3.91, 3.84, 3.77, 3.73, 3.72, 3.7, 3.65, 3.65, 3.68, 3.66, 3.63, 3.65, 3.7, 3.73, 3.73, 3.75, 3.74, 3.79, 3.79, 3.75, 3.81, 3.74, 3.79, 3.85, 3.98, 4.03, 4.04, 4.06, 4.09, 4.08, 4.03, 4.02, 4.09, 4.08, 4.19, 4.2, 4.24, 4.21, 4.25, 4.28, 4.28, 4.29, 4.28, 4.37, 4.31, 4.26, 4.42, 4.31, 4.3, 4.43, 4.44, 4.43, 4.43, 4.42, 4.39, 4.41, 4.43, 4.41, 4.27, 4.3, 4.25, 4.18, 4.19, 4.23, 4.19, 4.17, 4.15, 4.2, 4.22, 4.26, 4.32, 4.4, 4.39, 4.4, 4.5, 4.57, 4.52, 4.59, 4.59, 4.58, 4.62, 4.55, 4.58, 4.57, 4.6, 4.62, 4.67, 4.67, 4.68, 4.77, 4.79, 4.78, 4.66, 4.61, 4.61, 4.57, 4.6, 4.65, 4.63, 4.53, 4.55, 4.55, 4.52, 4.58, 4.54, 4.52, 4.43, 4.45, 4.49, 4.51, 4.54, 4.62, 4.52, 4.47, 4.55, 4.53, 4.5, 4.42, 4.4, 4.3, 4.25, 4.29, 4.24, 4.16, 4.22, 4.28, 4.29, 4.32, 4.22, 4.28, 4.32, 4.27, 4.31, 4.31, 4.29, 4.25, 4.24, 4.25, 4.34, 4.31, 4.35, 4.38, 4.27, 4.23, 4.17, 4.2, 4.06, 4.01, 4.15, 4.26, 4.34, 4.4, 4.48, 4.38, 4.35, 4.29, 4.34, 4.42, 4.41, 4.4, 4.32, 4.29, 4.23, 4.19, 4.17, 4.25, 4.33, 4.36, 4.3, 4.26, 4.37, 4.37, 4.45, 4.49, 4.53, 4.45, 4.43, 4.46, 4.48, 4.58, 4.54, 4.51, 4.43, 4.47, 4.43, 4.41, 4.46, 4.46, 4.37, 4.4, 4.51, 4.49, 4.47, 4.41, 4.36, 4.41, 4.46, 4.39, 4.38, 4.38, 4.34, 4.3, 4.29, 4.26, 4.29, 4.24, 4.26, 4.3, 4.35, 4.4, 4.42, 4.34, 4.35, 4.43, 4.43, 4.5, 4.46, 4.47, 4.44, 4.38, 4.35, 4.4, 4.43, 4.4, 4.42, 4.34, 4.38, 4.37, 4.23, 4.22, 4.22, 4.22, 4.23, 4.27, 4.27, 4.29, 4.24, 4.29, 4.33, 4.34, 4.3, 4.29, 4.33, 4.26, 4.28, 4.26, 4.24, 4.22, 4.23, 4.28, 4.22, 4.17, 4.1, 4.05, 4.08, 4.04, 4.01, 4.06, 4.05, 4.04, 4.06, 4.11, 4.14, 4.15, 4.12, 4.16, 4.18, 4.2, 4.15, 4.16, 4.12, 4.1, 4.13, 4.18, 4.14, 4.13, 4.14, 4.05, 4.03, 4.05, 3.99, 4.02, 4.0, 3.98, 3.97, 4.01, 4.02, 4.01, 3.99, 4.08, 4.11, 4.11, 4.13, 4.1, 4.17, 4.11, 4.11, 4.13, 4.08, 4.11, 4.14, 4.13, 4.12, 4.13, 4.1, 4.06, 4.04, 4.01, 4.0, 4.02, 4.09, 4.09, 4.06, 4.11, 4.14, 4.17, 4.18, 4.13, 4.14, 4.19, 4.18, 4.15, 4.16, 4.12, 4.16, 4.17, 4.18, 4.15, 4.14, 4.12, 4.14, 4.18, 4.19, 4.17, 4.18, 4.15, 4.19, 4.18, 4.19, 4.18, 4.15, 4.17, 4.24, 4.3, 4.26, 4.26, 4.24, 4.22, 4.24, 4.26, 4.24, 4.26, 4.29, 4.28, 4.29, 4.21, 4.22, 4.22, 4.16, 4.18, 4.09, 4.04, 4.05, 4.09, 4.08, 4.08, 4.03, 4.04, 4.05, 4.02, 3.97, 4.05, 4.06, 4.09, 4.13, 4.15, 4.12, 4.15, 4.21, 4.27, 4.28, 4.23, 4.2, 4.26, 4.25, 4.39, 4.34, 4.39, 4.33, 4.42, 4.44, 4.35, 4.3, 4.33, 4.31, 4.35, 4.34, 4.33, 4.29, 4.29, 4.31, 4.3, 4.26, 4.29, 4.32, 4.26, 4.26, 4.3, 4.3, 4.34, 4.31, 4.35, 4.36, 4.42, 4.4, 4.39, 4.45, 4.43, 4.36, 4.41, 4.38, 4.42, 4.46, 4.46, 4.47, 4.59, 4.61, 4.67, 4.57, 4.57, 4.56, 4.5, 4.48, 4.45, 4.45, 4.47, 4.46, 4.49, 4.47, 4.55, 4.56, 4.53, 4.55, 4.45, 4.48, 4.47, 4.43, 4.49, 4.46, 4.51, 4.5, 4.41, 4.4, 4.38, 4.38, 4.44, 4.48, 4.49, 4.48, 4.55, 4.56, 4.54, 4.56, 4.62, 4.58, 4.55, 4.57, 4.55, 4.6, 4.63, 4.67, 4.71, 4.69, 4.65, 4.61, 4.67, 4.68, 4.75, 4.7, 4.63], "borderColor": "#0b4fa8", "borderWidth": 1.7, "pointRadius": 0, "tension": 0.15}]});</script>
 
 <figure class="fig"><div class="tblwrap"><table class="tw">
 <thead><tr><th>잣대</th><th>현재</th><th>판정</th></tr></thead>
 <tbody>
-<tr class="cur"><td><b>미 10년 국채</b> <span class="dim">(일별 2026-07-30)</span></td>
-<td class="n"><b>4.68%</b></td>
-<td>1년 전 4.38%에서 +0.30%p · 최근 1년 범위 3.97~4.71%</td></tr>
-<tr><td>미 10년 국채 <span class="dim">(월평균 2026-06)</span></td><td class="n">4.47%</td>
+<tr class="cur"><td><b>미 10년 국채</b> <span class="dim">(일별 2026-08-04)</span></td>
+<td class="n"><b>4.63%</b></td>
+<td>1년 전 4.22%에서 +0.41%p · 최근 1년 범위 3.97~4.75%</td></tr>
+<tr><td>미 10년 국채 <span class="dim">(월평균 2026-07)</span></td><td class="n">4.60%</td>
 <td>역사 판정에 쓰는 값 — 뉴스와 다른 게 정상입니다</td></tr>
-<tr><td>2년 상승폭 <span class="dim">(월평균 기준)</span></td><td class="n">+0.75%p</td>
+<tr><td>2년 상승폭 <span class="dim">(월평균 기준)</span></td><td class="n">+0.88%p</td>
 <td>급등 기준(+1.5%p) 아래</td></tr>
 <tr><td>신용 스프레드</td><td class="n">0.43%p</td><td>평상 범위 — 신용경색 신호 없음</td></tr>
 <tr><td>미국 신용융자 (GDP 대비)</td><td class="n"><b>사상 최고</b></td>
@@ -877,7 +809,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 금리로 붕괴를 예고할 수 없다는 것이 이 글의 결론입니다.
 필요조건도 충분조건도 아니었으니까요. 그렇다고 <b>금리를 안 봐도 된다</b>는 뜻은 아닙니다.
 봐야 할 것이 바뀝니다 — <b>«5%를 넘었나»가 아니라 «이 구조가 겪어본 적 없는 자리에 왔나»</b>입니다.
-그 자리가 <b>20년래 고점 5.26%</b>이고, 지금은 <b>0.58%p</b> 남았습니다.<br><br>
+그 자리가 <b>20년래 고점 5.26%</b>이고, 지금은 <b>0.63%p</b> 남았습니다.<br><br>
 그리고 <b>금리가 조용하다는 것은 안전의 증거가 아닙니다.</b>
 2020년 팬데믹 폭락은 금리와 무관했고, 2026년 7월 SA펀드 강제청산이 보여줬듯
 <b>4배 레버리지는 금리가 아니라 가격 급락 자체로 터집니다.</b>
@@ -900,7 +832,7 @@ SP500 일별(라이선스상 최근 10년) · OECD 한국 주가지수 월봉.
 그 이전엔 «만기 10년 이상 장기채 평균»(20·30년물 혼재)밖에 없고 1970년 무렵 두 계열이
 <b>0.93%p</b>까지 벌어집니다. 다른 자를 이어 붙여 100년을 만드느니
 <b>같은 자로 73년</b>을 재는 쪽을 택했습니다.</p>
-<p class="src-note">갱신 2026-08-05</p>
+<p class="src-note">갱신 2026-08-06</p>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <!-- CHARTTHEME:BEGIN -->
@@ -956,8 +888,6 @@ SP500 일별(라이선스상 최근 10년) · OECD 한국 주가지수 월봉.
   };
 })();
 /* THEME:END */</script>
-
-
 
 
 
