@@ -531,6 +531,19 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   color:var(--text2,#6e6e73)}
 .paper .disclaimer{border-top:1px solid var(--rule)!important}
 
+/* ── 두괄식 «결론» 블록 (2026-08-06)
+   상수님 «모든 글을 논점을 검증하는 방식으로. 두괄식».
+   각 장이 결론 한 문단으로 시작하고 그 아래에 근거가 온다.
+   상자를 안 쓰는 것이 이 판형의 원칙이라, **왼쪽 굵은 선 + 살짝 큰 글씨**로만 구분한다.
+   그래야 훑어볼 때 «각 장의 첫 블록만» 읽어도 글 전체가 읽힌다. */
+.paper .claim{margin:6px 0 22px;padding:2px 0 2px 16px!important;
+  border-left:3px solid var(--up,#d21f3c)!important;background:none!important}
+.paper .claim p{font-size:clamp(15.5px,1.9vw,17px);line-height:1.72;margin:0}
+.paper .claim+figure,.paper .claim+.tblwrap{margin-top:4px}
+/* 경고형 note — 한계·반증을 적는 자리. 색만 바꾼다 */
+.paper .note.warn{border-left:2px solid var(--risk,#c98a00)!important;
+  padding-left:12px!important}
+
 /* ── 정렬 ──
    **제목(맨 위 표제부)만 가운데.** 소제목(h2·h3)과 본문은 왼쪽이다.
    소제목까지 가운데로 두면 문단 첫 줄과 제목의 시작점이 매번 어긋나
