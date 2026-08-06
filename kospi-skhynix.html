@@ -110,51 +110,14 @@ footer{margin-top:48px;border-top:1px solid var(--border);padding-top:22px;color
 .toggle{top:62px;z-index:88;position:fixed;right:18px;width:42px;height:42px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:18px}
 @media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}h1{font-size:2.05rem}}
 
-.bg{display:inline-block;min-width:44px;text-align:center;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:800;color:#fff}
-.b-on{background:#e11d48}.b-wa{background:#f59e0b}.b-ob{background:#64748b}.b-sf{background:#059669}.b-rf{background:#94a3b8}
-.gr{display:inline-block;font-size:.68rem;font-weight:800;padding:1px 6px;border-radius:5px;margin-left:6px;
-  color:#e11d48;background:color-mix(in srgb,#e11d48 13%,transparent);vertical-align:middle}
-.chg{font-size:.7rem;font-weight:700;color:var(--accent);margin-left:6px;white-space:nowrap}
-.star{color:#e11d48;font-weight:800}
-td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
-.chl{margin:12px 0 0 18px;font-size:.92rem;line-height:1.9}
-.g1box{margin-top:12px;font-size:.9rem;line-height:1.85;color:var(--text-secondary)}
-.g1box ol{margin:8px 0 0 20px} .g1box li{color:var(--text);font-weight:600}
-.stats5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px}
-@media(max-width:720px){.stats5{grid-template-columns:repeat(2,1fr)}}
-
-/* 주차별 히스토리 */
-.hist{position:relative;padding-left:26px;margin-top:18px}
-.hist::before{content:'';position:absolute;left:7px;top:14px;bottom:14px;width:2px;background:var(--border)}
-.hw{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:14px;
-  padding:20px 22px;margin-bottom:16px}
-.hw::before{content:'';position:absolute;left:-24px;top:26px;width:12px;height:12px;border-radius:50%;
-  background:var(--border);border:3px solid var(--bg)}
-.hw.cur{border-color:color-mix(in srgb,var(--accent) 45%,var(--border));
-  box-shadow:0 1px 14px color-mix(in srgb,var(--accent) 10%,transparent)}
-.hw.cur::before{background:var(--accent)}
-.hh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.hwk{font-size:1.02rem;font-weight:900;letter-spacing:-.02em}
-.hdt{font-size:.82rem;color:var(--text-secondary);font-variant-numeric:tabular-nums}
-.hnow{font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:999px;color:#fff;background:var(--accent)}
-.htitle{margin-top:8px;font-size:1.12rem;font-weight:800;letter-spacing:-.02em;line-height:1.4}
-.htone{margin-top:6px;font-size:.86rem;color:var(--text-secondary);font-style:italic}
-.hpills{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
-.hp{font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
-.hp.on{color:#e11d48;background:color-mix(in srgb,#e11d48 12%,transparent)}
-.hp.wa{color:#b45309;background:color-mix(in srgb,#f59e0b 15%,transparent)}
-.hp.ob{color:#475569;background:color-mix(in srgb,#64748b 14%,transparent)}
-.hp.sf{color:#047857;background:color-mix(in srgb,#059669 13%,transparent)}
-.hp.g1{color:#fff;background:#e11d48}
-.hbody{margin-top:13px;font-size:.93rem;line-height:1.78;color:var(--text-secondary)}
-.hbody b{color:var(--text)}
-.hchg{margin-top:14px;padding-top:12px;border-top:1px dashed var(--border)}
-.hct{font-size:.76rem;font-weight:800;letter-spacing:.02em;color:var(--accent);text-transform:none}
-.hchg ul{margin:8px 0 0 16px;font-size:.87rem;line-height:1.85;color:var(--text-secondary)}
-.hchg li b{color:var(--text)}
-.hchg .ar{white-space:nowrap}
-.to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
-@media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
+/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
+.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
+  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
+.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
+  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
+  background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
 
 /* ── 공통 기준일 배지 ── */
 .pbadge{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:2px 0 18px;
@@ -163,8 +126,10 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .pb-k{font-size:.7rem;font-weight:800;padding:2px 8px;border-radius:999px;letter-spacing:.01em}
 .pb-live{color:#047857;background:color-mix(in srgb,#059669 14%,transparent)}
 .pb-weekly{color:#1d4ed8;background:color-mix(in srgb,#2563eb 13%,transparent)}
+.pb-monthly{color:#6d28d9;background:color-mix(in srgb,#7c3aed 13%,transparent)}
 .pb-fixed{color:#475569;background:color-mix(in srgb,#64748b 15%,transparent)}
 .pb-src{opacity:.72}
+.pb-note{opacity:.55;font-size:.74rem}
 .pb-old{font-size:.7rem;font-weight:800;padding:2px 8px;border-radius:999px;
   color:#b45309;background:color-mix(in srgb,#f59e0b 18%,transparent)}
 /* DESIGN:BEGIN */
@@ -275,39 +240,52 @@ html.theme-dark .card:hover{box-shadow:none!important}
   .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
 }
 /* LAYOUT:END */
-/* 단독 내비 링크(방법론) — 옆의 드롭다운 버튼과 같은 모양으로 맞춘다 */
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text-secondary,var(--text2));
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+.bg{display:inline-block;min-width:44px;text-align:center;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:800;color:#fff}
+.b-on{background:#e11d48}.b-wa{background:#f59e0b}.b-ob{background:#64748b}.b-sf{background:#059669}.b-rf{background:#94a3b8}
+.gr{display:inline-block;font-size:.68rem;font-weight:800;padding:1px 6px;border-radius:5px;margin-left:6px;
+  color:#e11d48;background:color-mix(in srgb,#e11d48 13%,transparent);vertical-align:middle}
+.chg{font-size:.7rem;font-weight:700;color:var(--accent);margin-left:6px;white-space:nowrap}
+.star{color:#e11d48;font-weight:800}
+td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
+.chl{margin:12px 0 0 18px;font-size:.92rem;line-height:1.9}
+.g1box{margin-top:12px;font-size:.9rem;line-height:1.85;color:var(--text-secondary)}
+.g1box ol{margin:8px 0 0 20px} .g1box li{color:var(--text);font-weight:600}
+.stats5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px}
+@media(max-width:720px){.stats5{grid-template-columns:repeat(2,1fr)}}
 
-/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
-.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
-  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END *//* PAPER:BEGIN */
+/* 주차별 히스토리 */
+.hist{position:relative;padding-left:26px;margin-top:18px}
+.hist::before{content:'';position:absolute;left:7px;top:14px;bottom:14px;width:2px;background:var(--border)}
+.hw{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:20px 22px;margin-bottom:16px}
+.hw::before{content:'';position:absolute;left:-24px;top:26px;width:12px;height:12px;border-radius:50%;
+  background:var(--border);border:3px solid var(--bg)}
+.hw.cur{border-color:color-mix(in srgb,var(--accent) 45%,var(--border));
+  box-shadow:0 1px 14px color-mix(in srgb,var(--accent) 10%,transparent)}
+.hw.cur::before{background:var(--accent)}
+.hh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.hwk{font-size:1.02rem;font-weight:900;letter-spacing:-.02em}
+.hdt{font-size:.82rem;color:var(--text-secondary);font-variant-numeric:tabular-nums}
+.hnow{font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:999px;color:#fff;background:var(--accent)}
+.htitle{margin-top:8px;font-size:1.12rem;font-weight:800;letter-spacing:-.02em;line-height:1.4}
+.htone{margin-top:6px;font-size:.86rem;color:var(--text-secondary);font-style:italic}
+.hpills{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
+.hp{font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.hp.on{color:#e11d48;background:color-mix(in srgb,#e11d48 12%,transparent)}
+.hp.wa{color:#b45309;background:color-mix(in srgb,#f59e0b 15%,transparent)}
+.hp.ob{color:#475569;background:color-mix(in srgb,#64748b 14%,transparent)}
+.hp.sf{color:#047857;background:color-mix(in srgb,#059669 13%,transparent)}
+.hp.g1{color:#fff;background:#e11d48}
+.hbody{margin-top:13px;font-size:.93rem;line-height:1.78;color:var(--text-secondary)}
+.hbody b{color:var(--text)}
+.hchg{margin-top:14px;padding-top:12px;border-top:1px dashed var(--border)}
+.hct{font-size:.76rem;font-weight:800;letter-spacing:.02em;color:var(--accent);text-transform:none}
+.hchg ul{margin:8px 0 0 16px;font-size:.87rem;line-height:1.85;color:var(--text-secondary)}
+.hchg li b{color:var(--text)}
+.hchg .ar{white-space:nowrap}
+.to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
+@media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
+/* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -555,15 +533,14 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"></head><body>
+/* PAPER:END */</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"></head><body>
 <div class="site-bar"><div class="site-bar-in">
-  <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
+  <a class="site-brand" href="index.html">찰리의 시투 추종</a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="here" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a class="here" href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><!-- NAV:END --></nav>
 </div></div>
 <div class="wrap paper">
 <div class="phead">
-
-<!-- STAMP:BEGIN --><div class="pbadge"><span class="pb-k pb-live">매일 갱신</span><span>기준일 <b>2026-08-05</b></span><span class="pb-src">코스피·하닉·삼전 일별시세</span></div><!-- STAMP:END --><div class="eyebrow">오늘의 시장 · KOSPI</div>
+<div class="eyebrow">오늘의 시장 · KOSPI</div>
 <h1>코스피</h1>
 <p class="sub">지수를 <b>일반 종목처럼</b> 분석합니다 — 이격도, 바닥 7단계, 시장 수급, 그리고
 <b>개인 수급 사분면</b>. 삼성전자·SK하이닉스는 각자 페이지에서 다룹니다.</p>
@@ -595,7 +572,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <tbody><tr><td><b>마지막 날 (2026-07-31)</b></td><td class="n bad">-10.57</td><td class="n good">+9.15</td><td class="n good">+1.06</td></tr><tr><td>최근 5일</td><td class="n bad">-6.68</td><td class="n good">+1.16</td><td class="n good">+4.96</td></tr><tr><td>최근 20일</td><td class="n good">+5.74</td><td class="n bad">-6.97</td><td class="n bad">-0.52</td></tr><tr><td>최근 60일</td><td class="n good">+134.77</td><td class="n bad">-150.66</td><td class="n good">+10.58</td></tr><tr><td>올해 전체</td><td class="n good">+145.60</td><td class="n bad">-177.33</td><td class="n good">+22.35</td></tr></tbody></table></div>
 <figcaption>«순매수 주수 × 그날 종가»를 코스피 전 종목에 대해 합산했습니다. 플러스가 순매수.
 종목·주체별 상세는 <a href="supply.html">투자자 수급</a>.</figcaption></figure>
-<figure class="fig"><div class="cbox"><canvas id="mf1"></canvas></div><figcaption>올해 첫 거래일부터 쌓은 <b>누적</b> 순매수입니다. 절대 수준보다 <b>기울기</b>를 봅니다 — 지수(빨간 점선)가 오르는 동안 외국인·기관 곡선이 함께 올라가면 건강한 상승, 개인만 올라가고 외국인이 내려가면 분배입니다.</figcaption></figure><script>(window.__ST=window.__ST||[]).push({"id": "mf1", "t": "코스피 누적 순매수와 지수", "l": ["26-01-02", "26-01-05", "26-01-06", "26-01-07", "26-01-08", "26-01-09", "26-01-12", "26-01-13", "26-01-14", "26-01-15", "26-01-16", "26-01-19", "26-01-20", "26-01-21", "26-01-22", "26-01-23", "26-01-26", "26-01-27", "26-01-28", "26-01-29", "26-01-30", "26-02-02", "26-02-03", "26-02-04", "26-02-05", "26-02-06", "26-02-09", "26-02-10", "26-02-11", "26-02-12", "26-02-13", "26-02-19", "26-02-20", "26-02-23", "26-02-24", "26-02-25", "26-02-26", "26-02-27", "26-03-03", "26-03-04", "26-03-05", "26-03-06", "26-03-09", "26-03-10", "26-03-11", "26-03-12", "26-03-13", "26-03-16", "26-03-17", "26-03-18", "26-03-19", "26-03-20", "26-03-23", "26-03-24", "26-03-25", "26-03-26", "26-03-27", "26-03-30", "26-03-31", "26-04-01", "26-04-02", "26-04-03", "26-04-06", "26-04-07", "26-04-08", "26-04-09", "26-04-10", "26-04-13", "26-04-14", "26-04-15", "26-04-16", "26-04-17", "26-04-20", "26-04-21", "26-04-22", "26-04-23", "26-04-24", "26-04-27", "26-04-28", "26-04-29", "26-04-30", "26-05-04", "26-05-06", "26-05-07", "26-05-08", "26-05-11", "26-05-12", "26-05-13", "26-05-14", "26-05-15", "26-05-18", "26-05-19", "26-05-20", "26-05-21", "26-05-22", "26-05-26", "26-05-27", "26-05-28", "26-05-29", "26-06-01", "26-06-02", "26-06-04", "26-06-05", "26-06-08", "26-06-09", "26-06-10", "26-06-11", "26-06-12", "26-06-15", "26-06-16", "26-06-17", "26-06-18", "26-06-19", "26-06-22", "26-06-23", "26-06-24", "26-06-25", "26-06-26", "26-06-29", "26-06-30", "26-07-01", "26-07-02", "26-07-03", "26-07-06", "26-07-07", "26-07-08", "26-07-09", "26-07-10", "26-07-13", "26-07-14", "26-07-15", "26-07-16", "26-07-20", "26-07-21", "26-07-22", "26-07-23", "26-07-24", "26-07-27", "26-07-28", "26-07-29", "26-07-30", "26-07-31"], "d": [{"label": "개인", "data": [0.032, -0.449, -0.301, -0.588, -0.542, -0.176, -0.225, -0.286, -0.222, -0.601, -0.715, -1.012, -0.62, -0.775, 0.082, 0.052, 0.905, 0.329, 0.968, 2.017, 3.272, 6.24, 5.201, 5.516, 8.927, 9.962, 8.309, 8.357, 8.121, 6.226, 6.595, 6.122, 4.706, 4.992, 3.438, 3.498, 3.931, 7.941, 10.643, 10.762, 11.434, 12.669, 14.979, 13.213, 12.907, 14.316, 15.31, 15.088, 15.263, 12.634, 14.338, 15.878, 18.689, 18.205, 16.822, 18.639, 20.337, 21.486, 22.641, 21.233, 21.567, 20.71, 20.317, 19.706, 15.868, 16.141, 15.317, 14.931, 13.554, 14.393, 14.308, 15.907, 14.891, 14.109, 15.254, 15.75, 16.407, 14.198, 15.523, 16.419, 16.936, 10.824, 11.09, 17.818, 21.749, 24.607, 34.339, 36.607, 43.371, 51.735, 53.591, 59.411, 61.151, 59.529, 60.335, 59.13, 57.809, 62.697, 63.892, 64.531, 69.444, 73.214, 80.65, 83.108, 80.625, 86.587, 88.227, 85.878, 81.203, 76.163, 74.728, 73.243, 76.242, 79.967, 100.2, 109.265, 100.866, 117.286, 125.275, 124.917, 126.73, 139.854, 137.161, 143.025, 146.635, 146.935, 144.544, 147.649, 153.892, 146.67, 143.548, 149.299, 150.669, 149.398, 148.319, 146.192, 152.278, 153.761, 158.456, 156.732, 156.167, 145.597], "borderColor": "#eb6834", "borderWidth": 2, "pointRadius": 0, "tension": 0.2, "yAxisID": "y", "uu": " 조원"}, {"label": "외국인", "data": [0.085, 0.798, 0.711, 1.328, 1.565, 0.675, 0.6, 0.256, -0.136, -0.215, -0.362, -0.238, -0.421, -0.613, -1.526, -1.744, -2.046, -1.635, -1.81, -2.788, -3.786, -5.717, -5.937, -6.802, -9.131, -10.625, -10.455, -10.662, -10.607, -9.485, -9.78, -9.891, -9.073, -9.084, -8.841, -9.209, -10.292, -14.346, -16.575, -16.967, -17.011, -17.722, -19.448, -18.4, -18.406, -19.551, -19.957, -19.953, -20.326, -19.388, -20.63, -21.77, -22.613, -23.116, -23.276, -24.712, -26.66, -28.104, -29.694, -30.205, -30.197, -29.788, -29.737, -29.077, -27.93, -28.209, -27.143, -26.614, -25.876, -26.306, -26.6, -27.906, -27.245, -26.788, -27.306, -27.636, -28.731, -27.721, -28.834, -29.855, -30.554, -26.666, -25.868, -33.153, -38.024, -41.176, -49.045, -53.467, -58.794, -64.907, -68.225, -74.07, -76.911, -79.528, -81.244, -81.757, -81.967, -87.245, -89.826, -94.974, -99.077, -103.673, -108.188, -108.736, -111.393, -114.151, -114.333, -111.268, -107.295, -104.122, -104.823, -103.238, -107.184, -114.448, -126.172, -138.425, -138.731, -147.019, -158.186, -162.345, -164.293, -170.361, -174.907, -176.419, -179.509, -178.547, -178.387, -182.16, -184.559, -180.677, -178.26, -180.543, -179.87, -180.1, -176.93, -174.132, -178.489, -180.969, -186.37, -187.435, -186.478, -177.33], "borderColor": "#2a78d6", "borderWidth": 2, "pointRadius": 0, "tension": 0.2, "yAxisID": "y", "uu": " 조원"}, {"label": "기관", "data": [-0.135, -0.353, -0.431, -0.754, -1.059, -0.592, -0.513, -0.141, 0.155, 0.602, 0.838, 0.968, 0.734, 1.019, 1.017, 1.249, 0.687, 0.879, 0.422, 0.317, 0.048, -1.075, 0.147, 0.642, -0.576, -0.156, 1.287, 1.395, 1.526, 2.295, 2.21, 2.79, 3.395, 3.093, 4.413, 4.737, 5.375, 5.289, 4.711, 4.861, 4.189, 3.631, 2.915, 3.721, 4.044, 3.723, 3.092, 3.309, 3.529, 5.304, 4.762, 4.311, 2.179, 3.133, 4.66, 4.223, 4.396, 4.564, 4.929, 6.725, 6.321, 6.651, 6.879, 6.764, 8.71, 8.538, 8.207, 7.97, 8.587, 8.079, 8.38, 7.921, 8.242, 8.613, 7.992, 7.806, 8.199, 9.356, 9.148, 9.245, 9.402, 11.771, 11.045, 11.615, 12.411, 12.664, 10.737, 12.816, 11.108, 8.588, 10.071, 9.982, 10.927, 14.976, 15.776, 17.501, 19.362, 19.442, 20.721, 25.335, 24.684, 25.34, 21.982, 19.782, 24.824, 21.407, 19.707, 19.198, 20.025, 21.957, 24.162, 24.383, 25.601, 29.048, 20.271, 23.005, 32.046, 23.247, 26.029, 30.465, 30.555, 22.876, 29.92, 25.39, 24.76, 23.347, 25.611, 26.234, 22.206, 25.61, 26.319, 22.618, 20.444, 22.048, 19.901, 19.267, 17.389, 18.358, 19.013, 21.727, 21.293, 22.354], "borderColor": "#7c7a73", "borderWidth": 2, "pointRadius": 0, "tension": 0.2, "yAxisID": "y", "uu": " 조원"}, {"label": "코스피", "data": [4309.6, 4457.5, 4525.5, 4551.1, 4552.4, 4586.3, 4624.8, 4692.6, 4723.1, 4797.6, 4840.7, 4904.7, 4885.8, 4909.9, 4952.5, 4990.1, 4949.6, 5084.9, 5170.8, 5221.2, 5224.4, 4949.7, 5288.1, 5371.1, 5163.6, 5089.1, 5298.0, 5301.7, 5354.5, 5522.3, 5507.0, 5677.2, 5808.5, 5846.1, 5969.6, 6083.9, 6307.3, 6244.1, 5791.9, 5093.5, 5583.9, 5584.9, 5251.9, 5532.6, 5609.9, 5583.2, 5487.2, 5549.9, 5640.5, 5925.0, 5763.2, 5781.2, 5405.8, 5553.9, 5642.2, 5460.5, 5438.9, 5277.3, 5052.5, 5478.7, 5234.1, 5377.3, 5450.3, 5494.8, 5872.3, 5778.0, 5858.9, 5808.6, 5967.8, 6091.4, 6226.1, 6191.9, 6219.1, 6388.5, 6417.9, 6475.8, 6475.6, 6615.0, 6641.0, 6690.9, 6598.9, 6937.0, 7384.6, 7490.1, 7498.0, 7822.2, 7643.1, 7844.0, 7981.4, 7493.2, 7516.0, 7271.7, 7208.9, 7815.6, 7847.7, 8047.5, 8228.7, 8185.3, 8476.1, 8788.4, 8801.5, 8639.4, 8160.6, 7484.4, 8096.9, 7730.8, 7763.9, 8123.6, 8546.0, 8726.6, 8864.2, 9063.8, 9052.4, 9114.5, 8203.8, 8471.0, 8930.3, 8411.2, 8394.6, 8476.5, 8303.4, 7648.1, 8088.3, 8051.3, 7656.3, 7246.8, 7291.9, 7475.9, 6806.9, 6856.8, 7284.4, 6820.6, 6516.3, 6747.9, 6797.7, 7096.9, 6690.6, 6755.8, 6023.7, 5663.2, 5593.6, 6595.4], "borderColor": "--text", "borderWidth": 2.2, "pointRadius": 0, "borderDash": [4, 3], "tension": 0.2, "yAxisID": "y1", "uu": "pt"}], "yt": "누적 순매수 (조원)", "y1t": "코스피 지수", "dp": 2, "xt": 12});</script>
+<figure class="fig"><div class="cbox"><canvas id="mf1"></canvas></div><figcaption>올해 첫 거래일부터 쌓은 <b>누적</b> 순매수입니다. 절대 수준보다 <b>기울기</b>를 봅니다 — 지수(빨간 점선)가 오르는 동안 외국인·기관 곡선이 함께 올라가면 건강한 상승, 개인만 올라가고 외국인이 내려가면 분배입니다.<br><span class="dim">전종목 934개 기준 · 자료 기준일 <b>2026-07-31</b>. <b class="bad">자료가 6일째 멈춰 있습니다</b> — 전종목 수급 수집이 밀렸습니다. <code>scripts/recover_flow.sh</code> 로 복구합니다.</span></figcaption></figure><script>(window.__ST=window.__ST||[]).push({"id": "mf1", "t": "코스피 누적 순매수와 지수", "l": ["26-01-02", "26-01-05", "26-01-06", "26-01-07", "26-01-08", "26-01-09", "26-01-12", "26-01-13", "26-01-14", "26-01-15", "26-01-16", "26-01-19", "26-01-20", "26-01-21", "26-01-22", "26-01-23", "26-01-26", "26-01-27", "26-01-28", "26-01-29", "26-01-30", "26-02-02", "26-02-03", "26-02-04", "26-02-05", "26-02-06", "26-02-09", "26-02-10", "26-02-11", "26-02-12", "26-02-13", "26-02-19", "26-02-20", "26-02-23", "26-02-24", "26-02-25", "26-02-26", "26-02-27", "26-03-03", "26-03-04", "26-03-05", "26-03-06", "26-03-09", "26-03-10", "26-03-11", "26-03-12", "26-03-13", "26-03-16", "26-03-17", "26-03-18", "26-03-19", "26-03-20", "26-03-23", "26-03-24", "26-03-25", "26-03-26", "26-03-27", "26-03-30", "26-03-31", "26-04-01", "26-04-02", "26-04-03", "26-04-06", "26-04-07", "26-04-08", "26-04-09", "26-04-10", "26-04-13", "26-04-14", "26-04-15", "26-04-16", "26-04-17", "26-04-20", "26-04-21", "26-04-22", "26-04-23", "26-04-24", "26-04-27", "26-04-28", "26-04-29", "26-04-30", "26-05-04", "26-05-06", "26-05-07", "26-05-08", "26-05-11", "26-05-12", "26-05-13", "26-05-14", "26-05-15", "26-05-18", "26-05-19", "26-05-20", "26-05-21", "26-05-22", "26-05-26", "26-05-27", "26-05-28", "26-05-29", "26-06-01", "26-06-02", "26-06-04", "26-06-05", "26-06-08", "26-06-09", "26-06-10", "26-06-11", "26-06-12", "26-06-15", "26-06-16", "26-06-17", "26-06-18", "26-06-19", "26-06-22", "26-06-23", "26-06-24", "26-06-25", "26-06-26", "26-06-29", "26-06-30", "26-07-01", "26-07-02", "26-07-03", "26-07-06", "26-07-07", "26-07-08", "26-07-09", "26-07-10", "26-07-13", "26-07-14", "26-07-15", "26-07-16", "26-07-20", "26-07-21", "26-07-22", "26-07-23", "26-07-24", "26-07-27", "26-07-28", "26-07-29", "26-07-30", "26-07-31"], "d": [{"label": "개인", "data": [0.032, -0.449, -0.301, -0.588, -0.542, -0.176, -0.225, -0.286, -0.222, -0.601, -0.715, -1.012, -0.62, -0.775, 0.082, 0.052, 0.905, 0.329, 0.968, 2.017, 3.272, 6.24, 5.201, 5.516, 8.927, 9.962, 8.309, 8.357, 8.121, 6.226, 6.595, 6.122, 4.706, 4.992, 3.438, 3.498, 3.931, 7.941, 10.643, 10.762, 11.434, 12.669, 14.979, 13.213, 12.907, 14.316, 15.31, 15.088, 15.263, 12.634, 14.338, 15.878, 18.689, 18.205, 16.822, 18.639, 20.337, 21.486, 22.641, 21.233, 21.567, 20.71, 20.317, 19.706, 15.868, 16.141, 15.317, 14.931, 13.554, 14.393, 14.308, 15.907, 14.891, 14.109, 15.254, 15.75, 16.407, 14.198, 15.523, 16.419, 16.936, 10.824, 11.09, 17.818, 21.749, 24.607, 34.339, 36.607, 43.371, 51.735, 53.591, 59.411, 61.151, 59.529, 60.335, 59.13, 57.809, 62.697, 63.892, 64.531, 69.444, 73.214, 80.65, 83.108, 80.625, 86.587, 88.227, 85.878, 81.203, 76.163, 74.728, 73.243, 76.242, 79.967, 100.2, 109.265, 100.866, 117.286, 125.275, 124.917, 126.73, 139.854, 137.161, 143.025, 146.635, 146.935, 144.544, 147.649, 153.892, 146.67, 143.548, 149.299, 150.669, 149.398, 148.319, 146.192, 152.278, 153.761, 158.456, 156.732, 156.167, 145.597], "borderColor": "#eb6834", "borderWidth": 2, "pointRadius": 0, "tension": 0.2, "yAxisID": "y", "uu": " 조원"}, {"label": "외국인", "data": [0.085, 0.798, 0.711, 1.328, 1.565, 0.675, 0.6, 0.256, -0.136, -0.215, -0.362, -0.238, -0.421, -0.613, -1.526, -1.744, -2.046, -1.635, -1.81, -2.788, -3.786, -5.717, -5.937, -6.802, -9.131, -10.625, -10.455, -10.662, -10.607, -9.485, -9.78, -9.891, -9.073, -9.084, -8.841, -9.209, -10.292, -14.346, -16.575, -16.967, -17.011, -17.722, -19.448, -18.4, -18.406, -19.551, -19.957, -19.953, -20.326, -19.388, -20.63, -21.77, -22.613, -23.116, -23.276, -24.712, -26.66, -28.104, -29.694, -30.205, -30.197, -29.788, -29.737, -29.077, -27.93, -28.209, -27.143, -26.614, -25.876, -26.306, -26.6, -27.906, -27.245, -26.788, -27.306, -27.636, -28.731, -27.721, -28.834, -29.855, -30.554, -26.666, -25.868, -33.153, -38.024, -41.176, -49.045, -53.467, -58.794, -64.907, -68.225, -74.07, -76.911, -79.528, -81.244, -81.757, -81.967, -87.245, -89.826, -94.974, -99.077, -103.673, -108.188, -108.736, -111.393, -114.151, -114.333, -111.268, -107.295, -104.122, -104.823, -103.238, -107.184, -114.448, -126.172, -138.425, -138.731, -147.019, -158.186, -162.345, -164.293, -170.361, -174.907, -176.419, -179.509, -178.547, -178.387, -182.16, -184.559, -180.677, -178.26, -180.543, -179.87, -180.1, -176.93, -174.132, -178.489, -180.969, -186.37, -187.435, -186.478, -177.33], "borderColor": "#2a78d6", "borderWidth": 2, "pointRadius": 0, "tension": 0.2, "yAxisID": "y", "uu": " 조원"}, {"label": "기관", "data": [-0.135, -0.353, -0.431, -0.754, -1.059, -0.592, -0.513, -0.141, 0.155, 0.602, 0.838, 0.968, 0.734, 1.019, 1.017, 1.249, 0.687, 0.879, 0.422, 0.317, 0.048, -1.075, 0.147, 0.642, -0.576, -0.156, 1.287, 1.395, 1.526, 2.295, 2.21, 2.79, 3.395, 3.093, 4.413, 4.737, 5.375, 5.289, 4.711, 4.861, 4.189, 3.631, 2.915, 3.721, 4.044, 3.723, 3.092, 3.309, 3.529, 5.304, 4.762, 4.311, 2.179, 3.133, 4.66, 4.223, 4.396, 4.564, 4.929, 6.725, 6.321, 6.651, 6.879, 6.764, 8.71, 8.538, 8.207, 7.97, 8.587, 8.079, 8.38, 7.921, 8.242, 8.613, 7.992, 7.806, 8.199, 9.356, 9.148, 9.245, 9.402, 11.771, 11.045, 11.615, 12.411, 12.664, 10.737, 12.816, 11.108, 8.588, 10.071, 9.982, 10.927, 14.976, 15.776, 17.501, 19.362, 19.442, 20.721, 25.335, 24.684, 25.34, 21.982, 19.782, 24.824, 21.407, 19.707, 19.198, 20.025, 21.957, 24.162, 24.383, 25.601, 29.048, 20.271, 23.005, 32.046, 23.247, 26.029, 30.465, 30.555, 22.876, 29.92, 25.39, 24.76, 23.347, 25.611, 26.234, 22.206, 25.61, 26.319, 22.618, 20.444, 22.048, 19.901, 19.267, 17.389, 18.358, 19.013, 21.727, 21.293, 22.354], "borderColor": "#7c7a73", "borderWidth": 2, "pointRadius": 0, "tension": 0.2, "yAxisID": "y", "uu": " 조원"}, {"label": "코스피", "data": [4309.6, 4457.5, 4525.5, 4551.1, 4552.4, 4586.3, 4624.8, 4692.6, 4723.1, 4797.6, 4840.7, 4904.7, 4885.8, 4909.9, 4952.5, 4990.1, 4949.6, 5084.9, 5170.8, 5221.2, 5224.4, 4949.7, 5288.1, 5371.1, 5163.6, 5089.1, 5298.0, 5301.7, 5354.5, 5522.3, 5507.0, 5677.2, 5808.5, 5846.1, 5969.6, 6083.9, 6307.3, 6244.1, 5791.9, 5093.5, 5583.9, 5584.9, 5251.9, 5532.6, 5609.9, 5583.2, 5487.2, 5549.9, 5640.5, 5925.0, 5763.2, 5781.2, 5405.8, 5553.9, 5642.2, 5460.5, 5438.9, 5277.3, 5052.5, 5478.7, 5234.1, 5377.3, 5450.3, 5494.8, 5872.3, 5778.0, 5858.9, 5808.6, 5967.8, 6091.4, 6226.1, 6191.9, 6219.1, 6388.5, 6417.9, 6475.8, 6475.6, 6615.0, 6641.0, 6690.9, 6598.9, 6937.0, 7384.6, 7490.1, 7498.0, 7822.2, 7643.1, 7844.0, 7981.4, 7493.2, 7516.0, 7271.7, 7208.9, 7815.6, 7847.7, 8047.5, 8228.7, 8185.3, 8476.1, 8788.4, 8801.5, 8639.4, 8160.6, 7484.4, 8096.9, 7730.8, 7763.9, 8123.6, 8546.0, 8726.6, 8864.2, 9063.8, 9052.4, 9114.5, 8203.8, 8471.0, 8930.3, 8411.2, 8394.6, 8476.5, 8303.4, 7648.1, 8088.3, 8051.3, 7656.3, 7246.8, 7291.9, 7475.9, 6806.9, 6856.8, 7284.4, 6820.6, 6516.3, 6747.9, 6797.7, 7096.9, 6690.6, 6755.8, 6023.7, 5663.2, 5593.6, 6595.4], "borderColor": "--text", "borderWidth": 2.2, "pointRadius": 0, "borderDash": [4, 3], "tension": 0.2, "yAxisID": "y1", "uu": "pt"}], "yt": "누적 순매수 (조원)", "y1t": "코스피 지수", "dp": 2, "xt": 12});</script>
 <p class="note">올해 들어 <b>개인</b>이 +145.60 조원어치를 순매수하는 동안 <b>외국인</b>은 -177.33 조원어치를 내다 팔았습니다. 셋을 더하면 -9.38 조원입니다 — 주식은 사라지지 않으니 누가 사면 누군가는 팝니다. 정확히 0이 아닌 것은 기타법인·국가 같은 나머지 주체가 이 표에 없기 때문입니다.</p>
 <p class="note"><b>최근 20일</b>은 개인 +5.74 · 외국인 -6.97 · 기관 -0.52(조원)입니다. 큰손(외국인·기관)이 함께 팔고 개인이 받고 있습니다 — <b>분배</b>의 모양입니다.</p>
 <p class="note"><b>최근 5일</b>은 개인 -6.68 · 외국인 +1.16 · 기관 +4.96로, 20일 흐름과 <b>방향이 뒤집혔습니다</b>. 다만 이 5일의 65%가 <b>07-31 하루</b>에서 나왔습니다 — 추세가 바뀐 것인지 하루짜리 사건인지는 다음 며칠을 더 봐야 합니다.</p>

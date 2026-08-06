@@ -110,51 +110,14 @@ footer{margin-top:48px;border-top:1px solid var(--border);padding-top:22px;color
 .toggle{top:62px;z-index:88;position:fixed;right:18px;width:42px;height:42px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:18px}
 @media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}h1{font-size:2.05rem}}
 
-.bg{display:inline-block;min-width:44px;text-align:center;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:800;color:#fff}
-.b-on{background:#e11d48}.b-wa{background:#f59e0b}.b-ob{background:#64748b}.b-sf{background:#059669}.b-rf{background:#94a3b8}
-.gr{display:inline-block;font-size:.68rem;font-weight:800;padding:1px 6px;border-radius:5px;margin-left:6px;
-  color:#e11d48;background:color-mix(in srgb,#e11d48 13%,transparent);vertical-align:middle}
-.chg{font-size:.7rem;font-weight:700;color:var(--accent);margin-left:6px;white-space:nowrap}
-.star{color:#e11d48;font-weight:800}
-td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
-.chl{margin:12px 0 0 18px;font-size:.92rem;line-height:1.9}
-.g1box{margin-top:12px;font-size:.9rem;line-height:1.85;color:var(--text-secondary)}
-.g1box ol{margin:8px 0 0 20px} .g1box li{color:var(--text);font-weight:600}
-.stats5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px}
-@media(max-width:720px){.stats5{grid-template-columns:repeat(2,1fr)}}
-
-/* 주차별 히스토리 */
-.hist{position:relative;padding-left:26px;margin-top:18px}
-.hist::before{content:'';position:absolute;left:7px;top:14px;bottom:14px;width:2px;background:var(--border)}
-.hw{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:14px;
-  padding:20px 22px;margin-bottom:16px}
-.hw::before{content:'';position:absolute;left:-24px;top:26px;width:12px;height:12px;border-radius:50%;
-  background:var(--border);border:3px solid var(--bg)}
-.hw.cur{border-color:color-mix(in srgb,var(--accent) 45%,var(--border));
-  box-shadow:0 1px 14px color-mix(in srgb,var(--accent) 10%,transparent)}
-.hw.cur::before{background:var(--accent)}
-.hh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.hwk{font-size:1.02rem;font-weight:900;letter-spacing:-.02em}
-.hdt{font-size:.82rem;color:var(--text-secondary);font-variant-numeric:tabular-nums}
-.hnow{font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:999px;color:#fff;background:var(--accent)}
-.htitle{margin-top:8px;font-size:1.12rem;font-weight:800;letter-spacing:-.02em;line-height:1.4}
-.htone{margin-top:6px;font-size:.86rem;color:var(--text-secondary);font-style:italic}
-.hpills{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
-.hp{font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
-.hp.on{color:#e11d48;background:color-mix(in srgb,#e11d48 12%,transparent)}
-.hp.wa{color:#b45309;background:color-mix(in srgb,#f59e0b 15%,transparent)}
-.hp.ob{color:#475569;background:color-mix(in srgb,#64748b 14%,transparent)}
-.hp.sf{color:#047857;background:color-mix(in srgb,#059669 13%,transparent)}
-.hp.g1{color:#fff;background:#e11d48}
-.hbody{margin-top:13px;font-size:.93rem;line-height:1.78;color:var(--text-secondary)}
-.hbody b{color:var(--text)}
-.hchg{margin-top:14px;padding-top:12px;border-top:1px dashed var(--border)}
-.hct{font-size:.76rem;font-weight:800;letter-spacing:.02em;color:var(--accent);text-transform:none}
-.hchg ul{margin:8px 0 0 16px;font-size:.87rem;line-height:1.85;color:var(--text-secondary)}
-.hchg li b{color:var(--text)}
-.hchg .ar{white-space:nowrap}
-.to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
-@media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
+/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
+.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
+  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
+.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
+  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
+  background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
 
 /* ── 공통 기준일 배지 ── */
 .pbadge{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:2px 0 18px;
@@ -163,8 +126,10 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .pb-k{font-size:.7rem;font-weight:800;padding:2px 8px;border-radius:999px;letter-spacing:.01em}
 .pb-live{color:#047857;background:color-mix(in srgb,#059669 14%,transparent)}
 .pb-weekly{color:#1d4ed8;background:color-mix(in srgb,#2563eb 13%,transparent)}
+.pb-monthly{color:#6d28d9;background:color-mix(in srgb,#7c3aed 13%,transparent)}
 .pb-fixed{color:#475569;background:color-mix(in srgb,#64748b 15%,transparent)}
 .pb-src{opacity:.72}
+.pb-note{opacity:.55;font-size:.74rem}
 .pb-old{font-size:.7rem;font-weight:800;padding:2px 8px;border-radius:999px;
   color:#b45309;background:color-mix(in srgb,#f59e0b 18%,transparent)}
 /* DESIGN:BEGIN */
@@ -275,39 +240,52 @@ html.theme-dark .card:hover{box-shadow:none!important}
   .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
 }
 /* LAYOUT:END */
-/* 단독 내비 링크(방법론) — 옆의 드롭다운 버튼과 같은 모양으로 맞춘다 */
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text-secondary,var(--text2));
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+.bg{display:inline-block;min-width:44px;text-align:center;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:800;color:#fff}
+.b-on{background:#e11d48}.b-wa{background:#f59e0b}.b-ob{background:#64748b}.b-sf{background:#059669}.b-rf{background:#94a3b8}
+.gr{display:inline-block;font-size:.68rem;font-weight:800;padding:1px 6px;border-radius:5px;margin-left:6px;
+  color:#e11d48;background:color-mix(in srgb,#e11d48 13%,transparent);vertical-align:middle}
+.chg{font-size:.7rem;font-weight:700;color:var(--accent);margin-left:6px;white-space:nowrap}
+.star{color:#e11d48;font-weight:800}
+td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
+.chl{margin:12px 0 0 18px;font-size:.92rem;line-height:1.9}
+.g1box{margin-top:12px;font-size:.9rem;line-height:1.85;color:var(--text-secondary)}
+.g1box ol{margin:8px 0 0 20px} .g1box li{color:var(--text);font-weight:600}
+.stats5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px}
+@media(max-width:720px){.stats5{grid-template-columns:repeat(2,1fr)}}
 
-/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
-.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
-  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END *//* PAPER:BEGIN */
+/* 주차별 히스토리 */
+.hist{position:relative;padding-left:26px;margin-top:18px}
+.hist::before{content:'';position:absolute;left:7px;top:14px;bottom:14px;width:2px;background:var(--border)}
+.hw{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:20px 22px;margin-bottom:16px}
+.hw::before{content:'';position:absolute;left:-24px;top:26px;width:12px;height:12px;border-radius:50%;
+  background:var(--border);border:3px solid var(--bg)}
+.hw.cur{border-color:color-mix(in srgb,var(--accent) 45%,var(--border));
+  box-shadow:0 1px 14px color-mix(in srgb,var(--accent) 10%,transparent)}
+.hw.cur::before{background:var(--accent)}
+.hh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.hwk{font-size:1.02rem;font-weight:900;letter-spacing:-.02em}
+.hdt{font-size:.82rem;color:var(--text-secondary);font-variant-numeric:tabular-nums}
+.hnow{font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:999px;color:#fff;background:var(--accent)}
+.htitle{margin-top:8px;font-size:1.12rem;font-weight:800;letter-spacing:-.02em;line-height:1.4}
+.htone{margin-top:6px;font-size:.86rem;color:var(--text-secondary);font-style:italic}
+.hpills{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
+.hp{font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.hp.on{color:#e11d48;background:color-mix(in srgb,#e11d48 12%,transparent)}
+.hp.wa{color:#b45309;background:color-mix(in srgb,#f59e0b 15%,transparent)}
+.hp.ob{color:#475569;background:color-mix(in srgb,#64748b 14%,transparent)}
+.hp.sf{color:#047857;background:color-mix(in srgb,#059669 13%,transparent)}
+.hp.g1{color:#fff;background:#e11d48}
+.hbody{margin-top:13px;font-size:.93rem;line-height:1.78;color:var(--text-secondary)}
+.hbody b{color:var(--text)}
+.hchg{margin-top:14px;padding-top:12px;border-top:1px dashed var(--border)}
+.hct{font-size:.76rem;font-weight:800;letter-spacing:.02em;color:var(--accent);text-transform:none}
+.hchg ul{margin:8px 0 0 16px;font-size:.87rem;line-height:1.85;color:var(--text-secondary)}
+.hchg li b{color:var(--text)}
+.hchg .ar{white-space:nowrap}
+.to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
+@media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
+/* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -555,15 +533,14 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"></head><body>
+/* PAPER:END */</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"></head><body>
 <div class="site-bar"><div class="site-bar-in">
-  <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
+  <a class="site-brand" href="index.html">찰리의 시투 추종</a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a></div></div><div class="site-group"><button class="here" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a class="here" href="stock-isu-petasys.html">이수페타시스</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><!-- NAV:END --></nav>
 </div></div>
 <div class="wrap paper">
 <div class="phead">
-
-<!-- STAMP:BEGIN --><div class="pbadge"><span class="pb-k pb-live">매일 갱신</span><span>기준일 <b>2026-08-05</b></span><span class="pb-src">이수페타시스 일별시세(한투 KIS) · KB 투자자 매매동향</span></div><!-- STAMP:END --><div class="eyebrow">관심종목 · 007660</div>
+<div class="eyebrow">관심종목 · 007660</div>
 <h1>이수페타시스</h1>
 <p class="sub">MLB 고다층 기판. AI 가속기·스위치 수요에 직접 연동</p>
 <p class="pauth">2026-08-05 종가 기준 · 매일 갱신</p>
@@ -579,7 +556,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 <figure class="fig"><div class="cbox"><canvas id="p1"></canvas></div><figcaption>20주선(빨강)이 이야기꾼의 생명선입니다. 이 위에 있어야 매수 구간입니다.</figcaption></figure><script>(window.__ST=window.__ST||[]).push({"id": "p1", "t": "이수페타시스 — 종가와 이동평균", "l": ["25-01-14", "25-01-15", "25-01-16", "25-01-17", "25-01-20", "25-01-21", "25-01-22", "25-01-23", "25-01-24", "25-01-31", "25-02-03", "25-02-04", "25-02-05", "25-02-06", "25-02-07", "25-02-10", "25-02-11", "25-02-12", "25-02-13", "25-02-14", "25-02-17", "25-02-18", "25-02-19", "25-02-20", "25-02-21", "25-02-24", "25-02-25", "25-02-26", "25-02-27", "25-02-28", "25-03-04", "25-03-05", "25-03-06", "25-03-07", "25-03-10", "25-03-11", "25-03-12", "25-03-13", "25-03-14", "25-03-17", "25-03-18", "25-03-19", "25-03-20", "25-03-21", "25-03-24", "25-03-25", "25-03-26", "25-03-27", "25-03-28", "25-03-31", "25-04-01", "25-04-02", "25-04-03", "25-04-04", "25-04-07", "25-04-08", "25-04-09", "25-04-10", "25-04-11", "25-04-14", "25-04-15", "25-04-16", "25-04-17", "25-04-18", "25-04-21", "25-04-22", "25-04-23", "25-04-24", "25-04-25", "25-04-28", "25-04-29", "25-04-30", "25-05-02", "25-05-07", "25-05-08", "25-05-09", "25-05-12", "25-05-13", "25-05-14", "25-05-15", "25-05-16", "25-05-19", "25-05-20", "25-05-21", "25-05-22", "25-05-23", "25-05-26", "25-05-27", "25-05-28", "25-05-29", "25-05-30", "25-06-02", "25-06-04", "25-06-05", "25-06-09", "25-06-10", "25-06-11", "25-06-12", "25-06-13", "25-06-16", "25-06-17", "25-06-18", "25-06-19", "25-06-20", "25-06-23", "25-06-24", "25-06-25", "25-06-26", "25-06-27", "25-06-30", "25-07-01", "25-07-02", "25-07-03", "25-07-04", "25-07-07", "25-07-08", "25-07-09", "25-07-10", "25-07-11", "25-07-14", "25-07-15", "25-07-16", "25-07-17", "25-07-18", "25-07-21", "25-07-22", "25-07-23", "25-07-24", "25-07-25", "25-07-28", "25-07-29", "25-07-30", "25-07-31", "25-08-01", "25-08-04", "25-08-05", "25-08-06", "25-08-07", "25-08-08", "25-08-11", "25-08-12", "25-08-13", "25-08-14", "25-08-18", "25-08-19", "25-08-20", "25-08-21", "25-08-22", "25-08-25", "25-08-26", "25-08-27", "25-08-28", "25-08-29", "25-09-01", "25-09-02", "25-09-03", "25-09-04", "25-09-05", "25-09-08", "25-09-09", "25-09-10", "25-09-11", "25-09-12", "25-09-15", "25-09-16", "25-09-17", "25-09-18", "25-09-19", "25-09-22", "25-09-23", "25-09-24", "25-09-25", "25-09-26", "25-09-29", "25-09-30", "25-10-01", "25-10-02", "25-10-10", "25-10-13", "25-10-14", "25-10-15", "25-10-16", "25-10-17", "25-10-20", "25-10-21", "25-10-22", "25-10-23", "25-10-24", "25-10-27", "25-10-28", "25-10-29", "25-10-30", "25-10-31", "25-11-03", "25-11-04", "25-11-05", "25-11-06", "25-11-07", "25-11-10", "25-11-11", "25-11-12", "25-11-13", "25-11-14", "25-11-17", "25-11-18", "25-11-19", "25-11-20", "25-11-21", "25-11-24", "25-11-25", "25-11-26", "25-11-27", "25-11-28", "25-12-01", "25-12-02", "25-12-03", "25-12-04", "25-12-05", "25-12-08", "25-12-09", "25-12-10", "25-12-11", "25-12-12", "25-12-15", "25-12-16", "25-12-17", "25-12-18", "25-12-19", "25-12-22", "25-12-23", "25-12-24", "25-12-26", "25-12-29", "25-12-30", "26-01-02", "26-01-05", "26-01-06", "26-01-07", "26-01-08", "26-01-09", "26-01-12", "26-01-13", "26-01-14", "26-01-15", "26-01-16", "26-01-19", "26-01-20", "26-01-21", "26-01-22", "26-01-23", "26-01-26", "26-01-27", "26-01-28", "26-01-29", "26-01-30", "26-02-02", "26-02-03", "26-02-04", "26-02-05", "26-02-06", "26-02-09", "26-02-10", "26-02-11", "26-02-12", "26-02-13", "26-02-19", "26-02-20", "26-02-23", "26-02-24", "26-02-25", "26-02-26", "26-02-27", "26-03-03", "26-03-04", "26-03-05", "26-03-06", "26-03-09", "26-03-10", "26-03-11", "26-03-12", "26-03-13", "26-03-16", "26-03-17", "26-03-18", "26-03-19", "26-03-20", "26-03-23", "26-03-24", "26-03-25", "26-03-26", "26-03-27", "26-03-30", "26-03-31", "26-04-01", "26-04-02", "26-04-03", "26-04-06", "26-04-07", "26-04-08", "26-04-09", "26-04-10", "26-04-13", "26-04-14", "26-04-15", "26-04-16", "26-04-17", "26-04-20", "26-04-21", "26-04-22", "26-04-23", "26-04-24", "26-04-27", "26-04-28", "26-04-29", "26-04-30", "26-05-04", "26-05-06", "26-05-07", "26-05-08", "26-05-11", "26-05-12", "26-05-13", "26-05-14", "26-05-15", "26-05-18", "26-05-19", "26-05-20", "26-05-21", "26-05-22", "26-05-26", "26-05-27", "26-05-28", "26-05-29", "26-06-01", "26-06-02", "26-06-04", "26-06-05", "26-06-08", "26-06-09", "26-06-10", "26-06-11", "26-06-12", "26-06-15", "26-06-16", "26-06-17", "26-06-18", "26-06-19", "26-06-22", "26-06-23", "26-06-24", "26-06-25", "26-06-26", "26-06-29", "26-06-30", "26-07-01", "26-07-02", "26-07-03", "26-07-06", "26-07-07", "26-07-08", "26-07-09", "26-07-10", "26-07-13", "26-07-14", "26-07-15", "26-07-16", "26-07-20", "26-07-21", "26-07-22", "26-07-23", "26-07-24", "26-07-27", "26-07-28", "26-07-29", "26-07-30", "26-07-31", "26-08-03", "26-08-04", "26-08-05"], "yt": "원", "dp": 0, "u": "원", "xt": 12, "d": [{"label": "종가", "data": [25950, 26500, 26600, 28300, 27950, 30050, 31450, 31950, 40900, 38700, 34250, 35550, 37800, 38750, 38150, 38250, 38800, 40700, 43000, 41600, 41700, 42600, 41100, 41000, 41850, 40150, 41600, 42800, 40950, 37650, 36650, 37100, 35100, 37200, 35800, 37400, 38700, 39550, 40300, 41050, 41150, 40200, 40100, 39800, 37950, 37150, 40900, 39600, 38050, 35600, 36250, 35300, 35500, 32650, 28650, 30250, 29100, 32850, 32700, 32850, 32850, 31150, 32900, 33150, 34400, 33150, 34600, 33400, 33950, 33050, 34000, 31850, 36700, 37200, 38200, 39550, 40300, 41100, 43500, 41500, 41400, 40100, 40550, 39850, 39300, 39700, 41750, 41950, 40550, 41150, 38400, 38100, 40050, 40650, 41200, 41100, 44800, 43500, 44300, 44300, 45850, 45300, 47150, 46450, 45600, 49150, 48850, 50500, 50300, 52300, 50700, 49150, 52500, 53400, 52100, 58800, 58800, 57600, 55600, 56200, 59100, 60200, 60400, 60300, 61200, 59200, 59200, 60200, 60500, 59900, 62300, 63700, 65000, 62200, 65300, 66300, 64900, 64300, 64600, 65600, 62600, 62900, 61500, 59700, 58600, 55300, 56700, 59100, 63200, 63700, 65300, 65300, 66600, 64700, 65000, 64100, 64200, 63200, 69100, 72300, 74000, 74600, 71900, 77000, 76700, 77300, 78100, 77300, 76700, 75000, 75600, 75300, 72500, 73200, 71300, 71800, 76800, 76000, 73400, 74300, 77800, 82700, 84900, 82300, 81100, 85600, 86400, 93600, 95800, 100800, 108000, 107600, 113900, 115600, 116200, 105500, 110600, 104000, 117100, 116400, 119600, 119400, 111100, 131500, 123700, 127600, 133300, 122100, 125100, 140700, 141600, 146300, 144000, 135300, 137600, 139700, 136500, 135200, 141700, 144400, 147900, 148200, 135100, 130800, 123900, 126000, 121500, 121400, 122600, 121200, 119100, 120000, 124500, 119200, 121500, 116900, 113400, 109200, 108200, 109400, 110400, 116300, 115700, 122200, 120800, 115800, 112500, 107000, 113100, 119900, 118800, 118900, 125400, 117900, 117500, 110600, 118400, 125400, 120000, 114700, 114700, 110700, 107400, 108200, 101600, 101700, 100500, 107200, 111900, 116100, 118500, 127600, 115000, 98800, 115600, 114600, 103600, 113700, 110000, 108800, 107100, 105800, 114300, 125100, 129500, 126800, 115500, 120200, 120300, 115000, 110500, 104500, 98000, 108700, 101800, 102600, 104800, 106000, 120100, 117900, 114900, 119700, 124500, 123200, 122700, 120300, 133300, 133200, 161400, 150200, 153400, 155500, 150600, 146000, 150300, 149000, 151600, 147400, 141100, 140100, 128400, 133100, 132500, 128000, 131500, 120900, 121600, 127800, 126100, 139700, 132300, 127500, 129200, 139400, 136300, 133700, 120900, 105700, 115800, 113000, 123200, 122400, 118900, 123000, 124000, 121400, 115100, 117900, 108100, 107300, 109600, 107800, 109700, 115400, 132900, 119800, 110100, 101300, 98000, 87800, 91800, 103800, 99600, 97900, 102100, 92000, 84400, 88600, 91600, 93400, 87000, 85800, 71400, 64000, 59200, 74500, 74500, 79600, 84700], "borderColor": "#1161c4", "borderWidth": 2, "pointRadius": 0, "tension": 0.1}, {"label": "20주선(100일)", "data": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 37412, 37612, 37800, 38005, 38186, 38363, 38554, 38728, 38914, 39008, 39144, 39308, 39444, 39591, 39738, 39877, 40082, 40282, 40452, 40578, 40724, 40898, 41074, 41266, 41460, 41653, 41844, 42020, 42194, 42389, 42612, 42868, 43134, 43433, 43683, 43978, 44267, 44529, 44776, 45020, 45265, 45480, 45706, 45920, 46120, 46326, 46508, 46666, 46860, 47112, 47393, 47684, 47984, 48294, 48615, 48978, 49317, 49668, 49972, 50336, 50730, 51142, 51576, 51966, 52404, 52828, 53269, 53704, 54143, 54570, 54990, 55406, 55840, 56198, 56558, 56890, 57212, 57577, 57926, 58225, 58553, 58917, 59343, 59786, 60211, 60629, 61088, 61534, 62051, 62604, 63200, 63896, 64591, 65330, 66079, 66829, 67473, 68131, 68736, 69464, 70185, 70922, 71664, 72303, 73154, 73934, 74719, 75564, 76280, 77028, 77912, 78820, 79792, 80707, 81526, 82381, 83190, 83967, 84743, 85604, 86486, 87374, 88254, 89001, 89706, 90333, 91001, 91624, 92236, 92857, 93470, 94038, 94601, 95196, 95766, 96328, 96834, 97319, 97768, 98204, 98642, 99120, 99654, 100196, 100821, 101443, 102048, 102606, 103085, 103584, 104146, 104681, 105217, 105805, 106337, 106862, 107327, 107869, 108491, 109000, 109424, 109831, 110192, 110547, 110859, 111108, 111352, 111576, 111875, 112227, 112638, 113067, 113590, 114015, 114271, 114714, 115142, 115410, 115787, 116153, 116498, 116791, 117022, 117316, 117744, 118228, 118640, 118931, 119197, 119442, 119584, 119609, 119578, 119419, 119350, 119206, 119177, 119119, 119139, 119169, 119184, 119137, 119140, 119274, 119191, 119181, 119108, 119108, 119219, 119582, 119677, 119795, 119887, 119953, 120060, 120187, 120280, 120431, 120553, 120547, 120504, 120309, 120158, 120132, 120104, 120180, 120129, 120130, 120194, 120229, 120414, 120546, 120621, 120668, 120870, 121018, 121186, 121261, 121226, 121302, 121338, 121466, 121527, 121559, 121567, 121599, 121655, 121681, 121790, 121740, 121614, 121522, 121411, 121254, 121229, 121383, 121475, 121392, 121151, 120931, 120662, 120433, 120364, 120286, 120183, 120188, 120091, 119930, 119744, 119541, 119314, 118999, 118581, 118145, 117797, 117233, 116832, 116541, 116200, 115947], "borderColor": "#d21f3c", "borderWidth": 1.6, "pointRadius": 0, "tension": 0.2}, {"label": "200일선", "data": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 53799, 54267, 54732, 55154, 55670, 56149, 56636, 57146, 57596, 58018, 58528, 59064, 59618, 60149, 60632, 61129, 61636, 62125, 62597, 63091, 63605, 64136, 64664, 65134, 65583, 65993, 66422, 66822, 67215, 67623, 68041, 68453, 68868, 69314, 69724, 70153, 70550, 70924, 71272, 71612, 71954, 72300, 72680, 73058, 73470, 73884, 74278, 74636, 74973, 75348, 75770, 76182, 76600, 77050, 77476, 77920, 78322, 78768, 79231, 79668, 80077, 80486, 80884, 81256, 81632, 81968, 82310, 82640, 83009, 83399, 83814, 84236, 84715, 85107, 85415, 85802, 86177, 86494, 86856, 87189, 87526, 87854, 88182, 88551, 88978, 89428, 89864, 90233, 90624, 91023, 91392, 91752, 92084, 92374, 92714, 93018, 93325, 93625, 93938, 94316, 94684, 95030, 95402, 95788, 96172, 96558, 96914, 97336, 97749, 98305, 98794, 99308, 99840, 100330, 100793, 101284, 101735, 102199, 102648, 103076, 103495, 103842, 104206, 104566, 104905, 105256, 105565, 105877, 106215, 106543, 106942, 107292, 107611, 107932, 108318, 108673, 109010, 109290, 109497, 109753, 109990, 110293, 110590, 110878, 111194, 111521, 111852, 112144, 112438, 112662, 112880, 113102, 113314, 113530, 113783, 114122, 114401, 114630, 114821, 114966, 115043, 115132, 115278, 115416, 115521, 115648, 115722, 115753, 115810, 115884, 115976, 116033, 116086, 116080, 116034, 115974, 115987, 115976, 115994, 116050], "borderColor": "#b45309", "borderWidth": 1.4, "pointRadius": 0, "tension": 0.2}]});</script>
 
-<div class="verdict"><p><b>⚠ 지표가 서로 다른 말을 하는 곳 3군데</b></p><ul><li><b>목표가 상승여력 <b>+106%</b>인데 추세는 <b>2/8</b>입니다.</b><br><span class="sm">목표가는 실적 전망을 반영하고 템플릿은 가격 흐름을 봅니다. 둘이 벌어져 있으면 <b>어느 쪽이 먼저 틀렸는지</b>를 봐야 합니다.</span></li><li><b>단기는 과매도(50일 이격도 <b>80.0</b>)인데 <b>20주선 아래</b>입니다.</b><br><span class="sm">반등 자리로 보일 수 있지만 이야기꾼 기준으로 <b>20주선 아래는 매수 구간이 아닙니다</b>. 단기 지표와 추세 지표가 서로 다른 말을 합니다.</span></li><li><b>VCP 수축 수열이 <b>28.4% → 31.0% → 36.8%</b>로 <b>거꾸로</b> 갑니다.</b><br><span class="sm">조정폭이 줄어야 매물 소진인데 오히려 커졌습니다. 베이스가 아니라 <b>하락 국면</b>의 모양입니다.</span></li></ul><p class="note">사실을 대조한 것이지 매매 판단이 아닙니다. 어느 쪽이 맞는지는 이 페이지가 답하지 않습니다.</p></div>
+<div class="verdict"><p><b>⚠ 지표가 서로 다른 말을 하는 곳 3군데</b></p><ul><li><b>목표가 상승여력 <b>+108%</b>인데 추세는 <b>2/8</b>입니다.</b><br><span class="sm">목표가는 실적 전망을 반영하고 템플릿은 가격 흐름을 봅니다. 둘이 벌어져 있으면 <b>어느 쪽이 먼저 틀렸는지</b>를 봐야 합니다.</span></li><li><b>단기는 과매도(50일 이격도 <b>80.0</b>)인데 <b>20주선 아래</b>입니다.</b><br><span class="sm">반등 자리로 보일 수 있지만 이야기꾼 기준으로 <b>20주선 아래는 매수 구간이 아닙니다</b>. 단기 지표와 추세 지표가 서로 다른 말을 합니다.</span></li><li><b>VCP 수축 수열이 <b>28.4% → 31.0% → 36.8%</b>로 <b>거꾸로</b> 갑니다.</b><br><span class="sm">조정폭이 줄어야 매물 소진인데 오히려 커졌습니다. 베이스가 아니라 <b>하락 국면</b>의 모양입니다.</span></li></ul><p class="note">사실을 대조한 것이지 매매 판단이 아닙니다. 어느 쪽이 맞는지는 이 페이지가 답하지 않습니다.</p></div>
 
 <h2>투자자 수급</h2>
 
@@ -703,12 +680,12 @@ run();})();
 <figure class="fig"><div class="tblwrap"><table class="tw">
 <thead><tr><th class="n">구분</th><th class="n">값</th><th class="n">현재가 대비</th></tr></thead>
 <tbody>
-<tr class="cur"><td><b>평균 목표가</b></td><td class="n"><b>174,375원</b></td><td class="n good"><b>+106%</b></td></tr>
+<tr class="cur"><td><b>평균 목표가</b></td><td class="n"><b>176,000원</b></td><td class="n good"><b>+108%</b></td></tr>
 <tr><td>중앙값</td><td class="n">180,000원</td><td class="n">+113%</td></tr>
-<tr><td>최고 / 최저</td><td class="n">200,000 / 150,000</td><td class="n">+136% / +77%</td></tr>
-<tr><td>매수 의견</td><td class="n">12 / 16건</td><td class="n">75%</td></tr>
+<tr><td>최고 / 최저</td><td class="n">200,000 / 160,000</td><td class="n">+136% / +89%</td></tr>
+<tr><td>매수 의견</td><td class="n">12 / 15건</td><td class="n">80%</td></tr>
 </tbody></table></div>
-<figcaption>최근 6개월 16개 리포트. 출처 KIS <code>invest-opbysec</code>(TR FHKST663400C0).</figcaption></figure>
+<figcaption>최근 6개월 15개 리포트. 출처 KIS <code>invest-opbysec</code>(TR FHKST663400C0).</figcaption></figure>
 
 <figure class="fig"><div class="tblwrap"><table class="tw">
 <thead><tr><th>증권사</th><th class="n">날짜</th><th class="n">의견</th><th class="n">목표가</th><th class="n">현재가 대비</th></tr></thead>
@@ -729,7 +706,7 @@ run();})();
 </div>
 </div>
 <footer>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.
-    · 근거: KRX 전종목 시세·한국투자증권(KIS) 당일 종가 및 증권사 투자의견, KB증권 투자자매매동향, DART 재무제표. 판정은 자체 실측.</footer>
+    · 근거: 이야기꾼 주간 시투 보고서(W31·2026-08-01) 및 자체 실측.</footer>
 </div>
 <button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 
