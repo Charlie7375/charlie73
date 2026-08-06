@@ -110,15 +110,6 @@ footer{margin-top:48px;border-top:1px solid var(--border);padding-top:22px;color
 .toggle{top:62px;z-index:88;position:fixed;right:18px;width:42px;height:42px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:18px}
 @media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}h1{font-size:2.05rem}}
 
-/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
-.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
-  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-
 /* ── 공통 기준일 배지 ── */
 .pbadge{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:2px 0 18px;
   font-size:.79rem;color:var(--text-secondary)}
@@ -285,6 +276,15 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .hchg .ar{white-space:nowrap}
 .to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
 @media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
+
+/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
+.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
+  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
+.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
+  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
+  background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
 /* BAR:BEGIN */
 /* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
    flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
@@ -600,14 +600,13 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"></head><body>
+/* PAPER:END */</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"></head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
-  <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="here" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a class="here" href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><!-- NAV:END --></nav>
+  <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a class="" href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><!-- NAV:END --></nav>
 </div></div>
 <div class="wrap paper">
 <div class="crumb"><a href="index.html">홈</a> · 판단 · 전문가 의견 추적</div>
-
 <div class="eyebrow">판단</div>
 <h1>전문가 의견 추적</h1>
 <p class="sub">국내 시장 전문가 다섯 분이 <b>언제 무슨 이야기를 했는지</b>를 날짜순으로 쌓아 둔 곳입니다.
@@ -658,7 +657,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 지수가 크게 흔들리면 방송이 늘고, 조용하면 줄어듭니다.
 <b>막대의 높이</b>가 그 주의 발언 건수이고, 색깔은 사람별로 나눈 것입니다.
 <b>점선</b>은 같은 기간의 코스피 지수입니다(눈금은 오른쪽).</p>
-<div class="cchart"><div class="cbox"><canvas id="xw"></canvas></div></div><script>(window.__XCH=window.__XCH||[]).push({"id": "xw", "t": "주간 발언량과 코스피 — 6인 합산", "l": ["04/27", "05/04", "05/11", "05/18", "05/25", "06/01", "06/08", "06/15", "06/22", "06/29", "07/06", "07/13", "07/20", "07/27", "08/03"], "f": ["2026-04-27 주 (월요일 기준)", "2026-05-04 주 (월요일 기준)", "2026-05-11 주 (월요일 기준)", "2026-05-18 주 (월요일 기준)", "2026-05-25 주 (월요일 기준)", "2026-06-01 주 (월요일 기준)", "2026-06-08 주 (월요일 기준)", "2026-06-15 주 (월요일 기준)", "2026-06-22 주 (월요일 기준)", "2026-06-29 주 (월요일 기준)", "2026-07-06 주 (월요일 기준)", "2026-07-13 주 (월요일 기준)", "2026-07-20 주 (월요일 기준)", "2026-07-27 주 (월요일 기준)", "2026-08-03 주 (월요일 기준)"], "d": [{"label": "증시각도기", "data": [6, 22, 24, 23, 27, 21, 22, 24, 26, 23, 25, 25, 24, 27, 16], "type": "bar", "backgroundColor": "#d21f3c", "borderWidth": 0}, {"label": "박세익", "data": [4, 15, 21, 19, 15, 17, 19, 19, 18, 18, 20, 19, 41, 41, 25], "type": "bar", "backgroundColor": "#1161c4", "borderWidth": 0}, {"label": "이은택", "data": [0, 1, 0, 0, 0, 4, 7, 4, 7, 5, 4, 3, 4, 4, 2], "type": "bar", "backgroundColor": "#b45309", "borderWidth": 0}, {"label": "윤지호", "data": [2, 2, 5, 3, 3, 1, 2, 0, 0, 0, 0, 1, 0, 3, 0], "type": "bar", "backgroundColor": "#4c7a34", "borderWidth": 0}, {"label": "김효진", "data": [0, 0, 0, 2, 1, 0, 2, 1, 1, 1, 0, 1, 1, 1, 1], "type": "bar", "backgroundColor": "#7a3fa0", "borderWidth": 0}, {"label": "코스피", "data": [6598.87, 7498.0, 7493.18, 7847.71, 8476.15, 8160.59, 8123.62, 9052.42, 8411.21, 8088.34, 7475.94, 6820.6, 6690.62, 6595.45, 6296.38], "yAxisID": "y1", "type": "line", "borderColor": "rgba(110,110,115,.9)", "borderWidth": 2, "pointRadius": 0, "tension": 0.25, "borderDash": [4, 3]}], "st": true, "yt": "발언 수(건)", "k": "bar", "u": " 건"});</script>
+<div class="cchart"><div class="cbox"><canvas id="xw"></canvas></div></div><script>(window.__XCH=window.__XCH||[]).push({"id": "xw", "t": "주간 발언량과 코스피 — 6인 합산", "l": ["04/27", "05/04", "05/11", "05/18", "05/25", "06/01", "06/08", "06/15", "06/22", "06/29", "07/06", "07/13", "07/20", "07/27", "08/03"], "f": ["2026-04-27 주 (월요일 기준)", "2026-05-04 주 (월요일 기준)", "2026-05-11 주 (월요일 기준)", "2026-05-18 주 (월요일 기준)", "2026-05-25 주 (월요일 기준)", "2026-06-01 주 (월요일 기준)", "2026-06-08 주 (월요일 기준)", "2026-06-15 주 (월요일 기준)", "2026-06-22 주 (월요일 기준)", "2026-06-29 주 (월요일 기준)", "2026-07-06 주 (월요일 기준)", "2026-07-13 주 (월요일 기준)", "2026-07-20 주 (월요일 기준)", "2026-07-27 주 (월요일 기준)", "2026-08-03 주 (월요일 기준)"], "d": [{"label": "증시각도기", "data": [6, 22, 24, 23, 27, 21, 22, 24, 26, 23, 25, 25, 24, 27, 16], "type": "bar", "backgroundColor": "#d21f3c", "borderWidth": 0}, {"label": "박세익", "data": [4, 15, 21, 19, 15, 17, 19, 19, 18, 18, 20, 19, 41, 41, 25], "type": "bar", "backgroundColor": "#1161c4", "borderWidth": 0}, {"label": "이은택", "data": [0, 1, 0, 0, 0, 4, 7, 4, 7, 5, 4, 3, 4, 4, 2], "type": "bar", "backgroundColor": "#b45309", "borderWidth": 0}, {"label": "윤지호", "data": [2, 2, 5, 3, 3, 1, 2, 0, 0, 0, 0, 1, 0, 3, 0], "type": "bar", "backgroundColor": "#4c7a34", "borderWidth": 0}, {"label": "김효진", "data": [0, 0, 0, 2, 1, 0, 2, 1, 1, 1, 0, 1, 1, 1, 1], "type": "bar", "backgroundColor": "#7a3fa0", "borderWidth": 0}, {"label": "3.3캠퍼스", "data": [2, 2, 5, 2, 3, 1, 0, 0, 0, 0, 0, 1, 0, 2, 0], "type": "bar", "backgroundColor": "#0f7b8a", "borderWidth": 0}, {"label": "코스피", "data": [6598.87, 7498.0, 7493.18, 7847.71, 8476.15, 8160.59, 8123.62, 9052.42, 8411.21, 8088.34, 7475.94, 6820.6, 6690.62, 6595.45, 6296.38], "yAxisID": "y1", "type": "line", "borderColor": "rgba(110,110,115,.9)", "borderWidth": 2, "pointRadius": 0, "tension": 0.25, "borderDash": [4, 3]}], "st": true, "yt": "발언 수(건)", "k": "bar", "u": " 건"});</script>
 <div class="explain">
 <p>가장 많았던 주는 <b>76건</b>(07-27 주),
 가장 적었던 주는 <b>12건</b>(04-27 주)입니다.</p>
@@ -696,7 +695,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <h2>누구를, 얼마나 담고 있나</h2>
 <div class="tblwrap"><table class="xcov">
 <thead><tr><th>인물</th><th class="n">전체</th><th class="n">본편</th><th class="n">기간</th></tr></thead>
-<tbody><tr><td><b>증시각도기</b><br><span style="font-size:11.5px;color:var(--text2)">곽상준 · 증시각도기TV</span></td><td class="n">335</td><td class="n">313</td><td class="n">05-01~08-06</td></tr><tr><td><b>박세익</b><br><span style="font-size:11.5px;color:var(--text2)">체슬리투자자문 전무 · 체슬리TV</span></td><td class="n">311</td><td class="n">265</td><td class="n">05-01~08-06</td></tr><tr><td><b>이은택</b><br><span style="font-size:11.5px;color:var(--text2)">KB증권 · 이그전 블로그</span></td><td class="n">45</td><td class="n">45</td><td class="n">05-04~08-05</td></tr><tr><td><b>윤지호</b><br><span style="font-size:11.5px;color:var(--text2)">리서치센터장 출신 · 삼쩜삼캠퍼스 등</span></td><td class="n">22</td><td class="n">22</td><td class="n">05-01~08-01</td></tr><tr><td><b>김효진</b><br><span style="font-size:11.5px;color:var(--text2)">KB증권 이코노미스트</span></td><td class="n">12</td><td class="n">12</td><td class="n">05-19~08-04</td></tr></tbody></table></div>
+<tbody><tr><td><b>증시각도기</b><br><span style="font-size:11.5px;color:var(--text2)">곽상준 · 증시각도기TV</span></td><td class="n">335</td><td class="n">313</td><td class="n">05-01~08-06</td></tr><tr><td><b>박세익</b><br><span style="font-size:11.5px;color:var(--text2)">체슬리투자자문 전무 · 체슬리TV</span></td><td class="n">311</td><td class="n">265</td><td class="n">05-01~08-06</td></tr><tr><td><b>이은택</b><br><span style="font-size:11.5px;color:var(--text2)">KB증권 · 이그전 블로그</span></td><td class="n">45</td><td class="n">45</td><td class="n">05-04~08-05</td></tr><tr><td><b>윤지호</b><br><span style="font-size:11.5px;color:var(--text2)">리서치센터장 출신 · 삼쩜삼캠퍼스 등</span></td><td class="n">22</td><td class="n">22</td><td class="n">05-01~08-01</td></tr><tr><td><b>김효진</b><br><span style="font-size:11.5px;color:var(--text2)">KB증권 이코노미스트</span></td><td class="n">12</td><td class="n">12</td><td class="n">05-19~08-04</td></tr><tr><td><b>3.3캠퍼스</b><br><span style="font-size:11.5px;color:var(--text2)">삼쩜삼캠퍼스 · 여러 게스트</span></td><td class="n">18</td><td class="n">18</td><td class="n">05-01~07-28</td></tr></tbody></table></div>
 <div class="explain">
 <p><b>건수가 사람마다 크게 다릅니다. 이건 실력이나 영향력과 아무 상관이 없습니다.</b></p>
 <p>증시각도기·박세익 두 분은 <b>본인 채널이나 고정 코너</b>가 있어 거의 매일 잡힙니다.
@@ -715,7 +714,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <b>검색창</b>에 '반도체'처럼 단어를 넣으면 그 말이 든 것만 남습니다.
 하이라이트·복습본 같은 짧은 클립은 접어 두었는데,
 <b>체크박스</b>를 누르면 같이 보입니다.</p>
-<div class="xf"><button class="on" data-p="all">전체</button><button data-p="증시각도기">증시각도기</button><button data-p="박세익">박세익</button><button data-p="이은택">이은택</button><button data-p="윤지호">윤지호</button><button data-p="김효진">김효진</button></div>
+<div class="xf"><button class="on" data-p="all">전체</button><button data-p="증시각도기">증시각도기</button><button data-p="박세익">박세익</button><button data-p="이은택">이은택</button><button data-p="윤지호">윤지호</button><button data-p="김효진">김효진</button><button data-p="3.3캠퍼스">3.3캠퍼스</button></div>
 <div class="xtools">
   <input type="search" id="xq" placeholder="제목·채널 검색" aria-label="검색">
   <label><input type="checkbox" id="xclip"> 클립·복습본도 보기</label>
@@ -726,7 +725,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 <div class="sec">
 <div class="disclaimer">
-<p><b>출처.</b> 유튜브 채널 공개 피드(증시각도기TV, 체슬리TV, 삼프로TV, 삼쩜삼캠퍼스)와
+<p><b>출처.</b> 유튜브 채널 공개 피드(증시각도기TV, 체슬리TV, 삼프로TV, 3.3캠퍼스)와
 네이버 블로그 이그전 RSS. 제목·게시일·링크는 공개된 원본 그대로이며 본문은 옮기지 않았습니다.
 코스피 종가는 별도 수집분입니다.</p>
 <p><b>한계.</b> 여러 사람이 나오는 채널에서는 제목이나 설명에 이름이 적혀 있어야만 잡힙니다.
@@ -768,6 +767,12 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   };
 })();
 /* THEME:END */</script>
+
+
+
+
+
+
 
 
 
@@ -831,13 +836,5 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   cc.addEventListener('change', function(){ b.classList.toggle('showclip', cc.checked); apply(); });
   apply();
 })();
-</script>
-
-
-
-
-
-
-
-<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
+</script><button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 </body></html>
