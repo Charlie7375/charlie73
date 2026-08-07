@@ -565,12 +565,14 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <div class="stale-warn" style="margin-top:22px;padding:12px 16px;border:1px solid var(--neg);border-left-width:4px;border-radius:10px;background:color-mix(in srgb,var(--neg) 8%,transparent);font-size:.92rem"><b style="color:var(--neg)">데이터는 2026-08-07인데 아래 종합 판정은 2026-08-06 기준입니다.</b> 표·차트·요약 카드는 최신이지만 <b>판단 문장은 아직 갱신되지 않았습니다.</b> 수치를 우선해서 읽으세요.</div>
 <div class="stale-warn" style="margin-top:22px;padding:12px 16px;border:1px solid var(--neg);border-left-width:4px;border-radius:10px;background:color-mix(in srgb,var(--neg) 8%,transparent);font-size:.92rem"><b style="color:var(--neg)">데이터는 2026-08-07인데 아래 종합 판정은 2026-08-06 기준입니다.</b> 표·차트·요약 카드는 최신이지만 <b>판단 문장은 아직 갱신되지 않았습니다.</b> 수치를 우선해서 읽으세요.</div>
 <div class="stale-warn" style="margin-top:22px;padding:12px 16px;border:1px solid var(--neg);border-left-width:4px;border-radius:10px;background:color-mix(in srgb,var(--neg) 8%,transparent);font-size:.92rem"><b style="color:var(--neg)">데이터는 2026-08-07인데 아래 종합 판정은 2026-08-06 기준입니다.</b> 표·차트·요약 카드는 최신이지만 <b>판단 문장은 아직 갱신되지 않았습니다.</b> 수치를 우선해서 읽으세요.</div>
+<div class="stale-warn" style="margin-top:22px;padding:12px 16px;border:1px solid var(--neg);border-left-width:4px;border-radius:10px;background:color-mix(in srgb,var(--neg) 8%,transparent);font-size:.92rem"><b style="color:var(--neg)">데이터는 2026-08-07인데 아래 종합 판정은 2026-08-06 기준입니다.</b> 표·차트·요약 카드는 최신이지만 <b>판단 문장은 아직 갱신되지 않았습니다.</b> 수치를 우선해서 읽으세요.</div>
 <div class="verdict" data-asof="2026-08-06" style="margin-top:24px"><b>종합 판정 — <span class="vd-badge vd-bad">실패</span>★ 하루 만에 무너졌다 — 주도주가 거래량을 늘리며 −10%</b>
 <p style="margin:10px 0 0">8/6 코스피 <b>−4.58%(6,296)</b>, 하닉 <b>−10.37%(149.5만원)</b>, 삼전 <b>−6.30%(230,500)</b>. 이격도가 코스피 85.9→<b>82.4</b>, 하닉 77.5→<b>69.9</b>, 삼전 82.9→78.1로 <b>이틀 만에 되밀렸습니다</b>.<br><b>결정적인 것은 거래량입니다.</b> 하닉이 <b>0.64→0.88배</b>, 삼전이 0.70→0.81배로 <b>늘면서</b> 빠졌습니다. 이것이 교과서적인 <b>분산일</b>입니다 — 파는 쪽이 서두른 자리입니다. 하닉 분산일 카운트가 <b>10개</b>까지 올랐습니다.<br>어제 «조건부 성립»의 근거였던 «거래대금이 전일보다 증가»가 <b>이번엔 하락일에 나타났습니다.</b> 같은 지표가 반대 방향으로 작동했고, 그래서 <b>조건부 성립을 철회하고 «실패»로 판정</b>합니다.</p>
 <p style="margin:10px 0 0">다만 <b>7/30 저점(코스피 5,547 · 하닉 128.7만 · 삼전 202,000)은 셋 다 지켰습니다.</b> 오닐 규칙상 «FTD 저점 이탈»은 아직 아니므로 <b>바닥 자체가 깨진 것은 아닙니다.</b> 무너진 것은 «7/31~8/5 반등이 매수 주체가 들어온 것이었나»라는 주장입니다.</p>
 <p style="margin:10px 0 0"><b>다음에 볼 것.</b> FTD 게이트는 8/13까지 열려 있습니다. 다시 성립하려면 <b>거래대금이 실린 +1.5% 이상 상승일</b>이 나와야 하고, <b>7/30 저점을 종가로 이탈하면 게이트를 닫고 새 저점을 기다립니다.</b></p>
 <p class="vd-delta">변경 — 조건부 성립 → 실패 · 확신도 높음</p>
 <div class="vd-log"><h3>지난 판정</h3><p class="dim">판정이 바뀐 기록을 지우지 않고 남깁니다 — <b>틀렸던 판정도 그대로</b> 둡니다. 최신이 맨 위입니다.</p><div class="vd-item"><div class="vd-when">2026-08-05</div><div class="vd-t"><span class="vd-badge vd-warn">조건부 성립</span>방향은 맞았는데 문턱에 조금 못 미쳤다</div><div class="vd-b">8/5 코스피 <b>+3.76%(6,598.26)</b>, 하닉 +5.77%(166.8만원), 삼전 +2.50%(246,000원). 이격도가 코스피 82.5→<b>85.9</b>, 하닉 73.1→77.5, 삼전 80.6→82.9로 올라왔습니다.<br>★ 이날 <b>판정 기준을 바꿨습니다</b> — 「거래량이 50일 평균 이상」에서 <b>「거래대금이 전일보다 증가」</b>로 옮기고 판정을 세 단계로 나눴습니다. 오닐의 문자대로면 거래량 0.66→0.73배로 <b>전일보다 늘어 성립</b>이고, 우리가 써온 50일 평균 기준으로는 <b>미달</b>입니다. 게다가 <b>주도주에서는 오히려 줄었습니다</b>(하닉 0.86→0.64).</div><div class="vd-delta">변경 — 미성립 → 조건부 성립 · 판정 기준을 «전일 대비 거래대금»으로 이관</div></div><div class="vd-item"><div class="vd-when">2026-08-03</div><div class="vd-t"><span class="vd-badge vd-bad">미성립</span>7/31 폭등은 FTD가 아니다 — 거래량이 안 실렸다</div><div class="vd-b">7/31 코스피 +17.91%는 상승률만 보면 압도적이지만 <b>거래량이 50일 평균 아래</b>였습니다. 오닐의 FTD는 «4~7일차 · +1.5% 이상 · 거래량 증가»인데, 셋 중 거래량이 빠졌습니다. 이 반등의 정체는 <b>SA펀드 강제청산 종료</b>로 봅니다 — 매도 압력이 사라진 자리이지 매수가 들어온 자리가 아닙니다.</div><div class="vd-delta">변경 — 초판</div></div></div></div>
+
 
 
 
@@ -935,6 +937,7 @@ window.addEventListener('load',build);
   };
 })();
 /* THEME:END */</script>
+
 
 
 
