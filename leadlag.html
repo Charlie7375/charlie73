@@ -110,15 +110,6 @@ footer{margin-top:48px;border-top:1px solid var(--border);padding-top:22px;color
 .toggle{top:62px;z-index:88;position:fixed;right:18px;width:42px;height:42px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:18px}
 @media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}h1{font-size:2.05rem}}
 
-/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
-.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
-  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-
 /* ── 공통 기준일 배지 ── */
 .pbadge{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:2px 0 18px;
   font-size:.79rem;color:var(--text-secondary)}
@@ -285,6 +276,15 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .hchg .ar{white-space:nowrap}
 .to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
 @media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
+
+/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
+.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
+  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
+.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
+  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
+  background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
 /* BAR:BEGIN */
 /* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
    flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
@@ -563,21 +563,20 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"><style id="freqcss">
+/* PAPER:END */</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><style id="freqcss">
 .freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
  padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
  border:1px solid currentColor;opacity:.85}
 .freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
 .freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
 </style>
-<!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
+</head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="here" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="credit-spread.html">신용스프레드와 코스피</a><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a class="here" href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><!-- NAV:END --></nav>
 </div></div>
 <div class="wrap paper">
 <div class="site-crumb"><a href="index.html">홈</a><span class="sep">›</span><span>아카이브</span><span class="sep">›</span><span class="cur">하이닉스와 미국 반도체</span></div>
-
 <div class="phead">
 <div class="eyebrow">아카이브 · Lead–Lag</div>
 <h1>하이닉스는 따라가기만 하지 않는다</h1>
@@ -646,7 +645,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <h2>시차 프로파일 — 관계가 진짜라는 증거</h2>
 <figure class="fig"><div class="cbox" style="height:370px"><canvas id="g2"></canvas></div><figcaption><span class="freq d">일간</span><b>모든 상대가 +1일에서만 봉우리를 만들고 나머지 시차는 0 근처</b>입니다. 관계가 진짜라면 이 모양이 나와야 합니다 — 아무 시차에서나 값이 높으면 잡음입니다.</figcaption></figure>
 <figure class="fig"><div class="tblwrap"><table class="tw">
-<thead><tr><th>상대</th><th class="n">-2일</th><th class="n">-1일</th><th class="n">+0일</th><th class="n">+1일</th><th class="n">+2일</th><th class="n">+3일</th></tr></thead><tbody><tr class="cur"><td><b>마이크론</b></td><td class="n">0.064</td><td class="n">-0.067</td><td class="n">0.302</td><td class="n good">0.449</td><td class="n">-0.058</td><td class="n">0.038</td></tr><tr><td><b>반도체 ETF (SOX 대리)</b></td><td class="n">0.030</td><td class="n">-0.051</td><td class="n">0.224</td><td class="n good">0.437</td><td class="n">-0.110</td><td class="n">0.014</td></tr><tr><td><b>반도체 ETF (SMH)</b></td><td class="n">0.017</td><td class="n">-0.046</td><td class="n">0.223</td><td class="n good">0.437</td><td class="n">-0.106</td><td class="n">0.016</td></tr><tr><td><b>TSMC</b></td><td class="n">-0.037</td><td class="n">-0.045</td><td class="n">0.195</td><td class="n good">0.353</td><td class="n">-0.088</td><td class="n">0.018</td></tr><tr><td><b>나스닥100 (QQQ)</b></td><td class="n">-0.004</td><td class="n">-0.011</td><td class="n">0.168</td><td class="n good">0.390</td><td class="n">-0.099</td><td class="n">0.000</td></tr><tr><td><b>엔비디아</b></td><td class="n">-0.009</td><td class="n">-0.058</td><td class="n">0.107</td><td class="n good">0.171</td><td class="n">-0.048</td><td class="n">-0.016</td></tr><tr><td><b>브로드컴</b></td><td class="n">0.012</td><td class="n">-0.010</td><td class="n">0.086</td><td class="n good">0.211</td><td class="n">0.008</td><td class="n">0.016</td></tr></tbody></table></div>
+<thead><tr><th>상대</th><th class="n">-2일</th><th class="n">-1일</th><th class="n">+0일</th><th class="n">+1일</th><th class="n">+2일</th><th class="n">+3일</th></tr></thead><tbody><tr class="cur"><td><b>마이크론</b></td><td class="n">0.064</td><td class="n">-0.067</td><td class="n">0.302</td><td class="n good">0.449</td><td class="n">-0.058</td><td class="n">0.034</td></tr><tr><td><b>반도체 ETF (SOX 대리)</b></td><td class="n">0.030</td><td class="n">-0.051</td><td class="n">0.224</td><td class="n good">0.437</td><td class="n">-0.110</td><td class="n">0.009</td></tr><tr><td><b>반도체 ETF (SMH)</b></td><td class="n">0.017</td><td class="n">-0.046</td><td class="n">0.223</td><td class="n good">0.437</td><td class="n">-0.106</td><td class="n">0.012</td></tr><tr><td><b>TSMC</b></td><td class="n">-0.037</td><td class="n">-0.045</td><td class="n">0.195</td><td class="n good">0.353</td><td class="n">-0.088</td><td class="n">0.016</td></tr><tr><td><b>나스닥100 (QQQ)</b></td><td class="n">-0.004</td><td class="n">-0.011</td><td class="n">0.168</td><td class="n good">0.390</td><td class="n">-0.099</td><td class="n">-0.004</td></tr><tr><td><b>엔비디아</b></td><td class="n">-0.009</td><td class="n">-0.058</td><td class="n">0.107</td><td class="n good">0.171</td><td class="n">-0.048</td><td class="n">-0.017</td></tr><tr><td><b>브로드컴</b></td><td class="n">0.012</td><td class="n">-0.010</td><td class="n">0.086</td><td class="n good">0.211</td><td class="n">0.008</td><td class="n">0.013</td></tr></tbody></table></div>
 <figcaption>음수 시차가 전부 0 근처라는 것은 <b>하닉의 영향이 그날 밤 안에 소진된다</b>는 뜻입니다.
 하루 이상은 끌지 못합니다.</figcaption></figure>
 
@@ -694,7 +693,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 (function(){
 function tone(){return (getComputedStyle(document.documentElement)
   .getPropertyValue('--text')||'#111').trim();}
-var CFG=[{"id": "g1", "k": "bar", "t": "양방향 — 미국이 하닉에 주는 정보 vs 하닉이 미국에 주는 정보", "l": ["마이크론", "반도체 ETF (SOX 대리)", "반도체 ETF (SMH)", "TSMC", "나스닥100 (QQQ)", "엔비디아", "브로드컴"], "yt": "상관", "dp": 3, "d": [{"label": "미국 → 하닉 (다음날)", "data": [0.449, 0.437, 0.437, 0.353, 0.39, 0.171, 0.211], "backgroundColor": "#1161c4"}, {"label": "하닉 → 미국 (그날 밤, 보정)", "data": [0.356, 0.308, 0.303, 0.263, 0.211, 0.111, 0.082], "backgroundColor": "#d21f3c"}]},{"id": "g2", "t": "시차 프로파일 — 미국 D 와 하닉 D+k", "l": ["-2일", "-1일", "+0일", "+1일", "+2일", "+3일"], "yt": "상관", "dp": 3, "xt": 6, "d": [{"label": "마이크론", "data": [0.064, -0.067, 0.302, 0.449, -0.058, 0.038], "borderColor": "#d21f3c", "borderWidth": 2.4, "pointRadius": 3, "tension": 0.2}, {"label": "반도체 ETF (SOX 대리)", "data": [0.03, -0.051, 0.224, 0.437, -0.11, 0.014], "borderColor": "#1161c4", "borderWidth": 1.5, "pointRadius": 3, "tension": 0.2}, {"label": "반도체 ETF (SMH)", "data": [0.017, -0.046, 0.223, 0.437, -0.106, 0.016], "borderColor": "#047857", "borderWidth": 1.5, "pointRadius": 3, "tension": 0.2}, {"label": "TSMC", "data": [-0.037, -0.045, 0.195, 0.353, -0.088, 0.018], "borderColor": "#eb6834", "borderWidth": 1.5, "pointRadius": 3, "tension": 0.2}, {"label": "나스닥100 (QQQ)", "data": [-0.004, -0.011, 0.168, 0.39, -0.099, 0.0], "borderColor": "#7c3aed", "borderWidth": 1.5, "pointRadius": 3, "tension": 0.2}, {"label": "엔비디아", "data": [-0.009, -0.058, 0.107, 0.171, -0.048, -0.016], "borderColor": "#7c7a73", "borderWidth": 1.5, "pointRadius": 3, "tension": 0.2}, {"label": "브로드컴", "data": [0.012, -0.01, 0.086, 0.211, 0.008, 0.016], "borderColor": "#0891b2", "borderWidth": 1.5, "pointRadius": 3, "tension": 0.2}]}], CH=[];
+var CFG=[{"id": "g1", "k": "bar", "t": "양방향 — 미국이 하닉에 주는 정보 vs 하닉이 미국에 주는 정보", "l": ["마이크론", "반도체 ETF (SOX 대리)", "반도체 ETF (SMH)", "TSMC", "나스닥100 (QQQ)", "엔비디아", "브로드컴"], "yt": "상관", "dp": 3, "d": [{"label": "미국 → 하닉 (다음날)", "data": [0.449, 0.437, 0.437, 0.353, 0.39, 0.171, 0.211], "backgroundColor": "#1161c4"}, {"label": "하닉 → 미국 (그날 밤, 보정)", "data": [0.356, 0.308, 0.303, 0.263, 0.211, 0.111, 0.082], "backgroundColor": "#d21f3c"}]},{"id": "g2", "t": "시차 프로파일 — 미국 D 와 하닉 D+k", "l": ["-2일", "-1일", "+0일", "+1일", "+2일", "+3일"], "yt": "상관", "dp": 3, "xt": 6, "d": [{"label": "마이크론", "data": [0.064, -0.067, 0.302, 0.449, -0.058, 0.034], "borderColor": "#d21f3c", "borderWidth": 2.4, "pointRadius": 3, "tension": 0.2}, {"label": "반도체 ETF (SOX 대리)", "data": [0.03, -0.051, 0.224, 0.437, -0.11, 0.009], "borderColor": "#1161c4", "borderWidth": 1.5, "pointRadius": 3, "tension": 0.2}, {"label": "반도체 ETF (SMH)", "data": [0.017, -0.046, 0.223, 0.437, -0.106, 0.012], "borderColor": "#047857", "borderWidth": 1.5, "pointRadius": 3, "tension": 0.2}, {"label": "TSMC", "data": [-0.037, -0.045, 0.195, 0.353, -0.088, 0.016], "borderColor": "#eb6834", "borderWidth": 1.5, "pointRadius": 3, "tension": 0.2}, {"label": "나스닥100 (QQQ)", "data": [-0.004, -0.011, 0.168, 0.39, -0.099, -0.004], "borderColor": "#7c3aed", "borderWidth": 1.5, "pointRadius": 3, "tension": 0.2}, {"label": "엔비디아", "data": [-0.009, -0.058, 0.107, 0.171, -0.048, -0.017], "borderColor": "#7c7a73", "borderWidth": 1.5, "pointRadius": 3, "tension": 0.2}, {"label": "브로드컴", "data": [0.012, -0.01, 0.086, 0.211, 0.008, 0.013], "borderColor": "#0891b2", "borderWidth": 1.5, "pointRadius": 3, "tension": 0.2}]}], CH=[];
 function draw(c){
  var el=document.getElementById(c.id);
  if(!el||!window.Chart){setTimeout(function(){draw(c)},300);return;}
@@ -746,6 +745,16 @@ CFG.forEach(draw);
   };
 })();
 /* THEME:END */</script>
+
+
+
+
+
+
+
+
+
+
 
 
 
