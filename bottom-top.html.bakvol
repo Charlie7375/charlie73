@@ -529,7 +529,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper p.note{padding-left:11px}
 }
 /* PAPER:END */</style>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
+<!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"></head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="here" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a class="here" href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="credit-spread.html">신용스프레드와 코스피</a><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><!-- NAV:END --></nav>
@@ -625,7 +625,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
     <p>가격이 낮아졌다는 사실은 바닥의 증거가 아닙니다. 오닐·미너비니는 <b>시장이 스스로 바닥을 증명하게(let the market prove it)</b> 하라고 하며, 그 증명 장치가 <b>팔로우스루데이(FTD)</b>입니다.</p>
     <p>정의는 이렇습니다. 저점을 찍은 날을 <b>1일차</b>로 두고, 이후 반등이 이어지다가 <b>4~7일차(길게는 10일차) 사이에 거래량이 전일보다 늘면서 지수가 +1.5% 이상(개별주는 +1.7~2%) 상승</b>하면 FTD로 인정합니다. 왜 4일차부터인가 하면, 급락 직후 1~3일 반등은 <b>공매도 환매와 기술적 반사</b>인 경우가 많아 신뢰도가 낮기 때문입니다. 거래량 증가를 요구하는 이유는 <b>기관이 다시 사들이기 시작했는지</b>를 확인하기 위해서입니다.</p>
     <p>현재 상태는 <b>7/30 종가 신저점(5,594)을 1일차로 두고 7/31 +17.91%, 8/3 −5.12%, 8/4 +1.62%, 8/5 +3.76%가 이어진</b> 국면입니다. 8/5는 <b>5일차</b>로 관문(4~7일차, <b>8/4~8/7</b>) 한복판입니다. <b>가격 조건은 이틀 연속 넘겼습니다.</b> 거래량도 전일 대비로는 늘어 0.57배(8/3) → 0.66배(8/4) → <b>0.73배</b>(8/5)이므로, 오닐의 정의를 문자 그대로 적용하면 <b>이미 팔로우스루데이입니다.</b> 그럼에도 성립으로 보지 않는 이유는 <b>0.73배가 50일 평균 아래</b>이고, 무엇보다 <b>주도주에서 거래량이 오히려 줄었기</b> 때문입니다 — 하이닉스 0.86배→<b>0.64배</b>, 삼성전자 0.91배→<b>0.70배</b>입니다. 기관이 돌아왔다면 주도주에서 먼저 보여야 합니다. 7/23에도 4일차 +4.4%가 나왔지만 거래량 1.05배에 그쳐 다음 날 −5.7%로 무효화됐고, 7/28 −10.84%로 저점마저 붕괴됐습니다. <b>평균을 넘기고도 안 됐던 전례가 있는데 평균 아래를 성립으로 볼 수는 없습니다.</b> 다만 <b>D1 저점은 넉넉히 지켜졌고</b>(8/5 저가 6,540.27 vs 7/30 저가 5,547.53), 저가가 계속 높아지고 있습니다(6,223 → 6,080 → 6,540).</p>
-    <p><b>항복 거래량(Capitulation)</b>은 또 다른 바닥 단서입니다. 투매가 절정에 달하면 <b>평균의 2배 안팎 거래량과 함께 큰 음봉</b>이 나오고, 그 지점에서 팔 사람이 소진되며 반전이 나오는 패턴입니다. 7/28까지는 그 조건이 없었습니다 — <b>−10.84% 폭락일조차 코스피 거래량비가 0.66배</b>였고, 하이닉스도 1.38배로 6/23(1.56배)보다 낮았습니다. <b>그런데 7/29에 바뀌었습니다.</b> 하이닉스와 삼성전자 거래량비가 나란히 <b>2.07배</b>로 기준선을 넘었고, 하이닉스는 장중 −19.6%까지 밀렸다가 −9.61%로 마감해 <b>저점 대비 +12.4%의 긴 아래꼬리</b>를 남겼습니다. 대량 거래 + 긴 아래꼬리는 <b>셀링 클라이맥스</b>의 교과서적 형태입니다. 코스피 지수 자체는 0.95배로 평균 이하였지만, <b>대형 반도체 두 종목에서 동시에 항복이 나온</b> 셈입니다.<br><br>이어진 <b>7/30에는 거래량이 코스피 0.78배·하이닉스 1.57배·삼성전자 1.46배로 일제히 줄었고</b>, 코스피 낙폭도 −1.23%로 급격히 축소됐습니다. 투매가 한 차례 소화된 뒤 <b>파는 힘이 빠지는 전형적인 패턴</b>입니다. 그리고 <b>7/31에 하이닉스가 +29.95%로 가장 크게 반등했습니다</b> — 거래량 1.70배를 동반했고, 삼성전자도 1.80배로 대량이었습니다. <b>항복(7/29) → 소진(7/30) → 대량 반등(7/31)</b>은 셀링 클라이맥스 이후의 교과서적 순서입니다. 다만 <b>지수 거래량은 0.91배로 여전히 평균 이하</b>여서, 개별주에는 자금이 들어왔지만 시장 전체로 확산됐다고 보기엔 이릅니다.</p>
+    <p><b>항복 거래량(Capitulation)</b>은 또 다른 바닥 단서입니다. 투매가 절정에 달하면 <b>평균의 2배 안팎 거래량과 함께 큰 음봉</b>이 나오고, 그 지점에서 팔 사람이 소진되며 반전이 나오는 패턴입니다. 7/28까지는 그 조건이 없었습니다 — <b>−10.84% 폭락일조차 코스피 거래량비가 0.66배</b>였고, 하이닉스도 1.38배로 6/23(1.56배)보다 낮았습니다. <b>그런데 7/29에 바뀌었습니다.</b> 하이닉스와 삼성전자 거래량비가 나란히 <b>2.07배</b>로 기준선을 넘었고, 하이닉스는 장중 −19.6%까지 밀렸다가 −9.61%로 마감해 <b>저점 대비 +12.4%의 긴 아래꼬리</b>를 남겼습니다. 대량 거래 + 긴 아래꼬리는 <b>셀링 클라이맥스</b>의 교과서적 형태입니다. 코스피 지수 자체는 0.95배로 평균 이하였지만, <b>대형 반도체 두 종목에서 동시에 항복이 나왔다는</b> 뜻입니다.<br><br>이어진 <b>7/30에는 거래량이 코스피 0.78배·하이닉스 1.57배·삼성전자 1.46배로 일제히 줄었고</b>, 코스피 낙폭도 −1.23%로 급격히 축소됐습니다. 투매가 한 차례 소화된 뒤 <b>파는 힘이 빠지는 전형적인 패턴</b>입니다. 그리고 <b>7/31에 하이닉스가 +29.95%로 가장 크게 반등했습니다</b> — 거래량 1.70배를 동반했고, 삼성전자도 1.80배로 대량이었습니다. <b>항복(7/29) → 소진(7/30) → 대량 반등(7/31)</b>은 셀링 클라이맥스 이후의 교과서적 순서입니다. 다만 <b>지수 거래량은 0.91배로 여전히 평균 이하</b>여서, 개별주에는 자금이 들어왔지만 시장 전체로 확산됐다고 보기엔 이릅니다.</p>
     <p>7/28까지의 해석은 <b>"매수자가 사라져서 빠진 하락"</b>이었습니다. 호가가 비어 조금만 팔아도 크게 밀린 형태였죠. 7/29의 대량 거래·긴 아래꼬리는 그 국면이 <b>실제 투매로 전환됐을 가능성</b>을 보여줍니다. 다만 클라이맥스 이후에도 <b>재차 저점을 낮추는 경우가 흔합니다</b>. 확인 장치는 여전히 FTD이며, 반등이 나오더라도 <b>거래량이 실리는지</b>를 같은 기준으로 봐야 합니다.</p>
   </div>
 </section>
@@ -695,6 +695,26 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 </section>
 
 <!-- FTDWHY:BEGIN -->
+<!-- FLOWCONF:BEGIN -->
+<h3>보조 확인 — 관문 구간에 «외인+기관»은 사고 있나</h3>
+<p>판정은 거래대금으로 하지만, <b>누가 샀는지</b>는 따로 봅니다.
+외국인과 기관을 <b>하나로 묶습니다</b> — 외국인도 결국 외국 기관이고, 둘을 합치면
+사실상 <b>«개인의 반대편»</b>이 되어 뜻이 분명해집니다.</p>
+<figure class="fig"><div class="tblwrap"><table class="tw">
+<thead><tr><th>날짜</th><th class="n">지수</th><th class="n">외인+기관 (억원)</th>
+<th class="n">관문 누적</th></tr></thead>
+<tbody><tr><td>8/4 <span class="dim">4일차</span></td><td class="n">+1.62%</td><td class="n bad">-14,758</td><td class="n">-14,758</td></tr><tr><td>8/5 <span class="dim">5일차</span></td><td class="n">+3.76%</td><td class="n good">+19,806</td><td class="n">+5,048</td></tr><tr><td>8/6 <span class="dim">6일차</span></td><td class="n">-4.58%</td><td class="n bad">-50,663</td><td class="n">-45,615</td></tr><tr class="cur"><td>8/7 <span class="dim">7일차</span></td><td class="n">-0.60%</td><td class="n good">+494</td><td class="n">-45,121</td></tr></tbody></table></div>
+<figcaption><span class="freq d">일간</span>관문(4일차 이후) 누적 <b>-45,121억원</b> — <b class="bad">순매도 우위</b>.
+</figcaption></figure>
+<div class="note"><p><b>왜 판정 기준이 아니라 보조인가.</b>
+일별 실측 수급이 <b>2025년 3월부터</b>뿐이라 반등 시도가 <b>네 번</b>밖에 없습니다.
+28년 67회로 검증한 거래대금 기준과 같은 자격을 줄 수 없습니다.<br>
+<b>그래도 반드시 함께 보는 이유</b>는 셋입니다 —
+① 거래대금 증감과 이 값의 상관이 <b>+0.004</b>로 <b>서로 다른 것을 잽니다</b>(겹치지 않으니 정보가 늘어납니다).
+② 거래대금은 다음 영업일에 나오는데 이 값은 <b>당일</b> 나옵니다.
+③ 네 사례에서 방향이 어긋난 적이 없습니다(성공 3회 누적 플러스, 실패 1회 누적 마이너스).</p></div>
+<!-- FLOWCONF:END -->
+
 <h2 id="ftd-why">FTD 기준을 바꿨습니다 — 28년으로 겨뤄 본 결과</h2>
 <p>2026년 8월 5일에 판정 기준을 <b>「거래량이 50일 평균 이상」에서 「거래대금이 전일보다 증가」로</b>
 바꿨습니다. 바꾼 근거를 남겨 둡니다.</p>
@@ -870,6 +890,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 </div>
 <!-- VOLBASE:END -->
 
+<div class="wrap"><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="supply.html">투자자 수급</a> — 판정 재료인 «투매»(개인 수급 3사분면)의 일별 원장이 그 페이지입니다.</p><p><a href="credit-spread.html">신용스프레드와 코스피</a> — ⚠ 반대편 증거 — 역대 큰 바닥은 전부 스프레드 1%p 확대 뒤에 왔는데 이번엔 그 과정이 없습니다.</p></div><!--RELATED:END--></div>
 <footer><p><strong>데이터·계산.</strong> 소스 폴더의 실제 일별 시세(<code>코스피_일별_20230102_20260730.xlsx</code>, <code>SK하이닉스_일별_20230102_20260730.xlsx</code>, <code>삼성전자_일별_20250101_20260730.xlsx</code>)의 종가·거래량으로 직접 산출했습니다. 분산일=25거래일 창, 거래량비=당일 거래량÷50일 평균 거래량, 추세 템플릿=50/150/200일 이동평균 및 52주 고저 기준. 2026-08-07 기준.</p>
 <p style="margin-top:10px">본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.</p></footer>
 </div>
@@ -937,6 +958,13 @@ window.addEventListener('load',build);
   };
 })();
 /* THEME:END */</script>
+
+
+
+
+
+
+
 
 
 
