@@ -110,15 +110,6 @@ footer{margin-top:48px;border-top:1px solid var(--border);padding-top:22px;color
 .toggle{top:62px;z-index:88;position:fixed;right:18px;width:42px;height:42px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:18px}
 @media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}h1{font-size:2.05rem}}
 
-/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
-.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
-  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-
 /* ── 공통 기준일 배지 ── */
 .pbadge{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:2px 0 18px;
   font-size:.79rem;color:var(--text-secondary)}
@@ -285,6 +276,15 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .hchg .ar{white-space:nowrap}
 .to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
 @media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
+
+/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
+.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
+  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
+.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
+  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
+  background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
 /* BAR:BEGIN */
 /* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
    flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
@@ -563,14 +563,13 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"></head><body>
+/* PAPER:END */</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
-  <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="here" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a class="here" href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><!-- NAV:END --></nav>
+  <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a class="" href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><!-- NAV:END --></nav>
 </div></div>
 <div class="wrap paper">
 <div class="phead">
-
 <div class="eyebrow">오늘의 시장 · 000660</div>
 <h1>SK하이닉스</h1>
 <p class="sub">HBM 주도주. 이야기꾼이 가장 자주 언급</p>
@@ -603,68 +602,95 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 <div class="explain" style="margin-bottom:14px">
 <p>가로가 <b>하루 등락률</b>, 세로가 <b>개인 순매수(억원)</b>, 점 하나가 하루입니다.
+<b>점 크기는 그날 거래대금</b>이라 같은 자리에 찍혀도 «규모»가 보입니다.
 개인의 습관은 왼쪽 위(<b>2사분면 — 떨어지면 산다</b>)에 찍힙니다.
 그래서 왼쪽 아래 <b>3사분면(떨어지는데 판다)</b>이 드물고, 나왔다면 그건
 습관이 부러진 날 — <b>투항(capitulation)</b>입니다.</p>
 <p>올해 146거래일 중 3사분면(하락 + 개인 순매도)은 <b>6일</b>이지만, 그중 <b>«보통 하루»(9,659.7억원)를 넘는 날은 없습니다</b> — 부호는 마이너스여도 금액으로는 평소보다 작은 날들이라 투항으로 보기는 어렵습니다. 개인이 원래 크게 사고파는 대상일수록 이 문턱이 높습니다. 참고로 그중 최근 다섯 날은 3/4(-9.6% · -1,783.6) · 4/30(-0.5% · -4,174.9) · 7/22(-0.3% · -7,163.6) · 7/29(-9.6% · -7,674.7) · 7/30(-5.6% · -4,309.4)입니다.</p>
 </div>
-
-<figure class="fig"><div class="cbox" style="height:460px"><canvas id="quadS"></canvas></div>
-<figcaption>2026년 전 거래일. 붉은 점 = 3사분면 · 주황 점 = 개인 대량 매매일 · 점선 = 추세선.
-개인 순매수(억원)는 «순매수 주수 × 종가» 환산 근사입니다. <b>3사분면은 부호만 마이너스인 날을 빼려고 붉은 점은 3사분면 전부이고, 본문의 «규모가 큰 날»은 그 시장 일간 순매수 절대값의 중앙값을 넘는 날입니다.</b> 개별 종목은 개인이 «양방향으로 트레이딩»하는 날이 많아 시장 전체보다 3사분면이 흔합니다 — 시장 차트보다 보수적으로 읽으십시오.
-착상 — KB증권 이그전의 「개인 수급과 코스피 등락률」. 데이터·계산은 자체.</figcaption></figure>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
-<!-- CHARTTHEME:BEGIN -->
-<script src="chart-theme.js?v=796a6ee2"></script>
-<!-- CHARTTHEME:END -->
+<figure class="fig"><div class="qb-box"><div id="quadS" class="qb-ec"></div></div>
 <script>
 (function(){
-var Q={"grey": [{"x": 3.99, "y": 895.8, "d": "1/2"}, {"x": 2.81, "y": -4.2, "d": "1/5"}, {"x": 4.31, "y": -1559.2, "d": "1/6"}, {"x": 2.2, "y": -3546.4, "d": "1/7"}, {"x": 1.89, "y": 2389.1, "d": "1/8"}, {"x": -1.59, "y": 5691.7, "d": "1/9"}, {"x": 0.67, "y": -141.9, "d": "1/12"}, {"x": -1.47, "y": 4708.9, "d": "1/13"}, {"x": 0.54, "y": 711.2, "d": "1/14"}, {"x": 0.94, "y": -927.7, "d": "1/15"}, {"x": 0.93, "y": -575.9, "d": "1/16"}, {"x": 1.06, "y": -2408.2, "d": "1/19"}, {"x": -2.75, "y": 2512.4, "d": "1/20"}, {"x": -0.4, "y": 745.8, "d": "1/21"}, {"x": 2.03, "y": -2136.4, "d": "1/22"}, {"x": 1.59, "y": -2087.0, "d": "1/23"}, {"x": -4.04, "y": 5762.5, "d": "1/26"}, {"x": 8.7, "y": -7358.6, "d": "1/27"}, {"x": 5.13, "y": 3224.0, "d": "1/28"}, {"x": 2.38, "y": 7680.3, "d": "1/29"}, {"x": 5.57, "y": 3541.5, "d": "1/30"}, {"x": -8.69, "y": 18963.0, "d": "2/2"}, {"x": 9.28, "y": -4805.7, "d": "2/3"}, {"x": -0.77, "y": 6487.3, "d": "2/4"}, {"x": -6.44, "y": 20109.3, "d": "2/5"}, {"x": -0.36, "y": 5109.8, "d": "2/6"}, {"x": 5.72, "y": -7304.0, "d": "2/9"}, {"x": -1.83, "y": 3964.1, "d": "2/11"}, {"x": 3.26, "y": -10535.7, "d": "2/12"}, {"x": -0.9, "y": 179.3, "d": "2/13"}, {"x": 1.59, "y": -1367.5, "d": "2/19"}, {"x": 6.15, "y": -8405.2, "d": "2/20"}, {"x": 0.21, "y": 3623.3, "d": "2/23"}, {"x": 5.68, "y": -10023.1, "d": "2/24"}, {"x": 1.29, "y": 4271.0, "d": "2/25"}, {"x": 7.96, "y": 4371.7, "d": "2/26"}, {"x": -3.46, "y": 29246.8, "d": "2/27"}, {"x": -11.5, "y": 14482.6, "d": "3/3"}, {"x": 10.84, "y": 708.9, "d": "3/5"}, {"x": -1.81, "y": 7524.9, "d": "3/6"}, {"x": -9.52, "y": 12780.1, "d": "3/9"}, {"x": 12.2, "y": -13177.3, "d": "3/10"}, {"x": 1.81, "y": -2618.3, "d": "3/11"}, {"x": -2.62, "y": 9944.8, "d": "3/12"}, {"x": -2.15, "y": 5105.1, "d": "3/13"}, {"x": 7.03, "y": -6261.0, "d": "3/16"}, {"x": -0.41, "y": 3316.3, "d": "3/17"}, {"x": 8.87, "y": -17478.6, "d": "3/18"}, {"x": -4.07, "y": 9590.7, "d": "3/19"}, {"x": -0.59, "y": 7747.3, "d": "3/20"}, {"x": -7.35, "y": 13969.4, "d": "3/23"}, {"x": 5.68, "y": -4085.0, "d": "3/24"}, {"x": 0.91, "y": -4662.8, "d": "3/25"}, {"x": -6.23, "y": 13925.6, "d": "3/26"}, {"x": -1.18, "y": 9740.5, "d": "3/27"}, {"x": -5.31, "y": 10545.9, "d": "3/30"}, {"x": -7.56, "y": 7888.3, "d": "3/31"}, {"x": 10.66, "y": -4704.5, "d": "4/1"}, {"x": -7.05, "y": 5363.7, "d": "4/2"}, {"x": 5.54, "y": -4425.6, "d": "4/3"}, {"x": 1.14, "y": -1072.1, "d": "4/6"}, {"x": 3.39, "y": -3964.2, "d": "4/7"}, {"x": 12.77, "y": -23936.7, "d": "4/8"}, {"x": -3.39, "y": 3257.6, "d": "4/9"}, {"x": 2.91, "y": -6101.6, "d": "4/10"}, {"x": 1.27, "y": -5483.5, "d": "4/13"}, {"x": 6.06, "y": -14012.6, "d": "4/14"}, {"x": 2.99, "y": 8292.9, "d": "4/15"}, {"x": 1.67, "y": 4855.6, "d": "4/16"}, {"x": -2.34, "y": 12389.4, "d": "4/17"}, {"x": 3.37, "y": -10106.4, "d": "4/20"}, {"x": 4.97, "y": -3880.0, "d": "4/21"}, {"x": -0.08, "y": 8426.2, "d": "4/22"}, {"x": 0.16, "y": 4547.4, "d": "4/23"}, {"x": -0.24, "y": 9728.6, "d": "4/24"}, {"x": 5.73, "y": -23162.4, "d": "4/27"}, {"x": 0.62, "y": 8907.6, "d": "4/28"}, {"x": -0.54, "y": 9065.0, "d": "4/29"}, {"x": 12.52, "y": -47771.9, "d": "5/4"}, {"x": 10.64, "y": 1318.0, "d": "5/6"}, {"x": 3.31, "y": 42848.9, "d": "5/7"}, {"x": 1.93, "y": 25928.6, "d": "5/8"}, {"x": 11.51, "y": 22176.9, "d": "5/11"}, {"x": -2.39, "y": 89822.7, "d": "5/12"}, {"x": 7.68, "y": 23175.1, "d": "5/13"}, {"x": -0.3, "y": 58948.6, "d": "5/14"}, {"x": -7.66, "y": 71503.1, "d": "5/15"}, {"x": 1.15, "y": 10473.6, "d": "5/18"}, {"x": -5.16, "y": 44118.2, "d": "5/19"}, {"x": 0.0, "y": 16267.0, "d": "5/20"}, {"x": 11.17, "y": -5924.1, "d": "5/21"}, {"x": 0.05, "y": 835.4, "d": "5/22"}, {"x": 5.72, "y": -19991.9, "d": "5/26"}, {"x": 9.31, "y": -23534.0, "d": "5/27"}, {"x": 2.05, "y": 41740.0, "d": "5/28"}, {"x": 1.92, "y": 24168.7, "d": "5/29"}, {"x": 1.29, "y": -5144.4, "d": "6/1"}, {"x": -0.13, "y": 18287.2, "d": "6/2"}, {"x": -2.63, "y": 12323.5, "d": "6/4"}, {"x": -9.92, "y": 64447.7, "d": "6/5"}, {"x": -7.68, "y": 19403.2, "d": "6/8"}, {"x": 15.91, "y": -20440.5, "d": "6/9"}, {"x": -7.54, "y": 42022.8, "d": "6/10"}, {"x": 2.59, "y": 6276.0, "d": "6/11"}, {"x": 2.33, "y": -16664.9, "d": "6/12"}, {"x": 6.42, "y": -23410.0, "d": "6/15"}, {"x": 4.11, "y": -39804.6, "d": "6/16"}, {"x": 5.84, "y": -25551.5, "d": "6/17"}, {"x": 6.51, "y": -5200.8, "d": "6/18"}, {"x": 2.94, "y": 20740.4, "d": "6/19"}, {"x": 5.61, "y": 11848.5, "d": "6/22"}, {"x": 0.98, "y": 78381.8, "d": "6/24"}, {"x": -1.68, "y": 76463.1, "d": "6/29"}, {"x": 0.84, "y": 13100.8, "d": "6/30"}, {"x": -3.4, "y": 24787.3, "d": "7/1"}, {"x": 10.88, "y": -24346.5, "d": "7/3"}, {"x": -3.38, "y": 42384.1, "d": "7/6"}, {"x": -6.06, "y": 27805.3, "d": "7/7"}, {"x": -5.68, "y": 9245.5, "d": "7/8"}, {"x": 5.3, "y": -19315.9, "d": "7/9"}, {"x": -0.27, "y": 37997.1, "d": "7/10"}, {"x": -15.37, "y": 56196.0, "d": "7/13"}, {"x": 3.69, "y": -63271.3, "d": "7/14"}, {"x": 8.83, "y": -25777.7, "d": "7/15"}, {"x": -11.53, "y": 48704.1, "d": "7/16"}, {"x": -4.23, "y": 12732.7, "d": "7/20"}, {"x": 4.08, "y": -7339.3, "d": "7/21"}, {"x": 4.86, "y": -18523.3, "d": "7/23"}, {"x": -8.34, "y": 49145.8, "d": "7/24"}, {"x": 3.24, "y": 9421.8, "d": "7/27"}, {"x": -14.65, "y": 42330.4, "d": "7/28"}, {"x": -8.79, "y": 43498.4, "d": "8/3"}, {"x": 0.64, "y": 10523.6, "d": "8/4"}, {"x": 5.77, "y": -13756.4, "d": "8/5"}, {"x": -10.37, "y": 36631.3, "d": "8/6"}], "q3": [{"x": -1.24, "y": -1304.1, "d": "2/10"}, {"x": -9.58, "y": -1783.6, "d": "3/4"}, {"x": -0.54, "y": -4174.9, "d": "4/30"}, {"x": -0.33, "y": -7163.6, "d": "7/22"}, {"x": -9.61, "y": -7674.7, "d": "7/29"}, {"x": -5.64, "y": -4309.4, "d": "7/30"}], "hot": [{"x": -12.47, "y": 162409.4, "d": "6/23"}, {"x": 13.06, "y": -91215.8, "d": "6/25"}, {"x": -8.36, "y": 149717.9, "d": "6/26"}, {"x": -14.57, "y": 114125.3, "d": "7/2"}, {"x": 29.95, "y": -88411.1, "d": "7/31"}], "reg": [{"x": -16.869999999999997, "y": 63480.96}, {"x": 31.45, "y": -87248.94}]};
-function ensure(cb){ if(window.Chart) return cb();
- if(!document.getElementById('cjs-ld')){var s=document.createElement('script');
-  s.id='cjs-ld';s.src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js';
-  document.head.appendChild(s);}
- setTimeout(function(){ensure(cb)},200);}
-function run(){
- var el=document.getElementById('quadS'); if(!el){setTimeout(run,300);return;}
- if(!window.Chart){ensure(run);return;}
- var shade={id:'q3s_quadS',beforeDatasetsDraw:function(ch){
-   var a=ch.chartArea,x=ch.scales.x,y=ch.scales.y,ctx=ch.ctx;
-   var x0=x.getPixelForValue(0),y0=y.getPixelForValue(0);
-   ctx.save();ctx.fillStyle='rgba(220,38,38,.07)';
-   ctx.fillRect(a.left,y0,Math.max(0,x0-a.left),Math.max(0,a.bottom-y0));
-   ctx.strokeStyle='rgba(128,128,128,.5)';ctx.lineWidth=1;
-   ctx.beginPath();ctx.moveTo(x0,a.top);ctx.lineTo(x0,a.bottom);
-   ctx.moveTo(a.left,y0);ctx.lineTo(a.right,y0);ctx.stroke();
-   ctx.fillStyle='rgba(185,28,28,.75)';ctx.font='600 12px sans-serif';
-   ctx.fillText('3사분면 — 투항', a.left+8, a.bottom-10);ctx.restore();}};
- var tags={id:'q3t_quadS',afterDatasetsDraw:function(ch){
-   var ctx=ch.ctx;ctx.save();ctx.font='700 11px sans-serif';
-   [1,2].forEach(function(di){
-     var m=ch.getDatasetMeta(di);
-     m.data.forEach(function(pt,i){
-       var d=ch.data.datasets[di].data[i];
-       ctx.fillStyle=di===1?'#b91c1c':'#b45309';
-       ctx.fillText(d.d, pt.x+8, pt.y+4);});});
-   ctx.restore();}};
- new Chart(el,{type:'scatter',data:{datasets:[
-  {label:'보통 날',data:Q.grey,backgroundColor:'rgba(107,114,128,.45)',pointRadius:4},
-  {label:'3사분면(투항)',data:Q.q3,backgroundColor:'#dc2626',pointRadius:7},
-  {label:'개인 대량 매매일',data:Q.hot,backgroundColor:'#d97706',pointRadius:6},
-  {label:'추세선',data:Q.reg,type:'line',borderColor:'rgba(37,99,235,.55)',
-   borderWidth:2,borderDash:[6,5],pointRadius:0,fill:false}
- ]},options:{responsive:true,maintainAspectRatio:false,
-  plugins:{legend:{position:'bottom',labels:{boxWidth:10,usePointStyle:true,font:{size:11.5}}},
-   title:{display:true,align:'start',text:'SK하이닉스 — 개인 순매수(Y, 억원)와 등락률(X, %) · 2026년',font:{size:13,weight:'500'}},
-   tooltip:{callbacks:{label:function(c){var d=c.raw;
-     return d.d+'  등락 '+d.x+'% · 개인 '+(d.y>0?'+':'')+d.y+'억원';}}}},
-  scales:{x:{title:{display:true,text:'하루 등락률 (%)'},grid:{color:'rgba(128,128,128,.12)'}},
-   y:{title:{display:true,text:'개인 순매수 (억원)'},grid:{color:'rgba(128,128,128,.12)'}}}},
-  plugins:[shade,tags]});
-}
-run();})();
+  var S=[{"name": "2사분면 — 떨어지면 산다 (개인의 습관)", "color": "#1161c4", "data": [[-1.59, 5691.7, 32317, "2026-01-09"], [-1.47, 4708.9, 27837, "2026-01-13"], [-2.75, 2512.4, 20524, "2026-01-20"], [-0.4, 745.8, 37802, "2026-01-21"], [-4.04, 5762.5, 23061, "2026-01-26"], [-8.69, 18963.0, 63364, "2026-02-02"], [-0.77, 6487.3, 34207, "2026-02-04"], [-6.44, 20109.3, 46089, "2026-02-05"], [-0.36, 5109.8, 46829, "2026-02-06"], [-1.83, 3964.1, 26880, "2026-02-11"], [-0.9, 179.3, 31100, "2026-02-13"], [-3.46, 29246.8, 68467, "2026-02-27"], [-11.5, 14482.6, 64024, "2026-03-03"], [-1.81, 7524.9, 34598, "2026-03-06"], [-9.52, 12780.1, 60640, "2026-03-09"], [-2.62, 9944.8, 34519, "2026-03-12"], [-2.15, 5105.1, 33170, "2026-03-13"], [-0.41, 3316.3, 32265, "2026-03-17"], [-4.07, 9590.7, 33910, "2026-03-19"], [-0.59, 7747.3, 34506, "2026-03-20"], [-7.35, 13969.4, 36497, "2026-03-23"], [-6.23, 13925.6, 43484, "2026-03-26"], [-1.18, 9740.5, 41683, "2026-03-27"], [-5.31, 10545.9, 39272, "2026-03-30"], [-7.56, 7888.3, 58058, "2026-03-31"], [-7.05, 5363.7, 50859, "2026-04-02"], [-3.39, 3257.6, 50168, "2026-04-09"], [-2.34, 12389.4, 40362, "2026-04-17"], [-0.08, 8426.2, 35405, "2026-04-22"], [-0.24, 9728.6, 38222, "2026-04-24"], [-0.54, 9065.0, 38806, "2026-04-29"], [-2.39, 89822.7, 168097, "2026-05-12"], [-0.3, 58948.6, 118989, "2026-05-14"], [-7.66, 71503.1, 136156, "2026-05-15"], [-5.16, 44118.2, 79849, "2026-05-19"], [-0.13, 18287.2, 137758, "2026-06-02"], [-2.63, 12323.5, 90566, "2026-06-04"], [-9.92, 64447.7, 119620, "2026-06-05"], [-7.68, 19403.2, 126333, "2026-06-08"], [-7.54, 42022.8, 100931, "2026-06-10"], [-12.47, 162409.4, 205686, "2026-06-23"], [-8.36, 149717.9, 199606, "2026-06-26"], [-1.68, 76463.1, 137123, "2026-06-29"], [-3.4, 24787.3, 109498, "2026-07-01"], [-14.57, 114125.3, 168091, "2026-07-02"], [-3.38, 42384.1, 99234, "2026-07-06"], [-6.06, 27805.3, 139790, "2026-07-07"], [-5.68, 9245.5, 144814, "2026-07-08"], [-0.27, 37997.1, 105234, "2026-07-10"], [-15.37, 56196.0, 148339, "2026-07-13"], [-11.53, 48704.1, 103314, "2026-07-16"], [-4.23, 12732.7, 103660, "2026-07-20"], [-8.34, 49145.8, 86818, "2026-07-24"], [-14.65, 42330.4, 125869, "2026-07-28"], [-8.79, 43498.4, 85075, "2026-08-03"], [-10.37, 36631.3, 82200, "2026-08-06"]]}, {"name": "1사분면 — 오르는데 산다 (추격)", "color": "#d21f3c", "data": [[3.99, 895.8, 28311, "2026-01-02"], [1.89, 2389.1, 49113, "2026-01-08"], [0.54, 711.2, 36247, "2026-01-14"], [5.13, 3224.0, 56418, "2026-01-28"], [2.38, 7680.3, 58875, "2026-01-29"], [5.57, 3541.5, 71586, "2026-01-30"], [0.21, 3623.3, 33512, "2026-02-23"], [1.29, 4271.0, 35249, "2026-02-25"], [7.96, 4371.7, 49037, "2026-02-26"], [10.84, 708.9, 60624, "2026-03-05"], [2.99, 8292.9, 46504, "2026-04-15"], [1.67, 4855.6, 33510, "2026-04-16"], [0.16, 4547.4, 65462, "2026-04-23"], [0.62, 8907.6, 39035, "2026-04-28"], [10.64, 1318.0, 106177, "2026-05-06"], [3.31, 42848.9, 96935, "2026-05-07"], [1.93, 25928.6, 72129, "2026-05-08"], [11.51, 22176.9, 139741, "2026-05-11"], [7.68, 23175.1, 140828, "2026-05-13"], [1.15, 10473.6, 119262, "2026-05-18"], [0.0, 16267.0, 96588, "2026-05-20"], [0.05, 835.4, 60854, "2026-05-22"], [2.05, 41740.0, 142593, "2026-05-28"], [1.92, 24168.7, 198725, "2026-05-29"], [2.59, 6276.0, 139208, "2026-06-11"], [2.94, 20740.4, 206697, "2026-06-19"], [5.61, 11848.5, 151198, "2026-06-22"], [0.98, 78381.8, 193188, "2026-06-24"], [0.84, 13100.8, 135394, "2026-06-30"], [3.24, 9421.8, 73202, "2026-07-27"], [0.64, 10523.6, 83616, "2026-08-04"]]}, {"name": "4사분면 — 오르는데 판다 (차익·불신)", "color": "#7c7a73", "data": [[2.81, -4.2, 30189, "2026-01-05"], [4.31, -1559.2, 35068, "2026-01-06"], [2.2, -3546.4, 42243, "2026-01-07"], [0.67, -141.9, 24940, "2026-01-12"], [0.94, -927.7, 22496, "2026-01-15"], [0.93, -575.9, 28065, "2026-01-16"], [1.06, -2408.2, 25915, "2026-01-19"], [2.03, -2136.4, 26767, "2026-01-22"], [1.59, -2087.0, 26908, "2026-01-23"], [8.7, -7358.6, 45282, "2026-01-27"], [9.28, -4805.7, 47822, "2026-02-03"], [5.72, -7304.0, 37508, "2026-02-09"], [3.26, -10535.7, 41020, "2026-02-12"], [1.59, -1367.5, 29369, "2026-02-19"], [6.15, -8405.2, 47966, "2026-02-20"], [5.68, -10023.1, 41229, "2026-02-24"], [12.2, -13177.3, 49760, "2026-03-10"], [1.81, -2618.3, 37399, "2026-03-11"], [7.03, -6261.0, 37299, "2026-03-16"], [8.87, -17478.6, 45914, "2026-03-18"], [5.68, -4085.0, 42912, "2026-03-24"], [0.91, -4662.8, 44415, "2026-03-25"], [10.66, -4704.5, 55858, "2026-04-01"], [5.54, -4425.6, 25642, "2026-04-03"], [1.14, -1072.1, 27475, "2026-04-06"], [3.39, -3964.2, 33159, "2026-04-07"], [12.77, -23936.7, 69308, "2026-04-08"], [2.91, -6101.6, 32196, "2026-04-10"], [1.27, -5483.5, 28805, "2026-04-13"], [6.06, -14012.6, 52443, "2026-04-14"], [3.37, -10106.4, 43702, "2026-04-20"], [4.97, -3880.0, 43048, "2026-04-21"], [5.73, -23162.4, 58955, "2026-04-27"], [12.52, -47771.9, 83588, "2026-05-04"], [11.17, -5924.1, 98876, "2026-05-21"], [5.72, -19991.9, 100622, "2026-05-26"], [9.31, -23534.0, 169252, "2026-05-27"], [1.29, -5144.4, 132396, "2026-06-01"], [15.91, -20440.5, 130199, "2026-06-09"], [2.33, -16664.9, 113658, "2026-06-12"], [6.42, -23410.0, 88612, "2026-06-15"], [4.11, -39804.6, 86811, "2026-06-16"], [5.84, -25551.5, 100336, "2026-06-17"], [6.51, -5200.8, 155965, "2026-06-18"], [13.06, -91215.8, 198089, "2026-06-25"], [10.88, -24346.5, 193634, "2026-07-03"], [5.3, -19315.9, 136876, "2026-07-09"], [3.69, -63271.3, 199851, "2026-07-14"], [8.83, -25777.7, 125898, "2026-07-15"], [4.08, -7339.3, 85176, "2026-07-21"], [4.86, -18523.3, 79053, "2026-07-23"], [29.95, -88411.1, 180383, "2026-07-31"], [5.77, -13756.4, 65814, "2026-08-05"]]}, {"name": "3사분면 — 문턱 아래", "color": "#b45309", "data": [[-1.24, -1304.1, 30146, "2026-02-10"], [-9.58, -1783.6, 78562, "2026-03-04"], [-0.54, -4174.9, 42983, "2026-04-30"], [-0.33, -7163.6, 87888, "2026-07-22"], [-9.61, -7674.7, 174129, "2026-07-29"], [-5.64, -4309.4, 126161, "2026-07-30"]], "dim": true, "z": 3, "cross": true}], U='억원', DP=1, made=null;
+  var mx=1; S.forEach(function(s){s.data.forEach(function(d){if(d[2]>mx)mx=d[2];});});
+  function dark(){return document.documentElement.className.indexOf('dark')>=0;}
+  function num(v,p){return v.toLocaleString(undefined,
+    {minimumFractionDigits:p,maximumFractionDigits:p});}
+  function build(){
+    var el=document.getElementById('quadS');
+    if(!el||!window.echarts){return setTimeout(build,120);}
+    if(!window.__qbTheme){window.__qbTheme=1;window.__qbRegister&&window.__qbRegister();}
+    if(made){made.dispose();made=null;}
+    var ch=echarts.init(el,dark()?'charlie-dark':'charlie');
+    var sub=dark()?'#9a9aa0':'#6e6e73';
+    ch.setOption({animation:true,animationDuration:700,
+      tooltip:{trigger:'item',formatter:function(p){var d=p.data;
+        return '<b>'+d[3]+'</b><br>'+p.seriesName
+             +'<br>등락률 <b>'+d[0].toFixed(2)+'%</b>'
+             +'<br>개인 순매수 <b>'+(d[1]>0?'+':'')+num(d[1],DP)+'</b>'+U
+             +'<br>거래대금 '+num(d[2],0)+'억';}},
+      legend:{bottom:0,itemWidth:11,itemHeight:11,icon:'circle',
+        textStyle:{fontSize:11.5}},
+      grid:{left:76,right:24,top:22,bottom:62},
+      xAxis:{type:'value',name:'하루 등락률 (%)',nameLocation:'middle',nameGap:28,
+        nameTextStyle:{color:sub,fontSize:11.5},
+        axisLabel:{color:sub,formatter:'{value}%'},
+        splitLine:{lineStyle:{type:'dashed'}}},
+      yAxis:{type:'value',name:'개인 순매수 ('+U+')',nameLocation:'middle',nameGap:56,
+        nameTextStyle:{color:sub,fontSize:11.5},
+        axisLabel:{color:sub,formatter:function(v){return num(v,0);}},
+        splitLine:{lineStyle:{type:'dashed'}}},
+      series:S.map(function(s){
+        return {name:s.name,type:'scatter',data:s.data,z:s.z||2,
+          /* ③ 크기 = 거래대금의 제곱근 */
+          symbolSize:function(d){return 7+Math.sqrt(d[2]/mx)*36;},
+          itemStyle:{
+            /* ① 방사형 그라디언트 — 가운데가 밝고 가장자리가 진하다 */
+            color:new echarts.graphic.RadialGradient(.4,.3,1,[
+              {offset:0,color:s.color+'cc'},{offset:1,color:s.color}]),
+            borderColor:s.ring?s.color:'transparent',borderWidth:s.ring?1.6:0,
+            shadowBlur:s.dim?4:11,shadowColor:s.color+'55',
+            opacity:s.dim?0.42:0.86},
+          label:s.tag?{show:true,position:'right',distance:6,
+            formatter:function(p){return p.data[3].slice(5).replace('-','/');},
+            fontSize:10.5,fontWeight:700,color:s.color}:{show:false},
+          /* 0선 십자 */
+          markLine:s.cross?{silent:true,symbol:'none',animation:false,
+            lineStyle:{color:sub,type:'solid',width:1,opacity:.55},
+            label:{show:false},data:[{xAxis:0},{yAxis:0}]}:null,
+          /* ② 왼쪽부터 차례로 */
+          animationDelay:function(i){return i*6;}};})});
+    made=ch;
+  }
+  build();
+  addEventListener('resize',function(){if(made)made.resize();});
+  new MutationObserver(build).observe(document.documentElement,
+    {attributes:true,attributeFilter:['class']});
+})();
+</script><figcaption>2026년 전 거래일.
+<b>테두리가 있고 날짜가 붙은 주황 버블</b>이 문턱을 넘은 3사분면(투항)이고,
+흐린 주황은 부호만 마이너스인 날입니다. 문턱은 그 시장 일간 개인 순매수
+절대값의 중앙값입니다. 개인 순매수(억원)는 «순매수 주수 × 종가» 환산 근사이고,
+버블 크기는 그날 거래대금입니다. 개별 종목은 개인이 «양방향으로 트레이딩»하는 날이 많아 시장 전체보다 3사분면이 흔합니다 — 시장 차트보다 보수적으로 읽으십시오.
+착상 — KB증권 이그전의 「개인 수급과 코스피 등락률」. 데이터·계산은 자체.
+</figcaption></figure>
+<style id="qb-css">
+.qb-box{position:relative;height:clamp(420px,52vw,620px);margin:6px 0 4px}
+.qb-ec{width:100%;height:100%}
+</style>
+<script>
+if(!window.echarts&&!document.getElementById('qb-ec-ld')){
+ var s=document.createElement('script');s.id='qb-ec-ld';
+ s.src='https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js';
+ s.onerror=function(){var t=document.createElement('script');
+   t.src='https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js';
+   document.head.appendChild(t);};
+ document.head.appendChild(s);}
+/* 테마는 echarts 가 들어온 뒤에 등록한다 — 로더가 비동기라서 기다린다. */
+window.__qbRegister=function(){echarts.registerTheme('charlie', {"color": ["#d21f3c", "#1161c4", "#0f7b8a", "#b45309", "#7c7a73", "#4c7a34", "#6d28d9", "#b03050"], "backgroundColor": "rgba(0,0,0,0)", "textStyle": {"fontFamily": "'Nanum Gothic',-apple-system,sans-serif"}, "title": {"textStyle": {"color": "#1d1d1f", "fontSize": 13, "fontWeight": 500}, "subtextStyle": {"color": "#6e6e73"}}, "line": {"itemStyle": {"borderWidth": 0}, "lineStyle": {"width": 1.9}, "symbolSize": 0, "symbol": "circle", "smooth": false}, "bar": {"itemStyle": {"barBorderWidth": 0}}, "categoryAxis": {"axisLine": {"show": true, "lineStyle": {"color": "rgba(128,128,128,.28)"}}, "axisTick": {"show": false}, "axisLabel": {"show": true, "color": "#6e6e73", "fontSize": 11}, "splitLine": {"show": false}, "splitArea": {"show": false}}, "valueAxis": {"axisLine": {"show": true, "lineStyle": {"color": "rgba(128,128,128,.28)"}}, "axisTick": {"show": false}, "axisLabel": {"show": true, "color": "#6e6e73", "fontSize": 11}, "splitLine": {"show": true, "lineStyle": {"color": ["rgba(128,128,128,.15)"]}}, "splitArea": {"show": false}}, "logAxis": {"axisLine": {"show": true, "lineStyle": {"color": "rgba(128,128,128,.28)"}}, "axisTick": {"show": false}, "axisLabel": {"show": true, "color": "#6e6e73", "fontSize": 11}, "splitLine": {"show": true, "lineStyle": {"color": ["rgba(128,128,128,.15)"]}}, "splitArea": {"show": false}}, "timeAxis": {"axisLine": {"show": true, "lineStyle": {"color": "rgba(128,128,128,.28)"}}, "axisTick": {"show": false}, "axisLabel": {"show": true, "color": "#6e6e73", "fontSize": 11}, "splitLine": {"show": true, "lineStyle": {"color": ["rgba(128,128,128,.15)"]}}, "splitArea": {"show": false}}, "legend": {"textStyle": {"color": "#1d1d1f", "fontSize": 11.5}, "itemWidth": 14, "itemHeight": 8, "icon": "roundRect"}, "tooltip": {"backgroundColor": "#ffffff", "borderWidth": 0, "textStyle": {"color": "#1d1d1f", "fontSize": 12}, "axisPointer": {"lineStyle": {"color": "#6e6e73", "width": 1}, "crossStyle": {"color": "#6e6e73", "width": 1}}}, "markPoint": {"label": {"color": "#1d1d1f"}}});echarts.registerTheme('charlie-dark', {"color": ["#d21f3c", "#1161c4", "#0f7b8a", "#b45309", "#7c7a73", "#4c7a34", "#6d28d9", "#b03050"], "backgroundColor": "rgba(0,0,0,0)", "textStyle": {"fontFamily": "'Nanum Gothic',-apple-system,sans-serif"}, "title": {"textStyle": {"color": "#e8e8ed", "fontSize": 13, "fontWeight": 500}, "subtextStyle": {"color": "#9a9aa0"}}, "line": {"itemStyle": {"borderWidth": 0}, "lineStyle": {"width": 1.9}, "symbolSize": 0, "symbol": "circle", "smooth": false}, "bar": {"itemStyle": {"barBorderWidth": 0}}, "categoryAxis": {"axisLine": {"show": true, "lineStyle": {"color": "rgba(200,200,210,.28)"}}, "axisTick": {"show": false}, "axisLabel": {"show": true, "color": "#9a9aa0", "fontSize": 11}, "splitLine": {"show": false}, "splitArea": {"show": false}}, "valueAxis": {"axisLine": {"show": true, "lineStyle": {"color": "rgba(200,200,210,.28)"}}, "axisTick": {"show": false}, "axisLabel": {"show": true, "color": "#9a9aa0", "fontSize": 11}, "splitLine": {"show": true, "lineStyle": {"color": ["rgba(200,200,210,.16)"]}}, "splitArea": {"show": false}}, "logAxis": {"axisLine": {"show": true, "lineStyle": {"color": "rgba(200,200,210,.28)"}}, "axisTick": {"show": false}, "axisLabel": {"show": true, "color": "#9a9aa0", "fontSize": 11}, "splitLine": {"show": true, "lineStyle": {"color": ["rgba(200,200,210,.16)"]}}, "splitArea": {"show": false}}, "timeAxis": {"axisLine": {"show": true, "lineStyle": {"color": "rgba(200,200,210,.28)"}}, "axisTick": {"show": false}, "axisLabel": {"show": true, "color": "#9a9aa0", "fontSize": 11}, "splitLine": {"show": true, "lineStyle": {"color": ["rgba(200,200,210,.16)"]}}, "splitArea": {"show": false}}, "legend": {"textStyle": {"color": "#e8e8ed", "fontSize": 11.5}, "itemWidth": 14, "itemHeight": 8, "icon": "roundRect"}, "tooltip": {"backgroundColor": "#2a2a2e", "borderWidth": 0, "textStyle": {"color": "#e8e8ed", "fontSize": 12}, "axisPointer": {"lineStyle": {"color": "#9a9aa0", "width": 1}, "crossStyle": {"color": "#9a9aa0", "width": 1}}}, "markPoint": {"label": {"color": "#e8e8ed"}}});};
+(function go(){ if(!window.echarts){return setTimeout(go,80);}
+ if(window.__qbTheme) return; window.__qbTheme=1; window.__qbRegister(); })();
 </script>
-
 <h3 style="margin-top:30px">참조 — 사분면 읽는 법</h3>
 <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;
  padding:16px 16px 6px;margin:14px 0"><svg viewBox="0 0 720 470" role="img" aria-label="개인 수급 사분면 읽는 법"
@@ -820,6 +846,19 @@ run();})();
 
 
 
+
+
+
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<!-- CHARTTHEME:BEGIN -->
+<script src="chart-theme.js?v=796a6ee2"></script>
+<!-- CHARTTHEME:END -->
 <script>
 
 function __tone(){var s=getComputedStyle(document.documentElement);
@@ -855,16 +894,5 @@ new MutationObserver(function(){var t=__tone();
           title:{display:!!c.y1t,text:c.y1t||''}},
       x:{grid:{display:false},ticks:{maxTicksLimit:c.xt||12}}}}}));
 });
-</script>
-
-
-
-
-
-
-
-
-
-
-<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
+</script><button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 </body></html>
