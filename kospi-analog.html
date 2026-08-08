@@ -308,49 +308,7 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
   html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
   html body .site-bar-in{padding:9px 14px 7px}
 }
-/* BAR:END */
-/* ── 닷컴 대시보드 형식 (scripts/dotcom_panel.py) ── */
-html.theme-light{--chart-accent:#B7791F;--chart-pos:#0F8A53;--chart-neg:#D62839;--chart-mute:#8a8f98}
-html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;--chart-mute:#9aa3ad}
-.panel{background:var(--surface);border:1px solid var(--border);border-radius:20px;
-  padding:26px 26px 22px;margin:22px 0}
-.panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap}
-.panel-head h3{font-size:1.08rem;font-weight:700;letter-spacing:-.02em;margin:0}
-.panel figure{margin:14px 0 0}
-.panel .cbox{position:relative;height:clamp(300px,44vw,440px)}
-.rng{display:inline-flex;gap:6px;flex-shrink:0}
-.rng button{font:600 12px/1 'Noto Sans KR',sans-serif;padding:8px 12px;border-radius:9px;
-  background:transparent;border:1px solid var(--border);color:var(--text-secondary);cursor:pointer;
-  transition:background .18s,color .18s,border-color .18s}
-.rng button:hover{background:var(--surface2,var(--bg));color:var(--text)}
-.rng button.on{background:var(--chart-accent);border-color:var(--chart-accent);color:#fff}
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:12px;margin:16px 0 4px}
-.kpi{background:var(--bg);border:1px solid var(--border);border-radius:13px;padding:15px 16px;
-  transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s,border-color .25s}
-.kpi:hover{transform:translateY(-5px);box-shadow:0 14px 30px rgba(0,0,0,.12);
-  border-color:color-mix(in srgb,var(--chart-accent) 40%,var(--border))}
-.kpi .k{font-size:11.5px;font-weight:700;letter-spacing:.05em;color:var(--text-secondary)}
-.kpi .v{font-size:1.45rem;font-weight:800;letter-spacing:-.03em;margin-top:5px}
-.kpi .s{font-size:11.5px;color:var(--text-secondary);margin-top:3px;line-height:1.5}
-.kpi.hl .v{color:var(--chart-accent)}
-.kpi .v.neg{color:var(--chart-neg)}
-.srcline{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:baseline;margin-top:14px;
-  padding-top:12px;border-top:1px solid var(--border);font-size:12px;
-  color:var(--text-secondary);line-height:1.6}
-.srcline .lbl{font-weight:800;letter-spacing:.06em;color:var(--chart-accent);flex-shrink:0}
-.srcline a{color:var(--chart-accent);font-weight:700;text-decoration:none}
-.srcline a:hover{text-decoration:underline}
-.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
-.reveal.visible{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
-@media(max-width:720px){.panel{padding:20px 16px 16px}}
-</style><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"><style id="freqcss">
-.freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
- padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
- border:1px solid currentColor;opacity:.85}
-.freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
-.freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
-/* PAPER:BEGIN */
+/* BAR:END *//* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -611,8 +569,43 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style>
-</head><body>
+/* PAPER:END */
+/* ── 닷컴 대시보드 형식 (scripts/dotcom_panel.py) ── */
+html.theme-light{--chart-accent:#B7791F;--chart-pos:#0F8A53;--chart-neg:#D62839;--chart-mute:#8a8f98}
+html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;--chart-mute:#9aa3ad}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:20px;
+  padding:26px 26px 22px;margin:22px 0}
+.panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap}
+.panel-head h3{font-size:1.08rem;font-weight:700;letter-spacing:-.02em;margin:0}
+.panel figure{margin:14px 0 0}
+.panel .cbox{position:relative;height:clamp(300px,44vw,440px)}
+.rng{display:inline-flex;gap:6px;flex-shrink:0}
+.rng button{font:600 12px/1 'Noto Sans KR',sans-serif;padding:8px 12px;border-radius:9px;
+  background:transparent;border:1px solid var(--border);color:var(--text-secondary);cursor:pointer;
+  transition:background .18s,color .18s,border-color .18s}
+.rng button:hover{background:var(--surface2,var(--bg));color:var(--text)}
+.rng button.on{background:var(--chart-accent);border-color:var(--chart-accent);color:#fff}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:12px;margin:16px 0 4px}
+.kpi{background:var(--bg);border:1px solid var(--border);border-radius:13px;padding:15px 16px;
+  transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s,border-color .25s}
+.kpi:hover{transform:translateY(-5px);box-shadow:0 14px 30px rgba(0,0,0,.12);
+  border-color:color-mix(in srgb,var(--chart-accent) 40%,var(--border))}
+.kpi .k{font-size:11.5px;font-weight:700;letter-spacing:.05em;color:var(--text-secondary)}
+.kpi .v{font-size:1.45rem;font-weight:800;letter-spacing:-.03em;margin-top:5px}
+.kpi .s{font-size:11.5px;color:var(--text-secondary);margin-top:3px;line-height:1.5}
+.kpi.hl .v{color:var(--chart-accent)}
+.kpi .v.neg{color:var(--chart-neg)}
+.srcline{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:baseline;margin-top:14px;
+  padding-top:12px;border-top:1px solid var(--border);font-size:12px;
+  color:var(--text-secondary);line-height:1.6}
+.srcline .lbl{font-weight:800;letter-spacing:.06em;color:var(--chart-accent);flex-shrink:0}
+.srcline a{color:var(--chart-accent);font-weight:700;text-decoration:none}
+.srcline a:hover{text-decoration:underline}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+@media(max-width:720px){.panel{padding:20px 16px 16px}}
+</style><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"></head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a class="" href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="kospi-analog.html">지금과 닮은 과거 — 유사국면</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><!-- NAV:END --></nav>
@@ -638,7 +631,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <h2>논점 ① — 붕괴까지 넣어도 1998년인가</h2>
 <div class="claim"><p><b>결론. 그렇습니다.</b> 상승만 맞춘 앞선 비교(15개월)에 <b>7월 급락을 더해 16개월로 다시 재도</b>
 1998-06이 궤적 거리 0.106으로 1위입니다. 창을 12·17개월로 바꿔도 순위가 유지됩니다.</p></div>
-<div class="panel" data-reveal><div class="panel-head"><div><h3>궤적 대조 — 7월 붕괴까지 포함한 16개월</h3></div></div><div class="kpis"><div class="kpi hl"><div class="k">가장 닮은 구간</div><div class="v">1998-06~</div><div class="s">궤적 거리 0.106 · 세 창 모두 1위</div></div><div class="kpi"><div class="k">현재 16개월</div><div class="v">+183%</div><div class="s">2025-04~2026-07 · 7월 급락 포함</div></div><div class="kpi hl"><div class="k">같은 급등의 전례</div><div class="v">3번</div><div class="s">45년에 15개월 +70% — 전부 디스인플레 시대</div></div><div class="kpi"><div class="k">정점 직후 월간 -17%</div><div class="v">전례 없음</div><div class="s">급등 뒤 이만한 한 달 하락은 45년에 없었다</div></div></div><figure class="fig"><div class="cbox" style="height:420px"><canvas id="a1"></canvas></div><figcaption><span class="freq m">월간</span>굵은 황금색이 현재(2025-04~2026-07), 회색 파선이 1998-06부터 16개월, 파란 점선이 1986-12부터 16개월입니다. 시작을 100으로 맞췄습니다. 마지막 달의 꺾임(7월 급락)까지 넣어도 1998년이 가장 가깝습니다.</figcaption></figure><p class="panel-cap rngnote" style="margin-top:12px">창을 12·16·17개월로 바꿔도, 지표를 수준 상관·궤적 거리로 바꿔도 1위는 1998-06으로 같습니다. 다만 월간 수익률의 상관은 최고 +0.66에 그칩니다 — 닮은 것은 큰 궤적이지 월간 리듬까지는 아닙니다.</p><div class="srcline"><span class="lbl">출처</span><span>OECD Share Prices for Korea 월평균(1981-01~2026-06) + 실측 일별 종가로 계산한 2026-07 월평균 접합 · 접합 검량: 겹침 12개월 배율 편차 1.5% 이내</span><a href="https://fred.stlouisfed.org/series/SPASTT01KRM661N" target="_blank" rel="noopener">FRED · SPASTT01KRM661N &#8599;</a></div></div><script>(window.__AN=window.__AN||[]).push({"id": "a1", "l": ["+0", "+1", "+2", "+3", "+4", "+5", "+6", "+7", "+8", "+9", "+10", "+11", "+12", "+13", "+14", "+15"], "yt": "시작 = 100", "dp": 1, "xt": 16, "xp": "경과 개월 ", "mk": {"+15": {"t": "7월 급락 -17%", "v": 283.2, "dy": 24}, "+14": {"t": "정점 +243%", "v": 343.2, "dy": -14}}, "d": [{"label": "현재 2025-04~2026-07", "data": [100.0, 105.6, 118.5, 128.2, 128.9, 135.6, 151.8, 162.3, 165.6, 193.4, 225.1, 224.8, 245.2, 308.3, 343.2, 283.2], "c": "acc", "w": 3.2, "fill": true, "order": 1}, {"label": "1998-06~1999-09 (닷컴 직전)", "data": [100.0, 104.6, 99.9, 99.6, 114.5, 137.0, 167.5, 190.8, 170.1, 187.1, 230.2, 238.0, 268.6, 310.1, 297.9, 295.9], "c": "mute", "w": 2.2, "dash": [6, 3], "order": 2}, {"label": "1986-12~1988-03 (3저 호황)", "data": [100.0, 105.8, 117.3, 133.9, 134.9, 140.5, 141.7, 166.1, 177.1, 176.2, 186.4, 174.7, 178.8, 212.0, 235.8, 228.6], "c": "dn", "w": 2.0, "dash": [2, 3], "order": 3}]});</script>
+<div class="panel" data-reveal><div class="panel-head"><div><h3>궤적 대조 — 7월 붕괴까지 포함한 16개월</h3></div></div><div class="kpis"><div class="kpi hl"><div class="k">가장 닮은 구간</div><div class="v">1998-06~</div><div class="s">궤적 거리 0.106 · 세 창 모두 1위</div></div><div class="kpi"><div class="k">현재 16개월</div><div class="v">+183%</div><div class="s">2025-04~2026-07 · 7월 급락 포함</div></div><div class="kpi hl"><div class="k">같은 급등의 전례</div><div class="v">3번</div><div class="s">45년에 15개월 +70% — 전부 디스인플레 시대</div></div><div class="kpi"><div class="k">정점 직후 월간 -17%</div><div class="v">전례 없음</div><div class="s">급등 뒤 이만한 한 달 하락은 45년에 없었다</div></div></div><figure class="fig"><div class="cbox" style="height:420px"><canvas id="a1"></canvas></div><figcaption>굵은 황금색이 현재(2025-04~2026-07), 회색 파선이 1998-06부터 16개월, 파란 점선이 1986-12부터 16개월입니다. 시작을 100으로 맞췄습니다. 마지막 달의 꺾임(7월 급락)까지 넣어도 1998년이 가장 가깝습니다.</figcaption></figure><p class="panel-cap rngnote" style="margin-top:12px">창을 12·16·17개월로 바꿔도, 지표를 수준 상관·궤적 거리로 바꿔도 1위는 1998-06으로 같습니다. 다만 월간 수익률의 상관은 최고 +0.66에 그칩니다 — 닮은 것은 큰 궤적이지 월간 리듬까지는 아닙니다.</p><div class="srcline"><span class="lbl">출처</span><span>OECD Share Prices for Korea 월평균(1981-01~2026-06) + 실측 일별 종가로 계산한 2026-07 월평균 접합 · 접합 검량: 겹침 12개월 배율 편차 1.5% 이내</span><a href="https://fred.stlouisfed.org/series/SPASTT01KRM661N" target="_blank" rel="noopener">FRED · SPASTT01KRM661N &#8599;</a></div></div><script>(window.__AN=window.__AN||[]).push({"id": "a1", "l": ["+0", "+1", "+2", "+3", "+4", "+5", "+6", "+7", "+8", "+9", "+10", "+11", "+12", "+13", "+14", "+15"], "yt": "시작 = 100", "dp": 1, "xt": 16, "xp": "경과 개월 ", "mk": {"+15": {"t": "7월 급락 -17%", "v": 283.2, "dy": 24}, "+14": {"t": "정점 +243%", "v": 343.2, "dy": -14}}, "d": [{"label": "현재 2025-04~2026-07", "data": [100.0, 105.6, 118.5, 128.2, 128.9, 135.6, 151.8, 162.3, 165.6, 193.4, 225.1, 224.8, 245.2, 308.3, 343.2, 283.2], "c": "acc", "w": 3.2, "fill": true, "order": 1}, {"label": "1998-06~1999-09 (닷컴 직전)", "data": [100.0, 104.6, 99.9, 99.6, 114.5, 137.0, 167.5, 190.8, 170.1, 187.1, 230.2, 238.0, 268.6, 310.1, 297.9, 295.9], "c": "mute", "w": 2.2, "dash": [6, 3], "order": 2}, {"label": "1986-12~1988-03 (3저 호황)", "data": [100.0, 105.8, 117.3, 133.9, 134.9, 140.5, 141.7, 166.1, 177.1, 176.2, 186.4, 174.7, 178.8, 212.0, 235.8, 228.6], "c": "dn", "w": 2.0, "dash": [2, 3], "order": 3}]});</script>
 
 <figure class="tw"><figcaption>창 길이를 바꿔도 1위가 같은지 — 민감도 점검.</figcaption>
 <table class="tw"><thead><tr><th>대조 창</th><th class="n">1위 구간</th><th class="n">수준 상관</th>
@@ -668,11 +661,15 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 월평균은 한 달을 평균 내므로 고점과 저점이 서로를 지웁니다.<br>
 <b>장중 고가·저가로는 더 큽니다</b>(장중 9,300선에서 5,200선). 다만 볼트에 코스피 <b>장중</b> 지수
 자료가 없어 이 페이지에서는 확인하지 못했습니다 — 위 두 숫자만 계산된 값입니다.</p></div>
-<figure class="tw"><figcaption>급등 뒤 월간 급락의 전례 — 조건을 −8%까지 낮춰도 한 건뿐입니다.</figcaption>
-<table class="tw"><thead><tr><th>시점</th><th class="n">그 달</th><th class="n">직전 12개월</th>
-<th class="n">+6개월</th><th class="n">+12개월</th></tr></thead>
-<tbody><tr><td>1999-10</td><td class="n">-11%</td><td class="n">+197%</td><td class="n">-5%</td><td class="n">-34%</td></tr>
-<tr class="hot"><td>2026-07 (지금)</td><td class="n">-17%</td><td class="n">+189%</td>
+<figure class="tw"><figcaption>급등 뒤 월간 급락의 전례 — 조건을 −8%까지 낮춰도 한 건뿐입니다.
+<b>이 표의 모든 값은 «월평균» 기준</b>입니다(45년을 같은 자로 재기 위해서입니다).
+같은 사건을 <b>일별 종가로 재면 2026-07 은 -38.6%</b>이고, 1999-10 은 −17.7%입니다.</figcaption>
+<table class="tw"><thead><tr><th>시점</th><th class="n">그 달<br><span class="dim">월평균</span></th>
+<th class="n">그 달<br><span class="dim">일별 종가</span></th>
+<th class="n">직전 12개월</th><th class="n">+6개월</th><th class="n">+12개월</th></tr></thead>
+<tbody><tr><td>1999-10</td><td class="n">-10.6%</td><td class="n">−17.7% <span class="dim">인용</span></td><td class="n">+197%</td><td class="n">-5%</td><td class="n">-34%</td></tr>
+<tr class="hot"><td>2026-07 (지금)</td><td class="n">-17.5%</td>
+<td class="n"><b>-38.6%</b></td><td class="n">+189%</td>
 <td class="n">?</td><td class="n">?</td></tr></tbody></table></figure>
 <div class="note"><p><b>1999-10은 «중간 조정»이었습니다</b> — 한 달 뒤 신고가(1999-11)를 만들고 나서야
 진짜 하락이 왔습니다. 그 순서(급락 → 반등 → 이중 천장 시도 → 붕괴)가
@@ -692,9 +689,9 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 1986년 구간은 <b>자료가 없어 비웠습니다</b>. 대용지표로 메우지 않았습니다.
 한국 신용스프레드는 금융투자협회 계열이 2000-10부터라 1998·1986 칸이 비어 있고,
 그 자리를 보려고 미국(Baa−Aaa, 1919~)을 참고로 함께 실었습니다.</figcaption>
-<div class="tblwrap"><table class="tw"><thead><tr><th>지표</th><th class="n">★ 현재</th><th class="n">1998<br>IMF→닷컴</th>
+<table class="tw"><thead><tr><th>지표</th><th class="n">★ 현재</th><th class="n">1998<br>IMF→닷컴</th>
 <th class="n">1986<br>3저 호황</th><th class="n">2004<br>차이나</th><th class="n">2009<br>위기 반등</th></tr></thead>
-<tbody><tr><td>경기선행지수 (한국)</td><td class="n hot">99.6→102.2 <b>↑</b></td><td class="n">96.9→104.3 <b>↑</b></td><td class="n">—</td><td class="n">99.9→100.7 <b>↑</b></td><td class="n">102.1→100.6 <b>↓</b></td></tr><tr><td>미국 제조업 ISM</td><td class="n hot">48.7→55.6 <b>↑</b></td><td class="n">48.9→57.0 <b>↑</b></td><td class="n">—</td><td class="n">56.2→55.8 <b>↓</b></td><td class="n">54.4→59.3 <b>↑</b></td></tr><tr><td>수출 전년비</td><td class="n hot">+2%→+49% <b>↑</b></td><td class="n">-8%→+12% <b>↑</b></td><td class="n">-5%→+32% <b>↑</b></td><td class="n">+25%→+16% <b>↓</b></td><td class="n">+19%→+20% <b>→</b></td></tr><tr><td>미 10년물</td><td class="n hot">4.28→4.60 <b>↑</b></td><td class="n">5.50→5.92 <b>↑</b></td><td class="n">7.11→8.37 <b>↑</b></td><td class="n">4.19→4.57 <b>↑</b></td><td class="n">3.40→3.58 <b>↑</b></td></tr><tr><td>연방기금 금리</td><td class="n hot">4.33→3.63 <b>↓</b></td><td class="n">5.56→5.22 <b>↓</b></td><td class="n">6.91→6.58 <b>↓</b></td><td class="n">1.93→4.49 <b>↑</b></td><td class="n">0.12→0.16 <b>→</b></td></tr><tr><td>달러인덱스</td><td class="n hot">95→95 <b>→</b></td><td class="n">100→96 <b>↓</b></td><td class="n">106→89 <b>↓</b></td><td class="n">81→85 <b>↑</b></td><td class="n">72→72 <b>→</b></td></tr><tr><td>한국 신용스프레드 (AA−−국고3)</td><td class="n hot">0.59→0.71 <b>↑</b></td><td class="n">—</td><td class="n">—</td><td class="n">0.45→0.44 <b>→</b></td><td class="n">1.11→0.79 <b>↓</b></td></tr><tr><td>미국 신용스프레드 (Baa−Aaa) <span class="dim">참고</span></td><td class="n hot">0.73→0.43 <b>↓</b></td><td class="n">0.60→0.81 <b>↑</b></td><td class="n">1.48→1.18 <b>↓</b></td><td class="n">0.68→0.92 <b>↑</b></td><td class="n">1.13→0.93 <b>↓</b></td></tr><tr><td><b>현재와 방향 일치</b></td><td class="n"><b>—</b></td><td class="n"><b>5 / 7</b></td><td class="n"><b>4 / 5</b></td><td class="n"><b>2 / 8</b></td><td class="n"><b>4 / 8</b></td></tr></tbody></table></div></figure>
+<tbody><tr><td>경기선행지수 (한국)</td><td class="n hot">99.6→102.2 <b>↑</b></td><td class="n">96.9→104.3 <b>↑</b></td><td class="n">—</td><td class="n">99.9→100.7 <b>↑</b></td><td class="n">102.1→100.6 <b>↓</b></td></tr><tr><td>미국 제조업 ISM</td><td class="n hot">48.7→55.6 <b>↑</b></td><td class="n">48.9→57.0 <b>↑</b></td><td class="n">—</td><td class="n">56.2→55.8 <b>↓</b></td><td class="n">54.4→59.3 <b>↑</b></td></tr><tr><td>수출 전년비</td><td class="n hot">+2%→+49% <b>↑</b></td><td class="n">-8%→+12% <b>↑</b></td><td class="n">-5%→+32% <b>↑</b></td><td class="n">+25%→+16% <b>↓</b></td><td class="n">+19%→+20% <b>→</b></td></tr><tr><td>미 10년물</td><td class="n hot">4.28→4.60 <b>↑</b></td><td class="n">5.50→5.92 <b>↑</b></td><td class="n">7.11→8.37 <b>↑</b></td><td class="n">4.19→4.57 <b>↑</b></td><td class="n">3.40→3.58 <b>↑</b></td></tr><tr><td>연방기금 금리</td><td class="n hot">4.33→3.63 <b>↓</b></td><td class="n">5.56→5.22 <b>↓</b></td><td class="n">6.91→6.58 <b>↓</b></td><td class="n">1.93→4.49 <b>↑</b></td><td class="n">0.12→0.16 <b>→</b></td></tr><tr><td>달러인덱스</td><td class="n hot">95→95 <b>→</b></td><td class="n">100→96 <b>↓</b></td><td class="n">106→89 <b>↓</b></td><td class="n">81→85 <b>↑</b></td><td class="n">72→72 <b>→</b></td></tr><tr><td>한국 신용스프레드 (AA−−국고3)</td><td class="n hot">0.59→0.71 <b>↑</b></td><td class="n">—</td><td class="n">—</td><td class="n">0.45→0.44 <b>→</b></td><td class="n">1.11→0.79 <b>↓</b></td></tr><tr><td>미국 신용스프레드 (Baa−Aaa) <span class="dim">참고</span></td><td class="n hot">0.73→0.43 <b>↓</b></td><td class="n">0.60→0.81 <b>↑</b></td><td class="n">1.48→1.18 <b>↓</b></td><td class="n">0.68→0.92 <b>↑</b></td><td class="n">1.13→0.93 <b>↓</b></td></tr><tr><td><b>현재와 방향 일치</b></td><td class="n"><b>—</b></td><td class="n"><b>5 / 7</b></td><td class="n"><b>4 / 5</b></td><td class="n"><b>2 / 8</b></td><td class="n"><b>4 / 8</b></td></tr></tbody></table></figure>
 <div class="note"><p><b>현재가 과거 둘과 다른 곳이 두 군데 보입니다.</b>
 ① <b>달러가 약세가 아닙니다</b> — 1998(100→96)·1986(106→89)은 급등 내내 달러 약세가 동반됐는데,
 지금은 보합(95→95)입니다. «달러 약세 = 신흥국 유동성»의 순풍 없이 여기까지 온 급등입니다.
@@ -711,7 +708,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <h2>전망 — 세 갈래와 가르는 지표</h2>
 <div class="claim"><p><b>결론. 지금은 «정점 후 2개월, 급락 소화 자리»입니다.</b> 과거 세 국면의 다음 장은
 정점 후 4~6개월에 갈렸습니다. 어느 갈래인지는 아래 네 지표가 말해 줄 것입니다.</p></div>
-<div class="panel" data-reveal><div class="panel-head"><div><h3>정점 이후 24개월 — 세 국면의 다음 장</h3></div></div><div class="kpis"><div class="kpi hl"><div class="k">닷컴 정점 후 12개월</div><div class="v">-43%</div><div class="s">1999-11 이후 · 최유사 구간의 다음 장</div></div><div class="kpi"><div class="k">3저 정점 후 12개월</div><div class="v">+40%</div><div class="s">반례 — 같은 모양이 계속 올랐다</div></div><div class="kpi"><div class="k">코로나 정점 후 12개월</div><div class="v">-17%</div><div class="s">세 번째 국면 · 완만한 하락</div></div><div class="kpi hl"><div class="k">한국 신용스프레드</div><div class="v">0.70%p</div><div class="s">2026-08 · 16개월 확대 — 급락 그 달만 조용했다</div></div></div><figure class="fig"><div class="cbox" style="height:420px"><canvas id="a2"></canvas></div><figcaption><span class="freq m">월간</span>정점을 100으로 맞추고 이후 24개월을 겹쳤습니다. 굵은 황금색이 현재(정점 2026-06), 붉은 파선이 닷컴(1999-11 정점 후), 회색이 코로나(2021-05 정점 후), 초록 점선이 3저(1988-02 뒤)입니다.</figcaption></figure><p class="panel-cap rngnote" style="margin-top:12px">현재는 정점 후 2개월째입니다. 닷컴은 이 자리(정점 −18% 부근)에서 반등해 이중 천장을 시도했고, 실패한 뒤 본격 하락이 왔습니다. 세 경로가 갈라지는 시점은 정점 후 4~6개월입니다.</p><div class="srcline"><span class="lbl">출처</span><span>같은 접합 시계열 · 정점은 각 국면의 월평균 최고치</span></div></div><script>(window.__AN=window.__AN||[]).push({"id": "a2", "l": ["+0", "+1", "+2", "+3", "+4", "+5", "+6", "+7", "+8", "+9", "+10", "+11", "+12", "+13", "+14", "+15", "+16", "+17", "+18", "+19", "+20", "+21", "+22", "+23", "+24"], "yt": "정점 = 100", "dp": 1, "xt": 13, "xp": "정점 후 개월 ", "mk": {"+1": {"t": "지금 82", "v": 82.5, "dy": 24}}, "d": [{"label": "현재 (정점 2026-06)", "data": [100.0, 82.5, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null], "c": "acc", "w": 3.2, "order": 1}, {"label": "닷컴 1999-11 정점 후", "data": [100.0, 103.6, 100.6, 95.3, 92.2, 82.5, 76.2, 83.7, 83.8, 75.9, 66.0, 57.9, 57.3, 54.9, 61.8, 62.5, 57.4, 55.6, 63.1, 63.4, 58.3, 59.8, 53.1, 54.5, 63.7], "c": "neg", "w": 2.2, "dash": [6, 3], "order": 2}, {"label": "코로나 2021-05 정점 후", "data": [100.0, 102.9, 102.7, 100.4, 99.2, 94.4, 93.6, 94.3, 90.1, 85.8, 85.1, 85.3, 83.0, 78.7, 74.6, 78.3, 73.8, 70.3, 76.3, 74.3, 74.7, 77.3, 76.3, 79.6, 79.7], "c": "mute", "w": 2.0, "order": 3}, {"label": "3저 1988-02 뒤", "data": [100.0, 97.0, 99.9, 104.5, 110.3, 108.1, 107.6, 104.8, 110.7, 120.8, 137.2, 137.2, 140.0, 149.9, 148.8, 145.4, 139.8, 137.6, 143.1, 147.7, 141.7, 139.5, 139.9, 139.4, 134.6], "c": "pos", "w": 2.0, "dash": [2, 3], "order": 4}]});</script>
+<div class="panel" data-reveal><div class="panel-head"><div><h3>정점 이후 24개월 — 세 국면의 다음 장</h3></div></div><div class="kpis"><div class="kpi hl"><div class="k">닷컴 정점 후 12개월</div><div class="v">-43%</div><div class="s">1999-11 이후 · 최유사 구간의 다음 장</div></div><div class="kpi"><div class="k">3저 정점 후 12개월</div><div class="v">+40%</div><div class="s">반례 — 같은 모양이 계속 올랐다</div></div><div class="kpi"><div class="k">코로나 정점 후 12개월</div><div class="v">-17%</div><div class="s">세 번째 국면 · 완만한 하락</div></div><div class="kpi hl"><div class="k">한국 신용스프레드</div><div class="v">0.70%p</div><div class="s">2026-08 · 16개월 확대 — 급락 그 달만 조용했다</div></div></div><figure class="fig"><div class="cbox" style="height:420px"><canvas id="a2"></canvas></div><figcaption>정점을 100으로 맞추고 이후 24개월을 겹쳤습니다. 굵은 황금색이 현재(정점 2026-06), 붉은 파선이 닷컴(1999-11 정점 후), 회색이 코로나(2021-05 정점 후), 초록 점선이 3저(1988-02 뒤)입니다.</figcaption></figure><p class="panel-cap rngnote" style="margin-top:12px">현재는 정점 후 2개월째입니다. 닷컴은 이 자리(정점 −18% 부근)에서 반등해 이중 천장을 시도했고, 실패한 뒤 본격 하락이 왔습니다. 세 경로가 갈라지는 시점은 정점 후 4~6개월입니다.</p><div class="srcline"><span class="lbl">출처</span><span>같은 접합 시계열 · 정점은 각 국면의 월평균 최고치</span></div></div><script>(window.__AN=window.__AN||[]).push({"id": "a2", "l": ["+0", "+1", "+2", "+3", "+4", "+5", "+6", "+7", "+8", "+9", "+10", "+11", "+12", "+13", "+14", "+15", "+16", "+17", "+18", "+19", "+20", "+21", "+22", "+23", "+24"], "yt": "정점 = 100", "dp": 1, "xt": 13, "xp": "정점 후 개월 ", "mk": {"+1": {"t": "지금 82", "v": 82.5, "dy": 24}}, "d": [{"label": "현재 (정점 2026-06)", "data": [100.0, 82.5, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null], "c": "acc", "w": 3.2, "order": 1}, {"label": "닷컴 1999-11 정점 후", "data": [100.0, 103.6, 100.6, 95.3, 92.2, 82.5, 76.2, 83.7, 83.8, 75.9, 66.0, 57.9, 57.3, 54.9, 61.8, 62.5, 57.4, 55.6, 63.1, 63.4, 58.3, 59.8, 53.1, 54.5, 63.7], "c": "neg", "w": 2.2, "dash": [6, 3], "order": 2}, {"label": "코로나 2021-05 정점 후", "data": [100.0, 102.9, 102.7, 100.4, 99.2, 94.4, 93.6, 94.3, 90.1, 85.8, 85.1, 85.3, 83.0, 78.7, 74.6, 78.3, 73.8, 70.3, 76.3, 74.3, 74.7, 77.3, 76.3, 79.6, 79.7], "c": "mute", "w": 2.0, "order": 3}, {"label": "3저 1988-02 뒤", "data": [100.0, 97.0, 99.9, 104.5, 110.3, 108.1, 107.6, 104.8, 110.7, 120.8, 137.2, 137.2, 140.0, 149.9, 148.8, 145.4, 139.8, 137.6, 143.1, 147.7, 141.7, 139.5, 139.9, 139.4, 134.6], "c": "pos", "w": 2.0, "dash": [2, 3], "order": 4}]});</script>
 
 <div class="tblwrap"><table class="tw">
 <thead><tr><th>갈래</th><th>과거의 각본</th><th>지금 이 갈래를 지지하는 것</th><th>이 갈래로 판정하는 조건</th></tr></thead>
@@ -762,7 +759,6 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 모든 숫자는 실행 시점에 원자료에서 다시 계산됩니다.</p>
 </div>
 
-<div class="wrap"><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a> — 최유사 구간의 <b>그 다음 장</b>을 월 단위로 따라갑니다 — 급락 → 반등 → 이중 천장 → 붕괴의 순서가 거기 있습니다.</p><p><a href="fed-kospi.html">연준 기준금리와 증시</a> — 유사구간 셋이 전부 <b>디스인플레 시대</b>라는 유보 조건의 근거 — 시대 구분과 금리 국면별 실측이 그 페이지에 있습니다.</p><p><a href="credit-spread.html">신용스프레드와 코스피</a> — 이번 급락이 신용 사건이 아니라는 판단의 근거 — 코스피가 크게 빠지는 동안 스프레드는 +0.05%p 로 움직이지 않았습니다.</p><p><a href="bottom-top.html">바닥·천장 추적</a> — 세 갈래 시나리오가 모두 «먼저 반등»을 거칩니다 — 그 반등의 진위를 가르는 FTD(팔로우스루) 판정을 매일 추적합니다.</p></div><!--RELATED:END--><!--GLOSSARY:BEGIN--><style id="glocss">.glo{margin:34px 0 8px}.glo h3{font-size:1.02rem;margin:0 0 12px}.glo dl{margin:0;font-size:.9rem;line-height:1.62}.glo dt{font-weight:800;margin-top:10px}.glo dd{margin:2px 0 0 0;color:var(--text-secondary,#555)}</style><div class="glo"><h3>용어 설명</h3><dl><dt>신용스프레드</dt><dd>회사채 금리에서 국고채 금리를 뺀 값. 기업이 국가보다 더 부담하는 금리이고, 시장이 매긴 부도 위험의 값이다.</dd><dt>이격도</dt><dd>주가가 이동평균선에서 얼마나 떨어져 있는지의 백분율. 100이면 이동평균과 같은 자리, 90 아래는 과매도·110 위는 과열로 읽는다.</dd><dt>이동평균선</dt><dd>일정 기간 종가의 평균을 이은 선. 20일선은 단기, 20주선(=100거래일 근사)은 이야기꾼의 «생명선», 200일선은 장기 추세 기준이다.</dd><dt>FTD</dt><dd>Follow-Through Day. 반등 시도 4~10일차에 큰 상승이 대량 거래와 함께 나오면 새 상승 추세의 시작으로 보는 오닐의 판정법.</dd><dt>RS</dt><dd>Relative Strength. 시장 대비 상대 수익률. 미너비니는 RS 상위 종목만 후보로 둔다.</dd><dt>스테이지</dt><dd>와인스타인의 4국면 — 1 바닥, 2 상승, 3 천장, 4 하락. 이동평균의 기울기와 가격 위치로 판정한다.</dd><dt>제오지산수</dt><dd>이야기꾼의 다섯 경기지표 — 제(ISM 제조업지수)·오(OECD 경기선행지수)·지(GDP)·산(산업생산)·수(한국 수출).</dd><dt>CLI</dt><dd>OECD 경기선행지수(Composite Leading Indicator). 100이 장기 추세이고 102 위는 36년에 네 번뿐인 과열권이다.</dd><dt>ISM</dt><dd>미국 공급관리자협회의 제조업 구매관리자지수. 50 위면 확장. 서베이라 주가가 섞이지 않고 사후 수정이 없어 선행지표로 쓴다.</dd><dt>기준금리</dt><dd>중앙은행이 정하는 초단기 금리. 연준의 연방기금금리가 세계 돈값의 기준이 된다.</dd><dt>10년물 국채금리</dt><dd>시장이 정하는 장기 돈값. 이 사이트의 시대 구분(인플레·디스인플레)은 이 금리의 사상 최고(1981-09)와 사상 최저(2020-07)로 가른다.</dd><dt>디스인플레이션</dt><dd>물가 상승률이 낮아지는 시대. 1981-09~2020-06의 약 40년. 코스피 역사의 85%가 이 안에 있어 «과거 패턴»이 대부분 이 시대의 산물이다.</dd></dl><p style="font-size:.8rem;color:var(--text-secondary,#777);margin-top:12px">이 글에 나온 용어만 실었습니다. 정의는 <code>scripts/glossary.py</code> 에서 한곳으로 관리합니다.</p></div><!--GLOSSARY:END--></div>
 <footer><p>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다.
 저는 투자 전문가가 아니며, 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.</p></footer>
 </div>
@@ -897,6 +893,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 
 
+<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>
 /* 닷컴 대시보드 공통 (scripts/dotcom_panel.py) */
@@ -1069,5 +1066,4 @@ function anRange(id,n,btn){
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',anBuild);
 else anBuild();
 setTimeout(anBuild,400);
-</script><button class="toggle" onclick="__toggleTheme()">&#9728;</button>
-</body></html>
+</script></body></html>
