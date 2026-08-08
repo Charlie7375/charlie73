@@ -1076,27 +1076,6 @@ ViacomCBS and Discovery Pare Losses After Archegos-Driven Selloff.</a>
 
 
 
-<script id="dotcom-defaults">
-/* ★ 차트 형식 정본 — kospi-dotcom-1998-2000 의 눈맛 (2026-08-08 상수님 지시)
-   고치는 곳은 scripts/apply_dotcom_style.py 하나다. 개별 차트의 명시 설정이 우선한다. */
-(function(){function go(){ if(!window.Chart){return setTimeout(go,150);}
- var d=Chart.defaults;
- d.font.family="'Noto Sans KR','Inter',-apple-system,sans-serif";
- d.elements.line.tension=.3;
- d.elements.line.borderWidth=2.4;
- d.elements.point.radius=0;
- d.elements.point.hoverRadius=6;
- d.interaction={mode:'index',intersect:false};
- d.animation.duration=1000;
- d.animation.easing='easeOutQuart';
- d.plugins.tooltip.padding=12;
- d.plugins.tooltip.cornerRadius=8;
- d.plugins.tooltip.titleFont={size:13,family:'Inter'};
- d.plugins.tooltip.bodyFont={size:13,family:"'Noto Sans KR',sans-serif"};
- d.plugins.legend.labels.boxWidth=12;
- d.plugins.legend.labels.usePointStyle=true;
-}go();})();
-</script>
 
 
 <script>/* THEME:BEGIN */
@@ -1125,5 +1104,27 @@ ViacomCBS and Discovery Pare Losses After Archegos-Driven Selloff.</a>
 /* THEME:END */</script>
 
 
+
+<script id="dotcom-defaults">
+/* ★ 차트 형식 정본 — kospi-dotcom-1998-2000 의 눈맛 (2026-08-08 상수님 지시)
+   고치는 곳은 scripts/apply_dotcom_style.py 하나다. 개별 차트의 명시 설정이 우선한다. */
+(function(){function go(){ if(!window.Chart){return setTimeout(go,150);}
+ var d=Chart.defaults;
+ d.font.family="'Noto Sans KR','Inter',-apple-system,sans-serif";
+ d.elements.line.tension=.3;
+ d.elements.line.borderWidth=2.4;
+ d.elements.point.radius=0;
+ d.elements.point.hoverRadius=6;
+ d.interaction={mode:'index',intersect:false};
+ d.animation.duration=1000;
+ d.animation.easing='easeOutQuart';
+ d.plugins.tooltip.padding=12;
+ d.plugins.tooltip.cornerRadius=8;
+ d.plugins.tooltip.titleFont={size:13,family:'Inter'};
+ d.plugins.tooltip.bodyFont={size:13,family:"'Noto Sans KR',sans-serif"};
+ d.plugins.legend.labels.boxWidth=12;
+ d.plugins.legend.labels.usePointStyle=true;
+}go();})();
+</script>
 <button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 </body></html>
