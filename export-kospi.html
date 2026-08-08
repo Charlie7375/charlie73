@@ -739,7 +739,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 <h2>코스피가 수출을 앞선다</h2>
 
-<div class="panel" data-reveal><div class="panel-head"><div><h3>한국 수출 전년비와 코스피 전년비 — 1984~2026-04</h3></div><div class="rng" role="group" aria-label="기간 선택"><button class="on" onclick="exRange(&#39;g1&#39;,0,this)">전체 1984~</button><button onclick="exRange(&#39;g1&#39;,1,this)">최근 10년</button></div></div><div class="kpis"><div class="kpi hl"><div class="k">지금 수출</div><div class="v">+48.8%</div><div class="s">2026-04 전년동월비</div></div><div class="kpi"><div class="k">코스피와 상관</div><div class="v">0.553</div><div class="s">시차 -4개월에서 가장 높음</div></div><div class="kpi hl"><div class="k">누가 먼저</div><div class="v">코스피가 4개월 앞선다</div><div class="s">수출은 선행 지표가 아닙니다</div></div><div class="kpi"><div class="k">표본</div><div class="v">508개월</div><div class="s">1984-01~2026-04</div></div></div><figure class="fig"><div class="cbox" style="height:400px"><canvas id="g1"></canvas></div><figcaption><span class="freq m">월간</span>굵은 황금색이 수출 전년비(우축), 회색이 코스피 전년비(좌축)입니다. <b>회색이 황금색보다 반 박자 먼저 움직입니다</b> — 아래 시차표에서 확인합니다.</figcaption></figure><p class="panel-cap rngnote" style="margin-top:12px">1984년부터 전 구간입니다. 코스피가 수출보다 반 박자 먼저 움직입니다.</p><div class="srcline"><span class="lbl">출처</span><span>관세청 수출입 통계 월별 전년동월비 · OECD 한국 주가지수 월별 원계열</span><a href="https://unipass.customs.go.kr" target="_blank" rel="noopener">관세청 UNI-PASS &#8599;</a></div></div>
+<div class="panel" data-reveal><div class="panel-head"><div><h3>한국 수출 전년비와 코스피 전년비 — 1984~2026-04</h3></div><div class="rng" role="group" aria-label="기간 선택"><button class="on" onclick="exRange(&#39;g1&#39;,0,this)">전체 1984~</button><button onclick="exRange(&#39;g1&#39;,1,this)">최근 10년</button></div></div><div class="kpis"><div class="kpi hl"><div class="k">지금 수출</div><div class="v">+48.8%</div><div class="s">2026-04 · OECD 계절조정(차트 기준)</div></div><div class="kpi"><div class="k">관세청 최신</div><div class="v">+62.8%</div><div class="s">2026-07 원계열 · 계열이 달라 차트에는 없습니다</div></div><div class="kpi"><div class="k">코스피와 상관</div><div class="v">0.553</div><div class="s">시차 -4개월에서 가장 높음</div></div><div class="kpi hl"><div class="k">누가 먼저</div><div class="v">코스피가 4개월 앞선다</div><div class="s">수출은 선행 지표가 아닙니다</div></div></div><figure class="fig"><div class="cbox" style="height:400px"><canvas id="g1"></canvas></div><figcaption><span class="freq m">월간</span>굵은 황금색이 수출 전년비(우축), 회색이 코스피 전년비(좌축)입니다. <b>회색이 황금색보다 반 박자 먼저 움직입니다</b> — 아래 시차표에서 확인합니다.</figcaption></figure><p class="panel-cap rngnote" style="margin-top:12px">1984년부터 전 구간입니다. 코스피가 수출보다 반 박자 먼저 움직입니다.</p><div class="srcline"><span class="lbl">출처</span><span>관세청 수출입 통계 월별 전년동월비 · OECD 한국 주가지수 월별 원계열</span><a href="https://unipass.customs.go.kr" target="_blank" rel="noopener">관세청 UNI-PASS &#8599;</a></div></div>
 
 <p>동행 상관은 <b>0.457</b>입니다. 그런데 시차를 −12~+12개월 밀어 보면
 최대가 <b>-4개월</b>에서 나옵니다.</p>
@@ -1167,6 +1167,7 @@ setTimeout(exBuild,400);
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
+
 
 
 
