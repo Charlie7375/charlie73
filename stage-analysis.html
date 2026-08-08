@@ -60,6 +60,37 @@ h1{font-weight:800;font-size:2.7rem;letter-spacing:-.035em;line-height:1.12}
 .panel-cap{font-size:13.5px;color:var(--text2);margin-top:8px;line-height:1.65;letter-spacing:-.01em}
 .panel-cap b{color:var(--text)}
 .chart-box{position:relative;height:400px;margin-top:16px}
+/* ★ 닷컴 대시보드 형식 — kospi-dotcom-1998-2000 이식 (2026-08-08 상수님 지시)
+   «1~4 모두를 스테이지 페이지에 · 상단 제목·본문은 기존 규칙, 차트만»
+   그래서 .paper/.phead 판형은 손대지 않고 **차트 그릇만** 바꾼다.  */
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:20px;
+  padding:26px 26px 22px;margin-top:18px}
+.panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap}
+.panel-head h3{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin:0}
+.rng{display:inline-flex;gap:6px;flex-shrink:0}
+.rng button{font:600 12px/1 'Noto Sans KR',sans-serif;padding:8px 12px;border-radius:9px;
+  background:transparent;border:1px solid var(--border);color:var(--text-secondary);cursor:pointer;
+  transition:background .18s,color .18s,border-color .18s}
+.rng button:hover{background:var(--surface2);color:var(--text)}
+.rng button.on{background:var(--accent);border-color:var(--accent);color:var(--onAccent,#fff)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:16px 0 4px}
+.kpi{background:var(--bg);border:1px solid var(--border);border-radius:13px;padding:15px 16px;
+  transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s,border-color .25s}
+.kpi:hover{transform:translateY(-5px);box-shadow:0 14px 30px rgba(0,0,0,.12);
+  border-color:color-mix(in srgb,var(--accent) 40%,var(--border))}
+.kpi .k{font-size:11.5px;font-weight:700;letter-spacing:.05em;color:var(--text-secondary)}
+.kpi .v{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;margin-top:5px}
+.kpi .s{font-size:11.5px;color:var(--text-secondary);margin-top:3px;line-height:1.5}
+.kpi.hl .v{color:var(--accent)}
+.kpi .v.neg{color:var(--dn,#1161c4)}
+.srcline{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:baseline;margin-top:14px;
+  padding-top:12px;border-top:1px solid var(--border);font-size:12px;color:var(--text-secondary);line-height:1.6}
+.srcline .lbl{font-weight:800;letter-spacing:.06em;color:var(--accent);flex-shrink:0}
+.srcline a.srclink{color:var(--accent);font-weight:700;text-decoration:none}
+.srcline a.srclink:hover{text-decoration:underline}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 .divider{margin:30px 0 8px;border-top:1px solid var(--border)}
 .verdict{margin-top:22px;background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:18px 20px;font-size:14px;line-height:1.75;color:var(--text2);letter-spacing:-.01em}
 .verdict b{color:var(--text)}
@@ -70,15 +101,6 @@ h2.sec{font-size:1.25rem;font-weight:700;margin-top:44px;letter-spacing:-.02em}
 footer{margin-top:48px;border-top:1px solid var(--border);padding-top:22px;color:var(--text-secondary);font-size:.82rem;line-height:1.7}
 .toggle{position:fixed;top:18px;right:18px;width:42px;height:42px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:18px;z-index:120}
 @media(max-width:720px){h1{font-size:2.05rem}.compare{padding:22px 18px}}
-
-/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
-.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
-  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
 /* BAR:BEGIN */
 /* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
    flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
@@ -97,9 +119,14 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
   html body .site-bar-in{padding:9px 14px 7px}
 }
 /* BAR:END */
-/* ── 제목 아래 한 줄 (좌상단 배지 폐기 후 유일한 자리) ── */
-.pauth{margin:10px 0 0;font-size:.8rem;color:var(--text-secondary);text-align:center}
-.pauth b{color:var(--text);font-variant-numeric:tabular-nums}
+/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
+.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
+  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
+.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
+  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
+  background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
 /* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
@@ -374,18 +401,83 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <p class="sub">긴 사이클에서는 50일 이격도가 방향을 말해주지 않습니다. <b>200일선의 기울기와 가격의 위치</b>로 시장을 네 국면으로 나눠, 1986~1990 3저 호황과 2003~2012 대세 상승이 각각 어떤 구조였는지 봅니다.</p>
 <p class="pauth">1986~1990 · 2003~2012 (FRED 월봉) · 고정 자료 · 시장 데이터로 갱신되지 않습니다</p></div>
 
-<section class="compare">
-  <h2>3저 호황, 코스피와 200일선 — 1986~1990</h2>
-  <div class="panel-cap">저금리·저유가·저달러의 3저 호황. 4년 만에 <b>157 → 965(월평균 기준, +513%)</b>. 스테이지로 보면 단순합니다 — <b>2단계 상승이 1986.1부터 1989.10까지 거의 4년</b> 이어졌고, 200일선이 눕는 <b>3단계 천장은 1989년 4분기 단 두 달</b>, 이후 1990년 내내 <b>4단계 하락</b>에서 고점 대비 −40% 이상을 반납했습니다. 2단계에 머무는 동안은 조정마다 200일선이 지지가 됐습니다.</div>
-  <div class="chart-box"><canvas id="comboSJ" role="img" aria-label="1986~1990 3저 호황 코스피 종가지수와 200일선, 와인스타인 스테이지 밴드"></canvas></div>
+<script>
+/* ③ 기간 전환의 정의 — 인덱스는 seg 경계에서 뽑았다(1986~1989.10 = 2단계 전 구간,
+   2009.04~ = 금융위기 4단계가 끝나고 1단계로 바뀐 자리). 하드코딩이지만 고정 자료다. */
+var RANGES={
+ SJ:{all:{i0:0,i1:260,note:'1986년 1월부터 1990년 12월까지 전 구간입니다. 2단계 상승 · 3단계 천장 · 4단계 하락이 한 번씩만 나옵니다.'},
+     up:{i0:0,i1:196,note:'2단계 상승 구간만 확대했습니다(1986.01~1989.10). 조정이 올 때마다 200일선에서 멈추는 것이 보입니다 — 이 구간 197주 동안 종가가 200일선 아래로 내려간 주는 <b>한 주도 없습니다</b>.'}},
+ BL:{all:{i0:0,i1:260,note:'2003년 1월부터 2012년 12월까지 전 구간입니다. 네 국면이 번갈아 나오며 10년을 계단식으로 올랐습니다.'},
+     post:{i0:164,i1:260,note:'금융위기 4단계가 끝난 2009년 4월부터입니다. 1단계 바닥 3개월 뒤 2단계가 2년 넘게 이어졌고, 2011년 8월 유럽 위기에서 4단계로 꺾였습니다.'}}};
+</script>
 
-  <div class="divider"></div>
-  <h2 style="margin-top:22px">대세 상승, 코스피와 200일선 — 2003~2012</h2>
-  <div class="panel-cap">카드 사태 저점에서 차이나·조선 호황을 타고 <b>659 → 2,142(월평균 기준, 2011.4)</b>. 10년을 스테이지로 나누면 — <b>2단계 상승 구간이 세 번</b>(2003~04 · 2005~06 · 2007, 그리고 2009~2011), 사이사이 200일선이 눕는 <b>3단계 조정</b>(2004 차이나쇼크 · 2006 긴축 · 2008 상반기)이 끼었지만, <b>진짜 4단계 하락은 2008 금융위기와 2011.8 유럽 위기 두 번뿐</b>이었습니다.</div>
-  <div class="chart-box"><canvas id="comboBL" role="img" aria-label="2003~2012 코스피 대세 상승 종가지수와 200일선, 와인스타인 스테이지 밴드"></canvas></div>
+<section class="compare" data-reveal>
+  <div class="panel">
+    <div class="panel-head">
+      <div>
+        <h3>① 3저 호황, 코스피와 200일선 — 1986~1990</h3>
+      </div>
+      <div class="rng" role="group" aria-label="기간 선택">
+        <button class="on" onclick="setStageRange('SJ','all',this)">전체 1986~1990</button>
+        <button onclick="setStageRange('SJ','up',this)">2단계 구간만</button>
+      </div>
+    </div>
+    <div class="panel-cap">저금리·저유가·저달러의 3저 호황. 4년 만에 <b>157 → 965(월평균 기준, +515%)</b>. 스테이지로 보면 단순합니다 — <b>2단계 상승이 1986.1부터 1989.10까지 거의 4년</b> 이어졌고, 200일선이 눕는 <b>3단계 천장은 1989년 4분기 단 두 달</b>, 이후 1990년 내내 <b>4단계 하락</b>에서 고점 대비 −40% 이상을 반납했습니다.</div>
+    <div class="kpis">
+      <div class="kpi hl"><div class="k">저점 → 고점</div><div class="v">+515%</div><div class="s">157(1986.01) → 965(1989.03)</div></div>
+      <div class="kpi"><div class="k">2단계 지속</div><div class="v">75.5%</div><div class="s">261주 중 197주 · 약 3년 9개월</div></div>
+      <div class="kpi"><div class="k">3단계 천장</div><div class="v">2개월</div><div class="s">1989.10~12 — 짧았고 곧 붕괴</div></div>
+      <div class="kpi hl"><div class="k">2단계 중 200일선 이탈</div><div class="v">0%</div><div class="s">197주 내내 종가가 200일선 위</div></div>
+    </div>
+    <div class="chart-box" role="img" aria-label="1986~1990 3저 호황 코스피 종가지수와 200일선, 와인스타인 스테이지 밴드. 1986년 157에서 시작해 1989년 3월 965까지 4년간 2단계 상승이 이어졌고, 1989년 10월 3단계 천장을 거쳐 1989년 12월부터 4단계 하락으로 전환해 1990년 내내 하락했다."><canvas id="comboSJ"></canvas></div>
+    <p class="panel-cap rngnote" style="margin-top:12px"></p>
+    <div class="srcline">
+      <span class="lbl">출처</span>
+      <span>OECD “Financial Market: Share Prices for Korea” 월별 원계열(2015=100)을 코스피 포인트로 환산(×20.1) 후 주별 보간 · 200일 이동평균과 그 기울기·가격 위치로 4단계 기계 분류</span>
+      <a class="srclink" href="https://fred.stlouisfed.org/data/SPASTT01KRM661N" target="_blank" rel="noopener">FRED · SPASTT01KRM661N &#8599;</a>
+    </div>
+  </div>
 
-  <div class="verdict">두 사례를 겹쳐 보면 — <b>"2단계에서만 사고 4단계를 피하라"</b>는 와인스타인 원칙이 두 시대 모두에서 작동했습니다. 3저 호황은 2단계가 4년 통으로 이어진 <b>한 번 오르고 한 번에 무너진</b> 사이클이었고, 2003~2012는 2단계와 3단계가 번갈아 나오며 <b>10년을 계단식으로 오른</b> 사이클이었습니다. 공통점은 <b>2단계 유지 중에는 급락도 200일선 부근에서 멈췄다</b>는 것이고, 차이점은 3단계의 길이입니다 — 3단계가 짧으면 급락이, 길면 재상승이 뒤따랐습니다.</div>
+  <div class="panel" data-reveal>
+    <div class="panel-head">
+      <div>
+        <h3>② 대세 상승, 코스피와 200일선 — 2003~2012</h3>
+      </div>
+      <div class="rng" role="group" aria-label="기간 선택">
+        <button class="on" onclick="setStageRange('BL','all',this)">전체 2003~2012</button>
+        <button onclick="setStageRange('BL','post',this)">금융위기 이후</button>
+      </div>
+    </div>
+    <div class="panel-cap">카드 사태 저점에서 차이나·조선 호황을 타고 <b>555 → 2,142(월평균 기준, 2011.4)</b>. 10년을 스테이지로 나누면 — <b>2단계 상승 구간이 다섯 번</b>, 사이사이 200일선이 눕는 <b>3단계 조정</b>(2004 차이나쇼크 · 2006 긴축 · 2008 상반기)이 끼었지만, <b>4단계 하락은 2008 금융위기와 2011.8 유럽 위기가 중심</b>이었습니다.</div>
+    <div class="kpis">
+      <div class="kpi hl"><div class="k">저점 → 고점</div><div class="v">+286%</div><div class="s">555(2003.03) → 2,142(2011.04)</div></div>
+      <div class="kpi"><div class="k">2단계 지속</div><div class="v">55.2%</div><div class="s">261주 중 144주 · 구간 5회</div></div>
+      <div class="kpi"><div class="k">최대 낙폭</div><div class="v neg">−45.6%</div><div class="s">2008 금융위기 4단계</div></div>
+      <div class="kpi hl"><div class="k">2단계 중 200일선 이탈</div><div class="v">3%</div><div class="s">144주 중 4주 — 3저와 같은 성질</div></div>
+    </div>
+    <div class="chart-box" role="img" aria-label="2003~2012 코스피 대세 상승 종가지수와 200일선, 와인스타인 스테이지 밴드. 2003년 555에서 2011년 4월 2142까지 오르는 동안 2단계 상승이 다섯 번 나뉘어 나타났고, 2008년 6월부터 2009년 4월까지 4단계 하락으로 최대 45.6퍼센트 낙폭을 기록했다."><canvas id="comboBL"></canvas></div>
+    <p class="panel-cap rngnote" style="margin-top:12px"></p>
+    <div class="srcline">
+      <span class="lbl">출처</span>
+      <span>위와 동일 · 월봉 보간이라 일별 실측 대비 진폭이 축소됩니다</span>
+      <a class="srclink" href="https://fred.stlouisfed.org/data/SPASTT01KRM661N" target="_blank" rel="noopener">FRED · SPASTT01KRM661N &#8599;</a>
+    </div>
+  </div>
+
+  <div class="verdict">두 사례를 겹쳐 보면 — <b>"2단계에서만 사고 4단계를 피하라"</b>는 와인스타인 원칙이 두 시대 모두에서 작동했습니다. 3저 호황은 2단계가 4년 통으로 이어진 <b>한 번 오르고 한 번에 무너진</b> 사이클이었고, 2003~2012는 2단계와 3단계가 번갈아 나오며 <b>10년을 계단식으로 오른</b> 사이클이었습니다. 공통점은 <b>2단계 유지 중에는 급락도 200일선 부근에서 멈췄다</b>는 것입니다 — 200일선 아래로 내려간 주가 3저 호황은 0%, 2003~2012는 3%였습니다. 차이점은 3단계의 길이입니다 — 3단계가 짧으면 급락이, 길면 재상승이 뒤따랐습니다.</div>
 </section>
+
+<script>
+/* ③ 스크롤 등장 — 닷컴 페이지의 IntersectionObserver 이식 */
+(function(){
+  var els=document.querySelectorAll('[data-reveal]');
+  els.forEach(function(e){e.classList.add('reveal');});
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('visible');});return;}
+  var ro=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}});},{threshold:.08});
+  els.forEach(function(e){ro.observe(e);});
+})();
+</script>
 
 <h2 class="sec">와인스타인 스테이지 분석이란</h2>
 <div class="explain">
@@ -500,23 +592,112 @@ var stageBand={id:'stageBand',beforeDatasetsDraw:function(ch){
   });
 }};
 if(typeof Chart!=='undefined'){Chart.register(stageBand);}
-function stages(canvas,S,leftMax){
-  var tx=css('--text-secondary'),grid=css('--grid'),txt=css('--text');
+
+/* ★ 차트 형식 = kospi-dotcom-1998-2000 (2026-08-08 상수님 지시)
+   가져온 것 넷 —
+   ① 색: 주선을 --accent(황금) + 13% 면 채움 · 200일선은 회색 굵은 선
+   ② 그릇: .panel + .panel-head (본문 판형은 그대로 두고 차트 그릇만)
+   ③ 기간 전환 .rng · KPI 카드 · 출처 줄 · 스크롤 등장
+   ④ MARKS 콜아웃: 국면 전환점을 점(5.5px, 흰 테두리) + 굵은 라벨로 차트 위에 직접
+   ⚠ 스테이지 밴드 색(1 회색·2 초록·3 앰버·4 빨강)은 **의미색이라 그대로 둔다.**
+      닷컴의 --band 는 «랠리 한 구간»을 칠하는 것이고, 여기는 네 국면을 구분하는 것이다. */
+function marksOf(S,i0,i1){
+  /* seg 로부터 국면 전환점을 만든다 — 하드코딩하지 않는다.
+     ⚠ 전부 찍으면 대세 상승(13구간)이 라벨로 뒤덮인다. 그래서 셋만 남긴다:
+        ⓐ 하락(4단계) 진입  ⓑ 1·4단계에서 2단계로 복귀  ⓒ 구간 최고점 */
+  var M={}, prev=null, k;
+  for(k=0;k<S.seg.length;k++){
+    var a=S.seg[k][0], st=S.seg[k][2];
+    if(a<i0||a>i1){prev=st;continue;}
+    var t=null,c=null;
+    if(st===4){t='4단계 하락';c='neg';}
+    else if(st===2&&(prev===4||prev===1||prev===null)){t='2단계 상승';c='pos';}
+    if(t){M[S.d[a]]={t:t+' '+Math.round(S.c[a]).toLocaleString(),v:S.c[a],
+                     dy:(Object.keys(M).length%2?24:-14),c:c};}
+    prev=st;
+  }
+  var bi=i0; for(k=i0;k<=i1;k++){ if(S.c[k]>S.c[bi]) bi=k; }
+  M[S.d[bi]]={t:'고점 '+Math.round(S.c[bi]).toLocaleString(),v:S.c[bi],dy:-16,c:'acc'};
+  return M;
+}
+var stageMarks={id:'stageMarks',afterDatasetsDraw:function(ch){
+  var o=ch.config.options.plugins.markcfg; if(!o||!o.M) return;
+  var xs=ch.scales.x, ys=ch.scales.y, ctx=ch.ctx; if(!xs||!ys) return;
+  var labs=ch.data.labels, narrow=(xs.width<620);
+  var acc=css('--accent'), neg=css('--dn')||'#1161c4', pos=css('--up')||'#d21f3c',
+      tx=css('--text-secondary'), surf=css('--surface');
+  ctx.save();
+  labs.forEach(function(l,i){
+    var m=o.M[l]; if(!m) return;
+    var col = m.c==='acc'?acc : m.c==='neg'?neg : m.c==='pos'?pos : tx;
+    var x=xs.getPixelForValue(i), y=ys.getPixelForValue(m.v);
+    ctx.beginPath(); ctx.arc(x,y,5.5,0,Math.PI*2); ctx.fillStyle=col; ctx.fill();
+    ctx.strokeStyle=surf; ctx.lineWidth=2; ctx.stroke();
+    if(narrow) return;
+    ctx.fillStyle=col; ctx.font='700 11.5px Inter,"Noto Sans KR",sans-serif';
+    ctx.textAlign=(i>labs.length*0.82)?'right':(i<labs.length*0.08?'left':'center');
+    ctx.fillText(m.t, x, y+m.dy);
+  });
+  ctx.restore();
+}};
+if(typeof Chart!=='undefined'){Chart.register(stageMarks);}
+function hexA(h,a){h=(h||'').trim(); if(h.charAt(0)!=='#') return h;
+  if(h.length===4) h='#'+h[1]+h[1]+h[2]+h[2]+h[3]+h[3];
+  var n=parseInt(h.slice(1),16);
+  return 'rgba('+((n>>16)&255)+','+((n>>8)&255)+','+(n&255)+','+a+')';}
+function stages(canvas,S,leftMax,rng){
+  var tx=css('--text-secondary'),grid=css('--grid'),acc=css('--accent');
+  var i0=(rng&&rng.i0)||0, i1=(rng&&rng.i1!=null)?rng.i1:S.d.length-1;
+  var lab=S.d.slice(i0,i1+1), cc=S.c.slice(i0,i1+1), mm=S.m.slice(i0,i1+1),
+      xt=S.xt.slice(i0,i1+1);
+  var seg=[]; S.seg.forEach(function(g){
+    var a=Math.max(g[0],i0), b=Math.min(g[1],i1);
+    if(b>=a) seg.push([a-i0,b-i0,g[2]]);});
   return new Chart(canvas.getContext('2d'),{type:'line',
-    data:{labels:S.d,datasets:[
-      {label:'종가지수',data:S.c,borderColor:txt,borderWidth:1.6,pointRadius:0,tension:0.12,order:1},
-      {label:'200일선',data:S.m,borderColor:'#94a3b8',borderWidth:3,pointRadius:0,tension:0.12,order:2}
+    data:{labels:lab,datasets:[
+      {label:'코스피 종가지수',data:cc,borderColor:acc,backgroundColor:hexA(acc,0.13),
+       borderWidth:3.2,pointRadius:0,pointHoverRadius:6,tension:.3,fill:true,order:1},
+      {label:'200일선',data:mm,borderColor:tx,backgroundColor:'transparent',
+       borderWidth:2.4,pointRadius:0,pointHoverRadius:5,tension:.3,fill:false,order:2}
     ]},
-    options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:8,right:4,left:4,bottom:2}},interaction:{mode:'index',intersect:false},
-      plugins:{legend:{labels:{color:tx,boxWidth:16,font:{size:12}}},tooltip:{enabled:true,padding:10,cornerRadius:8},stagecfg:{seg:S.seg}},
-      scales:{x:{ticks:{color:tx,autoSkip:false,maxRotation:0,font:{size:11},callback:function(v,i){return S.xt[i]||''}},grid:{color:grid,display:true}},
-        y:{position:'left',min:0,suggestedMax:leftMax,ticks:{color:tx,font:{size:11}},grid:{color:grid},title:{display:true,text:'종가지수',color:tx,font:{size:11}}}}}});
+    options:{responsive:true,maintainAspectRatio:false,
+      layout:{padding:{top:30,right:14,left:4,bottom:2}},
+      animation:{duration:1000,easing:'easeOutQuart'},
+      interaction:{mode:'index',intersect:false},
+      plugins:{legend:{display:true,position:'bottom',
+          labels:{color:tx,boxWidth:14,boxHeight:8,font:{family:'Noto Sans KR',size:12.5},padding:16}},
+        tooltip:{enabled:true,padding:12,cornerRadius:8,
+          titleFont:{size:13,family:'Inter'},bodyFont:{size:13,family:'Noto Sans KR'},
+          callbacks:{label:function(c){
+              return ' '+c.dataset.label+' '+Math.round(c.parsed.y).toLocaleString();},
+            afterBody:function(it){var m=(it[0].chart.config.options.plugins.markcfg||{}).M||{};
+              var v=m[it[0].label]; return v?'▸ '+v.t:'';}}},
+        stagecfg:{seg:seg}, markcfg:{M:marksOf(S,i0,i1)}},
+      scales:{x:{ticks:{color:tx,autoSkip:false,maxRotation:0,font:{size:11},
+            callback:function(v,i){return xt[i]||''}},grid:{color:grid,display:true}},
+        y:{position:'left',min:0,suggestedMax:leftMax,
+           ticks:{color:tx,font:{family:'Inter',size:12},
+             callback:function(v){return v.toLocaleString();}},grid:{color:grid},
+           title:{display:true,text:'코스피 종가지수',color:tx,font:{family:'Noto Sans KR',size:12.5}}}}}});
+}
+/* ③ 기간 전환 — 어느 버튼이 눌렸는지 기억했다가 테마 전환 때 같은 구간으로 다시 그린다 */
+var RNG={SJ:'all',BL:'all'};
+function setStageRange(which,kind,btn){
+  RNG[which]=kind;
+  var box=btn.closest('.panel');
+  box.querySelectorAll('.rng button').forEach(function(b){b.classList.remove('on');});
+  btn.classList.add('on');
+  var note=box.querySelector('.rngnote'); if(note) note.innerHTML=RANGES[which][kind].note;
+  build();
 }
 function build(){
   if(typeof Chart==='undefined')return;
   Object.keys(CH).forEach(function(k){try{CH[k].destroy()}catch(e){}});CH={};
-  CH.a=stages(document.getElementById('comboSJ'),D.sj,1050);
-  CH.b=stages(document.getElementById('comboBL'),D.bull,2300);
+  CH.a=stages(document.getElementById('comboSJ'),D.sj,1050,RANGES.SJ[RNG.SJ]);
+  CH.b=stages(document.getElementById('comboBL'),D.bull,2300,RANGES.BL[RNG.BL]);
+  var ns=document.querySelectorAll('.rngnote');
+  if(ns[0])ns[0].innerHTML=RANGES.SJ[RNG.SJ].note;
+  if(ns[1])ns[1].innerHTML=RANGES.BL[RNG.BL].note;
 }
 window.rebuild=build;
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',build);else build();
@@ -541,14 +722,6 @@ window.addEventListener('load',build);
 })();
 </script>
 
-
-
-
-
-
-
-
-
 <script id="dotcom-defaults">
 /* ★ 차트 형식 정본 — kospi-dotcom-1998-2000 의 눈맛 (2026-08-08 상수님 지시)
    고치는 곳은 scripts/apply_dotcom_style.py 하나다. 개별 차트의 명시 설정이 우선한다. */
@@ -570,5 +743,7 @@ window.addEventListener('load',build);
  d.plugins.legend.labels.usePointStyle=true;
 }go();})();
 </script>
+
+
 <button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 </body></html>
