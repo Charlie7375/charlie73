@@ -660,7 +660,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 </tbody></table></div>
 <figcaption>각 단계에 있던 모든 날의 이후 수익률 평균. 현재는 <b>2단계 상승</b>입니다.</figcaption></figure>
 
-<figure class="fig"><div class="cbox"><canvas id="s2"></canvas></div><figcaption><span class="freq m">월간</span>초록이 4단계 하락, 빨강이 2단계 상승입니다. 회색이 무조건 평균입니다.</figcaption></figure><script>(window.__SS=window.__SS||[]).push({"id": "s2", "t": "스테이지별 이후 12개월 수익률 — 와인스타인 규칙이 뒤집힌다", "k": "bar", "l": ["1단계 바닥", "2단계 상승", "3단계 천장", "4단계 하락", "(무조건)"], "yt": "%", "u": "%", "leg": false, "d": [{"label": "12개월 뒤", "data": [36.9, 8.0, 21.2, 44.8, 21.3], "c": ["mute", "pos", "acc", "neg", "mute"]}]});</script>
+<figure class="fig"><div class="cbox"><canvas id="s2"></canvas></div><figcaption><span class="freq m">월간</span>막대 색은 스테이지를 뜻합니다 — 2단계 상승 초록, 3단계 천장 황금, 4단계 하락 빨강. 맨 오른쪽 회색이 무조건 평균입니다.</figcaption></figure><script>(window.__SS=window.__SS||[]).push({"id": "s2", "t": "스테이지별 이후 12개월 수익률 — 와인스타인 규칙이 뒤집힌다", "k": "bar", "l": ["1단계 바닥", "2단계 상승", "3단계 천장", "4단계 하락", "(무조건)"], "yt": "%", "u": "%", "leg": false, "d": [{"label": "12개월 뒤", "data": [36.9, 8.0, 21.2, 44.8, 21.3], "c": ["mute", "pos", "acc", "neg", "mute"]}]});</script>
 
 <div class="verdict">
 <p><b>"2단계에서만 사라"가 삼성전자에서는 최악이었습니다.</b>
@@ -977,6 +977,19 @@ CLI는 두 시대에서 거의 그대로인데(코스피 0.706→0.703), <b>수�
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>
 /* 닷컴 대시보드 공통 (scripts/dotcom_panel.py) */
@@ -1125,18 +1138,7 @@ function ssRange(id,n,btn){
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',ssBuild);
 else ssBuild();
 setTimeout(ssBuild,400);
-</script>
-
-
-
-
-
-
-
-
-
-
-<script id="dotcom-defaults">
+</script><script id="dotcom-defaults">
 /* ★ 차트 형식 정본 — kospi-dotcom-1998-2000 의 눈맛 (2026-08-08 상수님 지시)
    고치는 곳은 scripts/apply_dotcom_style.py 하나다. 개별 차트의 명시 설정이 우선한다. */
 (function(){function go(){ if(!window.Chart){return setTimeout(go,150);}
