@@ -143,7 +143,13 @@ td.pos,.delta.up,.up-t{color:var(--up)!important}
 td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── 테마 토글 버튼 (전 페이지 공통) ── */
-.toggle{position:fixed;right:18px;bottom:18px;z-index:80;width:42px;height:42px;
+/* ⚠⚠ `top:auto` 와 z-index 가 핵심이다 (2026-08-08).
+   생성기 SHELL 들이 `.toggle{position:fixed;top:18px;…}` 를 따로 갖고 있는데(45장),
+   이 규칙은 뒤에 와서 z-index 만 이기고 **위치는 top:18px 가 남았다.**
+   그 자리는 sticky 상단바(.site-bar, z-index 90)가 덮는 자리라
+   **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 세 번째 원인이다.
+   → top 을 명시적으로 풀고(z-index 도 상단바 위로) 우하단으로 되돌린다. */
+.toggle{position:fixed;right:18px;bottom:18px;top:auto;z-index:130;width:42px;height:42px;
   border-radius:50%;border:1px solid var(--border);background:var(--surface);
   color:var(--text);font-size:17px;cursor:pointer;line-height:1;
   box-shadow:0 2px 14px rgba(0,0,0,.10);transition:transform .12s,box-shadow .12s}
@@ -634,6 +640,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
+
 
 <button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 </body></html>
