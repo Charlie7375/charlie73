@@ -505,14 +505,26 @@ var RANGES={
 </section>
 
 <script>
-/* ③ 스크롤 등장 — 닷컴 페이지의 IntersectionObserver 이식 */
+/* ③ 스크롤 등장 — 안전망이 본체다. 2026-08-08 에 dollar-kospi 에서 visible 이 붙었는데도
+   opacity 가 0 에 머물러 패널이 통째로 안 보였다. 여기도 같은 방식으로 막는다. */
 (function(){
-  var els=document.querySelectorAll('[data-reveal]');
-  els.forEach(function(e){e.classList.add('reveal');});
-  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('visible');});return;}
-  var ro=new IntersectionObserver(function(es){es.forEach(function(e){
-    if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}});},{threshold:.08});
-  els.forEach(function(e){ro.observe(e);});
+  function show(e){e.classList.add('visible');}
+  function go(){
+    var els=[].slice.call(document.querySelectorAll('[data-reveal]'));
+    if(!els.length) return;
+    els.forEach(function(e){e.classList.add('reveal');});
+    var vh=window.innerHeight||800;
+    els.forEach(function(e){var r=e.getBoundingClientRect();
+      if(r.top<vh*0.95 && r.bottom>0) show(e);});
+    if('IntersectionObserver' in window){
+      var ro=new IntersectionObserver(function(es){es.forEach(function(e){
+        if(e.isIntersecting){show(e.target);ro.unobserve(e.target);}});},{threshold:.02});
+      els.forEach(function(e){if(!e.classList.contains('visible'))ro.observe(e);});
+    }else{ els.forEach(show); }
+    setTimeout(function(){els.forEach(show);},1200);
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();
+  window.addEventListener('load',go);
 })();
 </script>
 
@@ -759,8 +771,28 @@ window.addEventListener('load',build);
 })();
 </script>
 
-
-
+<script id="dotcom-defaults">
+/* ★ 차트 형식 정본 — kospi-dotcom-1998-2000 의 눈맛 (2026-08-08 상수님 지시)
+   고치는 곳은 scripts/apply_dotcom_style.py 하나다. 개별 차트의 명시 설정이 우선한다. */
+(function(){function go(){ if(!window.Chart){return setTimeout(go,150);}
+ var d=Chart.defaults;
+ d.font.family="'Noto Sans KR','Inter',-apple-system,sans-serif";
+ d.elements.line.tension=.3;
+ d.elements.line.borderWidth=2.4;
+ d.elements.point.radius=0;
+ d.elements.point.hoverRadius=6;
+ d.interaction={mode:'index',intersect:false};
+ d.animation.duration=1000;
+ d.animation.easing='easeOutQuart';
+ d.plugins.tooltip.padding=12;
+ d.plugins.tooltip.cornerRadius=8;
+ d.plugins.tooltip.titleFont={size:13,family:'Inter'};
+ d.plugins.tooltip.bodyFont={size:13,family:"'Noto Sans KR',sans-serif"};
+ d.plugins.legend.labels.boxWidth=12;
+ d.plugins.legend.labels.usePointStyle=true;
+}go();})();
+</script>
+<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 <script>/* THEME:BEGIN */
 (function(){
   var h=document.documentElement;
@@ -785,29 +817,4 @@ window.addEventListener('load',build);
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
-
-
-
-<script id="dotcom-defaults">
-/* ★ 차트 형식 정본 — kospi-dotcom-1998-2000 의 눈맛 (2026-08-08 상수님 지시)
-   고치는 곳은 scripts/apply_dotcom_style.py 하나다. 개별 차트의 명시 설정이 우선한다. */
-(function(){function go(){ if(!window.Chart){return setTimeout(go,150);}
- var d=Chart.defaults;
- d.font.family="'Noto Sans KR','Inter',-apple-system,sans-serif";
- d.elements.line.tension=.3;
- d.elements.line.borderWidth=2.4;
- d.elements.point.radius=0;
- d.elements.point.hoverRadius=6;
- d.interaction={mode:'index',intersect:false};
- d.animation.duration=1000;
- d.animation.easing='easeOutQuart';
- d.plugins.tooltip.padding=12;
- d.plugins.tooltip.cornerRadius=8;
- d.plugins.tooltip.titleFont={size:13,family:'Inter'};
- d.plugins.tooltip.bodyFont={size:13,family:"'Noto Sans KR',sans-serif"};
- d.plugins.legend.labels.boxWidth=12;
- d.plugins.legend.labels.usePointStyle=true;
-}go();})();
-</script>
-<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 </body></html>

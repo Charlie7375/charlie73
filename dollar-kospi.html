@@ -955,6 +955,7 @@ SPASTT01KRM661N(Share Prices for Korea, 2015=100, 1981~).
 
 
 
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>
 /* 닷컴 대시보드 공통 (scripts/dotcom_panel.py) */
@@ -989,19 +990,31 @@ var dpMarks={id:'dpMarks',afterDatasetsDraw:function(ch){
   ctx.restore();
 }};
 if(window.Chart) Chart.register(dpMarks);
-/* ③ 스크롤 등장 */
+/* ③ 스크롤 등장.
+   ⚠⚠ 안전망이 본체다 (2026-08-08) — dollar-kospi 에서 `visible` 이 붙었는데도
+   opacity 가 0 에 머물러 **패널 두 장이 통째로 안 보였다.** 원인을 특정하기 전에
+   확실한 것은 하나다: «등장 효과는 장식이고, 안 보이는 것은 치명적이다.»
+   그래서 ⓐ 처음부터 뷰포트 안이면 즉시 보이고 ⓑ 1.2초 뒤에는 무조건 전부 보인다. */
 (function(){
+  function show(e){e.classList.add('visible');}
   function go(){
-    var els=document.querySelectorAll('[data-reveal]');
+    var els=[].slice.call(document.querySelectorAll('[data-reveal]'));
+    if(!els.length) return;
     els.forEach(function(e){e.classList.add('reveal');});
-    if(!('IntersectionObserver' in window)){
-      els.forEach(function(e){e.classList.add('visible');}); return;}
-    var ro=new IntersectionObserver(function(es){es.forEach(function(e){
-      if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}});},
-      {threshold:.06});
-    els.forEach(function(e){ro.observe(e);});
+    // ⓐ 이미 화면에 걸쳐 있으면 애니메이션을 기다리지 않는다
+    var vh=window.innerHeight||800;
+    els.forEach(function(e){var r=e.getBoundingClientRect();
+      if(r.top<vh*0.95 && r.bottom>0) show(e);});
+    if('IntersectionObserver' in window){
+      var ro=new IntersectionObserver(function(es){es.forEach(function(e){
+        if(e.isIntersecting){show(e.target);ro.unobserve(e.target);}});},{threshold:.02});
+      els.forEach(function(e){if(!e.classList.contains('visible'))ro.observe(e);});
+    }else{ els.forEach(show); }
+    // ⓑ 무슨 일이 있어도 1.2초 뒤에는 보인다
+    setTimeout(function(){els.forEach(show);},1200);
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();
+  window.addEventListener('load',go);
 })();
 </script>
 <script>
