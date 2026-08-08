@@ -626,8 +626,8 @@ var LAB=["2000-10", "2000-11", "2000-12", "2001-01", "2001-02", "2001-03", "2001
       c.textAlign='left'; c.textBaseline='middle'; c.fillText(b[2],0,0); c.restore();
     });
     c.font='700 11px Inter,"Noto Sans KR",sans-serif';
-    [[WARN,'주의선 0.7',P.amber,.5,[4,4],1.2],
-     [FEAR,'공포선 1.2',P.sp,.55,[6,4],1.5]].forEach(function(L){
+    [[WARN,'0.7 — 첫 돌파 관찰선 (논점 ②)',P.amber,.5,[4,4],1.2],
+     [FEAR,'1.2 — 과거 매수 구간 기준 (논점 ①)',P.sp,.55,[6,4],1.5]].forEach(function(L){
       var yv=ys.getPixelForValue(L[0]);
       if(!(yv>ys.top+6&&yv<ys.bottom-6))return;
       c.strokeStyle=csHexA(L[2],L[3]); c.setLineDash(L[4]); c.lineWidth=L[5];
@@ -660,7 +660,7 @@ var LAB=["2000-10", "2000-11", "2000-12", "2001-01", "2001-02", "2001-03", "2001
       titleFont:{size:13,family:'Inter'},bodyFont:{size:13,family:'Noto Sans KR'},
       callbacks:{label:function(c){
         if(c.datasetIndex===0){var v=c.parsed.y;
-         var tag=v>=FEAR?' ⚠ 공포선 위':(v>=WARN?' △ 주의선 위':'');
+         var tag=v>=FEAR?' · 1.2 위 — 과거 12M 중앙 +31.4%':(v>=WARN?' · 0.7 위':'');
          return ' 스프레드 '+v.toFixed(2)+'%p'+tag;}
         return ' 코스피 '+c.parsed.y.toLocaleString();},
        afterBody:function(it){var m=MARKS[it[0].label];return m?'▸ '+m:'';}}}},
@@ -681,7 +681,9 @@ var LAB=["2000-10", "2000-11", "2000-12", "2001-01", "2001-02", "2001-03", "2001
 }]);})();
 </script>
 <figcaption><span class="freq m">월간</span>빨강이 <b>신용스프레드</b>(좌축), 파랑이 <b>코스피</b>(우축·로그).
-회색 띠가 주요 하락 구간이고, 가로 점선이 <b>1.2%p — «공포선»</b>입니다.</figcaption></figure>
+회색 띠가 주요 하락 구간입니다. 가로 점선 둘은 <b>하락 예고선이 아닙니다</b> —
+<b>1.2%p</b>는 논점 ①의 기준(그 위에서 매수한 경우 12개월 중앙 +31.4%),
+<b>0.7%p</b>는 논점 ②의 관찰선(장기간 아래 머물다 처음 넘은 사건이 네 번)입니다.</figcaption></figure>
 
 <div class="explain">
 <p><b>이 그림에서 읽을 것 셋.</b></p>
@@ -736,7 +738,8 @@ var LAB=["0.2~0.4", "0.4~0.6", "0.6~0.8", "0.8~1.2", "1.2 이상"], DS=[{"label"
       d.borderWidth=3.0;d.tension=.3;d.pointRadius=0;d.pointHoverRadius=5;}
     else{d.backgroundColor=csHexA(P[d._c], d._a||0.78);d.borderWidth=0;
       d.borderRadius=3;}
-    delete d._c; delete d._a;});
+    /* ⚠ _c·_a 를 지우면 안 된다 (2026-08-08) — 테마 전환·큐 유입 때 csBuildAll 이
+       다시 도는데, 지워져 있으면 두 번째 그리기에서 색을 못 찾아 회색이 된다. */});
   
   return new Chart(ctx,{type:'bar',
    data:{labels:LAB,datasets:DS},
@@ -781,7 +784,8 @@ var LAB=["닷컴 붕괴", "카드사태", "금융위기", "유럽재정위기", 
       d.borderWidth=3.0;d.tension=.3;d.pointRadius=0;d.pointHoverRadius=5;}
     else{d.backgroundColor=csHexA(P[d._c], d._a||0.78);d.borderWidth=0;
       d.borderRadius=3;}
-    delete d._c; delete d._a;});
+    /* ⚠ _c·_a 를 지우면 안 된다 (2026-08-08) — 테마 전환·큐 유입 때 csBuildAll 이
+       다시 도는데, 지워져 있으면 두 번째 그리기에서 색을 못 찾아 회색이 된다. */});
   var XP={id:'medline',beforeDatasetsDraw:function(chart){
       var xs=chart.scales.x, ys=chart.scales.y, c=chart.ctx, P=csPal();
       var yv=ys.getPixelForValue(0.59); if(!(yv>ys.top&&yv<ys.bottom))return;
@@ -880,7 +884,8 @@ var LAB=["2021-06", "2021-07", "2021-08", "2021-09", "2021-10", "2021-11", "2021
       d.borderWidth=3.0;d.tension=.3;d.pointRadius=0;d.pointHoverRadius=5;}
     else{d.backgroundColor=csHexA(P[d._c], d._a||0.78);d.borderWidth=0;
       d.borderRadius=3;}
-    delete d._c; delete d._a;});
+    /* ⚠ _c·_a 를 지우면 안 된다 (2026-08-08) — 테마 전환·큐 유입 때 csBuildAll 이
+       다시 도는데, 지워져 있으면 두 번째 그리기에서 색을 못 찾아 회색이 된다. */});
   
   return new Chart(ctx,{type:'bar',
    data:{labels:LAB,datasets:DS},
@@ -936,7 +941,8 @@ var LAB=["닷컴 붕괴", "카드사태", "금융위기", "유럽재정위기", 
       d.borderWidth=3.0;d.tension=.3;d.pointRadius=0;d.pointHoverRadius=5;}
     else{d.backgroundColor=csHexA(P[d._c], d._a||0.78);d.borderWidth=0;
       d.borderRadius=3;}
-    delete d._c; delete d._a;});
+    /* ⚠ _c·_a 를 지우면 안 된다 (2026-08-08) — 테마 전환·큐 유입 때 csBuildAll 이
+       다시 도는데, 지워져 있으면 두 번째 그리기에서 색을 못 찾아 회색이 된다. */});
   
   return new Chart(ctx,{type:'bar',
    data:{labels:LAB,datasets:DS},
@@ -1082,6 +1088,7 @@ new MutationObserver(function(){csBuildAll();}).observe(document.documentElement
   };
 })();
 /* THEME:END */</script>
+
 
 
 
