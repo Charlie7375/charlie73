@@ -110,6 +110,10 @@ footer{margin-top:48px;border-top:1px solid var(--border);padding-top:22px;color
 .toggle{top:62px;z-index:88;position:fixed;right:18px;width:42px;height:42px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:18px}
 @media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}h1{font-size:2.05rem}}
 
+/* ── 제목 아래 한 줄 (좌상단 배지 폐기 후 유일한 자리) ── */
+.pauth{margin:10px 0 0;font-size:.8rem;color:var(--text-secondary);text-align:center}
+.pauth b{color:var(--text);font-variant-numeric:tabular-nums}
+
 /* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
 .site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
   letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
@@ -584,6 +588,9 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   <p class="note" style="margin-top:4px">이 표는 <b>기계적 필터의 결과이며 종목 추천이 아닙니다.</b> 그리고 순서가 중요합니다 — 미너비니는 <b>시장 국면이 나쁠 때는 아무리 좋은 종목도 사지 않습니다</b>. 이 목록은 바닥이 확인된 뒤(항복 거래량 → FTD) 주도주를 고를 <b>후보 풀</b>로 쓰는 것이 맞습니다.</p>
   </details></div>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<!-- CHARTTHEME:BEGIN -->
+<script src="chart-theme.js?v=796a6ee2"></script>
+<!-- CHARTTHEME:END -->
 <script>
 new Chart(document.getElementById('bc'),{type:'line',
  data:{labels:['02/11', '02/12', '02/13', '02/19', '02/20', '02/23', '02/24', '02/25', '02/26', '02/27', '03/03', '03/04', '03/05', '03/06', '03/09', '03/10', '03/11', '03/12', '03/13', '03/16', '03/17', '03/18', '03/19', '03/20', '03/23', '03/24', '03/25', '03/26', '03/27', '03/30', '03/31', '04/01', '04/02', '04/03', '04/06', '04/07', '04/08', '04/09', '04/10', '04/13', '04/14', '04/15', '04/16', '04/17', '04/20', '04/21', '04/22', '04/23', '04/24', '04/27', '04/28', '04/29', '04/30', '05/04', '05/06', '05/07', '05/08', '05/11', '05/12', '05/13', '05/14', '05/15', '05/18', '05/19', '05/20', '05/21', '05/22', '05/26', '05/27', '05/28', '05/29', '06/01', '06/02', '06/04', '06/05', '06/08', '06/09', '06/10', '06/11', '06/12', '06/15', '06/16', '06/17', '06/18', '06/19', '06/22', '06/23', '06/24', '06/25', '06/26', '06/29', '06/30', '07/01', '07/02', '07/03', '07/06', '07/07', '07/08', '07/09', '07/10', '07/13', '07/14', '07/15', '07/16', '07/20', '07/21', '07/22', '07/23', '07/24', '07/27', '07/28', '07/29', '07/30', '07/31', '08/03', '08/04', '08/05', '08/06', '08/07', '08/10'],datasets:[
@@ -676,7 +683,7 @@ IBD·미너비니 방식입니다. <span class="f">(3M×2 + 6M + 9M + 12M) ÷ 5<
 })();
 </script>
 
-<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
+
 <script>/* THEME:BEGIN */
 (function(){
   var h=document.documentElement;
@@ -701,4 +708,6 @@ IBD·미너비니 방식입니다. <span class="f">(3M×2 + 6M + 9M + 12M) ÷ 5<
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
+
+<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 </body></html>
