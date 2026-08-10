@@ -429,14 +429,18 @@ html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;-
 @media(max-width:720px){.panel{padding:20px 16px 16px}}
 
 /* ── 닷컴 대시보드 형식 (scripts/dotcom_panel.py) ── */
-html.theme-light{--chart-accent:#B7791F;--chart-pos:#0F8A53;--chart-neg:#D62839;--chart-mute:#8a8f98}
-html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;--chart-mute:#9aa3ad}
+/* 값은 kospi-dotcom-1998-2000.html 에서 그대로 옮겼다 — 눈맛의 정본이다 */
+html.theme-light{--chart-accent:#B7791F;--chart-pos:#0F8A53;--chart-neg:#D62839;--chart-mute:#8a8f98;
+  --chart-grid:rgba(0,0,0,0.06);--chart-band:rgba(183,121,31,0.07)}
+html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;--chart-mute:#9aa3ad;
+  --chart-grid:rgba(255,255,255,0.05);--chart-band:rgba(240,180,41,0.055)}
 .panel{background:var(--surface);border:1px solid var(--border);border-radius:20px;
-  padding:26px 26px 22px;margin:22px 0}
+  padding:30px 32px 26px;margin:22px 0}
 .panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap}
 .panel-head h3{font-size:1.08rem;font-weight:700;letter-spacing:-.02em;margin:0}
 .panel figure{margin:14px 0 0}
-.panel .cbox{position:relative;height:clamp(300px,44vw,440px)}
+.panel .cbox{position:relative;height:min(60vh,540px);min-height:420px}
+.panel-head p{color:var(--text-secondary);font-size:.95rem;margin:6px 0 0;max-width:640px}
 .rng{display:inline-flex;gap:6px;flex-shrink:0}
 .rng button{font:600 12px/1 'Noto Sans KR',sans-serif;padding:8px 12px;border-radius:9px;
   background:transparent;border:1px solid var(--border);color:var(--text-secondary);cursor:pointer;
@@ -462,7 +466,7 @@ html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;-
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
 .reveal.visible{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
-@media(max-width:720px){.panel{padding:20px 16px 16px}}
+@media(max-width:720px){.panel{padding:22px 16px 18px}.panel .cbox{min-height:320px}}
 /* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
@@ -728,617 +732,373 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
-  <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="here" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="kospi-analog.html">지금과 닮은 과거 — 유사국면</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a><a class="here" href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><!-- NAV:END --></nav>
+  <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="kospi-analog.html">지금과 닮은 과거 — 유사국면</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a class="" href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><!-- NAV:END --></nav>
 </div></div>
 <div class="wrap paper">
 <div class="site-crumb"><a href="index.html">홈</a><span class="sep">›</span><span>아카이브</span><span class="sep">›</span><span class="cur">연준 기준금리와 증시</span></div>
 <div class="phead">
 <div class="eyebrow">아카이브 · Fed Funds &amp; Markets</div>
 <h1>연준 기준금리와 증시</h1>
-<p class="sub"><b>볼커 이후 40년의 디스인플레 시대가 2020-07에 끝났습니다.</b>
-그 전제 위에서 연방기금 금리 <b>865개월(1954-07~2026-07)</b>과 코스피를 다시 계산했고,
-<b>시나리오투자법 1강의 금리 명제 세 개</b>도 같은 자에 대 봤습니다.
-<b>논점을 하나씩 세우고 검증합니다. 방법과 한계는 맨 뒤 두 장에 있습니다.</b></p>
-<p class="pauth">2026-08-09 작성 · 금리 1954-07~2026-07 · 미국 주가 1957-01~2026-06 · 한국 주가 1981-01~2026-06 · 고정 자료</p>
-</div>
-
-<div class="disclaimer">
-<p><b>이 글의 논점은 하나입니다 — 「지금 코스피에 금리를 대는 <u>측정 기준</u>이, 지난 40년 쓰던 그것과 같아도 되는가」.</b>
-답은 <b>아니오</b>입니다. 아래가 그 근거이고, 각 장은 <b>하나의 논점을 세우고 그것만 검증</b>합니다.</p>
-
-<p><b>① 시대가 바뀌었습니다 — 그것도 <u>수치로 판정</u>됩니다.</b>
-10년물 국채금리가 <b>1981-09 15.32%</b>에서 <b>2020-07 0.62%</b>까지
-<b>38.8년 동안 -14.7%p</b> 내려왔습니다. 그리고 <b>2020-07에 돌아섰습니다</b> —
-지금 <b>4.60%</b>로 <b>6.0년째 +4.0%p</b> 오르는 중입니다.
-볼커 이후의 <b>디스인플레 40년이 끝났고</b>, 그 앞의 <b>인플레 시대</b>로 되돌아가는 중입니다.</p>
-
-<p><b>② ★ 코스피는 «금리가 40년 내리막이던 시대»밖에 겪어 본 적이 없습니다.</b>
-코스피 자료 1981-01~2026-06 중 <b>인플레 시대 8개월 · 디스인플레 시대 466개월 · 인플레 시대 72개월</b>입니다.
-<b>코스피 역사의 거의 전부가 디스인플레 시대 안에 들어 있습니다.</b>
-지금 우리가 «과거 패턴»이라고 부르는 것은 전부 그 시대의 것입니다.</p>
-
-<p><b>③ ★★ 그리고 그 시대에는 금리 방향이 거의 의미가 없었습니다.</b>
+<p class="sub">볼커 이후 40년의 디스인플레 시대가 2020-07에 끝났다.
+그 전제 위에서 연방기금 금리 865개월(1954-07~2026-07)과 코스피를 다시 계산했고,
+시나리오투자법 1강의 금리 명제 세 개도 같은 기준으로 계산했다.
+논점을 하나씩 세우고 검증한다. 방법과 한계는 맨 뒤 두 장에 있다.</p>
+<p class="pauth">2026-08-11 작성 · 금리 1954-07~2026-07 · 미국 주가 1957-01~2026-06 · 한국 주가 1981-01~2026-06 · 고정 자료</p>
+</div> <div class="disclaimer">
+<p>이 글의 논점은 하나다. 「지금 코스피에 금리를 대는 측정 기준이, 지난 40년 쓰던 그것과 같아도 되는가」.
+답은 아니오다. 아래가 그 근거이고, 각 장은 하나의 논점을 세우고 그것만 검증한다.</p> <p>① 시대가 바뀌었다. 그것도 수치로 판정된다.
+10년물 국채금리가 1981-09 15.32%에서 2020-07 0.62%까지
+38.8년 동안 -14.7%p 내려왔다. 그리고 2020-07에 돌아섰다. 지금 4.60%로 6.0년째 +4.0%p 오르는 중이다.
+볼커 이후의 디스인플레 40년이 끝났고, 그 앞의 인플레 시대로 되돌아가는 중이다.</p> <p>② ★ 코스피는 '금리가 40년 내리막이던 시대'밖에 겪어 본 적이 없다.
+코스피 자료 1981-01~2026-06 중 인플레 시대 8개월 · 디스인플레 시대 466개월 · 인플레 시대 72개월이다.
+코스피 역사의 거의 전부가 디스인플레 시대 안에 들어 있다.
+지금 우리가 '과거 패턴'이라고 부르는 것은 전부 그 시대의 것이다.</p> <p>③ ★★ 그리고 그 시대에는 금리 방향이 거의 의미가 없었다.
 디스인플레 시대의 미국 증시는 인상 중이든 인하 중이든 12개월 뒤 중앙값이
-<b>+10.6% · +10.5% · +10.0%</b>로 <b>셋이 사실상 같습니다.</b>
-반면 그 앞 인플레 시대에는 인상 중 <b>+3.6%</b> 대 인하 중 <b>+11.7%</b>로
-<b>세 배 넘게 갈렸습니다.</b>
-<b>「금리를 봐도 소용없다」는 경험 자체가 디스인플레 시대의 산물</b>이었습니다.</p>
-
-<p><b>④ 코스피에서 갈리는 자리는 «인하 시작»입니다.</b>
-금리 고점 이후 12개월이 미국 <b>+13.2%</b>(7/13) 대 코스피 <b>-5.7%</b>(4/8),
-36개월 낙폭이 미국 -18.2% 대 <b>코스피 -32.0%</b>입니다.
-<b>같은 뉴스가 한쪽엔 처방으로, 다른 쪽엔 통보로 도착합니다.</b></p>
-
-<p><b>⑤ 2020년 강의의 세 가설도 «디스인플레 시대의 규칙»이었습니다.</b>
-그가 든 사례 1986·1994·2004·2015가 <b>전부 그 40년 안</b>에 있습니다.
-「3년이면 소공황」은 <b>방향은 맞고 시점이 어긋납니다</b> —
-하락 시작 중앙 22개월, 바닥 45개월.
-「세 번째 인상 후 겨울」은 <b>근거가 나오지 않습니다</b>.
-「연준의 선제적 인하」는 <b>강하게 지지됩니다</b> — 그 뒤 코스피 36개월 낙폭 중앙 -32.0%.</p>
-
-<p><b>⑥ ★★ 그런데 그는 이미 바꿨고, 바꾼 쪽이 더 잘 맞습니다.</b>
-그는 <b>2022-06</b>에 «금리 시나리오는 지난 40년의 산물이라 수정이 불가피하다»고 스스로 적었고,
-<b>2024-08</b>에 대체 규칙을 내놓았습니다 —
-«<b>인플레 시대는 인상 시작에서, 디플레 시대는 인하에서 공황이 시작된다</b>».
-실측이 양쪽 다 지지합니다: 인플레 시대의 인상 시작 뒤 미국 12개월 <b>+0.6%</b> 대 인하 시작 <b>+14.5%</b>,
-디스인플레 시대의 인하 시작 36개월 낙폭 <b>-18.9%</b> 대 인상 시작 -11.2%.
-<b>그러므로 지금 봐야 할 자리는 «2023-08 인하»가 아니라 «2022-04 인상 시작»입니다.</b></p>
-
-<p><b>⑦ ★ 그래서 지금.</b> 2023-08의 인하 시작은 <b>뜬금없는 인하</b> 유형이었고,
-그 시점은 <b>2020-07 이후 — 이미 새 시대 안</b>입니다.
-<b>72년에서 이 조합의 완결 사례는 없습니다.</b>
-가장 가까운 것이 1954-04~1981-09의 인플레 시대인데, 그때는 코스피가 없었습니다.</p>
-
-<p class="dim">※ 자를 어떻게 만들었는지, 무엇이 틀릴 수 있는지는 <b>맨 뒤 두 장</b>에 모았습니다.
-숫자를 의심하실 때 그쪽부터 보시면 됩니다.</p>
-</div>
-
-<h2>논점 ① — 시대가 정말 바뀌었나</h2>
-
-<div class="claim"><p><b>결론.</b> 바뀌었습니다.
-<b>10년물 국채금리가 1981-09에 사상 최고 15.32%를 찍고 38.8년 내려와
-2020-07에 사상 최저 0.62%를 찍었습니다.</b> 그 뒤 <b>6.0년째 오르는 중</b>입니다.
-전환점이 자료 안에 <b>단 두 개</b>뿐이라 해석의 여지가 거의 없습니다.</p></div>
-
-<div class="panel" data-reveal><div class="panel-head"><div><h3>10년물 국채금리와 시대 — 1957~2026-07</h3></div><div class="rng" role="group" aria-label="기간 선택"><button class="on" onclick="fdRange(&#39;g1&#39;,0,this)">전체 1957~</button><button onclick="fdRange(&#39;g1&#39;,1,this)">최근 10년</button></div></div><div class="kpis"><div class="kpi hl"><div class="k">지금 기준금리</div><div class="v">3.63%</div><div class="s">2026-07 기준</div></div><div class="kpi"><div class="k">지금 시대</div><div class="v">인플레 시대</div><div class="s">2020-07 이후 · 10년물 사상 최저에서 시작</div></div><div class="kpi hl"><div class="k">이번 국면 낙폭</div><div class="v">-38.6%</div><div class="s">2026-06-22 고점 → 2026-07-30 저점</div></div><div class="kpi"><div class="k">전환점 표본</div><div class="v">25건</div><div class="s">인상 시작 + 인하 시작</div></div></div><figure class="fig"><div class="cbox" style="height:420px"><canvas id="g1"></canvas></div><figcaption><span class="freq m">월간</span><b>굵은 황금색이 10년물 국채금리</b>(좌축) — 이 선의 봉우리와 골짜기가 시대를 가릅니다. 회색이 연방기금 금리와 미국 주가, 파랑이 한국 주가(둘 다 우축·로그)입니다. <b>배경의 붉은 띠가 «인플레 시대», 푸른 띠가 «디스인플레 시대»</b>입니다. <b>파랑(코스피)이 시작되는 자리가 푸른 띠가 시작되는 자리와 거의 같습니다</b> — 코스피는 디스인플레 시대와 함께 태어났습니다.</figcaption></figure><p class="panel-cap rngnote" style="margin-top:12px">1957년부터 전 구간입니다. 붉은 배경이 인플레 시대, 푸른 배경이 디스인플레 시대입니다.</p><div class="srcline"><span class="lbl">출처</span><span>FRED 연방기금 금리(FEDFUNDS)·10년물 국채(GS10)·S&P 500 · OECD 한국 주가지수</span><a href="https://fred.stlouisfed.org/series/FEDFUNDS" target="_blank" rel="noopener">FRED · FEDFUNDS &#8599;</a></div></div>
-
-<div class="tblwrap"><table class="tw">
++10.6% · +10.5% · +10.0%로 셋이 사실상 같다.
+반면 그 앞 인플레 시대에는 인상 중 +3.6% 대 인하 중 +11.7%로
+세 배 넘게 갈렸다.
+「금리를 봐도 소용없다」는 경험 자체가 디스인플레 시대의 산물이었다.</p> <p>④ 코스피에서 갈리는 자리는 '인하 시작'이다.
+금리 고점 이후 12개월이 미국 +13.2%(7/13) 대 코스피 -5.7%(4/8),
+36개월 낙폭이 미국 -18.2% 대 코스피 -32.0%다.
+같은 뉴스가 한쪽엔 처방으로, 다른 쪽엔 통보로 도착한다.</p> <p>⑤ 2020년 강의의 세 가설도 '디스인플레 시대의 규칙'이었다.
+그가 든 사례 1986·1994·2004·2015가 전부 그 40년 안에 있다.
+「3년이면 소공황」은 방향은 맞고 시점이 어긋난다. 하락 시작이 중앙 22개월, 바닥이 45개월이다.
+「세 번째 인상 후 겨울」은 근거가 나오지 않는다.
+「연준의 선제적 인하」는 강하게 지지된다. 그 뒤 코스피 36개월 낙폭 중앙 -32.0%.</p> <p>⑥ ★★ 그런데 그는 이미 바꿨고, 바꾼 쪽이 더 잘 맞는다.
+그는 2022-06에 '금리 시나리오는 지난 40년의 산물이라 수정이 불가피하다'고 스스로 적었고,
+2024-08에 대체 규칙을 내놓았다. "인플레 시대는 인상 시작에서, 디플레 시대는 인하에서 공황이 시작된다".
+실측이 양쪽 다 지지한다: 인플레 시대의 인상 시작 뒤 미국 12개월 +0.6% 대 인하 시작 +14.5%,
+디스인플레 시대의 인하 시작 36개월 낙폭 -18.9% 대 인상 시작 -11.2%.
+그러므로 지금 봐야 할 자리는 '2023-08 인하'가 아니라 '2022-04 인상 시작'이다.</p> <p>⑦ ★ 그래서 지금. 2023-08의 인하 시작은 뜬금없는 인하 유형이었고,
+그 시점은 2020-07 이후이고 이미 새 시대 안이다.
+72년에서 이 조합의 완결 사례는 없다.
+가장 가까운 것이 1954-04~1981-09의 인플레 시대인데, 그때는 코스피가 없었다.</p> <p class="dim">※ 계산 기준을 어떻게 만들었는지, 무엇이 틀릴 수 있는지는 맨 뒤 두 장에 모았다.
+숫자를 의심할 때 그쪽부터 보면 된다.</p>
+</div> <h2>논점 ① — 시대가 정말 바뀌었나</h2> <div class="claim"><p>결론. 바뀌었다.
+10년물 국채금리가 1981-09에 사상 최고 15.32%를 찍고 38.8년 내려와
+2020-07에 사상 최저 0.62%를 찍었다. 그 뒤 6.0년째 오르는 중이다.
+전환점이 자료 안에 단 두 개뿐이라 해석의 여지가 거의 없다.</p></div> <div class="panel" data-reveal><div class="panel-head"><div><h3>10년물 국채금리와 시대 — 1957~2026-07</h3></div><div class="rng" role="group" aria-label="기간 선택"><button class="on" onclick="fdRange(&#39;g1&#39;,0,this)">전체 1957~</button><button onclick="fdRange(&#39;g1&#39;,1,this)">최근 10년</button></div></div><div class="kpis"><div class="kpi hl"><div class="k">지금 기준금리</div><div class="v">3.63%</div><div class="s">2026-07 기준</div></div><div class="kpi"><div class="k">지금 시대</div><div class="v">인플레 시대</div><div class="s">2020-07 이후 · 10년물 사상 최저에서 시작</div></div><div class="kpi hl"><div class="k">이번 국면 낙폭</div><div class="v">-38.6%</div><div class="s">2026-06-22 고점 → 2026-07-30 저점</div></div><div class="kpi"><div class="k">전환점 표본</div><div class="v">25건</div><div class="s">인상 시작 + 인하 시작</div></div></div><figure class="fig"><div class="cbox" style="height:420px"><canvas id="g1"></canvas></div><figcaption><span class="freq m">월간</span>굵은 황금색이 10년물 국채금리(좌축) — 이 선의 봉우리와 골짜기가 시대를 가른다. 회색이 연방기금 금리와 미국 주가, 파랑이 한국 주가(둘 다 우축·로그)다. 배경의 붉은 띠가 「인플레 시대」, 푸른 띠가 「디스인플레 시대」인다. 파랑(코스피)이 시작되는 자리가 푸른 띠가 시작되는 자리와 거의 같다 — 코스피는 디스인플레 시대와 함께 태어났다.</figcaption></figure><p class="panel-cap rngnote" style="margin-top:12px">1957년부터 전 구간다. 붉은 배경이 인플레 시대, 푸른 배경이 디스인플레 시대다.</p><div class="srcline"><span class="lbl">출처</span><span>FRED 연방기금 금리(FEDFUNDS)·10년물 국채(GS10)·S&P 500 · OECD 한국 주가지수</span><a href="https://fred.stlouisfed.org/series/FEDFUNDS" target="_blank" rel="noopener">FRED · FEDFUNDS &#8599;</a></div></div> <div class="tblwrap"><table class="tw">
 <thead><tr><th>시대</th><th class="n">길이</th><th class="n">평균 물가</th>
 <th class="n">평균 10년물</th><th class="n">10년물 변화</th><th class="n">코스피 자료</th></tr></thead>
-<tbody><tr><td><b>인플레 시대</b> <span class="dim">1953-04~1981-08</span></td><td class="n">28.4년</td><td class="n">4.37%</td><td class="n">5.78%</td><td class="n">+12.1%p</td><td class="n">8개월</td></tr><tr><td><b>디스인플레 시대</b> <span class="dim">1981-09~2020-06</span></td><td class="n">38.8년</td><td class="n">2.81%</td><td class="n">5.70%</td><td class="n">-14.6%p</td><td class="n">466개월</td></tr><tr class="cur"><td><b>인플레 시대</b> <span class="dim">2020-07~2026-07</span></td><td class="n">6.1년</td><td class="n">4.14%</td><td class="n">3.25%</td><td class="n">+4.0%p</td><td class="n">72개월</td></tr></tbody></table></div>
-
-<p>가른 방법은 <b>단순합니다</b> — ① 10년물이 <b>사상 최고</b>를 찍은 달(1981-09)까지가 인플레 시대,
-② 그 뒤 <b>사상 최저</b>를 찍은 달(2020-07)까지가 디스인플레 시대, ③ 그 뒤가 다시 인플레 시대.
-<b>문턱도 이동평균도 창 너비도 없습니다.</b> 시계열이 스스로 자릅니다.</p>
-
-<div class="note"><p><b>물가로 재도 같은 그림이 나옵니다.</b>
-CPI 전년비의 <b>«중심» 10년 이동평균</b>을 3%로 자르면 <b>디스인플레 1952-12~1966-08 · 인플레 1966-09~1994-12 · 디스인플레 1995-01~2020-05 · 인플레 2020-06~2021-05</b>가 나옵니다.
-장기금리가 준 1981-09·2020-07과 <b>5년 안에서 맞습니다.</b></p>
-<p><b>⚠ 그런데 «후행» 이동평균으로 계산하면 완전히 틀립니다.</b>
-같은 CPI를 <b>지난 10년 평균</b>으로 계산하면 <b>디스인플레 1957-12~1971-08 · 인플레 1971-09~1999-12 · 디스인플레 2000-01~2025-05 · 인플레 2025-06~2026-06</b>가 나옵니다 —
-볼커 전환을 <b>1999년</b>으로, 2020년 전환을 <b>2025년</b>으로 잡습니다.
-<b>후행 평균은 구조적으로 5~10년 늦게 돕니다.</b> 시대가 다 끝난 뒤에야 시대가 바뀌었다고 말합니다.
-<b>이 페이지의 초판이 그 자를 썼고, 그래서 다시 썼습니다.</b></p></div>
-
-<div class="note"><p><b>⚠ 앞쪽 절반은 못 봅니다.</b>
-10년물 자료가 <b>1953-04</b>부터입니다. 인플레 시대의 시작(1940년대 전시 금리 고정 ~
-1951년 연준-재무부 합의)은 <b>자료 밖</b>입니다.
-우리가 보는 것은 그 시대의 <b>꼬리 27년</b>(1954-04 2.29% → 1981-09 15.32%,
-+13.0%p)뿐입니다. <b>«인플레 시대는 이랬다»고 말할 때 이 한계를 빼고 말하면 안 됩니다.</b></p></div>
-
-<h2>논점 ② — 시대가 바뀌면 금리와 증시의 관계가 바뀌나</h2>
-
-<div class="claim"><p><b>결론.</b> 바뀝니다. 그것도 <b>«금리 방향이 의미를 갖느냐»는 수준에서</b> 바뀝니다.
-<b>디스인플레 40년 동안 금리 방향은 미국 증시를 거의 설명하지 못했습니다</b> —
-인상 +10.6% · 보합 +10.5% · 인하 +10.0%로 셋이 사실상 같습니다.
-<b>그 앞 인플레 시대에는 인상 +3.6% 대 인하 +11.7%로 세 배 넘게 갈렸습니다.</b></p></div>
-
-<div class="tblwrap"><table class="tw">
+<tbody><tr><td><b>인플레 시대</b> <span class="dim">1953-04~1981-08</span></td><td class="n">28.4년</td><td class="n">4.37%</td><td class="n">5.78%</td><td class="n">+12.1%p</td><td class="n">8개월</td></tr><tr><td><b>디스인플레 시대</b> <span class="dim">1981-09~2020-06</span></td><td class="n">38.8년</td><td class="n">2.81%</td><td class="n">5.70%</td><td class="n">-14.6%p</td><td class="n">466개월</td></tr><tr class="cur"><td><b>인플레 시대</b> <span class="dim">2020-07~2026-07</span></td><td class="n">6.1년</td><td class="n">4.14%</td><td class="n">3.25%</td><td class="n">+4.0%p</td><td class="n">72개월</td></tr></tbody></table></div> <p>가른 방법은 단순하다. ① 10년물이 사상 최고를 찍은 달(1981-09)까지가 인플레 시대,
+② 그 뒤 사상 최저를 찍은 달(2020-07)까지가 디스인플레 시대, ③ 그 뒤가 다시 인플레 시대.
+문턱도 이동평균도 창 너비도 없다. 시계열이 스스로 자른다.</p> <div class="note"><p>물가로 계산해도 같은 그림이 나온다.
+CPI 전년비의 '중심' 10년 이동평균을 3%로 자르면 디스인플레 1952-12~1966-08 · 인플레 1966-09~1994-12 · 디스인플레 1995-01~2020-05 · 인플레 2020-06~2021-05가 나온다.
+장기금리가 준 1981-09·2020-07과 5년 안에서 맞는다.</p>
+<p>⚠ 그런데 '후행' 이동평균으로 계산하면 완전히 틀린다.
+같은 CPI를 지난 10년 평균으로 계산하면 디스인플레 1957-12~1971-08 · 인플레 1971-09~1999-12 · 디스인플레 2000-01~2025-05 · 인플레 2025-06~2026-06가 나온다. 볼커 전환을 1999년으로, 2020년 전환을 2025년으로 잡는다.
+후행 평균은 구조적으로 5~10년 늦게 돈다. 시대가 다 끝난 뒤에야 시대가 바뀌었다고 말한다.
+이 페이지의 초판이 그 기준을 썼고, 그래서 다시 썼다.</p></div> <div class="note"><p>⚠ 앞쪽 절반은 못 본다.
+10년물 자료가 1953-04부터다. 인플레 시대의 시작(1940년대 전시 금리 고정 ~
+1951년 연준-재무부 합의)은 자료 밖다.
+우리가 보는 것은 그 시대의 꼬리 27년(1954-04 2.29% → 1981-09 15.32%,
++13.0%p)뿐이다. '인플레 시대는 이랬다'고 말할 때 이 한계를 빼고 말하면 안 된다.</p></div> <h2>논점 ② — 시대가 바뀌면 금리와 증시의 관계가 바뀌나</h2> <div class="claim"><p>결론. 바뀐다. 그것도 '금리 방향이 의미를 갖느냐'는 수준에서 바뀐다.
+디스인플레 40년 동안 금리 방향은 미국 증시를 거의 설명하지 못했다. 인상 +10.6% · 보합 +10.5% · 인하 +10.0%로 셋이 사실상 같다.
+그 앞 인플레 시대에는 인상 +3.6% 대 인하 +11.7%로 세 배 넘게 갈렸다.</p></div> <div class="tblwrap"><table class="tw">
 <thead><tr><th>시대</th><th>12개월 전보다</th><th class="n">개월</th>
 <th class="n">미국 12M</th><th class="n">코스피 12M</th><th class="n">코스피 플러스</th></tr></thead>
-<tbody><tr><td>인플레 <span class="dim">1953~</span></td><td>인상 중</td><td class="n">170</td><td class="n">+3.6%</td><td class="n bad">-10.3%</td><td class="n">33%</td></tr><tr><td>인플레 <span class="dim">1953~</span></td><td>보합 <span class="dim">(±0.5%p)</span></td><td class="n">56</td><td class="n">+1.0%</td><td class="n">—%</td><td class="n"><span class="dim">표본 부족</span></td></tr><tr><td>인플레 <span class="dim">1953~</span></td><td>인하 중</td><td class="n">88</td><td class="n">+11.7%</td><td class="n">—%</td><td class="n"><span class="dim">표본 부족</span></td></tr><tr><td>디스인플레 <span class="dim">1981~</span></td><td>인상 중</td><td class="n">128</td><td class="n">+10.6%</td><td class="n">+1.2%</td><td class="n">54%</td></tr><tr><td>디스인플레 <span class="dim">1981~</span></td><td>보합 <span class="dim">(±0.5%p)</span></td><td class="n">171</td><td class="n">+10.5%</td><td class="n">+5.5%</td><td class="n">66%</td></tr><tr><td>디스인플레 <span class="dim">1981~</span></td><td>인하 중</td><td class="n">167</td><td class="n">+10.0%</td><td class="n">+12.1%</td><td class="n">66%</td></tr><tr class="cur"><td>인플레 <span class="dim">2020~</span></td><td>인상 중</td><td class="n">24</td><td class="n">+11.9%</td><td class="n">+4.9%</td><td class="n">75%</td></tr><tr class="cur"><td>인플레 <span class="dim">2020~</span></td><td>보합 <span class="dim">(±0.5%p)</span></td><td class="n">18</td><td class="n">-6.5%</td><td class="n bad">-15.8%</td><td class="n">22%</td></tr><tr class="cur"><td>인플레 <span class="dim">2020~</span></td><td>인하 중</td><td class="n">31</td><td class="n">+16.5%</td><td class="n">+46.4%</td><td class="n">83%</td></tr></tbody></table></div>
-
-<div class="note"><p><b>★ 이 표가 이 페이지에서 가장 중요합니다.</b><br>
-«금리와 주가는 상관없더라», «금리 올려도 주식은 오르더라» — 이 말들은
-<b>디스인플레 시대를 살아온 사람의 정직한 경험담</b>입니다. 그 40년 동안 실제로 그랬으니까요.
-<b>그런데 그건 금리에 힘이 없어서가 아니라, 배경이 40년 내내 우호적이었기 때문</b>입니다.
+<tbody><tr><td>인플레 <span class="dim">1953~</span></td><td>인상 중</td><td class="n">170</td><td class="n">+3.6%</td><td class="n bad">-10.3%</td><td class="n">33%</td></tr><tr><td>인플레 <span class="dim">1953~</span></td><td>보합 <span class="dim">(±0.5%p)</span></td><td class="n">56</td><td class="n">+1.0%</td><td class="n">—%</td><td class="n"><span class="dim">표본 부족</span></td></tr><tr><td>인플레 <span class="dim">1953~</span></td><td>인하 중</td><td class="n">88</td><td class="n">+11.7%</td><td class="n">—%</td><td class="n"><span class="dim">표본 부족</span></td></tr><tr><td>디스인플레 <span class="dim">1981~</span></td><td>인상 중</td><td class="n">128</td><td class="n">+10.6%</td><td class="n">+1.2%</td><td class="n">54%</td></tr><tr><td>디스인플레 <span class="dim">1981~</span></td><td>보합 <span class="dim">(±0.5%p)</span></td><td class="n">171</td><td class="n">+10.5%</td><td class="n">+5.5%</td><td class="n">66%</td></tr><tr><td>디스인플레 <span class="dim">1981~</span></td><td>인하 중</td><td class="n">167</td><td class="n">+10.0%</td><td class="n">+12.1%</td><td class="n">66%</td></tr><tr class="cur"><td>인플레 <span class="dim">2020~</span></td><td>인상 중</td><td class="n">24</td><td class="n">+11.9%</td><td class="n">+4.9%</td><td class="n">75%</td></tr><tr class="cur"><td>인플레 <span class="dim">2020~</span></td><td>보합 <span class="dim">(±0.5%p)</span></td><td class="n">18</td><td class="n">-6.5%</td><td class="n bad">-15.8%</td><td class="n">22%</td></tr><tr class="cur"><td>인플레 <span class="dim">2020~</span></td><td>인하 중</td><td class="n">31</td><td class="n">+16.5%</td><td class="n">+46.4%</td><td class="n">83%</td></tr></tbody></table></div> <div class="note"><p>★ 이 표가 이 페이지에서 가장 중요하다.<br>
+'금리와 주가는 상관없더라', '금리 올려도 주식은 오르더라'. 이 말들은
+디스인플레 시대를 살아온 사람의 정직한 경험담이다. 그 40년 동안 실제로 그랬으니까요.
+그런데 그건 금리에 힘이 없어서가 아니라, 배경이 40년 내내 우호적이었기 때문이다.
 장기금리가 15.32%에서 0.62%로 내려오는 동안에는
-<b>무엇을 사도 할인율이 낮아지는 방향</b>이었습니다.<br>
-그 배경이 <b>2020-07에 뒤집혔습니다.</b>
-그러면 <b>인플레 시대의 표(+3.6% 대 +11.7%)로 갈아타야 합니다.</b></p></div>
-
-<div class="note"><p><b>⚠ 세 번째 시대의 숫자는 아직 읽지 마십시오.</b>
-2020-07 이후는 <b>73개월</b>뿐이고, 그 안에 코로나 반등과 2022년 하락이라는
-<b>두 개의 거대한 사건</b>이 들어 있습니다. 표에 넣은 것은 <b>비어 있으면 안 되니까</b>이고,
-<b>중앙값으로 무엇을 주장하기에는 이릅니다.</b>
-이 페이지가 세 번째 시대에 대해 말할 수 있는 것은 <b>«어느 표를 봐야 하는가»까지</b>입니다.</p></div>
-
-<h2>논점 ③ — 코스피는 금리 «수준»을 보나</h2>
-
-<div class="claim"><p><b>결론.</b> 안 봅니다. 구간마다 들쭉날쭉하고 <b>방향이 없습니다</b> —
-금리가 높아질수록 나빠지지도, 낮아질수록 좋아지지도 않습니다.
-<b>«지금 금리가 몇 %냐»로는 아무것도 정할 수 없습니다.</b></p></div>
-
-<div class="tblwrap"><table class="tw">
+무엇을 사도 할인율이 낮아지는 방향이었다.<br>
+그 배경이 2020-07에 뒤집혔다.
+그러면 인플레 시대의 표(+3.6% 대 +11.7%)로 갈아타야 한다.</p></div> <div class="note"><p>⚠ 세 번째 시대의 숫자는 아직 읽지 말라.
+2020-07 이후는 73개월뿐이고, 그 안에 코로나 반등과 2022년 하락이라는
+두 개의 거대한 사건이 들어 있다. 표에 넣은 것은 비어 있으면 안 되니까이고,
+중앙값으로 무엇을 주장하기에는 이르다.
+이 페이지가 세 번째 시대에 대해 말할 수 있는 것은 '어느 표를 봐야 하는가'까지다.</p></div> <h2>논점 ③ — 코스피는 금리 '수준'을 보나</h2> <div class="claim"><p>결론. 안 본다. 구간마다 들쭉날쭉하고 방향이 없다. 금리가 높아질수록 나빠지지도, 낮아질수록 좋아지지도 않는다.
+'지금 금리가 몇 %냐'로는 아무것도 정할 수 없다.</p></div> <div class="tblwrap"><table class="tw">
 <thead><tr><th>연방기금 금리</th><th class="n">미국 (개월)</th><th class="n">미국 12개월 뒤</th>
 <th class="n">한국 (개월)</th><th class="n">한국 12개월 뒤</th></tr></thead>
-<tbody><tr><td>1% 미만</td><td class="n dim">135</td><td class="n good">+10.8%</td><td class="n dim">132</td><td class="n good">+3.6%</td></tr><tr><td>1 ~ 3</td><td class="n dim">142</td><td class="n good">+7.6%</td><td class="n dim">91</td><td class="n good">+5.6%</td></tr><tr><td>3 ~ 5</td><td class="n dim">182</td><td class="n good">+7.5%</td><td class="n dim">82</td><td class="n good">+19.9%</td></tr><tr><td>5 ~ 7</td><td class="n dim">195</td><td class="n good">+11.2%</td><td class="n dim">132</td><td class="n bad">-1.0%</td></tr><tr><td>7 ~ 10</td><td class="n dim">107</td><td class="n good">+9.4%</td><td class="n dim">70</td><td class="n good">+8.1%</td></tr><tr><td>10% 이상</td><td class="n dim">61</td><td class="n good">+14.5%</td><td class="n dim">27</td><td class="n good">+1.0%</td></tr></tbody></table></div>
-
-<figure class="fig"><div class="cbox" style="height:340px"><canvas id="g2"></canvas></div><figcaption><span class="freq m">월간</span>금리가 몇 %인지로는 미국(회색)이 거의 흔들리지 않습니다. <b>한국(주황)은 구간마다 갈리지만 방향이 없습니다</b> — 높아질수록 나빠지지도, 낮아질수록 좋아지지도 않습니다.</figcaption></figure>
-
-<p>코스피는 3~5%에서 가장 좋고 5~7%에서 유일하게 마이너스입니다.
-그런데 <b>이 들쭉날쭉을 설명하는 것은 금리 수준이 아니라 «어느 시대의 5%인가»</b>입니다 —
-1981-09 이전의 5%와 2015년의 5%는 <b>같은 숫자이지만 다른 사건</b>입니다.
-<b>수준을 버리고 방향과 시대로 갑니다.</b></p>
-
-<h2>논점 ④ — 인상 시작은 코스피에 좋은가</h2>
-
-<div class="claim"><p><b>결론.</b> 좋았습니다 — <b>다만 일곱 번 중 여섯 번이 디스인플레 시대였습니다.</b>
-금리 저점 이후 12개월이 미국 <b>+7.3%</b>(9/12) 대 <b>코스피 +30.5%</b>(6/7)로
-<b>네 배가 넘습니다.</b> 그러나 이 숫자는 <b>«금리가 40년 내리막이던 배경 위에서»</b> 나온 것입니다.</p></div>
-
-<figure class="fig"><div class="cbox" style="height:340px"><canvas id="g3"></canvas></div><figcaption><span class="freq m">월간</span>회색이 «인상 시작 이후», 황금색이 «인하 시작 이후»입니다. <b>미국은 인하 시작 쪽이 더 높고, 한국은 빨강만 마이너스</b>입니다 — 방향이 반대입니다.</figcaption></figure>
-
-<div class="tblwrap"><table class="tw">
+<tbody><tr><td>1% 미만</td><td class="n dim">135</td><td class="n good">+10.8%</td><td class="n dim">132</td><td class="n good">+3.6%</td></tr><tr><td>1 ~ 3</td><td class="n dim">142</td><td class="n good">+7.6%</td><td class="n dim">91</td><td class="n good">+5.6%</td></tr><tr><td>3 ~ 5</td><td class="n dim">182</td><td class="n good">+7.5%</td><td class="n dim">82</td><td class="n good">+19.9%</td></tr><tr><td>5 ~ 7</td><td class="n dim">195</td><td class="n good">+11.2%</td><td class="n dim">132</td><td class="n bad">-1.0%</td></tr><tr><td>7 ~ 10</td><td class="n dim">107</td><td class="n good">+9.4%</td><td class="n dim">70</td><td class="n good">+8.1%</td></tr><tr><td>10% 이상</td><td class="n dim">61</td><td class="n good">+14.5%</td><td class="n dim">27</td><td class="n good">+1.0%</td></tr></tbody></table></div> <figure class="fig"><div class="cbox" style="height:340px"><canvas id="g2"></canvas></div><figcaption><span class="freq m">월간</span>금리가 몇 %인지로는 미국(회색)이 거의 흔들리지 않는다. 한국(주황)은 구간마다 갈리지만 방향이 없다 — 높아질수록 나빠지지도, 낮아질수록 좋아지지도 않는다.</figcaption></figure> <p>코스피는 3~5%에서 가장 좋고 5~7%에서 유일하게 마이너스다.
+그런데 이 들쭉날쭉을 설명하는 것은 금리 수준이 아니라 '어느 시대의 5%인가'이다. 1981-09 이전의 5%와 2015년의 5%는 같은 숫자이지만 다른 사건이다.
+수준을 버리고 방향과 시대로 간다.</p> <h2>논점 ④ — 인상 시작은 코스피에 좋은가</h2> <div class="claim"><p>결론. 좋았다. 다만 일곱 번 중 여섯 번이 디스인플레 시대였다.
+금리 저점 이후 12개월이 미국 +7.3%(9/12) 대 코스피 +30.5%(6/7)로
+네 배가 넘는다. 그러나 이 숫자는 '금리가 40년 내리막이던 배경 위에서' 나온 것이다.</p></div> <figure class="fig"><div class="cbox" style="height:340px"><canvas id="g3"></canvas></div><figcaption><span class="freq m">월간</span>회색이 「인상 시작 이후」, 황금색이 「인하 시작 이후」다. 미국은 인하 시작 쪽이 더 높고, 한국은 빨강만 마이너스인다 — 방향이 반대다.</figcaption></figure> <div class="tblwrap"><table class="tw">
 <thead><tr><th>금리 저점</th><th class="n">금리</th>
 <th class="n">미국 +12M</th><th class="n">미국 +24M</th>
 <th class="n">한국 +12M</th><th class="n">한국 +24M</th></tr></thead>
-<tbody><tr><td>1958-05</td><td class="n">0.63%</td><td class="n good">+37.1%</td><td class="n good">+33.6%</td><td class="n bad">—</td><td class="n bad">—</td></tr><tr><td>1961-07</td><td class="n">1.17%</td><td class="n bad">-15.7%</td><td class="n good">+1.6%</td><td class="n bad">—</td><td class="n bad">—</td></tr><tr><td>1967-07</td><td class="n">3.79%</td><td class="n good">+9.2%</td><td class="n good">+1.4%</td><td class="n bad">—</td><td class="n bad">—</td></tr><tr><td>1972-02</td><td class="n">3.30%</td><td class="n good">+5.3%</td><td class="n bad">-14.4%</td><td class="n bad">—</td><td class="n bad">—</td></tr><tr><td>1977-01</td><td class="n">4.61%</td><td class="n bad">-11.4%</td><td class="n bad">-0.9%</td><td class="n bad">—</td><td class="n bad">—</td></tr><tr><td>1983-02</td><td class="n">8.51%</td><td class="n good">+6.9%</td><td class="n good">+23.6%</td><td class="n good">+6.9%</td><td class="n good">+11.8%</td></tr><tr><td>1986-10</td><td class="n">5.85%</td><td class="n good">+14.9%</td><td class="n good">+14.3%</td><td class="n good">+109.1%</td><td class="n good">+192.9%</td></tr><tr><td>1992-12</td><td class="n">2.92%</td><td class="n good">+7.6%</td><td class="n good">+3.8%</td><td class="n good">+30.5%</td><td class="n good">+60.0%</td></tr><tr><td>1999-01</td><td class="n">4.63%</td><td class="n good">+6.6%</td><td class="n good">+9.3%</td><td class="n good">+60.0%</td><td class="n bad">-1.8%</td></tr><tr><td>2003-12</td><td class="n">0.98%</td><td class="n good">+14.2%</td><td class="n good">+24.7%</td><td class="n good">+9.1%</td><td class="n good">+67.3%</td></tr><tr><td>2011-07</td><td class="n">0.07%</td><td class="n bad">-6.3%</td><td class="n good">+13.9%</td><td class="n bad">-15.0%</td><td class="n bad">-12.9%</td></tr><tr><td>2020-04</td><td class="n">0.05%</td><td class="n good">+47.6%</td><td class="n good">+50.9%</td><td class="n good">+70.7%</td><td class="n good">+45.8%</td></tr></tbody></table></div>
-
-<p>금리를 올린다는 것은 <b>연준이 경기를 뜨겁다고 본다</b>는 뜻이고,
-그 열기가 가장 먼저 닿는 곳이 <b>수출로 먹고사는 시장</b>입니다.
-<b>«금리 인상 = 주식에 악재»라는 통념이 한국에는 거꾸로였습니다.</b></p>
-
-<div class="note"><p><b>⚠ 그런데 여기가 이 페이지에서 가장 조심해야 할 대목입니다.</b>
-코스피의 첫 인상 <b>6건이 디스인플레 시대</b>이고,
-<b>인플레 시대는 1건 — 그것도 아직 진행 중인 2022-04</b>입니다.
-<b>«인상 시작은 한국에 좋다»는 문장에는 «금리가 40년 내리막이던 시대에는»이 앞에 붙어야 합니다.</b>
-같은 기준을 인플레 시대에 적용해 본 적이 없습니다.</p></div>
-
-<h2>논점 ⑤ — 인하 시작은 완화인가 경고인가</h2>
-
-<div class="claim"><p><b>결론.</b> <b>코스피에는 경고였습니다.</b>
-금리 고점 이후 12개월이 미국 <b>+13.2%</b>(7/13) · 24개월 <b>+25.6%</b>(11/13)로 오르는데,
-코스피는 <b>-5.7%</b>(4/8) · <b>-7.5%</b>(3/8)입니다. <b>부호가 반대입니다.</b>
-36개월 낙폭으로 보면 미국 -18.2% 대 <b>코스피 -32.0%</b>로 벌어집니다.</p></div>
-
-<div class="tblwrap"><table class="tw">
+<tbody><tr><td>1958-05</td><td class="n">0.63%</td><td class="n good">+37.1%</td><td class="n good">+33.6%</td><td class="n bad">—</td><td class="n bad">—</td></tr><tr><td>1961-07</td><td class="n">1.17%</td><td class="n bad">-15.7%</td><td class="n good">+1.6%</td><td class="n bad">—</td><td class="n bad">—</td></tr><tr><td>1967-07</td><td class="n">3.79%</td><td class="n good">+9.2%</td><td class="n good">+1.4%</td><td class="n bad">—</td><td class="n bad">—</td></tr><tr><td>1972-02</td><td class="n">3.30%</td><td class="n good">+5.3%</td><td class="n bad">-14.4%</td><td class="n bad">—</td><td class="n bad">—</td></tr><tr><td>1977-01</td><td class="n">4.61%</td><td class="n bad">-11.4%</td><td class="n bad">-0.9%</td><td class="n bad">—</td><td class="n bad">—</td></tr><tr><td>1983-02</td><td class="n">8.51%</td><td class="n good">+6.9%</td><td class="n good">+23.6%</td><td class="n good">+6.9%</td><td class="n good">+11.8%</td></tr><tr><td>1986-10</td><td class="n">5.85%</td><td class="n good">+14.9%</td><td class="n good">+14.3%</td><td class="n good">+109.1%</td><td class="n good">+192.9%</td></tr><tr><td>1992-12</td><td class="n">2.92%</td><td class="n good">+7.6%</td><td class="n good">+3.8%</td><td class="n good">+30.5%</td><td class="n good">+60.0%</td></tr><tr><td>1999-01</td><td class="n">4.63%</td><td class="n good">+6.6%</td><td class="n good">+9.3%</td><td class="n good">+60.0%</td><td class="n bad">-1.8%</td></tr><tr><td>2003-12</td><td class="n">0.98%</td><td class="n good">+14.2%</td><td class="n good">+24.7%</td><td class="n good">+9.1%</td><td class="n good">+67.3%</td></tr><tr><td>2011-07</td><td class="n">0.07%</td><td class="n bad">-6.3%</td><td class="n good">+13.9%</td><td class="n bad">-15.0%</td><td class="n bad">-12.9%</td></tr><tr><td>2020-04</td><td class="n">0.05%</td><td class="n good">+47.6%</td><td class="n good">+50.9%</td><td class="n good">+70.7%</td><td class="n good">+45.8%</td></tr></tbody></table></div> <p>금리를 올린다는 것은 연준이 경기를 뜨겁다고 본다는 뜻이고,
+그 열기가 가장 먼저 닿는 곳이 수출로 먹고사는 시장이다.
+'금리 인상 = 주식에 악재'라는 통념이 한국에는 거꾸로였다.</p> <div class="note"><p>⚠ 그런데 여기가 이 페이지에서 가장 조심해야 할 대목이다.
+코스피의 첫 인상 6건이 디스인플레 시대이고,
+인플레 시대는 1건뿐이고 그것도 아직 진행 중인 2022-04이다.
+'인상 시작은 한국에 좋다'는 문장에는 '금리가 40년 내리막이던 시대에는'이 앞에 붙어야 한다.
+같은 기준을 인플레 시대에 적용해 본 적이 없다.</p></div> <h2>논점 ⑤ — 인하 시작은 완화인가 경고인가</h2> <div class="claim"><p>결론. 코스피에는 경고였다.
+금리 고점 이후 12개월이 미국 +13.2%(7/13) · 24개월 +25.6%(11/13)로 오르는데,
+코스피는 -5.7%(4/8) · -7.5%(3/8)다. 부호가 반대다.
+36개월 낙폭으로 보면 미국 -18.2% 대 코스피 -32.0%로 벌어진다.</p></div> <div class="tblwrap"><table class="tw">
 <thead><tr><th>금리 고점</th><th class="n">금리</th>
 <th class="n">미국 +12M</th><th class="n">미국 +24M</th>
 <th class="n">한국 +12M</th><th class="n">한국 +24M</th><th>그 뒤</th></tr></thead>
-<tbody><tr><td>1957-10</td><td class="n">3.50%</td><td class="n good">+21.8%</td><td class="n good">+43.8%</td><td class="n bad">—</td><td class="n bad">—</td><td></td></tr><tr><td>1959-11</td><td class="n">4.00%</td><td class="n bad">-7.0%</td><td class="n good">+12.1%</td><td class="n bad">—</td><td class="n bad">—</td><td></td></tr><tr><td>1966-11</td><td class="n">5.76%</td><td class="n good">+17.6%</td><td class="n good">+35.9%</td><td class="n bad">—</td><td class="n bad">—</td><td></td></tr><tr><td>1969-08</td><td class="n">9.19%</td><td class="n bad">-18.8%</td><td class="n good">+3.1%</td><td class="n bad">—</td><td class="n bad">—</td><td></td></tr><tr><td>1974-07</td><td class="n">12.92%</td><td class="n good">+14.5%</td><td class="n good">+28.7%</td><td class="n bad">—</td><td class="n bad">—</td><td>1차 오일쇼크</td></tr><tr><td>1981-06</td><td class="n">19.10%</td><td class="n bad">-17.8%</td><td class="n good">+25.6%</td><td class="n bad">-14.4%</td><td class="n bad">-9.7%</td><td>볼커 쇼크</td></tr><tr><td>1984-08</td><td class="n">11.64%</td><td class="n good">+15.9%</td><td class="n good">+49.8%</td><td class="n good">+1.0%</td><td class="n good">+98.5%</td><td></td></tr><tr><td>1989-03</td><td class="n">9.85%</td><td class="n good">+13.2%</td><td class="n good">+23.7%</td><td class="n bad">-12.5%</td><td class="n bad">-30.6%</td><td></td></tr><tr><td>1995-04</td><td class="n">6.05%</td><td class="n good">+26.7%</td><td class="n good">+46.2%</td><td class="n good">+1.9%</td><td class="n bad">-23.1%</td><td>→ 2년 뒤 외환위기</td></tr><tr><td>2000-07</td><td class="n">6.54%</td><td class="n bad">-6.0%</td><td class="n bad">-25.4%</td><td class="n bad">-30.4%</td><td class="n bad">-5.2%</td><td>→ 닷컴 붕괴</td></tr><tr><td>2007-02</td><td class="n">5.26%</td><td class="n bad">-3.3%</td><td class="n bad">-45.9%</td><td class="n good">+17.8%</td><td class="n bad">-20.6%</td><td>→ 리먼</td></tr><tr><td>2019-04</td><td class="n">2.42%</td><td class="n bad">-15.9%</td><td class="n good">+24.2%</td><td class="n bad">-16.2%</td><td class="n good">+43.1%</td><td>→ 코로나</td></tr><tr class="cur"><td>2023-08</td><td class="n">5.33%</td><td class="n good">+16.5%</td><td class="n good">+30.0%</td><td class="n good">+3.3%</td><td class="n good">+24.3%</td><td>지금</td></tr></tbody></table></div>
-
-<figure class="fig"><div class="cbox" style="height:320px"><canvas id="g4"></canvas></div><figcaption><span class="freq m">월간</span>막대가 아래로 길수록 더 깊이 빠졌다는 뜻입니다. <b>한국의 «인하 시작 이후»만 유독 깊습니다.</b></figcaption></figure>
-
-<div class="note"><p>오른쪽 열을 보십시오 — <b>1995년 고점 뒤에 외환위기, 2000년 뒤에 닷컴 붕괴,
-2007년 뒤에 리먼, 2019년 뒤에 코로나</b>가 왔습니다.
-<b>«연준이 금리를 내리기 시작했다»는 것은 «연준이 무언가를 봤다»는 뜻</b>이고,
-그 무언가는 대체로 <b>한국에 먼저 도착했습니다.</b><br>
-<b>이야기꾼의 전조현상 목록 2번이 «연준 금리 인하»이고 1급입니다.</b>
-이 장이 그 근거를 72년으로 채웁니다.</p></div>
-<h2>논점 ⑥ — 얼마나 버티다 내리는가가 중요한가</h2>
-
-<div class="claim"><p><b>결론.</b> 중요합니다. <b>바로 내리면 아픔이 곧 오고, 버티다 내리면 늦게 대신 크게 옵니다.</b>
+<tbody><tr><td>1957-10</td><td class="n">3.50%</td><td class="n good">+21.8%</td><td class="n good">+43.8%</td><td class="n bad">—</td><td class="n bad">—</td><td></td></tr><tr><td>1959-11</td><td class="n">4.00%</td><td class="n bad">-7.0%</td><td class="n good">+12.1%</td><td class="n bad">—</td><td class="n bad">—</td><td></td></tr><tr><td>1966-11</td><td class="n">5.76%</td><td class="n good">+17.6%</td><td class="n good">+35.9%</td><td class="n bad">—</td><td class="n bad">—</td><td></td></tr><tr><td>1969-08</td><td class="n">9.19%</td><td class="n bad">-18.8%</td><td class="n good">+3.1%</td><td class="n bad">—</td><td class="n bad">—</td><td></td></tr><tr><td>1974-07</td><td class="n">12.92%</td><td class="n good">+14.5%</td><td class="n good">+28.7%</td><td class="n bad">—</td><td class="n bad">—</td><td>1차 오일쇼크</td></tr><tr><td>1981-06</td><td class="n">19.10%</td><td class="n bad">-17.8%</td><td class="n good">+25.6%</td><td class="n bad">-14.4%</td><td class="n bad">-9.7%</td><td>볼커 쇼크</td></tr><tr><td>1984-08</td><td class="n">11.64%</td><td class="n good">+15.9%</td><td class="n good">+49.8%</td><td class="n good">+1.0%</td><td class="n good">+98.5%</td><td></td></tr><tr><td>1989-03</td><td class="n">9.85%</td><td class="n good">+13.2%</td><td class="n good">+23.7%</td><td class="n bad">-12.5%</td><td class="n bad">-30.6%</td><td></td></tr><tr><td>1995-04</td><td class="n">6.05%</td><td class="n good">+26.7%</td><td class="n good">+46.2%</td><td class="n good">+1.9%</td><td class="n bad">-23.1%</td><td>→ 2년 뒤 외환위기</td></tr><tr><td>2000-07</td><td class="n">6.54%</td><td class="n bad">-6.0%</td><td class="n bad">-25.4%</td><td class="n bad">-30.4%</td><td class="n bad">-5.2%</td><td>→ 닷컴 붕괴</td></tr><tr><td>2007-02</td><td class="n">5.26%</td><td class="n bad">-3.3%</td><td class="n bad">-45.9%</td><td class="n good">+17.8%</td><td class="n bad">-20.6%</td><td>→ 리먼</td></tr><tr><td>2019-04</td><td class="n">2.42%</td><td class="n bad">-15.9%</td><td class="n good">+24.2%</td><td class="n bad">-16.2%</td><td class="n good">+43.1%</td><td>→ 코로나</td></tr><tr class="cur"><td>2023-08</td><td class="n">5.33%</td><td class="n good">+16.5%</td><td class="n good">+30.0%</td><td class="n good">+3.3%</td><td class="n good">+24.3%</td><td>지금</td></tr></tbody></table></div> <figure class="fig"><div class="cbox" style="height:320px"><canvas id="g4"></canvas></div><figcaption><span class="freq m">월간</span>막대가 아래로 길수록 더 깊이 빠졌다는 뜻다. 한국의 「인하 시작 이후」만 유독 깊슨다.</figcaption></figure> <div class="note"><p>오른쪽 열을 보라. 1995년 고점 뒤에 외환위기, 2000년 뒤에 닷컴 붕괴,
+2007년 뒤에 리먼, 2019년 뒤에 코로나가 왔다.
+'연준이 금리를 내리기 시작했다'는 것은 '연준이 무언가를 봤다'는 뜻이고,
+그 무언가는 대체로 한국에 먼저 도착했다.<br>
+이야기꾼의 전조현상 목록 2번이 '연준 금리 인하'이고 1급이다.
+이 장이 그 근거를 72년으로 채운다.</p></div>
+<h2>논점 ⑥ — 얼마나 버티다 내리는가가 중요한가</h2> <div class="claim"><p>결론. 중요하다. 바로 내리면 아픔이 곧 오고, 버티다 내리면 늦게 대신 크게 온다.
 3개월 이내에 내린 3건은 12개월 뒤 -12.5%·36개월 낙폭 -26.3%인데,
-4개월 이상 버틴 5건은 12개월 뒤 +1.9%로 낫지만 <b>36개월 낙폭이 -38.5%</b>로 더 깊습니다.
-<b>★ 그리고 지금은 14개월 — 13번 중 가장 깁니다.</b></p></div>
-
-<p>금리 고점마다 <b>첫 인하(−0.25%p)까지 몇 달을 버텼는지</b>를 셌습니다.</p>
-
-<div class="tblwrap"><table class="tw">
+4개월 이상 버틴 5건은 12개월 뒤 +1.9%로 낫지만 36개월 낙폭이 -38.5%로 더 깊다.
+★ 그리고 지금은 14개월이다. 13번 중 가장 길다.</p></div> <p>금리 고점마다 첫 인하(−0.25%p)까지 몇 달을 버텼는지를 셌다.</p> <div class="tblwrap"><table class="tw">
 <thead><tr><th>금리 고점</th><th class="n">금리</th><th class="n">버틴 기간</th>
 <th class="n">그때 수출</th><th class="n">한국 +12M</th><th class="n">한국 36M 낙폭</th></tr></thead>
-<tbody><tr><td>1957-10</td><td class="n">3.50%</td><td class="n"><b>2개월</b></td><td class="n">—</td><td class="n bad">—</td><td class="n">—</td></tr><tr><td>1959-11</td><td class="n">4.00%</td><td class="n"><b>7개월</b></td><td class="n">—</td><td class="n bad">—</td><td class="n">—</td></tr><tr><td>1966-11</td><td class="n">5.76%</td><td class="n"><b>1개월</b></td><td class="n">—</td><td class="n bad">—</td><td class="n">—</td></tr><tr><td>1969-08</td><td class="n">9.19%</td><td class="n"><b>3개월</b></td><td class="n">—</td><td class="n bad">—</td><td class="n">—</td></tr><tr><td>1974-07</td><td class="n">12.92%</td><td class="n"><b>1개월</b></td><td class="n">—</td><td class="n bad">—</td><td class="n">—</td></tr><tr><td>1981-06</td><td class="n">19.10%</td><td class="n"><b>2개월</b></td><td class="n">—</td><td class="n bad">-14.4%</td><td class="n">-26.3%</td></tr><tr><td>1984-08</td><td class="n">11.64%</td><td class="n"><b>1개월</b></td><td class="n">+12.9%</td><td class="n good">+1.0%</td><td class="n">-9.2%</td></tr><tr><td>1989-03</td><td class="n">9.85%</td><td class="n"><b>3개월</b></td><td class="n">+10.3%</td><td class="n bad">-12.5%</td><td class="n">-37.7%</td></tr><tr><td>1995-04</td><td class="n">6.05%</td><td class="n"><b>4개월</b></td><td class="n">+31.5%</td><td class="n good">+1.9%</td><td class="n">-60.9%</td></tr><tr><td>2000-07</td><td class="n">6.54%</td><td class="n"><b>6개월</b></td><td class="n">+22.4%</td><td class="n bad">-30.4%</td><td class="n">-38.5%</td></tr><tr><td>2007-02</td><td class="n">5.26%</td><td class="n"><b>7개월</b></td><td class="n">+11.7%</td><td class="n good">+17.8%</td><td class="n">-46.4%</td></tr><tr><td>2019-04</td><td class="n">2.42%</td><td class="n"><b>4개월</b></td><td class="n">-2.5%</td><td class="n bad">-16.2%</td><td class="n">-19.2%</td></tr><tr class="cur"><td>2023-08</td><td class="n">5.33%</td><td class="n"><b>14개월</b></td><td class="n">-9.8%</td><td class="n good">+3.3%</td><td class="n">-13.1%</td></tr></tbody></table></div>
-
-<div class="note"><p><b>둘의 성격이 갈립니다.</b><br>
-<b>바로 내린 경우</b>(3건, 3개월 이내) — 12개월 뒤 <b>-12.5%</b>(1/3),
-36개월 낙폭 중앙 <b>-26.3%</b>. <b>급하게 내린다는 것은 이미 사고가 났다</b>는 뜻이라
-아픔이 곧바로 옵니다.<br>
-<b>버티다 내린 경우</b>(5건, 4개월 이상) — 12개월 뒤는 <b>+1.9%</b>(3/5)로
-오히려 낫지만 <b>36개월 낙폭이 -38.5%</b>로 더 깊습니다.
-<b>아픔이 늦게, 대신 크게 옵니다.</b></p>
-<p><b>★ 그리고 지금은 14개월을 버텼습니다</b> — 13번 중 <b>가장 깁니다</b>.
-그 다음이 2007-02(7개월 → 리먼)와 2000-07(6개월 → 닷컴)입니다.
-<b>표본이 적어 규칙으로 삼을 수는 없지만</b>, 오래 버틴 세 번이 모두 큰 낙폭으로 끝났다는 것은
-기록해 둘 만합니다.</p></div>
-
-<h3>수출과 겹쳐 보면</h3>
-
-<p>한국 쪽 이야기이므로 <a href="export-kospi.html">수출</a>을 겹쳐 봤습니다.
-<b>금리를 내리는 국면 중에서도 수출이 뜨거울 때</b>가 따로 있습니다.</p>
-
-<ul>
-<li><b>인하 중 · 수출 20% 이상</b> — 20개월, 12개월 뒤 중앙 <b>+16.8%</b></li>
-<li><b>인하 중 · 수출 20% 미만</b> — 143개월, <b>+21.1%</b></li>
-</ul>
-
-<div class="note"><p><b>수출이 뜨거운데 금리를 내리는 조합은 드뭅니다.</b>
-보통은 수출이 식으니까 내리기 때문입니다. 그래서 이 조합 자체가 <b>어긋난 신호</b>입니다 —
-«실물은 좋은데 통화당국은 급하다»는 뜻이니까요.<br>
-<b>★ 그런데 수출 40%를 넘는 인하 국면은 42년에 거의 없습니다</b> — 1987-04 · 2026-03 · 2026-04 뿐입니다.
-지금(2026-04 +48.8%)이 바로 그 자리이고, <b>사실상 전례가 없습니다.</b>
-<a href="export-kospi.html">수출 편</a>에서 «수출 +40%는 42년에 13개월뿐»이라 했고,
-여기서는 «그중 인하 국면과 겹친 적이 거의 없다»가 더해집니다.</p></div>
-
-<h2>논점 ⑦ — 같은 인하라도 물가에 따라 다른가</h2>
-
-<div class="claim"><p><b>결론.</b> 다릅니다. <b>여섯 칸 중 코스피가 마이너스인 칸은 하나뿐</b>이고,
-그것이 <b>«물가 고 4% 이상 · 인하 중»</b>(-4.3%·플러스 32%)입니다.
-<b>«인하 시작은 코스피에 나쁘다»가 여기서 조건부로 바뀝니다 — 물가가 높을 때의 인하만 나쁩니다.</b></p></div>
-
-<p>볼트에 오래 있던 정리 하나가 이렇게 끝납니다 —
-<b>«금리가 아니라 인플레이션이 금리-주가 관계의 부호를 결정한다»</b>.
-그건 손으로 나눈 표였습니다. <b>미국 CPI 실측으로 기계적으로 다시 갈랐습니다.</b>
-물가를 <b>저(2.5% 미만) · 중(2.5~4%) · 고(4% 이상)</b>로 나누고,
-그 안에서 금리 방향까지 갈라 여섯 칸을 만들었습니다.</p>
-
-<figure class="fig"><div class="cbox" style="height:360px"><canvas id="g5"></canvas></div><figcaption><span class="freq m">월간</span>회색이 미국, 주황·황금색이 한국입니다. <b>빨강 하나가 여섯 칸 중 유일한 마이너스</b>이고, 그것이 «고물가 · 인하 중»입니다.</figcaption></figure>
-
-<div class="tblwrap"><table class="tw">
+<tbody><tr><td>1957-10</td><td class="n">3.50%</td><td class="n"><b>2개월</b></td><td class="n">—</td><td class="n bad">—</td><td class="n">—</td></tr><tr><td>1959-11</td><td class="n">4.00%</td><td class="n"><b>7개월</b></td><td class="n">—</td><td class="n bad">—</td><td class="n">—</td></tr><tr><td>1966-11</td><td class="n">5.76%</td><td class="n"><b>1개월</b></td><td class="n">—</td><td class="n bad">—</td><td class="n">—</td></tr><tr><td>1969-08</td><td class="n">9.19%</td><td class="n"><b>3개월</b></td><td class="n">—</td><td class="n bad">—</td><td class="n">—</td></tr><tr><td>1974-07</td><td class="n">12.92%</td><td class="n"><b>1개월</b></td><td class="n">—</td><td class="n bad">—</td><td class="n">—</td></tr><tr><td>1981-06</td><td class="n">19.10%</td><td class="n"><b>2개월</b></td><td class="n">—</td><td class="n bad">-14.4%</td><td class="n">-26.3%</td></tr><tr><td>1984-08</td><td class="n">11.64%</td><td class="n"><b>1개월</b></td><td class="n">+12.9%</td><td class="n good">+1.0%</td><td class="n">-9.2%</td></tr><tr><td>1989-03</td><td class="n">9.85%</td><td class="n"><b>3개월</b></td><td class="n">+10.3%</td><td class="n bad">-12.5%</td><td class="n">-37.7%</td></tr><tr><td>1995-04</td><td class="n">6.05%</td><td class="n"><b>4개월</b></td><td class="n">+31.5%</td><td class="n good">+1.9%</td><td class="n">-60.9%</td></tr><tr><td>2000-07</td><td class="n">6.54%</td><td class="n"><b>6개월</b></td><td class="n">+22.4%</td><td class="n bad">-30.4%</td><td class="n">-38.5%</td></tr><tr><td>2007-02</td><td class="n">5.26%</td><td class="n"><b>7개월</b></td><td class="n">+11.7%</td><td class="n good">+17.8%</td><td class="n">-46.4%</td></tr><tr><td>2019-04</td><td class="n">2.42%</td><td class="n"><b>4개월</b></td><td class="n">-2.5%</td><td class="n bad">-16.2%</td><td class="n">-19.2%</td></tr><tr class="cur"><td>2023-08</td><td class="n">5.33%</td><td class="n"><b>14개월</b></td><td class="n">-9.8%</td><td class="n good">+3.3%</td><td class="n">-13.1%</td></tr></tbody></table></div> <div class="note"><p>둘의 성격이 갈린다.<br>
+바로 내린 경우(3건, 3개월 이내). 12개월 뒤 -12.5%(1/3),
+36개월 낙폭 중앙 -26.3%. 급하게 내린다는 것은 이미 사고가 났다는 뜻이라
+아픔이 곧바로 온다.<br>
+버티다 내린 경우(5건, 4개월 이상). 12개월 뒤는 +1.9%(3/5)로
+오히려 낫지만 36개월 낙폭이 -38.5%로 더 깊다.
+아픔이 늦게, 대신 크게 온다.</p>
+<p>★ 그리고 지금은 14개월을 버텼다. 13번 중 가장 길다.
+그 다음이 2007-02(7개월 → 리먼)와 2000-07(6개월 → 닷컴)다.
+표본이 적어 규칙으로 삼을 수는 없지만, 오래 버틴 세 번이 모두 큰 낙폭으로 끝났다는 것은
+기록해 둘 만한다.</p></div> <h3>수출과 겹쳐 보면</h3> <p>한국 쪽 이야기이므로 <a href="export-kospi.html">수출</a>을 겹쳐 봤다.
+금리를 내리는 국면 중에서도 수출이 뜨거울 때가 따로 있다.</p> <ul>
+<li>인하 중 · 수출 20% 이상. 20개월, 12개월 뒤 중앙 +16.8%</li>
+<li>인하 중 · 수출 20% 미만. 143개월, +21.1%</li>
+</ul> <div class="note"><p>수출이 뜨거운데 금리를 내리는 조합은 드문다.
+보통은 수출이 식으니까 내리기 때문이다. 그래서 이 조합 자체가 어긋난 신호이다. '실물은 좋은데 통화당국은 급하다'는 뜻이니까요.<br>
+★ 그런데 수출 40%를 넘는 인하 국면은 42년에 거의 없다. 1987-04 · 2026-03 · 2026-04 뿐이다.
+지금(2026-04 +48.8%)이 바로 그 자리이고, 사실상 전례가 없다.
+<a href="export-kospi.html">수출 편</a>에서 '수출 +40%는 42년에 13개월뿐'이라 했고,
+여기서는 '그중 인하 국면과 겹친 적이 거의 없다'가 더해진다.</p></div> <h2>논점 ⑦ — 같은 인하라도 물가에 따라 다른가</h2> <div class="claim"><p>결론. 다르다. 여섯 칸 중 코스피가 마이너스인 칸은 하나뿐이고,
+그것이 '물가 고 4% 이상 · 인하 중'(-4.3%·플러스 32%)이다.
+'인하 시작은 코스피에 나쁘다'가 여기서 조건부로 바뀐다. 물가가 높을 때의 인하만 나쁘다.</p></div> <p>볼트에 오래 있던 정리 하나가 이렇게 끝난다. '금리가 아니라 인플레이션이 금리-주가 관계의 부호를 결정한다'.
+그건 손으로 나눈 표였다. 미국 CPI 실측으로 기계적으로 다시 갈랐다.
+물가를 저(2.5% 미만) · 중(2.5~4%) · 고(4% 이상)로 나누고,
+그 안에서 금리 방향까지 갈라 여섯 칸을 만들었다.</p> <figure class="fig"><div class="cbox" style="height:360px"><canvas id="g5"></canvas></div><figcaption><span class="freq m">월간</span>회색이 미국, 주황·황금색이 한국다. 빨강 하나가 여섯 칸 중 유일한 마이너스이고, 그것이 「고물가 · 인하 중」다.</figcaption></figure> <div class="tblwrap"><table class="tw">
 <thead><tr><th>물가</th><th>금리</th><th class="n">개월</th>
 <th class="n">미국 12M</th><th class="n">플러스</th>
 <th class="n">한국 12M</th><th class="n">플러스</th></tr></thead>
-<tbody><tr><td>저 <span class="dim">물가 2.5% 미만</span></td><td>인상 중</td><td class="n dim">95</td><td class="n good">+4.7%</td><td class="n dim">67%</td><td class="n bad"><b>-3.7%</b></td><td class="n dim">42%</td></tr><tr><td>저 <span class="dim">물가 2.5% 미만</span></td><td>인하 중</td><td class="n dim">97</td><td class="n good">+13.8%</td><td class="n dim">79%</td><td class="n good"><b>+22.6%</b></td><td class="n dim">84%</td></tr><tr><td>중 <span class="dim">2.5~4%</span></td><td>인상 중</td><td class="n dim">92</td><td class="n good">+12.6%</td><td class="n dim">80%</td><td class="n good"><b>+0.1%</b></td><td class="n dim">51%</td></tr><tr><td>중 <span class="dim">2.5~4%</span></td><td>인하 중</td><td class="n dim">97</td><td class="n good">+10.0%</td><td class="n dim">82%</td><td class="n good"><b>+28.9%</b></td><td class="n dim">75%</td></tr><tr><td>고 <span class="dim">4% 이상</span></td><td>인상 중</td><td class="n dim">135</td><td class="n good">+6.9%</td><td class="n dim">64%</td><td class="n good"><b>+4.1%</b></td><td class="n dim">71%</td></tr><tr class="cur"><td>고 <span class="dim">4% 이상</span></td><td>인하 중</td><td class="n dim">90</td><td class="n good">+11.5%</td><td class="n dim">78%</td><td class="n bad"><b>-4.3%</b></td><td class="n dim">32%</td></tr></tbody></table></div>
-
-<div class="note"><p><b>★ 여섯 칸 중 한국이 마이너스인 칸은 하나뿐입니다.</b>
-<b>«물가 고 4% 이상 · 인하 중»</b>에서 <b>-4.3%</b>이고 플러스 비율이 <b>32%</b>입니다.
-같은 칸에서 미국은 <b>+11.5%</b>입니다.<br>
-<b>앞 장의 «인하 시작은 한국에 나쁘다»가 여기서 조건부로 바뀝니다</b> —
-<b>물가가 높을 때의 인하만 나쁩니다.</b>
-물가가 낮을 때 인하하면 한국은 <b>+22.6%</b>(84%),
-중간일 때 인하하면 <b>+28.9%</b>(75%)로 오히려 가장 좋은 자리입니다.</p>
-<p><b>왜 그런가.</b> 물가가 낮은데 내리는 것은 <b>여유 있는 인하</b>이고,
-물가가 높은데도 내리는 것은 <b>물가를 감수하고서라도 내려야 할 무언가</b>가 있다는 뜻입니다.
-연준이 «물가보다 급한 것»을 봤다는 신호이고, 그 급한 것은 대체로 신흥국에 먼저 도착합니다.</p></div>
-
-<p>두 번째로 나쁜 칸은 <b>«물가 저 · 인상 중»</b>(-3.7%, 42%)입니다.
-물가가 낮은데 올린다는 것은 <b>자산가격 때문에 올린다</b>는 뜻인 경우가 많았습니다.</p>
-
-<h3>전환점마다 그때의 물가를 붙이면</h3>
-
-<div class="tblwrap"><table class="tw">
+<tbody><tr><td>저 <span class="dim">물가 2.5% 미만</span></td><td>인상 중</td><td class="n dim">95</td><td class="n good">+4.7%</td><td class="n dim">67%</td><td class="n bad"><b>-3.7%</b></td><td class="n dim">42%</td></tr><tr><td>저 <span class="dim">물가 2.5% 미만</span></td><td>인하 중</td><td class="n dim">97</td><td class="n good">+13.8%</td><td class="n dim">79%</td><td class="n good"><b>+22.6%</b></td><td class="n dim">84%</td></tr><tr><td>중 <span class="dim">2.5~4%</span></td><td>인상 중</td><td class="n dim">92</td><td class="n good">+12.6%</td><td class="n dim">80%</td><td class="n good"><b>+0.1%</b></td><td class="n dim">51%</td></tr><tr><td>중 <span class="dim">2.5~4%</span></td><td>인하 중</td><td class="n dim">97</td><td class="n good">+10.0%</td><td class="n dim">82%</td><td class="n good"><b>+28.9%</b></td><td class="n dim">75%</td></tr><tr><td>고 <span class="dim">4% 이상</span></td><td>인상 중</td><td class="n dim">135</td><td class="n good">+6.9%</td><td class="n dim">64%</td><td class="n good"><b>+4.1%</b></td><td class="n dim">71%</td></tr><tr class="cur"><td>고 <span class="dim">4% 이상</span></td><td>인하 중</td><td class="n dim">90</td><td class="n good">+11.5%</td><td class="n dim">78%</td><td class="n bad"><b>-4.3%</b></td><td class="n dim">32%</td></tr></tbody></table></div> <div class="note"><p>★ 여섯 칸 중 한국이 마이너스인 칸은 하나뿐이다.
+'물가 고 4% 이상 · 인하 중'에서 -4.3%이고 플러스 비율이 32%다.
+같은 칸에서 미국은 +11.5%다.<br>
+앞 장의 '인하 시작은 한국에 나쁘다'가 여기서 조건부로 바뀐다. 물가가 높을 때의 인하만 나쁘다.
+물가가 낮을 때 인하하면 한국은 +22.6%(84%),
+중간일 때 인하하면 +28.9%(75%)로 오히려 가장 좋은 자리이다.</p>
+<p>왜 그런가. 물가가 낮은데 내리는 것은 여유 있는 인하이고,
+물가가 높은데도 내리는 것은 물가를 감수하고서라도 내려야 할 무언가가 있다는 뜻이다.
+연준이 '물가보다 급한 것'을 봤다는 신호이고, 그 급한 것은 대체로 신흥국에 먼저 도착한다.</p></div> <p>두 번째로 나쁜 칸은 '물가 저 · 인상 중'(-3.7%, 42%)다.
+물가가 낮은데 올린다는 것은 자산가격 때문에 올린다는 뜻인 경우가 많았다.</p> <h3>전환점마다 그때의 물가를 붙이면</h3> <div class="tblwrap"><table class="tw">
 <thead><tr><th>금리 고점</th><th class="n">금리</th><th class="n">그때 CPI</th>
 <th class="n">미국 +12M</th><th class="n">한국 +12M</th><th class="n">한국 36M 낙폭</th></tr></thead>
-<tbody><tr><td>1957-10</td><td class="n">3.50%</td><td class="n ">2.9%</td><td class="n good">+21.8%</td><td class="n bad">—</td><td class="n">—</td></tr><tr><td>1959-11</td><td class="n">4.00%</td><td class="n ">1.4%</td><td class="n bad">-7.0%</td><td class="n bad">—</td><td class="n">—</td></tr><tr><td>1966-11</td><td class="n">5.76%</td><td class="n ">3.6%</td><td class="n good">+17.6%</td><td class="n bad">—</td><td class="n">—</td></tr><tr class="cur"><td>1969-08</td><td class="n">9.19%</td><td class="n bad">5.4%</td><td class="n bad">-18.8%</td><td class="n bad">—</td><td class="n">—</td></tr><tr class="cur"><td>1974-07</td><td class="n">12.92%</td><td class="n bad">11.5%</td><td class="n good">+14.5%</td><td class="n bad">—</td><td class="n">—</td></tr><tr class="cur"><td>1981-06</td><td class="n">19.10%</td><td class="n bad">9.7%</td><td class="n bad">-17.8%</td><td class="n bad">-14.4%</td><td class="n">-26.3%</td></tr><tr class="cur"><td>1984-08</td><td class="n">11.64%</td><td class="n bad">4.3%</td><td class="n good">+15.9%</td><td class="n good">+1.0%</td><td class="n">-9.2%</td></tr><tr class="cur"><td>1989-03</td><td class="n">9.85%</td><td class="n bad">4.9%</td><td class="n good">+13.2%</td><td class="n bad">-12.5%</td><td class="n">-37.7%</td></tr><tr><td>1995-04</td><td class="n">6.05%</td><td class="n ">3.1%</td><td class="n good">+26.7%</td><td class="n good">+1.9%</td><td class="n">-60.9%</td></tr><tr><td>2000-07</td><td class="n">6.54%</td><td class="n ">3.6%</td><td class="n bad">-6.0%</td><td class="n bad">-30.4%</td><td class="n">-38.5%</td></tr><tr><td>2007-02</td><td class="n">5.26%</td><td class="n ">2.4%</td><td class="n bad">-3.3%</td><td class="n good">+17.8%</td><td class="n">-46.4%</td></tr><tr><td>2019-04</td><td class="n">2.42%</td><td class="n ">2.0%</td><td class="n bad">-15.9%</td><td class="n bad">-16.2%</td><td class="n">-19.2%</td></tr><tr><td>2023-08</td><td class="n">5.33%</td><td class="n ">3.7%</td><td class="n good">+16.5%</td><td class="n good">+3.3%</td><td class="n">-13.1%</td></tr></tbody></table></div>
-
-<p class="dim">CPI 4% 이상이었던 고점에 표시를 넣었습니다.</p>
-
-<div class="note"><p><b>⚠ 전환점만 세면 표본이 셋입니다.</b>
-한국 자료가 1981년부터라 «고물가에서 인하 시작»이 1981·1984·1989 셋뿐입니다.
-그래서 <b>위의 여섯 칸 표(월 단위, 90~135개월)가 본선</b>이고 이 표는 <b>사례</b>입니다.</p>
-<p><b>그리고 볼트의 옛 정리와 어긋나는 대목이 있습니다.</b>
-그쪽 결론은 «저인플레에서는 금리와 주가가 같이 가고, 고인플레에서는 금리가 오르면 주가가 내린다»입니다.
-그런데 금리 <b>수준</b>과 «향후 12개월 수익률»의 상관을 계산하면
-저물가 <b>−0.108</b>, 고물가 <b>+0.213</b>으로 <b>부호가 반대</b>입니다.
-<b>모순이 아니라 재는 것이 다릅니다</b> — 볼트 표는 «금리 방향 ↔ 같은 시기 주가»를 보고,
-여기는 «지금 사면 12개월 뒤»를 봅니다. 앞의 것은 <b>동행</b>이고 뒤의 것은 <b>기대수익</b>입니다.
-둘을 섞어 읽으면 안 됩니다.</p></div>
-
-
-<h2>논점 ⑧ — <b>2020년 강의</b>의 세 가설은 새 시대에도 서는가</h2>
-
-<div class="claim"><p><b>결론.</b> <b>세 개 중 하나만 섭니다.</b>
-「인상 후 3년이면 소공황」은 <b>방향은 맞고 시점이 어긋나며</b>,
-「세 번째 인상 후 겨울 준비」는 <b>자에서 근거가 안 나오고</b>,
-「연준의 뜬금없는 선제적 인하」는 <b>강하게 지지</b>됩니다.
-<b>그리고 셋 다 «디스인플레 시대에서 뽑은 규칙»입니다</b> —
-그가 든 사례 1986·1994·2004·2015가 전부 1981-09~2020-07 안에 있습니다.</p></div>
-
-<div class="note warn"><p><b>⚠ 먼저 이 장의 사정거리를 못 박습니다.</b>
-아래 세 가설은 <b>2020년 시나리오투자법 강의</b>의 것입니다.
-그 뒤로 강의는 없었고, <b>그는 주간 리포트로 계속 갱신해 왔습니다.</b>
-<b>이 장은 «2020년판»에 대한 검증이지 그의 현재 입장에 대한 검증이 아닙니다.</b>
-현재 입장은 <b>바로 다음 장</b>에서 따로 봅니다 — 그리고 <b>그쪽이 실측과 더 잘 맞습니다.</b></p></div>
-
-<div class="note"><p><b>먼저 «첫 인상»을 다시 정의해야 합니다 — 이 장의 기술적 핵심입니다.</b><br>
-앞 장에서 쓴 «금리 저점»은 이야기꾼이 말하는 «첫 인상»과 다릅니다.
-실효금리 저점은 <b>2011-07(0.07%)</b>인데 연준이 실제로 올린 건 <b>2015년 말</b>입니다 —
-제로금리 바닥을 4년이나 기었기 때문입니다. 저점을 그대로 쓰면 «2011년 인상»이 되어
-그가 든 사례(1994·2004·2015)와 어긋납니다.<br>
-→ <b>금리 저점 대비 +0.25%p(=1회 인상분)에 처음 닿는 달</b>을 «첫 인상»으로 봅니다.
-그러면 <b>1999-07 · 2004-07 · 2016-01 · 2022-04</b>가 나옵니다 — 그의 목록과 맞습니다.
-같은 기준으로 <b>+0.75%p(=3회 인상분)</b>가 「세 번째 인상」이 됩니다.</p></div>
-
-<h3>가설 ① «금리 인상 후 3년이면 소공황·금융위기»<br><span class="dim">→ 방향은 맞고, 대피 시점은 한 해 이르고, 바닥은 한 해 늦다</span></h3>
-
-<p>강의가 든 사례는 다섯입니다 — 1980년 인상→1982년 멕시코, 1986년→1989년 일본,
+<tbody><tr><td>1957-10</td><td class="n">3.50%</td><td class="n ">2.9%</td><td class="n good">+21.8%</td><td class="n bad">—</td><td class="n">—</td></tr><tr><td>1959-11</td><td class="n">4.00%</td><td class="n ">1.4%</td><td class="n bad">-7.0%</td><td class="n bad">—</td><td class="n">—</td></tr><tr><td>1966-11</td><td class="n">5.76%</td><td class="n ">3.6%</td><td class="n good">+17.6%</td><td class="n bad">—</td><td class="n">—</td></tr><tr class="cur"><td>1969-08</td><td class="n">9.19%</td><td class="n bad">5.4%</td><td class="n bad">-18.8%</td><td class="n bad">—</td><td class="n">—</td></tr><tr class="cur"><td>1974-07</td><td class="n">12.92%</td><td class="n bad">11.5%</td><td class="n good">+14.5%</td><td class="n bad">—</td><td class="n">—</td></tr><tr class="cur"><td>1981-06</td><td class="n">19.10%</td><td class="n bad">9.7%</td><td class="n bad">-17.8%</td><td class="n bad">-14.4%</td><td class="n">-26.3%</td></tr><tr class="cur"><td>1984-08</td><td class="n">11.64%</td><td class="n bad">4.3%</td><td class="n good">+15.9%</td><td class="n good">+1.0%</td><td class="n">-9.2%</td></tr><tr class="cur"><td>1989-03</td><td class="n">9.85%</td><td class="n bad">4.9%</td><td class="n good">+13.2%</td><td class="n bad">-12.5%</td><td class="n">-37.7%</td></tr><tr><td>1995-04</td><td class="n">6.05%</td><td class="n ">3.1%</td><td class="n good">+26.7%</td><td class="n good">+1.9%</td><td class="n">-60.9%</td></tr><tr><td>2000-07</td><td class="n">6.54%</td><td class="n ">3.6%</td><td class="n bad">-6.0%</td><td class="n bad">-30.4%</td><td class="n">-38.5%</td></tr><tr><td>2007-02</td><td class="n">5.26%</td><td class="n ">2.4%</td><td class="n bad">-3.3%</td><td class="n good">+17.8%</td><td class="n">-46.4%</td></tr><tr><td>2019-04</td><td class="n">2.42%</td><td class="n ">2.0%</td><td class="n bad">-15.9%</td><td class="n bad">-16.2%</td><td class="n">-19.2%</td></tr><tr><td>2023-08</td><td class="n">5.33%</td><td class="n ">3.7%</td><td class="n good">+16.5%</td><td class="n good">+3.3%</td><td class="n">-13.1%</td></tr></tbody></table></div> <p class="dim">CPI 4% 이상이었던 고점에 표시를 넣었다.</p> <div class="note"><p>⚠ 전환점만 세면 표본이 셋이다.
+한국 자료가 1981년부터라 '고물가에서 인하 시작'이 1981·1984·1989 셋뿐이다.
+그래서 위의 여섯 칸 표(월 단위, 90~135개월)가 본선이고 이 표는 사례이다.</p>
+<p>그리고 볼트의 옛 정리와 어긋나는 대목이 있다.
+그쪽 결론은 "저인플레에서는 금리와 주가가 같이 가고, 고인플레에서는 금리가 오르면 주가가 내린다"이다.
+그런데 금리 수준과 '향후 12개월 수익률'의 상관을 계산하면
+저물가 −0.108, 고물가 +0.213으로 부호가 반대다.
+모순이 아니라 재는 것이 다르다. 볼트 표는 '금리 방향 ↔ 같은 시기 주가'를 보고,
+여기는 '지금 사면 12개월 뒤'를 본다. 앞의 것은 동행이고 뒤의 것은 기대수익이다.
+둘을 섞어 읽으면 안 된다.</p></div> <h2>논점 ⑧ — 2020년 강의의 세 가설은 새 시대에도 서는가</h2> <div class="claim"><p>결론. 세 개 중 하나만 선다.
+「인상 후 3년이면 소공황」은 방향은 맞고 시점이 어긋나며,
+「세 번째 인상 후 겨울 준비」는 실측에서 근거가 안 나오고,
+「연준의 뜬금없는 선제적 인하」는 강하게 지지된다.
+그리고 셋 다 '디스인플레 시대에서 뽑은 규칙'이다. 그가 든 사례 1986·1994·2004·2015가 전부 1981-09~2020-07 안에 있다.</p></div> <div class="note warn"><p>⚠ 먼저 이 장의 사정거리를 못 박는다.
+아래 세 가설은 2020년 시나리오투자법 강의의 것이다.
+그 뒤로 강의는 없었고, 그는 주간 리포트로 계속 갱신해 왔다.
+이 장은 '2020년판'에 대한 검증이지 그의 현재 입장에 대한 검증이 아닌다.
+현재 입장은 바로 다음 장에서 따로 본다. 그리고 그쪽이 실측과 더 잘 맞는다.</p></div> <div class="note"><p>먼저 '첫 인상'을 다시 정의해야 한다. 이 장의 기술적 핵심이다.<br>
+앞 장에서 쓴 '금리 저점'은 이야기꾼이 말하는 '첫 인상'과 다르다.
+실효금리 저점은 2011-07(0.07%)인데 연준이 실제로 올린 건 2015년 말다. 제로금리 바닥을 4년이나 기었기 때문이다. 저점을 그대로 쓰면 '2011년 인상'이 되어
+그가 든 사례(1994·2004·2015)와 어긋난다.<br>
+→ 금리 저점 대비 +0.25%p(=1회 인상분)에 처음 닿는 달을 '첫 인상'으로 본다.
+그러면 1999-07 · 2004-07 · 2016-01 · 2022-04가 나온다. 그의 목록과 맞는다.
+같은 기준으로 +0.75%p(=3회 인상분)가 「세 번째 인상」이 된다.</p></div> <h3>가설 ① '금리 인상 후 3년이면 소공황·금융위기'<br><span class="dim">→ 방향은 맞고, 대피 시점은 한 해 이르고, 바닥은 한 해 늦다</span></h3> <p>강의가 든 사례는 다섯이다. 1980년 인상→1982년 멕시코, 1986년→1989년 일본,
 1994년→1997년 아시아, 2004년→2007년 금융위기, 2015년→2018년 조정.
-결론은 <b>«인상 후 2.5년이면 리스크 관리»</b>였습니다.</p>
-<p>검증 방법은 이렇습니다. 첫 인상마다 <b>이후 60개월 안의 최대 하락</b>이
-<b>몇 개월째에 시작해 몇 개월째에 끝났는지</b>를 셌습니다.</p>
-
-<div class="tblwrap"><table class="tw">
+결론은 '인상 후 2.5년이면 리스크 관리'였다.</p>
+<p>검증 방법은 이렇다. 첫 인상마다 이후 60개월 안의 최대 하락이
+몇 개월째에 시작해 몇 개월째에 끝났는지를 셌다.</p> <div class="tblwrap"><table class="tw">
 <thead><tr><th>첫 인상</th><th class="n">코스피 최대 하락</th><th class="n">하락 시작</th>
 <th class="n">바닥</th><th class="n">미국 (참고)</th></tr></thead>
-<tbody><tr><td>1958-06 <span class="dim">인플레</span></td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">-22% · 42→48개월</td></tr><tr><td>1961-08 <span class="dim">인플레</span></td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">-22% · 4→10개월</td></tr><tr><td>1967-11 <span class="dim">인플레</span></td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">-32% · 13→32개월</td></tr><tr><td>1972-03 <span class="dim">인플레</span></td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">-45% · 10→33개월</td></tr><tr><td>1977-05 <span class="dim">인플레</span></td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">-18% · 42→58개월</td></tr><tr><td>1983-03 <span class="dim">디스인플레</span></td><td class="n">-9%</td><td class="n">41개월째</td><td class="n">43개월째</td><td class="n">-27% · 53→57개월</td></tr><tr><td>1986-12 <span class="dim">디스인플레</span></td><td class="n">-38%</td><td class="n">27개월째</td><td class="n">45개월째</td><td class="n">-27% · 8→12개월</td></tr><tr><td>1994-02 <span class="dim">디스인플레</span></td><td class="n">-72%</td><td class="n">9개월째</td><td class="n">55개월째</td><td class="n">-14% · 53→55개월</td></tr><tr><td>1999-07 <span class="dim">디스인플레</span></td><td class="n">-49%</td><td class="n">5개월째</td><td class="n">26개월째</td><td class="n">-33% · 14→44개월</td></tr><tr><td>2004-07 <span class="dim">디스인플레</span></td><td class="n">-46%</td><td class="n">39개월째</td><td class="n">52개월째</td><td class="n">-53% · 39→56개월</td></tr><tr><td>2016-01 <span class="dim">디스인플레</span></td><td class="n">-29%</td><td class="n">22개월째</td><td class="n">50개월째</td><td class="n">-23% · 48→50개월</td></tr><tr class="cur"><td>2022-04 <span class="dim">인플레</span></td><td class="n">-18%</td><td class="n">0개월째</td><td class="n">6개월째</td><td class="n">-14% · 0→6개월</td></tr></tbody></table></div>
-
-<div class="note"><p><b>판정 — 부분 지지. 그의 «2.5년»은 오히려 늦습니다.</b><br>
-코스피 하락은 중앙값으로 <b>22개월째에 시작</b>해 <b>45개월째에 바닥</b>을 칩니다
-(미국은 26개월 · 46개월로 거의 같습니다).
-«3년이면 위기»는 <b>위기의 한복판</b>을 가리키는 말로는 맞습니다.
-다만 <b>대피 시점</b>으로 쓰면 늦습니다 — 실측은 <b>22개월(약 2년)</b>에 이미 고점을 지납니다.
-반대로 <b>바닥을 기다리는 사람에게는 3년이 이릅니다</b>(45개월).
-<b>«3년»이라는 한 숫자가 두 가지 다른 일에 쓰이고 있었습니다.</b></p></div>
-
-<figure class="fig"><div class="cbox" style="height:360px"><canvas id="g6"></canvas></div><figcaption><span class="freq m">월간</span>주황·황금색이 코스피 전체, 파랑이 «디스인플레 시대»입니다. <b>4년차 하나만 마이너스</b>입니다. <b>«인플레 시대» 막대가 없는 이유</b> — 새 시대의 첫 인상은 2022-04 하나뿐이고 아직 진행 중이라 그릴 값이 없습니다.</figcaption></figure>
-
-<div class="tblwrap"><table class="tw">
+<tbody><tr><td>1958-06 <span class="dim">인플레</span></td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">-22% · 42→48개월</td></tr><tr><td>1961-08 <span class="dim">인플레</span></td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">-22% · 4→10개월</td></tr><tr><td>1967-11 <span class="dim">인플레</span></td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">-32% · 13→32개월</td></tr><tr><td>1972-03 <span class="dim">인플레</span></td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">-45% · 10→33개월</td></tr><tr><td>1977-05 <span class="dim">인플레</span></td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">-18% · 42→58개월</td></tr><tr><td>1983-03 <span class="dim">디스인플레</span></td><td class="n">-9%</td><td class="n">41개월째</td><td class="n">43개월째</td><td class="n">-27% · 53→57개월</td></tr><tr><td>1986-12 <span class="dim">디스인플레</span></td><td class="n">-38%</td><td class="n">27개월째</td><td class="n">45개월째</td><td class="n">-27% · 8→12개월</td></tr><tr><td>1994-02 <span class="dim">디스인플레</span></td><td class="n">-72%</td><td class="n">9개월째</td><td class="n">55개월째</td><td class="n">-14% · 53→55개월</td></tr><tr><td>1999-07 <span class="dim">디스인플레</span></td><td class="n">-49%</td><td class="n">5개월째</td><td class="n">26개월째</td><td class="n">-33% · 14→44개월</td></tr><tr><td>2004-07 <span class="dim">디스인플레</span></td><td class="n">-46%</td><td class="n">39개월째</td><td class="n">52개월째</td><td class="n">-53% · 39→56개월</td></tr><tr><td>2016-01 <span class="dim">디스인플레</span></td><td class="n">-29%</td><td class="n">22개월째</td><td class="n">50개월째</td><td class="n">-23% · 48→50개월</td></tr><tr class="cur"><td>2022-04 <span class="dim">인플레</span></td><td class="n">-18%</td><td class="n">0개월째</td><td class="n">6개월째</td><td class="n">-14% · 0→6개월</td></tr></tbody></table></div> <div class="note"><p>판정. 부분 지지. 그의 '2.5년'은 오히려 늦다.<br>
+코스피 하락은 중앙값으로 22개월째에 시작해 45개월째에 바닥을 친다
+(미국은 26개월 · 46개월로 거의 같다).
+'3년이면 위기'는 위기의 한복판을 가리키는 말로는 맞다.
+다만 대피 시점으로 쓰면 늦다. 실측은 22개월(약 2년)에 이미 고점을 지난다.
+반대로 바닥을 기다리는 사람에게는 3년이 이르다(45개월).
+'3년'이라는 한 숫자가 두 가지 다른 일에 쓰이고 있었다.</p></div> <figure class="fig"><div class="cbox" style="height:360px"><canvas id="g6"></canvas></div><figcaption><span class="freq m">월간</span>주황·황금색이 코스피 전체, 파랑이 「디스인플레 시대」다. 4년차 하나만 마이너스인다. 「인플레 시대」 막대가 없는 이유 — 새 시대의 첫 인상은 2022-04 하나뿐이고 아직 진행 중이라 그릴 값이 없다.</figcaption></figure> <div class="tblwrap"><table class="tw">
 <thead><tr><th>첫 인상 이후</th><th class="n">코스피 그 해</th><th class="n">플러스</th>
 <th class="n">디스인플레 시대</th><th class="n">인플레 시대</th><th class="n">미국 (참고)</th></tr></thead>
-<tbody><tr><td><b>1년차</b></td><td class="n">+7.0%</td><td class="n">4/7</td><td class="n">-6.7%</td><td class="n">+7.9%</td><td class="n dim">+0.8%</td></tr><tr><td><b>2년차</b></td><td class="n">+6.0%</td><td class="n">5/7</td><td class="n">+6.0%</td><td class="n">+12.3%</td><td class="n dim">+12.2%</td></tr><tr><td><b>3년차</b></td><td class="n">+2.0%</td><td class="n">4/7</td><td class="n">-7.6%</td><td class="n">+19.1%</td><td class="n dim">+8.3%</td></tr><tr class="cur"><td><b>4년차</b></td><td class="n bad">-6.6%</td><td class="n">3/7</td><td class="n">+145.2%</td><td class="n">-12.3%</td><td class="n dim">+14.7%</td></tr><tr><td><b>5년차</b></td><td class="n">+1.5%</td><td class="n">4/7</td><td class="n">-6.2%</td><td class="n">+3.7%</td><td class="n dim">+6.1%</td></tr></tbody></table></div>
-
-<p>연차로 끊으면 코스피는 <b>4년차 하나만 마이너스</b>(-6.6%·플러스 3/7)입니다.
-1·2·3·5년차는 다 플러스입니다.</p>
-
-<div class="note warn"><p><b>⚠ 이 표를 시대로 가르면 «인플레 시대» 열이 사실상 비어 있습니다.</b>
-코스피의 첫 인상 <b>6건이 디스인플레</b>, <b>인플레는 1건(2022-04) — 그것도 진행 중</b>입니다.
-<b>따라서 «인플레 시대의 나쁜 해는 몇 년차인가»는 이 자료로 답할 수 없습니다.</b><br>
-초판에서는 «인플레 시대는 4년차, 디스인플레는 3년차»라고 썼는데,
-그건 <b>후행 이동평균이 1983·1986·1994·1999를 «인플레»로 잘못 이름 붙여서</b> 나온 결과였습니다.
-<b>장기금리로 다시 가르면 그 넷은 전부 디스인플레 시대입니다.</b> 그 문장은 철회합니다.</p></div>
-
-<h3>가설 ② «세 번째 인상 이후에는 겨울을 준비하라»<br><span class="dim">→ 기각에 가깝다</span></h3>
-
-<div class="tblwrap"><table class="tw">
+<tbody><tr><td><b>1년차</b></td><td class="n">+7.0%</td><td class="n">4/7</td><td class="n">-6.7%</td><td class="n">+7.9%</td><td class="n dim">+0.8%</td></tr><tr><td><b>2년차</b></td><td class="n">+6.0%</td><td class="n">5/7</td><td class="n">+6.0%</td><td class="n">+12.3%</td><td class="n dim">+12.2%</td></tr><tr><td><b>3년차</b></td><td class="n">+2.0%</td><td class="n">4/7</td><td class="n">-7.6%</td><td class="n">+19.1%</td><td class="n dim">+8.3%</td></tr><tr class="cur"><td><b>4년차</b></td><td class="n bad">-6.6%</td><td class="n">3/7</td><td class="n">+145.2%</td><td class="n">-12.3%</td><td class="n dim">+14.7%</td></tr><tr><td><b>5년차</b></td><td class="n">+1.5%</td><td class="n">4/7</td><td class="n">-6.2%</td><td class="n">+3.7%</td><td class="n dim">+6.1%</td></tr></tbody></table></div> <p>연차로 끊으면 코스피는 4년차 하나만 마이너스(-6.6%·플러스 3/7)다.
+1·2·3·5년차는 다 플러스다.</p> <div class="note warn"><p>⚠ 이 표를 시대로 가르면 '인플레 시대' 열이 사실상 비어 있다.
+코스피의 첫 인상 6건이 디스인플레, 인플레는 1건(2022-04). 그것도 진행 중이다.
+따라서 '인플레 시대의 나쁜 해는 몇 년차인가'는 이 자료로 답할 수 없다.<br>
+초판에서는 '인플레 시대는 4년차, 디스인플레는 3년차'라고 썼는데,
+그건 후행 이동평균이 1983·1986·1994·1999를 '인플레'로 잘못 이름 붙여서 나온 결과였다.
+장기금리로 다시 가르면 그 넷은 전부 디스인플레 시대이다. 그 문장은 철회한다.</p></div> <h3>가설 ② '세 번째 인상 이후에는 겨울을 준비하라'<br><span class="dim">→ 기각에 가깝다</span></h3> <div class="tblwrap"><table class="tw">
 <thead><tr><th>세 번째 인상</th><th class="n">코스피 +12M</th><th class="n">코스피 +24M</th>
 <th class="n">36M 낙폭</th><th class="n">미국 +12M (참고)</th></tr></thead>
-<tbody><tr><td>1958-08 <span class="dim">인플레</span></td><td class="n">—%</td><td class="n">—%</td><td class="n bad">—%</td><td class="n dim">+30.0%</td></tr><tr><td>1961-08 <span class="dim">인플레</span></td><td class="n">—%</td><td class="n">—%</td><td class="n bad">—%</td><td class="n dim">-16.1%</td></tr><tr><td>1968-01 <span class="dim">인플레</span></td><td class="n">—%</td><td class="n">—%</td><td class="n bad">—%</td><td class="n dim">+8.6%</td></tr><tr><td>1972-04 <span class="dim">인플레</span></td><td class="n">—%</td><td class="n">—%</td><td class="n bad">—%</td><td class="n dim">-3.3%</td></tr><tr><td>1977-06 <span class="dim">인플레</span></td><td class="n">—%</td><td class="n">—%</td><td class="n bad">—%</td><td class="n dim">+1.0%</td></tr><tr><td>1983-07 <span class="dim">디스인플레</span></td><td class="n">+8.4%</td><td class="n">+10.5%</td><td class="n bad">-5%</td><td class="n dim">-10.0%</td></tr><tr><td>1986-12 <span class="dim">디스인플레</span></td><td class="n">+78.8%</td><td class="n">+223.6%</td><td class="n bad">-8%</td><td class="n dim">-5.1%</td></tr><tr><td>1994-05 <span class="dim">디스인플레</span></td><td class="n">-6.2%</td><td class="n">+0.0%</td><td class="n bad">-41%</td><td class="n dim">+12.9%</td></tr><tr><td>1999-11 <span class="dim">디스인플레</span></td><td class="n">-42.7%</td><td class="n">-36.3%</td><td class="n bad">-49%</td><td class="n dim">+1.8%</td></tr><tr><td>2004-10 <span class="dim">디스인플레</span></td><td class="n">+40.4%</td><td class="n">+59.6%</td><td class="n bad">-12%</td><td class="n dim">+11.6%</td></tr><tr><td>2017-04 <span class="dim">디스인플레</span></td><td class="n">+13.8%</td><td class="n">+2.4%</td><td class="n bad">-29%</td><td class="n dim">+9.4%</td></tr><tr class="cur"><td>2022-06 <span class="dim">인플레</span></td><td class="n">+4.3%</td><td class="n">+10.1%</td><td class="n bad">-13%</td><td class="n dim">+4.4%</td></tr></tbody></table></div>
-
-<p>코스피는 그 뒤 12개월 <b>+8.4%</b>(5/7), 24개월 <b>+10.1%</b>(6/7)입니다.
-<b>겨울이 아니라 아직 가을입니다.</b> 여기서 판 사람은 2년을 손해 봤습니다 —
-1986-12는 그 뒤 12개월에 <b>+78.8%</b>, 24개월에 <b>+223.6%</b>였습니다.</p>
-
-<div class="note"><p><b>판정 — 경고 시점으로 쓸 근거가 없습니다.</b><br>
-«언젠가는 온다»는 맞습니다 — 36개월 안의 낙폭이 <b>7건 전부 마이너스</b>이고
-중앙값 <b>-13.1%</b>입니다. 그런데 그건 <b>아무 달이나 골라도 참인 문장</b>입니다.<br>
-<b>결정적으로, 같은 기준으로 측정하면 «첫 인상» 쪽이 오히려 더 나쁩니다</b> —
-첫 인상 이후 36개월 낙폭이 <b>-17.6%</b>(7건)로
-세 번째 인상 이후(-13.1%)보다 깊습니다.
-<b>경고를 원한다면 «몇 번째 인상인가»가 아니라 «첫 인상으로부터 몇 년째인가»를 세는 편이 낫습니다.</b></p></div>
-
-<h3>가설 ③ «연준의 뜬금없는 선제적 인하»<br><span class="dim">→ 강하게 지지. 이 페이지에서 가장 깨끗한 신호</span></h3>
-
-<p>«뜬금없다»는 그대로는 검증할 수 없는 표현이라 기준을 숫자로 바꿨습니다.
-인하가 시작된 달의 미국 주가가 <b>최근 12개월 고점의 −5% 이내</b>면 <b>선제적 인하</b>입니다.
-시장이 아직 무너지지 않았는데 연준이 먼저 움직인 경우입니다.
-그보다 하락해 있으면 <b>후행 인하</b>로 봅니다.</p>
-
-<div class="tblwrap"><table class="tw">
+<tbody><tr><td>1958-08 <span class="dim">인플레</span></td><td class="n">—%</td><td class="n">—%</td><td class="n bad">—%</td><td class="n dim">+30.0%</td></tr><tr><td>1961-08 <span class="dim">인플레</span></td><td class="n">—%</td><td class="n">—%</td><td class="n bad">—%</td><td class="n dim">-16.1%</td></tr><tr><td>1968-01 <span class="dim">인플레</span></td><td class="n">—%</td><td class="n">—%</td><td class="n bad">—%</td><td class="n dim">+8.6%</td></tr><tr><td>1972-04 <span class="dim">인플레</span></td><td class="n">—%</td><td class="n">—%</td><td class="n bad">—%</td><td class="n dim">-3.3%</td></tr><tr><td>1977-06 <span class="dim">인플레</span></td><td class="n">—%</td><td class="n">—%</td><td class="n bad">—%</td><td class="n dim">+1.0%</td></tr><tr><td>1983-07 <span class="dim">디스인플레</span></td><td class="n">+8.4%</td><td class="n">+10.5%</td><td class="n bad">-5%</td><td class="n dim">-10.0%</td></tr><tr><td>1986-12 <span class="dim">디스인플레</span></td><td class="n">+78.8%</td><td class="n">+223.6%</td><td class="n bad">-8%</td><td class="n dim">-5.1%</td></tr><tr><td>1994-05 <span class="dim">디스인플레</span></td><td class="n">-6.2%</td><td class="n">+0.0%</td><td class="n bad">-41%</td><td class="n dim">+12.9%</td></tr><tr><td>1999-11 <span class="dim">디스인플레</span></td><td class="n">-42.7%</td><td class="n">-36.3%</td><td class="n bad">-49%</td><td class="n dim">+1.8%</td></tr><tr><td>2004-10 <span class="dim">디스인플레</span></td><td class="n">+40.4%</td><td class="n">+59.6%</td><td class="n bad">-12%</td><td class="n dim">+11.6%</td></tr><tr><td>2017-04 <span class="dim">디스인플레</span></td><td class="n">+13.8%</td><td class="n">+2.4%</td><td class="n bad">-29%</td><td class="n dim">+9.4%</td></tr><tr class="cur"><td>2022-06 <span class="dim">인플레</span></td><td class="n">+4.3%</td><td class="n">+10.1%</td><td class="n bad">-13%</td><td class="n dim">+4.4%</td></tr></tbody></table></div> <p>코스피는 그 뒤 12개월 +8.4%(5/7), 24개월 +10.1%(6/7)다.
+겨울이 아니라 아직 가을이다. 여기서 판 사람은 2년을 손해 봤다. 1986-12는 그 뒤 12개월에 +78.8%, 24개월에 +223.6%였다.</p> <div class="note"><p>판정. 경고 시점으로 쓸 근거가 없다.<br>
+'언젠가는 온다'는 맞다. 36개월 안의 낙폭이 7건 전부 마이너스이고
+중앙값 -13.1%다. 그런데 그건 아무 달이나 골라도 참인 문장다.<br>
+결정적으로, 같은 기준으로 측정하면 '첫 인상' 쪽이 오히려 더 나쁘다. 첫 인상 이후 36개월 낙폭이 -17.6%(7건)로
+세 번째 인상 이후(-13.1%)보다 깊다.
+경고를 원한다면 '몇 번째 인상인가'가 아니라 '첫 인상으로부터 몇 년째인가'를 세는 편이 낫다.</p></div> <h3>가설 ③ '연준의 뜬금없는 선제적 인하'<br><span class="dim">→ 강하게 지지. 이 페이지에서 가장 깨끗한 신호</span></h3> <p>'뜬금없다'는 그대로는 검증할 수 없는 표현이라 기준을 숫자로 바꿨다.
+인하가 시작된 달의 미국 주가가 최근 12개월 고점의 −5% 이내면 선제적 인하다.
+시장이 아직 무너지지 않았는데 연준이 먼저 움직인 경우다.
+그보다 하락해 있으면 후행 인하로 본다.</p> <div class="tblwrap"><table class="tw">
 <thead><tr><th>인하 시작</th><th class="n">그때 주가 (고점 대비)</th><th>유형</th>
 <th class="n">코스피 +12M</th><th class="n">코스피 36M 낙폭</th>
 <th class="n">미국 +12M</th><th>그 뒤</th></tr></thead>
-<tbody><tr><td>1957-10 <span class="dim">인플레</span></td><td class="n">-13.8%</td><td><b>뒷북</b></td><td class="n">—%</td><td class="n">—%</td><td class="n dim">+21.8%</td><td class="dim"></td></tr><tr><td>1959-11 <span class="dim">인플레</span></td><td class="n">-2.4%</td><td><b>뜬금없음</b></td><td class="n">—%</td><td class="n">—%</td><td class="n dim">-7.0%</td><td class="dim"></td></tr><tr><td>1966-11 <span class="dim">인플레</span></td><td class="n">-13.5%</td><td><b>뒷북</b></td><td class="n">—%</td><td class="n">—%</td><td class="n dim">+17.6%</td><td class="dim"></td></tr><tr><td>1969-08 <span class="dim">인플레</span></td><td class="n">-13.6%</td><td><b>뒷북</b></td><td class="n">—%</td><td class="n">—%</td><td class="n dim">-18.8%</td><td class="dim"></td></tr><tr><td>1974-07 <span class="dim">인플레</span></td><td class="n">-27.0%</td><td><b>뒷북</b></td><td class="n">—%</td><td class="n">—%</td><td class="n dim">+14.5%</td><td class="dim">1차 오일쇼크</td></tr><tr><td>1981-06 <span class="dim">인플레</span></td><td class="n">-1.7%</td><td><b>뜬금없음</b></td><td class="n bad">-14.4%</td><td class="n">-26%</td><td class="n dim">-17.8%</td><td class="dim">볼커 쇼크</td></tr><tr><td>1984-08 <span class="dim">디스인플레</span></td><td class="n">-2.8%</td><td><b>뜬금없음</b></td><td class="n">+1.0%</td><td class="n">-9%</td><td class="n dim">+15.9%</td><td class="dim"></td></tr><tr><td>1989-03 <span class="dim">디스인플레</span></td><td class="n">-0.3%</td><td><b>뜬금없음</b></td><td class="n bad">-12.5%</td><td class="n">-38%</td><td class="n dim">+13.2%</td><td class="dim"></td></tr><tr><td>1995-04 <span class="dim">디스인플레</span></td><td class="n">0.0%</td><td><b>뜬금없음</b></td><td class="n bad">+1.9%</td><td class="n">-61%</td><td class="n dim">+26.7%</td><td class="dim">→ 2년 뒤 외환위기</td></tr><tr><td>2000-07 <span class="dim">디스인플레</span></td><td class="n">0.0%</td><td><b>뜬금없음</b></td><td class="n bad">-30.4%</td><td class="n">-38%</td><td class="n dim">-6.0%</td><td class="dim">→ 닷컴 붕괴</td></tr><tr><td>2007-02 <span class="dim">디스인플레</span></td><td class="n">0.0%</td><td><b>뜬금없음</b></td><td class="n bad">+17.8%</td><td class="n">-46%</td><td class="n dim">-3.3%</td><td class="dim">→ 리먼</td></tr><tr><td>2019-04 <span class="dim">디스인플레</span></td><td class="n">-1.0%</td><td><b>뜬금없음</b></td><td class="n">-16.2%</td><td class="n">-19%</td><td class="n dim">-15.9%</td><td class="dim">→ 코로나</td></tr><tr class="cur"><td>2023-08 <span class="dim">인플레</span></td><td class="n">-0.7%</td><td><b>뜬금없음</b></td><td class="n">+3.3%</td><td class="n">-13%</td><td class="n dim">+16.5%</td><td class="dim">지금</td></tr></tbody></table></div>
-
-<figure class="fig"><div class="cbox" style="height:340px"><canvas id="g7"></canvas></div><figcaption><span class="freq m">월간</span>빨강이 «주가가 아직 고점권인데 연준이 내리기 시작한» 경우, 회색이 «이미 빠진 뒤에 따라 내린» 경우입니다. <b>같은 인하인데 뒤따라오는 것이 정반대</b>입니다.</figcaption></figure>
-
-<div class="note"><p><b>판정 — 지지.</b> 13번 중 <b>9번이 «뜬금없는» 유형</b>이고,
-그 뒤 코스피 12개월 <b>-5.7%</b> · 36개월 낙폭 중앙 <b>-32.0%</b>입니다.
+<tbody><tr><td>1957-10 <span class="dim">인플레</span></td><td class="n">-13.8%</td><td><b>뒷북</b></td><td class="n">—%</td><td class="n">—%</td><td class="n dim">+21.8%</td><td class="dim"></td></tr><tr><td>1959-11 <span class="dim">인플레</span></td><td class="n">-2.4%</td><td><b>뜬금없음</b></td><td class="n">—%</td><td class="n">—%</td><td class="n dim">-7.0%</td><td class="dim"></td></tr><tr><td>1966-11 <span class="dim">인플레</span></td><td class="n">-13.5%</td><td><b>뒷북</b></td><td class="n">—%</td><td class="n">—%</td><td class="n dim">+17.6%</td><td class="dim"></td></tr><tr><td>1969-08 <span class="dim">인플레</span></td><td class="n">-13.6%</td><td><b>뒷북</b></td><td class="n">—%</td><td class="n">—%</td><td class="n dim">-18.8%</td><td class="dim"></td></tr><tr><td>1974-07 <span class="dim">인플레</span></td><td class="n">-27.0%</td><td><b>뒷북</b></td><td class="n">—%</td><td class="n">—%</td><td class="n dim">+14.5%</td><td class="dim">1차 오일쇼크</td></tr><tr><td>1981-06 <span class="dim">인플레</span></td><td class="n">-1.7%</td><td><b>뜬금없음</b></td><td class="n bad">-14.4%</td><td class="n">-26%</td><td class="n dim">-17.8%</td><td class="dim">볼커 쇼크</td></tr><tr><td>1984-08 <span class="dim">디스인플레</span></td><td class="n">-2.8%</td><td><b>뜬금없음</b></td><td class="n">+1.0%</td><td class="n">-9%</td><td class="n dim">+15.9%</td><td class="dim"></td></tr><tr><td>1989-03 <span class="dim">디스인플레</span></td><td class="n">-0.3%</td><td><b>뜬금없음</b></td><td class="n bad">-12.5%</td><td class="n">-38%</td><td class="n dim">+13.2%</td><td class="dim"></td></tr><tr><td>1995-04 <span class="dim">디스인플레</span></td><td class="n">0.0%</td><td><b>뜬금없음</b></td><td class="n bad">+1.9%</td><td class="n">-61%</td><td class="n dim">+26.7%</td><td class="dim">→ 2년 뒤 외환위기</td></tr><tr><td>2000-07 <span class="dim">디스인플레</span></td><td class="n">0.0%</td><td><b>뜬금없음</b></td><td class="n bad">-30.4%</td><td class="n">-38%</td><td class="n dim">-6.0%</td><td class="dim">→ 닷컴 붕괴</td></tr><tr><td>2007-02 <span class="dim">디스인플레</span></td><td class="n">0.0%</td><td><b>뜬금없음</b></td><td class="n bad">+17.8%</td><td class="n">-46%</td><td class="n dim">-3.3%</td><td class="dim">→ 리먼</td></tr><tr><td>2019-04 <span class="dim">디스인플레</span></td><td class="n">-1.0%</td><td><b>뜬금없음</b></td><td class="n">-16.2%</td><td class="n">-19%</td><td class="n dim">-15.9%</td><td class="dim">→ 코로나</td></tr><tr class="cur"><td>2023-08 <span class="dim">인플레</span></td><td class="n">-0.7%</td><td><b>뜬금없음</b></td><td class="n">+3.3%</td><td class="n">-13%</td><td class="n dim">+16.5%</td><td class="dim">지금</td></tr></tbody></table></div> <figure class="fig"><div class="cbox" style="height:340px"><canvas id="g7"></canvas></div><figcaption><span class="freq m">월간</span>빨강이 「주가가 아직 고점권인데 연준이 내리기 시작한」 경우, 회색이 «이미 빠진 뒤에 따라 내린» 경우다. 같은 인하인데 뒤따라오는 것이 정반대인다.</figcaption></figure> <div class="note"><p>판정. 지지. 13번 중 9번이 '뜬금없는' 유형이고,
+그 뒤 코스피 12개월 -5.7% · 36개월 낙폭 중앙 -32.0%다.
 1995-04(→외환위기 −60.9%) · 2000-07(→닷컴 −38.5%) · 2007-02(→리먼 −46.4%) ·
-2019-04(→코로나 −19.2%)가 전부 이 유형입니다.
-반대로 «이미 빠진 뒤에 따라 내린» 경우는 미국 12개월 <b>+16.0%</b>로
-<b>사도 되는 자리</b>였습니다. <b>이야기꾼이 이것을 1급 전조로 놓은 것은 실측이 뒷받침합니다.</b></p></div>
-
-<div class="note warn"><p><b>⚠ 그런데 이 대조는 코스피에서 성립하지 않습니다.</b>
-표를 세로로 보십시오 — <b>1981년 이후 인하 시작 8번이 전부 «뜬금없는» 유형</b>입니다.
-«뒷북 인하»는 <b>4건 모두 1975년 이전</b>이라 코스피 자료가 없습니다.
-따라서 <b>코스피 숫자(-5.7% · -32.0%)는 사실상 «인하 시작은 나쁘다»와 같은 숫자</b>이고,
-두 유형의 <b>대조</b>는 오직 미국 자료에서만 성립합니다(-3.3% 대 +16.0%).</p>
-<p><b>그럼에도 남기는 이유 — 이 사실 자체가 발견이기 때문입니다.</b>
-<b>볼커 이후 45년간 연준은 «주가가 멀쩡할 때» 내리기 시작했지, 깨진 뒤에 따라 내린 적이 없습니다.</b>
-이야기꾼이 «뜬금없는»이라는 말을 쓴 것은 그래서 정확합니다 —
-<b>연준의 인하는 원래 뜬금없이 옵니다.</b> 그리고 그때마다 코스피가 -32.0% 빠졌습니다.</p></div>
-
-<h2>★★ 논점 ⑨ — 그는 이미 바꿨다. 바꾼 쪽이 맞는가</h2>
-
-<div class="claim"><p><b>결론.</b> <b>맞습니다. 그리고 이 페이지에서 가장 잘 서는 명제입니다.</b>
-그는 <b>2024-08-03(W31)</b>에 이렇게 적었습니다 —
-«<b>인플레이션 시대는 기준 금리 인상을 시작하는 시점에서 공황이 시작되는 경향이 있다.
-반면 디플레이션 시대는 대부분 기준 금리를 인하할 때 공황이 시작된다.</b>»<br>
-실측이 <b>양쪽 다 지지</b>합니다 — 인플레 시대의 «인상 시작» 뒤 미국 12개월이
-<b>+0.6%</b>인데 같은 시대의 «인하 시작» 뒤는 <b>+14.5%</b>입니다.
-디스인플레 시대에서는 반대로 <b>«인하 시작»의 36개월 낙폭이 -18.9%</b>로
-«인상 시작»(-11.2%)보다 깊습니다.</p></div>
-
-<div class="note"><p><b>이 장이 왜 앞 장보다 무거운가.</b>
-앞 장에서 저는 «그의 규칙은 디스인플레 40년에서 뽑혔다»고 적었습니다.
-<b>그런데 그 말을 그가 먼저 했습니다.</b> 2022-06-05(W22)입니다 —<br>
-«<b>1980년 이후 40년 간 디플레이션 시대였고 시장 금리가 장기적으로 하락 추세였기 때문에
+2019-04(→코로나 −19.2%)가 전부 이 유형이다.
+반대로 '이미 빠진 뒤에 따라 내린' 경우는 미국 12개월 +16.0%로
+사도 되는 자리였다. 이야기꾼이 이것을 1급 전조로 놓은 것은 실측이 뒷받침한다.</p></div> <div class="note warn"><p>⚠ 그런데 이 대조는 코스피에서 성립하지 않는다.
+표를 세로로 보라. 1981년 이후 인하 시작 8번이 전부 '뜬금없는' 유형이다.
+'뒷북 인하'는 4건 모두 1975년 이전이라 코스피 자료가 없다.
+따라서 코스피 숫자(-5.7% · -32.0%)는 사실상 '인하 시작은 나쁘다'와 같은 숫자이고,
+두 유형의 대조는 오직 미국 자료에서만 성립한다(-3.3% 대 +16.0%).</p>
+<p>그럼에도 남기는 이유. 이 사실 자체가 발견이기 때문이다.
+볼커 이후 45년간 연준은 '주가가 멀쩡할 때' 내리기 시작했지, 깨진 뒤에 따라 내린 적이 없다.
+이야기꾼이 '뜬금없는'이라는 말을 쓴 것은 그래서 정확하다. 연준의 인하는 원래 뜬금없이 온다. 그리고 그때마다 코스피가 -32.0% 빠졌다.</p></div> <h2>★★ 논점 ⑨ — 그는 이미 바꿨다. 바꾼 쪽이 맞는가</h2> <div class="claim"><p>결론. 맞다. 그리고 이 페이지에서 가장 잘 서는 명제다.
+그는 2024-08-03(W31)에 이렇게 적었다. "인플레이션 시대는 기준 금리 인상을 시작하는 시점에서 공황이 시작되는 경향이 있다.
+반면 디플레이션 시대는 대부분 기준 금리를 인하할 때 공황이 시작된다."<br>
+실측이 양쪽 다 지지한다. 인플레 시대의 '인상 시작' 뒤 미국 12개월이
++0.6%인데 같은 시대의 '인하 시작' 뒤는 +14.5%다.
+디스인플레 시대에서는 반대로 '인하 시작'의 36개월 낙폭이 -18.9%로
+'인상 시작'(-11.2%)보다 깊다.</p></div> <div class="note"><p>이 장이 왜 앞 장보다 무거운가.
+앞 장에서 저는 '그의 규칙은 디스인플레 40년에서 뽑혔다'고 적었다.
+그런데 그 말을 그가 먼저 했다. 2022-06-05(W22)다. <br>
+"1980년 이후 40년 간 디플레이션 시대였고 시장 금리가 장기적으로 하락 추세였기 때문에
 장단기 금리차를 포함한 금리 시나리오에 단 한 번도 예외가 없었던 것이다.
-(…) 금리 시나리오도 수정이 불가피할 것이다.</b>»<br>
-<b>제가 실측으로 4년 걸려 도달한 자리에 그는 이미 서 있었습니다.</b>
-이 페이지의 기여는 «그가 틀렸다»가 아니라 <b>«그가 옳게 바꿨음을 실측으로 확인했다»</b>입니다.</p></div>
-
-<div class="tblwrap"><table class="tw">
+(…) 금리 시나리오도 수정이 불가피할 것이다."<br>
+제가 실측으로 4년 걸려 도달한 자리에 그는 이미 서 있었다.
+이 페이지의 기여는 '그가 틀렸다'가 아니라 '그가 옳게 바꿨음을 실측으로 확인했다'이다.</p></div> <div class="tblwrap"><table class="tw">
 <thead><tr><th>시대</th><th>사건</th><th class="n">건</th>
 <th class="n">미국 +12M</th><th class="n">미국 +24M</th><th class="n">미국 36M 낙폭</th>
 <th class="n">코스피 +12M</th><th class="n">코스피 36M 낙폭</th></tr></thead>
-<tbody><tr class="cur"><td>인플레 시대</td><td><b>인상 시작</b></td><td class="n">6</td><td class="n bad">+0.6%</td><td class="n">+4.5%</td><td class="n">-17.8%</td><td class="n"><span class="dim">1건</span></td><td class="n">—</td></tr><tr><td>인플레 시대</td><td><b>인하 시작</b></td><td class="n">7</td><td class="n">+14.5%</td><td class="n">+28.7%</td><td class="n">-18.2%</td><td class="n">-5.5%</td><td class="n">-19.7%</td></tr><tr><td>디스인플레 시대</td><td><b>인상 시작</b></td><td class="n">6</td><td class="n bad">+2.1%</td><td class="n">+22.3%</td><td class="n">-11.2%</td><td class="n">+7.9%</td><td class="n">-15.0%</td></tr><tr><td>디스인플레 시대</td><td><b>인하 시작</b></td><td class="n">6</td><td class="n">+4.9%</td><td class="n">+23.9%</td><td class="n">-18.9%</td><td class="n">-5.7%</td><td class="n">-38.1%</td></tr></tbody></table></div>
-
-<ul>
-<li><b>★ 인플레 시대에는 «인상 시작»이 압도적으로 나쁩니다.</b>
-미국 12개월 <b>+0.6%</b> 대 <b>+14.5%</b>, 24개월 <b>+4.5%</b> 대 <b>+28.7%</b>.
-<b>같은 시대 안에서 인상과 인하가 이만큼 갈립니다.</b></li>
-<li><b>디스인플레 시대에는 반대로 «인하 시작»이 깊게 팝니다.</b>
-36개월 낙폭이 미국 <b>-18.9%</b> 대 -11.2%이고,
-<b>코스피는 훨씬 선명합니다</b> — 인상 시작 12개월 <b>+7.9%</b>·낙폭 -15.0% 대
-인하 시작 <b>-5.7%</b>·낙폭 <b>-38.1%</b></li>
-<li>즉 <b>앞 장의 «인하 시작은 코스피에 경고»는 «디스인플레 시대에는»이 앞에 붙는 문장</b>이었습니다.
-그가 2024년에 그렇게 고쳐 적었고, 자가 그것을 지지합니다</li>
-</ul>
-
-<div class="note warn"><p><b>⚠ 그가 단 단서도 같이 옮깁니다.</b> 같은 글(2024-08-03)의 뒷문장입니다 —
-«<b>그러나 지금이 인플레이션 시대의 방정식이 바로 적용되는지는 분명하지 않다.
-왜냐면 지금은 인플레이션 시대 전반전으로서 구조적으로 물가가 상승하진 않기 때문이다.</b>»<br>
-그리고 <b>인플레 시대 «인상 시작» 6건 중 코스피 자료가 있는 것은 1건(2022-04)</b>뿐입니다.
-<b>미국 5건은 전부 1981년 이전</b>이라 지금의 한국과 시장 구조가 다릅니다.</p></div>
-
-<div class="note"><p><b>그가 최근에 더 좁힌 것.</b> 2026-07-25(W30) —
-«1990년대와 2000년대는 디플레이션 시대였지만 (…) <b>전형적인 5단계 금리 프로세스</b>를 거쳐 공황이 시작된다.
-그러나 <b>강한 인플레이션 시대가 되면 금리 프로세스가 2단계로 매우 간단해진다.
-연준의 금리 인상 즉시 공황이 시작되거나 심할 경우 연준이 금리 인상을 시작하기도 전에 공황이 시작될 수도 있다</b>».<br>
-2024-10-12(W41)에서는 강의의 대표 지표 하나를 <b>새 시대에서 폐기</b>했습니다.
-«인플레이션 시대에서 <b>장단기 금리차의 역전과 복귀는 공황과 큰 상관관계 없이
-수시로 발생한다</b>»는 것입니다.<br>
+<tbody><tr class="cur"><td>인플레 시대</td><td><b>인상 시작</b></td><td class="n">6</td><td class="n bad">+0.6%</td><td class="n">+4.5%</td><td class="n">-17.8%</td><td class="n"><span class="dim">1건</span></td><td class="n">—</td></tr><tr><td>인플레 시대</td><td><b>인하 시작</b></td><td class="n">7</td><td class="n">+14.5%</td><td class="n">+28.7%</td><td class="n">-18.2%</td><td class="n">-5.5%</td><td class="n">-19.7%</td></tr><tr><td>디스인플레 시대</td><td><b>인상 시작</b></td><td class="n">6</td><td class="n bad">+2.1%</td><td class="n">+22.3%</td><td class="n">-11.2%</td><td class="n">+7.9%</td><td class="n">-15.0%</td></tr><tr><td>디스인플레 시대</td><td><b>인하 시작</b></td><td class="n">6</td><td class="n">+4.9%</td><td class="n">+23.9%</td><td class="n">-18.9%</td><td class="n">-5.7%</td><td class="n">-38.1%</td></tr></tbody></table></div> <ul>
+<li>★ 인플레 시대에는 '인상 시작'이 압도적으로 나쁘다.
+미국 12개월 +0.6% 대 +14.5%, 24개월 +4.5% 대 +28.7%.
+같은 시대 안에서 인상과 인하가 이만큼 갈린다.</li>
+<li>디스인플레 시대에는 반대로 '인하 시작'이 깊게 판다.
+36개월 낙폭이 미국 -18.9% 대 -11.2%이고,
+코스피는 훨씬 선명하다. 인상 시작 12개월 +7.9%·낙폭 -15.0% 대
+인하 시작 -5.7%·낙폭 -38.1%</li>
+<li>즉 앞 장의 '인하 시작은 코스피에 경고'는 '디스인플레 시대에는'이 앞에 붙는 문장이었다.
+그가 2024년에 그렇게 고쳐 적었고, 실측이 그것을 지지한다</li>
+</ul> <div class="note warn"><p>⚠ 그가 단 단서도 같이 옮길다. 같은 글(2024-08-03)의 뒷문장이다. "그러나 지금이 인플레이션 시대의 방정식이 바로 적용되는지는 분명하지 않다.
+왜냐면 지금은 인플레이션 시대 전반전으로서 구조적으로 물가가 상승하진 않기 때문이다."<br>
+그리고 인플레 시대 '인상 시작' 6건 중 코스피 자료가 있는 것은 1건(2022-04)뿐이다.
+미국 5건은 전부 1981년 이전이라 지금의 한국과 시장 구조가 다르다.</p></div> <div class="note"><p>그가 최근에 더 좁힌 것은 이렇다. 2026-07-25(W30). "1990년대와 2000년대는 디플레이션 시대였지만 (…) 전형적인 5단계 금리 프로세스를 거쳐 공황이 시작된다.
+그러나 강한 인플레이션 시대가 되면 금리 프로세스가 2단계로 매우 간단해진다.
+연준의 금리 인상 즉시 공황이 시작되거나 심할 경우 연준이 금리 인상을 시작하기도 전에 공황이 시작될 수도 있다".<br>
+2024-10-12(W41)에서는 강의의 대표 지표 하나를 새 시대에서 폐기했다.
+"인플레이션 시대에서 장단기 금리차의 역전과 복귀는 공황과 큰 상관관계 없이
+수시로 발생한다"는 것이다.<br>
 <span class="dim">전문 인용과 2021~2026 변천 궤적은 볼트
-<code>references/이야기꾼_시대관_변천_2021-2026.md</code>에 있습니다.
-주간 리포트 256편에서 «시대» 언급 178건을 추출해 정리했습니다.</span></p></div>
-
-<h2>그래서 지금</h2>
-
-<div class="claim"><p><b>결론.</b> 지금은 <b>«디스인플레 시대의 규칙이 검증된 적 없는 자리»</b>입니다.
-2023-08의 인하 시작은 <b>뜬금없는 인하</b> 유형이었고(그때 미국 주가는 12개월 고점 대비 -0.7%),
-그 시점은 <b>2020-07 이후 — 이미 새 시대 안</b>입니다.
-<b>이 조합의 완결 사례가 72년에 없습니다.</b></p></div>
-
-<ul>
-<li><b>2023-08 고점(5.33%) 이후 35개월째</b>이고 1.70%p 내려왔습니다(2026-07 3.63%).
-그 창 안에서 코스피는 <b>-38.6%</b> 빠졌습니다(2026-06-22 9,115 → 2026-07-30 5,594).
-과거 «인하 시작 이후» 중앙값 -32.0%를 <b>넘어섰습니다.</b> 2026-08-06 종가는 6,296입니다</li>
-<li><b>첫 인상(2022-04)으로부터 4.2년째</b>입니다.
-가설 ①의 자로 보면 <b>하락 시작 중앙(22개월)은 한참 지났고 바닥 중앙(45개월)에도 거의 닿았습니다</b> —
-7월의 폭락이 그 자리에 앉아 있습니다. <b>모양이 맞다는 말이지 «바닥이다»라는 말이 아닙니다</b></li>
-<li><b>★ 그런데 그 자는 디스인플레 시대에서 깎은 자입니다.</b>
-2022-04는 <b>새 시대의 첫 인상</b>이고, 새 시대에서 이 자가 맞는지는 <b>아직 아무도 모릅니다</b></li>
-<li><b>물가가 갈림길입니다.</b> 2026-06 CPI가 <b>3.46%</b>입니다.
-2026-04 수출은 <b>+48.8%</b>로, <b>인하 국면과 수출 40%가 겹친 것은 42년에 1987-04 · 2026-03 · 2026-04뿐</b>입니다.
-«실물은 뜨거운데 통화당국은 급한» 어긋난 조합입니다</li>
-</ul>
-
-<div class="note"><p><b>이 페이지가 말할 수 있는 것과 없는 것.</b><br>
-말할 수 있는 것 — <b>지금까지의 하락은 «인하 시작 이후»라는 국면과 어긋나지 않습니다.</b>
-오히려 전형에 가깝고, 다만 깊이가 중앙값을 넘었습니다.
-그리고 <b>배경이 40년 만에 뒤집혔으므로 과거 표를 그대로 외삽하면 안 됩니다.</b><br>
-말할 수 없는 것 — <b>여기서 어느 쪽으로 갈지</b>입니다.
-<b>그 판단은 이 페이지의 몫이 아닙니다</b> —
-<a href="peak-debate.html">반도체 정점 논쟁</a>과 <a href="jeonjo.html">중공황 전조현상</a>에서 합니다.</p></div>
-
-<h2>미국 증시는 어떻게 달랐나 <span class="dim">— 부가</span></h2>
-
-<div class="claim"><p><b>결론.</b> 미국은 <b>거의 아무것도 안 탑니다</b> —
-금리 수준도, 금리 방향도, 국면도. <b>대조군이 이만큼 다르다는 것 자체가 결과입니다.</b></p></div>
-
-<ul>
-<li><b>수준을 안 탑니다.</b> 금리가 1% 미만이든 10%가 넘든 12개월 뒤 중앙값이 플러스입니다.
-<b>어느 칸에서도 마이너스가 없습니다</b> — 코스피는 5~7% 칸이 마이너스였습니다</li>
-<li><b>인하 시작이 오히려 좋습니다.</b> 12개월 <b>+13.2%</b>(7/13), 24개월 <b>+25.6%</b>(11/13)입니다.
-같은 자리에서 코스피는 -5.7% · -7.5%로 <b>부호가 반대</b>입니다</li>
-<li><b>낙폭도 국면을 안 탑니다.</b> 인상 시작 뒤 -15.9% · 인하 시작 뒤 -18.2%로 거의 같습니다.
-코스피는 -17.7% → <b>-32.0%</b>로 벌어집니다</li>
-<li><b>세 가설도 미국에서는 흐릿합니다.</b> 세 번째 인상 뒤 12개월이 +3.1%로 플러스이고,
-뜬금없는 인하 뒤에도 -3.3%에 그칩니다 — 코스피의 -5.7%보다 훨씬 얕습니다</li>
-</ul>
-
-<div class="note"><p><b>왜 이렇게 다른가.</b>
-연준의 금리는 <b>미국 경제를 보고</b> 정해집니다.
-미국에게 인하는 <b>자기 몸에 놓는 주사</b>이고, 한국에게는 <b>남의 병세를 알리는 진단서</b>입니다.
-게다가 한국은 <b>수출로 먹고사는 시장</b>이라 미국 경기가 식으면 매출이 먼저 마릅니다.
-<b>«미국이 이러니 우리도»라는 문장이 금리에서는 특히 위험합니다.</b></p></div>
-
-<h2>자료와 계산 방법</h2>
-
-<div class="claim"><p>여기부터 두 장은 <b>숫자를 의심하실 때 보는 곳</b>입니다.
-결론은 앞에 다 있고, 여기에는 <b>그 결론을 만든 자와 그 자의 흠</b>만 있습니다.</p></div>
-
-<div class="tblwrap"><table class="tw">
+<code>references/이야기꾼_시대관_변천_2021-2026.md</code>에 있다.
+주간 리포트 256편에서 '시대' 언급 178건을 추출해 정리했다.</span></p></div> <h2>그래서 지금</h2> <div class="claim"><p>결론. 지금은 '디스인플레 시대의 규칙이 검증된 적 없는 자리'이다.
+2023-08의 인하 시작은 뜬금없는 인하 유형이었고(그때 미국 주가는 12개월 고점 대비 -0.7%),
+그 시점은 2020-07 이후이고 이미 새 시대 안이다.
+이 조합의 완결 사례가 72년에 없다.</p></div> <ul>
+<li>2023-08 고점(5.33%) 이후 35개월째이고 1.70%p 내려왔다(2026-07 3.63%).
+그 창 안에서 코스피는 -38.6% 빠졌다(2026-06-22 9,115 → 2026-07-30 5,594).
+과거 '인하 시작 이후' 중앙값 -32.0%를 넘어섰다. 2026-08-07 종가는 6,259이다</li>
+<li>첫 인상(2022-04)으로부터 4.2년째다.
+가설 ①의 기준으로 보면 하락 시작 중앙(22개월)은 한참 지났고 바닥 중앙(45개월)에도 거의 닿았다. 7월의 폭락이 그 자리에 앉아 있다. 모양이 맞다는 말이지 '바닥이다'라는 말이 아닌다</li>
+<li>★ 그런데 그 자는 디스인플레 시대에서 깎은 기준이다.
+2022-04는 새 시대의 첫 인상이고, 새 시대에서 이 기준이 맞는지는 아직 아무도 모른다</li>
+<li>물가가 갈림길이다. 2026-06 CPI가 3.46%다.
+2026-04 수출은 +48.8%로, 인하 국면과 수출 40%가 겹친 것은 42년에 1987-04 · 2026-03 · 2026-04뿐이다.
+'실물은 뜨거운데 통화당국은 급한' 어긋난 조합이다</li>
+</ul> <div class="note"><p>이 페이지가 말할 수 있는 것과 없는 것을 나눈다.<br>
+말할 수 있는 것은 이렇다. 지금까지의 하락은 '인하 시작 이후'라는 국면과 어긋나지 않는다.
+오히려 전형에 가깝고, 다만 깊이가 중앙값을 넘었다.
+그리고 배경이 40년 만에 뒤집혔으므로 과거 표를 그대로 외삽하면 안 된다.<br>
+말할 수 없는 것은 이렇다. 여기서 어느 쪽으로 갈지다.
+그 판단은 이 페이지의 몫이 아닌다. <a href="peak-debate.html">반도체 정점 논쟁</a>과 <a href="jeonjo.html">중공황 전조현상</a>에서 한다.</p></div> <h2>미국 증시는 어떻게 달랐나 <span class="dim">— 부가</span></h2> <div class="claim"><p>결론. 미국은 거의 아무것도 안 탄다. 금리 수준도, 금리 방향도, 국면도. 대조군이 이만큼 다르다는 것 자체가 결과다.</p></div> <ul>
+<li>수준을 안 탄다. 금리가 1% 미만이든 10%가 넘든 12개월 뒤 중앙값이 플러스다.
+어느 칸에서도 마이너스가 없다. 코스피는 5~7% 칸이 마이너스였다</li>
+<li>인하 시작이 오히려 좋다. 12개월 +13.2%(7/13), 24개월 +25.6%(11/13)다.
+같은 자리에서 코스피는 -5.7% · -7.5%로 부호가 반대다</li>
+<li>낙폭도 국면을 안 탄다. 인상 시작 뒤 -15.9% · 인하 시작 뒤 -18.2%로 거의 같다.
+코스피는 -17.7% → -32.0%로 벌어진다</li>
+<li>세 가설도 미국에서는 흐릿한다. 세 번째 인상 뒤 12개월이 +3.1%로 플러스이고,
+뜬금없는 인하 뒤에도 -3.3%에 그친다. 코스피의 -5.7%보다 훨씬 얕다</li>
+</ul> <div class="note"><p>왜 이렇게 다른가.
+연준의 금리는 미국 경제를 보고 정해진다.
+미국에게 인하는 자기 몸에 놓는 주사이고, 한국에게는 남의 병세를 알리는 진단서다.
+게다가 한국은 수출로 먹고사는 시장이라 미국 경기가 식으면 매출이 먼저 마른다.
+'미국이 이러니 우리도'라는 문장이 금리에서는 특히 위험한다.</p></div> <h2>자료와 계산 방법</h2> <div class="claim"><p>여기부터 두 장은 숫자를 의심할 때 보는 곳이다.
+결론은 앞에 다 있고, 여기에는 그 결론을 만든 기준과 그 기준의 흠만 있다.</p></div> <div class="tblwrap"><table class="tw">
 <thead><tr><th>계열</th><th>범위</th><th>출처</th></tr></thead>
 <tbody>
 <tr><td><b>연방기금 실효금리</b></td><td>1954-07~2026-07 · 865개월</td><td>연준 이사회 (via FRED)</td></tr>
-<tr><td><b>10년물 국채금리</b> <span class="dim">시대를 가르는 자</span></td>
+<tr><td><b>10년물 국채금리</b> <span class="dim">시대를 가르는 기준</span></td>
 <td>1953-04~2026-07</td><td>연준 이사회 (via FRED, <code>GS10</code>)</td></tr>
 <tr><td>미국 소비자물가</td><td>1947-01~ · 전년비</td><td>BLS (via FRED, <code>CPIAUCSL</code>)</td></tr>
 <tr><td>미국 주가지수</td><td>1957-01~2026-06 · 834개월</td><td>OECD MEI Share Prices</td></tr>
 <tr><td>한국 주가지수</td><td>1981-01~2026-06 · 546개월</td><td>OECD MEI Share Prices</td></tr>
-</tbody></table></div>
-
-<h3>시대를 가른 자</h3>
-
-<p><b>10년물 국채금리의 사상 최고(1981-09)와 그 뒤의 사상 최저(2020-07)</b>, 이 둘로만 가릅니다.
-<b>자유 파라미터가 없습니다</b> — 문턱도, 이동평균도, 창 너비도 정하지 않습니다.
-왜 «장기금리»인가 하면, 시대를 만드는 것은 <b>정책금리(연준이 정하는 것)</b>가 아니라
-<b>시장이 매기는 돈의 장기 가격</b>이기 때문입니다.</p>
-
-<h3>전환점을 잡은 자</h3>
-
-<p>정책금리는 <b>몇 달씩 같은 값에 머뭅니다</b>(2023-09~2024-08이 5.33% 고정).
-그래서 일반적인 «±9개월 안의 유일한 최대/최소»로는 전환점이 통째로 안 잡힙니다 —
-실제로 2023-08 고점을 놓쳤습니다. 두 가지를 고쳤습니다.</p>
-
-<ul>
-<li><b>평평 구간은 첫 달</b>을 전환점으로 봅니다</li>
-<li><b>진폭 1.0%p 미만인 swing 은 지웁니다</b> — 제로금리기의 0.1%p 잔물결(2010-04 0.20% 같은 것)이
-전환점으로 잡히면 표가 못 쓰게 됩니다</li>
-</ul>
-
-<p>결과가 <b>72년에 전환점 25개(저점 12 · 고점 13)</b>입니다.</p>
-
-<h3>«첫 인상»과 «세 번째 인상»</h3>
-
-<p>금리 저점 대비 <b>+0.25%p</b>에 처음 닿는 달이 «첫 인상», <b>+0.75%p</b>가 «세 번째 인상»입니다.
-실효금리 저점을 그대로 쓰면 «2011년 인상»이 되어 이야기꾼이 든 사례와 어긋나기 때문입니다.
-이 정의로 <b>1999-07 · 2004-07 · 2016-01 · 2022-04</b>가 나오고, 그의 목록과 맞습니다.</p>
-
-<h3>«뜬금없는 인하»</h3>
-
-<p>인하 시작 달의 미국 주가가 <b>최근 12개월 고점의 −5% 이내</b>면 «뜬금없는», 그보다 아래면 «뒷북».</p>
-
-<h2>이 분석이 틀릴 수 있는 곳</h2>
-
-<h3>시대 구분에 붙는 것</h3>
-
-<ul>
-<li><b>★ 앞쪽 절반을 못 본다.</b> 10년물이 1953-04부터라
-상수님이 말한 «1940년부터»의 앞 절반(전시 금리 고정 ~ 1951 연준-재무부 합의)은 자료 밖입니다.
-<b>«인플레 시대는 이랬다»는 그 시대의 꼬리 27년만 보고 하는 말</b>입니다.</li>
-<li><b>★ 세 번째 시대가 73개월뿐이다.</b> 그 안에 코로나 반등과 2022년 하락이라는
-두 개의 거대한 사건이 들어 있어 중앙값이 거의 무의미합니다.
-<b>«새 시대는 이럴 것이다»라고 이 페이지는 말하지 않습니다.</b></li>
-<li><b>전환점이 사후에만 확정된다.</b> 2020-07이 «40년 저점»인 것도 지금이니까 압니다.
-장기금리가 다시 0.62% 아래로 내려가면 <b>이 페이지의 시대 구분 전체가 무너집니다.</b>
-<b>이것이 이 글의 첫 번째 반증 조건입니다.</b></li>
-<li><b>«인플레 시대로 돌아간다»가 확정이 아니다.</b> 지금은 저점 대비 +4.0%p 올라온 6.0년째일 뿐입니다.
-2020년대의 상승이 <b>일시적 되돌림</b>으로 끝날 가능성이 남아 있습니다.</li>
+</tbody></table></div> <h3>시대를 가른 기준</h3> <p>10년물 국채금리의 사상 최고(1981-09)와 그 뒤의 사상 최저(2020-07), 이 둘로만 가른다.
+자유 파라미터가 없다. 문턱도, 이동평균도, 창 너비도 정하지 않는다.
+왜 '장기금리'인가 하면, 시대를 만드는 것은 정책금리(연준이 정하는 것)가 아니라
+시장이 매기는 돈의 장기 가격이기 때문이다.</p> <h3>전환점을 잡은 기준</h3> <p>정책금리는 몇 달씩 같은 값에 머문다(2023-09~2024-08이 5.33% 고정).
+그래서 일반적인 '±9개월 안의 유일한 최대/최소'로는 전환점이 통째로 안 잡힌다. 실제로 2023-08 고점을 놓쳤다. 두 가지를 고쳤다.</p> <ul>
+<li>평평 구간은 첫 달을 전환점으로 본다</li>
+<li>진폭 1.0%p 미만인 swing 은 지운다. 제로금리기의 0.1%p 잔물결(2010-04 0.20% 같은 것)이
+전환점으로 잡히면 표가 못 쓰게 된다</li>
+</ul> <p>결과가 72년에 전환점 25개(저점 12 · 고점 13)다.</p> <h3>'첫 인상'과 '세 번째 인상'</h3> <p>금리 저점 대비 +0.25%p에 처음 닿는 달이 '첫 인상', +0.75%p가 '세 번째 인상'이다.
+실효금리 저점을 그대로 쓰면 '2011년 인상'이 되어 이야기꾼이 든 사례와 어긋나기 때문이다.
+이 정의로 1999-07 · 2004-07 · 2016-01 · 2022-04가 나오고, 그의 목록과 맞는다.</p> <h3>'뜬금없는 인하'</h3> <p>인하 시작 달의 미국 주가가 최근 12개월 고점의 −5% 이내면 '뜬금없는', 그보다 아래면 '뒷북'.</p> <h2>이 분석이 틀릴 수 있는 곳</h2> <h3>시대 구분에 붙는 것</h3> <ul>
+<li>★ 앞쪽 절반을 못 본다. 10년물이 1953-04부터라
+상수님이 말한 '1940년부터'의 앞 절반(전시 금리 고정 ~ 1951 연준-재무부 합의)은 자료 밖이다.
+'인플레 시대는 이랬다'는 그 시대의 꼬리 27년만 보고 하는 말이다.</li>
+<li>★ 세 번째 시대가 73개월뿐이다. 그 안에 코로나 반등과 2022년 하락이라는
+두 개의 거대한 사건이 들어 있어 중앙값이 거의 무의미하다.
+'새 시대는 이럴 것이다'라고 이 페이지는 말하지 않는다.</li>
+<li>전환점이 사후에만 확정된다. 2020-07이 '40년 저점'인 것도 지금이니까 안다.
+장기금리가 다시 0.62% 아래로 내려가면 이 페이지의 시대 구분 전체가 무너진다.
+이것이 이 글의 첫 번째 반증 조건이다.</li>
+<li>'인플레 시대로 돌아간다'가 확정이 아니다. 지금은 저점 대비 +4.0%p 올라온 6.0년째일 뿐이다.
+2020년대의 상승이 일시적 되돌림으로 끝날 가능성이 남아 있다.</li>
 </ul>
 
 <h3>본문 계산에 붙는 것</h3>
 
 <ul>
-<li><b>사례가 적다.</b> 코스피의 첫 인상은 <b>6+1건</b>, 인하 시작은 <b>8건</b>뿐입니다.
-<b>중앙값은 그 몇 개의 가운데 값이지 확률이 아닙니다.</b></li>
-<li><b>«몇 번째 인상»은 실제 횟수가 아니다.</b> 누적 인상폭으로 대신 셌습니다.
-2022년에는 한 번에 75bp를 네 차례 올렸으므로 <b>2022-06을 «세 번째»라 부르지만 실제로는 다섯 번째</b>입니다.</li>
-<li><b>뜬금없음/뒷북 대조가 코스피에서 성립하지 않는다.</b>
-1981년 이후 인하 시작 8번이 전부 «뜬금없는» 유형입니다.</li>
-<li><b>«60개월 창의 최대 하락»은 창 길이에 민감하다.</b> 48개월로 줄이면
-2004-07 사례(바닥 52개월째·리먼)가 통째로 빠집니다.</li>
-<li><b>가설을 세운 사람이 자를 고르지 않았다.</b> «뜬금없다»의 −5%, «첫 인상»의 +0.25%p는
-<b>제가 정한 선</b>입니다. −10%로 넓히면 1974-07이 «뜬금없는» 쪽으로 넘어옵니다.</li>
-<li><b>OECD 주가지수는 월평균이다.</b> 일별 고저보다 진폭이 작아 낙폭이 <b>보수적으로</b> 나옵니다.
-지금 국면의 -38.6%만 일별 종가로 계산했으므로 <b>표의 과거 값과 직접 비교하면 과대평가</b>됩니다.</li>
-<li><b>인과가 아니다.</b> 연준이 내려서 한국이 빠진 것이 아니라, 연준이 내리게 만든 그 무엇이
-한국을 때렸을 가능성이 큽니다. <b>금리는 원인이 아니라 신호</b>로 읽어야 합니다.</li>
+<li>사례가 적다. 코스피의 첫 인상은 6+1건, 인하 시작은 8건뿐이다.
+중앙값은 그 몇 개의 가운데 값이지 확률이 아닙니다.</li>
+<li>'몇 번째 인상'은 실제 횟수가 아니다. 누적 인상폭으로 대신 셌다.
+2022년에는 한 번에 75bp를 네 차례 올렸으므로 2022-06을 '세 번째'라 부르지만 실제로는 다섯 번째다.</li>
+<li>뜬금없음/뒷북 대조가 코스피에서 성립하지 않는다.
+1981년 이후 인하 시작 8번이 전부 '뜬금없는' 유형이다.</li>
+<li>'60개월 창의 최대 하락'은 창 길이에 민감하다. 48개월로 줄이면
+2004-07 사례(바닥 52개월째·리먼)가 통째로 빠진다.</li>
+<li>가설을 세운 사람이 자를 고르지 않았다. '뜬금없다'의 −5%, '첫 인상'의 +0.25%p는
+제가 정한 선다. −10%로 넓히면 1974-07이 '뜬금없는' 쪽으로 넘어온다.</li>
+<li>OECD 주가지수는 월평균이다. 일별 고저보다 진폭이 작아 낙폭이 보수적으로 나온다.
+지금 국면의 -38.6%만 일별 종가로 계산했으므로 표의 과거 값과 직접 비교하면 과대평가된다.</li>
+<li>인과가 아니다. 연준이 내려서 한국이 빠진 것이 아니라, 연준이 내리게 만든 그 무엇이
+한국을 때렸을 가능성이 큽니다. 금리는 원인이 아니라 신호로 읽어야 한다.</li>
 </ul>
 
 <div class="disclaimer">
-<p><b>자료.</b> 연방기금 실효금리·10년물 국채금리 — Board of Governors of the Federal Reserve System
-(via FRED, <code>FEDFUNDS</code> · <code>GS10</code>). 미국 소비자물가 — BLS (<code>CPIAUCSL</code>).
-미국·한국 주가지수 — OECD Main Economic Indicators, Share Prices
+<p>자료. 연방기금 실효금리·10년물 국채금리. Board of Governors of the Federal Reserve System
+(via FRED, <code>FEDFUNDS</code> · <code>GS10</code>). 미국 소비자물가. BLS (<code>CPIAUCSL</code>).
+미국·한국 주가지수. OECD Main Economic Indicators, Share Prices
 (<code>SPASTT01USM661N</code> · <code>SPASTT01KRM661N</code>, 2015=100).
-지금 국면의 코스피 낙폭만 금융투자협회 일별 종가로 계산했습니다.
+지금 국면의 코스피 낙폭만 금융투자협회 일별 종가로 계산했다.
 수집기는 <code>scripts/fred_fed_us.py</code>, 생성기는 <code>scripts/build_fed_kospi.py</code>,
-검증기는 <code>scripts/verify_fed_kospi.py</code>입니다.</p>
-<p><b>같이 볼 것.</b> <a href="rates-101.html">금리는 돈의 가격이다</a>(금리의 세 층),
+검증기는 <code>scripts/verify_fed_kospi.py</code>다.</p>
+<p>같이 볼 것. <a href="rates-101.html">금리는 돈의 가격이다</a>(금리의 세 층),
 <a href="rates-crashes.html">금리 5%는 공황선인가</a>(장기금리),
 <a href="cli-kospi.html">OECD 경기선행지수와 코스피</a>,
 <a href="export-kospi.html">한국 수출과 코스피</a>,
-<a href="jeonjo.html">중공황 전조현상</a>(전조 2번이 «연준 금리 인하»).</p>
-<p><b>주의.</b> 본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다.
-저는 재무 상담사가 아니며, 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.</p>
+<a href="jeonjo.html">중공황 전조현상</a>(전조 2번이 '연준 금리 인하').</p>
+<p>주의. 본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다.
+저는 재무 상담사가 아니며, 투자의 최종 판단과 책임은 투자자 본인에게 있다.</p>
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
-<!-- CHARTTHEME:BEGIN -->
-<script src="chart-theme.js?v=796a6ee2"></script>
-<!-- CHARTTHEME:END -->
 <script>
 /* 닷컴 대시보드 공통 (scripts/dotcom_panel.py) */
 function dpCv(n,fb){var v=getComputedStyle(document.documentElement).getPropertyValue(n).trim();return v||fb;}
@@ -1512,7 +1272,7 @@ else fdBuild();
 setTimeout(fdBuild,400);
 </script>
 <script>var __FD=[{"id": "g1", "t": "10년물 국채금리와 시대 — 1957~2026", "dp": 1, "l": ["1957-01", "1957-02", "1957-03", "1957-04", "1957-05", "1957-06", "1957-07", "1957-08", "1957-09", "1957-10", "1957-11", "1957-12", "1958-01", "1958-02", "1958-03", "1958-04", "1958-05", "1958-06", "1958-07", "1958-08", "1958-09", "1958-10", "1958-11", "1958-12", "1959-01", "1959-02", "1959-03", "1959-04", "1959-05", "1959-06", "1959-07", "1959-08", "1959-09", "1959-10", "1959-11", "1959-12", "1960-01", "1960-02", "1960-03", "1960-04", "1960-05", "1960-06", "1960-07", "1960-08", "1960-09", "1960-10", "1960-11", "1960-12", "1961-01", "1961-02", "1961-03", "1961-04", "1961-05", "1961-06", "1961-07", "1961-08", "1961-09", "1961-10", "1961-11", "1961-12", "1962-01", "1962-02", "1962-03", "1962-04", "1962-05", "1962-06", "1962-07", "1962-08", "1962-09", "1962-10", "1962-11", "1962-12", "1963-01", "1963-02", "1963-03", "1963-04", "1963-05", "1963-06", "1963-07", "1963-08", "1963-09", "1963-10", "1963-11", "1963-12", "1964-01", "1964-02", "1964-03", "1964-04", "1964-05", "1964-06", "1964-07", "1964-08", "1964-09", "1964-10", "1964-11", "1964-12", "1965-01", "1965-02", "1965-03", "1965-04", "1965-05", "1965-06", "1965-07", "1965-08", "1965-09", "1965-10", "1965-11", "1965-12", "1966-01", "1966-02", "1966-03", "1966-04", "1966-05", "1966-06", "1966-07", "1966-08", "1966-09", "1966-10", "1966-11", "1966-12", "1967-01", "1967-02", "1967-03", "1967-04", "1967-05", "1967-06", "1967-07", "1967-08", "1967-09", "1967-10", "1967-11", "1967-12", "1968-01", "1968-02", "1968-03", "1968-04", "1968-05", "1968-06", "1968-07", "1968-08", "1968-09", "1968-10", "1968-11", "1968-12", "1969-01", "1969-02", "1969-03", "1969-04", "1969-05", "1969-06", "1969-07", "1969-08", "1969-09", "1969-10", "1969-11", "1969-12", "1970-01", "1970-02", "1970-03", "1970-04", "1970-05", "1970-06", "1970-07", "1970-08", "1970-09", "1970-10", "1970-11", "1970-12", "1971-01", "1971-02", "1971-03", "1971-04", "1971-05", "1971-06", "1971-07", "1971-08", "1971-09", "1971-10", "1971-11", "1971-12", "1972-01", "1972-02", "1972-03", "1972-04", "1972-05", "1972-06", "1972-07", "1972-08", "1972-09", "1972-10", "1972-11", "1972-12", "1973-01", "1973-02", "1973-03", "1973-04", "1973-05", "1973-06", "1973-07", "1973-08", "1973-09", "1973-10", "1973-11", "1973-12", "1974-01", "1974-02", "1974-03", "1974-04", "1974-05", "1974-06", "1974-07", "1974-08", "1974-09", "1974-10", "1974-11", "1974-12", "1975-01", "1975-02", "1975-03", "1975-04", "1975-05", "1975-06", "1975-07", "1975-08", "1975-09", "1975-10", "1975-11", "1975-12", "1976-01", "1976-02", "1976-03", "1976-04", "1976-05", "1976-06", "1976-07", "1976-08", "1976-09", "1976-10", "1976-11", "1976-12", "1977-01", "1977-02", "1977-03", "1977-04", "1977-05", "1977-06", "1977-07", "1977-08", "1977-09", "1977-10", "1977-11", "1977-12", "1978-01", "1978-02", "1978-03", "1978-04", "1978-05", "1978-06", "1978-07", "1978-08", "1978-09", "1978-10", "1978-11", "1978-12", "1979-01", "1979-02", "1979-03", "1979-04", "1979-05", "1979-06", "1979-07", "1979-08", "1979-09", "1979-10", "1979-11", "1979-12", "1980-01", "1980-02", "1980-03", "1980-04", "1980-05", "1980-06", "1980-07", "1980-08", "1980-09", "1980-10", "1980-11", "1980-12", "1981-01", "1981-02", "1981-03", "1981-04", "1981-05", "1981-06", "1981-07", "1981-08", "1981-09", "1981-10", "1981-11", "1981-12", "1982-01", "1982-02", "1982-03", "1982-04", "1982-05", "1982-06", "1982-07", "1982-08", "1982-09", "1982-10", "1982-11", "1982-12", "1983-01", "1983-02", "1983-03", "1983-04", "1983-05", "1983-06", "1983-07", "1983-08", "1983-09", "1983-10", "1983-11", "1983-12", "1984-01", "1984-02", "1984-03", "1984-04", "1984-05", "1984-06", "1984-07", "1984-08", "1984-09", "1984-10", "1984-11", "1984-12", "1985-01", "1985-02", "1985-03", "1985-04", "1985-05", "1985-06", "1985-07", "1985-08", "1985-09", "1985-10", "1985-11", "1985-12", "1986-01", "1986-02", "1986-03", "1986-04", "1986-05", "1986-06", "1986-07", "1986-08", "1986-09", "1986-10", "1986-11", "1986-12", "1987-01", "1987-02", "1987-03", "1987-04", "1987-05", "1987-06", "1987-07", "1987-08", "1987-09", "1987-10", "1987-11", "1987-12", "1988-01", "1988-02", "1988-03", "1988-04", "1988-05", "1988-06", "1988-07", "1988-08", "1988-09", "1988-10", "1988-11", "1988-12", "1989-01", "1989-02", "1989-03", "1989-04", "1989-05", "1989-06", "1989-07", "1989-08", "1989-09", "1989-10", "1989-11", "1989-12", "1990-01", "1990-02", "1990-03", "1990-04", "1990-05", "1990-06", "1990-07", "1990-08", "1990-09", "1990-10", "1990-11", "1990-12", "1991-01", "1991-02", "1991-03", "1991-04", "1991-05", "1991-06", "1991-07", "1991-08", "1991-09", "1991-10", "1991-11", "1991-12", "1992-01", "1992-02", "1992-03", "1992-04", "1992-05", "1992-06", "1992-07", "1992-08", "1992-09", "1992-10", "1992-11", "1992-12", "1993-01", "1993-02", "1993-03", "1993-04", "1993-05", "1993-06", "1993-07", "1993-08", "1993-09", "1993-10", "1993-11", "1993-12", "1994-01", "1994-02", "1994-03", "1994-04", "1994-05", "1994-06", "1994-07", "1994-08", "1994-09", "1994-10", "1994-11", "1994-12", "1995-01", "1995-02", "1995-03", "1995-04", "1995-05", "1995-06", "1995-07", "1995-08", "1995-09", "1995-10", "1995-11", "1995-12", "1996-01", "1996-02", "1996-03", "1996-04", "1996-05", "1996-06", "1996-07", "1996-08", "1996-09", "1996-10", "1996-11", "1996-12", "1997-01", "1997-02", "1997-03", "1997-04", "1997-05", "1997-06", "1997-07", "1997-08", "1997-09", "1997-10", "1997-11", "1997-12", "1998-01", "1998-02", "1998-03", "1998-04", "1998-05", "1998-06", "1998-07", "1998-08", "1998-09", "1998-10", "1998-11", "1998-12", "1999-01", "1999-02", "1999-03", "1999-04", "1999-05", "1999-06", "1999-07", "1999-08", "1999-09", "1999-10", "1999-11", "1999-12", "2000-01", "2000-02", "2000-03", "2000-04", "2000-05", "2000-06", "2000-07", "2000-08", "2000-09", "2000-10", "2000-11", "2000-12", "2001-01", "2001-02", "2001-03", "2001-04", "2001-05", "2001-06", "2001-07", "2001-08", "2001-09", "2001-10", "2001-11", "2001-12", "2002-01", "2002-02", "2002-03", "2002-04", "2002-05", "2002-06", "2002-07", "2002-08", "2002-09", "2002-10", "2002-11", "2002-12", "2003-01", "2003-02", "2003-03", "2003-04", "2003-05", "2003-06", "2003-07", "2003-08", "2003-09", "2003-10", "2003-11", "2003-12", "2004-01", "2004-02", "2004-03", "2004-04", "2004-05", "2004-06", "2004-07", "2004-08", "2004-09", "2004-10", "2004-11", "2004-12", "2005-01", "2005-02", "2005-03", "2005-04", "2005-05", "2005-06", "2005-07", "2005-08", "2005-09", "2005-10", "2005-11", "2005-12", "2006-01", "2006-02", "2006-03", "2006-04", "2006-05", "2006-06", "2006-07", "2006-08", "2006-09", "2006-10", "2006-11", "2006-12", "2007-01", "2007-02", "2007-03", "2007-04", "2007-05", "2007-06", "2007-07", "2007-08", "2007-09", "2007-10", "2007-11", "2007-12", "2008-01", "2008-02", "2008-03", "2008-04", "2008-05", "2008-06", "2008-07", "2008-08", "2008-09", "2008-10", "2008-11", "2008-12", "2009-01", "2009-02", "2009-03", "2009-04", "2009-05", "2009-06", "2009-07", "2009-08", "2009-09", "2009-10", "2009-11", "2009-12", "2010-01", "2010-02", "2010-03", "2010-04", "2010-05", "2010-06", "2010-07", "2010-08", "2010-09", "2010-10", "2010-11", "2010-12", "2011-01", "2011-02", "2011-03", "2011-04", "2011-05", "2011-06", "2011-07", "2011-08", "2011-09", "2011-10", "2011-11", "2011-12", "2012-01", "2012-02", "2012-03", "2012-04", "2012-05", "2012-06", "2012-07", "2012-08", "2012-09", "2012-10", "2012-11", "2012-12", "2013-01", "2013-02", "2013-03", "2013-04", "2013-05", "2013-06", "2013-07", "2013-08", "2013-09", "2013-10", "2013-11", "2013-12", "2014-01", "2014-02", "2014-03", "2014-04", "2014-05", "2014-06", "2014-07", "2014-08", "2014-09", "2014-10", "2014-11", "2014-12", "2015-01", "2015-02", "2015-03", "2015-04", "2015-05", "2015-06", "2015-07", "2015-08", "2015-09", "2015-10", "2015-11", "2015-12", "2016-01", "2016-02", "2016-03", "2016-04", "2016-05", "2016-06", "2016-07", "2016-08", "2016-09", "2016-10", "2016-11", "2016-12", "2017-01", "2017-02", "2017-03", "2017-04", "2017-05", "2017-06", "2017-07", "2017-08", "2017-09", "2017-10", "2017-11", "2017-12", "2018-01", "2018-02", "2018-03", "2018-04", "2018-05", "2018-06", "2018-07", "2018-08", "2018-09", "2018-10", "2018-11", "2018-12", "2019-01", "2019-02", "2019-03", "2019-04", "2019-05", "2019-06", "2019-07", "2019-08", "2019-09", "2019-10", "2019-11", "2019-12", "2020-01", "2020-02", "2020-03", "2020-04", "2020-05", "2020-06", "2020-07", "2020-08", "2020-09", "2020-10", "2020-11", "2020-12", "2021-01", "2021-02", "2021-03", "2021-04", "2021-05", "2021-06", "2021-07", "2021-08", "2021-09", "2021-10", "2021-11", "2021-12", "2022-01", "2022-02", "2022-03", "2022-04", "2022-05", "2022-06", "2022-07", "2022-08", "2022-09", "2022-10", "2022-11", "2022-12", "2023-01", "2023-02", "2023-03", "2023-04", "2023-05", "2023-06", "2023-07", "2023-08", "2023-09", "2023-10", "2023-11", "2023-12", "2024-01", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07", "2024-08", "2024-09", "2024-10", "2024-11", "2024-12", "2025-01", "2025-02", "2025-03", "2025-04", "2025-05", "2025-06", "2025-07", "2025-08", "2025-09", "2025-10", "2025-11", "2025-12", "2026-01", "2026-02", "2026-03", "2026-04", "2026-05", "2026-06"], "y2": 1, "xt": 14, "yt": "금리 (%)", "y1t": "주가 (로그)", "rng": [{"i0": 0, "i1": 833, "note": "1957년부터 전 구간입니다. 붉은 배경이 인플레 시대, 푸른 배경이 디스인플레 시대입니다."}, {"i0": 714, "i1": 833, "note": "최근 10년만 확대했습니다. 2022년 인상 시작과 2023년 인하 시작을 나란히 볼 수 있습니다."}], "mk": {"1981-09": {"t": "10년물 최고 15.32%", "v": 15.32, "dy": -14}, "2026-06": {"t": "지금 3.63%", "v": 3.63, "dy": 24}}, "d": [{"label": "10년물 국채금리 % (좌)", "data": [3.46, 3.34, 3.41, 3.48, 3.6, 3.8, 3.93, 3.93, 3.92, 3.97, 3.72, 3.21, 3.09, 3.05, 2.98, 2.88, 2.92, 2.97, 3.2, 3.54, 3.76, 3.8, 3.74, 3.86, 4.02, 3.96, 3.99, 4.12, 4.31, 4.34, 4.4, 4.43, 4.68, 4.53, 4.53, 4.69, 4.72, 4.49, 4.25, 4.28, 4.35, 4.15, 3.9, 3.8, 3.8, 3.89, 3.93, 3.84, 3.84, 3.78, 3.74, 3.78, 3.71, 3.88, 3.92, 4.04, 3.98, 3.92, 3.94, 4.06, 4.08, 4.04, 3.93, 3.84, 3.87, 3.91, 4.01, 3.98, 3.98, 3.93, 3.92, 3.86, 3.83, 3.92, 3.93, 3.97, 3.93, 3.99, 4.02, 4.0, 4.08, 4.11, 4.12, 4.13, 4.17, 4.15, 4.22, 4.23, 4.2, 4.17, 4.19, 4.19, 4.2, 4.19, 4.15, 4.18, 4.19, 4.21, 4.21, 4.2, 4.21, 4.21, 4.2, 4.25, 4.29, 4.35, 4.45, 4.62, 4.61, 4.83, 4.87, 4.75, 4.78, 4.81, 5.02, 5.22, 5.18, 5.01, 5.16, 4.84, 4.58, 4.63, 4.54, 4.59, 4.85, 5.02, 5.16, 5.28, 5.3, 5.48, 5.75, 5.7, 5.53, 5.56, 5.74, 5.64, 5.87, 5.72, 5.5, 5.42, 5.46, 5.58, 5.7, 6.03, 6.04, 6.19, 6.3, 6.17, 6.32, 6.57, 6.72, 6.69, 7.16, 7.1, 7.14, 7.65, 7.79, 7.24, 7.07, 7.39, 7.91, 7.84, 7.46, 7.53, 7.39, 7.33, 6.84, 6.39, 6.24, 6.11, 5.7, 5.83, 6.39, 6.52, 6.73, 6.58, 6.14, 5.93, 5.81, 5.93, 5.95, 6.08, 6.07, 6.19, 6.13, 6.11, 6.11, 6.21, 6.55, 6.48, 6.28, 6.36, 6.46, 6.64, 6.71, 6.67, 6.85, 6.9, 7.13, 7.4, 7.09, 6.79, 6.73, 6.74, 6.99, 6.96, 7.21, 7.51, 7.58, 7.54, 7.81, 8.04, 8.04, 7.9, 7.68, 7.43, 7.5, 7.39, 7.73, 8.23, 8.06, 7.86, 8.06, 8.4, 8.43, 8.14, 8.05, 8.0, 7.74, 7.79, 7.73, 7.56, 7.9, 7.86, 7.83, 7.77, 7.59, 7.41, 7.29, 6.87, 7.21, 7.39, 7.46, 7.37, 7.46, 7.28, 7.33, 7.4, 7.34, 7.52, 7.58, 7.69, 7.96, 8.03, 8.04, 8.15, 8.35, 8.46, 8.64, 8.41, 8.42, 8.64, 8.81, 9.01, 9.1, 9.1, 9.12, 9.18, 9.25, 8.91, 8.95, 9.03, 9.33, 10.3, 10.65, 10.39, 10.8, 12.41, 12.75, 11.47, 10.18, 9.78, 10.25, 11.1, 11.51, 11.75, 12.68, 12.84, 12.57, 13.19, 13.12, 13.68, 14.1, 13.47, 14.28, 14.94, 15.32, 15.15, 13.39, 13.72, 14.59, 14.43, 13.86, 13.87, 13.62, 14.3, 13.95, 13.06, 12.34, 10.91, 10.55, 10.54, 10.46, 10.72, 10.51, 10.4, 10.38, 10.85, 11.38, 11.85, 11.65, 11.54, 11.69, 11.83, 11.67, 11.84, 12.32, 12.63, 13.41, 13.56, 13.36, 12.72, 12.52, 12.16, 11.57, 11.5, 11.38, 11.51, 11.86, 11.43, 10.85, 10.16, 10.31, 10.33, 10.37, 10.24, 9.78, 9.26, 9.19, 8.7, 7.78, 7.3, 7.71, 7.8, 7.3, 7.17, 7.45, 7.43, 7.25, 7.11, 7.08, 7.25, 7.25, 8.02, 8.61, 8.4, 8.45, 8.76, 9.42, 9.52, 8.86, 8.99, 8.67, 8.21, 8.37, 8.72, 9.09, 8.92, 9.06, 9.26, 8.98, 8.8, 8.96, 9.11, 9.09, 9.17, 9.36, 9.18, 8.86, 8.28, 8.02, 8.11, 8.19, 8.01, 7.87, 7.84, 8.21, 8.47, 8.59, 8.79, 8.76, 8.48, 8.47, 8.75, 8.89, 8.72, 8.39, 8.08, 8.09, 7.85, 8.11, 8.04, 8.07, 8.28, 8.27, 7.9, 7.65, 7.53, 7.42, 7.09, 7.03, 7.34, 7.54, 7.48, 7.39, 7.26, 6.84, 6.59, 6.42, 6.59, 6.87, 6.77, 6.6, 6.26, 5.98, 5.97, 6.04, 5.96, 5.81, 5.68, 5.36, 5.33, 5.72, 5.77, 5.75, 5.97, 6.48, 6.97, 7.18, 7.1, 7.3, 7.24, 7.46, 7.74, 7.96, 7.81, 7.78, 7.47, 7.2, 7.06, 6.63, 6.17, 6.28, 6.49, 6.2, 6.04, 5.93, 5.71, 5.65, 5.81, 6.27, 6.51, 6.74, 6.91, 6.87, 6.64, 6.83, 6.53, 6.2, 6.3, 6.58, 6.42, 6.69, 6.89, 6.71, 6.49, 6.22, 6.3, 6.21, 6.03, 5.88, 5.81, 5.54, 5.57, 5.65, 5.64, 5.65, 5.5, 5.46, 5.34, 4.81, 4.53, 4.83, 4.65, 4.72, 5.0, 5.23, 5.18, 5.54, 5.9, 5.79, 5.94, 5.92, 6.11, 6.03, 6.28, 6.66, 6.52, 6.26, 5.99, 6.44, 6.1, 6.05, 5.83, 5.8, 5.74, 5.72, 5.24, 5.16, 5.1, 4.89, 5.14, 5.39, 5.28, 5.24, 4.97, 4.73, 4.57, 4.65, 5.09, 5.04, 4.91, 5.28, 5.21, 5.16, 4.93, 4.65, 4.26, 3.87, 3.94, 4.05, 4.03, 4.05, 3.9, 3.81, 3.96, 3.57, 3.33, 3.98, 4.45, 4.27, 4.29, 4.3, 4.27, 4.15, 4.08, 3.83, 4.35, 4.72, 4.73, 4.5, 4.28, 4.13, 4.1, 4.19, 4.23, 4.22, 4.17, 4.5, 4.34, 4.14, 4.0, 4.18, 4.26, 4.2, 4.46, 4.54, 4.47, 4.42, 4.57, 4.72, 4.99, 5.11, 5.11, 5.09, 4.88, 4.72, 4.73, 4.6, 4.56, 4.76, 4.72, 4.56, 4.69, 4.75, 5.1, 5.0, 4.67, 4.52, 4.53, 4.15, 4.1, 3.74, 3.74, 3.51, 3.68, 3.88, 4.1, 4.01, 3.89, 3.69, 3.81, 3.53, 2.42, 2.52, 2.87, 2.82, 2.93, 3.29, 3.72, 3.56, 3.59, 3.4, 3.39, 3.4, 3.59, 3.73, 3.69, 3.73, 3.85, 3.42, 3.2, 3.01, 2.7, 2.65, 2.54, 2.76, 3.29, 3.39, 3.58, 3.41, 3.46, 3.17, 3.0, 3.0, 2.3, 1.98, 2.15, 2.01, 1.98, 1.97, 1.97, 2.17, 2.05, 1.8, 1.62, 1.53, 1.68, 1.72, 1.75, 1.65, 1.72, 1.91, 1.98, 1.96, 1.76, 1.93, 2.3, 2.58, 2.74, 2.81, 2.62, 2.72, 2.9, 2.86, 2.71, 2.72, 2.71, 2.56, 2.6, 2.54, 2.42, 2.53, 2.3, 2.33, 2.21, 1.88, 1.98, 2.04, 1.94, 2.2, 2.36, 2.32, 2.17, 2.17, 2.07, 2.26, 2.24, 2.09, 1.78, 1.89, 1.81, 1.81, 1.64, 1.5, 1.56, 1.63, 1.76, 2.14, 2.49, 2.43, 2.42, 2.48, 2.3, 2.3, 2.19, 2.32, 2.21, 2.2, 2.36, 2.35, 2.4, 2.58, 2.86, 2.84, 2.87, 2.98, 2.91, 2.89, 2.89, 3.0, 3.15, 3.12, 2.83, 2.71, 2.68, 2.57, 2.53, 2.4, 2.07, 2.06, 1.63, 1.7, 1.71, 1.81, 1.86, 1.76, 1.5, 0.87, 0.66, 0.67, 0.73, 0.62, 0.65, 0.68, 0.79, 0.87, 0.93, 1.08, 1.26, 1.61, 1.64, 1.62, 1.52, 1.32, 1.28, 1.37, 1.58, 1.56, 1.47, 1.76, 1.93, 2.13, 2.75, 2.9, 3.14, 2.9, 2.9, 3.52, 3.98, 3.89, 3.62, 3.53, 3.75, 3.66, 3.46, 3.57, 3.75, 3.9, 4.17, 4.38, 4.8, 4.5, 4.02, 4.06, 4.21, 4.21, 4.54, 4.48, 4.31, 4.25, 3.87, 3.72, 4.1, 4.36, 4.39, 4.63, 4.45, 4.28, 4.28, 4.42, 4.38, 4.39, 4.26, 4.12, 4.06, 4.09, 4.14, 4.21, 4.13, 4.25, 4.32, 4.48, 4.47], "c": "acc", "w": 3.0, "fill": true, "yAxisID": "y", "order": 1, "spanGaps": true}, {"label": "연방기금 금리 % (좌)", "data": [2.84, 3.0, 2.96, 3.0, 3.0, 3.0, 2.99, 3.24, 3.47, 3.5, 3.28, 2.98, 2.72, 1.67, 1.2, 1.26, 0.63, 0.93, 0.68, 1.53, 1.76, 1.8, 2.27, 2.42, 2.48, 2.43, 2.8, 2.96, 2.9, 3.39, 3.47, 3.5, 3.76, 3.98, 4.0, 3.99, 3.99, 3.97, 3.84, 3.92, 3.85, 3.32, 3.23, 2.98, 2.6, 2.47, 2.44, 1.98, 1.45, 2.54, 2.02, 1.49, 1.98, 1.73, 1.17, 2.0, 1.88, 2.26, 2.61, 2.33, 2.15, 2.37, 2.85, 2.78, 2.36, 2.68, 2.71, 2.93, 2.9, 2.9, 2.94, 2.93, 2.92, 3.0, 2.98, 2.9, 3.0, 2.99, 3.02, 3.49, 3.48, 3.5, 3.48, 3.38, 3.48, 3.48, 3.43, 3.47, 3.5, 3.5, 3.42, 3.5, 3.45, 3.36, 3.52, 3.85, 3.9, 3.98, 4.05, 4.09, 4.1, 4.05, 4.09, 4.12, 4.02, 4.08, 4.1, 4.32, 4.42, 4.6, 4.66, 4.67, 4.9, 5.17, 5.3, 5.53, 5.4, 5.53, 5.76, 5.4, 4.94, 5.0, 4.53, 4.05, 3.94, 3.98, 3.79, 3.9, 3.99, 3.88, 4.13, 4.51, 4.61, 4.71, 5.05, 5.76, 6.12, 6.07, 6.03, 6.03, 5.78, 5.91, 5.82, 6.02, 6.3, 6.61, 6.79, 7.41, 8.67, 8.9, 8.61, 9.19, 9.15, 9.0, 8.85, 8.97, 8.98, 8.98, 7.76, 8.1, 7.95, 7.61, 7.21, 6.62, 6.29, 6.2, 5.6, 4.9, 4.14, 3.72, 3.71, 4.16, 4.63, 4.91, 5.31, 5.57, 5.55, 5.2, 4.91, 4.14, 3.51, 3.3, 3.83, 4.17, 4.27, 4.46, 4.55, 4.81, 4.87, 5.05, 5.06, 5.33, 5.94, 6.58, 7.09, 7.12, 7.84, 8.49, 10.4, 10.5, 10.78, 10.01, 10.03, 9.95, 9.65, 8.97, 9.35, 10.51, 11.31, 11.93, 12.92, 12.01, 11.34, 10.06, 9.45, 8.53, 7.13, 6.24, 5.54, 5.49, 5.22, 5.55, 6.1, 6.14, 6.24, 5.82, 5.22, 5.2, 4.87, 4.77, 4.84, 4.82, 5.29, 5.48, 5.31, 5.29, 5.25, 5.02, 4.95, 4.65, 4.61, 4.68, 4.69, 4.73, 5.35, 5.39, 5.42, 5.9, 6.14, 6.47, 6.51, 6.56, 6.7, 6.78, 6.79, 6.89, 7.36, 7.6, 7.81, 8.04, 8.45, 8.96, 9.76, 10.03, 10.07, 10.06, 10.09, 10.01, 10.24, 10.29, 10.47, 10.94, 11.43, 13.77, 13.18, 13.78, 13.82, 14.13, 17.19, 17.61, 10.98, 9.47, 9.03, 9.61, 10.87, 12.81, 15.85, 18.9, 19.08, 15.93, 14.7, 15.72, 18.52, 19.1, 19.04, 17.82, 15.87, 15.08, 13.31, 12.37, 13.22, 14.78, 14.68, 14.94, 14.45, 14.15, 12.59, 10.12, 10.31, 9.71, 9.2, 8.95, 8.68, 8.51, 8.77, 8.8, 8.63, 8.98, 9.37, 9.56, 9.45, 9.48, 9.34, 9.47, 9.56, 9.59, 9.91, 10.29, 10.32, 11.06, 11.23, 11.64, 11.3, 9.99, 9.43, 8.38, 8.35, 8.5, 8.58, 8.27, 7.97, 7.53, 7.88, 7.9, 7.92, 7.99, 8.05, 8.27, 8.14, 7.86, 7.48, 6.99, 6.85, 6.92, 6.56, 6.17, 5.89, 5.85, 6.04, 6.91, 6.43, 6.1, 6.13, 6.37, 6.85, 6.73, 6.58, 6.73, 7.22, 7.29, 6.69, 6.77, 6.83, 6.58, 6.58, 6.87, 7.09, 7.51, 7.75, 8.01, 8.19, 8.3, 8.35, 8.76, 9.12, 9.36, 9.85, 9.84, 9.81, 9.53, 9.24, 8.99, 9.02, 8.84, 8.55, 8.45, 8.23, 8.24, 8.28, 8.26, 8.18, 8.29, 8.15, 8.13, 8.2, 8.11, 7.81, 7.31, 6.91, 6.25, 6.12, 5.91, 5.78, 5.9, 5.82, 5.66, 5.45, 5.21, 4.81, 4.43, 4.03, 4.06, 3.98, 3.73, 3.82, 3.76, 3.25, 3.3, 3.22, 3.1, 3.09, 2.92, 3.02, 3.03, 3.07, 2.96, 3.0, 3.04, 3.06, 3.03, 3.09, 2.99, 3.02, 2.96, 3.05, 3.25, 3.34, 3.56, 4.01, 4.25, 4.26, 4.47, 4.73, 4.76, 5.29, 5.45, 5.53, 5.92, 5.98, 6.05, 6.01, 6.0, 5.85, 5.74, 5.8, 5.76, 5.8, 5.6, 5.56, 5.22, 5.31, 5.22, 5.24, 5.27, 5.4, 5.22, 5.3, 5.24, 5.31, 5.29, 5.25, 5.19, 5.39, 5.51, 5.5, 5.56, 5.52, 5.54, 5.54, 5.5, 5.52, 5.5, 5.56, 5.51, 5.49, 5.45, 5.49, 5.56, 5.54, 5.55, 5.51, 5.07, 4.83, 4.68, 4.63, 4.76, 4.81, 4.74, 4.74, 4.76, 4.99, 5.07, 5.22, 5.2, 5.42, 5.3, 5.45, 5.73, 5.85, 6.02, 6.27, 6.53, 6.54, 6.5, 6.52, 6.51, 6.51, 6.4, 5.98, 5.49, 5.31, 4.8, 4.21, 3.97, 3.77, 3.65, 3.07, 2.49, 2.09, 1.82, 1.73, 1.74, 1.73, 1.75, 1.75, 1.75, 1.73, 1.74, 1.75, 1.75, 1.34, 1.24, 1.24, 1.26, 1.25, 1.26, 1.26, 1.22, 1.01, 1.03, 1.01, 1.01, 1.0, 0.98, 1.0, 1.01, 1.0, 1.0, 1.0, 1.03, 1.26, 1.43, 1.61, 1.76, 1.93, 2.16, 2.28, 2.5, 2.63, 2.79, 3.0, 3.04, 3.26, 3.5, 3.62, 3.78, 4.0, 4.16, 4.29, 4.49, 4.59, 4.79, 4.94, 4.99, 5.24, 5.25, 5.25, 5.25, 5.25, 5.24, 5.25, 5.26, 5.26, 5.25, 5.25, 5.25, 5.26, 5.02, 4.94, 4.76, 4.49, 4.24, 3.94, 2.98, 2.61, 2.28, 1.98, 2.0, 2.01, 2.0, 1.81, 0.97, 0.39, 0.16, 0.15, 0.22, 0.18, 0.15, 0.18, 0.21, 0.16, 0.16, 0.15, 0.12, 0.12, 0.12, 0.11, 0.13, 0.16, 0.2, 0.2, 0.18, 0.18, 0.19, 0.19, 0.19, 0.19, 0.18, 0.17, 0.16, 0.14, 0.1, 0.09, 0.09, 0.07, 0.1, 0.08, 0.07, 0.08, 0.07, 0.08, 0.1, 0.13, 0.14, 0.16, 0.16, 0.16, 0.13, 0.14, 0.16, 0.16, 0.16, 0.14, 0.15, 0.14, 0.15, 0.11, 0.09, 0.09, 0.08, 0.08, 0.09, 0.08, 0.09, 0.07, 0.07, 0.08, 0.09, 0.09, 0.1, 0.09, 0.09, 0.09, 0.09, 0.09, 0.12, 0.11, 0.11, 0.11, 0.12, 0.12, 0.13, 0.13, 0.14, 0.14, 0.12, 0.12, 0.24, 0.34, 0.38, 0.36, 0.37, 0.37, 0.38, 0.39, 0.4, 0.4, 0.4, 0.41, 0.54, 0.65, 0.66, 0.79, 0.9, 0.91, 1.04, 1.15, 1.16, 1.15, 1.15, 1.16, 1.3, 1.41, 1.42, 1.51, 1.69, 1.7, 1.82, 1.91, 1.91, 1.95, 2.19, 2.2, 2.27, 2.4, 2.4, 2.41, 2.42, 2.39, 2.38, 2.4, 2.13, 2.04, 1.83, 1.55, 1.55, 1.55, 1.58, 0.65, 0.05, 0.05, 0.08, 0.09, 0.1, 0.09, 0.09, 0.09, 0.09, 0.09, 0.08, 0.07, 0.07, 0.06, 0.08, 0.1, 0.09, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.2, 0.33, 0.77, 1.21, 1.68, 2.33, 2.56, 3.08, 3.78, 4.1, 4.33, 4.57, 4.65, 4.83, 5.06, 5.08, 5.12, 5.33, 5.33, 5.33, 5.33, 5.33, 5.33, 5.33, 5.33, 5.33, 5.33, 5.33, 5.33, 5.33, 5.13, 4.83, 4.64, 4.48, 4.33, 4.33, 4.33, 4.33, 4.33, 4.33, 4.33, 4.33, 4.22, 4.09, 3.88, 3.72, 3.64, 3.64, 3.64, 3.64, 3.63, 3.63], "c": "mute", "w": 2.0, "yAxisID": "y", "order": 2}, {"label": "미국 주가 (1957=100, 로그·우)", "data": [100.0, 96.0, 97.1, 99.8, 103.1, 104.0, 105.7, 100.4, 96.9, 91.2, 89.8, 89.8, 91.6, 91.4, 92.5, 91.8, 94.7, 97.1, 100.4, 104.4, 107.3, 111.0, 114.6, 116.6, 121.9, 121.4, 125.2, 126.9, 129.8, 129.8, 136.2, 135.8, 130.7, 131.1, 132.9, 138.0, 134.9, 128.5, 126.5, 127.6, 126.5, 132.5, 128.7, 128.5, 123.0, 119.9, 123.6, 125.4, 130.0, 133.8, 138.0, 140.8, 142.6, 142.2, 141.9, 147.7, 146.1, 144.6, 149.0, 149.9, 145.0, 146.4, 146.8, 141.9, 132.5, 117.7, 119.6, 123.8, 122.7, 119.4, 129.4, 133.3, 138.2, 139.7, 138.6, 145.5, 148.1, 147.9, 144.2, 146.8, 151.9, 153.6, 152.8, 156.3, 159.8, 163.1, 167.1, 168.9, 169.3, 168.2, 174.2, 172.4, 175.5, 178.8, 180.1, 176.9, 181.1, 182.6, 182.8, 185.2, 187.6, 178.1, 177.6, 181.2, 187.4, 191.7, 193.2, 193.9, 197.6, 196.8, 188.7, 193.8, 183.1, 182.1, 181.6, 170.9, 164.1, 162.2, 170.9, 172.6, 179.9, 186.8, 191.5, 195.1, 199.3, 197.5, 201.9, 205.0, 208.0, 207.6, 200.9, 207.3, 208.0, 198.0, 193.3, 208.0, 214.4, 221.3, 220.5, 215.1, 222.0, 227.9, 232.3, 235.7, 225.9, 224.0, 217.6, 221.2, 228.6, 215.7, 204.8, 203.6, 204.6, 208.2, 210.4, 198.8, 197.4, 190.5, 193.3, 185.7, 162.7, 161.3, 160.8, 165.2, 176.2, 180.0, 179.1, 191.5, 200.4, 208.7, 214.5, 222.0, 218.8, 215.2, 214.2, 210.0, 214.7, 210.1, 200.0, 214.0, 223.5, 228.4, 234.3, 237.0, 233.8, 234.0, 231.4, 238.6, 234.7, 234.4, 246.1, 251.1, 251.6, 240.4, 235.0, 229.3, 221.7, 215.5, 219.3, 216.2, 221.6, 231.6, 213.3, 196.9, 200.8, 195.4, 203.8, 192.3, 185.0, 184.2, 169.1, 155.7, 139.5, 143.1, 148.4, 138.4, 150.7, 166.0, 173.3, 175.5, 186.6, 192.3, 193.6, 178.6, 175.7, 183.2, 186.2, 182.8, 200.5, 210.0, 211.1, 212.1, 210.5, 211.9, 217.6, 215.6, 220.0, 212.7, 211.7, 220.1, 219.9, 214.6, 213.6, 210.7, 210.8, 212.2, 214.7, 209.1, 205.8, 200.7, 202.7, 202.5, 195.0, 193.1, 193.4, 202.2, 212.9, 214.3, 213.4, 228.7, 228.9, 220.4, 206.1, 209.8, 217.9, 215.2, 219.6, 224.7, 219.7, 225.1, 228.2, 239.1, 241.8, 231.6, 230.7, 241.3, 249.6, 258.1, 232.6, 228.5, 239.9, 255.7, 267.9, 277.0, 285.7, 293.7, 305.4, 299.7, 297.9, 287.3, 298.8, 303.3, 298.1, 300.1, 293.0, 294.0, 267.2, 271.2, 279.4, 280.6, 265.4, 258.6, 249.6, 261.7, 262.1, 246.6, 245.5, 245.8, 274.4, 297.4, 311.6, 313.8, 325.3, 331.1, 341.9, 354.1, 369.7, 376.8, 378.0, 367.2, 377.9, 378.2, 372.8, 370.9, 376.1, 354.1, 354.3, 354.3, 352.0, 345.0, 340.3, 367.7, 373.9, 371.6, 374.8, 370.2, 387.3, 409.3, 406.1, 409.0, 418.1, 428.0, 436.3, 426.3, 416.6, 420.4, 445.2, 466.3, 469.5, 494.0, 523.5, 536.4, 536.8, 550.3, 540.5, 550.7, 535.6, 534.4, 550.4, 555.4, 590.7, 626.2, 650.4, 640.4, 637.0, 662.7, 681.1, 719.7, 697.3, 614.0, 536.2, 527.1, 549.2, 567.1, 585.7, 580.1, 566.6, 596.8, 594.4, 583.2, 591.9, 611.0, 596.6, 607.1, 626.8, 645.1, 643.2, 661.8, 685.0, 706.4, 723.3, 753.9, 754.2, 752.2, 736.4, 752.7, 732.6, 713.3, 727.9, 725.3, 747.7, 768.6, 768.5, 709.0, 676.9, 656.7, 673.0, 701.7, 695.4, 772.8, 795.5, 811.7, 808.6, 810.1, 814.0, 833.7, 830.6, 832.7, 833.3, 837.3, 896.2, 891.4, 880.1, 877.5, 893.3, 878.0, 891.6, 899.1, 899.3, 886.9, 909.9, 935.8, 936.6, 951.2, 969.6, 956.3, 961.4, 965.9, 968.5, 984.5, 995.9, 1006.4, 1000.1, 1007.1, 1024.2, 1023.7, 1005.6, 969.0, 975.2, 981.7, 974.2, 1000.7, 1006.7, 997.3, 986.6, 971.7, 990.9, 1023.3, 1042.6, 1072.2, 1101.2, 1131.4, 1165.2, 1172.5, 1213.0, 1218.3, 1241.0, 1281.3, 1286.5, 1353.9, 1355.0, 1358.0, 1386.6, 1400.2, 1350.2, 1385.7, 1410.6, 1459.7, 1519.2, 1530.3, 1577.1, 1635.7, 1628.4, 1567.0, 1693.5, 1786.1, 1879.4, 1881.7, 1913.8, 1950.9, 1923.0, 1972.1, 1970.0, 2079.5, 2191.1, 2258.9, 2244.9, 2226.5, 2291.5, 2106.9, 1979.5, 1998.8, 2205.0, 2250.7, 2326.8, 2300.5, 2359.1, 2453.1, 2483.8, 2460.1, 2535.5, 2426.8, 2375.4, 2340.9, 2478.4, 2493.8, 2480.7, 2364.6, 2431.7, 2526.2, 2499.3, 2538.5, 2552.2, 2603.1, 2608.6, 2526.5, 2523.3, 2521.1, 2542.2, 2532.4, 2358.1, 2371.3, 2518.8, 2465.3, 2399.1, 2362.3, 2154.3, 2172.9, 2248.9, 2278.1, 2273.7, 2226.0, 2347.5, 2296.1, 2250.1, 2127.2, 1904.2, 1922.0, 1845.3, 1797.1, 1889.1, 1875.3, 1868.4, 1751.1, 1745.9, 1840.0, 1947.9, 2063.5, 2057.6, 2062.5, 2123.0, 2178.4, 2215.0, 2309.2, 2425.8, 2462.4, 2429.9, 2440.4, 2356.7, 2420.1, 2383.0, 2347.8, 2420.7, 2442.6, 2563.9, 2637.9, 2608.2, 2677.3, 2686.5, 2615.8, 2623.3, 2675.3, 2728.3, 2765.5, 2802.1, 2725.0, 2806.1, 2878.9, 2955.4, 2974.0, 3021.0, 3084.1, 3085.4, 2951.3, 2997.4, 3065.6, 3099.2, 3197.2, 3274.6, 3358.8, 3375.3, 3455.6, 3370.7, 3529.4, 3631.2, 3657.7, 3691.1, 3488.9, 3610.2, 3754.6, 3594.4, 3625.7, 3390.5, 3340.3, 3242.4, 3390.5, 3482.8, 3325.0, 3115.4, 3090.5, 2922.9, 2265.6, 2043.2, 2041.5, 2027.4, 1869.7, 1751.7, 1973.6, 2151.5, 2212.1, 2223.2, 2430.8, 2524.4, 2582.0, 2619.0, 2650.3, 2682.6, 2570.1, 2716.3, 2810.4, 2586.9, 2501.2, 2512.1, 2558.3, 2640.6, 2765.2, 2811.4, 2897.9, 2992.5, 3093.0, 3058.1, 3130.9, 3109.2, 2996.8, 3065.0, 2713.5, 2626.4, 2681.3, 2708.7, 2737.3, 2853.5, 2983.8, 3018.2, 2973.2, 2847.9, 2792.3, 2872.7, 2960.9, 3055.1, 3062.5, 3004.3, 3093.4, 3232.9, 3288.8, 3341.5, 3360.2, 3488.9, 3401.6, 3492.2, 3509.7, 3556.0, 3637.0, 3734.9, 3752.3, 3787.5, 3763.1, 3848.8, 3885.1, 3935.2, 4030.2, 4059.6, 4006.3, 4040.2, 3869.9, 4035.2, 4000.3, 3949.1, 4055.5, 4034.9, 4097.9, 4119.9, 4070.8, 4012.9, 3892.4, 3678.6, 3815.8, 3853.7, 3770.6, 3520.2, 3482.0, 3717.0, 3821.2, 3821.2, 3848.3, 3946.0, 3987.4, 3955.1, 3908.6, 3940.3, 4097.7, 4144.2, 4221.2, 4253.7, 4233.1, 4277.0, 4337.7, 4387.4, 4378.2, 4453.6, 4562.9, 4575.4, 4697.5, 4902.7, 4715.1, 4659.5, 4632.7, 4668.3, 4680.0, 4716.7, 4785.8, 4824.4, 4633.4, 4558.8, 4291.5, 4386.6, 4625.7, 4667.5, 4776.2, 4681.7, 4742.1, 4870.6, 4667.5, 4804.6, 4788.5, 4967.5, 5071.4, 5165.5, 5078.3, 3964.1, 4017.2, 4169.2, 4465.6, 4541.6, 4760.4, 4725.2, 4793.3, 5060.7, 5311.1, 5478.5, 5616.9, 5720.3, 5930.3, 6057.4, 6124.9, 6107.8, 6179.8, 6121.1, 6189.5, 6311.4, 6208.6, 6238.7, 6127.1, 6035.7, 6060.8, 5698.8, 5513.8, 5425.3, 5690.9, 5332.4, 5207.9, 5606.9, 5650.4, 5801.4, 5849.5, 5569.2, 5728.7, 5621.9, 5754.7, 5948.7, 5906.1, 5839.5, 5598.8, 5787.2, 6111.5, 6210.2, 6410.2, 6646.8, 6579.3, 6678.9, 6648.6, 6789.7, 6877.8, 7089.6, 7234.2, 7340.5, 7240.4, 7223.0, 7410.0, 7184.2, 6826.8, 7236.9, 7409.5, 7627.0, 7679.5, 7890.8, 7968.9, 7919.4, 8111.7, 8366.0, 8599.2, 8230.0, 8418.9, 8526.6, 8684.2], "c": "mute", "w": 1.6, "dash": [4, 3], "yAxisID": "y1", "order": 3}, {"label": "한국 주가 (1981=100, 로그·우)", "data": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 100.0, 101.3, 101.8, 108.9, 118.1, 133.1, 150.2, 141.0, 137.3, 128.1, 124.2, 125.9, 122.1, 121.7, 125.2, 119.4, 110.8, 114.0, 117.6, 120.4, 114.5, 115.3, 118.5, 121.0, 116.3, 117.7, 117.0, 121.4, 124.2, 120.2, 119.2, 118.4, 115.4, 114.6, 116.2, 115.9, 115.0, 125.9, 125.2, 129.2, 127.7, 129.5, 129.2, 131.0, 130.6, 128.2, 128.9, 134.1, 135.8, 131.6, 130.3, 132.0, 129.2, 133.3, 131.7, 132.4, 132.2, 136.0, 140.9, 151.7, 152.8, 163.7, 182.2, 199.8, 203.3, 232.1, 252.4, 260.1, 254.1, 236.3, 249.3, 265.1, 280.4, 310.9, 354.9, 357.6, 372.5, 375.7, 440.3, 469.4, 467.0, 494.1, 463.1, 474.0, 562.1, 625.0, 606.1, 624.2, 653.1, 689.6, 675.9, 672.6, 654.8, 691.9, 754.8, 857.7, 857.6, 875.1, 936.9, 930.3, 908.7, 873.7, 859.9, 894.7, 923.0, 885.5, 871.7, 874.7, 871.0, 841.1, 820.1, 761.9, 748.5, 743.6, 677.2, 618.2, 584.1, 662.3, 675.5, 691.1, 628.0, 635.0, 650.4, 619.1, 611.3, 586.5, 626.9, 689.2, 663.7, 684.0, 648.0, 606.3, 620.6, 631.7, 597.3, 570.7, 571.6, 547.5, 507.3, 481.4, 521.0, 528.5, 625.7, 630.7, 675.4, 648.7, 626.5, 692.0, 698.2, 737.5, 729.4, 687.2, 671.7, 711.0, 774.4, 823.3, 863.6, 905.2, 862.5, 857.4, 914.0, 898.8, 916.3, 910.7, 972.3, 1052.7, 1077.1, 1009.4, 936.3, 901.7, 914.0, 875.6, 857.6, 857.7, 917.2, 889.3, 942.0, 968.9, 928.5, 890.5, 840.1, 848.5, 831.6, 892.5, 914.3, 841.6, 807.2, 781.2, 759.8, 782.4, 718.6, 669.8, 649.5, 677.1, 637.0, 673.4, 691.7, 742.2, 729.7, 718.2, 656.2, 566.5, 479.2, 378.6, 461.0, 509.4, 507.3, 430.9, 345.6, 303.8, 317.9, 303.4, 302.8, 348.0, 416.3, 508.9, 579.7, 516.9, 568.5, 699.4, 723.0, 816.1, 942.2, 905.0, 899.0, 803.7, 921.5, 954.9, 927.4, 877.8, 849.9, 760.3, 702.2, 771.1, 771.8, 699.2, 608.4, 533.4, 527.7, 506.3, 569.4, 575.6, 529.0, 512.6, 581.7, 584.6, 537.2, 551.0, 488.9, 502.0, 586.7, 646.3, 714.9, 746.1, 836.6, 868.2, 816.9, 763.8, 731.3, 691.7, 681.9, 623.2, 659.3, 675.1, 610.2, 573.8, 534.2, 568.3, 593.9, 642.3, 682.9, 709.4, 723.3, 732.0, 765.3, 777.1, 820.7, 841.4, 849.6, 879.2, 777.3, 748.4, 723.6, 747.1, 810.3, 823.6, 837.1, 847.8, 876.2, 933.3, 959.5, 927.9, 910.3, 960.9, 1026.9, 1069.9, 1135.9, 1156.5, 1215.6, 1300.3, 1338.1, 1301.4, 1293.4, 1373.3, 1347.6, 1213.9, 1238.5, 1275.6, 1315.7, 1314.0, 1361.7, 1377.8, 1340.1, 1392.4, 1387.9, 1471.5, 1564.7, 1701.0, 1855.8, 1760.6, 1828.4, 1944.7, 1867.0, 1845.2, 1687.2, 1639.7, 1601.5, 1722.2, 1789.3, 1708.7, 1522.4, 1492.9, 1404.5, 1174.8, 1041.6, 1082.4, 1114.6, 1105.5, 1106.2, 1282.3, 1356.8, 1353.3, 1416.1, 1530.5, 1609.6, 1582.2, 1535.9, 1600.2, 1631.6, 1550.6, 1612.4, 1678.3, 1599.8, 1638.4, 1679.1, 1709.2, 1763.4, 1832.9, 1866.8, 1944.3, 2028.7, 1952.7, 1939.8, 2088.4, 2061.4, 2014.0, 2085.4, 1810.0, 1739.0, 1768.4, 1802.9, 1805.6, 1839.3, 1943.0, 1962.9, 1935.8, 1831.0, 1790.9, 1771.8, 1862.8, 1902.3, 1888.3, 1847.4, 1916.8, 1926.8, 1918.9, 1932.1, 1880.6, 1915.2, 1831.4, 1815.5, 1841.1, 1927.7, 1966.2, 1949.5, 1930.1, 1891.7, 1879.5, 1893.7, 1931.3, 1929.7, 1935.7, 1961.2, 1999.1, 1982.2, 1886.7, 1900.7, 1882.6, 1863.0, 1902.1, 1952.1, 2043.9, 2054.1, 2001.6, 1996.2, 1895.3, 1881.6, 1959.8, 1946.4, 1912.6, 1840.8, 1845.8, 1914.6, 1935.5, 1908.4, 1918.0, 1942.3, 1976.0, 1975.4, 1975.2, 1922.2, 1961.1, 2001.7, 2020.2, 2070.1, 2095.2, 2222.2, 2300.7, 2340.4, 2299.3, 2300.5, 2384.8, 2457.3, 2392.3, 2442.9, 2364.1, 2376.8, 2384.3, 2389.8, 2328.7, 2215.6, 2214.1, 2242.6, 2099.5, 2020.7, 2005.8, 2036.2, 2142.8, 2098.5, 2145.6, 2033.7, 2040.2, 2017.0, 1885.5, 1984.1, 2001.4, 2064.8, 2086.6, 2140.5, 2102.0, 1733.0, 1798.6, 1902.0, 2070.5, 2129.9, 2281.9, 2298.3, 2285.8, 2428.9, 2680.0, 2986.4, 3000.2, 2940.5, 3069.9, 3073.1, 3161.1, 3156.7, 3086.3, 3047.1, 2899.8, 2875.2, 2898.2, 2770.1, 2636.2, 2614.4, 2622.0, 2551.5, 2418.5, 2291.7, 2407.1, 2268.2, 2159.9, 2344.9, 2284.8, 2294.2, 2376.7, 2344.7, 2447.4, 2448.0, 2521.5, 2516.4, 2485.4, 2460.1, 2327.4, 2385.0, 2483.7, 2448.6, 2550.4, 2615.8, 2595.2, 2627.6, 2662.7, 2724.7, 2568.2, 2513.1, 2516.4, 2428.9, 2368.1, 2429.8, 2501.2, 2505.8, 2397.9, 2533.2, 2842.6, 3073.3, 3090.0, 3251.8, 3639.4, 3891.8, 3971.3, 4636.7, 5397.8, 5389.9, 5879.2, 7393.4, 8228.8], "c": "dn", "w": 2.2, "yAxisID": "y1", "order": 4, "spanGaps": true}], "logy1": 1, "bands": [{"from": "1953-04", "to": "1981-08", "era": "inf", "label": "인플레 시대"}, {"from": "1981-09", "to": "2020-06", "era": "dis", "label": "디스인플레 시대"}, {"from": "2020-07", "to": "2026-07", "era": "inf", "label": "인플레 시대"}]},{"id": "g2", "k": "bar", "dp": 1, "t": "금리 수준별 — 그 달에 사서 12개월 뒤 (중앙값)", "l": ["1% 미만", "1 ~ 3", "3 ~ 5", "5 ~ 7", "7 ~ 10", "10% 이상"], "yt": "%", "u": "%", "d": [{"label": "미국", "c": "mute", "data": [10.8, 7.6, 7.5, 11.2, 9.4, 14.5]}, {"label": "한국", "c": "acc", "data": [3.6, 5.6, 19.9, -1.0, 8.1, 1.0]}]},{"id": "g3", "k": "bar", "dp": 1, "t": "전환점 이후 (중앙값) — 인상 시작 vs 인하 시작", "l": ["미국 +12M", "미국 +24M", "한국 +12M", "한국 +24M"], "yt": "%", "u": "%", "d": [{"label": "인상 시작(금리 저점) 이후", "c": "mute", "data": [7.3, 11.6, 30.5, 45.8]}, {"label": "인하 시작(금리 고점) 이후", "c": "acc", "data": [13.2, 25.6, -5.7, -7.5]}]},{"id": "g4", "k": "bar", "dp": 1, "t": "전환점 이후 36개월 안의 최대 하락폭 (중앙값)", "l": ["미국", "한국"], "yt": "%", "u": "%", "d": [{"label": "인상 시작 이후", "c": "mute", "data": [-15.9, -17.7]}, {"label": "인하 시작 이후", "c": "acc", "data": [-18.2, -32.0]}]},{"id": "g5", "k": "bar", "dp": 1, "xt": 30, "t": "물가 국면 × 금리 방향 — 12개월 뒤 (중앙값)", "l": ["저 물가 2.5% 미만·인상 중", "저 물가 2.5% 미만·인하 중", "중 2.5~4%·인상 중", "중 2.5~4%·인하 중", "고 4% 이상·인상 중", "고 4% 이상·인하 중"], "yt": "%", "u": "%", "d": [{"label": "미국", "c": "mute", "data": [4.7, 13.8, 12.6, 10.0, 6.9, 11.5]}, {"label": "한국", "c": ["neg", "acc", "acc", "acc", "acc", "neg"], "data": [-3.7, 22.6, 0.1, 28.9, 4.1, -4.3]}]},{"id": "g6", "k": "bar", "dp": 1, "t": "첫 인상 이후 «몇 년차»인가 — 그 해 코스피 (중앙값)", "l": ["1년차", "2년차", "3년차", "4년차", "5년차"], "yt": "%", "u": "%", "d": [{"label": "코스피 전체", "c": ["acc", "acc", "acc", "neg", "acc"], "data": [7.0, 6.0, 2.0, -6.6, 1.5]}, {"label": "디스인플레 시대 (6건)", "c": "mute", "data": [7.9, 12.3, 19.1, -12.3, 3.7]}]},{"id": "g7", "k": "bar", "dp": 1, "t": "뜬금없는 인하 vs 뒷북 인하 — 그 뒤 (중앙값)", "l": ["코스피 +12M", "코스피 36M 낙폭", "미국 +12M", "미국 36M 낙폭"], "yt": "%", "u": "%", "d": [{"label": "★ 뜬금없는 인하 (주가 고점권)", "c": "acc", "data": [-5.7, -32.0, -3.3, -18.2]}, {"label": "뒷북 인하 (이미 빠진 뒤)", "c": "mute", "data": [null, null, 16.0, -15.9]}]}];</script>
-<div class="wrap"><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="dollar-kospi.html">달러 인덱스와 코스피</a> — 같은 시대 구분(10년물 국채금리 사상 최고 1981-09 → 사상 최저 2020-07)을 씁니다. 금리 편이 «시대가 규칙을 바꾼다»를 보였다면, 달러 편은 같은 일이 환율에서도 일어남을 보입니다.</p><p><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a> — 기준금리가 «돈의 가격»이라면 이 페이지는 «돈의 양»입니다. 2021~2023년의 실질 긴축은 금리가 아니라 역레포가 했습니다 — 가격만 보면 반대로 읽는 구간입니다.</p><p><a href="rates-101.html">금리는 돈의 가격이다</a> — 이 페이지의 결론을 읽기 전에 기초가 필요하면 — 금리의 세 층(실질·기대 인플레이션·기간 프리미엄)부터.</p></div><!--RELATED:END--><!--GLOSSARY:BEGIN--><style id="glocss">.glo{margin:34px 0 8px}.glo h3{font-size:1.02rem;margin:0 0 12px}.glo dl{margin:0;font-size:.9rem;line-height:1.62}.glo dt{font-weight:800;margin-top:10px}.glo dd{margin:2px 0 0 0;color:var(--text-secondary,#555)}</style><div class="glo"><h3>용어 설명</h3><dl><dt>신용스프레드</dt><dd>회사채 금리에서 국고채 금리를 뺀 값. 기업이 국가보다 더 부담하는 금리이고, 시장이 매긴 부도 위험의 값이다.</dd><dt>이격도</dt><dd>주가가 이동평균선에서 얼마나 떨어져 있는지의 백분율. 100이면 이동평균과 같은 자리, 90 아래는 과매도·110 위는 과열로 읽는다.</dd><dt>이동평균선</dt><dd>일정 기간 종가의 평균을 이은 선. 20일선은 단기, 20주선(=100거래일 근사)은 이야기꾼의 «생명선», 200일선은 장기 추세 기준이다.</dd><dt>RS</dt><dd>Relative Strength. 시장 대비 상대 수익률. 미너비니는 RS 상위 종목만 후보로 둔다.</dd><dt>스테이지</dt><dd>와인스타인의 4국면 — 1 바닥, 2 상승, 3 천장, 4 하락. 이동평균의 기울기와 가격 위치로 판정한다.</dd><dt>제오지산수</dt><dd>이야기꾼의 다섯 경기지표 — 제(ISM 제조업지수)·오(OECD 경기선행지수)·지(GDP)·산(산업생산)·수(한국 수출).</dd><dt>기준금리</dt><dd>중앙은행이 정하는 초단기 금리. 연준의 연방기금금리가 세계 돈값의 기준이 된다.</dd><dt>10년물 국채금리</dt><dd>시장이 정하는 장기 돈값. 이 사이트의 시대 구분(인플레·디스인플레)은 이 금리의 사상 최고(1981-09)와 사상 최저(2020-07)로 가른다.</dd><dt>디스인플레이션</dt><dd>물가 상승률이 낮아지는 시대. 1981-09~2020-06의 약 40년. 코스피 역사의 85%가 이 안에 있어 «과거 패턴»이 대부분 이 시대의 산물이다.</dd><dt>장단기 금리차</dt><dd>10년물에서 단기 금리를 뺀 값. 역전되면 침체 신호로 쓰였으나, 이야기꾼은 인플레이션 시대에는 이 지표를 폐기했다.</dd></dl><p style="font-size:.8rem;color:var(--text-secondary,#777);margin-top:12px">이 글에 나온 용어만 실었습니다. 정의는 <code>scripts/glossary.py</code> 에서 한곳으로 관리합니다.</p></div><!--GLOSSARY:END--></div>
+<div class="wrap"><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="dollar-kospi.html">달러 인덱스와 코스피</a> — 같은 시대 구분을 쓴다. 10년물 국채금리 사상 최고 1981-09에서 사상 최저 2020-07까지다. 금리 편이 시대가 규칙을 바꾼다는 것을 보였다면, 달러 편은 같은 일이 환율에서도 일어남을 보인다.</p><p><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a> — 기준금리가 돈의 가격이라면 이 페이지는 돈의 양이다. 2021~2023년의 실질 긴축은 금리가 아니라 역레포가 했다. 가격만 보면 반대로 읽는 구간이다.</p><p><a href="rates-101.html">금리는 돈의 가격이다</a> — 이 페이지의 결론을 읽기 전에 기초가 필요하면 금리의 세 층부터 본다. 실질·기대 인플레이션·기간 프리미엄이다.</p></div><!--RELATED:END--><!--GLOSSARY:BEGIN--><style id="glocss">.glo{margin:34px 0 8px}.glo h3{font-size:1.02rem;margin:0 0 12px}.glo dl{margin:0;font-size:.9rem;line-height:1.62}.glo dt{font-weight:800;margin-top:10px}.glo dd{margin:2px 0 0 0;color:var(--text-secondary,#555)}</style><div class="glo"><h3>용어 설명</h3><dl><dt>신용스프레드</dt><dd>회사채 금리에서 국고채 금리를 뺀 값. 기업이 국가보다 더 부담하는 금리이고, 시장이 매긴 부도 위험의 값이다.</dd><dt>이격도</dt><dd>주가가 이동평균선에서 얼마나 떨어져 있는지의 백분율. 100이면 이동평균과 같은 자리, 90 아래는 과매도·110 위는 과열로 읽는다.</dd><dt>이동평균선</dt><dd>일정 기간 종가의 평균을 이은 선. 20일선은 단기, 20주선(=100거래일 근사)은 이야기꾼의 «생명선», 200일선은 장기 추세 기준이다.</dd><dt>RS</dt><dd>Relative Strength. 시장 대비 상대 수익률. 미너비니는 RS 상위 종목만 후보로 둔다.</dd><dt>스테이지</dt><dd>와인스타인의 4국면 — 1 바닥, 2 상승, 3 천장, 4 하락. 이동평균의 기울기와 가격 위치로 판정한다.</dd><dt>제오지산수</dt><dd>이야기꾼의 다섯 경기지표 — 제(ISM 제조업지수)·오(OECD 경기선행지수)·지(GDP)·산(산업생산)·수(한국 수출).</dd><dt>기준금리</dt><dd>중앙은행이 정하는 초단기 금리. 연준의 연방기금금리가 세계 돈값의 기준이 된다.</dd><dt>10년물 국채금리</dt><dd>시장이 정하는 장기 돈값. 이 사이트의 시대 구분(인플레·디스인플레)은 이 금리의 사상 최고(1981-09)와 사상 최저(2020-07)로 가른다.</dd><dt>디스인플레이션</dt><dd>물가 상승률이 낮아지는 시대. 1981-09~2020-06의 약 40년. 코스피 역사의 85%가 이 안에 있어 «과거 패턴»이 대부분 이 시대의 산물이다.</dd><dt>장단기 금리차</dt><dd>10년물에서 단기 금리를 뺀 값. 역전되면 침체 신호로 쓰였으나, 이야기꾼은 인플레이션 시대에는 이 지표를 폐기했다.</dd></dl><p style="font-size:.8rem;color:var(--text-secondary,#777);margin-top:12px">이 글에 나온 용어만 실었다. 정의는 <code>scripts/glossary.py</code> 에서 한곳으로 관리한다.</p></div><!--GLOSSARY:END--></div>
 <footer>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.
     · 근거: 이야기꾼 주간 시투 보고서(W31·2026-08-01) 및 자체 실측.</footer>
 </div>
@@ -1617,6 +1377,13 @@ setTimeout(fdBuild,400);
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
+
+
+
+
+
+
+
 
 
 
