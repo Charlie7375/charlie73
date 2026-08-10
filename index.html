@@ -121,7 +121,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── 테마 토글 버튼 (전 페이지 공통) ── */
 /* ⚠⚠ `top:auto` 와 z-index 가 핵심이다 (2026-08-08).
-   생성기 SHELL 들이 `.toggle{position:fixed;top:18px;…}` 를 따로 갖고 있는데(45장),
+   생성기 SHELL 들이 `.toggle{top:62px;z-index:88;position:fixed;…}` 를 따로 갖고 있는데(45장),
    이 규칙은 뒤에 와서 z-index 만 이기고 **위치는 top:18px 가 남았다.**
    그 자리는 sticky 상단바(.site-bar, z-index 90)가 덮는 자리라
    **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 세 번째 원인이다.
@@ -316,7 +316,7 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
   html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
   html body .site-bar-in{padding:9px 14px 7px}
 }
-/* BAR:END */</style><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"></head><body>
+/* BAR:END */</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
 
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
@@ -328,7 +328,7 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
 
 <!-- STATUS:BEGIN -->
 <section class="status">
-  <div class="st-head">데이터 기준일 <b>2026-08-07</b><span class="st-gen">갱신 2026-08-08</span></div>
+  <div class="st-head">데이터 기준일 <b>2026-08-07</b><span class="st-gen">갱신 2026-08-10</span></div>
   <div class="st-grid"><div class="st-c dn"><div class="st-l">코스피</div><div class="st-v">6,259</div><div class="st-s">-0.6% · 이격도 82.3</div></div><div class="st-c dn"><div class="st-l">코스닥</div><div class="st-v">798.8</div><div class="st-s">-0.36% · 08/07</div></div><div class="st-c dn"><div class="st-l">수급 5일 · 외국인</div><div class="st-v">-8.2<span class="st-u">조</span></div><div class="st-s">개인 +10.1 · 기관 -1.8 (근사)</div></div><div class="st-c up"><div class="st-l">외인·기관 쌍끌이</div><div class="st-v">1<span class="st-u">/13종목</span></div><div class="st-s">LIG디펜스앤에어로스페이스 등 1종목 · 08-07</div></div><div class="st-c warn"><div class="st-l">코스피 바닥 7단계</div><div class="st-v">0<span class="st-u">/7단계</span></div><div class="st-s">투매 2회 확인</div></div><div class="st-c up"><div class="st-l">신고가 − 신저가</div><div class="st-v">+14</div><div class="st-s">신고가 78 · 신저가 64</div></div><div class="st-c warn"><div class="st-l">전조현상 점등</div><div class="st-v">14<span class="st-u">/28</span></div><div class="st-s">1급 8개 W31</div></div><div class="st-c"><div class="st-l">오디션 생존</div><div class="st-v">293<span class="st-u">/306</span></div><div class="st-s">96% · 기준일 07-29</div></div></div>
 </section>
 <!-- STATUS:END -->
@@ -529,6 +529,7 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
+
 
 
 

@@ -344,7 +344,7 @@ html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;-
 .reveal.visible{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 @media(max-width:720px){.panel{padding:20px 16px 16px}}
-</style><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"><style id="freqcss">
+</style><style id="freqcss">
 .freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
  padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
  border:1px solid currentColor;opacity:.85}
@@ -612,6 +612,68 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper p.note{padding-left:11px}
 }
 /* PAPER:END */</style>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><style id="arcv2">
+/* ═ 아카이브 스타일 v2 — 스테이지·닷컴·이격도 3편과 판형 통일 · restyle_archive.py 가 관리 ═ */
+/* 종이 카드 제거 */
+.wrap.paper{background:transparent!important;box-shadow:none!important;border:0!important;
+  border-radius:0!important;max-width:var(--w-col,1040px)!important}
+/* 머리 — 전부 가운데 */
+.phead{border-bottom:0!important;text-align:center!important;padding:30px 0 6px!important}
+.phead .eyebrow,.wrap>.eyebrow{display:block;text-align:center!important;letter-spacing:.18em}
+.phead h1,.wrap h1{font-weight:800!important;font-size:clamp(2.02rem,4vw,2.7rem)!important;
+  letter-spacing:-.035em!important;line-height:1.13!important;text-wrap:balance;
+  text-align:center!important;margin:10px auto 4px!important}
+.phead .deck{border-left:0!important;padding:0!important;margin:12px auto 0!important;
+  max-width:44em;font-size:1.1rem!important;font-weight:700!important;
+  color:var(--accent)!important;text-align:center!important;text-wrap:balance}
+.phead .sub,.wrap>.sub{display:block;margin:16px auto 0!important;max-width:var(--w-prose,50em);
+  text-align:center!important;color:var(--text-secondary)!important}
+.phead .pauth,.pauth,.upd{border-bottom:0!important;text-align:center!important;
+  color:var(--text-secondary)!important;font-size:13.5px!important;
+  padding-bottom:0!important;margin:14px auto 0!important}
+.site-crumb{justify-content:center;text-align:center}
+/* 소제목 — 가운데 + 악센트 밑줄 */
+.wrap h2{text-align:center!important;font-weight:800!important;
+  font-size:clamp(1.28rem,2.3vw,1.58rem)!important;letter-spacing:-.025em!important;
+  margin:62px auto 18px!important;text-wrap:balance;max-width:none!important}
+.wrap h2::after{content:'';display:block;width:46px;height:3px;border-radius:2px;
+  background:var(--accent);margin:12px auto 0}
+.wrap h3{text-align:center!important;font-weight:700!important;font-size:1.07rem!important;
+  margin:34px auto 12px!important;text-wrap:balance}
+/* 요약 카드 (verdict 문법) */
+.abstract{background:var(--surface)!important;border:1px solid var(--border)!important;
+  border-radius:16px!important;padding:22px 26px!important;margin:26px auto!important;
+  box-shadow:none!important}
+.abstract h4{display:none}
+/* 콜아웃 (explain 문법) */
+.callout{background:var(--surface)!important;border:1px solid var(--border)!important;
+  border-left:4px solid var(--accent)!important;border-radius:12px!important}
+.callout.warn{border-left-color:#d97706!important}
+.callout.bad{border-left-color:#dc2626!important}
+/* 차트 카드 */
+.fig .cbox,.cbox{background:var(--surface);border:1px solid var(--border);
+  border-radius:14px;padding:16px 14px 10px}
+figcaption{font-size:13.5px!important;color:var(--text-secondary)!important;
+  line-height:1.7!important;margin-top:10px!important}
+/* 표 카드 */
+.tblwrap{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:4px 14px}
+.tblwrap table th{border-bottom:1px solid var(--border)!important;
+  color:var(--text-secondary)!important;font-weight:600!important;font-size:12px!important}
+.tblwrap table td{border-bottom:1px solid var(--border)!important}
+.tblwrap table tr:last-child td{border-bottom:0!important}
+figure.tw{background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:10px 16px;margin:22px 0}
+figure.tw table th{border-bottom:1px solid var(--border);color:var(--text-secondary);
+  font-weight:600;font-size:12px}
+figure.tw table td{border-bottom:1px solid var(--border)}
+figure.tw table tr:last-child td{border-bottom:0}
+/* 인용·반증 조건·출처 */
+.wrap blockquote{background:var(--surface)!important;border:1px solid var(--border)!important;
+  border-left:3px solid var(--accent)!important;border-radius:0 12px 12px 0!important}
+ul.cond{background:var(--surface);border:1px solid var(--border);border-radius:12px;
+  padding:18px 24px 18px 42px}
+.src-note{border-top:1px solid var(--border)!important;color:var(--text-secondary)!important}
+</style>
 </head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
@@ -852,7 +914,7 @@ SPASTT01KRM661N(Share Prices for Korea, 2015=100, 1981~).
 </div>
 <div class="wrap"><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="fed-kospi.html">연준 기준금리와 증시</a> — 시대 구분의 원전입니다. 달러의 «계단»이 왜 디스인플레 시대에만 뚜렷했는지가 거기서 설명됩니다.</p></div><!--RELATED:END--><!--GLOSSARY:BEGIN--><style id="glocss">.glo{margin:34px 0 8px}.glo h3{font-size:1.02rem;margin:0 0 12px}.glo dl{margin:0;font-size:.9rem;line-height:1.62}.glo dt{font-weight:800;margin-top:10px}.glo dd{margin:2px 0 0 0;color:var(--text-secondary,#555)}</style><div class="glo"><h3>용어 설명</h3><dl><dt>신용스프레드</dt><dd>회사채 금리에서 국고채 금리를 뺀 값. 기업이 국가보다 더 부담하는 금리이고, 시장이 매긴 부도 위험의 값이다.</dd><dt>이격도</dt><dd>주가가 이동평균선에서 얼마나 떨어져 있는지의 백분율. 100이면 이동평균과 같은 자리, 90 아래는 과매도·110 위는 과열로 읽는다.</dd><dt>이동평균선</dt><dd>일정 기간 종가의 평균을 이은 선. 20일선은 단기, 20주선(=100거래일 근사)은 이야기꾼의 «생명선», 200일선은 장기 추세 기준이다.</dd><dt>RS</dt><dd>Relative Strength. 시장 대비 상대 수익률. 미너비니는 RS 상위 종목만 후보로 둔다.</dd><dt>스테이지</dt><dd>와인스타인의 4국면 — 1 바닥, 2 상승, 3 천장, 4 하락. 이동평균의 기울기와 가격 위치로 판정한다.</dd><dt>제오지산수</dt><dd>이야기꾼의 다섯 경기지표 — 제(ISM 제조업지수)·오(OECD 경기선행지수)·지(GDP)·산(산업생산)·수(한국 수출).</dd><dt>기준금리</dt><dd>중앙은행이 정하는 초단기 금리. 연준의 연방기금금리가 세계 돈값의 기준이 된다.</dd><dt>10년물 국채금리</dt><dd>시장이 정하는 장기 돈값. 이 사이트의 시대 구분(인플레·디스인플레)은 이 금리의 사상 최고(1981-09)와 사상 최저(2020-07)로 가른다.</dd><dt>디스인플레이션</dt><dd>물가 상승률이 낮아지는 시대. 1981-09~2020-06의 약 40년. 코스피 역사의 85%가 이 안에 있어 «과거 패턴»이 대부분 이 시대의 산물이다.</dd></dl><p style="font-size:.8rem;color:var(--text-secondary,#777);margin-top:12px">이 글에 나온 용어만 실었습니다. 정의는 <code>scripts/glossary.py</code> 에서 한곳으로 관리합니다.</p></div><!--GLOSSARY:END--></div>
 <footer>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.
-    · 근거: 이야기꾼 주간 시투 보고서(W31·2026-08-01) 및 자체 실측.</footer>
+    · 근거: FRED 달러 인덱스(TWEXMMTH·TWEXAFEGSMTH)와 한국 주가지수, 이야기꾼 시투 강의의 달러 사이클 구분. 계산은 자체 실측.</footer>
 </div>
 
 
@@ -986,6 +1048,9 @@ SPASTT01KRM661N(Share Prices for Korea, 2015=100, 1981~).
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<!-- CHARTTHEME:BEGIN -->
+<script src="chart-theme.js?v=796a6ee2"></script>
+<!-- CHARTTHEME:END -->
 <script>
 /* 닷컴 대시보드 공통 (scripts/dotcom_panel.py) */
 function dpCv(n,fb){var v=getComputedStyle(document.documentElement).getPropertyValue(n).trim();return v||fb;}
@@ -1129,6 +1194,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 else dkBuild();
 setTimeout(dkBuild,400);
 </script>
+
 
 
 
