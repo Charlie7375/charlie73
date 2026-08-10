@@ -344,6 +344,10 @@ html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;-
 .reveal.visible{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 @media(max-width:720px){.panel{padding:20px 16px 16px}}
+
+/* ── 제목 아래 한 줄 (좌상단 배지 폐기 후 유일한 자리) ── */
+.pauth{margin:10px 0 0;font-size:.8rem;color:var(--text-secondary);text-align:center}
+.pauth b{color:var(--text);font-variant-numeric:tabular-nums}
 </style><style id="freqcss">
 .freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
  padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
@@ -954,6 +958,8 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 else ssBuild();
 setTimeout(ssBuild,400);
 </script>
+
+
 
 
 
