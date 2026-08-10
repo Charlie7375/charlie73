@@ -352,6 +352,75 @@ html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;-
 .reveal.visible{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 @media(max-width:720px){.panel{padding:22px 16px 18px}.panel .cbox{min-height:320px}}
+</style>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><style id="arcv2">
+/* ═ 아카이브 스타일 v2 — 스테이지·닷컴·이격도 3편과 판형 통일 · restyle_archive.py 가 관리 ═ */
+/* 종이 카드 제거 */
+.wrap.paper{background:transparent!important;box-shadow:none!important;border:0!important;
+  border-radius:0!important;max-width:var(--w-col,1040px)!important}
+/* 머리 — 전부 가운데 */
+.phead{border-bottom:0!important;text-align:center!important;padding:30px 0 6px!important}
+.phead .eyebrow,.wrap>.eyebrow{display:block;text-align:center!important;letter-spacing:.18em}
+.phead h1,.wrap h1{font-weight:800!important;font-size:clamp(2.02rem,4vw,2.7rem)!important;
+  letter-spacing:-.035em!important;line-height:1.13!important;text-wrap:balance;
+  text-align:center!important;margin:10px auto 4px!important}
+.phead .deck{border-left:0!important;padding:0!important;margin:12px auto 0!important;
+  max-width:44em;font-size:1.1rem!important;font-weight:700!important;
+  color:var(--accent)!important;text-align:center!important;text-wrap:balance}
+.phead .sub,.wrap>.sub{display:block;margin:16px auto 0!important;max-width:var(--w-prose,50em);
+  text-align:center!important;color:var(--text-secondary)!important}
+.phead .pauth,.pauth,.upd{border-bottom:0!important;text-align:center!important;
+  color:var(--text-secondary)!important;font-size:13.5px!important;
+  padding-bottom:0!important;margin:14px auto 0!important}
+.site-crumb{justify-content:center;text-align:center}
+/* 소제목 — 가운데 + 악센트 밑줄 */
+.wrap h2{text-align:center!important;font-weight:800!important;
+  font-size:clamp(1.28rem,2.3vw,1.58rem)!important;letter-spacing:-.025em!important;
+  margin:62px auto 18px!important;text-wrap:balance;max-width:none!important}
+.wrap h2::after{content:'';display:block;width:46px;height:3px;border-radius:2px;
+  background:var(--accent);margin:12px auto 0}
+.wrap h3{text-align:center!important;font-weight:700!important;font-size:1.07rem!important;
+  margin:34px auto 12px!important;text-wrap:balance}
+/* 요약 카드 (verdict 문법) */
+.abstract{background:var(--surface)!important;border:1px solid var(--border)!important;
+  border-radius:16px!important;padding:22px 26px!important;margin:26px auto!important;
+  box-shadow:none!important}
+.abstract h4{display:none}
+/* 콜아웃 (explain 문법) */
+.callout{background:var(--surface)!important;border:1px solid var(--border)!important;
+  border-left:4px solid var(--accent)!important;border-radius:12px!important}
+.callout.warn{border-left-color:#d97706!important}
+.callout.bad{border-left-color:#dc2626!important}
+/* 차트 카드 */
+.fig .cbox,.cbox{background:var(--surface);border:1px solid var(--border);
+  border-radius:14px;padding:16px 14px 10px}
+figcaption{font-size:13.5px!important;color:var(--text-secondary)!important;
+  line-height:1.7!important;margin-top:10px!important}
+/* 표 카드 */
+.tblwrap{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:4px 14px}
+.tblwrap table th{border-bottom:1px solid var(--border)!important;
+  color:var(--text-secondary)!important;font-weight:600!important;font-size:12px!important}
+.tblwrap table td{border-bottom:1px solid var(--border)!important}
+.tblwrap table tr:last-child td{border-bottom:0!important}
+figure.tw{background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:10px 16px;margin:22px 0}
+figure.tw table th{border-bottom:1px solid var(--border);color:var(--text-secondary);
+  font-weight:600;font-size:12px}
+figure.tw table td{border-bottom:1px solid var(--border)}
+figure.tw table tr:last-child td{border-bottom:0}
+/* 인용·반증 조건·출처 */
+.wrap blockquote{background:var(--surface)!important;border:1px solid var(--border)!important;
+  border-left:3px solid var(--accent)!important;border-radius:0 12px 12px 0!important}
+ul.cond{background:var(--surface);border:1px solid var(--border);border-radius:12px;
+  padding:18px 24px 18px 42px}
+.src-note{border-top:1px solid var(--border)!important;color:var(--text-secondary)!important}
+</style>
+<style id="freqcss">
+.freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
+ padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
+ border:1px solid currentColor;opacity:.85}
+.freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
+.freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
 /* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
@@ -614,79 +683,10 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper p.note{padding-left:11px}
 }
 /* PAPER:END */</style>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><style id="arcv2">
-/* ═ 아카이브 스타일 v2 — 스테이지·닷컴·이격도 3편과 판형 통일 · restyle_archive.py 가 관리 ═ */
-/* 종이 카드 제거 */
-.wrap.paper{background:transparent!important;box-shadow:none!important;border:0!important;
-  border-radius:0!important;max-width:var(--w-col,1040px)!important}
-/* 머리 — 전부 가운데 */
-.phead{border-bottom:0!important;text-align:center!important;padding:30px 0 6px!important}
-.phead .eyebrow,.wrap>.eyebrow{display:block;text-align:center!important;letter-spacing:.18em}
-.phead h1,.wrap h1{font-weight:800!important;font-size:clamp(2.02rem,4vw,2.7rem)!important;
-  letter-spacing:-.035em!important;line-height:1.13!important;text-wrap:balance;
-  text-align:center!important;margin:10px auto 4px!important}
-.phead .deck{border-left:0!important;padding:0!important;margin:12px auto 0!important;
-  max-width:44em;font-size:1.1rem!important;font-weight:700!important;
-  color:var(--accent)!important;text-align:center!important;text-wrap:balance}
-.phead .sub,.wrap>.sub{display:block;margin:16px auto 0!important;max-width:var(--w-prose,50em);
-  text-align:center!important;color:var(--text-secondary)!important}
-.phead .pauth,.pauth,.upd{border-bottom:0!important;text-align:center!important;
-  color:var(--text-secondary)!important;font-size:13.5px!important;
-  padding-bottom:0!important;margin:14px auto 0!important}
-.site-crumb{justify-content:center;text-align:center}
-/* 소제목 — 가운데 + 악센트 밑줄 */
-.wrap h2{text-align:center!important;font-weight:800!important;
-  font-size:clamp(1.28rem,2.3vw,1.58rem)!important;letter-spacing:-.025em!important;
-  margin:62px auto 18px!important;text-wrap:balance;max-width:none!important}
-.wrap h2::after{content:'';display:block;width:46px;height:3px;border-radius:2px;
-  background:var(--accent);margin:12px auto 0}
-.wrap h3{text-align:center!important;font-weight:700!important;font-size:1.07rem!important;
-  margin:34px auto 12px!important;text-wrap:balance}
-/* 요약 카드 (verdict 문법) */
-.abstract{background:var(--surface)!important;border:1px solid var(--border)!important;
-  border-radius:16px!important;padding:22px 26px!important;margin:26px auto!important;
-  box-shadow:none!important}
-.abstract h4{display:none}
-/* 콜아웃 (explain 문법) */
-.callout{background:var(--surface)!important;border:1px solid var(--border)!important;
-  border-left:4px solid var(--accent)!important;border-radius:12px!important}
-.callout.warn{border-left-color:#d97706!important}
-.callout.bad{border-left-color:#dc2626!important}
-/* 차트 카드 */
-.fig .cbox,.cbox{background:var(--surface);border:1px solid var(--border);
-  border-radius:14px;padding:16px 14px 10px}
-figcaption{font-size:13.5px!important;color:var(--text-secondary)!important;
-  line-height:1.7!important;margin-top:10px!important}
-/* 표 카드 */
-.tblwrap{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:4px 14px}
-.tblwrap table th{border-bottom:1px solid var(--border)!important;
-  color:var(--text-secondary)!important;font-weight:600!important;font-size:12px!important}
-.tblwrap table td{border-bottom:1px solid var(--border)!important}
-.tblwrap table tr:last-child td{border-bottom:0!important}
-figure.tw{background:var(--surface);border:1px solid var(--border);border-radius:14px;
-  padding:10px 16px;margin:22px 0}
-figure.tw table th{border-bottom:1px solid var(--border);color:var(--text-secondary);
-  font-weight:600;font-size:12px}
-figure.tw table td{border-bottom:1px solid var(--border)}
-figure.tw table tr:last-child td{border-bottom:0}
-/* 인용·반증 조건·출처 */
-.wrap blockquote{background:var(--surface)!important;border:1px solid var(--border)!important;
-  border-left:3px solid var(--accent)!important;border-radius:0 12px 12px 0!important}
-ul.cond{background:var(--surface);border:1px solid var(--border);border-radius:12px;
-  padding:18px 24px 18px 42px}
-.src-note{border-top:1px solid var(--border)!important;color:var(--text-secondary)!important}
-</style>
-<style id="freqcss">
-.freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
- padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
- border:1px solid currentColor;opacity:.85}
-.freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
-.freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
-</style>
 </head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
-  <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="here" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="kospi-analog.html">지금과 닮은 과거 — 유사국면</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a class="here" href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><!-- NAV:END --></nav>
+  <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="here" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="kospi-analog.html">지금과 닮은 과거 — 유사국면</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a class="here" href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><!-- NAV:END --></nav>
 </div></div>
 <div class="wrap paper">
 <div class="phead">
@@ -697,8 +697,7 @@ ul.cond{background:var(--surface);border:1px solid var(--border);border-radius:1
 <b>미 10년 국채 64년치 일별 자료</b>로 하루씩 세어 봤습니다.
 결론부터 적으면, <b>숫자 5%에는 아무 힘이 없습니다.</b>
 힘은 <b>그 숫자를 만나는 쪽</b>에 있습니다.</p>
-<p class="pauth">FRED DGS10 일별 (1962-01 ~ 2026-08-06) · 역사 판정은 GS10 월봉(1953-04~) ·
-신용 스프레드는 무디스 Aaa·Baa · 갱신 2026-08-10</p>
+<p class="pauth">1968~2026 · 금리와 폭락 · 고정 자료 · 시장 데이터로 갱신되지 않습니다</p>
 </div>
 
 <div class="abstract">
@@ -1268,6 +1267,7 @@ setTimeout(rtBuild,400);
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
+
 
 
 
