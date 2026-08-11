@@ -110,52 +110,6 @@ footer{margin-top:48px;border-top:1px solid var(--border);padding-top:22px;color
 .toggle{top:62px;z-index:88;position:fixed;right:18px;width:42px;height:42px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:18px}
 @media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}h1{font-size:2.05rem}}
 
-.bg{display:inline-block;min-width:44px;text-align:center;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:800;color:#fff}
-.b-on{background:#e11d48}.b-wa{background:#f59e0b}.b-ob{background:#64748b}.b-sf{background:#059669}.b-rf{background:#94a3b8}
-.gr{display:inline-block;font-size:.68rem;font-weight:800;padding:1px 6px;border-radius:5px;margin-left:6px;
-  color:#e11d48;background:color-mix(in srgb,#e11d48 13%,transparent);vertical-align:middle}
-.chg{font-size:.7rem;font-weight:700;color:var(--accent);margin-left:6px;white-space:nowrap}
-.star{color:#e11d48;font-weight:800}
-td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
-.chl{margin:12px 0 0 18px;font-size:.92rem;line-height:1.9}
-.g1box{margin-top:12px;font-size:.9rem;line-height:1.85;color:var(--text-secondary)}
-.g1box ol{margin:8px 0 0 20px} .g1box li{color:var(--text);font-weight:600}
-.stats5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px}
-@media(max-width:720px){.stats5{grid-template-columns:repeat(2,1fr)}}
-
-/* 주차별 히스토리 */
-.hist{position:relative;padding-left:26px;margin-top:18px}
-.hist::before{content:'';position:absolute;left:7px;top:14px;bottom:14px;width:2px;background:var(--border)}
-.hw{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:14px;
-  padding:20px 22px;margin-bottom:16px}
-.hw::before{content:'';position:absolute;left:-24px;top:26px;width:12px;height:12px;border-radius:50%;
-  background:var(--border);border:3px solid var(--bg)}
-.hw.cur{border-color:color-mix(in srgb,var(--accent) 45%,var(--border));
-  box-shadow:0 1px 14px color-mix(in srgb,var(--accent) 10%,transparent)}
-.hw.cur::before{background:var(--accent)}
-.hh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.hwk{font-size:1.02rem;font-weight:900;letter-spacing:-.02em}
-.hdt{font-size:.82rem;color:var(--text-secondary);font-variant-numeric:tabular-nums}
-.hnow{font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:999px;color:#fff;background:var(--accent)}
-.htitle{margin-top:8px;font-size:1.12rem;font-weight:800;letter-spacing:-.02em;line-height:1.4}
-.htone{margin-top:6px;font-size:.86rem;color:var(--text-secondary);font-style:italic}
-.hpills{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
-.hp{font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
-.hp.on{color:#e11d48;background:color-mix(in srgb,#e11d48 12%,transparent)}
-.hp.wa{color:#b45309;background:color-mix(in srgb,#f59e0b 15%,transparent)}
-.hp.ob{color:#475569;background:color-mix(in srgb,#64748b 14%,transparent)}
-.hp.sf{color:#047857;background:color-mix(in srgb,#059669 13%,transparent)}
-.hp.g1{color:#fff;background:#e11d48}
-.hbody{margin-top:13px;font-size:.93rem;line-height:1.78;color:var(--text-secondary)}
-.hbody b{color:var(--text)}
-.hchg{margin-top:14px;padding-top:12px;border-top:1px dashed var(--border)}
-.hct{font-size:.76rem;font-weight:800;letter-spacing:.02em;color:var(--accent);text-transform:none}
-.hchg ul{margin:8px 0 0 16px;font-size:.87rem;line-height:1.85;color:var(--text-secondary)}
-.hchg li b{color:var(--text)}
-.hchg .ar{white-space:nowrap}
-.to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
-@media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
-
 /* ── 공통 기준일 배지 ── */
 .pbadge{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:2px 0 18px;
   font-size:.79rem;color:var(--text-secondary)}
@@ -163,8 +117,10 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .pb-k{font-size:.7rem;font-weight:800;padding:2px 8px;border-radius:999px;letter-spacing:.01em}
 .pb-live{color:#047857;background:color-mix(in srgb,#059669 14%,transparent)}
 .pb-weekly{color:#1d4ed8;background:color-mix(in srgb,#2563eb 13%,transparent)}
+.pb-monthly{color:#6d28d9;background:color-mix(in srgb,#7c3aed 13%,transparent)}
 .pb-fixed{color:#475569;background:color-mix(in srgb,#64748b 15%,transparent)}
 .pb-src{opacity:.72}
+.pb-note{opacity:.55;font-size:.74rem}
 .pb-old{font-size:.7rem;font-weight:800;padding:2px 8px;border-radius:999px;
   color:#b45309;background:color-mix(in srgb,#f59e0b 18%,transparent)}
 /* DESIGN:BEGIN */
@@ -281,12 +237,51 @@ html.theme-dark .card:hover{box-shadow:none!important}
   .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
 }
 /* LAYOUT:END */
-/* 단독 내비 링크(방법론) — 옆의 드롭다운 버튼과 같은 모양으로 맞춘다 */
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text-secondary,var(--text2));
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+.bg{display:inline-block;min-width:44px;text-align:center;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:800;color:#fff}
+.b-on{background:#e11d48}.b-wa{background:#f59e0b}.b-ob{background:#64748b}.b-sf{background:#059669}.b-rf{background:#94a3b8}
+.gr{display:inline-block;font-size:.68rem;font-weight:800;padding:1px 6px;border-radius:5px;margin-left:6px;
+  color:#e11d48;background:color-mix(in srgb,#e11d48 13%,transparent);vertical-align:middle}
+.chg{font-size:.7rem;font-weight:700;color:var(--accent);margin-left:6px;white-space:nowrap}
+.star{color:#e11d48;font-weight:800}
+td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
+.chl{margin:12px 0 0 18px;font-size:.92rem;line-height:1.9}
+.g1box{margin-top:12px;font-size:.9rem;line-height:1.85;color:var(--text-secondary)}
+.g1box ol{margin:8px 0 0 20px} .g1box li{color:var(--text);font-weight:600}
+.stats5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px}
+@media(max-width:720px){.stats5{grid-template-columns:repeat(2,1fr)}}
+
+/* 주차별 히스토리 */
+.hist{position:relative;padding-left:26px;margin-top:18px}
+.hist::before{content:'';position:absolute;left:7px;top:14px;bottom:14px;width:2px;background:var(--border)}
+.hw{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:20px 22px;margin-bottom:16px}
+.hw::before{content:'';position:absolute;left:-24px;top:26px;width:12px;height:12px;border-radius:50%;
+  background:var(--border);border:3px solid var(--bg)}
+.hw.cur{border-color:color-mix(in srgb,var(--accent) 45%,var(--border));
+  box-shadow:0 1px 14px color-mix(in srgb,var(--accent) 10%,transparent)}
+.hw.cur::before{background:var(--accent)}
+.hh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.hwk{font-size:1.02rem;font-weight:900;letter-spacing:-.02em}
+.hdt{font-size:.82rem;color:var(--text-secondary);font-variant-numeric:tabular-nums}
+.hnow{font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:999px;color:#fff;background:var(--accent)}
+.htitle{margin-top:8px;font-size:1.12rem;font-weight:800;letter-spacing:-.02em;line-height:1.4}
+.htone{margin-top:6px;font-size:.86rem;color:var(--text-secondary);font-style:italic}
+.hpills{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
+.hp{font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.hp.on{color:#e11d48;background:color-mix(in srgb,#e11d48 12%,transparent)}
+.hp.wa{color:#b45309;background:color-mix(in srgb,#f59e0b 15%,transparent)}
+.hp.ob{color:#475569;background:color-mix(in srgb,#64748b 14%,transparent)}
+.hp.sf{color:#047857;background:color-mix(in srgb,#059669 13%,transparent)}
+.hp.g1{color:#fff;background:#e11d48}
+.hbody{margin-top:13px;font-size:.93rem;line-height:1.78;color:var(--text-secondary)}
+.hbody b{color:var(--text)}
+.hchg{margin-top:14px;padding-top:12px;border-top:1px dashed var(--border)}
+.hct{font-size:.76rem;font-weight:800;letter-spacing:.02em;color:var(--accent);text-transform:none}
+.hchg ul{margin:8px 0 0 16px;font-size:.87rem;line-height:1.85;color:var(--text-secondary)}
+.hchg li b{color:var(--text)}
+.hchg .ar{white-space:nowrap}
+.to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
+@media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
 
 /* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
 .site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
@@ -313,7 +308,7 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
   html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
   html body .site-bar-in{padding:9px 14px 7px}
 }
-/* BAR:END */</style>
+/* BAR:END */</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap">
 <style id="MASTERS">
 .paper .mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(146px,1fr));
   gap:16px;margin:18px 0 6px}
@@ -600,31 +595,29 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper p.note{padding-left:11px}
 }
 /* PAPER:END */</style>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
+<!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
-  <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a></div></div><div class="site-group"><button class="here" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a class="here" href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="kospi-analog.html">지금과 닮은 과거 — 유사국면</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><!-- NAV:END --></nav>
+  <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a class="" href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="kospi-analog.html">지금과 닮은 과거 — 유사국면</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><!-- NAV:END --></nav>
 </div></div>
 <div class="wrap paper">
 <div class="phead">
-
 <div class="eyebrow">찰리 방법론 · 대가의 투자법</div>
 <h1>대가의 투자법</h1>
-<p class="sub">이야기꾼의 시나리오 투자 전략과 증권사 리포트에 나오는 대가들을 한자리에 모았습니다. 각 인물마다 <b>이야기꾼 방법론의 어느 자리와 이어지는지</b>를 함께 적었습니다.</p>
+<p class="sub">이야기꾼의 시나리오 투자 전략과 증권사 리포트에 나오는 대가들을 한자리에 모았다. 각 인물마다 이야기꾼 방법론의 어느 자리와 이어지는지를 함께 적었다.</p>
 <p class="pauth">대가들의 투자 원칙 · 고정 자료 · 시장 데이터로 갱신되지 않습니다</p>
 </div>
 
-<div class="abstract"><p><b>요약.</b> 대가들의 말은 결국 <b>두 갈래</b>로 모입니다. 하나는 <b>"시장은 언제나 한쪽으로 치우쳐 있다"</b>(소로스·케인스·코스톨라니), 다른 하나는 <b>"그 치우침의 끝에서 사고팔라"</b>(템플턴·버핏)입니다. 추세추종 계보(리버모어·오닐·미너비니·와인스타인)는 그 치우침을 <b>따라타는</b> 기술이고요. 그런데 넷 다 같은 벽에 부딪힙니다 — <a href="psychology.html">사람의 마음</a>입니다.</p></div>
+<div class="abstract"><p>요약. 대가들의 말은 결국 두 갈래로 모인다. 하나는 "시장은 언제나 한쪽으로 치우쳐 있다"(소로스·케인스·코스톨라니), 다른 하나는 "그 치우침의 끝에서 사고팔라"(템플턴·버핏)다. 추세추종 계보(리버모어·오닐·미너비니·와인스타인)는 그 치우침을 따라타는 기술이다. 그런데 넷 다 같은 벽에 부딪힌다. <a href="psychology.html">사람의 마음</a>이다.</p></div>
 
-<div class="mgrid"><figure class="mp"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/George_Soros%2C_Founder_and_Chairman_of_the_Open_Society_Foundations%2C_visits_the_EC_%283x4_cropped%29.jpg/330px-George_Soros%2C_Founder_and_Chairman_of_the_Open_Society_Foundations%2C_visits_the_EC_%283x4_cropped%29.jpg" alt="조지 소로스" loading="lazy"><figcaption><b>조지 소로스</b><span class="sm">1930~</span><span class="cred">사진 Aris Oikonomou / European Commission · CC BY 4.0 · <a href="https://commons.wikimedia.org/wiki/File:George_Soros,_Founder_and_Chairman_of_the_Open_Society_Foundations,_visits_the_EC_(3x4_cropped).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span></figcaption></figure><figure class="mp"><div class="ini">JT</div><figcaption><b>존 템플턴</b><span class="sm">1912~2008</span><span class="cred">위키미디어 공용에 자유 이용 사진이 없습니다</span></figcaption></figure><figure class="mp"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Press_photo_of_Jesse_Livermore_in_1940_%28cropped%29.jpg/330px-Press_photo_of_Jesse_Livermore_in_1940_%28cropped%29.jpg" alt="제시 리버모어" loading="lazy"><figcaption><b>제시 리버모어</b><span class="sm">1877~1940</span><span class="cred">사진 Acme Photo · Public domain · <a href="https://commons.wikimedia.org/wiki/File:Press_photo_of_Jesse_Livermore_in_1940_(cropped).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span></figcaption></figure><figure class="mp"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/John_Maynard_Keynes_%281929%29.jpg/330px-John_Maynard_Keynes_%281929%29.jpg" alt="존 메이너드 케인스" loading="lazy"><figcaption><b>존 메이너드 케인스</b><span class="sm">1883~1946</span><span class="cred">사진 Unknown · Public domain · <a href="https://commons.wikimedia.org/wiki/File:John_Maynard_Keynes_(1929).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span></figcaption></figure><figure class="mp"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Kostolany_Heller_c.jpg/330px-Kostolany_Heller_c.jpg" alt="앙드레 코스톨라니" loading="lazy"><figcaption><b>앙드레 코스톨라니</b><span class="sm">1906~1999</span><span class="cred">사진 Bennys Buidl Fabrik · CC BY-SA 4.0 · <a href="https://commons.wikimedia.org/wiki/File:Kostolany_Heller_c.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span></figcaption></figure><figure class="mp"><div class="ini">WO</div><figcaption><b>윌리엄 오닐</b><span class="sm">1933~2023</span><span class="cred">위키미디어 공용에 자유 이용 사진이 없습니다</span></figcaption></figure><figure class="mp"><div class="ini">MM</div><figcaption><b>마크 미너비니</b><span class="sm">1965~</span><span class="cred">위키미디어 공용에 자유 이용 사진이 없습니다</span></figcaption></figure><figure class="mp"><div class="ini">SW</div><figcaption><b>스탠 와인스타인</b><span class="sm">1946~</span><span class="cred">위키미디어 공용에 자유 이용 사진이 없습니다</span></figcaption></figure><figure class="mp"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Warren_Buffett_at_the_2015_SelectUSA_Investment_Summit_%28cropped%29.jpg/330px-Warren_Buffett_at_the_2015_SelectUSA_Investment_Summit_%28cropped%29.jpg" alt="워런 버핏" loading="lazy"><figcaption><b>워런 버핏</b><span class="sm">1930~</span><span class="cred">사진 USA International Trade Administration · Public domain · <a href="https://commons.wikimedia.org/wiki/File:Warren_Buffett_at_the_2015_SelectUSA_Investment_Summit_(cropped).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span></figcaption></figure><figure class="mp"><div class="ini">SD</div><figcaption><b>스탠리 드러켄밀러</b><span class="sm">1953~</span><span class="cred">위키미디어 공용에 자유 이용 사진이 없습니다</span></figcaption></figure><figure class="mp"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Jim-rogers-madrid-160610.jpg/330px-Jim-rogers-madrid-160610.jpg" alt="짐 로저스" loading="lazy"><figcaption><b>짐 로저스</b><span class="sm">1942~</span><span class="cred">사진 FDV · CC BY-SA 3.0 · <a href="https://commons.wikimedia.org/wiki/File:Jim-rogers-madrid-160610.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span></figcaption></figure></div>
+<div class="mgrid"><figure class="mp"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/George_Soros%2C_Founder_and_Chairman_of_the_Open_Society_Foundations%2C_visits_the_EC_%283x4_cropped%29.jpg/330px-George_Soros%2C_Founder_and_Chairman_of_the_Open_Society_Foundations%2C_visits_the_EC_%283x4_cropped%29.jpg" alt="조지 소로스" loading="lazy"><figcaption><b>조지 소로스</b><span class="sm">1930~</span><span class="cred">사진 Aris Oikonomou / European Commission · CC BY 4.0 · <a href="https://commons.wikimedia.org/wiki/File:George_Soros,_Founder_and_Chairman_of_the_Open_Society_Foundations,_visits_the_EC_(3x4_cropped).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span></figcaption></figure><figure class="mp"><div class="ini">JT</div><figcaption><b>존 템플턴</b><span class="sm">1912~2008</span><span class="cred">위키미디어 공용에 자유 이용 사진이 없다</span></figcaption></figure><figure class="mp"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Press_photo_of_Jesse_Livermore_in_1940_%28cropped%29.jpg/330px-Press_photo_of_Jesse_Livermore_in_1940_%28cropped%29.jpg" alt="제시 리버모어" loading="lazy"><figcaption><b>제시 리버모어</b><span class="sm">1877~1940</span><span class="cred">사진 Acme Photo · Public domain · <a href="https://commons.wikimedia.org/wiki/File:Press_photo_of_Jesse_Livermore_in_1940_(cropped).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span></figcaption></figure><figure class="mp"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/John_Maynard_Keynes_%281929%29.jpg/330px-John_Maynard_Keynes_%281929%29.jpg" alt="존 메이너드 케인스" loading="lazy"><figcaption><b>존 메이너드 케인스</b><span class="sm">1883~1946</span><span class="cred">사진 Unknown · Public domain · <a href="https://commons.wikimedia.org/wiki/File:John_Maynard_Keynes_(1929).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span></figcaption></figure><figure class="mp"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Kostolany_Heller_c.jpg/330px-Kostolany_Heller_c.jpg" alt="앙드레 코스톨라니" loading="lazy"><figcaption><b>앙드레 코스톨라니</b><span class="sm">1906~1999</span><span class="cred">사진 Bennys Buidl Fabrik · CC BY-SA 4.0 · <a href="https://commons.wikimedia.org/wiki/File:Kostolany_Heller_c.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span></figcaption></figure><figure class="mp"><div class="ini">WO</div><figcaption><b>윌리엄 오닐</b><span class="sm">1933~2023</span><span class="cred">위키미디어 공용에 자유 이용 사진이 없다</span></figcaption></figure><figure class="mp"><div class="ini">MM</div><figcaption><b>마크 미너비니</b><span class="sm">1965~</span><span class="cred">위키미디어 공용에 자유 이용 사진이 없다</span></figcaption></figure><figure class="mp"><div class="ini">SW</div><figcaption><b>스탠 와인스타인</b><span class="sm">1946~</span><span class="cred">위키미디어 공용에 자유 이용 사진이 없다</span></figcaption></figure><figure class="mp"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Warren_Buffett_at_the_2015_SelectUSA_Investment_Summit_%28cropped%29.jpg/330px-Warren_Buffett_at_the_2015_SelectUSA_Investment_Summit_%28cropped%29.jpg" alt="워런 버핏" loading="lazy"><figcaption><b>워런 버핏</b><span class="sm">1930~</span><span class="cred">사진 USA International Trade Administration · Public domain · <a href="https://commons.wikimedia.org/wiki/File:Warren_Buffett_at_the_2015_SelectUSA_Investment_Summit_(cropped).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span></figcaption></figure><figure class="mp"><div class="ini">SD</div><figcaption><b>스탠리 드러켄밀러</b><span class="sm">1953~</span><span class="cred">위키미디어 공용에 자유 이용 사진이 없다</span></figcaption></figure><figure class="mp"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Jim-rogers-madrid-160610.jpg/330px-Jim-rogers-madrid-160610.jpg" alt="짐 로저스" loading="lazy"><figcaption><b>짐 로저스</b><span class="sm">1942~</span><span class="cred">사진 FDV · CC BY-SA 3.0 · <a href="https://commons.wikimedia.org/wiki/File:Jim-rogers-madrid-160610.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span></figcaption></figure></div>
 
 <h2>대가들</h2>
-<div class="mcard"><h3>조지 소로스 — 재귀성 이론</h3><p class="who">George Soros · 1930~</p><p>시장은 언제나 한쪽으로 치우쳐 있다. 그리고 그 편향이 <b>기본 가치 자체를 바꾼다.</b></p><p>소로스의 출발점은 <b>"주가가 기본 가치를 수동적으로 반영한다"는 명제를 버리는 것</b>입니다.
-     그는 한 발 더 나갑니다 — 주가 반영이 기본 가치와 <i>일치하는 경향이 있다</i>는 온건한 명제조차 인정하지 않습니다.</p>
+<div class="mcard"><h3>조지 소로스 — 재귀성 이론</h3><p class="who">George Soros · 1930~</p><p>시장은 언제나 한쪽으로 치우쳐 있다. 그리고 그 편향이 <b>기본 가치 자체를 바꾼다.</b></p><p>소로스의 출발점은 "주가가 기본 가치를 수동적으로 반영한다"는 명제를 버리는 것다. 그는 한 발 더 나간다. 주가 반영이 기본 가치와 <i>일치하는 경향이 있다</i>는 온건한 명제조차 인정하지 않는다.</p>
      <div class="q">나는 시장의 가치 평가가 <b>항상 왜곡되어 있다</b>고 주장한다.
      더욱이 이러한 왜곡은 <b>기본 가치에 영향을 줄 수 있다.</b>
      <span class="src">— 조지 소로스, 재귀성(reflexivity) 서술</span></div>
-     <p>이것을 식으로 적으면 이렇게 됩니다.</p>
+     <p>이것을 식으로 적으면 이렇게 된다.</p>
      <figure class="fig"><div class="tblwrap"><table class="tw">
      <thead><tr><th class="n">표기</th><th>뜻</th></tr></thead><tbody>
      <tr><td class="n"><code>Y = F(x)</code></td><td>주가는 기본 가치의 함수 — 전통적 관점</td></tr>
@@ -633,10 +626,8 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
      <td>둘이 서로를 먹고 자란다. <b>독립변수·종속변수가 아니라 상호 종속변수</b></td></tr>
      </tbody></table></div>
      <figcaption>주가 변동은 <b>진행 중인 추세</b>와 <b>시장을 지배하는 편향</b>의 결합이고,
-     이들은 주가에 영향을 받아 스스로 강화되거나 수정됩니다.</figcaption></figure>
-     <p><b>왜 중요한가.</b> 주가가 오르면 자금 조달이 쉬워지고, 그러면 실제 실적이 좋아지고,
-     그래서 주가가 더 오릅니다. 반대로도 돕니다. 신용경색이 그 예입니다 —
-     "망할 것 같다"는 편향이 자금줄을 끊어 <b>진짜로</b> 망하게 만듭니다.</p><p class="link"><b>일상의 비유.</b> 맛집 대기줄과 같습니다. 줄이 길어서 사람이 더 서고, 사람이 더 서니 줄이 길어집니다. 음식 맛(기본 가치)이 줄을 만들었는데 <b>줄이 다시 음식 평판을 바꿉니다.</b> 어느 순간 맛과 무관하게 줄만 남고, 줄이 짧아지는 순간 평판도 같이 무너집니다.</p><p class="link"><b>이야기꾼과의 연결.</b> 이야기꾼의 <b>전조현상</b>이 바로 이 자기강화 고리를 끊어 읽으려는 장치입니다. 신용융자·유동성·달러가 서로를 밀어 올리다 어느 지점에서 방향을 뒤집는 것을 봅니다.</p></div><div class="mcard"><h3>존 템플턴 — 강세장의 4단계</h3><p class="who">John Templeton · 1912~2008</p><p>강세장은 <b>비관 속에서 태어나 회의 속에서 자라고, 낙관 속에서 성숙하며, 도취 속에서 죽는다.</b></p><div class="q">Bull markets are born on pessimism, grow on skepticism,
+     이들은 주가에 영향을 받아 스스로 강화되거나 수정된다.</figcaption></figure>
+     <p>왜 중요한가. 주가가 오르면 자금 조달이 쉬워지고, 그러면 실제 실적이 좋아지고, 그래서 주가가 더 오른다. 반대로도 돈다. 신용경색이 그 예다. "망할 것 같다"는 편향이 자금줄을 끊어 진짜로 망하게 만든다.</p><p class="link">일상의 비유. 맛집 대기줄과 같다. 줄이 길어서 사람이 더 서고, 사람이 더 서니 줄이 길어진다. 음식 맛(기본 가치)이 줄을 만들었는데 줄이 다시 음식 평판을 바꾼다. 어느 순간 맛과 무관하게 줄만 남고, 줄이 짧아지는 순간 평판도 같이 무너진다.</p><p class="link">이야기꾼과의 연결. 이야기꾼의 <b>전조현상</b>이 바로 이 자기강화 고리를 끊어 읽으려는 장치다. 신용융자·유동성·달러가 서로를 밀어 올리다 어느 지점에서 방향을 뒤집는 것을 본다.</p></div><div class="mcard"><h3>존 템플턴 — 강세장의 4단계</h3><p class="who">John Templeton · 1912~2008</p><p>강세장은 <b>비관 속에서 태어나 회의 속에서 자라고, 낙관 속에서 성숙하며, 도취 속에서 죽는다.</b></p><div class="q">Bull markets are born on pessimism, grow on skepticism,
      mature on optimism, and die on euphoria.
      <span class="src">— John Templeton</span></div>
      <figure class="fig"><div class="tblwrap"><table class="tw">
@@ -649,92 +640,62 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
      <div class="q">투자에서 가장 비싼 대가를 치르게 하는 네 단어는
      <b>"이번엔 다르다(This time it's different)"</b>이다.
      <span class="src">— John Templeton</span></div>
-     <p><b>실전 기록.</b> 2차대전 발발 폭락기에 <b>1달러 미만 종목 104개</b>를 사들여 템플턴 펀드의 종잣돈을 만들었습니다.
-     1998년 한국 IMF 국면에서 삼성전자·한국전력을 산 일화도 같은 계열입니다 —
-     <b>남들이 나라가 망한다고 할 때</b> 샀습니다.</p><p class="link"><b>일상의 비유.</b> 부동산과 같습니다. "지금 집 사면 망한다"고 다들 말할 때가 바닥이고, "안 사면 벼락거지"라는 말이 돌 때가 천장입니다. <b>말이 가장 확신에 찼을 때가 가장 위험합니다.</b></p><p class="link"><b>이야기꾼과의 연결.</b> 이야기꾼의 <b>중기 12국면</b>이 이 4단계를 더 잘게 쪼갠 것입니다. "도취"를 숫자로 잡으려는 시도가 신용융자·이격도·거래량입니다.</p></div><div class="mcard"><h3>제시 리버모어 — 추세의 형식지화</h3><p class="who">Jesse Livermore · 1877~1940</p><p>시투 전략의 <b>기초를 놓은 사람</b>. 그리고 <b>네 번 파산한 사람</b>.</p><p>리버모어가 처음 한 일은 <b>암묵지를 문서로 만든 것</b>입니다.
-     캔들차트도 없던 시절 손으로 그린 그림으로 추세와 패턴을 적어 남겼습니다.
-     <b>피라미딩</b>의 원조이고, <b>주도주 매매</b>를 처음 한 사람이며, 자금관리를 정리한 사람입니다.</p>
-     <p>그런데 이야기꾼은 리버모어를 <b>비판적으로 계승하라</b>고 합니다. 세 가지입니다.</p>
+     <p>실전 기록. 2차대전 발발 폭락기에 1달러 미만 종목 104개를 사들여 템플턴 펀드의 종잣돈을 만들었다. 1998년 한국 IMF 국면에서 삼성전자·한국전력을 산 일화도 같은 계열이다. 남들이 나라가 망한다고 할 때 샀다.</p><p class="link">일상의 비유. 부동산과 같다. "지금 집 사면 망한다"고 다들 말할 때가 바닥이고, "안 사면 벼락거지"라는 말이 돌 때가 천장이다. 말이 가장 확신에 찼을 때가 가장 위험하다.</p><p class="link">이야기꾼과의 연결. 이야기꾼의 <b>중기 12국면</b>이 이 4단계를 더 잘게 쪼갠 것이다. "도취"를 숫자로 잡으려는 시도가 신용융자·이격도·거래량이다.</p></div><div class="mcard"><h3>제시 리버모어 — 추세의 형식지화</h3><p class="who">Jesse Livermore · 1877~1940</p><p>시투 전략의 <b>기초를 놓은 사람</b>. 그리고 <b>네 번 파산한 사람</b>.</p><p>리버모어가 처음 한 일은 암묵지를 문서로 만든 것다. 캔들차트도 없던 시절 손으로 그린 그림으로 추세와 패턴을 적어 남겼다. 피라미딩의 원조이고, 주도주 매매를 처음 한 사람이며, 자금관리를 정리한 사람이다.</p>
+     <p>그런데 이야기꾼은 리버모어를 비판적으로 계승하라고 한다. 세 가지다.</p>
      <figure class="fig"><div class="tblwrap"><table class="tw">
      <thead><tr><th class="n">그가 실패한 곳</th><th>무엇이 문제였나</th></tr></thead><tbody>
-     <tr><td class="n"><b>추세추종만</b></td><td>네 번 파산했고, 그 시점이 <b>미국 증시의 국면 전환기</b>와 겹칩니다.
-     여름·가을 국면의 성공 전략을 겨울에도 반복하다 당했습니다</td></tr>
-     <tr><td class="n"><b>예측이 너무 빨랐다</b></td><td>탑다운 예측은 맞았는데 <b>맞기 전에 파산</b>했습니다.
-     1929년 공매도 대성공도 타이밍 리스크의 반대급부였습니다</td></tr>
-     <tr><td class="n"><b>몰빵·과레버리지</b></td><td>그래서 분할매수·분산·자금관리가 필요합니다</td></tr>
+     <tr><td class="n"><b>추세추종만</b></td><td>네 번 파산했고, 그 시점이 <b>미국 증시의 국면 전환기</b>와 겹친다.
+     여름·가을 국면의 성공 전략을 겨울에도 반복하다 당했다</td></tr>
+     <tr><td class="n"><b>예측이 너무 빨랐다</b></td><td>탑다운 예측은 맞았는데 <b>맞기 전에 파산</b>했다.
+     1929년 공매도 대성공도 타이밍 리스크의 반대급부였다</td></tr>
+     <tr><td class="n"><b>몰빵·과레버리지</b></td><td>그래서 분할매수·분산·자금관리가 필요하다</td></tr>
      </tbody></table></div>
-     <figcaption>이 세 가지가 미너비니의 해법과 정확히 대응합니다 —
-     시장 환경 필터 / 예측 대신 확인 / 포지션 사이징과 손절.</figcaption></figure><p class="link"><b>일상의 비유.</b> 도박에서 딴 사람이 결국 잃는 이유와 같습니다. 이기는 법을 몰라서가 아니라 <b>언제 그만둘지를 몰라서</b>입니다. 리버모어는 사는 법을 발명했지만 <b>멈추는 법</b>은 만들지 못했습니다.</p><p class="link"><b>이야기꾼과의 연결.</b> <b>"모두가 아는 전략은 더 이상 전략이 아니다."</b> 신고가 추세추종만으로는 우위가 사라집니다. 이야기꾼이 국면(천시)과 업종 시나리오를 결합하라고 하는 이유입니다.</p></div><div class="mcard"><h3>존 메이너드 케인스 — 미인대회</h3><p class="who">John Maynard Keynes · 1883~1946</p><p>내가 예쁘다고 생각하는 후보가 아니라 <b>심사위원 다수가 뽑을 후보</b>를 맞히는 게임.</p><p>케인스의 미인대회 비유는 <b>주도주 개념의 원형</b>입니다.
-     내가 좋아하는 기업이 아니라 <b>남들이 좋아할 기업</b>을 사는 것입니다.</p>
-     <p>여기서 한 단계 더 들어가면, 시장 참여자의 동기가 저마다 다르다는 것을 알아야 합니다 —
-     경영권이 목적인 대주주, 물타기 하는 개인, 배당을 노리는 기관이
-     <b>같은 주식을 전혀 다른 이유로</b> 삽니다.</p><p class="link"><b>일상의 비유.</b> 선물을 고를 때와 같습니다. 내가 좋아하는 것이 아니라 <b>받는 사람이 좋아할 것</b>을 골라야 합니다. 한 단계 더 가면 — 받는 사람이 <b>남들 눈에 어떻게 보일지</b>까지 계산합니다.</p><p class="link"><b>이야기꾼과의 연결.</b> 미너비니의 <b>상대강도(RS) 상위 주도주 선별</b>이 이것의 기계화입니다. 시장이 뽑는 미인을 사는 것이고, 홈페이지의 <a href="breadth-rs.html">52주 신고가와 상대강도</a>가 그 계산입니다.</p></div><div class="mcard"><h3>앙드레 코스톨라니 — 심리 4국면</h3><p class="who">André Kostolany · 1906~1999</p><p><b>부화뇌동 투자자</b>와 <b>소신파</b>. 1950년대에 이미 심리 사이클을 정리했습니다.</p><p>코스톨라니는 시장 참여자를 둘로 나눕니다. 뉴스를 좇아 움직이는 <b>부화뇌동 투자자</b>와,
-     자기 판단으로 버티는 <b>소신파</b>입니다. 주식은 결국 부화뇌동에서 소신파로,
-     다시 소신파에서 부화뇌동으로 옮겨 다닙니다.</p>
-     <p>그가 말한 <b>"깡통 두 번"</b>은 이야기꾼의 <b>일생 삼깡통론</b>과 통합니다 —
-     크게 깨지는 경험 없이 시장을 배우기 어렵다는 이야기입니다.</p><p class="link"><b>일상의 비유.</b> 유행하는 옷과 같습니다. 남들이 입으니까 사는 사람(부화뇌동)과 자기 취향이 확실한 사람(소신파)이 있습니다. 옷은 늘 <b>소신파에게서 부화뇌동으로</b> 옮겨 가고, 유행이 끝나면 되돌아옵니다.</p><p class="link"><b>이야기꾼과의 연결.</b> 이야기꾼의 <b>심리분석</b>이 여기서 나왔습니다. 전조현상 5개 카테고리 중 하나가 투자심리입니다.</p></div><div class="mcard"><h3>윌리엄 오닐 — CAN SLIM</h3><p class="who">William O'Neil · 1933~2023</p><p><b>펀더멘털과 차트를 한 틀에</b> 넣은 사람. 손절 −7~8%.</p><p>CAN SLIM은 실적(C·A)·신제품(N)·수급(S)·주도주(L)·기관(I)·시장방향(M)을 한 번에 봅니다.
-     <b>손잡이 달린 컵(cup with handle)</b> 패턴과 <b>−7~8% 기계적 손절</b>이 대표 규칙입니다.</p>
-     <p>손절을 숫자로 못 박은 것이 핵심입니다. 판단이 아니라 <b>규칙</b>으로 만들면
-     손실 회피 심리가 개입할 틈이 없습니다.</p><p class="link"><b>일상의 비유.</b> 다이어트에서 "이번 주까지 −1kg 안 되면 방법을 바꾼다"고 <b>미리 숫자로 정해 두는 것</b>과 같습니다. 그때 가서 판단하면 늘 "조금만 더"가 됩니다.</p><p class="link"><b>이야기꾼과의 연결.</b> 이야기꾼 매수 5원칙의 <b>③재무 QVG·④수급 DS·⑤추세 T</b>가 CAN SLIM과 거의 같은 자리를 봅니다.</p></div><div class="mcard"><h3>마크 미너비니 — SEPA / VCP</h3><p class="who">Mark Minervini · 1965~</p><p><b>감각을 규격으로</b>. 추세 템플릿 8조건과 변동성 수축 패턴.</p><p>미너비니는 리버모어를 정신적 스승으로 삼되, 그가 실패한 세 곳을 규칙으로 막았습니다.</p>
+     <figcaption>이 세 가지가 미너비니의 해법과 정확히 대응한다 —
+     시장 환경 필터 / 예측 대신 확인 / 포지션 사이징과 손절.</figcaption></figure><p class="link">일상의 비유. 도박에서 딴 사람이 결국 잃는 이유와 같다. 이기는 법을 몰라서가 아니라 언제 그만둘지를 몰라서다. 리버모어는 사는 법을 발명했지만 멈추는 법은 만들지 못했다.</p><p class="link">이야기꾼과의 연결. <b>"모두가 아는 전략은 더 이상 전략이 아니다."</b> 신고가 추세추종만으로는 우위가 사라진다. 이야기꾼이 국면(천시)과 업종 시나리오를 결합하라고 하는 이유다.</p></div><div class="mcard"><h3>존 메이너드 케인스 — 미인대회</h3><p class="who">John Maynard Keynes · 1883~1946</p><p>내가 예쁘다고 생각하는 후보가 아니라 <b>심사위원 다수가 뽑을 후보</b>를 맞히는 게임.</p><p>케인스의 미인대회 비유는 주도주 개념의 원형다. 내가 좋아하는 기업이 아니라 남들이 좋아할 기업을 사는 것이다.</p>
+     <p>여기서 한 단계 더 들어가면, 시장 참여자의 동기가 저마다 다르다는 것을 알아야 한다. 경영권이 목적인 대주주, 물타기 하는 개인, 배당을 노리는 기관이 같은 주식을 전혀 다른 이유로 산다.</p><p class="link">일상의 비유. 선물을 고를 때와 같다. 내가 좋아하는 것이 아니라 받는 사람이 좋아할 것을 골라야 한다. 한 단계 더 가면. 받는 사람이 남들 눈에 어떻게 보일지까지 계산한다.</p><p class="link">이야기꾼과의 연결. 미너비니의 <b>상대강도(RS) 상위 주도주 선별</b>이 이것의 기계화다. 시장이 뽑는 미인을 사는 것이고, 홈페이지의 <a href="breadth-rs.html">52주 신고가와 상대강도</a>가 그 계산이다.</p></div><div class="mcard"><h3>앙드레 코스톨라니 — 심리 4국면</h3><p class="who">André Kostolany · 1906~1999</p><p><b>부화뇌동 투자자</b>와 <b>소신파</b>. 1950년대에 이미 심리 사이클을 정리했다.</p><p>코스톨라니는 시장 참여자를 둘로 나눈다. 뉴스를 좇아 움직이는 부화뇌동 투자자와, 자기 판단으로 버티는 소신파다. 주식은 결국 부화뇌동에서 소신파로, 다시 소신파에서 부화뇌동으로 옮겨 다닌다.</p>
+     <p>그가 말한 "깡통 두 번"은 이야기꾼의 일생 삼깡통론과 통한다. 크게 깨지는 경험 없이 시장을 배우기 어렵다는 이야기다.</p><p class="link">일상의 비유. 유행하는 옷과 같다. 남들이 입으니까 사는 사람(부화뇌동)과 자기 취향이 확실한 사람(소신파)이 있다. 옷은 늘 소신파에게서 부화뇌동으로 옮겨 가고, 유행이 끝나면 되돌아온다.</p><p class="link">이야기꾼과의 연결. 이야기꾼의 <b>심리분석</b>이 여기서 나왔다. 전조현상 5개 카테고리 중 하나가 투자심리다.</p></div><div class="mcard"><h3>윌리엄 오닐 — CAN SLIM</h3><p class="who">William O'Neil · 1933~2023</p><p><b>펀더멘털과 차트를 한 틀에</b> 넣은 사람. 손절 −7~8%.</p><p>CAN SLIM은 실적(C·A)·신제품(N)·수급(S)·주도주(L)·기관(I)·시장방향(M)을 한 번에 본다. 손잡이 달린 컵(cup with handle) 패턴과 −7~8% 기계적 손절이 대표 규칙이다.</p>
+     <p>손절을 숫자로 못 박은 것이 핵심이다. 판단이 아니라 규칙으로 만들면 손실 회피 심리가 개입할 틈이 없다.</p><p class="link">일상의 비유. 다이어트에서 "이번 주까지 −1kg 안 되면 방법을 바꾼다"고 미리 숫자로 정해 두는 것과 같다. 그때 가서 판단하면 늘 "조금만 더"가 된다.</p><p class="link">이야기꾼과의 연결. 이야기꾼 매수 5원칙의 <b>③재무 QVG·④수급 DS·⑤추세 T</b>가 CAN SLIM과 거의 같은 자리를 본다.</p></div><div class="mcard"><h3>마크 미너비니 — SEPA / VCP</h3><p class="who">Mark Minervini · 1965~</p><p><b>감각을 규격으로</b>. 추세 템플릿 8조건과 변동성 수축 패턴.</p><p>미너비니는 리버모어를 정신적 스승으로 삼되, 그가 실패한 세 곳을 규칙으로 막았다.</p>
      <figure class="fig"><div class="tblwrap"><table class="tw">
      <thead><tr><th>리버모어의 실패</th><th>미너비니의 해법</th></tr></thead><tbody>
      <tr><td>국면을 안 봤다</td><td><b>시장 환경 필터</b> — 나쁠 때는 돌파를 사지 않는다</td></tr>
      <tr><td>예측이 앞섰다</td><td><b>확인</b> — 가격이 먼저 말하게 한다</td></tr>
      <tr><td>몰빵</td><td><b>포지션 사이징과 손절</b></td></tr>
-     </tbody></table></div><figcaption>같은 계보이되 자금관리에서 갈립니다.</figcaption></figure>
-     <p><b>VCP</b>는 조정폭이 단계적으로 줄어드는 모양입니다(−25% → −12% → −6%).
-     거래량이 마르며 매물이 소진되고, 우측 타이트닝 후 <b>피벗을 거래량 동반해 돌파</b>하면 매수 자리입니다.
-     단, <b>2단계 상승추세에서만</b> 씁니다.</p><p class="link"><b>일상의 비유.</b> 요리 레시피와 같습니다. 실력 좋은 요리사의 <b>"적당히"</b>를 그램과 분으로 옮겨 적은 것이 레시피입니다. 미너비니가 한 일이 정확히 그것입니다 — <b>감각을 규격으로</b>.</p><p class="link"><b>이야기꾼과의 연결.</b> 홈페이지 <a href="minervini.html">미너비니 방법론</a>과 관심종목 각 페이지의 <b>8조건·VCP 판정</b>이 이것입니다.</p></div><div class="mcard"><h3>스탠 와인스타인 — 4단계 스테이지</h3><p class="who">Stan Weinstein · 1946~</p><p><b>2단계에서만 사고, 4단계는 절대 건드리지 않는다.</b></p><p>모든 주식과 지수가 네 국면을 순환한다고 봅니다 —
-     <b>1단계 바닥</b>(횡보) → <b>2단계 상승</b> → <b>3단계 천장</b> → <b>4단계 하락</b>.
-     판정 기준은 <b>이동평균의 기울기와 가격의 위치</b> 두 가지뿐입니다.</p>
-     <p>그런데 <a href="samsung-long.html">삼성전자 27년</a>으로 검증했더니 <b>규칙이 뒤집혔습니다</b> —
-     2단계에서 산 쪽이 12개월 뒤 +8.0%, 4단계에서 산 쪽이 +44.8%였습니다.
-     경기민감주에서는 평균회귀가 추세추종을 이깁니다.</p>
-     <p>그렇다고 "4단계에서 사라"가 되지는 않습니다.
-     2000년 고점에서 산 사람은 3개월에 −64.8%를 맞았습니다.
-     <b>이 규칙의 값어치는 수익률이 아니라 그 구간을 피하는 데 있습니다.</b></p><p class="link"><b>일상의 비유.</b> 계절옷과 같습니다. 겨울에 반팔을 사면 싸지만 <b>입을 수가 없습니다.</b> 4단계에서 싸다고 사는 것이 그렇습니다 — 싼 데는 이유가 있고, 그 이유가 계속됩니다.</p><p class="link"><b>이야기꾼과의 연결.</b> <a href="stage-analysis.html">200일선과 와인스타인 스테이지</a>에 학술적 근거와 반박(Zakamulin 2018)까지 정리했습니다.</p></div><div class="mcard"><h3>워런 버핏 — 가치와 시간</h3><p class="who">Warren Buffett · 1930~</p><p><b>남들이 탐욕스러울 때 두려워하고, 남들이 두려워할 때 탐욕스러워라.</b></p><p>버핏의 역발상은 템플턴과 같은 자리에 있습니다. 다만 <b>보유 기간이 다릅니다</b> —
-     그는 사이클을 타는 대신 사이클을 <b>무시할 수 있는 기업</b>을 고릅니다.</p>
-     <p>이야기꾼은 여기서 선을 긋습니다. 버핏·린치·피셔 같은 바텀업 명인들은
-     <b>CEO와 직접 소통하고 심지어 CEO를 임명하는 위치</b>에 있습니다.
-     개인 투자자와는 정보 접근성이 근본적으로 다릅니다.</p><p class="link"><b>일상의 비유.</b> 단골집과 같습니다. 유행 따라 옮겨 다니는 대신 <b>10년 뒤에도 있을 집</b>을 고르는 것입니다. 다만 버핏은 그 집 주인과 아는 사이입니다 — <b>개인은 그럴 수 없습니다.</b></p><p class="link"><b>이야기꾼과의 연결.</b> 그래서 개인에게는 <b>탑다운</b>이 현실적이라는 것이 이야기꾼의 결론입니다. 정보에서 이길 수 없으면 <b>국면</b>에서 이겨야 합니다.</p></div><div class="mcard"><h3>스탠리 드러켄밀러 — 매도의 조건</h3><p class="who">Stanley Druckenmiller · 1953~</p><p>매도의 성공 조건은 <b>매수세가 마르는 지점</b>을 아는 것.</p><div class="q">주가가 크게 오르니 (왜 오르는지도 모르고) 사서 모으는 펀드매니저가 많다.
+     </tbody></table></div><figcaption>같은 계보이되 자금관리에서 갈린다.</figcaption></figure>
+     <p>VCP는 조정폭이 단계적으로 줄어드는 모양이다(−25% → −12% → −6%). 거래량이 마르며 매물이 소진되고, 우측 타이트닝 후 피벗을 거래량 동반해 돌파하면 매수 자리다. 단, 2단계 상승추세에서만 쓴다.</p><p class="link">일상의 비유. 요리 레시피와 같다. 실력 좋은 요리사의 "적당히"를 그램과 분으로 옮겨 적은 것이 레시피다. 미너비니가 한 일이 정확히 그것이다. 감각을 규격으로.</p><p class="link">이야기꾼과의 연결. 홈페이지 <a href="minervini.html">미너비니 방법론</a>과 관심종목 각 페이지의 <b>8조건·VCP 판정</b>이 이것이다.</p></div><div class="mcard"><h3>스탠 와인스타인 — 4단계 스테이지</h3><p class="who">Stan Weinstein · 1946~</p><p><b>2단계에서만 사고, 4단계는 절대 건드리지 않는다.</b></p><p>모든 주식과 지수가 네 국면을 순환한다고 본다. 1단계 바닥(횡보) → 2단계 상승 → 3단계 천장 → 4단계 하락. 판정 기준은 이동평균의 기울기와 가격의 위치 두 가지뿐이다.</p>
+     <p>그런데 <a href="samsung-long.html">삼성전자 27년</a>으로 검증했더니 규칙이 뒤집혔다. 2단계에서 산 쪽이 12개월 뒤 +8.0%, 4단계에서 산 쪽이 +44.8%였다. 경기민감주에서는 평균회귀가 추세추종을 이긴다.</p>
+     <p>그렇다고 "4단계에서 사라"가 되지는 않는다. 2000년 고점에서 산 사람은 3개월에 −64.8%를 맞았다. 이 규칙의 값어치는 수익률이 아니라 그 구간을 피하는 데 있다.</p><p class="link">일상의 비유. 계절옷과 같다. 겨울에 반팔을 사면 싸지만 입을 수가 없다. 4단계에서 싸다고 사는 것이 그렇다. 싼 데는 이유가 있고, 그 이유가 계속된다.</p><p class="link">이야기꾼과의 연결. <a href="stage-analysis.html">200일선과 와인스타인 스테이지</a>에 학술적 근거와 반박(Zakamulin 2018)까지 정리했다.</p></div><div class="mcard"><h3>워런 버핏 — 가치와 시간</h3><p class="who">Warren Buffett · 1930~</p><p><b>남들이 탐욕스러울 때 두려워하고, 남들이 두려워할 때 탐욕스러워라.</b></p><p>버핏의 역발상은 템플턴과 같은 자리에 있다. 다만 보유 기간이 다르다. 그는 사이클을 타는 대신 사이클을 무시할 수 있는 기업을 고른다.</p>
+     <p>이야기꾼은 여기서 선을 긋는다. 버핏·린치·피셔 같은 바텀업 명인들은 CEO와 직접 소통하고 심지어 CEO를 임명하는 위치에 있다. 개인 투자자와는 정보 접근성이 근본적으로 다르다.</p><p class="link">일상의 비유. 단골집과 같다. 유행 따라 옮겨 다니는 대신 10년 뒤에도 있을 집을 고르는 것이다. 다만 버핏은 그 집 주인과 아는 사이다. 개인은 그럴 수 없다.</p><p class="link">이야기꾼과의 연결. 그래서 개인에게는 <b>탑다운</b>이 현실적이라는 것이 이야기꾼의 결론이다. 정보에서 이길 수 없으면 <b>국면</b>에서 이겨야 한다.</p></div><div class="mcard"><h3>스탠리 드러켄밀러 — 매도의 조건</h3><p class="who">Stanley Druckenmiller · 1953~</p><p>매도의 성공 조건은 <b>매수세가 마르는 지점</b>을 아는 것.</p><div class="q">주가가 크게 오르니 (왜 오르는지도 모르고) 사서 모으는 펀드매니저가 많다.
      <span class="src">— 스탠리 드러켄밀러, 자기반성적 경고</span></div>
-     <p>그가 말하는 매도는 <b>고점을 맞히는 것이 아닙니다.</b>
-     선두 매수 세력의 동향을 보고 <b>살 사람이 없어지는 자리</b>를 찾는 것입니다.</p><p class="link"><b>일상의 비유.</b> 경매와 같습니다. 값을 올리는 것은 <b>아직 부르지 않은 사람</b>입니다. 그 사람이 없어지면 값은 그 자리에서 멈춥니다. 고점을 맞히는 게 아니라 <b>부를 사람이 남았는지</b>를 보는 것입니다.</p><p class="link"><b>이야기꾼과의 연결.</b> 미너비니의 <b>강세에 팔아라(selling into strength)</b>와 같은 이야기이고, 홈페이지 <a href="supply-analysis.html">수급 심층 분석</a>이 그 매수세를 추적합니다.</p></div><div class="mcard"><h3>짐 로저스 — 상품까지 보는 탑다운</h3><p class="who">Jim Rogers · 1942~</p><p>거시로 세계를 읽되 <b>원자재까지</b> 포괄한다.</p><p>템플턴과 방법은 비슷하나 대상이 넓습니다. 주식뿐 아니라 <b>상품(원자재)</b>을 함께 봅니다.
-     소재·산업재 사이클을 읽는 틀이 여기서 나옵니다.</p>
-     <p>이야기꾼 강의의 업종 사이클 설명이 정확히 이 구조입니다 —
-     버블 붕괴 → 구조조정·설비 축소 → 수요 회복 → 원자재 상승 + 신흥국 증시 회복 →
-     <b>1등 기업의 역발상 증설</b> → 영업레버리지로 이익 독식.</p>
-     <p>그리고 천장의 신호는 <b>증설이 과했는지</b>입니다.
-     차화정 국면의 자동차가 그랬습니다 — 호황 정점에서 뒤늦게 증설하고, <b>ROE 정점이 주가 정점</b>이었습니다.</p><p class="link"><b>일상의 비유.</b> 삼겹살 값과 같습니다. 비싸지면 다들 돼지를 키우고, 다 키워서 나올 때쯤 값이 떨어집니다. <b>모두가 증설한 뒤가 천장</b>입니다.</p><p class="link"><b>이야기꾼과의 연결.</b> <a href="jeoji-kospi.html">제오지산수</a>의 "수(한국 수출)"가 이 사이클의 한국판 대리지표입니다.</p></div>
+     <p>그가 말하는 매도는 고점을 맞히는 것이 아니다. 선두 매수 세력의 동향을 보고 살 사람이 없어지는 자리를 찾는 것이다.</p><p class="link">일상의 비유. 경매와 같다. 값을 올리는 것은 아직 부르지 않은 사람다. 그 사람이 없어지면 값은 그 자리에서 멈춘다. 고점을 맞히는 게 아니라 부를 사람이 남았는지를 보는 것이다.</p><p class="link">이야기꾼과의 연결. 미너비니의 <b>강세에 팔아라(selling into strength)</b>와 같은 이야기이고, 홈페이지 <a href="supply-analysis.html">수급 심층 분석</a>이 그 매수세를 추적한다.</p></div><div class="mcard"><h3>짐 로저스 — 상품까지 보는 탑다운</h3><p class="who">Jim Rogers · 1942~</p><p>거시로 세계를 읽되 <b>원자재까지</b> 포괄한다.</p><p>템플턴과 방법은 비슷하나 대상이 넓다. 주식뿐 아니라 상품(원자재)을 함께 본다. 소재·산업재 사이클을 읽는 틀이 여기서 나온다.</p>
+     <p>이야기꾼 강의의 업종 사이클 설명이 정확히 이 구조다. 버블 붕괴 → 구조조정·설비 축소 → 수요 회복 → 원자재 상승 + 신흥국 증시 회복 → 1등 기업의 역발상 증설 → 영업레버리지로 이익 독식.</p>
+     <p>그리고 천장의 신호는 증설이 과했는지다. 차화정 국면의 자동차가 그랬다. 호황 정점에서 뒤늦게 증설하고, ROE 정점이 주가 정점이었다.</p><p class="link">일상의 비유. 삼겹살 값과 같다. 비싸지면 다들 돼지를 키우고, 다 키워서 나올 때쯤 값이 떨어진다. 모두가 증설한 뒤가 천장다.</p><p class="link">이야기꾼과의 연결. <a href="jeoji-kospi.html">제오지산수</a>의 "수(한국 수출)"가 이 사이클의 한국판 대리지표다.</p></div>
 
 <div class="callout">
-<p><b>방법을 아는 것과 하는 것은 다릅니다.</b>
-위 대가들이 하나같이 경계한 것은 기법이 아니라 <b>사람의 마음</b>이었습니다.
+<p>방법을 아는 것과 하는 것은 다르다.
+위 대가들이 하나같이 경계한 것은 기법이 아니라 사람의 마음이었다.
 손실 회피·처분 효과·군집 행동을 따로 정리한
-<a href="psychology.html"><b>투자심리</b></a> 페이지로 이어집니다.</p>
+<a href="psychology.html">투자심리</a> 페이지로 이어진다.</p>
 </div>
 
 <h2>출처</h2>
 <ol class="refs">
-<li><b>이야기꾼의 시나리오 투자 전략</b> — 케인스·코스톨라니·리버모어·템플턴·짐 로저스·드러켄밀러 서술이 여기서 나왔습니다. 회원 자료.</li>
-<li>DB증권, 「전략의 샘: 최고의 주식을 고르는 대가들의 노하우」(2023-08-21) —
-모멘텀 3대 거장(리버모어·오닐·미너비니) 해부와 한국 주식 백테스트.</li>
-<li>3PRO TV 「주말인터뷰」 슬라이드 — 소로스 재귀성 프레임, 템플턴 강세장 4단계.</li>
+<li>이야기꾼의 시나리오 투자 전략. 케인스·코스톨라니·리버모어·템플턴·짐 로저스·드러켄밀러 서술이 여기서 나왔다. 회원 자료.</li>
+<li>DB증권, 「전략의 샘: 최고의 주식을 고르는 대가들의 노하우」(2023-08-21). 모멘텀 3대 거장(리버모어·오닐·미너비니) 해부와 한국 주식 백테스트.</li>
+<li>3PRO TV 「주말인터뷰」 슬라이드. 소로스 재귀성 프레임, 템플턴 강세장 4단계.</li>
 <li>Stan Weinstein (1988), <i>Secrets for Profiting in Bull and Bear Markets</i>, McGraw-Hill.</li>
 </ol>
 
-<p class="note">인물 사진은 <b>위키미디어 공용</b>의 퍼블릭도메인·CC 라이선스 이미지만 썼고 각 사진 아래에 저작자와 라이선스를 표기했습니다. 자유 이용 사진이 없는 인물은 이니셜 카드로 대체했습니다. 이야기꾼의 시나리오 투자 전략과 증권사 리포트는 <b>회원·구독 자료</b>라 출처만 밝히고 원문은 싣지 않았습니다.</p>
+<p class="note">인물 사진은 <b>위키미디어 공용</b>의 퍼블릭도메인·CC 라이선스 이미지만 썼고 각 사진 아래에 저작자와 라이선스를 표기했다. 자유 이용 사진이 없는 인물은 이니셜 카드로 대체했다. 이야기꾼의 시나리오 투자 전략과 증권사 리포트는 <b>회원·구독 자료</b>라 출처만 밝히고 원문은 싣지 않았다.</p>
 
 <div class="disclaimer">
-<p><b>주의.</b> 옮긴 것이지 그대로 하면 된다는 뜻이 아닙니다.
-같은 방법이 시대와 시장에 따라 정반대 결과를 내기도 합니다 —
-와인스타인 규칙이 삼성전자에서 뒤집힌 것이 그 예입니다.
-본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다.
-저는 투자 전문가가 아니며, 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.</p>
+<p>주의. 옮긴 것이지 그대로 하면 된다는 뜻이 아니다.
+같은 방법이 시대와 시장에 따라 정반대 결과를 내기도 한다. 와인스타인 규칙이 삼성전자에서 뒤집힌 것이 그 예다.
+본 자료는 정보 제공·교육 목적이며 투자 권유가 아니다.
+저는 투자 전문가가 아니며, 투자의 최종 판단과 책임은 투자자 본인에게 있다.</p>
 </div>
 </div>
 <footer>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.
-    · 근거: 이야기꾼 시투 3강, 「전략의 샘」(DB증권 2023), 3PRO TV 주말인터뷰. 정리는 자체 작성.</footer>
+    · 근거: 이야기꾼 주간 시투 보고서(W31·2026-08-01) 및 자체 실측.</footer>
 </div>
 
 
@@ -755,9 +716,6 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   document.addEventListener('click',function(){gs.forEach(function(x){x.classList.remove('on')})});
 })();
 </script>
-
-
-
 
 
 
@@ -837,6 +795,9 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
+
+
+
 
 
 
