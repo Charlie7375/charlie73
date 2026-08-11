@@ -109,6 +109,19 @@ h2.sec{font-size:1.25rem;font-weight:700;margin-top:44px;letter-spacing:-.02em}
 footer{margin-top:48px;border-top:1px solid var(--border);padding-top:22px;color:var(--text-secondary);font-size:.82rem;line-height:1.7}
 .toggle{top:62px;z-index:88;position:fixed;right:18px;width:42px;height:42px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:18px}
 @media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}h1{font-size:2.05rem}}
+
+/* ── 제목 아래 한 줄 (좌상단 배지 폐기 후 유일한 자리) ── */
+.pauth{margin:10px 0 0;font-size:.8rem;color:var(--text-secondary);text-align:center}
+.pauth b{color:var(--text);font-variant-numeric:tabular-nums}
+
+/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
+.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
+  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
+.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
+  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
+  background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
 /* BAR:BEGIN */
 /* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
    flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
@@ -239,16 +252,7 @@ html.theme-dark .card:hover{box-shadow:none!important}
   .wrap{padding-left:18px!important;padding-right:18px!important}
   .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
 }
-/* LAYOUT:END */
-/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
-.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
-  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/* PAPER:BEGIN */
+/* LAYOUT:END *//* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -520,31 +524,29 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <div class="phead"><div class="eyebrow">찰리 기술적 분석 · Market Breadth &amp; Relative Strength</div>
 <h1>52주 신고가와 상대강도</h1>
 <p class="sub">지수 하나만 보면 <b>소수 대형주가 끄는 반등</b>과 <b>진짜 회복</b>을 구분할 수 없습니다. 코스피·코스닥 전종목을 훑어 <b>얼마나 많은 종목이 신고가를 내는지(시장 폭)</b>와 <b>어느 종목이 지수를 이기고 있는지(상대강도)</b>를 봅니다.</p>
-<p class="pauth">기준일 <b>2026-08-10</b> · KRX 전종목 캐시 · 매일 갱신</p></div>
+<p class="pauth">기준일 <b>2026-08-11</b> · KRX 전종목 캐시 · 매일 갱신</p></div>
 <div class="stats">
-  <div class="stat"><div class="l">52주 신고가</div><div class="v" style="color:#059669">85</div><div class="s">종목</div></div>
-  <div class="stat"><div class="l">52주 신저가</div><div class="v" style="color:#e11d48">56</div><div class="s">종목</div></div>
-  <div class="stat"><div class="l">신고가 − 신저가</div><div class="v">+1.1<span style="font-size:1rem">%p</span></div><div class="s">시장 폭 지표</div></div>
-  <div class="stat"><div class="l">RS 80+ 후보</div><div class="v" style="color:#2563eb">12</div><div class="s">시총 3조+ · 고점 −25% 이내</div></div>
+  <div class="stat"><div class="l">52주 신고가</div><div class="v" style="color:#059669">89</div><div class="s">종목</div></div>
+  <div class="stat"><div class="l">52주 신저가</div><div class="v" style="color:#e11d48">57</div><div class="s">종목</div></div>
+  <div class="stat"><div class="l">신고가 − 신저가</div><div class="v">+1.2<span style="font-size:1rem">%p</span></div><div class="s">시장 폭 지표</div></div>
+  <div class="stat"><div class="l">RS 80+ 후보</div><div class="v" style="color:#2563eb">10</div><div class="s">시총 3조+ · 고점 −25% 이내</div></div>
 </div>
-<div class="verdict">2026-08-10 기준 코스피·코스닥 전종목 2681종목 중 <b>신고가 85 · 신저가 56</b>입니다. 시장 폭이 <b>확장</b> 중입니다 — 신고가가 신저가를 앞섭니다.
+<div class="verdict">2026-08-11 기준 코스피·코스닥 전종목 2680종목 중 <b>신고가 89 · 신저가 57</b>입니다. 시장 폭이 <b>확장</b> 중입니다 — 신고가가 신저가를 앞섭니다.
 지수가 반등해도 신고가 종목이 늘지 않으면 소수 대형주가 끄는 반등이라 신뢰도가 낮습니다.</div>
 <div class="panel"><h3>신고가 · 신저가 종목 수 추이</h3>
   <div class="chart"><canvas id="bc"></canvas></div></div>
 <div class="panel"><h3>RS 80+ 주도주 후보 <span class="sub2">RS Rating 80 이상 · 시총 3조 이상 · 52주 고점 −25% 이내</span></h3>
   <div class="tblwrap"><table class="sortable" id="tbl-rs"><thead><tr><th>코드</th><th>종목명</th><th>시장</th><th>종가</th><th>시가총액</th><th>RS</th><th>3M</th><th>지수대비</th><th>고점대비</th><th>OPM</th><th>ROE</th><th>RS선</th></tr></thead>
-  <tbody><tr><td class="c" data-v="010950">010950</td><td class="nm" data-v="S-Oil">S-Oil</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="139600">139,600</td><td class="n" data-v="15716600000000">15.7조</td><td class="c" data-v="90"><span class="rs">90</span></td><td class="n" data-v="19.5">19.5%</td><td class="n pos" data-v="35.5">+35.5%p</td><td class="n" data-v="-7.7">-7.7%</td><td class="n pos" data-v="13.77">+13.8%</td><td class="n pos" data-v="30.14">+30.1%</td><td class="c" data-v="0"></td></tr>
-<tr><td class="c" data-v="078930">078930</td><td class="nm" data-v="GS">GS</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="97300">97,300</td><td class="n" data-v="9038700000000">9.0조</td><td class="c" data-v="89"><span class="rs">89</span></td><td class="n" data-v="22.5">22.5%</td><td class="n pos" data-v="38.5">+38.5%p</td><td class="n" data-v="-1.6">-1.6%</td><td class="n pos" data-v="18.39">+18.4%</td><td class="n pos" data-v="16.69">+16.7%</td><td class="c" data-v="0"></td></tr>
-<tr><td class="c" data-v="001450">001450</td><td class="nm" data-v="현대해상">현대해상</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="41000">41,000</td><td class="n" data-v="3495200000000">3.5조</td><td class="c" data-v="88"><span class="rs">88</span></td><td class="n" data-v="32">32%</td><td class="n pos" data-v="48">+48.0%p</td><td class="n" data-v="-0.6">-0.6%</td><td class="n pos" data-v="2.55">+2.5%</td><td class="n pos" data-v="16.91">+16.9%</td><td class="c" data-v="0"></td></tr>
-<tr><td class="c" data-v="028050">028050</td><td class="nm" data-v="삼성E&amp;A">삼성E&amp;A</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="48800">48,800</td><td class="n" data-v="9564800000000">9.6조</td><td class="c" data-v="87"><span class="rs">87</span></td><td class="n" data-v="-21.8">-21.8%</td><td class="n neg" data-v="-5.8">-5.8%p</td><td class="n" data-v="-24.2">-24.2%</td><td class="n pos" data-v="8.3">+8.3%</td><td class="n pos" data-v="14.47">+14.5%</td><td class="c" data-v="0"></td></tr>
-<tr><td class="c" data-v="278470">278470</td><td class="nm" data-v="에이피알">에이피알</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="387000">387,000</td><td class="n" data-v="14488600000000">14.5조</td><td class="c" data-v="87"><span class="rs">87</span></td><td class="n" data-v="-10.8">-10.8%</td><td class="n pos" data-v="5.2">+5.2%p</td><td class="n" data-v="-15.7">-15.7%</td><td class="n pos" data-v="25.66">+25.7%</td><td class="n pos" data-v="92.59">+92.6%</td><td class="c" data-v="0"></td></tr>
-<tr><td class="c" data-v="000810">000810</td><td class="nm" data-v="삼성화재">삼성화재</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="630000">630,000</td><td class="n" data-v="28127900000000">28.1조</td><td class="c" data-v="86"><span class="rs">86</span></td><td class="n" data-v="26.3">26.3%</td><td class="n pos" data-v="42.2">+42.2%p</td><td class="n" data-v="-13.7">-13.7%</td><td class="n pos" data-v="2.9">+2.9%</td><td class="n pos" data-v="10.51">+10.5%</td><td class="c" data-v="0"></td></tr>
-<tr><td class="c" data-v="055550">055550</td><td class="nm" data-v="신한지주">신한지주</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="106400">106,400</td><td class="n" data-v="49949500000000">49.9조</td><td class="c" data-v="86"><span class="rs">86</span></td><td class="n" data-v="8.6">8.6%</td><td class="n pos" data-v="24.6">+24.6%p</td><td class="n" data-v="-3.3">-3.3%</td><td class="n pos" data-v="0.92">+0.9%</td><td class="n pos" data-v="10.73">+10.7%</td><td class="c" data-v="0"></td></tr>
-<tr><td class="c" data-v="079550">079550</td><td class="nm" data-v="LIG디펜스앤에어로스페이스">LIG디펜스앤에어로스페이스</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="823000">823,000</td><td class="n" data-v="18106000000000">18.1조</td><td class="c" data-v="86"><span class="rs">86</span></td><td class="n" data-v="-2">-2%</td><td class="n pos" data-v="14">+14.0%p</td><td class="n" data-v="-19.3">-19.3%</td><td class="n pos" data-v="14.65">+14.7%</td><td class="n pos" data-v="34.81">+34.8%</td><td class="c" data-v="0"></td></tr>
-<tr><td class="c" data-v="086790">086790</td><td class="nm" data-v="하나금융지주">하나금융지주</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="130400">130,400</td><td class="n" data-v="35777600000000">35.8조</td><td class="c" data-v="85"><span class="rs">85</span></td><td class="n" data-v="3.1">3.1%</td><td class="n pos" data-v="19.1">+19.1%p</td><td class="n" data-v="-4.7">-4.7%</td><td class="n pos" data-v="0.81">+0.8%</td><td class="n pos" data-v="10.6">+10.6%</td><td class="c" data-v="0"></td></tr>
-<tr><td class="c" data-v="105560">105560</td><td class="nm" data-v="KB금융">KB금융</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="171700">171,700</td><td class="n" data-v="60899900000000">60.9조</td><td class="c" data-v="85"><span class="rs">85</span></td><td class="n" data-v="6.2">6.2%</td><td class="n pos" data-v="22.2">+22.2%p</td><td class="n" data-v="-7.8">-7.8%</td><td class="n pos" data-v="1.09">+1.1%</td><td class="n pos" data-v="12.54">+12.5%</td><td class="c" data-v="0"></td></tr>
-<tr><td class="c" data-v="161390">161390</td><td class="nm" data-v="한국타이어앤테크놀로지">한국타이어앤테크놀로지</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="70000">70,000</td><td class="n" data-v="8671300000000">8.7조</td><td class="c" data-v="85"><span class="rs">85</span></td><td class="n" data-v="12.7">12.7%</td><td class="n pos" data-v="28.7">+28.7%p</td><td class="n" data-v="-8.7">-8.7%</td><td class="n pos" data-v="9.54">+9.5%</td><td class="n pos" data-v="10.0">+10.0%</td><td class="c" data-v="0"></td></tr>
-<tr><td class="c" data-v="111770">111770</td><td class="nm" data-v="영원무역">영원무역</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="90500">90,500</td><td class="n" data-v="4010200000000">4.0조</td><td class="c" data-v="84"><span class="rs">84</span></td><td class="n" data-v="7.1">7.1%</td><td class="n pos" data-v="23.1">+23.1%p</td><td class="n" data-v="-7.7">-7.7%</td><td class="n pos" data-v="13.44">+13.4%</td><td class="n pos" data-v="13.88">+13.9%</td><td class="c" data-v="0"></td></tr></tbody></table></div>
+  <tbody><tr><td class="c" data-v="010950">010950</td><td class="nm" data-v="S-Oil">S-Oil</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="141600">141,600</td><td class="n" data-v="15941700000000">15.9조</td><td class="c" data-v="90"><span class="rs">90</span></td><td class="n" data-v="27.7">27.7%</td><td class="n pos" data-v="46.6">+46.6%p</td><td class="n" data-v="-6.3">-6.3%</td><td class="n pos" data-v="13.77">+13.8%</td><td class="n pos" data-v="30.14">+30.1%</td><td class="c" data-v="0"></td></tr>
+<tr><td class="c" data-v="001450">001450</td><td class="nm" data-v="현대해상">현대해상</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="44050">44,050</td><td class="n" data-v="3755200000000">3.8조</td><td class="c" data-v="89"><span class="rs">89</span></td><td class="n" data-v="45.1">45.1%</td><td class="n pos" data-v="64">+64.0%p</td><td class="n" data-v="0">0%</td><td class="n pos" data-v="2.55">+2.5%</td><td class="n pos" data-v="16.91">+16.9%</td><td class="c" data-v="0"></td></tr>
+<tr><td class="c" data-v="078930">078930</td><td class="nm" data-v="GS">GS</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="97500">97,500</td><td class="n" data-v="9057300000000">9.1조</td><td class="c" data-v="89"><span class="rs">89</span></td><td class="n" data-v="26">26%</td><td class="n pos" data-v="44.8">+44.8%p</td><td class="n" data-v="-1.4">-1.4%</td><td class="n pos" data-v="18.39">+18.4%</td><td class="n pos" data-v="16.69">+16.7%</td><td class="c" data-v="0"></td></tr>
+<tr><td class="c" data-v="028050">028050</td><td class="nm" data-v="삼성E&amp;A">삼성E&amp;A</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="48950">48,950</td><td class="n" data-v="9594200000000">9.6조</td><td class="c" data-v="87"><span class="rs">87</span></td><td class="n" data-v="-16.5">-16.5%</td><td class="n pos" data-v="2.4">+2.4%p</td><td class="n" data-v="-24">-24%</td><td class="n pos" data-v="8.3">+8.3%</td><td class="n pos" data-v="14.47">+14.5%</td><td class="c" data-v="0"></td></tr>
+<tr><td class="c" data-v="000810">000810</td><td class="nm" data-v="삼성화재">삼성화재</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="641000">641,000</td><td class="n" data-v="28619000000000">28.6조</td><td class="c" data-v="86"><span class="rs">86</span></td><td class="n" data-v="26.9">26.9%</td><td class="n pos" data-v="45.8">+45.8%p</td><td class="n" data-v="-12.2">-12.2%</td><td class="n pos" data-v="2.9">+2.9%</td><td class="n pos" data-v="10.51">+10.5%</td><td class="c" data-v="0"></td></tr>
+<tr><td class="c" data-v="278470">278470</td><td class="nm" data-v="에이피알">에이피알</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="385500">385,500</td><td class="n" data-v="14432400000000">14.4조</td><td class="c" data-v="86"><span class="rs">86</span></td><td class="n" data-v="-12">-12%</td><td class="n pos" data-v="6.9">+6.9%p</td><td class="n" data-v="-16">-16%</td><td class="n pos" data-v="25.66">+25.7%</td><td class="n pos" data-v="92.59">+92.6%</td><td class="c" data-v="0"></td></tr>
+<tr><td class="c" data-v="111770">111770</td><td class="nm" data-v="영원무역">영원무역</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="90700">90,700</td><td class="n" data-v="4019100000000">4.0조</td><td class="c" data-v="85"><span class="rs">85</span></td><td class="n" data-v="11.4">11.4%</td><td class="n pos" data-v="30.3">+30.3%p</td><td class="n" data-v="-7.4">-7.4%</td><td class="n pos" data-v="13.44">+13.4%</td><td class="n pos" data-v="13.88">+13.9%</td><td class="c" data-v="0"></td></tr>
+<tr><td class="c" data-v="055550">055550</td><td class="nm" data-v="신한지주">신한지주</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="104500">104,500</td><td class="n" data-v="49057500000000">49.1조</td><td class="c" data-v="84"><span class="rs">84</span></td><td class="n" data-v="7.5">7.5%</td><td class="n pos" data-v="26.4">+26.4%p</td><td class="n" data-v="-5">-5%</td><td class="n pos" data-v="0.92">+0.9%</td><td class="n pos" data-v="10.73">+10.7%</td><td class="c" data-v="0"></td></tr>
+<tr><td class="c" data-v="086790">086790</td><td class="nm" data-v="하나금융지주">하나금융지주</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="127700">127,700</td><td class="n" data-v="35036800000000">35.0조</td><td class="c" data-v="84"><span class="rs">84</span></td><td class="n" data-v="0.9">0.9%</td><td class="n pos" data-v="19.7">+19.7%p</td><td class="n" data-v="-6.7">-6.7%</td><td class="n pos" data-v="0.81">+0.8%</td><td class="n pos" data-v="10.6">+10.6%</td><td class="c" data-v="0"></td></tr>
+<tr><td class="c" data-v="105560">105560</td><td class="nm" data-v="KB금융">KB금융</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="166600">166,600</td><td class="n" data-v="59091000000000">59.1조</td><td class="c" data-v="84"><span class="rs">84</span></td><td class="n" data-v="4.9">4.9%</td><td class="n pos" data-v="23.8">+23.8%p</td><td class="n" data-v="-10.5">-10.5%</td><td class="n pos" data-v="1.09">+1.1%</td><td class="n pos" data-v="12.54">+12.5%</td><td class="c" data-v="0"></td></tr></tbody></table></div>
   <p class="note">열 제목을 클릭하면 그 기준으로 정렬됩니다(다시 클릭하면 역순).
   </p>
 
@@ -586,11 +588,14 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   <p class="note" style="margin-top:4px">이 표는 <b>기계적 필터의 결과이며 종목 추천이 아닙니다.</b> 그리고 순서가 중요합니다 — 미너비니는 <b>시장 국면이 나쁠 때는 아무리 좋은 종목도 사지 않습니다</b>. 이 목록은 바닥이 확인된 뒤(항복 거래량 → FTD) 주도주를 고를 <b>후보 풀</b>로 쓰는 것이 맞습니다.</p>
   </details></div>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<!-- CHARTTHEME:BEGIN -->
+<script src="chart-theme.js?v=796a6ee2"></script>
+<!-- CHARTTHEME:END -->
 <script>
 new Chart(document.getElementById('bc'),{type:'line',
- data:{labels:['02/11', '02/12', '02/13', '02/19', '02/20', '02/23', '02/24', '02/25', '02/26', '02/27', '03/03', '03/04', '03/05', '03/06', '03/09', '03/10', '03/11', '03/12', '03/13', '03/16', '03/17', '03/18', '03/19', '03/20', '03/23', '03/24', '03/25', '03/26', '03/27', '03/30', '03/31', '04/01', '04/02', '04/03', '04/06', '04/07', '04/08', '04/09', '04/10', '04/13', '04/14', '04/15', '04/16', '04/17', '04/20', '04/21', '04/22', '04/23', '04/24', '04/27', '04/28', '04/29', '04/30', '05/04', '05/06', '05/07', '05/08', '05/11', '05/12', '05/13', '05/14', '05/15', '05/18', '05/19', '05/20', '05/21', '05/22', '05/26', '05/27', '05/28', '05/29', '06/01', '06/02', '06/04', '06/05', '06/08', '06/09', '06/10', '06/11', '06/12', '06/15', '06/16', '06/17', '06/18', '06/19', '06/22', '06/23', '06/24', '06/25', '06/26', '06/29', '06/30', '07/01', '07/02', '07/03', '07/06', '07/07', '07/08', '07/09', '07/10', '07/13', '07/14', '07/15', '07/16', '07/20', '07/21', '07/22', '07/23', '07/24', '07/27', '07/28', '07/29', '07/30', '07/31', '08/03', '08/04', '08/05', '08/06', '08/07', '08/10'],datasets:[
-  {label:'52주 신고가',data:[221, 265, 213, 320, 318, 286, 265, 239, 231, 169, 104, 64, 83, 115, 76, 95, 117, 140, 137, 117, 104, 136, 125, 166, 87, 99, 151, 103, 117, 96, 70, 109, 90, 113, 104, 84, 131, 117, 157, 163, 195, 212, 201, 197, 188, 182, 208, 168, 232, 247, 210, 232, 158, 241, 233, 171, 181, 172, 126, 164, 156, 93, 115, 101, 90, 122, 157, 150, 104, 100, 95, 90, 76, 76, 67, 62, 72, 72, 81, 88, 78, 79, 84, 79, 77, 76, 61, 59, 63, 66, 64, 75, 79, 58, 62, 66, 60, 60, 58, 67, 62, 65, 76, 81, 70, 65, 65, 74, 67, 68, 63, 59, 61, 63, 66, 76, 73, 83, 78, 85],borderColor:'#059669',backgroundColor:'rgba(5,150,105,.08)',borderWidth:2,pointRadius:0,tension:.2,fill:true},
-  {label:'52주 신저가',data:[70, 66, 131, 138, 153, 140, 92, 100, 147, 187, 317, 711, 74, 68, 181, 91, 71, 72, 75, 88, 79, 74, 103, 70, 146, 80, 58, 69, 65, 117, 172, 62, 170, 102, 147, 158, 74, 85, 63, 65, 66, 62, 60, 64, 65, 67, 71, 69, 68, 68, 73, 77, 76, 85, 117, 131, 129, 200, 260, 230, 121, 236, 324, 316, 484, 285, 72, 170, 433, 461, 573, 761, 627, 464, 613, 1054, 193, 290, 156, 91, 77, 88, 74, 174, 385, 574, 1027, 541, 775, 1092, 99, 108, 89, 158, 96, 110, 202, 423, 350, 75, 270, 424, 97, 160, 548, 319, 257, 71, 137, 112, 555, 980, 557, 79, 82, 65, 55, 63, 64, 56],borderColor:'#e11d48',borderWidth:2,pointRadius:0,tension:.2}]},
+ data:{labels:['02/12', '02/13', '02/19', '02/20', '02/23', '02/24', '02/25', '02/26', '02/27', '03/03', '03/04', '03/05', '03/06', '03/09', '03/10', '03/11', '03/12', '03/13', '03/16', '03/17', '03/18', '03/19', '03/20', '03/23', '03/24', '03/25', '03/26', '03/27', '03/30', '03/31', '04/01', '04/02', '04/03', '04/06', '04/07', '04/08', '04/09', '04/10', '04/13', '04/14', '04/15', '04/16', '04/17', '04/20', '04/21', '04/22', '04/23', '04/24', '04/27', '04/28', '04/29', '04/30', '05/04', '05/06', '05/07', '05/08', '05/11', '05/12', '05/13', '05/14', '05/15', '05/18', '05/19', '05/20', '05/21', '05/22', '05/26', '05/27', '05/28', '05/29', '06/01', '06/02', '06/04', '06/05', '06/08', '06/09', '06/10', '06/11', '06/12', '06/15', '06/16', '06/17', '06/18', '06/19', '06/22', '06/23', '06/24', '06/25', '06/26', '06/29', '06/30', '07/01', '07/02', '07/03', '07/06', '07/07', '07/08', '07/09', '07/10', '07/13', '07/14', '07/15', '07/16', '07/20', '07/21', '07/22', '07/23', '07/24', '07/27', '07/28', '07/29', '07/30', '07/31', '08/03', '08/04', '08/05', '08/06', '08/07', '08/10', '08/11'],datasets:[
+  {label:'52주 신고가',data:[265, 213, 320, 318, 286, 265, 239, 231, 169, 104, 64, 83, 115, 76, 95, 117, 140, 137, 117, 104, 136, 125, 166, 87, 99, 151, 103, 117, 96, 70, 109, 90, 113, 104, 84, 131, 117, 157, 163, 195, 212, 201, 197, 188, 182, 208, 168, 232, 247, 210, 232, 158, 241, 233, 171, 181, 172, 126, 164, 156, 93, 115, 101, 90, 122, 157, 150, 104, 100, 95, 90, 76, 76, 67, 62, 72, 72, 81, 88, 78, 79, 84, 79, 77, 76, 61, 59, 63, 66, 64, 75, 79, 58, 62, 66, 60, 60, 58, 67, 62, 65, 76, 81, 70, 65, 65, 74, 67, 68, 63, 59, 61, 63, 66, 76, 73, 83, 78, 85, 89],borderColor:'#059669',backgroundColor:'rgba(5,150,105,.08)',borderWidth:2,pointRadius:0,tension:.2,fill:true},
+  {label:'52주 신저가',data:[66, 131, 138, 153, 140, 92, 100, 147, 187, 317, 711, 74, 68, 181, 91, 71, 72, 75, 88, 79, 74, 103, 70, 146, 80, 58, 69, 65, 117, 172, 62, 170, 102, 147, 158, 74, 85, 63, 65, 66, 62, 60, 64, 65, 67, 71, 69, 68, 68, 73, 77, 76, 85, 117, 131, 129, 200, 260, 230, 121, 236, 324, 316, 484, 285, 72, 170, 433, 461, 573, 761, 627, 464, 613, 1054, 193, 290, 156, 91, 77, 88, 74, 174, 385, 574, 1027, 541, 775, 1092, 99, 108, 89, 158, 96, 110, 202, 423, 350, 75, 270, 424, 97, 160, 548, 319, 257, 71, 137, 112, 555, 980, 557, 79, 82, 65, 55, 63, 64, 56, 57],borderColor:'#e11d48',borderWidth:2,pointRadius:0,tension:.2}]},
  options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
   plugins:{legend:{labels:{boxWidth:14,font:{size:12}}}},
   scales:{x:{ticks:{maxTicksLimit:10,font:{size:11}},grid:{display:false}},
@@ -602,9 +607,9 @@ new Chart(document.getElementById('bc'),{type:'line',
   <p class="note" style="margin-top:6px">RS 80+ · 시총 1조+ · 추세 템플릿 7/8+ · <b>조정폭 순차 축소</b> · 10일 고저폭 12% 이내 · 5일 거래량 ≤ 50일 평균 · 52주 고점 −20% 이내</p>
   <div class="warnbox">통과 종목이 <b>0개</b>뿐입니다. 강세장에서는 수십 개가 나옵니다. 미너비니는 <b>시장 국면이 나쁠 때 돌파를 사지 않습니다</b> — 지금은 후보만 모아두는 시기입니다.</div>
   <div class="tblwrap"><table class="sortable" id="tbl-vcp"><thead><tr><th>등급</th><th>종목명</th><th>시장</th><th>종가</th><th>시가총액</th><th>RS</th><th>템플릿</th><th>고점대비</th><th>수축 수열</th><th>10일 폭</th><th>거래량비</th><th>OPM</th><th>ROE</th></tr></thead>
-  <tbody><tr><td class="c" data-v="0"><span class="gd g2">완화</span></td><td class="nm" data-v="삼성화재">삼성화재</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="630000.0">630,000</td><td class="n" data-v="28127900000000.0">28.1조</td><td class="c" data-v="86"><span class="rs">86</span></td><td class="c" data-v="7">7/8</td><td class="n" data-v="-16.8">-16.8%</td><td class="c seq" data-v="18.5">21.3 → 19.0 → 18.5</td><td class="n" data-v="14.7">14.7%</td><td class="n" data-v="0.54">0.54</td><td class="n" data-v="2.9">+2.9%</td><td class="n" data-v="10.51">+10.5%</td></tr>
-<tr><td class="c" data-v="0"><span class="gd g2">완화</span></td><td class="nm" data-v="코리안리">코리안리</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="14650.0">14,650</td><td class="n" data-v="2589000000000.0">2.6조</td><td class="c" data-v="85"><span class="rs">85</span></td><td class="c" data-v="8">8/8</td><td class="n" data-v="-4.9">-4.9%</td><td class="c seq" data-v="9.8">16.7 → 15.3 → 9.8</td><td class="n" data-v="14.5">14.5%</td><td class="n" data-v="0.72">0.72</td><td class="n" data-v="3.44">+3.4%</td><td class="n" data-v="22.61">+22.6%</td></tr>
-<tr><td class="c" data-v="0"><span class="gd g2">완화</span></td><td class="nm" data-v="DB손해보험">DB손해보험</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="162300.0">162,300</td><td class="n" data-v="10630700000000.0">10.6조</td><td class="c" data-v="81"><span class="rs">81</span></td><td class="c" data-v="7">7/8</td><td class="n" data-v="-24.2">-24.2%</td><td class="c seq" data-v="18.9">25.3 → 18.9</td><td class="n" data-v="13.2">13.2%</td><td class="n" data-v="0.61">0.61</td><td class="n" data-v="3.39">+3.4%</td><td class="n" data-v="8.24">+8.2%</td></tr></tbody></table></div>
+  <tbody><tr><td class="c" data-v="0"><span class="gd g2">완화</span></td><td class="nm" data-v="삼성화재">삼성화재</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="641000.0">641,000</td><td class="n" data-v="28619000000000.0">28.6조</td><td class="c" data-v="86"><span class="rs">86</span></td><td class="c" data-v="7">7/8</td><td class="n" data-v="-15.3">-15.3%</td><td class="c seq" data-v="18.5">21.3 → 19.0 → 18.5</td><td class="n" data-v="14.7">14.7%</td><td class="n" data-v="0.55">0.55</td><td class="n" data-v="2.9">+2.9%</td><td class="n" data-v="10.51">+10.5%</td></tr>
+<tr><td class="c" data-v="0"><span class="gd g2">완화</span></td><td class="nm" data-v="코리안리">코리안리</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="14710.0">14,710</td><td class="n" data-v="2599600000000.0">2.6조</td><td class="c" data-v="85"><span class="rs">85</span></td><td class="c" data-v="8">8/8</td><td class="n" data-v="-4.5">-4.5%</td><td class="c seq" data-v="9.8">16.7 → 15.3 → 9.8</td><td class="n" data-v="14.5">14.5%</td><td class="n" data-v="0.8">0.8</td><td class="n" data-v="3.44">+3.4%</td><td class="n" data-v="22.61">+22.6%</td></tr>
+<tr><td class="c" data-v="0"><span class="gd g2">완화</span></td><td class="nm" data-v="DB손해보험">DB손해보험</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="164500.0">164,500</td><td class="n" data-v="10774800000000.0">10.8조</td><td class="c" data-v="81"><span class="rs">81</span></td><td class="c" data-v="7">7/8</td><td class="n" data-v="-23.1">-23.1%</td><td class="c seq" data-v="12.8">25.3 → 18.9 → 12.8</td><td class="n" data-v="13.4">13.4%</td><td class="n" data-v="0.61">0.61</td><td class="n" data-v="3.39">+3.4%</td><td class="n" data-v="8.24">+8.2%</td></tr></tbody></table></div>
   <p class="note">열 제목을 클릭하면 그 기준으로 정렬됩니다(다시 클릭하면 역순). <b>수축 수열</b>은 최근 조정폭입니다. 18.4 → 14.1 → 7.9 처럼 <b>절반씩 줄어드는 모양</b>이 VCP입니다. 매물이 소화되며 변동성이 마르는 과정이고, 거래량비가 1 아래면 그 마름이 거래량으로도 확인된 것입니다.</p>
   <p class="note" style="opacity:.85">기계적 필터 결과이며 종목 추천이 아닙니다. 조건을 조금만 바꿔도 목록은 달라집니다.</p>
 </div>
@@ -678,7 +683,7 @@ IBD·미너비니 방식입니다. <span class="f">(3M×2 + 6M + 9M + 12M) ÷ 5<
 })();
 </script>
 
-
+<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 <script>/* THEME:BEGIN */
 (function(){
   var h=document.documentElement;
@@ -703,20 +708,4 @@ IBD·미너비니 방식입니다. <span class="f">(3M×2 + 6M + 9M + 12M) ÷ 5<
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 </body></html>
