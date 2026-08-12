@@ -656,11 +656,19 @@ h2,h2.sec,h3{text-align:center!important;text-wrap:balance;margin-left:auto!impo
   function onThemeChange(){ buildChart(); }
 
   function setRange(kind,btn){
+    /* ★★ 2026-08-12 — 그림 다시 그리기를 맨 먼저 한다.
+       getElementById('rangeNote').innerHTML 은 **즉시 역참조**라 그 요소가 없으면 터지고,
+       터지면 바로 다음 줄의 buildChart() 가 실행되지 않는다. 이 페이지에서 이미 한 번
+       같은 유형(applyTheme 의 themeIcon)으로 사고가 났다. 순서를 뒤집고 try 로 감싼다. */
     currentRange=kind;
-    document.querySelectorAll('.rng button').forEach(function(b){ b.classList.remove('on'); });
-    if(btn) btn.classList.add('on');
-    document.getElementById('rangeNote').innerHTML = RANGES[kind].note;
-    buildChart();
+    try{ buildChart(); }catch(e){ if(window.console) console.error('buildChart', e); }
+    try{
+      var bs=document.querySelectorAll('.rng button');
+      for(var i=0;i<bs.length;i++) bs[i].classList.remove('on');
+      if(btn&&btn.classList) btn.classList.add('on');
+      var rn=document.getElementById('rangeNote');
+      if(rn && RANGES[kind]) rn.innerHTML = RANGES[kind].note;
+    }catch(e){ if(window.console) console.error('setRange ui', e); }
   }
 
   document.querySelectorAll('[data-reveal]').forEach(function(el){ el.classList.add('reveal'); });
@@ -811,6 +819,14 @@ h2,h2.sec,h3{text-align:center!important;text-wrap:balance;margin-left:auto!impo
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
+
+
+
+
+
+
+
+
 
 
 

@@ -742,7 +742,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <p class="sub">수출은 코스피의 <b>매출</b>입니다. 그 전년비를 <b>1984-01~2026-04 · 508개월</b>로 놓고,
 이야기꾼이 말한 <b>«−20% 바닥 / +40% 확장 끝»</b> 두 선이 실제로 맞는지 봤습니다.
 <b>한 선은 정확했고, 한 선은 뜻이 조금 달랐습니다.</b></p>
-<p class="pauth">2026-08-10 작성 · 수출 1984-01~2026-04 · 코스피 1981-01~2026-08-07 · 고정 자료</p>
+<p class="pauth">2026-08-12 작성 · 수출 1984-01~2026-04 · 코스피 1981-01~2026-08-11 · 고정 자료</p>
 </div>
 
 <div class="disclaimer">
@@ -908,7 +908,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <li><b>마이너스였던 셋이 전부 반도체 사이클의 꼭대기</b>(1995·2021×2)라는 점에서
 지금과 가장 닮았습니다</li>
 <li>그리고 이번 국면에서 코스피는 이미 <b>-38.6%</b> 빠졌습니다
-(2026-06-22 9,115 → 2026-07-30 5,594). 2026-08-07 종가는 6,259 입니다</li>
+(2026-06-22 9,115 → 2026-07-30 5,594). 2026-08-11 종가는 6,346 입니다</li>
 </ul>
 
 <div class="note"><p><b>이야기꾼 본인이 W31 에서 같은 이례를 지적했습니다</b> —
@@ -949,9 +949,6 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
-<!-- CHARTTHEME:BEGIN -->
-<script src="chart-theme.js?v=796a6ee2"></script>
-<!-- CHARTTHEME:END -->
 <script>
 /* 닷컴 대시보드 공통 (scripts/dotcom_panel.py) */
 function dpCv(n,fb){var v=getComputedStyle(document.documentElement).getPropertyValue(n).trim();return v||fb;}
@@ -1111,14 +1108,24 @@ function exBuild(){
 }
 window.rebuild=exBuild;
 function exRange(id,n,btn){
+  /* ★★ 2026-08-12 — 차트 재생성을 **맨 먼저** 하고, 버튼 색·설명은 그 뒤에 try 로 감싼다.
+     이전에는 `btn.closest('.panel')` 이 앞에 있었다. 그 한 줄이 null 을 내면(판형이 바뀌어
+     .panel 이 없거나 버튼이 다른 상자에 들어가면) **바로 다음 줄에서 예외가 나고
+     맨 끝의 재빌드가 실행되지 않는다.** 화면에는 «눌러도 아무 일이 없다»로만 보이고
+     오류는 콘솔에만 남는다. kospi-dotcom 에서 같은 유형의 사고가 이미 한 번 났다.
+     → 순서를 뒤집는다. 무슨 일이 있어도 그림은 다시 그린다. */
   (window.__EX||[]).forEach(function(c){ if(c.id===id) c._r=n; });
-  var box=btn.closest('.panel');
-  box.querySelectorAll('.rng button').forEach(function(b){b.classList.remove('on');});
-  btn.classList.add('on');
-  var note=box.querySelector('.rngnote');
-  (window.__EX||[]).forEach(function(c){
-    if(c.id===id && note && c.rng && c.rng[n]) note.innerHTML=c.rng[n].note; });
-  exBuild();
+  try{ exBuild(); }catch(e){ if(window.console) console.error('exBuild', e); }
+  try{
+    var box=(btn&&btn.closest&&btn.closest('.panel'))
+            || (btn&&btn.parentNode&&btn.parentNode.parentNode) || document;
+    var bs=box.querySelectorAll('.rng button');
+    for(var i=0;i<bs.length;i++) bs[i].classList.remove('on');
+    if(btn&&btn.classList) btn.classList.add('on');
+    var note=box.querySelector('.rngnote');
+    (window.__EX||[]).forEach(function(c){
+      if(c.id===id && note && c.rng && c.rng[n]) note.innerHTML=c.rng[n].note; });
+  }catch(e){ if(window.console) console.error('exRange ui', e); }
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',exBuild);
 else exBuild();
@@ -1230,6 +1237,14 @@ setTimeout(exBuild,400);
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
+
+
+
+
+
+
+
+
 
 
 

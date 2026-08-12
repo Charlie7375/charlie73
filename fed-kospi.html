@@ -743,7 +743,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 그 전제 위에서 연방기금 금리 865개월('1954년 7월~2026년 7월')과 코스피를 다시 계산했고,
 시나리오투자법 1강의 금리 명제 세 개도 같은 기준으로 계산했다.
 논점을 하나씩 세우고 검증한다. 방법과 한계는 맨 뒤 두 장에 있다.</p>
-<p class="pauth">2026년 8월 11일 작성 · 금리 '1954년 7월~2026년 7월' 기간 · 미국 주가 '1957년 1월~2026년 6월' 기간 · 한국 주가 '1981년 1월~2026년 6월' 기간 · 고정 자료</p>
+<p class="pauth">2026년 8월 12일 작성 · 금리 '1954년 7월~2026년 7월' 기간 · 미국 주가 '1957년 1월~2026년 6월' 기간 · 한국 주가 '1981년 1월~2026년 6월' 기간 · 고정 자료</p>
 </div> <div class="disclaimer">
 <p>이 글의 논점은 하나다. 「지금 코스피에 금리를 대는 측정 기준이, 지난 40년 쓰던 그것과 같아도 되는가」.
 답은 아니오다. 아래가 그 근거이고, 각 장은 하나의 논점을 세우고 그것만 검증한다.</p> <p>① 시대가 바뀌었다. 그것도 수치로 판정된다.
@@ -1002,7 +1002,7 @@ CPI 전년비의 '중심' 10년 이동평균을 3%로 자르면 디스인플레 
 이 조합의 완결 사례가 과거 72년 동안 없다.</p></div> <ul>
 <li>2023년 8월 고점(5.33%) 이후 35개월째이고 1.70%p 내려왔다(2026년 7월 3.63%).
 그 창 안에서 코스피는 -38.6% 빠졌다(2026년 6월 22일 9,115 → 2026년 7월 30일 5,594).
-과거 '인하 시작 이후' 중앙값 -32.0%를 넘어섰다. 2026년 8월 10일 종가는 6,300이다</li>
+과거 '인하 시작 이후' 중앙값 -32.0%를 넘어섰다. 2026년 8월 11일 종가는 6,346이다</li>
 <li>첫 인상(2022년 4월)으로부터 4.2년째다.
 가설 ①의 기준으로 보면 하락 시작 중앙(22개월)은 한참 지났고 바닥 중앙(45개월)에도 거의 닿았다. 7월의 폭락이 그 자리에 앉아 있다. 모양이 맞다는 말이지 '바닥이다'라는 말이 아니다</li>
 <li>★ 그런데 그 자는 디스인플레 시대에서 깎은 기준이다.
@@ -1099,9 +1099,6 @@ CPI 전년비의 '중심' 10년 이동평균을 3%로 자르면 디스인플레 
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
-<!-- CHARTTHEME:BEGIN -->
-<script src="chart-theme.js?v=796a6ee2"></script>
-<!-- CHARTTHEME:END -->
 <script>
 /* 닷컴 대시보드 공통 (scripts/dotcom_panel.py) */
 function dpCv(n,fb){var v=getComputedStyle(document.documentElement).getPropertyValue(n).trim();return v||fb;}
@@ -1261,14 +1258,24 @@ function fdBuild(){
 }
 window.rebuild=fdBuild;
 function fdRange(id,n,btn){
+  /* ★★ 2026-08-12 — 차트 재생성을 **맨 먼저** 하고, 버튼 색·설명은 그 뒤에 try 로 감싼다.
+     이전에는 `btn.closest('.panel')` 이 앞에 있었다. 그 한 줄이 null 을 내면(판형이 바뀌어
+     .panel 이 없거나 버튼이 다른 상자에 들어가면) **바로 다음 줄에서 예외가 나고
+     맨 끝의 재빌드가 실행되지 않는다.** 화면에는 «눌러도 아무 일이 없다»로만 보이고
+     오류는 콘솔에만 남는다. kospi-dotcom 에서 같은 유형의 사고가 이미 한 번 났다.
+     → 순서를 뒤집는다. 무슨 일이 있어도 그림은 다시 그린다. */
   (window.__FD||[]).forEach(function(c){ if(c.id===id) c._r=n; });
-  var box=btn.closest('.panel');
-  box.querySelectorAll('.rng button').forEach(function(b){b.classList.remove('on');});
-  btn.classList.add('on');
-  var note=box.querySelector('.rngnote');
-  (window.__FD||[]).forEach(function(c){
-    if(c.id===id && note && c.rng && c.rng[n]) note.innerHTML=c.rng[n].note; });
-  fdBuild();
+  try{ fdBuild(); }catch(e){ if(window.console) console.error('fdBuild', e); }
+  try{
+    var box=(btn&&btn.closest&&btn.closest('.panel'))
+            || (btn&&btn.parentNode&&btn.parentNode.parentNode) || document;
+    var bs=box.querySelectorAll('.rng button');
+    for(var i=0;i<bs.length;i++) bs[i].classList.remove('on');
+    if(btn&&btn.classList) btn.classList.add('on');
+    var note=box.querySelector('.rngnote');
+    (window.__FD||[]).forEach(function(c){
+      if(c.id===id && note && c.rng && c.rng[n]) note.innerHTML=c.rng[n].note; });
+  }catch(e){ if(window.console) console.error('fdRange ui', e); }
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',fdBuild);
 else fdBuild();
@@ -1380,6 +1387,14 @@ setTimeout(fdBuild,400);
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
+
+
+
+
+
+
+
+
 
 
 
