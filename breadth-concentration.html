@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko" class="theme-light"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>한국 수출과 코스피 · 찰리의 시투 추종</title>
+<title>신고가 쏠림배수 2023~2026 · 찰리의 시투 추종</title>
 
 
 
@@ -467,6 +467,46 @@ html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;-
 .reveal.visible{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 @media(max-width:720px){.panel{padding:22px 16px 18px}.panel .cbox{min-height:320px}}
+
+/* ── 닷컴 대시보드 형식 (scripts/dotcom_panel.py) ── */
+/* 값은 kospi-dotcom-1998-2000.html 에서 그대로 옮겼다 — 눈맛의 정본이다 */
+html.theme-light{--chart-accent:#B7791F;--chart-pos:#0F8A53;--chart-neg:#D62839;--chart-mute:#8a8f98;
+  --chart-grid:rgba(0,0,0,0.06);--chart-band:rgba(183,121,31,0.07)}
+html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;--chart-mute:#9aa3ad;
+  --chart-grid:rgba(255,255,255,0.05);--chart-band:rgba(240,180,41,0.055)}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:20px;
+  padding:30px 32px 26px;margin:22px 0}
+.panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap}
+.panel-head h3{font-size:1.08rem;font-weight:700;letter-spacing:-.02em;margin:0}
+.panel figure{margin:14px 0 0}
+.panel .cbox{position:relative;height:min(60vh,540px);min-height:420px}
+.panel-head p{color:var(--text-secondary);font-size:.95rem;margin:6px 0 0;max-width:640px}
+.rng{display:inline-flex;gap:6px;flex-shrink:0}
+.rng button{font:600 12px/1 'Noto Sans KR',sans-serif;padding:8px 12px;border-radius:9px;
+  background:transparent;border:1px solid var(--border);color:var(--text-secondary);cursor:pointer;
+  transition:background .18s,color .18s,border-color .18s}
+.rng button:hover{background:var(--surface2,var(--bg));color:var(--text)}
+.rng button.on{background:var(--chart-accent);border-color:var(--chart-accent);color:#fff}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:12px;margin:16px 0 4px}
+.kpi{background:var(--bg);border:1px solid var(--border);border-radius:13px;padding:15px 16px;
+  transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s,border-color .25s}
+.kpi:hover{transform:translateY(-5px);box-shadow:0 14px 30px rgba(0,0,0,.12);
+  border-color:color-mix(in srgb,var(--chart-accent) 40%,var(--border))}
+.kpi .k{font-size:11.5px;font-weight:700;letter-spacing:.05em;color:var(--text-secondary)}
+.kpi .v{font-size:1.45rem;font-weight:800;letter-spacing:-.03em;margin-top:5px}
+.kpi .s{font-size:11.5px;color:var(--text-secondary);margin-top:3px;line-height:1.5}
+.kpi.hl .v{color:var(--chart-accent)}
+.kpi .v.neg{color:var(--chart-neg)}
+.srcline{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:baseline;margin-top:14px;
+  padding-top:12px;border-top:1px solid var(--border);font-size:12px;
+  color:var(--text-secondary);line-height:1.6}
+.srcline .lbl{font-weight:800;letter-spacing:.06em;color:var(--chart-accent);flex-shrink:0}
+.srcline a{color:var(--chart-accent);font-weight:700;text-decoration:none}
+.srcline a:hover{text-decoration:underline}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+@media(max-width:720px){.panel{padding:22px 16px 18px}.panel .cbox{min-height:320px}}
 /* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
@@ -741,221 +781,167 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
-  <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="here" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="breadth-concentration.html">신고가 쏠림배수 2023~2026</a><a href="kospi-analog.html">지금과 닮은 과거 — 유사국면</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a><a href="fed-kospi.html">연준 기준금리와 증시</a><a class="here" href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><!-- NAV:END --></nav>
+  <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="here" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a class="here" href="breadth-concentration.html">신고가 쏠림배수 2023~2026</a><a href="kospi-analog.html">지금과 닮은 과거 — 유사국면</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><!-- NAV:END --></nav>
 </div></div>
 <div class="wrap paper">
-<div class="site-crumb"><a href="index.html">홈</a><span class="sep">›</span><span>아카이브</span><span class="sep">›</span><span class="cur">한국 수출과 코스피</span></div>
 <div class="phead">
-<div class="eyebrow">아카이브 · Exports &amp; KOSPI</div>
-<h1>한국 수출과 코스피</h1>
-<p class="sub">수출은 코스피의 <b>매출</b>입니다. 그 전년비를 <b>1984-01~2026-04 · 508개월</b>로 놓고,
-이야기꾼이 말한 <b>«−20% 바닥 / +40% 확장 끝»</b> 두 선이 실제로 맞는지 봤습니다.
-<b>한 선은 정확했고, 한 선은 뜻이 조금 달랐습니다.</b></p>
-<p class="pauth">2026-08-12 작성 · 수출 1984-01~2026-04 · 코스피 1981-01~2026-08-11 · 고정 자료</p>
+<div class="eyebrow">아카이브 · Breadth Concentration</div>
+<h1>신고가 쏠림배수 2023~2026</h1>
+<p class="sub">신고가가 몇 종목인가만 세면 시장의 절반을 놓친다.
+그 종목들이 얼마나 큰지를 함께 재면 다른 그림이 나온다.</p>
+<p class="pauth">2026년 8월 13일 작성 · 자료 20230110 ~ 20260812 · 875거래일 · KRX 전종목 실측 · 매일 갱신</p>
 </div>
 
-<div class="disclaimer">
-<p><b>결론부터 넷.</b></p>
-<p><b>① 두 선은 «범위»로서 놀랍도록 정확합니다.</b> 42년 분포에서 <b>2.5분위가 -19.6%</b>,
-<b>97.5분위가 +40.1%</b>입니다. 이야기꾼이 말한 −20 / +40 이 <b>거의 그대로</b>입니다.
-−20% 아래는 11개월(2.2%), +40% 위는 13개월(2.6%)뿐입니다.</p>
-<p><b>② 바닥 선은 매수 신호로도 완벽했습니다.</b> −20% 이하였던 11개월에 샀다면
-12개월 뒤 <b>11/11가 플러스</b>, 중앙값 <b>+30.9%</b>입니다. 예외가 없습니다.</p>
-<p><b>③ 천장 선은 «시대»를 갈라야 뜻이 삽니다.</b> +40% 이상을 통째로 세면 12개월 뒤가
-8/11 플러스지만, <b>1980년대 다섯 달을 빼면</b> 중앙값이 <b>-0.6%</b>에
-3/6만 플러스입니다. 그 다섯은 3저 호황의 개발도상국 시절이라 무엇을 사도 오르던 때입니다.
-<b>그리고 마이너스였던 셋은 전부 반도체 사이클의 꼭대기</b>였습니다.</p>
-<p><b>④ 수출로 코스피를 예측할 수는 없습니다.</b> 시차를 밀어 계산하면 <b>-4개월</b>에서
-최대(0.553)입니다 — <b>코스피가 4개월 앞선다</b>는 뜻입니다.</p>
-<p class="dim">※ 지금 수출은 <b>2026-04 +48.8%</b>(계절조정 기준)로 42년에 손꼽는 자리이고,
-관세청 원계열로는 <b>2026-07 +62.8%</b>입니다. 6장에서 따로 봅니다.</p>
+<div class="claim">
+<p>이 글의 논점은 하나다. 2025년 10월부터 신고가가 소수 대형주에 몰리는 국면이 반복되었고,
+그것이 2026년 7월 폭락 직전까지 이어졌다는 것이다.</p>
+<p>① 쏠림배수는 신고가 종목의 시총 비중을 종목 수 비중으로 나눈 값이다.
+1보다 크면 큰 종목이 신고가를 낸다는 뜻이다.
+② 2023~2024년 박스장의 중앙값은 0.76배이고 2026년은 0.91배로 비슷하다.
+갈리는 것은 평균과 빈도다. 2배를 넘는 날이 박스장 18%, 쏠림 국면 43%다.
+③ 박스장에도 쏠림 달은 있었다. 2023년 12월이 4.2배다. 쏠림 자체가 새로운 것이 아니라
+빈도와 크기가 달라졌다.
+④ 2026년 6월은 신고가 종목 수 비중이 2.7%인데 시총 비중이 14.7%다.
+폭은 좁아지는데 무게는 남아 있는 상태다. 그 다음 달이 7월이다.</p>
 </div>
+
+<h2>논점 ① 쏠림배수는 무엇을 재는가</h2>
+<div class="claim"><p>신고가 종목의 시총 비중을 종목 수 비중으로 나눈다.
+1이면 신고가를 낸 종목의 크기가 시장 평균과 같다는 뜻이다.
+2배면 그 종목들이 평균보다 두 배 큰 자리를 차지한다는 뜻이다.</p></div>
+
+<p>신고가 종목 수만 세는 지표는 오래된 것이다. 시장의 폭을 재는 데 쓴다.
+그런데 그것만으로는 답할 수 없는 물음이 있다.
+신고가가 스무 종목이라고 할 때, 그것이 중소형주 스무 개인지
+시가총액 상위 스무 개인지에 따라 시장의 뜻이 전혀 다르다.
+앞의 것은 돈이 넓게 퍼진 것이고 뒤의 것은 소수에 몰린 것이다.</p>
+
+<p>그래서 무게를 함께 잰다. 계산은 나눗셈 하나다.
+신고가 종목의 시가총액 합을 전체 시가총액으로 나누고,
+그것을 다시 신고가 종목 수의 비중으로 나눈다.
+자유롭게 정한 값이 없고 문턱도 없다.</p>
+
+<div class="panel" data-reveal><div class="panel-head"><div><h3>신고가 쏠림배수와 코스피 — 2023~2026년 8월</h3></div><div class="rng" role="group" aria-label="기간 선택"><button class="on" onclick="bcRange(&#39;g1&#39;,0,this)">전체 2023~</button><button onclick="bcRange(&#39;g1&#39;,1,this)">최근 2년</button></div></div><div class="kpis"><div class="kpi hl"><div class="k">지금 쏠림배수</div><div class="v">0.13배</div><div class="s">2026년 8월 · 작은 종목이 앞선다</div></div><div class="kpi"><div class="k">박스장 중앙</div><div class="v">0.76배</div><div class="s">2023~2024 · 483일</div></div><div class="kpi hl"><div class="k">쏠림 국면 평균</div><div class="v">3.24배</div><div class="s">2025-10~2026-06 · 179일</div></div><div class="kpi"><div class="k">2배 넘은 날</div><div class="v">18% 대 43%</div><div class="s">박스장 대 쏠림 국면</div></div></div><figure class="fig"><div class="cbox" style="height:400px"><canvas id="g1"></canvas></div><figcaption>굵은 황금색이 쏠림배수(좌축), 회색이 코스피(우축)다. 쏠림배수가 4배를 넘은 달은 44개월 중 5개다.</figcaption></figure><p class="panel-cap rngnote" style="margin-top:12px">2023년 1월부터 전 구간이다. 쏠림배수 1은 신고가 종목의 크기가 시장 평균과 같다는 뜻이다.</p><div class="srcline"><span class="lbl">출처</span><span>KRX 전종목 일별시세 · 자체 계산 20230110 ~ 20260812</span></div></div>
+
+<h2>논점 ② 박스장에는 정말 쏠림이 없었나</h2>
+<div class="claim"><p>절반만 맞다.
+중앙값은 박스장 0.76배와 2026년 0.91배로 비슷하다.
+갈리는 것은 평균과 빈도와 최대값이다.
+2배를 넘는 날이 박스장 18%인데 쏠림 국면은 43%다.</p></div>
+
+<p>2022년 1월까지 전종목 시세를 받아 계산했다.
+252거래일 창을 쓰므로 첫 값이 2023년 1월에 나온다.
+국면을 넷으로 나누어 재면 이렇다.</p>
+
+<figure class="tw"><figcaption>국면별 쏠림배수</figcaption>
+<div class="tblwrap"><table>
+<thead><tr><th>국면</th><th class="n">거래일</th><th class="n">중앙값</th>
+<th class="n">평균</th><th class="n">최대</th><th class="n">2배 넘은 날</th></tr></thead>
+<tbody><tr><td>박스장</td><td class="n">483일</td><td class="n">0.76배</td><td class="n">1.36배</td><td class="n">11.2배</td><td class="n">18%</td></tr><tr><td>랠리 전반</td><td class="n">183일</td><td class="n">1.07배</td><td class="n">1.30배</td><td class="n">5.9배</td><td class="n">15%</td></tr><tr><td>쏠림 국면</td><td class="n">179일</td><td class="n">1.29배</td><td class="n">3.24배</td><td class="n">19.5배</td><td class="n">43%</td></tr><tr><td>폭락 이후</td><td class="n">30일</td><td class="n">0.11배</td><td class="n">0.22배</td><td class="n">0.8배</td><td class="n">0%</td></tr></tbody></table></div></figure>
+
+<p>중앙값만 보면 박스장과 지금이 다르지 않다.
+대부분의 날에는 작은 종목이 신고가를 낸다.
+평균이 갈리는 이유는 소수의 날에 극단으로 쏠리기 때문이다.
+최대값이 박스장 11.2배 대 쏠림 국면 19.5배인 것이 그 증거다.</p>
+
+<p>그리고 박스장에도 쏠림 달은 있었다.
+2023년 12월이 4.2배다. 그달의 신고가 종목 수 비중은 2.6%인데 시총 비중은 11.0%였다.
+반도체 장비주가 크게 오르던 시기와 겹친다.
+쏠림 자체가 처음 나타난 현상이 아니라는 뜻이다.</p>
+
+<h2>논점 ③ 2025년 10월이 분기점이다</h2>
+<div class="claim"><p>월평균 4배를 넘은 달은 44개월 중 다섯이다.
+박스장 2년에 한 번이었는데 2025년 10월 이후 열 달 사이에 네 번 나왔다.</p></div>
+
+<figure class="tw"><figcaption>월평균 쏠림배수가 4배를 넘은 달</figcaption>
+<div class="tblwrap"><table>
+<thead><tr><th>월</th><th class="n">쏠림배수</th><th class="n">코스피</th>
+<th class="n">종목 수 비중</th><th class="n">시총 비중</th></tr></thead>
+<tbody><tr><td>2023년 12월</td><td class="n">4.2배</td><td class="n">2,655</td><td class="n">2.6%</td><td class="n">11.0%</td></tr><tr><td>2025년 10월</td><td class="n">5.3배</td><td class="n">4,108</td><td class="n">4.7%</td><td class="n">25.1%</td></tr><tr><td>2026년 1월</td><td class="n">4.9배</td><td class="n">5,224</td><td class="n">5.9%</td><td class="n">28.1%</td></tr><tr><td>2026년 5월</td><td class="n">5.4배</td><td class="n">8,476</td><td class="n">5.2%</td><td class="n">28.1%</td></tr><tr><td>2026년 6월</td><td class="n">5.2배</td><td class="n">8,476</td><td class="n">2.7%</td><td class="n">14.7%</td></tr></tbody></table></div></figure>
+
+<p>2025년 1월부터 9월까지는 박스장과 다르지 않았다.
+중앙 1.07배에 2배를 넘는 날이 15%다.
+달라지는 것은 10월부터다.
+그 뒤로 2026년 1월과 5월과 6월에 다시 4배를 넘었다.</p>
+
+<p>코스피 지수와 함께 보면 이 반복이 상승 국면 안에서 일어났다.
+2025년 10월의 코스피가 4,108이고 2026년 6월이 8,476이다.
+지수가 두 배가 되는 동안 신고가를 내는 종목은 줄고 그 무게는 커졌다.</p>
+
+<h2>논점 ④ 폭이 좁아지는데 무게가 남은 자리</h2>
+<div class="claim"><p>2026년 6월은 신고가 종목 수 비중이 2.7%인데
+시총 비중이 14.7%다. 그 앞 1년과 모양이 다르다.
+2025년 5월부터 7월까지는 종목 수 비중이 5%에서 7% 사이였다.
+신고가가 넓게 퍼진 국면이었다.</p></div>
+
+<div class="panel" data-reveal><div class="panel-head"><div><h3>폭과 무게 — 몇 종목인가, 얼마나 큰가</h3></div><div class="rng" role="group" aria-label="기간 선택"><button class="on" onclick="bcRange(&#39;g2&#39;,0,this)">전체 2023~</button><button onclick="bcRange(&#39;g2&#39;,1,this)">최근 2년</button></div></div><figure class="fig"><div class="cbox" style="height:380px"><canvas id="g2"></canvas></div><figcaption>황금색이 신고가 종목 수 비중, 회색이 그 종목들의 시총 비중이다. 두 선이 벌어질수록 큰 종목에 몰린 것이다.</figcaption></figure><p class="panel-cap rngnote" style="margin-top:12px">두 선이 붙어 있으면 신고가가 고르게 퍼진 것이고, 벌어지면 큰 종목에 몰린 것이다.</p></div>
+
+<p>두 선이 붙어 있으면 신고가가 고르게 퍼진 것이다.
+벌어지면 큰 종목에 몰린 것이다.
+2026년 6월에 황금색만 주저앉고 회색이 남는 자리가 보인다.
+폭은 좁아지는데 무게는 그대로인 상태다. 그 다음 달이 7월이다.</p>
+
+<p>7월과 8월에는 쏠림배수가 0%로 내려간다.
+2배를 넘는 날이 하나도 없다. 대형주가 무너지면서 쏠림이 끝났다.</p>
+
+<h2>논점 ⑤ 투매 없이 흘러내린 종목이 있는 이유</h2>
+<div class="claim"><p>쏠림 국면에서는 수급에서 소외된 종목이 투매 없이 밀린다.
+공포에 팔린 것이 아니라 돈이 다른 데로 간 것이고,
+그런 하락에는 대량 거래를 동반한 급락이 나오지 않는다.</p></div>
+
+<p>이야기꾼의 바닥 7단계는 첫 칸이 공포의 삼각지다.
+투매가 소진되어야 바닥이 시작된다고 본다.
+그런데 관심종목 열세 개를 재 보면 에이피알과 삼양식품은
+어떤 문턱으로도 투매가 한 번도 잡히지 않는다.
+두 종목 모두 2026년 상반기에 밀렸는데도 그렇다.</p>
+
+<p>쏠림배수가 그 이유를 설명한다.
+5월과 6월에 돈이 소수 대형주로 몰리는 동안,
+그 무리에 들지 못한 종목은 팔려서가 아니라 사는 사람이 없어서 내려왔다.
+그래서 바닥 7단계 첫 칸에 보조 경로를 두었다.
+투매가 없어도 쏠림 국면을 지나 변동성이 수축했으면 소진으로 본다는 것이다.</p>
+
+<p>이 보조 경로는 강의 원문에 없는 규칙이다.
+종목 페이지에도 그렇게 밝혀 두었다.</p>
 
 <h2>자료와 계산 방법</h2>
-
-<p>수출 전년비는 OECD 계열(FRED <code>XTEXVA01KRM659S</code>)을 씁니다.
-<b>1984년 1월부터 508개월</b>이고, 이 사이트가 가진 경기지표 중 <b>가장 긴 계열</b>입니다.</p>
-
-<div class="note"><p><b>⚠ 두 가지를 먼저 밝힙니다.</b><br>
-<b>하나</b> — 이 계열은 <b>계절조정(SA)</b> 전년동월비라서 이야기꾼이 인용하는 <b>관세청 원계열</b>과
-소수점이 다릅니다. 2026-01 이 OECD 32.3 vs 관세청 33.9, 2026-03 이 48.9 vs 48.3 입니다.
-<b>이 글은 «몇 %인가»를 다투지 않고 «어느 구간인가»를 보므로</b> 이 정도 차이는 견딥니다.<br>
-<b>둘</b> — OECD 계열이 <b>2026-04에서 멈춰</b> 있습니다. 그 뒤 관세청 발표치는 아래와 같고,
-표와 통계에는 <b>섞지 않고</b> 본문 참고로만 씁니다.</p>
-<div class="tblwrap"><table class="tw">
-<thead><tr><th>관세청 원계열 (참고)</th><th class="n">수출 전년비</th></tr></thead>
-<tbody><tr><td>2026-05</td><td class="n">+53.2%</td></tr><tr><td>2026-06</td><td class="n">+70.9%</td></tr><tr><td>2026-07</td><td class="n">+62.8%</td></tr></tbody></table></div></div>
-
-<h2>코스피가 수출을 앞선다</h2>
-
-<div class="panel" data-reveal><div class="panel-head"><div><h3>한국 수출 전년비와 코스피 전년비 — 1984~2026-04</h3></div><div class="rng" role="group" aria-label="기간 선택"><button class="on" onclick="exRange(&#39;g1&#39;,0,this)">전체 1984~</button><button onclick="exRange(&#39;g1&#39;,1,this)">최근 10년</button></div></div><div class="kpis"><div class="kpi hl"><div class="k">지금 수출</div><div class="v">+48.8%</div><div class="s">2026-04 · OECD 계절조정(차트 기준)</div></div><div class="kpi"><div class="k">관세청 최신</div><div class="v">+62.8%</div><div class="s">2026-07 원계열 · 계열이 달라 차트에는 없습니다</div></div><div class="kpi"><div class="k">코스피와 상관</div><div class="v">0.553</div><div class="s">시차 -4개월에서 가장 높음</div></div><div class="kpi hl"><div class="k">누가 먼저</div><div class="v">코스피가 4개월 앞선다</div><div class="s">수출은 선행 지표가 아닙니다</div></div></div><figure class="fig"><div class="cbox" style="height:400px"><canvas id="g1"></canvas></div><figcaption><span class="freq m">월간</span>굵은 황금색이 수출 전년비(우축), 회색이 코스피 전년비(좌축)입니다. <b>회색이 황금색보다 반 박자 먼저 움직입니다</b> — 아래 시차표에서 확인합니다.</figcaption></figure><p class="panel-cap rngnote" style="margin-top:12px">1984년부터 전 구간입니다. 코스피가 수출보다 반 박자 먼저 움직입니다.</p><div class="srcline"><span class="lbl">출처</span><span>관세청 수출입 통계 월별 전년동월비 · OECD 한국 주가지수 월별 원계열</span><a href="https://unipass.customs.go.kr" target="_blank" rel="noopener">관세청 UNI-PASS &#8599;</a></div></div>
-
-<p>동행 상관은 <b>0.457</b>입니다. 그런데 시차를 −12~+12개월 밀어 보면
-최대가 <b>-4개월</b>에서 나옵니다.</p>
-
-<div class="tblwrap"><table class="tw">
-<thead><tr><th>시차</th><th class="n">상관</th></tr></thead>
-<tbody><tr><td>lag -6</td><td class="n">+0.539</td></tr><tr><td>lag -4</td><td class="n">+0.553</td></tr><tr><td>lag -3</td><td class="n">+0.547</td></tr><tr><td>lag -2</td><td class="n">+0.538</td></tr><tr><td>lag -1</td><td class="n">+0.510</td></tr><tr><td>lag +0</td><td class="n">+0.457</td></tr><tr><td>lag +1</td><td class="n">+0.400</td></tr><tr><td>lag +2</td><td class="n">+0.331</td></tr><tr><td>lag +3</td><td class="n">+0.264</td></tr><tr><td>lag +6</td><td class="n">+0.068</td></tr></tbody></table></div>
-
-<div class="note"><p><b>«수출이 좋아지면 주가가 오른다»는 순서가 아닙니다.</b>
-코스피가 4개월 앞선다는 결과가 나왔습니다. 수출은 <b>실적이 확정된 뒤에 발표되는 숫자</b>이고
-주가는 그 실적을 미리 사는 값이니 당연한 순서입니다.
-<b>수출 지표로 매수 시점을 잡는 것은 안 되고, «지금 어느 구간인가»를 확인하는 데는 됩니다.</b></p></div>
-
-<h2>★ 이야기꾼의 두 선 — 42년 분포로 확인</h2>
-
-<p>강의에서 이렇게 말했습니다.</p>
-
-<div class="q">한국 수출은 아무리 경기가 엉망이어도 전년대비 마이너스 20% 정도에서 대충 바닥을 만들어요.
-그다음에 경기가 아무리 좋아도 플러스 40% 정도면 대충 경기 확장이 끝납니다.
-— 시투특강 2023-03-09</div>
-
-<p>이것은 <b>수익률 예측이 아니라 «범위» 주장</b>입니다. 그래서 분포부터 봤습니다.</p>
-
-<ul>
-<li>42년 최저는 <b>-32.2%</b>(2009-01 · 리먼 직후), 최고는 <b>+51.7%</b>(1984-01)</li>
-<li><b>2.5분위 -19.6% · 97.5분위 +40.1%</b> — 이야기꾼의 −20 / +40 과 <b>거의 일치</b></li>
-<li>−20% 아래는 <b>11개월(2.2%)</b>, +40% 위는 <b>13개월(2.6%)</b></li>
-</ul>
-
-<p><b>«대충 바닥·대충 끝»이라는 말이 통계적으로는 «2.5%·97.5% 분위»였습니다.</b>
-지표를 오래 본 사람의 눈이 분위수를 맞춘 셈입니다.</p>
-
-<h2>두 선의 뜻은 서로 다릅니다</h2>
-
-<figure class="fig"><div class="cbox" style="height:340px"><canvas id="g2"></canvas></div><figcaption><span class="freq m">월간</span>맨 왼쪽이 «수출이 −20% 아래»일 때, 맨 오른쪽이 «+40% 위»일 때입니다. <b>왼쪽 끝이 압도적으로 높고, 오른쪽 끝은 생각만큼 나쁘지 않습니다.</b></figcaption></figure>
-
-<div class="tblwrap"><table class="tw">
-<thead><tr><th>그 달의 수출 전년비</th><th class="n">개월</th>
-<th class="n">12개월 뒤 코스피 (중앙값)</th><th class="n">플러스 비율</th></tr></thead>
-<tbody><tr class="cur"><td>−20% 이하</td><td class="n">11</td><td class="n good">+30.9%</td><td class="n">100%</td></tr><tr><td>−20 ~ −10</td><td class="n">39</td><td class="n good">+11.6%</td><td class="n">90%</td></tr><tr><td>−10 ~ 0</td><td class="n">79</td><td class="n good">+5.1%</td><td class="n">63%</td></tr><tr><td>0 ~ 10</td><td class="n">135</td><td class="n good">+4.1%</td><td class="n">62%</td></tr><tr><td>10 ~ 20</td><td class="n">122</td><td class="n good">+1.1%</td><td class="n">52%</td></tr><tr><td>20 ~ 40</td><td class="n">103</td><td class="n good">+9.1%</td><td class="n">62%</td></tr><tr class="cur"><td>+40% 이상</td><td class="n">11</td><td class="n good">+18.0%</td><td class="n">73%</td></tr></tbody></table></div>
-
-<h3>바닥 선 — 예외가 없었습니다</h3>
-
-<div class="tblwrap"><table class="tw">
-<thead><tr><th>−20% 이하였던 달</th><th class="n">수출</th><th class="n">12개월 뒤 코스피</th></tr></thead>
-<tbody><tr><td>2001-07</td><td class="n">-21.5%</td><td class="n good">+36.1%</td></tr><tr><td>2001-08</td><td class="n">-20.1%</td><td class="n good">+25.5%</td></tr><tr><td>2009-01</td><td class="n">-32.2%</td><td class="n good">+46.4%</td></tr><tr><td>2009-02</td><td class="n">-21.4%</td><td class="n good">+40.3%</td></tr><tr><td>2009-04</td><td class="n">-23.0%</td><td class="n good">+30.9%</td></tr><tr><td>2009-05</td><td class="n">-26.6%</td><td class="n good">+17.9%</td></tr><tr><td>2009-07</td><td class="n">-20.7%</td><td class="n good">+18.6%</td></tr><tr><td>2009-08</td><td class="n">-21.8%</td><td class="n good">+11.7%</td></tr><tr><td>2016-01</td><td class="n">-20.1%</td><td class="n good">+8.7%</td></tr><tr><td>2020-04</td><td class="n">-26.3%</td><td class="n good">+70.7%</td></tr><tr><td>2020-05</td><td class="n">-23.2%</td><td class="n good">+61.6%</td></tr></tbody></table></div>
-
-<p><b>11개월 전부 플러스</b>(중앙값 +30.9%)입니다. 2001년·2009년·2016년·2020년 —
-전부 위기 직후이고, 그 자리가 매수 자리였습니다.
-<b>«수출이 −20% 아래로 갔다»는 것은 나쁜 소식이 이미 다 나왔다는 뜻</b>이었습니다.</p>
-
-<h3>천장 선 — 경기의 끝이지 주가의 끝이 아닙니다</h3>
-
-<div class="tblwrap"><table class="tw">
-<thead><tr><th>+40% 이상이었던 달</th><th class="n">수출</th><th class="n">12개월 뒤 코스피</th></tr></thead>
-<tbody><tr><td>1984-01</td><td class="n">+51.7%</td><td class="n good">+18.0%</td></tr><tr><td>1987-04</td><td class="n">+47.2%</td><td class="n good">+74.5%</td></tr><tr><td>1987-12</td><td class="n">+50.5%</td><td class="n good">+80.9%</td></tr><tr><td>1988-01</td><td class="n">+40.1%</td><td class="n good">+52.6%</td></tr><tr><td>1988-08</td><td class="n">+47.4%</td><td class="n good">+33.0%</td></tr><tr><td>1995-08</td><td class="n">+40.1%</td><td class="n bad">-12.2%</td></tr><tr><td>2004-02</td><td class="n">+41.8%</td><td class="n good">+10.9%</td></tr><tr><td>2004-05</td><td class="n">+41.8%</td><td class="n good">+17.1%</td></tr><tr><td>2010-01</td><td class="n">+43.6%</td><td class="n good">+24.3%</td></tr><tr><td>2021-04</td><td class="n">+43.7%</td><td class="n bad">-14.6%</td></tr><tr><td>2021-05</td><td class="n">+44.3%</td><td class="n bad">-17.0%</td></tr><tr class="cur"><td>2026-03</td><td class="n">+48.9%</td><td class="n bad">진행 중</td></tr><tr class="cur"><td>2026-04</td><td class="n">+48.8%</td><td class="n bad">진행 중</td></tr></tbody></table></div>
-
-<p>통째로 세면 12개월 뒤가 플러스였던 것이 <b>8/11</b>, 중앙값 <b>+18.0%</b>입니다.
-<b>그런데 이 평균은 믿으면 안 됩니다.</b></p>
-
-<div class="tblwrap"><table class="tw">
-<thead><tr><th>시대</th><th class="n">사례</th><th class="n">12개월 뒤 중앙값</th><th class="n">플러스</th></tr></thead>
+<figure class="tw"><figcaption>자료</figcaption>
+<div class="tblwrap"><table>
+<thead><tr><th>항목</th><th>범위</th><th>출처</th></tr></thead>
 <tbody>
-<tr><td>개발도상 고성장기 <span class="dim">1984~1988</span></td><td class="n">5</td>
-<td class="n good">+52.6%</td><td class="n">5/5</td></tr>
-<tr class="cur"><td><b>성숙기 <span class="dim">1995~2021</span></b></td><td class="n">6</td>
-<td class="n bad"><b>-0.6%</b></td><td class="n">3/6</td></tr>
-</tbody></table></div>
+<tr><td>전종목 일별 종가·시가총액</td><td>2022-01-03 ~ 2026-08-12</td><td>KRX Open API</td></tr>
+<tr><td>쏠림배수</td><td>2023-01-10 ~ 2026-08-12 · 875거래일</td><td>자체 계산</td></tr>
+<tr><td>코스피 지수</td><td>월말 종가</td><td>KRX · 한국투자증권</td></tr>
+</tbody></table></div></figure>
 
-<div class="note"><p><b>★ 전체 평균이 좋아 보였던 것은 1980년대가 만든 착시입니다.</b>
-이 시대 구분은 <a href="jeoji-kospi.html">제오지산수와 코스피</a>에서 먼저 잡아낸 것인데,
-여기서도 그대로 나옵니다. 1980년대는 <b>3저 호황</b>의 수출 주도 개발도상국이었고
-코스피 자체가 4년에 5배 오르던 때라 <b>무엇을 사도 올랐습니다</b>.
-<b>그 다섯을 빼면 «수출 +40%»는 호재가 아닙니다</b> — 성숙기 6개의 중앙값이 -0.6%,
-평균이 +1.4%이고 절반이 마이너스입니다.</p>
-<p><b>이야기꾼의 말은 여전히 틀리지 않았습니다</b> — 그는 «<b>경기 확장</b>이 끝난다»고 했지
-«주가가 꺾인다»고 하지 않았습니다. <b>다만 성숙기만 보면 주가에도 나빴습니다.</b></p>
-<p><b>그리고 마이너스 셋의 정체가 걸립니다</b> — 1995-08(−12.2%) · 2021-04(−14.6%) · 2021-05(−17.0%).
-<b>셋 다 반도체 사이클의 꼭대기</b>입니다. 1995년은 반도체 1차 사이클의 끝,
-2021년은 코로나 슈퍼사이클의 끝이었습니다.
-<b>«수출 +40%»가 «반도체가 끌어올린 +40%»일 때 특히 나빴다</b>고 읽을 여지가 있습니다.
-사례가 셋이라 <b>가설로만</b> 적습니다 — 그리고 지금이 정확히 그 모양입니다.</p></div>
+<p>신고가는 252거래일 최고 종가의 99.9% 이상인 종목으로 본다.
+장중 고가가 아니라 종가 기준이다.
+창 안에 자료가 200일 미만인 종목은 판정에서 뺀다. 신규 상장 직후를 걸러내기 위해서다.</p>
 
-<h2>국면으로 나눠 보면</h2>
-
-<p>수출 전년비의 국소 저점에서 국소 고점까지를 한 국면으로 잡았습니다(±6개월 기준).</p>
-
-<figure class="fig"><div class="cbox" style="height:360px"><canvas id="g3"></canvas></div><figcaption><span class="freq m">월간</span>−20% 이내는 회색, 넘긴 국면은 황금색입니다. 맨 오른쪽 붉은 막대가 이번 국면입니다.</figcaption></figure>
-
-<div class="tblwrap"><table class="tw">
-<thead><tr><th>상승 국면</th><th class="n">개월</th><th class="n">수출 저점 → 천정</th>
-<th class="n">코스피 최대 하락폭</th><th>기준</th></tr></thead>
-<tbody><tr><td>1985-01 ~ 1985-12</td><td class="n">11</td><td class="n">-17.6 → +27.6</td><td class="n ">-4.9%</td><td class="dim">월평균</td></tr><tr><td>1986-12 ~ 1987-04</td><td class="n">4</td><td class="n">-4.6 → +47.2</td><td class="n ">0.0%</td><td class="dim">월평균</td></tr><tr><td>1987-08 ~ 1987-12</td><td class="n">4</td><td class="n">+22.0 → +50.5</td><td class="n ">-6.3%</td><td class="dim">월평균</td></tr><tr class="warn"><td>1990-01 ~ 1991-10</td><td class="n">21</td><td class="n">-8.1 → +20.7</td><td class="n bad">-32.9%</td><td class="dim">월평균</td></tr><tr><td>1992-12 ~ 1993-12</td><td class="n">12</td><td class="n">-7.6 → +17.3</td><td class="n ">-8.9%</td><td class="dim">월평균</td></tr><tr class="warn"><td>1994-02 ~ 1995-08</td><td class="n">18</td><td class="n">+4.7 → +40.1</td><td class="n bad">-20.4%</td><td class="dim">월평균</td></tr><tr><td>1996-08 ~ 1997-07</td><td class="n">11</td><td class="n">-9.2 → +19.0</td><td class="n ">-18.6%</td><td class="dim">월평균</td></tr><tr class="warn"><td>1998-07 ~ 2000-02</td><td class="n">19</td><td class="n">-14.9 → +34.9</td><td class="n bad">-23.0%</td><td class="dim">일별</td></tr><tr class="warn"><td>2001-07 ~ 2003-01</td><td class="n">18</td><td class="n">-21.5 → +25.9</td><td class="n bad">-37.8%</td><td class="dim">일별</td></tr><tr><td>2003-05 ~ 2004-02</td><td class="n">9</td><td class="n">+6.3 → +41.8</td><td class="n ">-9.3%</td><td class="dim">일별</td></tr><tr><td>2005-04 ~ 2005-09</td><td class="n">5</td><td class="n">+7.9 → +17.7</td><td class="n ">-8.2%</td><td class="dim">일별</td></tr><tr><td>2006-01 ~ 2006-05</td><td class="n">4</td><td class="n">+5.0 → +20.6</td><td class="n ">-11.5%</td><td class="dim">일별</td></tr><tr class="warn"><td>2007-09 ~ 2008-07</td><td class="n">10</td><td class="n">+1.6 → +30.5</td><td class="n bad">-27.0%</td><td class="dim">일별</td></tr><tr><td>2009-01 ~ 2010-01</td><td class="n">12</td><td class="n">-32.2 → +43.6</td><td class="n ">-17.0%</td><td class="dim">일별</td></tr><tr><td>2010-09 ~ 2011-01</td><td class="n">4</td><td class="n">+16.7 → +39.7</td><td class="n ">-3.7%</td><td class="dim">일별</td></tr><tr><td>2012-07 ~ 2014-04</td><td class="n">21</td><td class="n">-7.9 → +7.6</td><td class="n ">-12.3%</td><td class="dim">일별</td></tr><tr><td>2016-01 ~ 2017-09</td><td class="n">20</td><td class="n">-20.1 → +29.9</td><td class="n ">-5.4%</td><td class="dim">일별</td></tr><tr><td>2020-04 ~ 2021-05</td><td class="n">13</td><td class="n">-26.3 → +44.3</td><td class="n ">-7.8%</td><td class="dim">일별</td></tr><tr><td>2023-04 ~ 2024-01</td><td class="n">9</td><td class="n">-16.0 → +16.9</td><td class="n ">-14.6%</td><td class="dim">일별</td></tr><tr class="cur"><td><b>2025-01 ~ 진행 중</b></td><td class="n">19</td><td class="n">-7.9 → +48.8</td><td class="n bad"><b>-38.6%</b></td><td class="dim">일별</td></tr></tbody></table></div>
-
-<p>완료된 19개 국면의 중앙값은 <b>-11.5%</b>이고 <b>14개(74%)가 −20% 이내</b>입니다.
-하락 국면 19개는 중앙값 <b>-19.4%</b>, <b>9개(47%)</b>가 −20%를 넘겼습니다.</p>
-
-<div class="tblwrap"><table class="tw">
-<thead><tr><th>천정 → 저점</th><th class="n">개월</th><th class="n">수출 천정 → 저점</th>
-<th class="n">코스피 낙폭</th><th>그때 무슨 일</th></tr></thead>
-<tbody><tr><td>1997-07 ~ 1998-07</td><td class="n">12</td><td class="n">+19.0 → -14.9</td><td class="n bad">-51.2%</td><td>외환위기</td></tr><tr><td>2000-02 ~ 2001-07</td><td class="n">17</td><td class="n">+34.9 → -21.5</td><td class="n bad">-49.7%</td><td>닷컴 붕괴</td></tr><tr><td>2017-09 ~ 2020-04</td><td class="n">31</td><td class="n">+29.9 → -26.3</td><td class="n bad">-43.9%</td><td>미중 무역분쟁~코로나</td></tr><tr><td>2008-07 ~ 2009-01</td><td class="n">6</td><td class="n">+30.5 → -32.2</td><td class="n bad">-43.7%</td><td>리먼</td></tr><tr><td>2021-05 ~ 2023-04</td><td class="n">23</td><td class="n">+44.3 → -16.0</td><td class="n bad">-34.8%</td><td>반도체 다운사이클</td></tr><tr><td>1991-10 ~ 1992-12</td><td class="n">14</td><td class="n">+20.7 → -7.6</td><td class="n bad">-29.6%</td><td></td></tr></tbody></table></div>
-
-<h2>꺾인 뒤</h2>
-
-<div class="tblwrap"><table class="tw">
-<thead><tr><th>기준</th><th class="n">+3개월</th><th class="n">+6개월</th>
-<th class="n">+12개월</th><th class="n">+24개월</th></tr></thead>
-<tbody><tr><td>수출 저점에서 샀다면</td><td class="n good">+2.6%<span class="dim"> · 13/21</span></td><td class="n good">+16.9%<span class="dim"> · 15/21</span></td><td class="n good">+26.7%<span class="dim"> · 16/21</span></td><td class="n good">+29.9%<span class="dim"> · 15/20</span></td></tr><tr><td>수출 천정에서 들고 있었다면</td><td class="n good">+2.9%<span class="dim"> · 14/21</span></td><td class="n good">+2.8%<span class="dim"> · 13/21</span></td><td class="n good">+9.3%<span class="dim"> · 12/21</span></td><td class="n good">+12.7%<span class="dim"> · 15/21</span></td></tr></tbody></table></div>
-
-<p class="dim">각 칸은 중앙값 · 플러스로 끝난 횟수 / 사례 수입니다.</p>
-
-<figure class="fig"><div class="cbox" style="height:340px"><canvas id="g4"></canvas></div><figcaption><span class="freq m">월간</span>황금색이 «수출 저점에서 샀을 때», 회색이 «천정에서 들고 있었을 때»입니다.</figcaption></figure>
-
-<p>12개월 자리에서 저점 <b>+26.7%</b>(16/21) 대 천정 <b>+9.3%</b>(12/21)입니다.
-<b>다른 지표들과 같은 모양이지만 차이가 훨씬 작습니다</b> — 수출은 후행 성격이 강해
-전환점 자체의 신호값이 약합니다.</p>
-
-<h2>그래서 지금</h2>
-
-<p>계절조정 기준 <b>2026-04 +48.8%</b>, 관세청 원계열로는 <b>2026-07 +62.8%</b>입니다.
-어느 쪽으로 봐도 <b>42년 분포의 맨 끝</b>입니다 — +40% 위는 42년에 13개월뿐이었습니다.</p>
-
-<ul>
-<li><b>이야기꾼의 «+40% = 경기 확장 끝» 기준에 들어와 있습니다.</b> 그리고
-<b>1990년 이후 사례만 보면 12개월 뒤 중앙값이 -0.6%</b>(3/6 플러스)로 좋지 않습니다</li>
-<li><b>마이너스였던 셋이 전부 반도체 사이클의 꼭대기</b>(1995·2021×2)라는 점에서
-지금과 가장 닮았습니다</li>
-<li>그리고 이번 국면에서 코스피는 이미 <b>-38.6%</b> 빠졌습니다
-(2026-06-22 9,115 → 2026-07-30 5,594). 2026-08-11 종가는 6,346 입니다</li>
-</ul>
-
-<div class="note"><p><b>이야기꾼 본인이 W31 에서 같은 이례를 지적했습니다</b> —
-«한국 수출이 꺾이지 않은 상태에서 코스피와 반도체 업종에서 폭락이 나온 것은 유사 이래 처음».
-이 페이지의 표가 그것을 뒷받침합니다. 수출 상승 국면에서 −38.6% 는 19개 중 가장 깊습니다.<br>
-<b>지금 볼 것은 «수출이 몇 %인가»가 아니라 «언제 꺾이는가»입니다.</b>
-7월 +62.8%는 6월 +70.9%에서 이미 내려온 값입니다 —
-이야기꾼도 «정점인지 한두 달 더 지켜봐야 한다»고 썼습니다.</p></div>
+<p>수집기는 scripts/krx_backfill.py 이고 계산기는 scripts/concentration.py 다.
+매일 갱신되며 화면은 52주 신고가와 상대강도 페이지에도 붙어 있다.</p>
 
 <h2>이 분석이 틀릴 수 있는 곳</h2>
-
 <ul>
-<li><b>극단 구간의 표본이 열 개 남짓이다.</b> −20% 이하 11개월 · +40% 이상 13개월이고
-그나마 같은 해에 몰려 있습니다(2009년에 −20% 이하가 여섯 달). <b>독립 사건은 더 적습니다.</b></li>
-<li><b>계절조정 계열이라 관세청 숫자와 다르다.</b> 이야기꾼의 −20 / +40 은 원계열 기준이므로
-구간 경계에서 판정이 갈릴 수 있습니다.</li>
-<li><b>«반도체가 끌어올린 +40%» 가설은 사례가 셋이다.</b> 1995·2021×2 뿐이고
-지금은 결과가 없습니다. 가설로만 두었습니다.</li>
-<li><b>시대 구분의 경계가 임의적이다.</b> 1990년으로 갈랐지만 «개발도상국이 아니게 된 해»에
-정답은 없습니다. 다만 그 사이(1989~1994)에 +40% 사례가 없어 <b>경계를 어디에 두든
-두 무리는 갈라집니다.</b></li>
-<li><b>수출은 후행 지표다.</b> 시차 검증에서 코스피가 앞섰습니다. 이 표들은 <b>사후 해석</b>에는
-쓸 수 있어도 <b>사전 판단</b>에는 쓸 수 없습니다.</li>
-<li><b>1984~97 구간 코스피는 월평균이다.</b> 일별로 계산하면 낙폭이 더 깊어집니다.
-최근 달 월평균은 KOFIA 일별에서 환산했고 오차는 최대 1.33%입니다.</li>
+<li>표본이 44개월이다. 국면이 넷뿐이고 그중 쏠림 국면은 아홉 달이다.
+규칙이라 부르기에는 이르고 관찰로 두는 것이 맞다.</li>
+<li>2022년 이전을 못 본다. 2023년 1월이 첫 값이라 그 앞의 상승장과 견줄 수 없다.
+2020년 유동성 장세나 2017년 반도체 장세에서 쏠림이 어땠는지는 이 자료로 답할 수 없다.</li>
+<li>종가 기준이라 장중 신고가를 놓친다. 하루 안에 신고가를 찍고 밀린 종목은 잡히지 않는다.</li>
+<li>쏠림이 원인인지 결과인지 가르지 못한다.
+대형주가 오르니 신고가가 대형주에 몰린 것일 수도 있고,
+돈이 대형주로 몰려서 나머지가 밀린 것일 수도 있다. 이 지표는 둘을 구분하지 못한다.</li>
+<li>2025년 10월을 분기점이라 불렀지만 그것은 사후에 그은 선이다.
+그때 실시간으로 4배를 보고 국면 전환이라 판단할 수 있었는지는 다른 문제다.</li>
 </ul>
 
-<div class="disclaimer">
-<p><b>자료.</b> 한국 수출 전년비 — OECD Main Economic Indicators
-(<code>XTEXVA01KRM659S</code>, 계절조정, via FRED) 1984-01~2026-04.
-최근 3개월 관세청 발표치는 이야기꾼 주간 시투 보고서에서 인용.
-코스피 — 1981~1997 OECD 한국 주가지수 월평균, 1998~ 금융투자협회 유가증권시장 일별 종가.</p>
-<p><b>같이 볼 것.</b> <a href="jeoji-kospi.html">제오지산수와 코스피</a>(다섯 지표 비교),
-<a href="cli-kospi.html">OECD 경기선행지수와 코스피</a>, <a href="ism-kospi.html">미국 제조업지수와 코스피</a>,
-<a href="peak-debate.html">반도체 정점 논쟁</a>.</p>
+<p class="note">자료. KRX Open API 전종목 일별시세.
+수집기는 scripts/krx_backfill.py, 계산기는 scripts/concentration.py,
+생성기는 scripts/build_concentration.py 다.</p>
+
 <p><b>주의.</b> 본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다.
 저는 재무 상담사가 아니며, 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.</p>
-</div>
+
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>
@@ -1034,12 +1020,14 @@ if(window.Chart) Chart.register(dpMarks);
 })();
 </script>
 <script>
-var exC={};
-function exBuild(){
-  if(!window.Chart) return setTimeout(exBuild,150);
-  (window.__EX||[]).forEach(function(c){
+var CFG=[{"id": "g1", "l": ["2023년 1월", "2023년 2월", "2023년 3월", "2023년 4월", "2023년 5월", "2023년 6월", "2023년 7월", "2023년 8월", "2023년 9월", "2023년 10월", "2023년 11월", "2023년 12월", "2024년 1월", "2024년 2월", "2024년 3월", "2024년 4월", "2024년 5월", "2024년 6월", "2024년 7월", "2024년 8월", "2024년 9월", "2024년 10월", "2024년 11월", "2024년 12월", "2025년 1월", "2025년 2월", "2025년 3월", "2025년 4월", "2025년 5월", "2025년 6월", "2025년 7월", "2025년 8월", "2025년 9월", "2025년 10월", "2025년 11월", "2025년 12월", "2026년 1월", "2026년 2월", "2026년 3월", "2026년 4월", "2026년 5월", "2026년 6월", "2026년 7월", "2026년 8월"], "d": [{"label": "신고가 쏠림배수", "data": [0.66, 0.63, 0.83, 1.14, 2.42, 1.43, 1.91, 0.59, 0.51, 0.42, 0.61, 4.16, 1.1, 2.1, 2.69, 1.48, 1.13, 1.76, 2.5, 0.93, 0.79, 1.18, 0.91, 0.75, 1.0, 1.66, 0.91, 0.64, 1.23, 2.1, 1.08, 0.63, 2.46, 5.28, 1.16, 1.76, 4.9, 3.28, 0.49, 2.32, 5.38, 5.17, 0.25, 0.15], "c": "--acc", "w": 3.0, "yAxisID": "y"}, {"label": "코스피 (우축)", "data": [2425, 2413, 2477, 2502, 2577, 2564, 2633, 2556, 2465, 2278, 2535, 2655, 2497, 2642, 2747, 2692, 2637, 2798, 2771, 2674, 2593, 2556, 2456, 2399, 2517, 2533, 2481, 2557, 2698, 3072, 3245, 3186, 3425, 4108, 3927, 4214, 5224, 6244, 5052, 6599, 8476, 8476, 6595, 6579], "c": "gray", "w": 1.6, "yAxisID": "y1"}], "rng": [{"t": "전체 2023~", "i0": 0, "i1": 43, "note": "2023년 1월부터 전 구간이다. 쏠림배수 1은 신고가 종목의 크기가 시장 평균과 같다는 뜻이다."}, {"t": "최근 2년", "i0": 20, "i1": 43, "note": "최근 24개월만 확대했다. 2025년 10월에 5.3배를 찍은 뒤 반복이 시작되는 것이 보인다."}], "y2": true, "dp": 2},{"id": "g2", "l": ["2023년 1월", "2023년 2월", "2023년 3월", "2023년 4월", "2023년 5월", "2023년 6월", "2023년 7월", "2023년 8월", "2023년 9월", "2023년 10월", "2023년 11월", "2023년 12월", "2024년 1월", "2024년 2월", "2024년 3월", "2024년 4월", "2024년 5월", "2024년 6월", "2024년 7월", "2024년 8월", "2024년 9월", "2024년 10월", "2024년 11월", "2024년 12월", "2025년 1월", "2025년 2월", "2025년 3월", "2025년 4월", "2025년 5월", "2025년 6월", "2025년 7월", "2025년 8월", "2025년 9월", "2025년 10월", "2025년 11월", "2025년 12월", "2026년 1월", "2026년 2월", "2026년 3월", "2026년 4월", "2026년 5월", "2026년 6월", "2026년 7월", "2026년 8월"], "d": [{"label": "신고가 종목 수 비중(%)", "data": [1.92, 2.43, 2.81, 3.33, 2.9, 3.78, 3.75, 3.04, 2.77, 2.02, 2.24, 2.57, 2.67, 3.36, 3.17, 3.21, 3.65, 3.55, 3.03, 2.79, 2.35, 2.73, 2.3, 2.53, 2.59, 2.99, 2.5, 3.72, 5.25, 6.86, 5.07, 3.49, 4.66, 4.66, 3.89, 4.53, 5.9, 8.19, 3.95, 6.08, 5.16, 2.67, 2.39, 2.92], "c": "--acc", "w": 3.0}, {"label": "신고가 시총 비중(%)", "data": [1.29, 1.56, 2.38, 3.88, 7.08, 5.38, 7.65, 1.84, 1.51, 0.9, 1.41, 11.04, 3.36, 7.53, 8.74, 4.75, 4.28, 6.41, 7.88, 2.69, 1.99, 3.3, 2.14, 1.89, 2.59, 5.07, 2.37, 2.62, 6.58, 14.36, 6.22, 2.24, 12.7, 25.09, 5.24, 7.64, 28.11, 29.31, 2.09, 16.21, 28.06, 14.67, 0.59, 0.43], "c": "gray", "w": 2.0}], "rng": [{"t": "전체 2023~", "i0": 0, "i1": 43, "note": "두 선이 붙어 있으면 신고가가 고르게 퍼진 것이고, 벌어지면 큰 종목에 몰린 것이다."}, {"t": "최근 2년", "i0": 20, "i1": 43, "note": "2026년 6월에 회색(무게)이 남고 황금색(폭)만 주저앉는 것이 보인다."}], "dp": 1}], __BC={};
+<script>
+var bcC={};
+function bcBuild(){
+  if(!window.Chart) return setTimeout(bcBuild,150);
+  (window.CFG||[]).forEach(function(c){
     var el=document.getElementById(c.id); if(!el) return;
-    if(exC[c.id]){ try{exC[c.id].destroy();}catch(e){} }
+    if(bcC[c.id]){ try{bcC[c.id].destroy();}catch(e){} }
     var tx=dpCv('--text-secondary','#666'), grid=dpA(dpCv('--text-secondary','#888'),0.14);
     var r=(c.rng&&c.rng[c._r||0])||null;
     var i0=r?r.i0:0, i1=r?r.i1:c.l.length-1;
@@ -1093,7 +1081,7 @@ function exBuild(){
         ticks:{color:tx,font:{family:'Inter',size:12}},
         title:{display:!!c.y1t,text:c.y1t||'',color:tx,
           font:{family:'Noto Sans KR',size:12.5}}}; }
-    exC[c.id]=new Chart(el,{type:c.k||'line',
+    bcC[c.id]=new Chart(el,{type:c.k||'line',
       plugins:c.bands?[bandPlugin,dpMarks]:[dpMarks],
       data:{labels:labs,datasets:ds},
       options:{responsive:true,maintainAspectRatio:false,
@@ -1115,16 +1103,16 @@ function exBuild(){
         scales:sc}});
   });
 }
-window.rebuild=exBuild;
-function exRange(id,n,btn){
+window.rebuild=bcBuild;
+function bcRange(id,n,btn){
   /* ★★ 2026-08-12 — 차트 재생성을 **맨 먼저** 하고, 버튼 색·설명은 그 뒤에 try 로 감싼다.
      이전에는 `btn.closest('.panel')` 이 앞에 있었다. 그 한 줄이 null 을 내면(판형이 바뀌어
      .panel 이 없거나 버튼이 다른 상자에 들어가면) **바로 다음 줄에서 예외가 나고
      맨 끝의 재빌드가 실행되지 않는다.** 화면에는 «눌러도 아무 일이 없다»로만 보이고
      오류는 콘솔에만 남는다. kospi-dotcom 에서 같은 유형의 사고가 이미 한 번 났다.
      → 순서를 뒤집는다. 무슨 일이 있어도 그림은 다시 그린다. */
-  (window.__EX||[]).forEach(function(c){ if(c.id===id) c._r=n; });
-  try{ exBuild(); }catch(e){ if(window.console) console.error('exBuild', e); }
+  (window.CFG||[]).forEach(function(c){ if(c.id===id) c._r=n; });
+  try{ bcBuild(); }catch(e){ if(window.console) console.error('bcBuild', e); }
   try{
     var box=(btn&&btn.closest&&btn.closest('.panel'))
             || (btn&&btn.parentNode&&btn.parentNode.parentNode) || document;
@@ -1132,96 +1120,16 @@ function exRange(id,n,btn){
     for(var i=0;i<bs.length;i++) bs[i].classList.remove('on');
     if(btn&&btn.classList) btn.classList.add('on');
     var note=box.querySelector('.rngnote');
-    (window.__EX||[]).forEach(function(c){
+    (window.CFG||[]).forEach(function(c){
       if(c.id===id && note && c.rng && c.rng[n]) note.innerHTML=c.rng[n].note; });
-  }catch(e){ if(window.console) console.error('exRange ui', e); }
+  }catch(e){ if(window.console) console.error('bcRange ui', e); }
 }
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',exBuild);
-else exBuild();
-setTimeout(exBuild,400);
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bcBuild);
+else bcBuild();
+setTimeout(bcBuild,400);
 </script>
-<script>var __EX=[{"id": "g1", "t": "한국 수출 전년비와 코스피 전년비 — 1984~2026", "dp": 1, "l": ["1984-01", "1984-02", "1984-03", "1984-04", "1984-05", "1984-06", "1984-07", "1984-08", "1984-09", "1984-10", "1984-11", "1984-12", "1985-01", "1985-02", "1985-03", "1985-04", "1985-05", "1985-06", "1985-07", "1985-08", "1985-09", "1985-10", "1985-11", "1985-12", "1986-01", "1986-02", "1986-03", "1986-04", "1986-05", "1986-06", "1986-07", "1986-08", "1986-09", "1986-10", "1986-11", "1986-12", "1987-01", "1987-02", "1987-03", "1987-04", "1987-05", "1987-06", "1987-07", "1987-08", "1987-09", "1987-10", "1987-11", "1987-12", "1988-01", "1988-02", "1988-03", "1988-04", "1988-05", "1988-06", "1988-07", "1988-08", "1988-09", "1988-10", "1988-11", "1988-12", "1989-01", "1989-02", "1989-03", "1989-04", "1989-05", "1989-06", "1989-07", "1989-08", "1989-09", "1989-10", "1989-11", "1989-12", "1990-01", "1990-02", "1990-03", "1990-04", "1990-05", "1990-06", "1990-07", "1990-08", "1990-09", "1990-10", "1990-11", "1990-12", "1991-01", "1991-02", "1991-03", "1991-04", "1991-05", "1991-06", "1991-07", "1991-08", "1991-09", "1991-10", "1991-11", "1991-12", "1992-01", "1992-02", "1992-03", "1992-04", "1992-05", "1992-06", "1992-07", "1992-08", "1992-09", "1992-10", "1992-11", "1992-12", "1993-01", "1993-02", "1993-03", "1993-04", "1993-05", "1993-06", "1993-07", "1993-08", "1993-09", "1993-10", "1993-11", "1993-12", "1994-01", "1994-02", "1994-03", "1994-04", "1994-05", "1994-06", "1994-07", "1994-08", "1994-09", "1994-10", "1994-11", "1994-12", "1995-01", "1995-02", "1995-03", "1995-04", "1995-05", "1995-06", "1995-07", "1995-08", "1995-09", "1995-10", "1995-11", "1995-12", "1996-01", "1996-02", "1996-03", "1996-04", "1996-05", "1996-06", "1996-07", "1996-08", "1996-09", "1996-10", "1996-11", "1996-12", "1997-01", "1997-02", "1997-03", "1997-04", "1997-05", "1997-06", "1997-07", "1997-08", "1997-09", "1997-10", "1997-11", "1997-12", "1998-01", "1998-02", "1998-03", "1998-04", "1998-05", "1998-06", "1998-07", "1998-08", "1998-09", "1998-10", "1998-11", "1998-12", "1999-01", "1999-02", "1999-03", "1999-04", "1999-05", "1999-06", "1999-07", "1999-08", "1999-09", "1999-10", "1999-11", "1999-12", "2000-01", "2000-02", "2000-03", "2000-04", "2000-05", "2000-06", "2000-07", "2000-08", "2000-09", "2000-10", "2000-11", "2000-12", "2001-01", "2001-02", "2001-03", "2001-04", "2001-05", "2001-06", "2001-07", "2001-08", "2001-09", "2001-10", "2001-11", "2001-12", "2002-01", "2002-02", "2002-03", "2002-04", "2002-05", "2002-06", "2002-07", "2002-08", "2002-09", "2002-10", "2002-11", "2002-12", "2003-01", "2003-02", "2003-03", "2003-04", "2003-05", "2003-06", "2003-07", "2003-08", "2003-09", "2003-10", "2003-11", "2003-12", "2004-01", "2004-02", "2004-03", "2004-04", "2004-05", "2004-06", "2004-07", "2004-08", "2004-09", "2004-10", "2004-11", "2004-12", "2005-01", "2005-02", "2005-03", "2005-04", "2005-05", "2005-06", "2005-07", "2005-08", "2005-09", "2005-10", "2005-11", "2005-12", "2006-01", "2006-02", "2006-03", "2006-04", "2006-05", "2006-06", "2006-07", "2006-08", "2006-09", "2006-10", "2006-11", "2006-12", "2007-01", "2007-02", "2007-03", "2007-04", "2007-05", "2007-06", "2007-07", "2007-08", "2007-09", "2007-10", "2007-11", "2007-12", "2008-01", "2008-02", "2008-03", "2008-04", "2008-05", "2008-06", "2008-07", "2008-08", "2008-09", "2008-10", "2008-11", "2008-12", "2009-01", "2009-02", "2009-03", "2009-04", "2009-05", "2009-06", "2009-07", "2009-08", "2009-09", "2009-10", "2009-11", "2009-12", "2010-01", "2010-02", "2010-03", "2010-04", "2010-05", "2010-06", "2010-07", "2010-08", "2010-09", "2010-10", "2010-11", "2010-12", "2011-01", "2011-02", "2011-03", "2011-04", "2011-05", "2011-06", "2011-07", "2011-08", "2011-09", "2011-10", "2011-11", "2011-12", "2012-01", "2012-02", "2012-03", "2012-04", "2012-05", "2012-06", "2012-07", "2012-08", "2012-09", "2012-10", "2012-11", "2012-12", "2013-01", "2013-02", "2013-03", "2013-04", "2013-05", "2013-06", "2013-07", "2013-08", "2013-09", "2013-10", "2013-11", "2013-12", "2014-01", "2014-02", "2014-03", "2014-04", "2014-05", "2014-06", "2014-07", "2014-08", "2014-09", "2014-10", "2014-11", "2014-12", "2015-01", "2015-02", "2015-03", "2015-04", "2015-05", "2015-06", "2015-07", "2015-08", "2015-09", "2015-10", "2015-11", "2015-12", "2016-01", "2016-02", "2016-03", "2016-04", "2016-05", "2016-06", "2016-07", "2016-08", "2016-09", "2016-10", "2016-11", "2016-12", "2017-01", "2017-02", "2017-03", "2017-04", "2017-05", "2017-06", "2017-07", "2017-08", "2017-09", "2017-10", "2017-11", "2017-12", "2018-01", "2018-02", "2018-03", "2018-04", "2018-05", "2018-06", "2018-07", "2018-08", "2018-09", "2018-10", "2018-11", "2018-12", "2019-01", "2019-02", "2019-03", "2019-04", "2019-05", "2019-06", "2019-07", "2019-08", "2019-09", "2019-10", "2019-11", "2019-12", "2020-01", "2020-02", "2020-03", "2020-04", "2020-05", "2020-06", "2020-07", "2020-08", "2020-09", "2020-10", "2020-11", "2020-12", "2021-01", "2021-02", "2021-03", "2021-04", "2021-05", "2021-06", "2021-07", "2021-08", "2021-09", "2021-10", "2021-11", "2021-12", "2022-01", "2022-02", "2022-03", "2022-04", "2022-05", "2022-06", "2022-07", "2022-08", "2022-09", "2022-10", "2022-11", "2022-12", "2023-01", "2023-02", "2023-03", "2023-04", "2023-05", "2023-06", "2023-07", "2023-08", "2023-09", "2023-10", "2023-11", "2023-12", "2024-01", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07", "2024-08", "2024-09", "2024-10", "2024-11", "2024-12", "2025-01", "2025-02", "2025-03", "2025-04", "2025-05", "2025-06", "2025-07", "2025-08", "2025-09", "2025-10", "2025-11", "2025-12", "2026-01", "2026-02", "2026-03", "2026-04"], "y2": 1, "xt": 14, "y1t": "한국 수출 전년비 (%)", "yt": "코스피 전년비 (%)", "u": "%", "rng": [{"i0": 0, "i1": 507, "note": "1984년부터 전 구간입니다. 회색(코스피)이 황금색(수출)보다 반 박자 먼저 움직입니다."}, {"i0": 388, "i1": 507, "note": "최근 10년만 확대했습니다."}], "mk": {"1984-01": {"t": "최고 +51.7%", "v": 51.7, "dy": -14, "ax": "y1"}, "2009-01": {"t": "최저 -32.2%", "v": -32.2, "dy": 24, "ax": "y1"}, "2026-04": {"t": "지금 +48.8%", "v": 48.8, "dy": -14, "ax": "y1"}}, "d": [{"label": "한국 수출 전년비 % (우)", "data": [51.7, 28.2, 19.3, 23.4, 23.4, 19.8, 17.3, 12.9, 3.8, 5.2, 28.2, 19.0, -17.6, -10.5, 3.4, 2.3, -0.5, -2.3, -1.3, 3.9, 10.2, 0.0, 18.9, 27.6, 22.9, 27.0, 9.5, 8.2, 21.3, 18.9, 18.6, 25.6, 22.0, 25.7, 2.9, -4.6, 33.0, 30.1, 37.6, 47.2, 31.8, 37.2, 39.7, 22.0, 35.3, 27.4, 33.8, 50.5, 40.1, 40.0, 32.4, 24.2, 21.2, 17.0, 27.1, 47.4, 25.0, 28.1, 32.0, 21.3, 11.0, 5.3, 10.3, 3.6, 4.1, 7.5, 1.5, -1.2, 2.3, -0.1, -1.8, -4.5, -8.1, 5.1, 0.4, 2.1, 5.6, 5.1, 4.6, 2.9, 10.1, 1.5, 4.9, 15.1, 15.3, 4.4, 8.4, 16.1, 19.5, 14.1, 5.0, 4.6, -2.5, 20.7, 13.7, 9.4, 15.6, 5.9, 10.9, 9.1, 2.0, 7.3, 13.4, 9.4, 15.5, 8.1, -1.3, -7.6, -1.5, 14.1, 7.6, 5.4, 6.1, 3.3, 4.8, 6.9, 8.2, 5.6, 10.3, 17.3, 12.4, 4.7, 9.0, 13.6, 15.8, 15.1, 14.7, 16.3, 16.5, 18.1, 26.4, 32.0, 28.4, 33.8, 31.8, 31.5, 35.5, 35.6, 38.1, 40.1, 32.4, 31.0, 22.3, 13.3, 24.1, 18.9, 14.4, 6.0, 4.5, 1.1, -5.2, -9.2, -7.3, 1.0, 1.5, 2.6, -7.5, -7.5, -1.9, 5.6, 5.2, 9.8, 19.0, 14.5, 13.3, 5.3, 4.4, 1.1, 1.0, 16.3, 8.2, 3.8, -2.3, -7.5, -14.9, -11.5, -6.7, -12.4, -3.8, 3.4, -1.2, -14.7, -5.3, -2.9, 0.4, 12.2, 17.6, 15.8, 12.5, 25.2, 22.8, 21.0, 29.9, 34.9, 23.6, 18.8, 27.0, 20.7, 22.4, 30.0, 25.7, 13.9, 5.6, 1.6, 2.3, 5.0, -2.4, -10.0, -9.6, -14.2, -21.5, -20.1, -18.6, -19.6, -18.6, -18.1, -12.8, -16.2, -7.2, 9.2, 5.8, 1.1, 16.8, 18.3, 12.7, 23.5, 24.6, 25.6, 25.9, 19.1, 18.2, 16.3, 6.3, 19.5, 16.4, 9.5, 23.6, 24.5, 21.7, 30.4, 33.2, 41.8, 38.5, 36.1, 41.8, 38.7, 34.9, 29.5, 21.5, 21.4, 24.7, 20.3, 15.9, 8.7, 11.3, 7.9, 9.7, 9.9, 9.9, 17.6, 17.7, 11.9, 12.5, 10.1, 5.0, 15.5, 13.1, 11.4, 20.6, 17.7, 10.1, 17.4, 19.5, 12.6, 16.3, 14.9, 19.3, 11.7, 12.9, 16.3, 11.7, 13.1, 17.9, 11.3, 1.6, 20.3, 19.3, 13.8, 16.4, 18.5, 18.4, 26.8, 24.8, 19.1, 30.5, 21.7, 24.6, 9.3, -19.0, -19.3, -32.2, -21.4, -19.7, -23.0, -26.6, -16.3, -20.7, -21.8, -8.7, -9.2, 19.2, 32.9, 43.6, 31.6, 31.8, 31.1, 38.5, 31.4, 26.5, 25.8, 16.7, 27.6, 21.1, 25.1, 39.7, 19.9, 25.1, 26.4, 19.5, 13.2, 19.9, 25.9, 17.9, 7.1, 13.2, 5.8, -4.8, 16.1, 1.3, -6.8, 0.8, -0.1, -7.9, -6.2, -3.1, 2.3, 1.6, -3.1, 6.7, -5.6, -2.5, 2.0, 2.4, -0.5, 3.1, 6.1, -0.1, 4.9, 2.4, 4.7, 1.3, 0.2, 5.0, 7.6, -0.0, 2.0, 4.9, -0.2, 5.6, 2.4, -2.3, 2.3, -0.5, -3.4, -4.5, -8.2, -10.5, -2.5, -6.4, -13.8, -10.8, -13.8, -6.8, -13.3, -20.1, -12.9, -8.5, -11.2, -5.2, -4.2, -8.9, 0.3, -4.8, -3.9, 3.7, 5.1, 12.3, 18.5, 14.8, 22.4, 13.7, 14.4, 17.5, 19.8, 29.9, 10.7, 6.4, 12.5, 17.6, 6.9, 2.4, 1.0, 10.5, 1.2, 6.4, 6.2, -5.5, 18.5, 6.6, -3.8, -5.3, -12.0, -7.8, -2.5, -9.6, -13.3, -11.3, -13.8, -12.1, -15.1, -13.4, -7.0, -5.3, 1.6, -0.6, -26.3, -23.2, -10.8, -7.9, -8.9, 4.8, -1.6, 2.7, 13.2, 10.3, 10.3, 14.5, 43.7, 44.3, 39.6, 30.6, 33.0, 17.9, 24.3, 31.9, 18.3, 15.5, 21.4, 17.5, 15.2, 18.9, 6.8, 7.6, 6.6, 2.1, -6.3, -12.8, -11.6, -14.3, -9.9, -11.9, -16.0, -13.7, -8.0, -14.3, -9.8, -3.8, 4.7, 7.0, 5.6, 16.9, 5.1, 2.6, 14.2, 10.9, 6.2, 13.5, 10.7, 7.3, 3.7, 3.0, 4.0, -7.9, -1.3, 4.3, 2.4, -0.7, 4.4, 4.9, 2.4, 10.5, 5.3, 6.6, 14.4, 32.3, 30.7, 48.9, 48.8], "c": "acc", "w": 3.0, "fill": true, "yAxisID": "y1", "order": 1}, {"label": "코스피 전년비 % (좌)", "data": [-1.1, 6.9, 7.0, 6.4, 2.9, 7.7, 8.4, 10.6, 13.2, 11.8, 10.9, 15.7, 18.0, 4.5, 4.0, 2.2, 1.1, 2.9, 2.0, 1.0, 1.2, 6.1, 9.3, 13.1, 12.5, 24.4, 39.8, 51.4, 57.4, 74.2, 91.6, 96.5, 92.2, 73.8, 76.9, 74.7, 83.6, 89.9, 94.8, 79.0, 83.2, 61.8, 74.5, 80.5, 83.8, 109.1, 85.8, 78.8, 100.4, 101.1, 70.8, 74.5, 75.3, 83.6, 53.5, 43.3, 40.2, 40.0, 63.0, 80.9, 52.6, 40.0, 54.6, 49.0, 39.2, 26.7, 27.2, 33.0, 41.0, 28.0, 15.5, 2.0, 1.6, -3.9, -12.5, -18.1, -17.6, -14.9, -21.2, -30.9, -36.7, -25.2, -22.5, -21.0, -27.9, -24.5, -20.7, -18.7, -18.3, -21.1, -7.4, 11.5, 13.6, 3.3, -4.1, -12.3, -1.2, -0.5, -8.2, -7.8, -6.5, -6.6, -19.1, -30.2, -21.5, -22.7, -3.4, 4.0, 8.8, 2.7, 4.9, 21.3, 22.1, 34.7, 43.8, 42.8, 28.9, 34.5, 23.8, 30.5, 27.9, 39.5, 37.7, 23.9, 30.9, 21.9, 25.6, 32.5, 44.8, 48.1, 39.1, 22.6, 8.4, -0.4, 6.0, 2.1, -6.2, -4.6, 0.1, -2.3, -3.1, -8.0, -13.8, -11.8, -10.3, -5.9, -9.0, 1.9, 6.6, -1.9, -12.0, -12.2, -19.3, -19.2, -22.6, -24.8, -22.7, -20.2, -23.4, -24.5, -24.3, -11.8, -9.6, -8.1, -13.6, -27.6, -33.3, -43.5, -29.0, -24.8, -20.4, -36.0, -50.0, -59.1, -56.4, -57.8, -53.9, -38.6, -13.1, 34.4, 25.8, 1.5, 12.1, 62.3, 109.2, 168.6, 196.3, 198.3, 196.9, 130.9, 121.4, 87.6, 60.0, 69.8, 49.5, 8.7, -2.9, -5.5, -18.1, -22.7, -32.3, -33.6, -42.7, -47.0, -38.6, -34.4, -37.8, -32.6, -17.2, -24.2, -30.4, -21.2, -19.7, -5.9, 11.2, 27.6, 25.5, 29.6, 58.1, 69.4, 40.4, 30.7, 36.1, 25.5, 39.5, 24.1, 12.4, 4.4, -14.6, -23.1, -36.1, -34.5, -27.3, -15.9, -6.6, 2.6, 6.1, 17.5, 16.1, 15.1, 34.5, 46.6, 59.0, 54.7, 30.9, 16.5, 6.0, 5.3, 12.0, 12.5, 9.4, 9.1, 6.8, 10.9, 12.9, 5.5, 17.1, 28.4, 41.9, 43.2, 40.2, 40.4, 45.2, 53.4, 52.7, 39.4, 34.8, 48.0, 48.0, 26.3, 20.6, 19.2, 15.8, 13.6, 12.0, 6.0, 0.2, 7.0, 7.3, 7.1, 16.1, 40.1, 49.8, 38.0, 39.0, 48.0, 37.1, 33.9, 25.9, 17.8, 15.4, 17.0, 14.4, 0.5, -18.0, -15.2, -23.2, -39.6, -44.2, -41.3, -33.9, -32.6, -30.9, -25.5, -24.2, -20.8, -7.0, 2.5, 14.6, 34.7, 47.4, 47.8, 46.4, 40.3, 45.8, 30.9, 17.9, 21.1, 18.6, 11.7, 9.6, 15.8, 21.6, 21.5, 24.3, 25.9, 20.3, 24.4, 28.9, 22.9, 24.2, 5.9, -1.4, -3.5, -3.4, -7.1, -9.3, -0.5, 1.2, -7.3, -11.2, -11.1, -15.0, 2.9, 9.4, 6.8, 2.5, 6.2, 4.8, -1.2, -1.6, -2.9, 4.6, 2.3, 2.5, -1.2, 1.3, 4.1, 5.5, 0.7, -1.8, -2.1, -2.0, 2.7, 0.8, 5.7, 8.0, 8.6, 2.8, -4.0, -2.5, -2.5, -1.5, 1.2, 3.1, 5.8, 6.4, 3.4, 1.8, -5.2, -5.1, 3.9, 2.4, 1.6, -1.2, -3.0, -1.9, -5.3, -7.1, -4.2, -2.7, 4.3, 5.0, 0.8, -1.2, 2.5, 8.7, 9.4, 8.1, 8.3, 16.4, 20.0, 20.5, 16.4, 16.5, 20.7, 27.8, 22.0, 22.0, 17.0, 14.8, 13.8, 7.5, 1.2, -5.3, -3.7, -2.5, -12.0, -17.8, -16.2, -16.6, -9.4, -11.7, -10.0, -14.9, -12.4, -9.0, -14.8, -11.5, -4.7, 2.2, 4.0, 5.1, -1.9, -17.4, -16.2, -6.5, 1.5, 5.6, 21.0, 15.8, 14.2, 17.6, 28.4, 39.5, 42.7, 69.7, 70.7, 61.6, 52.7, 48.2, 35.3, 32.6, 26.9, 18.4, 8.1, -7.2, -12.1, -11.1, -14.6, -17.0, -23.5, -27.4, -22.0, -25.6, -25.5, -18.4, -21.2, -17.2, -9.8, -10.3, -6.7, -4.1, 4.3, 9.8, 3.3, 8.5, 7.8, 1.7, 8.7, 6.7, 7.3, 11.6, 6.0, 7.3, 5.6, 8.3, 3.3, 2.2, 8.1, 1.8, -4.7, -0.8, -1.9, -4.2, -7.6, -3.6, 6.8, 12.8, 20.3, 29.4, 44.6, 60.2, 67.7, 90.8, 115.8, 115.1, 145.2], "c": "mute", "w": 2.4, "yAxisID": "y", "order": 2}]},{"id": "g2", "k": "bar", "dp": 1, "t": "수출 증가율 구간별 — 그 달에 사서 12개월 뒤 코스피 (중앙값)", "l": ["−20% 이하", "−20 ~ −10", "−10 ~ 0", "0 ~ 10", "10 ~ 20", "20 ~ 40", "+40% 이상"], "yt": "%", "leg": false, "u": "%", "d": [{"label": "12개월 뒤 중앙값", "data": [30.9, 11.6, 5.1, 4.1, 1.1, 9.1, 18.0], "c": ["acc", "acc", "acc", "acc", "acc", "acc", "acc"]}]},{"id": "g3", "k": "bar", "dp": 1, "xt": 30, "t": "수출 상승 국면마다 코스피 최대 하락폭 — 19개 국면", "l": ["1985-01", "1986-12", "1987-08", "1990-01", "1992-12", "1994-02", "1996-08", "1998-07", "2001-07", "2003-05", "2005-04", "2006-01", "2007-09", "2009-01", "2010-09", "2012-07", "2016-01", "2020-04", "2023-04", "지금"], "yt": "%", "leg": false, "u": "%", "d": [{"label": "최대 하락폭", "data": [-4.9, 0.0, -6.3, -32.9, -8.9, -20.4, -18.6, -23.0, -37.8, -9.3, -8.2, -11.5, -27.0, -17.0, -3.7, -12.3, -5.4, -7.8, -14.6, -38.6], "c": ["mute", "mute", "mute", "acc", "mute", "acc", "mute", "acc", "acc", "mute", "mute", "mute", "acc", "mute", "mute", "mute", "mute", "mute", "mute", "neg"]}]},{"id": "g4", "k": "bar", "dp": 1, "t": "전환점 이후 코스피 (중앙값) — 수출 저점에서 vs 천정에서", "l": ["+3개월", "+6개월", "+12개월", "+24개월"], "yt": "%", "u": "%", "d": [{"label": "수출 저점에서 샀을 때", "c": "acc", "data": [2.6, 16.9, 26.7, 29.9]}, {"label": "천정에서 들고 있었을 때", "c": "mute", "data": [2.9, 2.8, 9.3, 12.7]}]}];</script>
-<div class="wrap"><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="jeoji-kospi.html">제오지산수와 코스피</a> — 수출을 다섯 지표 종합 체계 안에서 보려면 — 제오지산수 편.</p></div><!--RELATED:END--><!--GLOSSARY:BEGIN--><style id="glocss">.glo{margin:34px 0 8px}.glo h3{font-size:1.02rem;margin:0 0 12px}.glo dl{margin:0;font-size:.9rem;line-height:1.62}.glo dt{font-weight:800;margin-top:10px}.glo dd{margin:2px 0 0 0;color:var(--text-secondary,#555)}</style><div class="glo"><h3>용어 설명</h3><dl><dt>신용스프레드</dt><dd>회사채 금리에서 국고채 금리를 뺀 값. 기업이 국가보다 더 부담하는 금리이고, 시장이 매긴 부도 위험의 값이다.</dd><dt>이격도</dt><dd>주가가 이동평균선에서 얼마나 떨어져 있는지의 백분율. 100이면 이동평균과 같은 자리, 90 아래는 과매도·110 위는 과열로 읽는다.</dd><dt>이동평균선</dt><dd>일정 기간 종가의 평균을 이은 선. 20일선은 단기, 20주선(=100거래일 근사)은 이야기꾼의 «생명선», 200일선은 장기 추세 기준이다.</dd><dt>RS</dt><dd>Relative Strength(상대강도). 시장 전체 대비 그 종목이 얼마나 더 올랐는지를 백분위로 매긴 값. RS 90이면 «시장의 90%보다 더 올랐다»는 뜻이다. 미너비니는 RS 상위 종목만 후보로 둔다.</dd><dt>스테이지</dt><dd>와인스타인의 4국면 — 1 바닥, 2 상승, 3 천장, 4 하락. 이동평균의 기울기와 가격 위치로 판정한다.</dd><dt>제오지산수</dt><dd>이야기꾼의 다섯 경기지표 — 제(ISM 제조업지수)·오(OECD 경기선행지수)·지(GDP)·산(산업생산)·수(한국 수출).</dd><dt>기준금리</dt><dd>중앙은행이 정하는 초단기 금리. 연준의 연방기금금리가 세계 돈값의 기준이 된다.</dd></dl><p style="font-size:.8rem;color:var(--text-secondary,#777);margin-top:12px">이 글에 나온 용어만 실었습니다. 정의는 <code>scripts/glossary.py</code> 에서 한곳으로 관리합니다.</p></div><!--GLOSSARY:END--></div>
-<footer>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.
-    · 근거: 이야기꾼 주간 시투 보고서(W31·2026-08-01) 및 자체 실측.</footer>
-</div>
-
-
-<script>
-(function(){
-  var gs=document.querySelectorAll('.site-group');
-  gs.forEach(function(g){
-    var b=g.querySelector('button');
-    b.addEventListener('click',function(e){
-      e.stopPropagation();
-      var was=g.classList.contains('on');
-      gs.forEach(function(x){x.classList.remove('on')});
-      if(!was) g.classList.add('on');
-    });
-    g.addEventListener('mouseenter',function(){ if(window.matchMedia('(hover:hover)').matches){gs.forEach(function(x){x.classList.remove('on')}); g.classList.add('on');}});
-    g.addEventListener('mouseleave',function(){ if(window.matchMedia('(hover:hover)').matches) g.classList.remove('on');});
-  });
-  document.addEventListener('click',function(){gs.forEach(function(x){x.classList.remove('on')})});
-})();
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 <script>/* THEME:BEGIN */
 (function(){
   var h=document.documentElement;
@@ -1246,136 +1154,4 @@ setTimeout(exBuild,400);
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
-<script id="dotcom-defaults">
-/* ★ 차트 형식 정본 — kospi-dotcom-1998-2000 의 눈맛 (2026-08-08 상수님 지시)
-   고치는 곳은 scripts/apply_dotcom_style.py 하나다. 개별 차트의 명시 설정이 우선한다. */
-(function(){function go(){ if(!window.Chart){return setTimeout(go,150);}
- var d=Chart.defaults;
- d.font.family="'Noto Sans KR','Inter',-apple-system,sans-serif";
- d.elements.line.tension=.3;
- d.elements.line.borderWidth=2.4;
- d.elements.point.radius=0;
- d.elements.point.hoverRadius=6;
- d.interaction={mode:'index',intersect:false};
- d.animation.duration=1000;
- d.animation.easing='easeOutQuart';
- d.plugins.tooltip.padding=12;
- d.plugins.tooltip.cornerRadius=8;
- d.plugins.tooltip.titleFont={size:13,family:'Inter'};
- d.plugins.tooltip.bodyFont={size:13,family:"'Noto Sans KR',sans-serif"};
- d.plugins.legend.labels.boxWidth=12;
- d.plugins.legend.labels.usePointStyle=true;
-}go();})();
-</script>
 </body></html>
