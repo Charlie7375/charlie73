@@ -379,6 +379,15 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 .paper figure svg,.paper .cchart svg{width:100%;height:auto;display:block}
 /* 좁은 화면에서 표가 넘치면 잘리지 말고 가로로 밀리게 한다 */
 .paper .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+/* ★ 2026-08-13 상수님 «ROE 가 짤려 보이네» — 정렬 가능한 큰 표(오디션·상대강도)는
+   열이 15개까지 간다. min-width 가 없으면 표가 «압축»되어 마지막 열이 잘린 것처럼 보인다.
+   최소 폭을 박아 두면 좁은 화면에서 **가로로 밀려** 전부 읽힌다.
+   ⚠ 열이 적은 본문 표에는 붙이지 않는다 — 쓸데없는 가로 스크롤이 생긴다. */
+.paper .tblwrap>table.sortable{min-width:1160px}
+.paper .tblwrap>table.sortable thead th,
+.paper .tblwrap>table.sortable tbody td{white-space:nowrap}
+.paper .tblwrap::-webkit-scrollbar{height:8px}
+.paper .tblwrap::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
 .paper .tblwrap>table{min-width:100%}
 
 /* 제목부 */
@@ -795,6 +804,12 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
+
+
+
+
+
+
 
 
 
