@@ -348,7 +348,7 @@ html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;-
 .reveal.visible{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 @media(max-width:720px){.panel{padding:22px 16px 18px}.panel .cbox{min-height:320px}}
-</style>
+</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap">
 <style>
 .kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:10px;margin:22px 0 6px}
 .kcard{border:1px solid var(--line,#e5e5ea);border-radius:12px;padding:12px 14px;
@@ -367,13 +367,6 @@ html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;-
 .paper .callout.warn{border-left-color:#b91c1c}
 .paper .callout.ok{border-left-color:#047857}
 .paper .src-note{font-size:12.5px;color:var(--text3,#86868b);margin-top:16px}
-</style>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"><style id="freqcss">
-.freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
- padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
- border:1px solid currentColor;opacity:.85}
-.freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
-.freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
 /* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
@@ -645,6 +638,13 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper p.note{padding-left:11px}
 }
 /* PAPER:END */</style>
+<style id="freqcss">
+.freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
+ padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
+ border:1px solid currentColor;opacity:.85}
+.freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
+.freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
+</style>
 <!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
@@ -743,12 +743,9 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <code>scripts/build_sentiment.py</code> 순으로 갱신합니다.
 반대매매는 「위탁매매 미수금 대비 실제 반대매매금액」으로, <b>미수거래분만</b> 집계됩니다.</p>
 
-<p class="src-note">갱신 2026-08-13 17:38 · 기준일 2026-08-12</p>
+<p class="src-note">갱신 2026-08-13 19:37 · 기준일 2026-08-12</p>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
-<!-- CHARTTHEME:BEGIN -->
-<script src="chart-theme.js?v=796a6ee2"></script>
-<!-- CHARTTHEME:END -->
 <script>
 /* 닷컴 대시보드 공통 (scripts/dotcom_panel.py) */
 function dpCv(n,fb){var v=getComputedStyle(document.documentElement).getPropertyValue(n).trim();return v||fb;}
@@ -830,6 +827,11 @@ function snBuild(){
   if(!window.Chart) return setTimeout(snBuild,150);
   (window.__SN||[]).forEach(function(c){
     var el=document.getElementById(c.id); if(!el) return;
+    /* ★ 2026-08-13 — canvas 에 실제로 붙은 차트를 먼저 지운다. 우리 레지스트리에 없는
+       인스턴스가 붙어 있으면 Chart.js 가 «Canvas is already in use» 로 새 차트를 거부하고,
+       try 가 그 오류를 삼켜 «눌러도 아무 일이 없다»가 된다. */
+    try{var _o=window.Chart&&window.Chart.getChart&&window.Chart.getChart(el);
+        if(_o) _o.destroy();}catch(e){}
     if(__SNC[c.id]){ try{__SNC[c.id].destroy();}catch(e){} }
     var tx=dpCv('--text-secondary','#666'), grid=dpA(dpCv('--text-secondary','#888'),0.14);
     var r=(c.rng&&c.rng[c._r||0])||null;
@@ -1006,6 +1008,9 @@ setTimeout(snBuild,400);
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
+
+
+
 
 
 
