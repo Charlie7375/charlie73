@@ -2,10 +2,13 @@
 <html lang="ko" class="theme-light"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>찰리 아카이브 · 200일선과 와인스타인 스테이지</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<!-- CHARTTHEME:BEGIN -->
+<script src="chart-theme.js?v=796a6ee2"></script>
+<!-- CHARTTHEME:END -->
 <script>if (typeof Chart !== 'undefined') { Chart.defaults.animation = false; }</script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -109,6 +112,10 @@ footer{margin-top:48px;border-top:1px solid var(--border);padding-top:22px;color
 .toggle{position:fixed;top:18px;right:18px;width:42px;height:42px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:18px;z-index:120}
 @media(max-width:720px){h1{font-size:2.05rem}.compare{padding:22px 18px}}
 
+/* ── 제목 아래 한 줄 (좌상단 배지 폐기 후 유일한 자리) ── */
+.pauth{margin:10px 0 0;font-size:.8rem;color:var(--text-secondary);text-align:center}
+.pauth b{color:var(--text);font-variant-numeric:tabular-nums}
+
 /* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
 .site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
   letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
@@ -134,11 +141,7 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
   html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
   html body .site-bar-in{padding:9px 14px 7px}
 }
-/* BAR:END */
-/* ── 제목 아래 한 줄 (좌상단 배지 폐기 후 유일한 자리) ── */
-.pauth{margin:10px 0 0;font-size:.8rem;color:var(--text-secondary);text-align:center}
-.pauth b{color:var(--text);font-variant-numeric:tabular-nums}
-/* DESIGN:BEGIN */
+/* BAR:END *//* DESIGN:BEGIN */
 /* ── 숫자는 항상 고정폭 — 매일 바뀌는 값에 칸이 흔들리지 않게 ── */
 body{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
 table,.st-v,.kpi,.kpis,.pbadge b{font-variant-numeric:tabular-nums}
@@ -168,7 +171,90 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
   color:var(--text);font-size:17px;cursor:pointer;line-height:1;
   box-shadow:0 2px 14px rgba(0,0,0,.10);transition:transform .12s,box-shadow .12s}
 .toggle:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(0,0,0,.16)}
-/* DESIGN:END *//* PAPER:BEGIN */
+/* DESIGN:END *//* LAYOUT:BEGIN */
+:root{--w-data:1440px;--w-chart:1100px;
+  /* 산문 폭은 **고정 px이 아니라 em**이다.
+     ① px로 고정하면 글자를 키워도 한 줄에 담기는 글자 수가 늘어나 도로 길어진다.
+        em이면 글자 크기에 비례해 폭도 같이 자라서 **한 줄 글자 수가 유지**된다.
+     ② min(…,100%)이라 좁은 화면에서는 알아서 줄어든다. 유동이다. */
+  --w-prose:min(50em,100%)}
+
+/* ── ① 데이터층은 전폭 ── */
+/* 폭은 apply_paper.py 가 정한다. 여기서 !important 로 잡으면 그쪽이 못 이긴다.
+   두 곳에서 폭을 정하면 반드시 한쪽이 조용히 진다. */
+.wrap{padding-left:32px!important;padding-right:32px!important}
+
+/* ── ② 해설층은 좁은 단 + 세리프 ──
+   숫자·표·라벨은 산세리프로 남는다. 서체가 바뀌는 지점이 곧 층이 바뀌는 지점이다. */
+.explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{
+  /* ⚠ 가운데 정렬하면 제목은 왼쪽 끝, 본문은 화면 한가운데가 되어 **둘이 따로 논다.**
+       2026-08-02에 2600px 화면에서 그게 드러났다. 제목과 왼쪽을 맞춘다. */
+  max-width:var(--w-prose);margin-left:0!important;margin-right:auto!important;
+  font-size:16.5px;line-height:1.85;letter-spacing:-.004em}
+.explain b,.explain strong,.ebody b,.ebody strong,.hbody b,.hbody strong,.verdict b,.verdict strong,.callout b,.callout strong,.lesson b,.lesson strong,.note b,.note strong,.disclaimer b,.disclaimer strong,.fdetail b,.fdetail strong,.panel-cap b,.panel-cap strong{font-weight:600}
+.explain code,.explain .num,.explain table,.ebody code,.ebody .num,.ebody table,.hbody code,.hbody .num,.hbody table,.verdict code,.verdict .num,.verdict table,.callout code,.callout .num,.callout table,.lesson code,.lesson .num,.lesson table,.note code,.note .num,.note table,.disclaimer code,.disclaimer .num,.disclaimer table,.fdetail code,.fdetail .num,.fdetail table,.panel-cap code,.panel-cap .num,.panel-cap table{
+  font-family:inherit}
+.explain h2,.explain h3,.explain h4,.ebody h2,.ebody h3,.ebody h4,.hbody h2,.hbody h3,.hbody h4,.verdict h2,.verdict h3,.verdict h4,.callout h2,.callout h3,.callout h4,.lesson h2,.lesson h3,.lesson h4,.note h2,.note h3,.note h4,.disclaimer h2,.disclaimer h3,.disclaimer h4,.fdetail h2,.fdetail h3,.fdetail h4,.panel-cap h2,.panel-cap h3,.panel-cap h4{font-family:inherit}
+
+/* 해설 박스 안의 소제목 — 박스 밖 h2와 같은 크기면 위계가 무너진다.
+   본문보다 한 단만 크게, 위로 여백을 줘서 문단 묶음이 눈에 보이게 한다. */
+.explain h2,.ebody h2,.hbody h2,.verdict h2,.callout h2,.lesson h2,.note h2,.disclaimer h2,.fdetail h2,.panel-cap h2{
+  font-size:1.06em;font-weight:700;margin:22px 0 9px;letter-spacing:-.01em}
+.explain h2:first-child,.ebody h2:first-child,.hbody h2:first-child,.verdict h2:first-child,.callout h2:first-child,.lesson h2:first-child,.note h2:first-child,.disclaimer h2:first-child,.fdetail h2:first-child,.panel-cap h2:first-child{margin-top:0}
+.explain p,.ebody p,.hbody p,.verdict p,.callout p,.lesson p,.note p,.disclaimer p,.fdetail p,.panel-cap p{margin:0 0 11px}
+.explain p:last-child,.ebody p:last-child,.hbody p:last-child,.verdict p:last-child,.callout p:last-child,.lesson p:last-child,.note p:last-child,.disclaimer p:last-child,.fdetail p:last-child,.panel-cap p:last-child{margin-bottom:0}
+
+/* ── 폰트 통일 — 나눔고딕 ──
+   본문·제목·표·차트 라벨까지 한 벌로 간다. 예전엔 해설층만 세리프를 썼는데,
+   서체가 둘이면 같은 페이지 안에서 글자 크기와 행간이 미묘하게 어긋난다. */
+html body,html body h1,html body h2,html body h3,html body h4,
+html body table,html body button,html body input,html body .site-brand,
+html body .eyebrow,html body .sub,html body .card,html body .st-v,html body .st-l{
+  font-family:'Nanum Gothic','나눔고딕',AppleGothic,sans-serif!important}
+
+/* 차트는 전폭까지 늘리면 납작해진다 — 따로 잡는다 */
+.chart,.chart-box,.chart-container{max-width:var(--w-chart);margin-left:auto;margin-right:auto}
+
+/* 푸터 본문은 1440px 전폭으로 흐르면 한 줄이 100자를 넘는다 */
+.foot-in p,.foot-in>br{max-width:var(--w-prose)}
+.foot-in{padding-left:32px!important;padding-right:32px!important}
+
+/* 섹션 제목도 랜딩 크기(40px)라 밀도와 안 맞는다 */
+.sec-head h2{font-size:clamp(22px,2.2vw,26px)!important}
+.sec-head p{font-size:15px!important;max-width:var(--w-prose)!important;margin-left:0}
+.sub{font-size:16px!important;max-width:var(--w-prose)!important;line-height:1.7}
+.sec,.status{padding-left:32px!important;padding-right:32px!important}
+
+/* ── ③ 세로 간격 압축 ── */
+.sec{padding-bottom:48px!important}
+.sec-head{padding:28px 0 16px!important}
+.wrap{padding-top:28px!important}
+
+/* ── ④ 카드 밀도 ── */
+.card{padding:18px 20px 16px!important;border-radius:12px!important}
+.card::after{border-radius:12px!important}
+.card h3{margin-top:12px!important;font-size:17px!important}
+.card p{margin-top:7px!important;font-size:13px!important;line-height:1.6!important}
+.card .tag{font-size:11px!important;padding:3px 9px!important}
+.card .go{margin-top:14px!important;font-size:13px!important}
+.grid{gap:12px!important}
+@media(min-width:1200px){.g3{grid-template-columns:repeat(4,1fr)!important}
+  .g2{grid-template-columns:repeat(3,1fr)!important}}
+
+/* ── ⑤ CDS 컴포넌트 문법 — 헤어라인, 그림자 없음 ── */
+.card::after,.st-c,.compare::after,.panel,table td,table th{border-width:.5px!important}
+.card:hover{transform:none!important;box-shadow:none!important}
+.card:hover::after{border-color:var(--text3)!important}
+html.theme-dark .card:hover{box-shadow:none!important}
+
+/* 상태판은 숫자가 주인공이라 굵기를 안 내린다 */
+.st-v{font-weight:700!important}
+
+@media(max-width:900px){
+  .wrap{padding-left:18px!important;padding-right:18px!important}
+  .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
+}
+/* LAYOUT:END *//* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -438,7 +524,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
+/* PAPER:END */</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
 
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
@@ -792,7 +878,28 @@ window.addEventListener('load',build);
 })();
 </script>
 
-
+<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
+<script id="dotcom-defaults">
+/* ★ 차트 형식 정본 — kospi-dotcom-1998-2000 의 눈맛 (2026-08-08 상수님 지시)
+   고치는 곳은 scripts/apply_dotcom_style.py 하나다. 개별 차트의 명시 설정이 우선한다. */
+(function(){function go(){ if(!window.Chart){return setTimeout(go,150);}
+ var d=Chart.defaults;
+ d.font.family="'Noto Sans KR','Inter',-apple-system,sans-serif";
+ d.elements.line.tension=.3;
+ d.elements.line.borderWidth=2.4;
+ d.elements.point.radius=0;
+ d.elements.point.hoverRadius=6;
+ d.interaction={mode:'index',intersect:false};
+ d.animation.duration=1000;
+ d.animation.easing='easeOutQuart';
+ d.plugins.tooltip.padding=12;
+ d.plugins.tooltip.cornerRadius=8;
+ d.plugins.tooltip.titleFont={size:13,family:'Inter'};
+ d.plugins.tooltip.bodyFont={size:13,family:"'Noto Sans KR',sans-serif"};
+ d.plugins.legend.labels.boxWidth=12;
+ d.plugins.legend.labels.usePointStyle=true;
+}go();})();
+</script>
 <script>/* THEME:BEGIN */
 (function(){
   var h=document.documentElement;
@@ -817,34 +924,4 @@ window.addEventListener('load',build);
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
-
-
-
-
-
-
-
-
-<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
-<script id="dotcom-defaults">
-/* ★ 차트 형식 정본 — kospi-dotcom-1998-2000 의 눈맛 (2026-08-08 상수님 지시)
-   고치는 곳은 scripts/apply_dotcom_style.py 하나다. 개별 차트의 명시 설정이 우선한다. */
-(function(){function go(){ if(!window.Chart){return setTimeout(go,150);}
- var d=Chart.defaults;
- d.font.family="'Noto Sans KR','Inter',-apple-system,sans-serif";
- d.elements.line.tension=.3;
- d.elements.line.borderWidth=2.4;
- d.elements.point.radius=0;
- d.elements.point.hoverRadius=6;
- d.interaction={mode:'index',intersect:false};
- d.animation.duration=1000;
- d.animation.easing='easeOutQuart';
- d.plugins.tooltip.padding=12;
- d.plugins.tooltip.cornerRadius=8;
- d.plugins.tooltip.titleFont={size:13,family:'Inter'};
- d.plugins.tooltip.bodyFont={size:13,family:"'Noto Sans KR',sans-serif"};
- d.plugins.legend.labels.boxWidth=12;
- d.plugins.legend.labels.usePointStyle=true;
-}go();})();
-</script>
 </body></html>
