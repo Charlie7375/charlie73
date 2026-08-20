@@ -159,6 +159,24 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
   font-variant-numeric:tabular-nums;line-height:1.15}
 /* 한국 관행: 상승=빨강 · 하락=파랑. 위험은 빨강과 겹치지 않게 앰버 */
 .st-c.up .st-v{color:var(--up)}.st-c.dn .st-v{color:var(--dn)}.st-c.warn .st-v{color:var(--risk)}
+
+/* ── 뒤처진 자료 (2026-08-20) ──────────────────────────────────────────
+   색을 새로 만들지 않는다. 이 판에서 색은 이미 «오르내림»과 «경보»가 쓰고 있고,
+   거기에 세 번째 뜻을 얹으면 앰버 칸을 볼 때마다 «오른 건가 위험한 건가 낡은 건가»를
+   판단해야 한다. 그래서 **채도를 빼고 한 발 물러나게** 한다 — 색이 아니라 세기로 말한다. */
+/* 한글은 어절 단위로 끊어야 한다. 기본값이면 «기준일 07-29 대/비» 처럼 낱말이 쪼개진다
+   (2026-08-20 모바일에서 «대비»와 «08-/20» 이 실제로 그렇게 갈렸다). */
+.st-s,.st-l,.st-note{word-break:keep-all;overflow-wrap:break-word}
+/* 날짜의 붙임표는 끊을 자리가 아니다 — «08-/20» 으로 갈라지던 것을 막는다 */
+.st-s .nb{white-space:nowrap}
+.st-c.old{filter:saturate(.35);opacity:.9}
+.st-c.old .st-v{color:var(--text2)}
+.st-age{display:inline-block;font-size:.68rem;font-weight:700;margin-right:5px;
+  padding:1px 6px;border-radius:999px;vertical-align:1px;
+  color:var(--text2);border:1px solid var(--border)}
+/* 눈에 띄는 자리에서 한 번 더 말한다 — 칸의 표식은 훑다 놓칠 수 있다 */
+.st-note{margin-top:10px;font-size:.76rem;line-height:1.6;color:var(--text3)}
+.st-note b{color:var(--text2);font-variant-numeric:tabular-nums}
 .st-u{font-size:.9rem;font-weight:700;opacity:.55}
 .st-s{font-size:.74rem;color:var(--text-secondary);margin-top:4px;font-variant-numeric:tabular-nums}
 /* STATUSCSS:END */.site-lead{max-width:var(--w-prose);margin:0 0 16px;font-family:'Noto Serif KR',ui-serif,Georgia,serif;font-size:13.5px;line-height:1.8;color:var(--text2)}
@@ -395,7 +413,26 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
   html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
   html body .site-bar-in{padding:9px 14px 7px}
 }
-/* BAR:END */</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
+/* BAR:END *//* CHGCSS:BEGIN */
+.chg{max-width:1080px;margin:18px auto 0;padding:0 32px}
+.chg-h{display:flex;align-items:baseline;gap:9px;font-size:12px;font-weight:800;
+  letter-spacing:.04em;color:var(--text3);margin-bottom:8px}
+.chg-d{font-weight:400;letter-spacing:0;opacity:.7;font-variant-numeric:tabular-nums}
+/* 넉 줄이 한 단으로 서면 오른쪽 절반이 통째로 빈다 — 폭이 있으면 두 단으로 접는다 */
+.chg-l{list-style:none;margin:0;padding:0;display:grid;gap:0 34px;grid-template-columns:1fr}
+@media(min-width:760px){.chg-l{grid-template-columns:repeat(2,1fr)}}
+.chg-l li{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;
+  padding:8px 0;font-size:13.5px;box-shadow:inset 0 .5px 0 var(--border)}
+.chg-k{min-width:126px;color:var(--text2)}
+.chg-v{color:var(--text);font-variant-numeric:tabular-nums}
+.chg-v i{font-style:normal;opacity:.45;margin:0 3px}
+.chg-v b{font-weight:700}
+.chg-n{font-size:12.5px;color:var(--text3)}
+.chg-none{margin:0;font-size:13px;color:var(--text3)}
+.chg-k,.chg-n,.chg-h{word-break:keep-all}
+@media(max-width:900px){.chg{padding-left:18px;padding-right:18px}
+  .chg-k{min-width:0;flex:1 0 100%}}
+/* CHGCSS:END */</style><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"></head><body>
 
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
@@ -412,9 +449,12 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
 <!-- STATUS:BEGIN -->
 <section class="status">
   <div class="st-head">데이터 기준일 <b>2026-08-20</b><span class="st-gen">갱신 2026-08-20</span></div>
-  <div class="st-grid"><div class="st-c up"><div class="st-l">코스피</div><div class="st-v">6,853</div><div class="st-s">+5.89% · 이격도 93.4</div></div><div class="st-c up"><div class="st-l">코스닥</div><div class="st-v">840.9</div><div class="st-s">+1.99% · 08/20</div></div><div class="st-c up"><div class="st-l">수급 5일 · 외국인</div><div class="st-v">+8.2<span class="st-u">조</span></div><div class="st-s">개인 -5.9 · 기관 -4.5 (근사)</div></div><div class="st-c up"><div class="st-l">외인·기관 쌍끌이</div><div class="st-v">4<span class="st-u">/15종목</span></div><div class="st-s">삼성전자 등 4종목 · 08-20</div></div><div class="st-c warn"><div class="st-l">코스피 바닥 7단계</div><div class="st-v">0<span class="st-u">/7단계</span></div><div class="st-s">투매 2회 확인</div></div><div class="st-c dn"><div class="st-l">신고가 − 신저가</div><div class="st-v">-2</div><div class="st-s">신고가 75 · 신저가 77</div></div><div class="st-c warn"><div class="st-l">전조현상 점등</div><div class="st-v">14<span class="st-u">/28</span></div><div class="st-s">1급 8개 W31</div></div><div class="st-c"><div class="st-l">오디션 생존</div><div class="st-v">271<span class="st-u">/307</span></div><div class="st-s">88% · 기준일 07-29</div></div></div>
-</section>
+  <div class="st-grid"><div class="st-c up"><div class="st-l">코스피</div><div class="st-v">6,853</div><div class="st-s">+5.89% · 이격도 93.4</div></div><div class="st-c up"><div class="st-l">코스닥</div><div class="st-v">840.9</div><div class="st-s">+1.99% · 08/20</div></div><div class="st-c up"><div class="st-l">수급 5일 · 외국인</div><div class="st-v">+8.2<span class="st-u">조</span></div><div class="st-s">개인 -5.9 · 기관 -4.5 (근사)</div></div><div class="st-c up"><div class="st-l">외인·기관 쌍끌이</div><div class="st-v">4<span class="st-u">/15종목</span></div><div class="st-s">삼성전자 등 4종목 · <span class="nb">08-20</span></div></div><div class="st-c warn"><div class="st-l">코스피 바닥 7단계</div><div class="st-v">0<span class="st-u">/7단계</span></div><div class="st-s">투매 2회 확인</div></div><div class="st-c dn"><div class="st-l">신고가 − 신저가</div><div class="st-v">-2</div><div class="st-s">신고가 75 · 신저가 77</div></div><div class="st-c warn old"><div class="st-l">전조현상 점등</div><div class="st-v">14<span class="st-u">/28</span></div><div class="st-s"><span class="st-age">19일 전</span> 1급 8개 W31</div></div><div class="st-c"><div class="st-l">오디션 생존</div><div class="st-v">271<span class="st-u">/307</span></div><div class="st-s">88% · 기준일 07-29 대비</div></div></div>
+<div class="st-note">전조현상 점등 <b>08-01</b> — 나머지 칸보다 뒤처진 자료입니다</div></section>
 <!-- STATUS:END -->
+<!-- CHANGED:BEGIN -->
+<div class="chg"><div class="chg-h">어제와 견주어 달라진 것<span class="chg-d">08-19 → 08-20</span></div><ul class="chg-l"><li><span class="chg-k">외인·기관 쌍끌이</span><span class="chg-v">1종목 <i>→</i> <b>4종목</b></span></li><li><span class="chg-k">오디션 생존</span><span class="chg-v">263종목 <i>→</i> <b>271종목</b></span></li><li><span class="chg-k">외국인 5일 수급</span><span class="chg-v">+7.6조 <i>→</i> <b>+8.2조</b></span></li><li><span class="chg-k">신고가 − 신저가</span><span class="chg-v">-23 <i>→</i> <b>-2</b></span></li></ul></div>
+<!-- CHANGED:END -->
 
 
 
@@ -643,6 +683,11 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
+
+
+
+
+
 
 
 
