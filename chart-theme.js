@@ -274,3 +274,45 @@ try{
 if (document.readyState === 'complete') setTimeout(paint, 120);
 else window.addEventListener('load', function(){ setTimeout(paint, 120); });
 })();
+
+/* ── 바닥 7단계 표기 플러그인 (2026-08-21 상수님 «실제 차트에도 7단계를 표기해줘») ──
+   차트 위에 ①~⑦이 «언제 켜졌는지»를 점과 번호로 직접 찍는다.
+
+   왜 여기인가 — 이 파일은 Chart.js 다음, 차트를 만드는 렌더러 **앞**에 실린다.
+   생성기가 내보내는 <script> 는 Chart.js 보다 먼저라 거기서는 Chart.register 를 못 부른다.
+   자료는 생성기가 window.__B7MARK[캔버스id] 에 담아 두고, 그리기는 여기서 한다.
+
+   ⚠ 자료가 없으면 아무것도 하지 않는다. 7단계가 없는 차트 130여 장에 영향이 없다. */
+try{
+if (window.Chart && !window.__B7PLUG) {
+  window.__B7PLUG = 1;
+  Chart.register({
+    id: 'b7marks',
+    afterDatasetsDraw: function(ch){
+      var M = (window.__B7MARK||{})[ch.canvas && ch.canvas.id];
+      if (!M || !M.length) return;
+      var g = ch.ctx, xa = ch.scales.x, ya = ch.scales.y;
+      if (!xa || !ya) return;
+      var dark = document.documentElement.className.indexOf('dark') >= 0;
+      var on  = dark ? '#4da3ff' : '#0071e3';
+      var ink = dark ? '#0b0b0d' : '#ffffff';
+      g.save();
+      M.forEach(function(m){
+        var x = xa.getPixelForValue(m.i), y = ya.getPixelForValue(m.y);
+        if (!isFinite(x) || !isFinite(y)) return;
+        var top = y - 26;
+        g.beginPath(); g.moveTo(x, y - 6); g.lineTo(x, top + 11);
+        g.strokeStyle = on; g.lineWidth = 1.2; g.globalAlpha = .55; g.stroke();
+        g.globalAlpha = 1;
+        g.beginPath(); g.arc(x, top, 10, 0, Math.PI*2);
+        g.fillStyle = on; g.fill();
+        g.lineWidth = 2; g.strokeStyle = ink; g.stroke();
+        g.fillStyle = ink; g.font = '700 12px system-ui, sans-serif';
+        g.textAlign = 'center'; g.textBaseline = 'middle';
+        g.fillText(String(m.s), x, top + 0.5);
+      });
+      g.restore();
+    }
+  });
+}
+}catch(e){}
