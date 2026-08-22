@@ -163,11 +163,14 @@ _C.register({
         if (!ch.isDatasetVisible(i) || isBase(d)) return;
         var meta = ch.getDatasetMeta(i);
         if (!meta || !meta.data || !meta.data.length) return;
-        var el = null;
-        for (var j = meta.data.length - 1; j >= 0; j--) {
-          var p = meta.data[j];
-          if (p && isFinite(p.x) && isFinite(p.y)) { el = p; break; }
-        }
+        /* ⚠ meta.data[j] 는 **값이 null 이어도 좌표가 유한하다.** 그래서 예전 코드는
+           끝이 빈 계열(예: 2000년에 끝나는 LTGOVTBD)의 라벨을 축 오른쪽 바닥에 찍었다.
+           숫자는 6.23 인데 위치는 0 근처였다(2026-08-21에 실제로 그랬다).
+           → 좌표가 아니라 **자료**가 있는 마지막 칸을 먼저 찾는다. */
+        var li = -1;
+        for (var j = d.data.length - 1; j >= 0; j--) { if (num(d.data[j]) !== null) { li = j; break; } }
+        var el = (li >= 0) ? meta.data[li] : null;
+        if (el && !(isFinite(el.x) && isFinite(el.y))) el = null;
         var v = lastOf(d);
         if (!el || v === null) return;
         put.push({y: el.y, x: el.x, v: v,
@@ -210,8 +213,12 @@ function tiles(ch){
       if (!ch.isDatasetVisible(i) || isBase(d) || !d.label) return;
       var v = lastOf(d);
       if (v === null) return;
+      /* ⚠ 이전 값은 «마지막 유효칸 앞»에서 찾는다. length-2 에서 시작하면 끝이 빈 계열은
+         널을 건너뛰다 자기 자신에 닿아 변화가 늘 0 이 된다(«– 0.00»). */
+      var li = -1;
+      for (var j = d.data.length - 1; j >= 0; j--) { if (num(d.data[j]) !== null) { li = j; break; } }
       var p = null;
-      for (var j = d.data.length - 2; j >= 0; j--) { p = num(d.data[j]); if (p !== null) break; }
+      for (var j = li - 1; j >= 0; j--) { p = num(d.data[j]); if (p !== null) break; }
       items.push({l: d.label, v: v, p: p,
                   c: (typeof d.borderColor === 'string' ? d.borderColor : dim())});
     });
