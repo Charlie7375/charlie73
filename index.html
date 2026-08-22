@@ -121,7 +121,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── 테마 토글 버튼 (전 페이지 공통) ── */
 /* ⚠⚠ `top:auto` 와 z-index 가 핵심이다 (2026-08-08).
-   생성기 SHELL 들이 `.toggle{top:62px;z-index:88;position:fixed;…}` 를 따로 갖고 있는데(45장),
+   생성기 SHELL 들이 `.toggle{position:fixed;top:18px;…}` 를 따로 갖고 있는데(45장),
    이 규칙은 뒤에 와서 z-index 만 이기고 **위치는 top:18px 가 남았다.**
    그 자리는 sticky 상단바(.site-bar, z-index 90)가 덮는 자리라
    **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 세 번째 원인이다.
@@ -536,7 +536,8 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
     <p>갱신되지 않습니다. 지나간 사이클에서 지표가 실제로 어떻게 움직였는지의 기록입니다.</p></div>
   <div class="lst">
     <div class="lst-g">
-      <h3 class="lst-h">금리와 유동성<span class="lst-n">5</span></h3>
+      <h3 class="lst-h">금리와 유동성<span class="lst-n">6</span></h3>
+      <a class="lst-i" href="rates-century.html"><span class="lst-t">미국 금리 100년과 인플레 시대</span><span class="lst-d">장기 국채 금리는 <b>40년 오르고 39년 내렸다</b>. 잔존 10년 초과 국채 평균으로 재면 1941년 7월 사상 최저 1.98%에서 1981년 9월 사상 최고 14.14%까지 40.2년이다. 금본위제 이탈 두 번이 물가의 두 단계와 겹치고, 주식을 죽인 것은 인플레 시대가 아니라 <b>금태환 정지 직후 10년</b>(실질 연 −5.9%)이다.</span></a>
       <a class="lst-i" href="credit-spread.html"><span class="lst-t">신용스프레드와 코스피</span><span class="lst-d">기업이 나라보다 얼마나 더 물고 돈을 빌리나. <b>26년·311개월</b> 실측. <b>«이 값을 넘으면 떨어진다»는 없습니다</b> — 코스피가 꺾인 아홉 번의 스프레드 중앙값이 평상시와 똑같습니다. 그런데 <b>2026년 급락은 스프레드가 +0.05%p</b>밖에 안 움직였습니다 (금융위기는 +3.72). <b>신용 사건이 아니라는 뜻</b>입니다.</span></a>
       <a class="lst-i" href="liquidity.html"><span class="lst-t">미국 정부와 연준의 유동성 관리</span><span class="lst-d">연준이 공급한 자금은 <b>네 계정</b>에 나뉘어 있고, 어느 계정에서 빠져나가느냐에 따라 같은 «국채 발행»이 정반대로 작동합니다. <b>2021~2023년의 실질 긴축은 QT가 아니라 역레포가 했습니다</b> — 연준 대차대조표만 보면 두 번이나 반대로 읽습니다.</span></a>
       <a class="lst-i" href="fed-kospi.html"><span class="lst-t">연준 기준금리와 증시</span><span class="lst-d">연방기금 금리 <b>72년</b>과 미국·한국 증시. <b>같은 금리 국면이 두 시장에 반대로 작동합니다</b> — 인하 시작 뒤 36개월 낙폭이 미국 −18.2%인데 한국은 <b>−32.0%</b>입니다.</span></a>
@@ -683,6 +684,8 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
+
+
 
 
 
