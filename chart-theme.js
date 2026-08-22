@@ -210,7 +210,9 @@ function tiles(ch){
 
     var items = [];
     (ch.data.datasets || []).forEach(function(d, i){
-      if (!ch.isDatasetVisible(i) || isBase(d) || !d.label) return;
+      /* ⚠ 숨긴 계열을 여기서 빼면 «다시 켤 방법»이 사라진다.
+         남겨 두고 흐리게만 그린다 (2026-08-21 상수님 «클릭해서 지우고 나타나게»). */
+      if (isBase(d) || !d.label) return;
       var v = lastOf(d);
       if (v === null) return;
       /* ⚠ 이전 값은 «마지막 유효칸 앞»에서 찾는다. length-2 에서 시작하면 끝이 빈 계열은
@@ -219,7 +221,7 @@ function tiles(ch){
       for (var j = d.data.length - 1; j >= 0; j--) { if (num(d.data[j]) !== null) { li = j; break; } }
       var p = null;
       for (var j = li - 1; j >= 0; j--) { p = num(d.data[j]); if (p !== null) break; }
-      items.push({l: d.label, v: v, p: p,
+      items.push({l: d.label, v: v, p: p, i: i, on: ch.isDatasetVisible(i),
                   c: (typeof d.borderColor === 'string' ? d.borderColor : dim())});
     });
     if (!items.length || items.length > 4) return;
@@ -233,7 +235,12 @@ function tiles(ch){
       var mark = d === null ? '' : (d > 0 ? '▲ ' : (d < 0 ? '▼ ' : '– '));
       var col  = d === null ? dim() : (d > 0 ? up() : (d < 0 ? dn() : dim()));
       row.innerHTML +=
-        '<div><div style="display:flex;align-items:center;gap:6px;font-size:12px;' +
+        '<div class="ct-tile" role="button" tabindex="0" data-i="' + it.i + '"' +
+        ' aria-pressed="' + (it.on ? 'true' : 'false') + '"' +
+        ' title="눌러서 이 계열을 켜고 끕니다"' +
+        ' style="cursor:pointer;user-select:none;border-radius:8px;padding:2px 6px;margin:-2px -6px;' +
+        'transition:opacity .15s;opacity:' + (it.on ? '1' : '.34') + '">' +
+        '<div style="display:flex;align-items:center;gap:6px;font-size:12px;' +
         'color:' + dim() + ';letter-spacing:-.01em;margin-bottom:3px">' +
         '<span style="width:9px;height:9px;border-radius:2px;background:' + it.c + '"></span>' +
         it.l + '</div>' +
@@ -245,6 +252,39 @@ function tiles(ch){
           'font-variant-numeric:tabular-nums;margin-top:1px">' +
           mark + nfmt(Math.abs(d)) + '</div>') +
         '</div>';
+    });
+    /* 켜고 끄기. 그림을 먼저 바꾸고 타일 모양은 그다음이다 —
+       앞줄이 실패해도 그림은 바뀌어야 한다(기간 전환에서 배운 것과 같은 규칙). */
+    /* ⚠ 여기서 바깥의 ch 를 붙잡으면 안 된다 (2026-08-21).
+       테마 토글이나 기간 전환이 차트를 부수고 다시 만들면 클로저는 죽은 객체를 들고 있게 되고,
+       setDatasetVisibility 는 조용히 아무 일도 하지 않는다.
+       화면의 흐리기만 바뀌고 선은 그대로여서 «눌러도 안 된다»로 보인다.
+       → 캔버스 id 만 기억하고 **누를 때마다 살아 있는 차트를 다시 찾는다.** */
+    var cid = ch.canvas && ch.canvas.id;
+    function live(){
+      try { return (window.Chart && Chart.getChart) ? Chart.getChart(cid) : null; }
+      catch(e){ return null; }
+    }
+    function toggle(el){
+      var c = live(); if (!c) return;
+      var i = parseInt(el.getAttribute('data-i'), 10);
+      if (isNaN(i)) return;
+      var on = c.isDatasetVisible(i);
+      /* 마지막 하나까지 끄면 빈 차트가 된다. 그건 고장으로 보인다. */
+      var n = 0;
+      c.data.datasets.forEach(function(_, k){ if (c.isDatasetVisible(k)) n++; });
+      if (on && n <= 1) return;
+      try { c.setDatasetVisibility(i, !on); c.update(); } catch(e){}
+      try {
+        el.style.opacity = on ? '.34' : '1';
+        el.setAttribute('aria-pressed', on ? 'false' : 'true');
+      } catch(e){}
+    }
+    row.querySelectorAll('.ct-tile').forEach(function(el){
+      el.addEventListener('click', function(){ toggle(el); });
+      el.addEventListener('keydown', function(e){
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(el); }
+      });
     });
     box.parentNode.insertBefore(row, box);
   }catch(e){}
