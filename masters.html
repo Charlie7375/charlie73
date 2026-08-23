@@ -110,20 +110,36 @@ footer{margin-top:48px;border-top:1px solid var(--border);padding-top:22px;color
 .toggle{top:62px;z-index:88;position:fixed;right:18px;width:42px;height:42px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:18px}
 @media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}h1{font-size:2.05rem}}
 
-/* ── 공통 기준일 배지 ── */
-.pbadge{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:2px 0 18px;
-  font-size:.79rem;color:var(--text-secondary)}
-.pbadge b{color:var(--text);font-variant-numeric:tabular-nums}
-.pb-k{font-size:.7rem;font-weight:800;padding:2px 8px;border-radius:999px;letter-spacing:.01em}
-.pb-live{color:#047857;background:color-mix(in srgb,#059669 14%,transparent)}
-.pb-weekly{color:#1d4ed8;background:color-mix(in srgb,#2563eb 13%,transparent)}
-.pb-monthly{color:#6d28d9;background:color-mix(in srgb,#7c3aed 13%,transparent)}
-.pb-fixed{color:#475569;background:color-mix(in srgb,#64748b 15%,transparent)}
-.pb-src{opacity:.72}
-.pb-note{opacity:.55;font-size:.74rem}
-.pb-old{font-size:.7rem;font-weight:800;padding:2px 8px;border-radius:999px;
-  color:#b45309;background:color-mix(in srgb,#f59e0b 18%,transparent)}
-/* DESIGN:BEGIN */
+/* ── 제목 아래 한 줄 (좌상단 배지 폐기 후 유일한 자리) ── */
+.pauth{margin:10px 0 0;font-size:.8rem;color:var(--text-secondary);text-align:center}
+.pauth b{color:var(--text);font-variant-numeric:tabular-nums}
+
+/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
+.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
+  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
+.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
+  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
+  background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+/* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END *//* DESIGN:BEGIN */
 /* ── 숫자는 항상 고정폭 — 매일 바뀌는 값에 칸이 흔들리지 않게 ── */
 body{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
 table,.st-v,.kpi,.kpis,.pbadge b{font-variant-numeric:tabular-nums}
@@ -313,6 +329,15 @@ a.card:focus-visible,.lst-i:focus-visible{
   .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
 }
 /* LAYOUT:END */
+.dim{color:var(--mut,#94a3b8)}
+.b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
+  font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
+/* 판정 5색(b-on 로즈·b-wa 앰버·b-ob 슬레이트·b-sf 에메랄드·b-rf 회색)과 겹치지 않는 색을 쓴다.
+   기존 배지처럼 다크 대응 없이 한 색으로 양쪽에서 읽히게 채도를 높인다. */
+.b-pri{background:#4f46e5;color:#fff}
+.b-upd{background:#c7d2fe;color:#312e81}   /* b-pri 의 옅은 형제 — 둘 다 인디고 계열로 묶어
+                                              「강의 대조」 어휘임을 드러낸다. 윤곽선은 라이트
+                                              모드에서 대비 2.56 이라 채움으로 바꿨다. */
 .bg{display:inline-block;min-width:44px;text-align:center;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:800;color:#fff}
 .b-on{background:#e11d48}.b-wa{background:#f59e0b}.b-ob{background:#64748b}.b-sf{background:#059669}.b-rf{background:#94a3b8}
 .gr{display:inline-block;font-size:.68rem;font-weight:800;padding:1px 6px;border-radius:5px;margin-left:6px;
@@ -358,33 +383,7 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .hchg .ar{white-space:nowrap}
 .to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
 @media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
-
-/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
-.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
-  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END */</style>
+</style>
 <style id="MASTERS">
 .paper .mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(146px,1fr));
   gap:16px;margin:18px 0 6px}
@@ -683,7 +682,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"></head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
-  <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-nhn.html">NHN</a></div></div><div class="site-group"><button class="here" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a class="here" href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="inflation-playbook.html">인플레 시대에 무엇이 통했나</a><a href="rates-century.html">미국 금리 100년과 인플레 시대</a><a href="memory-price.html">메모리 가격과 반도체 주가</a><a href="breadth-concentration.html">신고가 쏠림배수 2023~2026</a><a href="kospi-analog.html">지금과 닮은 과거 — 유사국면</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><!-- NAV:END --></nav>
+  <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="ledger.html">판정 장부</a><a href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-nhn.html">NHN</a></div></div><div class="site-group"><button class="here" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a class="here" href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="inflation-playbook.html">인플레 시대에 무엇이 통했나</a><a href="rates-century.html">미국 금리 100년과 인플레 시대</a><a href="memory-price.html">메모리 가격과 반도체 주가</a><a href="breadth-concentration.html">신고가 쏠림배수 2023~2026</a><a href="kospi-analog.html">지금과 닮은 과거 — 유사국면</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><!-- NAV:END --></nav>
 </div></div>
 <div class="wrap paper">
 <div class="phead">
@@ -696,6 +695,133 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <div class="abstract"><p>요약. 대가들의 말은 결국 두 갈래로 모인다. 하나는 "시장은 언제나 한쪽으로 치우쳐 있다"(소로스·케인스·코스톨라니), 다른 하나는 "그 치우침의 끝에서 사고팔라"(템플턴·버핏)다. 추세추종 계보(리버모어·오닐·미너비니·와인스타인)는 그 치우침을 따라타는 기술이다. 그런데 넷 다 같은 벽에 부딪힌다. <a href="psychology.html">사람의 마음</a>이다.</p></div>
 
 <div class="mgrid"><figure class="mp"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/George_Soros%2C_Founder_and_Chairman_of_the_Open_Society_Foundations%2C_visits_the_EC_%283x4_cropped%29.jpg/330px-George_Soros%2C_Founder_and_Chairman_of_the_Open_Society_Foundations%2C_visits_the_EC_%283x4_cropped%29.jpg" alt="조지 소로스" loading="lazy"><figcaption>조지 소로스<span class="sm">1930~</span><span class="cred">사진 Aris Oikonomou / European Commission · CC BY 4.0 · <a href="https://commons.wikimedia.org/wiki/File:George_Soros,_Founder_and_Chairman_of_the_Open_Society_Foundations,_visits_the_EC_(3x4_cropped).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span></figcaption></figure><figure class="mp"><div class="ini">JT</div><figcaption>존 템플턴<span class="sm">1912~2008</span><span class="cred">위키미디어 공용에 자유 이용 사진이 없다</span></figcaption></figure><figure class="mp"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Press_photo_of_Jesse_Livermore_in_1940_%28cropped%29.jpg/330px-Press_photo_of_Jesse_Livermore_in_1940_%28cropped%29.jpg" alt="제시 리버모어" loading="lazy"><figcaption>제시 리버모어<span class="sm">1877~1940</span><span class="cred">사진 Acme Photo · Public domain · <a href="https://commons.wikimedia.org/wiki/File:Press_photo_of_Jesse_Livermore_in_1940_(cropped).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span></figcaption></figure><figure class="mp"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/John_Maynard_Keynes_%281929%29.jpg/330px-John_Maynard_Keynes_%281929%29.jpg" alt="존 메이너드 케인스" loading="lazy"><figcaption>존 메이너드 케인스<span class="sm">1883~1946</span><span class="cred">사진 Unknown · Public domain · <a href="https://commons.wikimedia.org/wiki/File:John_Maynard_Keynes_(1929).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span></figcaption></figure><figure class="mp"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Kostolany_Heller_c.jpg/330px-Kostolany_Heller_c.jpg" alt="앙드레 코스톨라니" loading="lazy"><figcaption>앙드레 코스톨라니<span class="sm">1906~1999</span><span class="cred">사진 Bennys Buidl Fabrik · CC BY-SA 4.0 · <a href="https://commons.wikimedia.org/wiki/File:Kostolany_Heller_c.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span></figcaption></figure><figure class="mp"><div class="ini">WO</div><figcaption>윌리엄 오닐<span class="sm">1933~2023</span><span class="cred">위키미디어 공용에 자유 이용 사진이 없다</span></figcaption></figure><figure class="mp"><div class="ini">MM</div><figcaption>마크 미너비니<span class="sm">1965~</span><span class="cred">위키미디어 공용에 자유 이용 사진이 없다</span></figcaption></figure><figure class="mp"><div class="ini">SW</div><figcaption>스탠 와인스타인<span class="sm">1946~</span><span class="cred">위키미디어 공용에 자유 이용 사진이 없다</span></figcaption></figure><figure class="mp"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Warren_Buffett_at_the_2015_SelectUSA_Investment_Summit_%28cropped%29.jpg/330px-Warren_Buffett_at_the_2015_SelectUSA_Investment_Summit_%28cropped%29.jpg" alt="워런 버핏" loading="lazy"><figcaption>워런 버핏<span class="sm">1930~</span><span class="cred">사진 USA International Trade Administration · Public domain · <a href="https://commons.wikimedia.org/wiki/File:Warren_Buffett_at_the_2015_SelectUSA_Investment_Summit_(cropped).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span></figcaption></figure><figure class="mp"><div class="ini">SD</div><figcaption>스탠리 드러켄밀러<span class="sm">1953~</span><span class="cred">위키미디어 공용에 자유 이용 사진이 없다</span></figcaption></figure><figure class="mp"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Jim-rogers-madrid-160610.jpg/330px-Jim-rogers-madrid-160610.jpg" alt="짐 로저스" loading="lazy"><figcaption>짐 로저스<span class="sm">1942~</span><span class="cred">사진 FDV · CC BY-SA 3.0 · <a href="https://commons.wikimedia.org/wiki/File:Jim-rogers-madrid-160610.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span></figcaption></figure></div>
+
+<h2>대가를 네 분면에 놓으면</h2>
+
+<div class="callout">
+<p>이 열한 명은 평평하게 놓이지 않는다. 이야기꾼은 시나리오투자법 3강에서
+투자 전략을 가로축 기본↔기술, 세로축 탑다운↔바텀업으로 갈라 네 분면을 만들고
+각 분면에 명인을 배치했다. 그 지도를 먼저 보면 아래 카드가 다르게 읽힌다.</p>
+</div>
+
+<figure class="fig"><div class="tblwrap"><table class="tw">
+<thead><tr><th class="n"></th>
+<th>기본: 재무·가치를 본다</th>
+<th>기술: 가격·추세를 본다</th></tr></thead>
+<tbody>
+<tr><td class="n"><b>탑다운</b><br><span class="sm">거시에서 내려온다</span></td>
+<td><b>존 템플턴</b> · <b>짐 로저스</b> · 마크 모비우스<br>
+<span class="sm">거시로 세계 경제를 읽되 매수매도는 재무를 보고 정한다</span></td>
+<td class="cur"><b>제시 리버모어</b> · <b>앙드레 코스톨라니</b> · <b>존 메이너드 케인스</b> ·
+<b>조지 소로스</b> · <b>스탠리 드러켄밀러</b><br>
+<span class="sm">★ 이야기꾼이 속한 분면. 모멘텀 기술 투자이고, 움직이는 모든 것을 벡터로 읽는다</span></td></tr>
+<tr><td class="n"><b>바텀업</b><br><span class="sm">기업에서 올라온다</span></td>
+<td><b>워런 버핏</b> · 필립 피셔 · 피터 린치 <span class="sm">(정성)</span><br>
+벤저민 그레이엄 · 월터 슐로스 · 유진 파마 <span class="sm">(정량)</span><br>
+<span class="sm">거시를 별로 보지 않고 기업의 경쟁력만 본다</span></td>
+<td><b>트레이더</b> 초단기·스윙·선물·FX<br>
+<span class="sm">강의는 이 분면에 이름을 붙이지 않았다. 다만 최고 수익률이 여기서 나왔고
+지속이 어려울 뿐이라고 적는다</span></td></tr>
+</tbody></table></div>
+<figcaption>시나리오투자법 3강 2번·5번. 굵은 이름이 이 페이지에 카드가 있는 인물이다.</figcaption></figure>
+
+<div class="callout">
+<p>열한 명 가운데 여덟 명을 강의가 직접 놓았다.
+놓지 않은 셋은 윌리엄 오닐·마크 미너비니·스탠 와인스타인이다.
+오닐은 신고가 전략으로 성공한 사람으로 이름만 나오고 분면에는 배치되지 않으며,
+미너비니와 와인스타인은 강의에 등장하지 않는다.
+축의 정의로만 보면 셋 다 바텀업 기술에 해당한다. 종목 단위로 차트를 보기 때문이다.
+그러나 강의가 그렇게 말한 것이 아니므로 추정으로 표시해 둔다.</p>
+<p>여기서 드러나는 것이 있다. 이 페이지는 탑다운 기술에 다섯 명, 바텀업 기술에 세 명이 몰려 있다.
+가치 쪽은 버핏 한 명뿐이다. 대가를 고르게 모은 목록이 아니라
+기술 전략 쪽으로 기운 목록이라는 뜻이고, 그것은 이 사이트가 서 있는 자리이기도 하다.</p>
+</div>
+
+<h3>핵심 명제: 어디를 고르느냐가 아니라 하나를 골라 제대로 하느냐다</h3>
+
+<p>강의가 이 지도를 그린 목적은 우열을 가리는 것이 아니다. 정반대다.</p>
+
+<div class="q">네 분면 투자 전략에는 <b>모두 투자 명인이 있다</b>는 점이 중요합니다.
+그 말은 어디를 선택하느냐가 답이 아니고 <b>하나를 선택해서 제대로 하느냐</b>가 답이라는 얘기죠.
+<span class="src">— 시나리오투자법 3강 2번</span></div>
+
+<p>이야기꾼은 「가치투자만이 정석」이라는 통념을 온몸으로 거부한다고 말한다.
+근거로 드는 것이 버핏의 유명한 문장이다. 좋은 종목을 적정한 가격에 사서 장기 보유하라: 좋은 종목이 무엇인지, 적정한 가격이 얼마인지, 장기가 얼마인지가 없으므로 덕담이라는 것이다.
+가치투자도 내재가치라는 알 수 없는 값을 가정한다는 점에서
+차트 투자의 목표가와 다를 것이 없다고 본다.</p>
+
+<p>같은 이야기를 반대편에서도 한다. 신저가에서 사는 전략으로 성공한 사람과
+신고가에서 사는 전략으로 성공한 사람(윌리엄 오닐)이 동시에 존재한다.
+전략의 종류가 아니라 운용의 수준이 갈랐다는 것이다.</p>
+
+<h3>전략의 유행에는 시대가 있다</h3>
+
+<p>강의는 네 분면을 그리기 전에 전략이 유행한 순서를 먼저 짚는다.
+이것이 이 페이지에서 가장 값어치 있는 대목일 수 있다.</p>
+
+<figure class="fig"><div class="tblwrap"><table class="tw">
+<thead><tr><th class="n">시기</th><th>유행한 전략</th><th>배경</th></tr></thead><tbody>
+<tr><td class="n">~1920년대</td><td>추세추종이 거의 유일했다<br>
+<span class="sm">리버모어 · 케인스 · 리카도 · 일본 쌀 선물</span></td><td>상품과 통화가 주 무대였다</td></tr>
+<tr><td class="n">1930~40년대</td><td>극도로 보수적인 정량 투자<br>
+<span class="sm">그레이엄의 꽁초 주식 · 안전마진</span></td><td>대공황과 2차 세계대전</td></tr>
+<tr><td class="n">1950년대</td><td>배당 투자</td><td>브레턴우즈 · 팍스 아메리카나 · 골디락스.
+<b>인플레 시대라 예금·채권·주식·금·원유가 다 올랐다</b></td></tr>
+<tr><td class="n">1960년대</td><td>기본 분석의 태동</td><td>필수소비재·유틸리티는 인구 증가만 알면
+수십 년 뒤 EPS가 예측됐다</td></tr>
+<tr class="cur"><td class="n">1980년대</td><td><b>두 갈래로 갈린다</b><br>
+버핏의 기본 분석 혁신 · 에드 소프의 트레이딩</td><td>소프의 무위험·통계적 차익거래가
+오늘날 시스템 퀀트와 헤지펀드의 원류다</td></tr>
+<tr><td class="n">1990년대</td><td>ROE</td><td> </td></tr>
+<tr><td class="n">2000년대~</td><td>시스템 퀀트<br><span class="sm">르네상스 테크놀로지스</span></td>
+<td> </td></tr>
+</tbody></table></div>
+<figcaption>시나리오투자법 3강 2번. 전사본에서 옮겼고 인명 표기는 원 강의 기준으로 바로잡았다.</figcaption></figure>
+
+<div class="callout" style="border-left-color:var(--dn,#dc2626)">
+<p>그래서 강의는 대가를 그대로 따르는 것을 경계한다.</p>
+<div class="q">2000년대에 워런 버핏이나 피터 린치나 필립 피셔 얘기를 하면
+<b>옛날 얘기를 하고 있는 거죠.</b> 우리가 별을 보고 굉장히 행복해하지만
+그 별은 수백만 년 전에 이미 폭파해서 없어졌을 수도 있는
+<b>별의 죽은 흔적</b>을 보고 있을 수도 있는 거예요.
+<span class="src">— 시나리오투자법 3강 2번</span></div>
+<p>이 문장이 이 사이트의 다른 페이지와 곧장 이어진다.
+<a href="methodology.html">방법론</a>에서 정리했듯 이야기꾼의 규칙 자체가
+디스인플레 40년(1981년 9월~2020년 6월)의 산물이고,
+그는 2022년 6월에 금리 시나리오도 수정이 불가피하다고 스스로 적었다.
+대가에게 적용한 경계를 자기 자신에게도 적용한 셈이다.
+시대별로 무엇이 통했는지는 <a href="inflation-playbook.html">인플레 시대에 무엇이 통했나</a>에 실측으로 있다.</p>
+</div>
+
+<h3>가치와 모멘텀은 극과 극에서 만난다</h3>
+
+<p>강의가 덧붙이는 역발상이 하나 있다. 두 전략은 중간에서는 따로 놀지만
+천장과 바닥에서는 같은 결론에 이른다는 것이다.
+2020년 바닥에서 영업이익률과 ROE로 걸러낸 우수 종목이 넘쳤고,
+같은 시점에 모멘텀 투자자도 바닥권이라고 판단했다.
+반대로 국면이 무르익으면 가치투자자가 좋아하는 종목이 씨가 마른다.</p>
+
+<figure class="fig"><div class="tblwrap"><table class="tw">
+<thead><tr><th class="n">항목</th><th>기본 가치 투자</th><th>모멘텀 기술 투자</th></tr></thead><tbody>
+<tr><td class="n">예측 대상</td><td>내재가치: 도달 가능한 최대 가격이 있다고 믿는다</td>
+<td>움직이는 모든 것. 다만 패턴을 구하기가 만만치 않다</td></tr>
+<tr><td class="n">진입</td><td>바닥을 확인하지 않고 괴리가 벌어지면 바로 산다</td>
+<td>돌아서는 추세를 확인하고 산다</td></tr>
+<tr><td class="n">하락 대응</td><td>추세에 역행해 분할 매수를 이어간다</td>
+<td>비싸도 더 비싸게 팔면 된다고 본다</td></tr>
+<tr><td class="n">타이밍</td><td>조금 일찍 들어가 조금 일찍 나온다</td>
+<td>조금 늦게 들어가 조금 늦게 나온다</td></tr>
+<tr><td class="n">선호 종목</td><td>부실주·이류주·사양업종도 마다하지 않는다</td>
+<td>패턴이 뚜렷한 성장주·우량주·대형주를 고른다</td></tr>
+<tr><td class="n">보유 기간</td><td>대체로 중장기</td><td>초단기부터 중기까지 폭이 넓다</td></tr>
+</tbody></table></div>
+<figcaption>시나리오투자법 3강 2번.</figcaption></figure>
+
+<p>왜 바텀업이 아니라 탑다운인가. 이야기꾼이 든 이유는 난이도다.
+개인이 접근할 수 있는 기업 정보는 사업보고서와 재무제표 수준이고,
+바텀업 명인들은 경영진과 직접 대화하거나 경영진을 임명하는 자리에 있다.
+개인에게는 기업의 속을 보는 것보다 거시 국면을 보는 편이 오히려 쉽다는 것이다.
+그 판단이 <a href="methodology.html">시나리오투자법</a> 전체의 출발점이 된다.</p>
 
 <h2>대가들</h2>
 <div class="mcard"><h3>조지 소로스: 재귀성 이론</h3><p class="who">George Soros · 1930~</p><p>시장은 언제나 한쪽으로 치우쳐 있다. 그리고 그 편향이 기본 가치 자체를 바꾼다.</p><p>소로스의 출발점은 "주가가 기본 가치를 수동적으로 반영한다"는 명제를 버리는 것이다. 그는 한 발 더 나간다. 주가 반영이 기본 가치와 <i>일치하는 경향이 있다</i>는 온건한 명제조차 인정하지 않는다.</p>
@@ -801,60 +927,6 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 })();
 </script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <script>/* THEME:BEGIN */
 (function(){
   var h=document.documentElement;
@@ -879,198 +951,6 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
