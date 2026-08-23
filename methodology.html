@@ -110,20 +110,36 @@ footer{margin-top:48px;border-top:1px solid var(--border);padding-top:22px;color
 .toggle{top:62px;z-index:88;position:fixed;right:18px;width:42px;height:42px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:18px}
 @media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}h1{font-size:2.05rem}}
 
-/* ── 공통 기준일 배지 ── */
-.pbadge{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:2px 0 18px;
-  font-size:.79rem;color:var(--text-secondary)}
-.pbadge b{color:var(--text);font-variant-numeric:tabular-nums}
-.pb-k{font-size:.7rem;font-weight:800;padding:2px 8px;border-radius:999px;letter-spacing:.01em}
-.pb-live{color:#047857;background:color-mix(in srgb,#059669 14%,transparent)}
-.pb-weekly{color:#1d4ed8;background:color-mix(in srgb,#2563eb 13%,transparent)}
-.pb-monthly{color:#6d28d9;background:color-mix(in srgb,#7c3aed 13%,transparent)}
-.pb-fixed{color:#475569;background:color-mix(in srgb,#64748b 15%,transparent)}
-.pb-src{opacity:.72}
-.pb-note{opacity:.55;font-size:.74rem}
-.pb-old{font-size:.7rem;font-weight:800;padding:2px 8px;border-radius:999px;
-  color:#b45309;background:color-mix(in srgb,#f59e0b 18%,transparent)}
-/* DESIGN:BEGIN */
+/* ── 제목 아래 한 줄 (좌상단 배지 폐기 후 유일한 자리) ── */
+.pauth{margin:10px 0 0;font-size:.8rem;color:var(--text-secondary);text-align:center}
+.pauth b{color:var(--text);font-variant-numeric:tabular-nums}
+
+/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
+.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
+  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
+.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
+  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
+  background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+/* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END *//* DESIGN:BEGIN */
 /* ── 숫자는 항상 고정폭 — 매일 바뀌는 값에 칸이 흔들리지 않게 ── */
 body{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
 table,.st-v,.kpi,.kpis,.pbadge b{font-variant-numeric:tabular-nums}
@@ -313,6 +329,7 @@ a.card:focus-visible,.lst-i:focus-visible{
   .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
 }
 /* LAYOUT:END */
+.dim{color:var(--mut,#94a3b8)}
 .bg{display:inline-block;min-width:44px;text-align:center;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:800;color:#fff}
 .b-on{background:#e11d48}.b-wa{background:#f59e0b}.b-ob{background:#64748b}.b-sf{background:#059669}.b-rf{background:#94a3b8}
 .gr{display:inline-block;font-size:.68rem;font-weight:800;padding:1px 6px;border-radius:5px;margin-left:6px;
@@ -359,32 +376,6 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
 @media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
 
-/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
-.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
-  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END */
 .scn{margin:6px auto 26px;max-width:1100px}
 .scn svg{width:100%;height:auto;display:block}
 .scn .px{fill:none;stroke:var(--accent,#0071e3);stroke-width:2.4;stroke-linejoin:round;stroke-linecap:round}
@@ -679,7 +670,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
+/* PAPER:END */</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"></head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-nhn.html">NHN</a></div></div><div class="site-group"><button class="here" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a class="here" href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="inflation-playbook.html">인플레 시대에 무엇이 통했나</a><a href="rates-century.html">미국 금리 100년과 인플레 시대</a><a href="memory-price.html">메모리 가격과 반도체 주가</a><a href="breadth-concentration.html">신고가 쏠림배수 2023~2026</a><a href="kospi-analog.html">지금과 닮은 과거 — 유사국면</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><!-- NAV:END --></nav>
@@ -689,12 +680,91 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 <div class="phead"><div class="eyebrow">방법론 · Methodology</div>
 <h1>방법론</h1>
-<p class="pauth">기술분석 1·2탄 강의(2024) · 고정 자료 · 시장 데이터로 갱신되지 않는다</p></div>
+<p class="pauth">기술분석 1·2탄 강의(2024) · 고정 자료 · 시장 데이터로 갱신되지 않습니다</p></div>
 <div class="sub">이 사이트의 모든 숫자는 <b>이 규칙을 확인하려고</b> 본다.
-순서는 <b>무엇을 살지</b>(오디션 피라미딩)가 먼저이고, <b>언제 사고 팔지</b>(매매 5원칙)가 그다음이다.
-규칙을 먼저 알고 지표를 보는 것과 그 반대는 전혀 다르다.</div>
+순서가 있다. <b>지금 어디인지</b>(국면 모델)를 먼저 보고, <b>무엇을 살지</b>(오디션 피라미딩),
+<b>언제 사고 팔지</b>(매매 5원칙) 순이다. 규칙을 먼저 알고 지표를 보는 것과 그 반대는 전혀 다르다.</div>
 
-<h2 style="margin-top:34px">이야기꾼의 오디션 피라미딩: 무엇을 살지</h2>
+<h2 style="margin-top:34px">국면 모델 — 지금 어디인지부터 안다</h2>
+<div class="explain" style="border-left-color:var(--risk,#b45309)">
+<b>이 절은 2026-08-24 에 더했다.</b> 아래 두 장이 「무엇을 살지」와 「언제 사고 팔지」인데,
+그 앞에 <b>「지금 어디인지」</b>가 빠져 있었다. 시나리오투자법의 순서는 국면이 먼저다.
+</div>
+<div class="explain">
+<b>지도와 나침반이다.</b> 중기 12국면이 지도이고 전조현상이 그 위에서 현재 위치를 알려주는 나침반이다.
+전조현상의 원형은 24절기다. 수학적으로 정밀하지 않지만 크게 틀리지도 않는다.
+이 「대충 맞음」의 감각이 투자라는 복잡적응계를 다루는 데 결정적이다.
+</div>
+<div class="tblwrap"><table><thead><tr><th style="width:68px">층위</th><th style="width:82px">주기</th><th style="width:84px">대표 자산</th><th>모델</th></tr></thead><tbody>
+<tr><td><b>초장기</b></td><td>약 60년</td><td>상품·물가</td><td>콘드라티예프 유사 파동. 일생에 한 번이라 실전 비중은 낮다</td></tr>
+<tr><td><b>중기</b></td><td><b>약 17년</b></td><td><b>달러</b></td><td><b>중기 12국면.</b> 한국 17년, 미국은 그 두 배인 34년</td></tr>
+<tr><td><b>단기</b></td><td>약 4년</td><td>금리</td><td><b>단기 4국면.</b> 키친 파동(40개월 재고순환)에 준한다</td></tr>
+<tr><td>초단기</td><td>—</td><td>—</td><td>단기 변동성</td></tr>
+</tbody></table></div>
+<div class="explain">
+<b>여러 층이 겹쳐 있어 육안으로는 안 보인다.</b> 진폭과 주기가 다른 파동이 겹치면 전혀 다른 모양이 된다.
+이야기꾼은 이것을 「4+4+4+4=17이다, 틀린 산수가 아니다」라고 표현한다.
+17년 중기 주기 안에 4년 단기 주기가 여러 번 중첩돼 있다는 뜻이다.
+</div>
+<h3>강의 이후 달라진 것 — 주간 리포트 195편에서 확인한 갱신</h3>
+<div class="explain">
+<b>이 모델은 2020~21년 강의에서 정립됐지만 그 뒤로 멈춰 있지 않다.</b>
+주간 리포트 195편(2021~2026)을 훑어 확인한 갱신은 세 가지다.
+</div>
+<div class="tblwrap"><table><thead><tr><th style="width:104px">무엇</th><th style="width:86px">출처</th><th>내용</th></tr></thead><tbody>
+<tr><td><b>용어가 바뀌었다</b></td><td>2021 이후</td>
+<td>「12국면」이라는 말이 리포트에서 사라진다. 2021년에 한 번 나오고 그 뒤로 없다.
+대신 <b>「N기 + 사계절」</b>(7기 봄, 6기 여름)과 <b>「순환주기」</b>를 쓴다.
+같은 모델을 다른 이름으로 부르는 것이다</td></tr>
+<tr><td><b>QE가 주기를 줄였다</b></td><td>2022-03 W11</td>
+<td>「7기 봄 국면은 <b>QE로 순환주기가 짧아지면서</b> 2004-2006년 한 번만 있었다」.
+2026-01 W02 에서도 「이번 7기 봄 국면은 순환주기가 짧아지면서 <b>지난 1998년 이후 27년 만에</b> 다시 보게 됐다」고 적는다</td></tr>
+<tr><td><b>짧을수록 덜 맞는다</b></td><td>2026-04 W16</td>
+<td>10년 주기를 4년 임기, 1년 월별, 한 달 4주, 한 주 5거래일로 내려도 모양이 비슷하다.
+<b>「다만 순환주기가 짧아질수록 재현성이 떨어질 뿐이다」</b>.
+프랙탈은 성립하되 <b>짧은 층일수록 신뢰도가 낮다</b>는 단서가 붙었다</td></tr>
+</tbody></table></div>
+<div class="explain">
+<b>유지되는 것도 분명하다.</b> 2024-08 W32 에서 「중기 순환주기의 <b>매직넘버 17년 전후</b>」라 쓰고
+한국 국면을 「3겨울2」로 표기한다. 미국 34년 주기도 2026-01 에 「34년에 한 번씩 돌아오는 미국 증시 가을 국면」으로 나온다.
+<b>뼈대는 그대로이고 배율과 신뢰도에 단서가 붙은 것이다.</b>
+</div>
+<div class="explain" style="border-left-color:var(--up,#16a34a)">
+<b>본인이 말하는 현재 위치</b> — 2026년 7월 회원방에서 「2012년 이래 시작된 <b>7기 파티가 끝나가고 있다</b>」,
+「지금이 <b>가을 국면의 끝자락</b>이고 곧 무시무시한 중공황이 온다」고 적었다.
+같은 달 「올해 말이나 내년 초에 귀가할 준비를 하는 게 좋겠다」고 덧붙인다.
+</div>
+
+<h3>버블의 사계절</h3>
+<div class="explain">
+엘리어트 파동의 <b>모양만</b> 차용한다. 피보나치 같은 기술적 해석은 쓰지 않는다.
+</div>
+<div class="tblwrap"><table><thead><tr><th style="width:90px">국면</th><th style="width:230px">확인 방법</th><th>성격</th></tr></thead><tbody>
+<tr><td><b>봄</b></td><td>상승 1파·2파</td><td>차분의 시대. 평균회귀가 작동해 중장기 보유가 유리하다</td></tr>
+<tr><td><b>여름</b></td><td><b>역사적 신고가 경신</b>으로 봄과 갈린다</td><td>흥분의 시대. 추세추종이 통한다</td></tr>
+<tr><td><b>가을</b></td><td><b>상승 각도가 급증</b>하는 지점부터</td><td>이 구간에서 천정이 만들어진다</td></tr>
+<tr><td><b>겨울</b></td><td>천정 박스권 하단 이탈로 <b>사후</b> 확인</td><td>B트랩(가짜 반등)이 나온다</td></tr>
+</tbody></table></div>
+<div class="explain">
+<b>기간과 상승폭은 정확히 알 수 없다.</b> 미국 기준으로 봄+겨울이 대략 17년, 여름+가을이 대략 17년이다.
+이 불확실성 때문에 중장기 투자를 권하는 것이다.
+</div>
+
+<div class="explain" style="border-left-color:var(--dn,#dc2626)">
+<b>⚠ 이 모델은 디스인플레 시대에서 만들어졌다.</b>
+디스인플레 시대는 1981-09부터 2020-06까지 38.8년이고 그 뒤는 인플레 시대다.
+코스피 546개월 가운데 466개월(85%)이 디스인플레이므로,
+여기서 「과거 패턴」이라 부르는 것은 대부분 그 40년의 산물이다.
+<b>이야기꾼 본인이 먼저 말했다</b> — 「1980년 이후 40년 간 디플레이션 시대였고
+금리 시나리오에 단 한 번도 예외가 없었던 것이다. 금리 시나리오도 수정이 불가피할 것이다」(2022-06-05).
+<br><br>
+<b>다만 「그래서 틀렸다」로 읽으면 그것도 오류다.</b> 새 시대의 자료로 옛 시대의 규칙을 채점하는 것은
+자를 잘못 대는 것이다. 물어야 할 것은 「맞았나」가 아니라 <b>「어느 부분이 시대를 건너오는가」</b>다.
+실측은 <a href="fed-kospi.html">연준 기준금리와 증시</a>와
+<a href="inflation-playbook.html">인플레 시대에 무엇이 통했나</a>에 있다.
+</div>
+
+<h2 style="margin-top:34px">이야기꾼의 오디션 피라미딩 — 무엇을 살지</h2>
 <div class="explain" style="border-left-color:var(--risk,#b45309)">
 <b>고안·정립: 이야기꾼</b> — 아래 절차는 이야기꾼이 시나리오투자법에서 정립한 종목 선정법이며,
 이 사이트는 그 절차를 실데이터로 매일 돌려 결과를 기록하는 곳이다.
@@ -723,7 +793,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 현재 진행 중인 오디션은 <a href="audition.html">오디션 피라미딩</a>에서 매일 갱신된다.
 </div>
 
-<h2 style="margin-top:44px">이야기꾼의 매매 5원칙: 언제 사고 팔지</h2>
+<h2 style="margin-top:44px">이야기꾼의 매매 5원칙 — 언제 사고 팔지</h2>
 
 <div class="explain">
 <b>근거가 바뀌었다.</b> 이 페이지의 이전 판은 회원방 어록에서 역산한 <b>추론</b>이었다.
@@ -782,14 +852,14 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 이야기꾼은 그것을 <b>미너비니도 매수가 더 중요하다는 걸 알고 있다는 증거</b>로 읽는다.
 </div>
 
-<h3 style="margin-top:38px;font-size:18px">세 개의 선: 이 방법론에서 가장 실전적인 장치</h3>
+<h3 style="margin-top:38px;font-size:18px">세 개의 선 — 이 방법론에서 가장 실전적인 장치</h3>
 <div class="explain">
 이동평균 세 개가 <b>각각 다른 역할</b>을 맡는다. 같은 '이탈'이라도 어느 선이냐에 따라 행동이 다르다.
 </div>
 <div class="tblwrap"><table><thead><tr><th style="width:150px">선</th><th style="width:120px">역할</th><th>이탈 시</th></tr></thead><tbody>
 <tr><td><b>5일선</b></td><td>보험료</td><td><b>10% 현금화</b>, 더 빠지면 또 10%</td></tr>
 <tr><td><b>20일선</b></td><td>방어선</td><td><b>절반</b> 매도</td></tr>
-<tr><td><b>20주선</b></td><td>생사선</td><td><b>전량</b> "묻지도 따지지도 않고"</td></tr>
+<tr><td><b>20주선</b></td><td>생사선</td><td><b>전량</b> — "묻지도 따지지도 않고"</td></tr>
 </tbody></table></div>
 <div class="scn"><svg viewBox="0 0 1100 300" role="img" aria-label="세 개의 이동평균선과 계단식 현금화 비중"><text class="ttl" x="0" y="16">계단식 현금화 — 선을 하나씩 잃을 때마다</text><text class="cap" x="0" y="34">막대 높이 = 누적 현금 비중 · 아래로 갈수록 지키는 선이 굵어진다</text><g transform="translate(0,52)"><rect x="60" y="184" width="150" height="6" rx="6" fill="var(--text3,#86868b)" opacity=".16"/><rect x="60" y="184" width="150" height="3" rx="1.5" fill="var(--text3,#86868b)"/><text class="wt" x="135" y="174" text-anchor="middle" style="fill:var(--text3,#86868b);font-size:15px">0%</text><text class="lb" x="135" y="212" text-anchor="middle">정상</text><text class="cap" x="135" y="230" text-anchor="middle">세 선 위</text><rect x="255" y="175" width="150" height="15" rx="6" fill="var(--risk,#b45309)" opacity=".16"/><rect x="255" y="175" width="150" height="3" rx="1.5" fill="var(--risk,#b45309)"/><text class="wt" x="330" y="165" text-anchor="middle" style="fill:var(--risk,#b45309);font-size:15px">10%</text><text class="lb" x="330" y="212" text-anchor="middle">5일선 붕괴</text><text class="cap" x="330" y="230" text-anchor="middle">보험료</text><rect x="450" y="159" width="150" height="31" rx="6" fill="var(--risk,#b45309)" opacity=".16"/><rect x="450" y="159" width="150" height="3" rx="1.5" fill="var(--risk,#b45309)"/><text class="wt" x="525" y="149" text-anchor="middle" style="fill:var(--risk,#b45309);font-size:15px">20%</text><text class="lb" x="525" y="212" text-anchor="middle">또 붕괴</text><text class="cap" x="525" y="230" text-anchor="middle">보험료 재차</text><rect x="645" y="113" width="150" height="77" rx="6" fill="var(--dn,#1161c4)" opacity=".16"/><rect x="645" y="113" width="150" height="3" rx="1.5" fill="var(--dn,#1161c4)"/><text class="wt" x="720" y="103" text-anchor="middle" style="fill:var(--dn,#1161c4);font-size:15px">50%</text><text class="lb" x="720" y="212" text-anchor="middle">20일선 이탈</text><text class="cap" x="720" y="230" text-anchor="middle">방어선 — 절반</text><rect x="860" y="35" width="150" height="155" rx="6" fill="var(--up,#d21f3c)" opacity=".16"/><rect x="860" y="35" width="150" height="3" rx="1.5" fill="var(--up,#d21f3c)"/><text class="wt" x="935" y="25" text-anchor="middle" style="fill:var(--up,#d21f3c);font-size:15px">100%</text><text class="lb" x="935" y="212" text-anchor="middle">20주선 이탈</text><text class="cap" x="935" y="230" text-anchor="middle">생사선 — 전량</text><line class="gl" x1="40" y1="190" x2="1070" y2="190"/><text class="cap" x="1070" y="260" text-anchor="end">20일선에 닿을 때쯤이면 이미 30%가 현금이다 — 판단이 아니라 절차</text></g></svg></div>
 <div class="explain">
@@ -807,12 +877,12 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 변동성이 큰 중소형주는 20일선을 수시로 들락거리므로, 한 단계 긴 <b>20주선</b>으로 갈아탄다.
 </div>
 
-<h3 style="margin-top:38px;font-size:18px">바닥 7단계: 매수의 기술적 시나리오</h3>
+<h3 style="margin-top:38px;font-size:18px">바닥 7단계 — 매수의 기술적 시나리오</h3>
 <div class="scn"><svg viewBox="0 0 1100 352" role="img" aria-label="바닥 7단계 — 매수의 기술적 시나리오"><text class="ttl" x="0" y="16">바닥 7단계 — 매수의 기술적 시나리오</text><text class="cap" x="0" y="34">점선 = 20주 이평선(생명선) · 숫자 = 단계 · 아래 = 주식 비중</text><g transform="translate(0,48)"><rect class="zn" x="30" y="150" width="380" height="130" fill="var(--dn,#1161c4)"/><line class="gl" x1="0" y1="40" x2="1100" y2="40" opacity=".45"/><line class="gl" x1="0" y1="110" x2="1100" y2="110" opacity=".45"/><line class="gl" x1="0" y1="180" x2="1100" y2="180" opacity=".45"/><line class="gl" x1="0" y1="250" x2="1100" y2="250" opacity=".45"/><path class="ma" d="M40,140 L200,190 L340,224 L430,232 L520,230 L620,222 L720,206 L820,180 L920,146 L1060,112"/><path class="px" d="M40,110 L90,150 L120,120 L160,190 L195,160 L235,232 L275,205 L320,238 L360,214 L410,196 L455,205 L500,190 L545,198 L590,186 L640,192 L690,168 L740,150 L800,120 L870,88 L940,58 L1010,44 L1060,40"/><circle cx="160" cy="190" r="11" fill="var(--dn,#1161c4)"/><text class="num" x="160" y="194" text-anchor="middle">1</text><circle cx="410" cy="196" r="11" fill="var(--dn,#1161c4)"/><text class="num" x="410" y="200" text-anchor="middle">2</text><circle cx="500" cy="190" r="11" fill="var(--up,#d21f3c)"/><text class="num" x="500" y="194" text-anchor="middle">3</text><circle cx="590" cy="186" r="11" fill="var(--up,#d21f3c)"/><text class="num" x="590" y="190" text-anchor="middle">4</text><circle cx="640" cy="192" r="11" fill="var(--up,#d21f3c)"/><text class="num" x="640" y="196" text-anchor="middle">5</text><circle cx="700" cy="170" r="11" fill="var(--up,#d21f3c)"/><text class="num" x="700" y="174" text-anchor="middle">6</text><circle cx="870" cy="88" r="11" fill="var(--up,#d21f3c)"/><text class="num" x="870" y="92" text-anchor="middle">7</text><line class="gl" x1="160" y1="252" x2="160" y2="257" opacity=".35"/><text class="cap" x="160" y="268" text-anchor="middle">공포의 삼각지</text><line class="gl" x1="410" y1="252" x2="410" y2="257" opacity=".35"/><text class="cap" x="410" y="268" text-anchor="middle">20일선 통과</text><line class="gl" x1="500" y1="252" x2="500" y2="274" opacity=".35"/><text class="cap" x="500" y="285" text-anchor="middle">20주선 돌파</text><line class="gl" x1="600" y1="252" x2="600" y2="257" opacity=".35"/><text class="cap" x="600" y="268" text-anchor="middle">거래량 폭발</text><line class="gl" x1="660" y1="252" x2="660" y2="274" opacity=".35"/><text class="cap" x="660" y="285" text-anchor="middle">20주선 평평</text><line class="gl" x1="730" y1="252" x2="730" y2="257" opacity=".35"/><text class="cap" x="730" y="268" text-anchor="middle">물이 고인다</text><line class="gl" x1="880" y1="252" x2="880" y2="274" opacity=".35"/><text class="cap" x="880" y="285" text-anchor="middle">상승</text><text class="wt" x="500" y="246" text-anchor="middle">30%</text><text class="wt" x="700" y="246" text-anchor="middle">50%</text><text class="wt" x="940" y="246" text-anchor="middle">100%</text></g></svg></div>
 <div class="tblwrap"><table><thead><tr><th style="width:60px">단계</th><th>신호</th><th style="width:120px">주식 비중</th></tr></thead><tbody>
-<tr><td>1</td><td>공포의 삼각지: 투매가 최소 2번은 나와야 끝난다</td><td>0%</td></tr>
+<tr><td>1</td><td>공포의 삼각지 — 투매가 최소 2번은 나와야 끝난다</td><td>0%</td></tr>
 <tr><td>2</td><td>20일선을 가볍게 통과</td><td>0%</td></tr>
-<tr><td>3</td><td><b>20주선 돌파</b> 여기서 프로세스가 시작된다</td><td><b>30%</b></td></tr>
+<tr><td>3</td><td><b>20주선 돌파</b> — 여기서 프로세스가 시작된다</td><td><b>30%</b></td></tr>
 <tr><td>4</td><td>거래량 폭발 동반 → 신뢰도가 크게 오른다</td><td>증가</td></tr>
 <tr><td>5</td><td>20주선이 <b>평평해진다</b></td><td>증가</td></tr>
 <tr><td>6</td><td><b>물이 고인다</b></td><td>증가</td></tr>
@@ -836,7 +906,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <div class="tblwrap"><table><thead><tr><th>바닥</th><th>천장</th></tr></thead><tbody>
 <tr><td>공포의 삼각지</td><td><b>탐욕의 삼각지</b></td></tr>
 <tr><td>20주선 <b>상향</b> 돌파</td><td>20주선 <b>하향</b> 돌파</td></tr>
-<tr><td>VCP: 변동성 <b>수축</b></td><td><b>역VCP</b> 변동성 <b>확대</b></td></tr>
+<tr><td>VCP — 변동성 <b>수축</b></td><td><b>역VCP</b> — 변동성 <b>확대</b></td></tr>
 <tr><td>피벗 돌파 → 매수</td><td><b>역피벗</b> → 전량 매도</td></tr>
 </tbody></table></div>
 <div class="explain">
@@ -849,7 +919,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 1탄의 핵심이다. <b>국면에 따라 완전히 다른 도구를 쓴다.</b>
 </div>
 <div class="tblwrap"><table><thead><tr><th style="width:130px"></th><th>박스권 (80%)</th><th>추세권 (20%)</th></tr></thead><tbody>
-<tr><td>지배 법칙</td><td>평균회귀: 오르면 떨어진다</td><td>추세추종: 오르면 더 오른다</td></tr>
+<tr><td>지배 법칙</td><td>평균회귀 — 오르면 떨어진다</td><td>추세추종 — 오르면 더 오른다</td></tr>
 <tr><td>뉴턴</td><td>작용·반작용</td><td>관성·가속도</td></tr>
 <tr><td>도구</td><td>오실레이터 (MACD·RSI·스토캐스틱)</td><td>추세선·차트 패턴·이평선</td></tr>
 </tbody></table></div>
@@ -861,12 +931,12 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 주가가 계속 오르는 동안 RSI는 계속 단진동하기 때문이다.
 </div>
 
-<h3 style="margin-top:34px;font-size:18px">거래량: 용도는 하나뿐</h3>
+<h3 style="margin-top:34px;font-size:18px">거래량 — 용도는 하나뿐</h3>
 <div class="explain">
 거래량으로 방향을 맞히지 않는다. <b>추세 변화의 신뢰도</b>만 판정한다.
 </div>
 <div class="tblwrap"><table><thead><tr><th>상황</th><th>해석</th></tr></thead><tbody>
-<tr><td>상승추세 중 대량 거래 + 20주선 위협</td><td><b>위험</b> 추세 전환 가능성</td></tr>
+<tr><td>상승추세 중 대량 거래 + 20주선 위협</td><td><b>위험</b> — 추세 전환 가능성</td></tr>
 <tr><td>하락추세 중 반등에 거래량 없음</td><td>추세 안 바뀜 → 더 하락</td></tr>
 <tr><td>바닥권 대량 거래 + 20주선 상향 돌파 + 물 고임</td><td><b>추세 전환 신뢰</b></td></tr>
 </tbody></table></div>
@@ -881,7 +951,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 1번 원칙이 5원칙의 맨 앞에 있는 이유이고, <a href="jeonjo.html">중공황 전조현상</a>을 매주 세는 이유다.
 </div>
 
-<h3 style="margin-top:34px;font-size:18px">미너비니와의 대조: 같은 것을 다르게 부를 뿐</h3>
+<h3 style="margin-top:34px;font-size:18px">미너비니와의 대조 — 같은 것을 다르게 부를 뿐</h3>
 <div class="tblwrap"><table><thead><tr><th>이야기꾼</th><th>미너비니</th><th>다바스 · 오닐 · 리버모어</th></tr></thead><tbody>
 <tr><td><b>물이 고인다</b></td><td>VCP (변동성 수축)</td><td>박스권 형성</td></tr>
 <tr><td>돌파 지점</td><td>피벗</td><td>박스 상단 돌파</td></tr>
@@ -903,6 +973,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 </div>
 
 </div>
+<div class="wrap"><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="jeonjo.html">중공황 전조현상</a> — 강의가 압축한 전조 열 가지가 지금 28종의 어디로 갔는지 대조한 자리다. 열 가지 중 둘은 아직 칸이 없다.</p><p><a href="fed-kospi.html">연준 기준금리와 증시</a> — 이 방법론의 금리 3가설을 실측으로 가른 자리다. 「뜬금없는 선제적 인하」만 강하게 지지되고 「세 번째 인상」은 기각에 가깝다.</p><p><a href="inflation-playbook.html">인플레 시대에 무엇이 통했나</a> — ⚠ 이 강의가 디스인플레 시대의 산물이라는 단서의 근거다. 시대가 바뀌면 무엇이 통했는지가 자산별로 갈린다.</p><p><a href="jeoji-kospi.html">제오지산수와 코스피</a> — 전조 Top 10 의 7번을 코스피 시계열로 검증한 자리다. 강의가 이름 붙인 개념 가운데 실측이 가장 두껍다.</p><p><a href="audition.html">오디션 피라미딩</a> — 방법론 Ⅱ장의 매매 절차가 매일 돌아가는 화면이다. 후보 선정부터 비중 조절까지가 여기서 자동으로 집계된다.</p><p><a href="bottom-top.html">바닥·천장 추적 분석</a> — 국면 판단을 날짜 단위로 좁히는 자리다. 방법론이 「어디인지」를 말한다면 이쪽은 「지금 그 자리가 맞는지」를 매일 검산한다.</p></div><!--RELATED:END--></div>
 <footer>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.
     · 근거: 이야기꾼 주간 시투 보고서(W31·2026-08-01) 및 자체 실측.</footer>
 </div>
@@ -925,60 +996,6 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   document.addEventListener('click',function(){gs.forEach(function(x){x.classList.remove('on')})});
 })();
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <script>/* THEME:BEGIN */
 (function(){
@@ -1004,190 +1021,6 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
