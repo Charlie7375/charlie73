@@ -109,37 +109,7 @@ h2.sec{font-size:1.25rem;font-weight:700;margin-top:44px;letter-spacing:-.02em}
 footer{margin-top:48px;border-top:1px solid var(--border);padding-top:22px;color:var(--text-secondary);font-size:.82rem;line-height:1.7}
 .toggle{top:62px;z-index:88;position:fixed;right:18px;width:42px;height:42px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:18px}
 @media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}h1{font-size:2.05rem}}
-
-/* ── 제목 아래 한 줄 (좌상단 배지 폐기 후 유일한 자리) ── */
-.pauth{margin:10px 0 0;font-size:.8rem;color:var(--text-secondary);text-align:center}
-.pauth b{color:var(--text);font-variant-numeric:tabular-nums}
-
-/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
-.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
-  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END *//* DESIGN:BEGIN */
+/* DESIGN:BEGIN */
 /* ── 숫자는 항상 고정폭 — 매일 바뀌는 값에 칸이 흔들리지 않게 ── */
 body{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
 table,.st-v,.kpi,.kpis,.pbadge b{font-variant-numeric:tabular-nums}
@@ -329,6 +299,48 @@ a.card:focus-visible,.lst-i:focus-visible{
   .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
 }
 /* LAYOUT:END */
+/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
+.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
+  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
+.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
+  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
+  background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+/* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END */
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
+
+.dim{color:var(--mut,#94a3b8)}
+.b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
+  font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
+/* 판정 5색(b-on 로즈·b-wa 앰버·b-ob 슬레이트·b-sf 에메랄드·b-rf 회색)과 겹치지 않는 색을 쓴다.
+   기존 배지처럼 다크 대응 없이 한 색으로 양쪽에서 읽히게 채도를 높인다. */
+.b-pri{background:#4f46e5;color:#fff}
+.b-upd{background:#c7d2fe;color:#312e81}   /* b-pri 의 옅은 형제 — 둘 다 인디고 계열로 묶어
+                                              「강의 대조」 어휘임을 드러낸다. 윤곽선은 라이트
+                                              모드에서 대비 2.56 이라 채움으로 바꿨다. */
 .bg{display:inline-block;min-width:44px;text-align:center;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:800;color:#fff}
 .b-on{background:#e11d48}.b-wa{background:#f59e0b}.b-ob{background:#64748b}.b-sf{background:#059669}.b-rf{background:#94a3b8}
 .gr{display:inline-block;font-size:.68rem;font-weight:800;padding:1px 6px;border-radius:5px;margin-left:6px;
@@ -377,21 +389,14 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 .ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
- margin:16px 0 22px;background:var(--surface)}
+ margin:22px 0 24px;background:var(--surface);text-align:left}
 .ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
- color:var(--text-secondary);margin-bottom:7px}
+ color:var(--text-secondary);margin-bottom:7px;text-align:left}
 .ptoc ol{margin:0;padding-left:19px;line-height:1.8}
 .ptoc li{font-size:.9rem}
 .ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
 .ptoc a:hover{border-bottom-color:var(--text-secondary)}
 @media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 /*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
@@ -412,13 +417,7 @@ h2[id],h3[id],[id]:target{scroll-margin-top:92px}
 .ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
 .ptoc a:hover{border-bottom-color:var(--text-secondary)}
 @media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*/</style><style id="freqcss">
-.freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
- padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
- border:1px solid currentColor;opacity:.85}
-.freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
-.freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
-/* PAPER:BEGIN */
+/*TOCCSS:END*//* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -688,8 +687,14 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style>
-<!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"></head><body>
+/* PAPER:END */</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><style id="freqcss">
+.freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
+ padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
+ border:1px solid currentColor;opacity:.85}
+.freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
+.freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
+</style>
+</head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="ledger.html">판정 장부</a><a href="rules-scored.html">원칙 채점</a><a href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-nhn.html">NHN</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="here" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="inflation-playbook.html">인플레 시대에 무엇이 통했나</a><a href="rates-century.html">미국 금리 100년과 인플레 시대</a><a href="memory-price.html">메모리 가격과 반도체 주가</a><a href="breadth-concentration.html">신고가 쏠림배수 2023~2026</a><a href="kospi-analog.html">지금과 닮은 과거 — 유사국면</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a class="here" href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><!-- NAV:END --></nav>
@@ -704,7 +709,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <p class="pauth">기준일 2026-08-01 · KB증권 해외 일봉(GSC10060) · SK하이닉스 일별시세 · 매일 갱신</p>
 </div>
 
-<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>미국이 하이닉스를 끌고 간다는 말은 절반만 맞다. 마이크론과 견주면 미국이 주는 정보와 하이닉스가 주는 정보의 비가 79퍼센트로 대등하다. 상대에 따라 이 비율이 54퍼센트까지 떨어지는 것이 이 글의 질문이다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#먼저-두-번-보정했다">먼저, 두 번 보정했다</a></li><li><a href="#양방향">양방향</a></li><li><a href="#무엇이-비대칭을-가르는가">무엇이 비대칭을 가르는가?</a></li><li><a href="#시차-프로파일-관계가-진짜라는-증거">시차 프로파일: 관계가 진짜라는 증거</a></li><li><a href="#대리-지표를-썼고-검증했다">대리 지표를 썼고, 검증했다</a></li><li><a href="#어떻게-쓸-것인가">어떻게 쓸 것인가</a></li></ol></div><!--TOC:END--><div class="disclaimer">
+<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>미국이 하이닉스를 끌고 간다는 말은 절반만 맞다. 마이크론과 견주면 미국이 주는 정보와 하이닉스가 주는 정보의 비가 79퍼센트로 대등하다. 상대에 따라 이 비율이 54퍼센트까지 떨어지는 것이 이 글의 질문이다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#먼저-두-번-보정했습니다">먼저, 두 번 보정했다</a></li><li><a href="#양방향">양방향</a></li><li><a href="#무엇이-비대칭을-가르는가">무엇이 비대칭을 가르는가</a></li><li><a href="#시차-프로파일-관계가-진짜라는-증거">시차 프로파일: 관계가 진짜라는 증거</a></li><li><a href="#대리-지표를-썼고-검증했습니다">대리 지표를 썼고, 검증했다</a></li><li><a href="#어떻게-쓸-것인가">어떻게 쓸 것인가</a></li></ol></div><!--TOC:END--><div class="disclaimer">
 <p>결론부터. '미국이 하닉을 끌고 간다'는 절반만 맞다.
 가장 관계가 센 마이크론을 보면 미국이 하닉에 주는 정보가 0.449,
 하닉이 미국에 주는 정보가 0.356: 79%이다.
@@ -713,7 +718,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 무엇이 이 차이를 만드는가? 그것이 이 글의 질문이다.</p>
 </div>
 
-<h2 id="먼저-두-번-보정했다">먼저, 두 번 보정했다</h2>
+<h2 id="먼저-두-번-보정했습니다">먼저, 두 번 보정했다</h2>
 <h3>하나. 시차를 어떻게 세는가?</h3>
 <p>미국장은 한국장이 끝난 뒤에 열린다. 한국이 15:30에 마감하면 미국은 그날 밤에 움직인다.
 그래서 달력상 같은 날로 짝지으면 그건 '미국이 앞섰다'가 아니라
@@ -767,7 +772,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <figcaption>음수 시차가 전부 0 근처라는 것은 하닉의 영향이 그날 밤 안에 소진된다는 뜻이다.
 하루 이상은 끌지 못한다.</figcaption></figure>
 
-<h2 id="대리-지표를-썼고-검증했다">대리 지표를 썼고, 검증했다</h2>
+<h2 id="대리-지표를-썼고-검증했습니다">대리 지표를 썼고, 검증했다</h2>
 <div class="disclaimer">
 <p>필라델피아 반도체 지수(SOX)는 KB API가 최신 1행만 준다.
 과거 시계열이 없으면 상관을 낼 수 없어 미국 상장 반도체 ETF를 대신 받았다.</p>
@@ -830,7 +835,7 @@ function draw(c){
 CFG.forEach(draw);
 })();
 </script>
-<div class="wrap"><!--TOPICNEWS:BEGIN--><style id="tnewscss">.tnews{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 10px;margin:34px 0 10px}.tnews h3{margin:0 0 10px;font-size:1.02rem}.tnews table{width:100%;border-collapse:collapse;font-size:.9rem}.tnews td{padding:5px 8px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}.tnews td.d{white-space:nowrap;color:var(--text-secondary)}.tnews p.cap{margin:10px 0 8px;font-size:.8rem;color:var(--text-secondary);line-height:1.6}</style><div class="tnews"><h3>관련 뉴스 · 반도체</h3><div class="tblwrap"><table><tbody><tr><td class="d">08/21</td><td class="d">뉴스핌</td><td><a href="https://search.naver.com/search.naver?where=news&query=%EC%97%98%EB%A6%AC%EC%8A%A4%EA%B7%B8%EB%A3%B9%2C%20%EC%BD%94%EC%8A%A4%EB%8B%A5%20%EC%83%81%EC%9E%A5%20%EC%B0%A9%EC%88%98%E2%80%A6%EA%B3%B5%EB%AA%A8%20%EC%B5%9C%EB%8C%80%202011%EC%96%B5" target="_blank" rel="noopener nofollow">엘리스그룹, 코스닥 상장 착수…공모 최대 2011억</a></td></tr><tr><td class="d">08/21</td><td class="d">IRGO</td><td><a href="https://search.naver.com/search.naver?where=news&query=%5BIR%EC%9D%BC%EC%A0%95%5D%20%EC%82%BC%EC%96%91%EC%97%94%EC%94%A8%EC%BC%90%2C%202026%EB%85%84%202%EB%B6%84%EA%B8%B0%20%EA%B2%BD%EC%98%81%EC%8B%A4%EC%A0%81" target="_blank" rel="noopener nofollow">[IR일정] 삼양엔씨켐, 2026년 2분기 경영실적</a></td></tr><tr><td class="d">08/21</td><td class="d">파이낸셜</td><td><a href="https://search.naver.com/search.naver?where=news&query=%EB%B6%80%EC%82%B0%20%27%EB%B6%80%EA%B2%BD%EA%B2%BD%EB%A7%88%EA%B3%B5%EC%9B%90%EC%97%AD%20%EB%94%94%EC%97%90%ED%8A%B8%EB%A5%B4%20%EB%8D%94%20%EB%A6%AC%EB%B2%84%27%20%EC%9E%94%EC%97%AC%20%EC%84%B8%EB%8C%80%20%EB%AA%A8%EC%A7%91" target="_blank" rel="noopener nofollow">부산 '부경경마공원역 디에트르 더 리버' 잔여 세대 모집</a></td></tr><tr><td class="d">08/21</td><td class="d">뉴스핌</td><td><a href="https://search.naver.com/search.naver?where=news&query=%5B%ED%95%8Cin%EC%9E%A0%EC%8B%A4%5D%20%27ERA%202.53%27%20%EB%91%90%EC%82%B0%20%EB%B2%A4%EC%9E%90%EB%AF%BC%2C%20%EC%99%BC%EC%AA%BD%20%EC%96%B4%EA%B9%A8%20%EB%B6%88%ED%8E%B8%EC%9C%BC%EB%A1%9C%201%EA%B5%B0%20%EC%97%94%ED%8A%B8%EB%A6%AC%20%EB%A7%90%EC%86%8C" target="_blank" rel="noopener nofollow">[핌in잠실] 'ERA 2.53' 두산 벤자민, 왼쪽 어깨 불편으로 1군 엔트리 말소</a></td></tr><tr><td class="d">08/21</td><td class="d">서울경제</td><td><a href="https://search.naver.com/search.naver?where=news&query=%E2%80%98%EC%82%AC%EC%9D%B4%EB%93%9C%EC%B9%B4%2081%EB%B2%88%E2%80%99%20%EC%9A%B8%EB%A6%B0%20%ED%98%84%EA%B8%B0%EC%A6%9D%20%EC%A6%9D%EC%8B%9C%EC%97%90%E2%80%A6%E7%BE%8E%EC%9E%A5%ED%88%AC%EB%A1%9C%20%EA%B0%88%EC%95%84%ED%83%80%EB%8A%94%20%EA%B0%9C%EB%AF%B8%EB%93%A4" target="_blank" rel="noopener nofollow">‘사이드카 81번’ 울린 현기증 증시에…美장투로 갈아타는 개미들</a></td></tr><tr><td class="d">08/21</td><td class="d">서울경제</td><td><a href="https://search.naver.com/search.naver?where=news&query=%EC%82%BC%EC%84%B1%EC%A0%84%EA%B8%B0%20%EC%A3%BC%EC%A3%BC%EC%88%98%EC%9D%B5%EB%A5%A0%20755%25%20%EC%B5%9C%EA%B3%A0%E2%80%A6%EC%82%BC%EC%84%B1%EB%B0%94%EC%9D%B4%EC%98%A4%3FLG%EC%97%94%EC%86%94%20%EC%86%90%EC%8B%A4" target="_blank" rel="noopener nofollow">삼성전기 주주수익률 755% 최고…삼성바이오?LG엔솔 손실</a></td></tr><tr><td class="d">08/21</td><td class="d">파이낸셜</td><td><a href="https://search.naver.com/search.naver?where=news&query=%EC%A0%9C%EC%A3%BC%EB%8C%80%20726%EB%AA%85%20%EC%83%88%20%EC%B6%9C%EB%B0%9C%E2%80%A6%20%EC%96%91%EB%8D%95%EC%88%9C%20%EC%B4%9D%EC%9E%A5%20%22%EC%98%A4%EB%8A%98%EC%9D%80%20%EC%9D%B8%EC%83%9D%EC%9D%98%20%EC%B6%9C%ED%95%AD%EC%8B%9D%22" target="_blank" rel="noopener nofollow">제주대 726명 새 출발… 양덕순 총장 "오늘은 인생의 출항식"</a></td></tr><tr><td class="d">08/21</td><td class="d">코스닥 공시</td><td><a href="https://search.naver.com/search.naver?where=news&query=%EC%97%90%EC%8A%A4%EC%BC%80%EC%9D%B4%EC%A6%9D%EA%B6%8C%EC%A0%9C11%ED%98%B8%EA%B8%B0%EC%97%85%EC%9D%B8%EC%88%98%EB%AA%A9%EC%A0%81%20%EC%A3%BC%EC%8B%9D%ED%9A%8C%EC%82%AC%20%EA%B4%80%EB%A6%AC%EC%A2%85%EB%AA%A9%EC%A7%80%EC%A0%95%28SPAC%20%EC%83%81%EC%9E%A5%EC%98%88%EB%B9%84%EC%8B%AC%EC%82%AC%EC%B2%AD%EA%B5%AC%EC%84%9C%20%EB%AF%B8%EC%A0%9C%EC%B6%9C%20%EB%93%B1%29" target="_blank" rel="noopener nofollow">에스케이증권제11호기업인수목적 주식회사 관리종목지정(SPAC 상장예비심사청구서 미제출 등)</a></td></tr></tbody></table></div><p class="cap">출처 KIS news-title(제목 검색) · 2026-07-29 이후. KIS 는 원문 주소를 주지 않는다. 제목을 누르면 그 제목의 검색 결과로 간다. 해당 기사로 바로 가지 않을 수 있다. 제목은 뉴스일 뿐 이 페이지의 분석과 무관하며, 서로 어긋날 수 있다.</p></div><!--TOPICNEWS:END--><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="peak-debate.html">반도체 정점 논쟁</a> 하이닉스가 정보를 '내보내는' 종목이라면, 그 반도체 사이클이 정점인지의 판단 누적이 그 페이지이다.</p><p><a href="samsung-long.html">삼성전자 27년</a> 같은 반도체인데 삼전은 코스피에 더 묶여 있다. 두 종목의 성격 차이를 견주는 재료이다.</p></div><!--RELATED:END--><!--GLOSSARY:BEGIN--><style id="glocss">.glo{margin:34px 0 8px}.glo h3{font-size:1.02rem;margin:0 0 12px}.glo dl{margin:0;font-size:.9rem;line-height:1.62}.glo dt{font-weight:800;margin-top:10px}.glo dd{margin:2px 0 0 0;color:var(--text-secondary,#555)}</style><div class="glo"><h3>용어 설명</h3><dl><dt>기준금리</dt><dd>중앙은행이 정하는 초단기 금리. 연준의 연방기금금리가 세계 돈값의 기준이 된다.</dd><dt>신용스프레드</dt><dd>회사채 금리에서 국고채 금리를 뺀 값. 기업이 국가보다 더 부담하는 금리이고, 시장이 매긴 부도 위험의 값이다.</dd><dt>이격도</dt><dd>주가가 이동평균선에서 얼마나 떨어져 있는지의 백분율. 100이면 이동평균과 같은 자리, 90 아래는 과매도·110 위는 과열로 읽는다.</dd><dt>이동평균선</dt><dd>일정 기간 종가의 평균을 이은 선. 20일선은 단기, 20주선(=100거래일 근사)은 이야기꾼의 '생명선', 200일선은 장기 추세 기준이다.</dd><dt>RS</dt><dd>Relative Strength(상대강도). 시장 전체 대비 그 종목이 얼마나 더 올랐는지를 백분위로 매긴 값. RS 90이면 "시장의 90%보다 더 올랐다"는 뜻이다. 미너비니는 RS 상위 종목만 후보로 둔다.</dd><dt>스테이지</dt><dd>와인스타인의 4국면: 1 바닥, 2 상승, 3 천장, 4 하락. 이동평균의 기울기와 가격 위치로 판정한다.</dd><dt>제오지산수</dt><dd>이야기꾼의 다섯 경기지표: 제(ISM 제조업지수)·오(OECD 경기선행지수)·지(GDP)·산(산업생산)·수(한국 수출).</dd></dl><p style="font-size:.8rem;color:var(--text-secondary,#777);margin-top:12px">이 글에 나온 용어만 실었다. 정의는 <code>scripts/glossary.py</code> 에서 한곳으로 관리한다.</p></div><!--GLOSSARY:END--></div>
+<div class="wrap"><!--TOPICNEWS:BEGIN--><style id="tnewscss">.tnews{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 10px;margin:34px 0 10px}.tnews h3{margin:0 0 10px;font-size:1.02rem}.tnews table{width:100%;border-collapse:collapse;font-size:.9rem}.tnews td{padding:5px 8px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}.tnews td.d{white-space:nowrap;color:var(--text-secondary)}.tnews p.cap{margin:10px 0 8px;font-size:.8rem;color:var(--text-secondary);line-height:1.6}</style><div class="tnews"><h3>관련 뉴스 · 반도체</h3><div class="tblwrap"><table><tbody><tr><td class="d">08/24</td><td class="d">연합뉴스</td><td><a href="https://search.naver.com/search.naver?where=news&query=%27%EC%B9%98%EB%A7%A5%EC%97%90%20%EA%B3%B5%EC%97%B0%EA%B9%8C%EC%A7%80%27%20%EC%9D%B5%EC%82%B0%EC%84%9C%2028" target="_blank" rel="noopener nofollow">'치맥에 공연까지' 익산서 28</a></td></tr><tr><td class="d">08/24</td><td class="d">연합뉴스</td><td><a href="https://search.naver.com/search.naver?where=news&query=%E9%9D%91%2C%20%EC%84%B8%EC%A0%9C%EA%B0%9C%ED%8E%B8%EC%95%88%20%EC%88%98%EC%A0%95%20%EB%B0%A9%ED%96%A5%EC%97%90%20%22%EB%8B%B9%EC%A0%95%ED%98%91%EC%9D%98%20%EB%A9%B4%EB%B0%80%ED%9E%88%20%EC%82%B4%ED%8E%B4%EB%B3%B4%EB%8A%94%20%EC%A4%91%22" target="_blank" rel="noopener nofollow">靑, 세제개편안 수정 방향에 "당정협의 면밀히 살펴보는 중"</a></td></tr><tr><td class="d">08/24</td><td class="d">연합뉴스</td><td><a href="https://search.naver.com/search.naver?where=news&query=%22%EB%B6%81%EB%AF%B8%20%EA%B5%B0%EB%B9%84%ED%86%B5%EC%A0%9C%20%ED%98%91%EC%83%81%EB%A1%A0%EC%9D%80%20%EC%97%AD%ED%9A%A8%EA%B3%BC%E2%80%A6%E5%8C%97%EB%B9%84%ED%95%B5%ED%99%94%20%EB%8D%94%20%EC%96%B4%EB%A0%A4%EC%9B%8C%EC%A0%B8%22" target="_blank" rel="noopener nofollow">"북미 군비통제 협상론은 역효과…北비핵화 더 어려워져"</a></td></tr><tr><td class="d">08/24</td><td class="d">뉴스핌</td><td><a href="https://search.naver.com/search.naver?where=news&query=%EC%97%90%EC%9D%B4%EC%B9%98%ED%94%BC%EC%98%A4%2C%20%EC%9E%90%EA%B8%B0%EC%A3%BC%EC%8B%9D%2019%EB%A7%8C%EC%A3%BC%20%EC%A0%84%EB%9F%89%20%EC%86%8C%EA%B0%81" target="_blank" rel="noopener nofollow">에이치피오, 자기주식 19만주 전량 소각</a></td></tr><tr><td class="d">08/24</td><td class="d">인포스탁</td><td><a href="https://search.naver.com/search.naver?where=news&query=%22%ED%94%BC%EB%A1%9C%ED%95%9C%20%ED%98%84%EB%8C%80%EC%9D%B8%20%EC%9C%84%ED%95%B4%22%E2%80%A6LG%EC%83%9D%EA%B1%B4%2C%20%EB%B0%9C%ED%9A%A8%EB%8F%88%ED%83%9C%EB%B0%98%20%EA%B1%B4%EA%B8%B0%EC%8B%9D%20%27%ED%95%98%EB%82%98%EB%AF%B8%20%EB%B9%84%EC%BB%B4%20%EA%B6%81%27%2C%205%EC%B2%9C%EB%A7%8C%EC%A0%95%20%ED%8C%90%EB%A7%A4%20%EB%8F%8C%ED%8C%8C" target="_blank" rel="noopener nofollow">"피로한 현대인 위해"…LG생건, 발효돈태반 건기식 '하나미 비컴 궁', 5천만정 판매 돌파</a></td></tr><tr><td class="d">08/24</td><td class="d">연합뉴스</td><td><a href="https://search.naver.com/search.naver?where=news&query=%E9%9D%91%2C%20%EA%B3%B5%EA%B3%B5%EC%9E%84%EB%8C%80%20%EB%B6%88%EB%B2%95%EC%A0%84%EB%8C%80%20%EC%B0%A8%EB%8B%A8%20%EB%82%98%EC%84%A0%EB%8B%A4%E2%80%A6%EC%8B%A0%EA%B3%A0%ED%8F%AC%EC%83%81%EA%B8%88%1A%EC%8B%A4%EA%B1%B0%EC%A3%BC%20%EC%A0%95%EB%B0%80%EC%A0%90%EA%B2%80%20%EA%B2%80%ED%86%A0" target="_blank" rel="noopener nofollow">靑, 공공임대 불법전대 차단 나선다…신고포상금실거주 정밀점검 검토</a></td></tr><tr><td class="d">08/24</td><td class="d">연합뉴스</td><td><a href="https://search.naver.com/search.naver?where=news&query=LG%EC%83%9D%EA%B1%B4%2C%20%EC%97%90%EC%9D%B4%EB%B3%B8%2083%EC%96%B5%EC%97%90%20%EB%A7%A4%EA%B0%81%E2%80%A6%EB%B6%81%EB%AF%B8%EC%82%AC%EC%97%85%20%EC%9E%AC%ED%8E%B8%28%EC%A2%85%ED%95%A9%29" target="_blank" rel="noopener nofollow">LG생건, 에이본 83억에 매각…북미사업 재편(종합)</a></td></tr><tr><td class="d">08/24</td><td class="d">이데일리</td><td><a href="https://search.naver.com/search.naver?where=news&query=%EC%98%A4%EB%8A%98%EC%9D%98%20%EB%B6%80%EA%B3%A0%20%EC%A2%85%ED%95%A9" target="_blank" rel="noopener nofollow">오늘의 부고 종합</a></td></tr></tbody></table></div><p class="cap">출처 KIS news-title(제목 검색) · 2026-07-29 이후. KIS 는 원문 주소를 주지 않는다. 제목을 누르면 그 제목의 검색 결과로 간다. 해당 기사로 바로 가지 않을 수 있다. 제목은 뉴스일 뿐 이 페이지의 분석과 무관하며, 서로 어긋날 수 있다.</p></div><!--TOPICNEWS:END--><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="peak-debate.html">반도체 정점 논쟁</a> 하이닉스가 정보를 '내보내는' 종목이라면, 그 반도체 사이클이 정점인지의 판단 누적이 그 페이지이다.</p><p><a href="samsung-long.html">삼성전자 27년</a> 같은 반도체인데 삼전은 코스피에 더 묶여 있다. 두 종목의 성격 차이를 견주는 재료이다.</p></div><!--RELATED:END--><!--GLOSSARY:BEGIN--><style id="glocss">.glo{margin:34px 0 8px}.glo h3{font-size:1.02rem;margin:0 0 12px}.glo dl{margin:0;font-size:.9rem;line-height:1.62}.glo dt{font-weight:800;margin-top:10px}.glo dd{margin:2px 0 0 0;color:var(--text-secondary,#555)}</style><div class="glo"><h3>용어 설명</h3><dl><dt>기준금리</dt><dd>중앙은행이 정하는 초단기 금리. 연준의 연방기금금리가 세계 돈값의 기준이 된다.</dd><dt>신용스프레드</dt><dd>회사채 금리에서 국고채 금리를 뺀 값. 기업이 국가보다 더 부담하는 금리이고, 시장이 매긴 부도 위험의 값이다.</dd><dt>이격도</dt><dd>주가가 이동평균선에서 얼마나 떨어져 있는지의 백분율. 100이면 이동평균과 같은 자리, 90 아래는 과매도·110 위는 과열로 읽는다.</dd><dt>이동평균선</dt><dd>일정 기간 종가의 평균을 이은 선. 20일선은 단기, 20주선(=100거래일 근사)은 이야기꾼의 '생명선', 200일선은 장기 추세 기준이다.</dd><dt>RS</dt><dd>Relative Strength(상대강도). 시장 전체 대비 그 종목이 얼마나 더 올랐는지를 백분위로 매긴 값. RS 90이면 "시장의 90%보다 더 올랐다"는 뜻이다. 미너비니는 RS 상위 종목만 후보로 둔다.</dd><dt>스테이지</dt><dd>와인스타인의 4국면: 1 바닥, 2 상승, 3 천장, 4 하락. 이동평균의 기울기와 가격 위치로 판정한다.</dd><dt>제오지산수</dt><dd>이야기꾼의 다섯 경기지표: 제(ISM 제조업지수)·오(OECD 경기선행지수)·지(GDP)·산(산업생산)·수(한국 수출).</dd></dl><p style="font-size:.8rem;color:var(--text-secondary,#777);margin-top:12px">이 글에 나온 용어만 실었다. 정의는 <code>scripts/glossary.py</code> 에서 한곳으로 관리한다.</p></div><!--GLOSSARY:END--></div>
 <footer>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.
     · 근거: 이야기꾼 주간 시투 보고서(W31·2026-08-01) 및 자체 실측.</footer>
 </div>
@@ -878,93 +883,6 @@ CFG.forEach(draw);
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script id="dotcom-defaults">
-/* ★ 차트 형식 정본 — kospi-dotcom-1998-2000 의 눈맛 (2026-08-08 상수님 지시)
-   고치는 곳은 scripts/apply_dotcom_style.py 하나다. 개별 차트의 명시 설정이 우선한다. */
-(function(){function go(){ if(!window.Chart){return setTimeout(go,150);}
- var d=Chart.defaults;
- d.font.family="'Noto Sans KR','Inter',-apple-system,sans-serif";
- d.elements.line.tension=.3;
- d.elements.line.borderWidth=2.4;
- d.elements.point.radius=0;
- d.elements.point.hoverRadius=6;
- d.interaction={mode:'index',intersect:false};
- d.animation.duration=1000;
- d.animation.easing='easeOutQuart';
- d.plugins.tooltip.padding=12;
- d.plugins.tooltip.cornerRadius=8;
- d.plugins.tooltip.titleFont={size:13,family:'Inter'};
- d.plugins.tooltip.bodyFont={size:13,family:"'Noto Sans KR',sans-serif"};
- d.plugins.legend.labels.boxWidth=12;
- d.plugins.legend.labels.usePointStyle=true;
-}go();})();
-</script>
 
 
 
@@ -1023,5 +941,82 @@ CFG.forEach(draw);
     }
   });
 })();
+</script><!--TOCJS:END-->
+
+<!--TOCJS:BEGIN--><script>
+/* 목차 클릭 보정 — 2026-08-24
+   ⚠ 해시가 이미 그 값이면 브라우저가 클릭을 무시한다. 스크롤을 내린 뒤
+     같은 항목을 다시 누르면 아무 일도 일어나지 않는다(실측으로 확인).
+   ⚠ 그리고 상단바가 sticky 라 앵커로 가면 제목이 그 아래 깔린다.
+     CSS 의 scroll-margin-top 이 그것을 막는데, scrollIntoView 는 그 값을 존중한다.
+   → 해시에 기대지 않고 직접 옮긴다. */
+(function(){
+  function go(el){ if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); }
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest && e.target.closest('.ptoc a[href^="#"]');
+    if(!a) return;
+    var el = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
+    if(!el) return;
+    e.preventDefault();
+    go(el);
+    if(history.replaceState) history.replaceState(null,'',a.getAttribute('href'));
+  }, false);
+  /* 밖에서 #앵커로 들어온 경우에도 상단바 높이를 반영해 한 번 더 맞춘다 */
+  addEventListener('load', function(){
+    var h = location.hash;
+    if(h && h.length > 1){
+      var el = document.getElementById(decodeURIComponent(h.slice(1)));
+      if(el) setTimeout(function(){ el.scrollIntoView({block:'start'}); }, 120);
+    }
+  });
+})();
 </script><!--TOCJS:END--><button class="toggle" onclick="__toggleTheme()">&#9728;</button>
-</body></html>
+<script id="dotcom-defaults">
+/* ★ 차트 형식 정본 — kospi-dotcom-1998-2000 의 눈맛 (2026-08-08 상수님 지시)
+   고치는 곳은 scripts/apply_dotcom_style.py 하나다. 개별 차트의 명시 설정이 우선한다. */
+(function(){function go(){ if(!window.Chart){return setTimeout(go,150);}
+ var d=Chart.defaults;
+ d.font.family="'Noto Sans KR','Inter',-apple-system,sans-serif";
+ d.elements.line.tension=.3;
+ d.elements.line.borderWidth=2.4;
+ d.elements.point.radius=0;
+ d.elements.point.hoverRadius=6;
+ d.interaction={mode:'index',intersect:false};
+ d.animation.duration=1000;
+ d.animation.easing='easeOutQuart';
+ d.plugins.tooltip.padding=12;
+ d.plugins.tooltip.cornerRadius=8;
+ d.plugins.tooltip.titleFont={size:13,family:'Inter'};
+ d.plugins.tooltip.bodyFont={size:13,family:"'Noto Sans KR',sans-serif"};
+ d.plugins.legend.labels.boxWidth=12;
+ d.plugins.legend.labels.usePointStyle=true;
+}go();})();
+</script>
+<!--TOCJS:BEGIN--><script>
+/* 목차 클릭 보정 — 2026-08-24
+   ⚠ 해시가 이미 그 값이면 브라우저가 클릭을 무시한다. 스크롤을 내린 뒤
+     같은 항목을 다시 누르면 아무 일도 일어나지 않는다(실측으로 확인).
+   ⚠ 그리고 상단바가 sticky 라 앵커로 가면 제목이 그 아래 깔린다.
+     CSS 의 scroll-margin-top 이 그것을 막는데, scrollIntoView 는 그 값을 존중한다.
+   → 해시에 기대지 않고 직접 옮긴다. */
+(function(){
+  function go(el){ if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); }
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest && e.target.closest('.ptoc a[href^="#"]');
+    if(!a) return;
+    var el = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
+    if(!el) return;
+    e.preventDefault();
+    go(el);
+    if(history.replaceState) history.replaceState(null,'',a.getAttribute('href'));
+  }, false);
+  /* 밖에서 #앵커로 들어온 경우에도 상단바 높이를 반영해 한 번 더 맞춘다 */
+  addEventListener('load', function(){
+    var h = location.hash;
+    if(h && h.length > 1){
+      var el = document.getElementById(decodeURIComponent(h.slice(1)));
+      if(el) setTimeout(function(){ el.scrollIntoView({block:'start'}); }, 120);
+    }
+  });
+})();
+</script><!--TOCJS:END--></body></html>

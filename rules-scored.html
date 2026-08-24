@@ -109,37 +109,7 @@ h2.sec{font-size:1.25rem;font-weight:700;margin-top:44px;letter-spacing:-.02em}
 footer{margin-top:48px;border-top:1px solid var(--border);padding-top:22px;color:var(--text-secondary);font-size:.82rem;line-height:1.7}
 .toggle{top:62px;z-index:88;position:fixed;right:18px;width:42px;height:42px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:18px}
 @media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}h1{font-size:2.05rem}}
-
-/* ── 제목 아래 한 줄 (좌상단 배지 폐기 후 유일한 자리) ── */
-.pauth{margin:10px 0 0;font-size:.8rem;color:var(--text-secondary);text-align:center}
-.pauth b{color:var(--text);font-variant-numeric:tabular-nums}
-
-/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
-.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
-  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END *//* DESIGN:BEGIN */
+/* DESIGN:BEGIN */
 /* ── 숫자는 항상 고정폭 — 매일 바뀌는 값에 칸이 흔들리지 않게 ── */
 body{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
 table,.st-v,.kpi,.kpis,.pbadge b{font-variant-numeric:tabular-nums}
@@ -329,6 +299,39 @@ a.card:focus-visible,.lst-i:focus-visible{
   .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
 }
 /* LAYOUT:END */
+/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
+.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
+  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
+.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
+  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
+  background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+/* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END */
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
+
 .dim{color:var(--mut,#94a3b8)}
 .b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
   font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
@@ -384,6 +387,17 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
 @media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
 
+/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
+.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
+ margin:22px 0 24px;background:var(--surface);text-align:left}
+.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
+ color:var(--text-secondary);margin-bottom:7px;text-align:left}
+.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
+.ptoc li{font-size:.9rem}
+.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
+.ptoc a:hover{border-bottom-color:var(--text-secondary)}
+@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
+
 /* ⚠ 2026-08-24 — 처음에 wrapper 를 .rs 로 썼다가 화면이 통째로 파랗게 나왔다.
    공용 CSS 에 이미 .rs 가 있다 — 상대강도 배지(알약·파란 배경·border-radius 999px).
    생성기가 셸 CSS 를 빌려 쓰므로 **짧은 클래스 이름은 반드시 충돌을 먼저 확인**한다.
@@ -410,24 +424,6 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .sm{font-size:.8rem;color:var(--text-secondary)}
 .blank{border:1px dashed var(--border);border-radius:10px;padding:15px;margin:14px 0;
   background:transparent;color:var(--text-secondary);font-size:.9rem;line-height:1.75}
-
-/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
-.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
- margin:16px 0 22px;background:var(--surface)}
-.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
- color:var(--text-secondary);margin-bottom:7px}
-.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
-.ptoc li{font-size:.9rem}
-.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
-.ptoc a:hover{border-bottom-color:var(--text-secondary)}
-@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 /*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
@@ -718,7 +714,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"></head><body>
+/* PAPER:END */</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="here" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="ledger.html">판정 장부</a><a class="here" href="rules-scored.html">원칙 채점</a><a href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-nhn.html">NHN</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="inflation-playbook.html">인플레 시대에 무엇이 통했나</a><a href="rates-century.html">미국 금리 100년과 인플레 시대</a><a href="memory-price.html">메모리 가격과 반도체 주가</a><a href="breadth-concentration.html">신고가 쏠림배수 2023~2026</a><a href="kospi-analog.html">지금과 닮은 과거 — 유사국면</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><!-- NAV:END --></nav>
@@ -727,23 +723,23 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   <div class="site-crumb"><a href="index.html">홈</a><span class="sep">›</span><span>판단</span><span class="sep">›</span><span class="cur">원칙 채점</span></div>
   <div class="phead"><div class="eyebrow">찰리 투자 인사이트 · Rules Scored</div>
   <h1>원칙 채점</h1>
-<p class="pauth">기준일 2026-08-21 · KRX 전종목 시세·수급 · 시총 2조↑ 213종목 · 매일 갱신</p></div>
-  <!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>매수 5원칙은 무엇을 사는가보다 무엇을 피하는가를 훨씬 잘 가른다. 고르는 쪽 초과분은 대조군 대비 1퍼센트포인트 안팎에 머무는데 피하는 쪽은 1.8퍼센트포인트까지 벌어진다. 거래량 폭증은 매수 신호가 아니라 오히려 나쁜 칸이다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#결론-원칙은-사는-것-보다-피하는-것-을-잘-가릅니다">결론: 원칙은 '사는 것'보다 '피하는 것'을 잘 가른다</a></li><li><a href="#국면-코스피가-20주선-위인가-매수-5원칙-①-시나리오-모델">국면: 코스피가 20주선 위인가</a></li><li><a href="#수급-최근-20일-순매수-부호-매수-5원칙-④-수급-ds">수급: 최근 20일 순매수 부호</a></li><li><a href="#추세-20주선-위치와-기울기-매수-5원칙-⑤-추세-t">추세: 20주선 위치와 기울기</a></li><li><a href="#추세-거래량-20일-60일-매수-5원칙-⑤-추세-t">추세: 거래량 20일/60일</a></li><li><a href="#추세-52주-안에서의-자리-매수-5원칙-⑤-추세-t">추세: 52주 안에서의 자리</a></li><li><a href="#채점하지-못한-축">채점하지 못한 축</a></li><li><a href="#이-표를-근거로-쓸-때-조심할-것">이 표를 근거로 쓸 때 조심할 것</a></li><li><a href="#이-페이지가-하는-일">이 페이지가 하는 일</a></li></ol></div><!--TOC:END--><div class="sub">이야기꾼 <b>매수 5원칙</b>의 각 축이 <b>조건 없이 아무 날 샀을 때보다 얼마나 나은지</b>를
-    실측했습니다. 시가총액 2조 이상 <b>213종목</b> · <b>60거래일 뒤</b> 수익률.<br>
-    <span class="sm">채점 대상은 2023-01-20 ~ 2026-05-27 입니다 — 60거래일 뒤가 확정돼야 채점할 수 있으므로 <b>최근 60거래일은 아직 들어오지 않았습니다.</b></span></div>
+<p class="pauth">기준일 2026-08-24 · KRX 전종목 시세·수급 · 시총 2조↑ 213종목 · 매일 갱신</p></div>
+  <div class="sub">이야기꾼 <b>매수 5원칙</b>의 각 축이 <b>조건 없이 아무 날 샀을 때보다 얼마나 나은지</b>를
+    실측했습니다. 시가총액 2조 이상 <b>216종목</b> · <b>60거래일 뒤</b> 수익률.<br>
+    <span class="sm">채점 대상은 2023-01-20 ~ 2026-05-28 입니다 — 60거래일 뒤가 확정돼야 채점할 수 있으므로 <b>최근 60거래일은 아직 들어오지 않았습니다.</b></span></div>
 
-  <div class="claimbox">
+  <!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>매수 5원칙은 무엇을 사는가보다 무엇을 피하는가를 훨씬 잘 가른다. 고르는 쪽 초과분은 대조군 대비 1퍼센트포인트 안팎에 머무는데 피하는 쪽은 1.8퍼센트포인트까지 벌어진다. 거래량 폭증은 매수 신호가 아니라 오히려 나쁜 칸이다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#결론-원칙은-사는-것-보다-피하는-것-을-잘-가릅니다">결론: 원칙은 '사는 것'보다 '피하는 것'을 잘 가른다</a></li><li><a href="#국면-코스피가-20주선-위인가-매수-5원칙-①-시나리오-모델">국면: 코스피가 20주선 위인가</a></li><li><a href="#수급-최근-20일-순매수-부호-매수-5원칙-④-수급-ds">수급: 최근 20일 순매수 부호</a></li><li><a href="#추세-20주선-위치와-기울기-매수-5원칙-⑤-추세-t">추세: 20주선 위치와 기울기</a></li><li><a href="#추세-거래량-20일-60일-매수-5원칙-⑤-추세-t">추세: 거래량 20일/60일</a></li><li><a href="#추세-52주-안에서의-자리-매수-5원칙-⑤-추세-t">추세: 52주 안에서의 자리</a></li><li><a href="#채점하지-못한-축">채점하지 못한 축</a></li><li><a href="#이-표를-근거로-쓸-때-조심할-것">이 표를 근거로 쓸 때 조심할 것</a></li><li><a href="#이-페이지가-하는-일">이 페이지가 하는 일</a></li></ol></div><!--TOC:END--><div class="claimbox">
     <div class="h">채점의 기준선</div>
-    <p>대조군: 조건 없이 아무 날 사면 60거래일 뒤 중앙 +3.75% · 플러스 58.3%
-      (표본 167,262). 어떤 규칙이든 이보다 나아야 값어치가 있다.</p>
+    <p>대조군: 조건 없이 아무 날 사면 60거래일 뒤 중앙 +3.64% · 플러스 58.0%
+      (표본 169,912). 어떤 규칙이든 이보다 나아야 값어치가 있다.</p>
     <p>규칙이 신호를 준다는 것과 그 신호가 돈이 된다는 것은 다른 말이다.
       아래 표의 「대조군 대비」 칸이 그 차이를 재는 자리이다.</p>
   </div>
 
   <h2 id="결론-원칙은-사는-것-보다-피하는-것-을-잘-가릅니다" class="sec">결론: 원칙은 '사는 것'보다 '피하는 것'을 잘 가른다</h2>
   <div class="split">
-    <div class="c"><h4>가장 나쁜 칸 셋: 피하면 얻는 것</h4><ul><li>저점 5% 안 <span class="sm">(⑤ 추세 축)</span> 중앙 -1.82%p · 플러스 -2.5%p <span class="sm">표본 13,197</span></li><li>1~5% 아래 · 선 내림 <span class="sm">(⑤ 추세 축)</span> 중앙 -1.33%p · 플러스 -1.1%p <span class="sm">표본 11,631</span></li><li>5%+ 아래 · 선 내림 <span class="sm">(⑤ 추세 축)</span> 중앙 -1.10%p · 플러스 -2.2%p <span class="sm">표본 31,554</span></li></ul></div>
-    <div class="c"><h4>가장 좋은 칸 셋: 골라서 얻는 것</h4><ul><li>외국인 사고 기관도 산다 (쌍끌이) <span class="sm">(④ 수급 축)</span> 중앙 +1.23%p · 플러스 -0.3%p <span class="sm">표본 13,600</span></li><li>20주선 위 · 선 오름 <span class="sm">(⑤ 추세 축)</span> 중앙 +0.91%p · 플러스 +0.7%p <span class="sm">표본 80,899</span></li><li>고점 5% 안 <span class="sm">(⑤ 추세 축)</span> 중앙 +0.67%p · 플러스 +1.3%p <span class="sm">표본 19,031</span></li></ul></div>
+    <div class="c"><h4>가장 나쁜 칸 셋: 피하면 얻는 것</h4><ul><li>저점 5% 안 <span class="sm">(⑤ 추세 축)</span> 중앙 -1.84%p · 플러스 -2.6%p <span class="sm">표본 13,706</span></li><li>1~5% 아래 · 선 내림 <span class="sm">(⑤ 추세 축)</span> 중앙 -1.26%p · 플러스 -1.0%p <span class="sm">표본 11,838</span></li><li>5%+ 아래 · 선 내림 <span class="sm">(⑤ 추세 축)</span> 중앙 -1.12%p · 플러스 -2.2%p <span class="sm">표본 32,499</span></li></ul></div>
+    <div class="c"><h4>가장 좋은 칸 셋: 골라서 얻는 것</h4><ul><li>외국인 사고 기관도 산다 (쌍끌이) <span class="sm">(④ 수급 축)</span> 중앙 +1.24%p · 플러스 -0.3%p <span class="sm">표본 13,783</span></li><li>20주선 위 · 선 오름 <span class="sm">(⑤ 추세 축)</span> 중앙 +0.94%p · 플러스 +0.8%p <span class="sm">표본 81,728</span></li><li>고점 5% 안 <span class="sm">(⑤ 추세 축)</span> 중앙 +0.76%p · 플러스 +1.5%p <span class="sm">표본 19,142</span></li></ul></div>
   </div>
   <div class="explain">
     <p>비대칭이 뚜렷하다. 좋은 쪽 초과분은 +1%p 안팎에 머무는데,
@@ -755,7 +751,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
       말하는 바와 방향이 같다. 거래량 폭증은 매수 신호 쪽이 아니다.</p>
   </div>
 
-<h2 id="국면-코스피가-20주선-위인가-매수-5원칙-①-시나리오-모델" class="sec">국면: 코스피가 20주선 위인가 <span class="sm">매수 5원칙 ① 시나리오 모델</span></h2><div class="tw2"><div class="tblwrap"><table><thead><tr><th>칸</th><th class="num">표본</th><th class="num">60일 중앙</th><th class="num">대조군 대비</th><th class="num">플러스 비율</th><th class="num">대조군 대비</th></tr></thead><tbody><tr><td>코스피 20주선 위</td><td class="num">121,697</td><td class="num">+4.05%</td><td class="num up">+0.30%p</td><td class="num">58.4%</td><td class="num flat">+0.1%p</td></tr><tr><td>코스피 20주선 아래</td><td class="num">45,565</td><td class="num">+3.17%</td><td class="num dn">-0.58%p</td><td class="num">57.9%</td><td class="num flat">-0.4%p</td></tr></tbody></table></div></div><h2 id="수급-최근-20일-순매수-부호-매수-5원칙-④-수급-ds" class="sec">수급: 최근 20일 순매수 부호 <span class="sm">매수 5원칙 ④ 수급 DS</span></h2><p class="rsnote">⚠ 수급 자료는 2025년 3월부터라 위 축들과 기간이 다르다. 그래서 같은 기간 대조군(중앙 +10.40% · 플러스 67.2% · 표본 62,742)과 견줬다. 그 18개월은 전체 기간보다 중앙이 +6.7%p 좋은 급등장이라, 여기서 나온 값을 다른 국면으로 옮기면 안 된다.</p><div class="tw2"><div class="tblwrap"><table><thead><tr><th>칸</th><th class="num">표본</th><th class="num">60일 중앙</th><th class="num">대조군 대비</th><th class="num">플러스 비율</th><th class="num">대조군 대비</th></tr></thead><tbody><tr><td>외국인 사고 기관도 산다 (쌍끌이)</td><td class="num">13,600</td><td class="num">+11.63%</td><td class="num up">+1.23%p</td><td class="num">66.9%</td><td class="num flat">-0.3%p</td></tr><tr><td>외국인 사고 기관은 판다</td><td class="num">15,633</td><td class="num">+10.88%</td><td class="num up">+0.48%p</td><td class="num">67.4%</td><td class="num flat">+0.2%p</td></tr><tr><td>외국인 팔고 기관도 산다 (쌍끌이)</td><td class="num">18,948</td><td class="num">+9.64%</td><td class="num dn">-0.77%p</td><td class="num">67.3%</td><td class="num flat">+0.1%p</td></tr><tr><td>외국인 팔고 기관은 판다</td><td class="num">11,152</td><td class="num">+9.43%</td><td class="num dn">-0.97%p</td><td class="num">65.9%</td><td class="num dn">-1.2%p</td></tr></tbody></table></div></div><h2 id="추세-20주선-위치와-기울기-매수-5원칙-⑤-추세-t" class="sec">추세: 20주선 위치와 기울기 <span class="sm">매수 5원칙 ⑤ 추세 T</span></h2><div class="tw2"><div class="tblwrap"><table><thead><tr><th>칸</th><th class="num">표본</th><th class="num">60일 중앙</th><th class="num">대조군 대비</th><th class="num">플러스 비율</th><th class="num">대조군 대비</th></tr></thead><tbody><tr><td>20주선 위 · 선 오름</td><td class="num">80,899</td><td class="num">+4.66%</td><td class="num up">+0.91%p</td><td class="num">59.0%</td><td class="num up">+0.7%p</td></tr><tr><td>1~5% 아래 · 선 오름</td><td class="num">8,792</td><td class="num">+4.02%</td><td class="num up">+0.27%p</td><td class="num">60.3%</td><td class="num up">+2.0%p</td></tr><tr><td>20주선 ±1% · 선 오름</td><td class="num">6,004</td><td class="num">+3.99%</td><td class="num flat">+0.24%p</td><td class="num">60.4%</td><td class="num up">+2.1%p</td></tr><tr><td>20주선 위 · 선 내림</td><td class="num">14,417</td><td class="num">+3.79%</td><td class="num flat">+0.04%p</td><td class="num">58.6%</td><td class="num flat">+0.3%p</td></tr><tr><td>5%+ 아래 · 선 오름</td><td class="num">9,251</td><td class="num">+3.29%</td><td class="num dn">-0.46%p</td><td class="num">57.4%</td><td class="num dn">-0.9%p</td></tr><tr><td>20주선 ±1% · 선 내림</td><td class="num">4,714</td><td class="num">+2.86%</td><td class="num dn">-0.89%p</td><td class="num">58.1%</td><td class="num flat">-0.2%p</td></tr><tr><td>5%+ 아래 · 선 내림</td><td class="num">31,554</td><td class="num">+2.65%</td><td class="num dn">-1.10%p</td><td class="num">56.1%</td><td class="num dn">-2.2%p</td></tr><tr><td>1~5% 아래 · 선 내림</td><td class="num">11,631</td><td class="num">+2.42%</td><td class="num dn">-1.33%p</td><td class="num">57.2%</td><td class="num dn">-1.1%p</td></tr></tbody></table></div></div><h2 id="추세-거래량-20일-60일-매수-5원칙-⑤-추세-t" class="sec">추세: 거래량 20일/60일 <span class="sm">매수 5원칙 ⑤ 추세 T</span></h2><div class="tw2"><div class="tblwrap"><table><thead><tr><th>칸</th><th class="num">표본</th><th class="num">60일 중앙</th><th class="num">대조군 대비</th><th class="num">플러스 비율</th><th class="num">대조군 대비</th></tr></thead><tbody><tr><td>1.2~1.5배</td><td class="num">24,275</td><td class="num">+4.05%</td><td class="num up">+0.30%p</td><td class="num">58.5%</td><td class="num flat">+0.2%p</td></tr><tr><td>&lt;0.8배 (수축)</td><td class="num">41,511</td><td class="num">+3.99%</td><td class="num flat">+0.24%p</td><td class="num">58.0%</td><td class="num flat">-0.3%p</td></tr><tr><td>0.8~1.2배 (보통)</td><td class="num">88,294</td><td class="num">+3.68%</td><td class="num flat">-0.07%p</td><td class="num">58.7%</td><td class="num flat">+0.4%p</td></tr><tr><td>≥1.5배 (폭증)</td><td class="num">13,182</td><td class="num">+3.00%</td><td class="num dn">-0.75%p</td><td class="num">55.9%</td><td class="num dn">-2.4%p</td></tr></tbody></table></div></div><h2 id="추세-52주-안에서의-자리-매수-5원칙-⑤-추세-t" class="sec">추세: 52주 안에서의 자리 <span class="sm">매수 5원칙 ⑤ 추세 T</span></h2><div class="tw2"><div class="tblwrap"><table><thead><tr><th>칸</th><th class="num">표본</th><th class="num">60일 중앙</th><th class="num">대조군 대비</th><th class="num">플러스 비율</th><th class="num">대조군 대비</th></tr></thead><tbody><tr><td>고점 5% 안</td><td class="num">19,031</td><td class="num">+4.42%</td><td class="num up">+0.67%p</td><td class="num">59.6%</td><td class="num up">+1.3%p</td></tr><tr><td>52주 신고가 당일</td><td class="num">8,346</td><td class="num">+4.14%</td><td class="num up">+0.39%p</td><td class="num">57.4%</td><td class="num dn">-0.8%p</td></tr><tr><td>중간</td><td class="num">126,688</td><td class="num">+3.89%</td><td class="num flat">+0.14%p</td><td class="num">58.4%</td><td class="num flat">+0.1%p</td></tr><tr><td>저점 5% 안</td><td class="num">13,197</td><td class="num">+1.93%</td><td class="num dn">-1.82%p</td><td class="num">55.8%</td><td class="num dn">-2.5%p</td></tr></tbody></table></div></div>
+<h2 id="국면-코스피가-20주선-위인가-매수-5원칙-①-시나리오-모델" class="sec">국면: 코스피가 20주선 위인가 <span class="sm">매수 5원칙 ① 시나리오 모델</span></h2><div class="tw2"><div class="tblwrap"><table><thead><tr><th>칸</th><th class="num">표본</th><th class="num">60일 중앙</th><th class="num">대조군 대비</th><th class="num">플러스 비율</th><th class="num">대조군 대비</th></tr></thead><tbody><tr><td>코스피 20주선 위</td><td class="num">123,680</td><td class="num">+3.94%</td><td class="num up">+0.29%p</td><td class="num">58.2%</td><td class="num flat">+0.1%p</td></tr><tr><td>코스피 20주선 아래</td><td class="num">46,232</td><td class="num">+3.05%</td><td class="num dn">-0.60%p</td><td class="num">57.6%</td><td class="num flat">-0.4%p</td></tr></tbody></table></div></div><h2 id="수급-최근-20일-순매수-부호-매수-5원칙-④-수급-ds" class="sec">수급: 최근 20일 순매수 부호 <span class="sm">매수 5원칙 ④ 수급 DS</span></h2><p class="rsnote">⚠ 수급 자료는 2025년 3월부터라 위 축들과 기간이 다르다. 그래서 같은 기간 대조군(중앙 +10.31% · 플러스 67.0% · 표본 63,855)과 견줬다. 그 18개월은 전체 기간보다 중앙이 +6.7%p 좋은 급등장이라, 여기서 나온 값을 다른 국면으로 옮기면 안 된다.</p><div class="tw2"><div class="tblwrap"><table><thead><tr><th>칸</th><th class="num">표본</th><th class="num">60일 중앙</th><th class="num">대조군 대비</th><th class="num">플러스 비율</th><th class="num">대조군 대비</th></tr></thead><tbody><tr><td>외국인 사고 기관도 산다 (쌍끌이)</td><td class="num">13,783</td><td class="num">+11.55%</td><td class="num up">+1.24%p</td><td class="num">66.7%</td><td class="num flat">-0.3%p</td></tr><tr><td>외국인 사고 기관은 판다</td><td class="num">16,090</td><td class="num">+10.72%</td><td class="num up">+0.40%p</td><td class="num">67.0%</td><td class="num flat">-0.0%p</td></tr><tr><td>외국인 팔고 기관도 산다 (쌍끌이)</td><td class="num">19,123</td><td class="num">+9.56%</td><td class="num dn">-0.75%p</td><td class="num">67.2%</td><td class="num flat">+0.2%p</td></tr><tr><td>외국인 팔고 기관은 판다</td><td class="num">11,408</td><td class="num">+9.38%</td><td class="num dn">-0.93%p</td><td class="num">65.8%</td><td class="num dn">-1.2%p</td></tr></tbody></table></div></div><h2 id="추세-20주선-위치와-기울기-매수-5원칙-⑤-추세-t" class="sec">추세: 20주선 위치와 기울기 <span class="sm">매수 5원칙 ⑤ 추세 T</span></h2><div class="tw2"><div class="tblwrap"><table><thead><tr><th>칸</th><th class="num">표본</th><th class="num">60일 중앙</th><th class="num">대조군 대비</th><th class="num">플러스 비율</th><th class="num">대조군 대비</th></tr></thead><tbody><tr><td>20주선 위 · 선 오름</td><td class="num">81,728</td><td class="num">+4.58%</td><td class="num up">+0.94%p</td><td class="num">58.8%</td><td class="num up">+0.8%p</td></tr><tr><td>20주선 ±1% · 선 오름</td><td class="num">6,066</td><td class="num">+3.94%</td><td class="num up">+0.29%p</td><td class="num">60.1%</td><td class="num up">+2.1%p</td></tr><tr><td>1~5% 아래 · 선 오름</td><td class="num">8,898</td><td class="num">+3.77%</td><td class="num flat">+0.13%p</td><td class="num">59.7%</td><td class="num up">+1.7%p</td></tr><tr><td>20주선 위 · 선 내림</td><td class="num">14,700</td><td class="num">+3.72%</td><td class="num flat">+0.07%p</td><td class="num">58.4%</td><td class="num flat">+0.4%p</td></tr><tr><td>5%+ 아래 · 선 오름</td><td class="num">9,404</td><td class="num">+3.11%</td><td class="num dn">-0.54%p</td><td class="num">57.0%</td><td class="num dn">-1.0%p</td></tr><tr><td>20주선 ±1% · 선 내림</td><td class="num">4,779</td><td class="num">+2.72%</td><td class="num dn">-0.92%p</td><td class="num">57.7%</td><td class="num flat">-0.3%p</td></tr><tr><td>5%+ 아래 · 선 내림</td><td class="num">32,499</td><td class="num">+2.52%</td><td class="num dn">-1.12%p</td><td class="num">55.8%</td><td class="num dn">-2.2%p</td></tr><tr><td>1~5% 아래 · 선 내림</td><td class="num">11,838</td><td class="num">+2.38%</td><td class="num dn">-1.26%p</td><td class="num">57.0%</td><td class="num dn">-1.0%p</td></tr></tbody></table></div></div><h2 id="추세-거래량-20일-60일-매수-5원칙-⑤-추세-t" class="sec">추세: 거래량 20일/60일 <span class="sm">매수 5원칙 ⑤ 추세 T</span></h2><div class="tw2"><div class="tblwrap"><table><thead><tr><th>칸</th><th class="num">표본</th><th class="num">60일 중앙</th><th class="num">대조군 대비</th><th class="num">플러스 비율</th><th class="num">대조군 대비</th></tr></thead><tbody><tr><td>1.2~1.5배</td><td class="num">24,757</td><td class="num">+3.91%</td><td class="num up">+0.27%p</td><td class="num">58.2%</td><td class="num flat">+0.2%p</td></tr><tr><td>&lt;0.8배 (수축)</td><td class="num">42,306</td><td class="num">+3.74%</td><td class="num flat">+0.09%p</td><td class="num">57.5%</td><td class="num flat">-0.5%p</td></tr><tr><td>0.8~1.2배 (보통)</td><td class="num">89,378</td><td class="num">+3.63%</td><td class="num flat">-0.02%p</td><td class="num">58.6%</td><td class="num up">+0.5%p</td></tr><tr><td>≥1.5배 (폭증)</td><td class="num">13,471</td><td class="num">+2.89%</td><td class="num dn">-0.75%p</td><td class="num">55.6%</td><td class="num dn">-2.4%p</td></tr></tbody></table></div></div><h2 id="추세-52주-안에서의-자리-매수-5원칙-⑤-추세-t" class="sec">추세: 52주 안에서의 자리 <span class="sm">매수 5원칙 ⑤ 추세 T</span></h2><div class="tw2"><div class="tblwrap"><table><thead><tr><th>칸</th><th class="num">표본</th><th class="num">60일 중앙</th><th class="num">대조군 대비</th><th class="num">플러스 비율</th><th class="num">대조군 대비</th></tr></thead><tbody><tr><td>고점 5% 안</td><td class="num">19,142</td><td class="num">+4.41%</td><td class="num up">+0.76%p</td><td class="num">59.5%</td><td class="num up">+1.5%p</td></tr><tr><td>52주 신고가 당일</td><td class="num">8,417</td><td class="num">+4.08%</td><td class="num up">+0.43%p</td><td class="num">57.4%</td><td class="num dn">-0.7%p</td></tr><tr><td>중간</td><td class="num">128,647</td><td class="num">+3.77%</td><td class="num flat">+0.12%p</td><td class="num">58.1%</td><td class="num flat">+0.1%p</td></tr><tr><td>저점 5% 안</td><td class="num">13,706</td><td class="num">+1.80%</td><td class="num dn">-1.84%p</td><td class="num">55.4%</td><td class="num dn">-2.6%p</td></tr></tbody></table></div></div>
 
   <h2 id="채점하지-못한-축" class="sec">채점하지 못한 축</h2>
   <div class="blank">
@@ -771,12 +767,12 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
   <h2 id="이-표를-근거로-쓸-때-조심할-것" class="sec">이 표를 근거로 쓸 때 조심할 것</h2>
   <div class="explain">
-    <p>① 표본 기간이 상승장이다. 대조군 중앙이 +3.75%라는 사실 자체가 그 증거이다.
+    <p>① 표본 기간이 상승장이다. 대조군 중앙이 +3.64%라는 사실 자체가 그 증거이다.
       하락장에서는 모든 칸이 달라진다. 여기서 「이 조건이면 오른다」를 읽으면 안 된다.
       읽을 수 있는 것은 칸 사이의 상대 차이뿐이다.</p>
     <p>② 축을 하나씩 따로 봤다. 5원칙은 ①~⑤를 함께 쓰는 것인데
       여기서는 한 축씩 갈랐다. 축이 겹칠 때의 값은 이 표에 없다.</p>
-    <p>③ 시가총액 2조 이상 213종목만 봤다. 소형주는 다를 수 있다.</p>
+    <p>③ 시가총액 2조 이상 216종목만 봤다. 소형주는 다를 수 있다.</p>
     <p>④ 60거래일 한 창만 봤다. 20일이나 120일에서는 순서가 바뀔 수 있다.</p>
   </div>
 
@@ -834,13 +830,8 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 })();
 /* THEME:END */</script>
 
-
+<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 <div class="wrap paper"><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="ledger.html">판정 장부</a> 같은 방식의 앞 편이다. 저기는 '우리가 내린 판정'을, 여기는 '우리가 쓰는 규칙'을 채점한다.</p><p><a href="methodology.html">이야기꾼의 방법론</a> 여기서 채점하는 매수 5원칙의 원문이다. 무엇을 주장했는지 먼저 읽어야 채점표가 읽힌다.</p><p><a href="jeonjo.html">중공황 전조현상</a> 거래량 폭증이 매수 쪽이 아니라는 실측이 전조 27번(거래량 급증·손바뀜)과 방향이 같다.</p><p><a href="audition.html">오디션 피라미딩</a> 5원칙 ③④⑤가 매일 돌아가는 화면이다. 채점 결과를 그 화면에 대고 읽으면 된다.</p></div><!--RELATED:END--></div>
-
-
-
-
-
 <!--TOCJS:BEGIN--><script>
 /* 목차 클릭 보정 — 2026-08-24
    ⚠ 해시가 이미 그 값이면 브라우저가 클릭을 무시한다. 스크롤을 내린 뒤
@@ -868,32 +859,4 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
     }
   });
 })();
-</script><!--TOCJS:END--><!--TOCJS:BEGIN--><script>
-/* 목차 클릭 보정 — 2026-08-24
-   ⚠ 해시가 이미 그 값이면 브라우저가 클릭을 무시한다. 스크롤을 내린 뒤
-     같은 항목을 다시 누르면 아무 일도 일어나지 않는다(실측으로 확인).
-   ⚠ 그리고 상단바가 sticky 라 앵커로 가면 제목이 그 아래 깔린다.
-     CSS 의 scroll-margin-top 이 그것을 막는데, scrollIntoView 는 그 값을 존중한다.
-   → 해시에 기대지 않고 직접 옮긴다. */
-(function(){
-  function go(el){ if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); }
-  document.addEventListener('click', function(e){
-    var a = e.target && e.target.closest && e.target.closest('.ptoc a[href^="#"]');
-    if(!a) return;
-    var el = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
-    if(!el) return;
-    e.preventDefault();
-    go(el);
-    if(history.replaceState) history.replaceState(null,'',a.getAttribute('href'));
-  }, false);
-  /* 밖에서 #앵커로 들어온 경우에도 상단바 높이를 반영해 한 번 더 맞춘다 */
-  addEventListener('load', function(){
-    var h = location.hash;
-    if(h && h.length > 1){
-      var el = document.getElementById(decodeURIComponent(h.slice(1)));
-      if(el) setTimeout(function(){ el.scrollIntoView({block:'start'}); }, 120);
-    }
-  });
-})();
-</script><!--TOCJS:END--><button class="toggle" onclick="__toggleTheme()">&#9728;</button>
-</body></html>
+</script><!--TOCJS:END--></body></html>
