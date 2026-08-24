@@ -1120,5 +1120,60 @@ new MutationObserver(function(){var t=__tone();
 
 
 
-<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
+
+<!--TOCJS:BEGIN--><script>
+/* 목차 클릭 보정 — 2026-08-24
+   ⚠ 해시가 이미 그 값이면 브라우저가 클릭을 무시한다. 스크롤을 내린 뒤
+     같은 항목을 다시 누르면 아무 일도 일어나지 않는다(실측으로 확인).
+   ⚠ 그리고 상단바가 sticky 라 앵커로 가면 제목이 그 아래 깔린다.
+     CSS 의 scroll-margin-top 이 그것을 막는데, scrollIntoView 는 그 값을 존중한다.
+   → 해시에 기대지 않고 직접 옮긴다. */
+(function(){
+  function go(el){ if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); }
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest && e.target.closest('.ptoc a[href^="#"]');
+    if(!a) return;
+    var el = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
+    if(!el) return;
+    e.preventDefault();
+    go(el);
+    if(history.replaceState) history.replaceState(null,'',a.getAttribute('href'));
+  }, false);
+  /* 밖에서 #앵커로 들어온 경우에도 상단바 높이를 반영해 한 번 더 맞춘다 */
+  addEventListener('load', function(){
+    var h = location.hash;
+    if(h && h.length > 1){
+      var el = document.getElementById(decodeURIComponent(h.slice(1)));
+      if(el) setTimeout(function(){ el.scrollIntoView({block:'start'}); }, 120);
+    }
+  });
+})();
+</script><!--TOCJS:END--><!--TOCJS:BEGIN--><script>
+/* 목차 클릭 보정 — 2026-08-24
+   ⚠ 해시가 이미 그 값이면 브라우저가 클릭을 무시한다. 스크롤을 내린 뒤
+     같은 항목을 다시 누르면 아무 일도 일어나지 않는다(실측으로 확인).
+   ⚠ 그리고 상단바가 sticky 라 앵커로 가면 제목이 그 아래 깔린다.
+     CSS 의 scroll-margin-top 이 그것을 막는데, scrollIntoView 는 그 값을 존중한다.
+   → 해시에 기대지 않고 직접 옮긴다. */
+(function(){
+  function go(el){ if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); }
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest && e.target.closest('.ptoc a[href^="#"]');
+    if(!a) return;
+    var el = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
+    if(!el) return;
+    e.preventDefault();
+    go(el);
+    if(history.replaceState) history.replaceState(null,'',a.getAttribute('href'));
+  }, false);
+  /* 밖에서 #앵커로 들어온 경우에도 상단바 높이를 반영해 한 번 더 맞춘다 */
+  addEventListener('load', function(){
+    var h = location.hash;
+    if(h && h.length > 1){
+      var el = document.getElementById(decodeURIComponent(h.slice(1)));
+      if(el) setTimeout(function(){ el.scrollIntoView({block:'start'}); }, 120);
+    }
+  });
+})();
+</script><!--TOCJS:END--><button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 </body></html>
