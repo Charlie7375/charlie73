@@ -627,7 +627,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"></head><body>
+/* PAPER:END */</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
 
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
@@ -792,6 +792,38 @@ window.addEventListener('load',build);
 })();
 /* THEME:END */</script>
 
+
+
+
+
+<!--TOCJS:BEGIN--><script>
+/* 목차 클릭 보정 — 2026-08-24
+   ⚠ 해시가 이미 그 값이면 브라우저가 클릭을 무시한다. 스크롤을 내린 뒤
+     같은 항목을 다시 누르면 아무 일도 일어나지 않는다(실측으로 확인).
+   ⚠ 그리고 상단바가 sticky 라 앵커로 가면 제목이 그 아래 깔린다.
+     CSS 의 scroll-margin-top 이 그것을 막는데, scrollIntoView 는 그 값을 존중한다.
+   → 해시에 기대지 않고 직접 옮긴다. */
+(function(){
+  function go(el){ if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); }
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest && e.target.closest('.ptoc a[href^="#"]');
+    if(!a) return;
+    var el = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
+    if(!el) return;
+    e.preventDefault();
+    go(el);
+    if(history.replaceState) history.replaceState(null,'',a.getAttribute('href'));
+  }, false);
+  /* 밖에서 #앵커로 들어온 경우에도 상단바 높이를 반영해 한 번 더 맞춘다 */
+  addEventListener('load', function(){
+    var h = location.hash;
+    if(h && h.length > 1){
+      var el = document.getElementById(decodeURIComponent(h.slice(1)));
+      if(el) setTimeout(function(){ el.scrollIntoView({block:'start'}); }, 120);
+    }
+  });
+})();
+</script><!--TOCJS:END-->
 <script id="dotcom-defaults">
 /* ★ 차트 형식 정본 — kospi-dotcom-1998-2000 의 눈맛 (2026-08-08 상수님 지시)
    고치는 곳은 scripts/apply_dotcom_style.py 하나다. 개별 차트의 명시 설정이 우선한다. */
@@ -813,143 +845,5 @@ window.addEventListener('load',build);
  d.plugins.legend.labels.usePointStyle=true;
 }go();})();
 </script>
-<!--TOCJS:BEGIN--><script>
-/* 목차 클릭 보정 — 2026-08-24
-   ⚠ 해시가 이미 그 값이면 브라우저가 클릭을 무시한다. 스크롤을 내린 뒤
-     같은 항목을 다시 누르면 아무 일도 일어나지 않는다(실측으로 확인).
-   ⚠ 그리고 상단바가 sticky 라 앵커로 가면 제목이 그 아래 깔린다.
-     CSS 의 scroll-margin-top 이 그것을 막는데, scrollIntoView 는 그 값을 존중한다.
-   → 해시에 기대지 않고 직접 옮긴다. */
-(function(){
-  function go(el){ if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); }
-  document.addEventListener('click', function(e){
-    var a = e.target && e.target.closest && e.target.closest('.ptoc a[href^="#"]');
-    if(!a) return;
-    var el = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
-    if(!el) return;
-    e.preventDefault();
-    go(el);
-    if(history.replaceState) history.replaceState(null,'',a.getAttribute('href'));
-  }, false);
-  /* 밖에서 #앵커로 들어온 경우에도 상단바 높이를 반영해 한 번 더 맞춘다 */
-  addEventListener('load', function(){
-    var h = location.hash;
-    if(h && h.length > 1){
-      var el = document.getElementById(decodeURIComponent(h.slice(1)));
-      if(el) setTimeout(function(){ el.scrollIntoView({block:'start'}); }, 120);
-    }
-  });
-})();
-</script><!--TOCJS:END--><!--TOCJS:BEGIN--><script>
-/* 목차 클릭 보정 — 2026-08-24
-   ⚠ 해시가 이미 그 값이면 브라우저가 클릭을 무시한다. 스크롤을 내린 뒤
-     같은 항목을 다시 누르면 아무 일도 일어나지 않는다(실측으로 확인).
-   ⚠ 그리고 상단바가 sticky 라 앵커로 가면 제목이 그 아래 깔린다.
-     CSS 의 scroll-margin-top 이 그것을 막는데, scrollIntoView 는 그 값을 존중한다.
-   → 해시에 기대지 않고 직접 옮긴다. */
-(function(){
-  function go(el){ if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); }
-  document.addEventListener('click', function(e){
-    var a = e.target && e.target.closest && e.target.closest('.ptoc a[href^="#"]');
-    if(!a) return;
-    var el = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
-    if(!el) return;
-    e.preventDefault();
-    go(el);
-    if(history.replaceState) history.replaceState(null,'',a.getAttribute('href'));
-  }, false);
-  /* 밖에서 #앵커로 들어온 경우에도 상단바 높이를 반영해 한 번 더 맞춘다 */
-  addEventListener('load', function(){
-    var h = location.hash;
-    if(h && h.length > 1){
-      var el = document.getElementById(decodeURIComponent(h.slice(1)));
-      if(el) setTimeout(function(){ el.scrollIntoView({block:'start'}); }, 120);
-    }
-  });
-})();
-</script><!--TOCJS:END-->
-<!--TOCJS:BEGIN--><script>
-/* 목차 클릭 보정 — 2026-08-24
-   ⚠ 해시가 이미 그 값이면 브라우저가 클릭을 무시한다. 스크롤을 내린 뒤
-     같은 항목을 다시 누르면 아무 일도 일어나지 않는다(실측으로 확인).
-   ⚠ 그리고 상단바가 sticky 라 앵커로 가면 제목이 그 아래 깔린다.
-     CSS 의 scroll-margin-top 이 그것을 막는데, scrollIntoView 는 그 값을 존중한다.
-   → 해시에 기대지 않고 직접 옮긴다. */
-(function(){
-  function go(el){ if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); }
-  document.addEventListener('click', function(e){
-    var a = e.target && e.target.closest && e.target.closest('.ptoc a[href^="#"]');
-    if(!a) return;
-    var el = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
-    if(!el) return;
-    e.preventDefault();
-    go(el);
-    if(history.replaceState) history.replaceState(null,'',a.getAttribute('href'));
-  }, false);
-  /* 밖에서 #앵커로 들어온 경우에도 상단바 높이를 반영해 한 번 더 맞춘다 */
-  addEventListener('load', function(){
-    var h = location.hash;
-    if(h && h.length > 1){
-      var el = document.getElementById(decodeURIComponent(h.slice(1)));
-      if(el) setTimeout(function(){ el.scrollIntoView({block:'start'}); }, 120);
-    }
-  });
-})();
-</script><!--TOCJS:END-->
-<!--TOCJS:BEGIN--><script>
-/* 목차 클릭 보정 — 2026-08-24
-   ⚠ 해시가 이미 그 값이면 브라우저가 클릭을 무시한다. 스크롤을 내린 뒤
-     같은 항목을 다시 누르면 아무 일도 일어나지 않는다(실측으로 확인).
-   ⚠ 그리고 상단바가 sticky 라 앵커로 가면 제목이 그 아래 깔린다.
-     CSS 의 scroll-margin-top 이 그것을 막는데, scrollIntoView 는 그 값을 존중한다.
-   → 해시에 기대지 않고 직접 옮긴다. */
-(function(){
-  function go(el){ if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); }
-  document.addEventListener('click', function(e){
-    var a = e.target && e.target.closest && e.target.closest('.ptoc a[href^="#"]');
-    if(!a) return;
-    var el = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
-    if(!el) return;
-    e.preventDefault();
-    go(el);
-    if(history.replaceState) history.replaceState(null,'',a.getAttribute('href'));
-  }, false);
-  /* 밖에서 #앵커로 들어온 경우에도 상단바 높이를 반영해 한 번 더 맞춘다 */
-  addEventListener('load', function(){
-    var h = location.hash;
-    if(h && h.length > 1){
-      var el = document.getElementById(decodeURIComponent(h.slice(1)));
-      if(el) setTimeout(function(){ el.scrollIntoView({block:'start'}); }, 120);
-    }
-  });
-})();
-</script><!--TOCJS:END-->
-<!--TOCJS:BEGIN--><script>
-/* 목차 클릭 보정 — 2026-08-24
-   ⚠ 해시가 이미 그 값이면 브라우저가 클릭을 무시한다. 스크롤을 내린 뒤
-     같은 항목을 다시 누르면 아무 일도 일어나지 않는다(실측으로 확인).
-   ⚠ 그리고 상단바가 sticky 라 앵커로 가면 제목이 그 아래 깔린다.
-     CSS 의 scroll-margin-top 이 그것을 막는데, scrollIntoView 는 그 값을 존중한다.
-   → 해시에 기대지 않고 직접 옮긴다. */
-(function(){
-  function go(el){ if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); }
-  document.addEventListener('click', function(e){
-    var a = e.target && e.target.closest && e.target.closest('.ptoc a[href^="#"]');
-    if(!a) return;
-    var el = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
-    if(!el) return;
-    e.preventDefault();
-    go(el);
-    if(history.replaceState) history.replaceState(null,'',a.getAttribute('href'));
-  }, false);
-  /* 밖에서 #앵커로 들어온 경우에도 상단바 높이를 반영해 한 번 더 맞춘다 */
-  addEventListener('load', function(){
-    var h = location.hash;
-    if(h && h.length > 1){
-      var el = document.getElementById(decodeURIComponent(h.slice(1)));
-      if(el) setTimeout(function(){ el.scrollIntoView({block:'start'}); }, 120);
-    }
-  });
-})();
-</script><!--TOCJS:END--><button class="toggle" onclick="__toggleTheme()">&#9728;</button>
+<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 </body></html>
