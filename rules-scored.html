@@ -428,7 +428,27 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
  color:var(--accent);margin-bottom:5px}
 .pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
-/* PAPER:BEGIN */
+/*TOCCSS:BEGIN*/
+/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
+
+/* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
+   원인은 상단바다. .site-bar 가 position:sticky · 높이 78px 로 화면 맨 위를 덮는데
+   앵커로 이동하면 제목이 정확히 그 아래에 깔린다. 그래서 독자는 제목을 못 보고
+   그 다음 문단부터 보게 된다. 눌러 간 곳과 보이는 글이 어긋나는 것이 이 때문이다.
+   scroll-margin-top 이 0 이었다. 78 에 여백 14 를 더해 92 로 둔다.
+   ⚠ 상단바 높이를 바꾸면 이 값도 같이 바꾼다. 측정: .site-bar 의 getBoundingClientRect().height */
+h2[id],h3[id],[id]:target{scroll-margin-top:92px}
+@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
+ margin:22px 0 24px;background:var(--surface);text-align:left}
+.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
+ color:var(--text-secondary);margin-bottom:7px;text-align:left}
+.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
+.ptoc li{font-size:.9rem}
+.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
+.ptoc a:hover{border-bottom-color:var(--text-secondary)}
+@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
+/*TOCCSS:END*//* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -815,7 +835,8 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 /* THEME:END */</script>
 
 
-<div class="wrap paper"><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="ledger.html">판정 장부</a> — 같은 방식의 앞 편입니다. 저기는 «우리가 내린 판정»을, 여기는 «우리가 쓰는 규칙»을 채점합니다.</p><p><a href="methodology.html">이야기꾼의 방법론</a> — 여기서 채점하는 매수 5원칙의 원문입니다. 무엇을 주장했는지 먼저 읽어야 채점표가 읽힙니다.</p><p><a href="jeonjo.html">중공황 전조현상</a> — 거래량 폭증이 매수 쪽이 아니라는 실측이 전조 27번(거래량 급증·손바뀜)과 방향이 같습니다.</p><p><a href="audition.html">오디션 피라미딩</a> — 5원칙 ③④⑤가 매일 돌아가는 화면입니다. 채점 결과를 그 화면에 대고 읽으면 됩니다.</p></div><!--RELATED:END--></div>
+<div class="wrap paper"><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="ledger.html">판정 장부</a> 같은 방식의 앞 편이다. 저기는 '우리가 내린 판정'을, 여기는 '우리가 쓰는 규칙'을 채점한다.</p><p><a href="methodology.html">이야기꾼의 방법론</a> 여기서 채점하는 매수 5원칙의 원문이다. 무엇을 주장했는지 먼저 읽어야 채점표가 읽힌다.</p><p><a href="jeonjo.html">중공황 전조현상</a> 거래량 폭증이 매수 쪽이 아니라는 실측이 전조 27번(거래량 급증·손바뀜)과 방향이 같다.</p><p><a href="audition.html">오디션 피라미딩</a> 5원칙 ③④⑤가 매일 돌아가는 화면이다. 채점 결과를 그 화면에 대고 읽으면 된다.</p></div><!--RELATED:END--></div>
+
 
 
 
