@@ -330,7 +330,14 @@ a.card:focus-visible,.lst-i:focus-visible{
   .wrap{padding-left:18px!important;padding-right:18px!important}
   .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
 }
-/* LAYOUT:END *//* PAPER:BEGIN */
+/* LAYOUT:END */
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
+/* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -703,7 +710,7 @@ var RANGES={
 })();
 </script>
 
-<h2 class="sec">와인스타인 스테이지 분석이란</h2>
+<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>와인스타인의 네 단계는 200일선의 방향과 가격의 위치로 갈린다. 2단계에서만 사고 4단계에서는 쉰다는 것이 요지다. 단계를 세는 규칙이 사람마다 달라지면 그 순간 이 도구는 쓸모를 잃는다.</p></div><!--PCLAIM:END--><h2 class="sec">와인스타인 스테이지 분석이란</h2>
 <div class="explain">
 <p>스탠 와인스타인(Stan Weinstein)은 모든 주식·지수가 네 개의 국면(Stage)을 순환한다고 본다. 1단계 바닥(횡보·이동평균 평탄) → 2단계 상승(이동평균 우상향·가격이 그 위) → 3단계 천장(이동평균 평탄화·가격 등락) → 4단계 하락(이동평균 우하향·가격이 그 아래). 그의 규칙은 단순하다. 2단계에서만 매수하고, 3단계에서 줄이고, 4단계는 절대 건드리지 않는다.</p>
 <p>판정 기준은 이동평균의 기울기와 가격의 위치 두 가지이다. 원전은 주봉 30주선(약 150일)을 쓰지만 이 페이지는 일봉 <span class="f">200일선</span>으로 통일했다.</p>
@@ -1013,6 +1020,15 @@ window.addEventListener('load',build);
 
 
 
+
+
+
+
+
+
+
+
+
 <script id="dotcom-defaults">
 /* ★ 차트 형식 정본 — kospi-dotcom-1998-2000 의 눈맛 (2026-08-08 상수님 지시)
    고치는 곳은 scripts/apply_dotcom_style.py 하나다. 개별 차트의 명시 설정이 우선한다. */
@@ -1034,11 +1050,6 @@ window.addEventListener('load',build);
  d.plugins.legend.labels.usePointStyle=true;
 }go();})();
 </script>
-
-
-
-
-
 
 
 <button class="toggle" onclick="__toggleTheme()">&#9728;</button>

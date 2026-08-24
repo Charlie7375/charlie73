@@ -389,7 +389,25 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
   html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
   html body .site-bar-in{padding:9px 14px 7px}
 }
-/* BAR:END */</style><style id="freqcss">
+/* BAR:END */
+/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
+.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
+ margin:16px 0 22px;background:var(--surface)}
+.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
+ color:var(--text-secondary);margin-bottom:7px}
+.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
+.ptoc li{font-size:.9rem}
+.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
+.ptoc a:hover{border-bottom-color:var(--text-secondary)}
+@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
+
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
+</style><style id="freqcss">
 .freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
  padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
  border:1px solid currentColor;opacity:.85}
@@ -988,7 +1006,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <p class="pauth">2026년 8월 13일 작성 · 자료 20230110 ~ 20260813 · 876거래일 · KRX 전종목 실측 · 매일 갱신</p>
 </div>
 
-<div class="claim">
+<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>2025년 10월부터 신고가가 소수 대형주에 몰리는 국면이 반복됐고 2026년 7월 폭락 직전까지 이어졌다. 신고가가 몇 종목인가만 세면 시장의 절반을 놓친다. 그 종목들이 얼마나 큰지를 함께 재야 한다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#논점-①-쏠림배수는-코스피와-얼마나-같이-움직이나">논점 ① 쏠림배수는 코스피와 얼마나 같이 움직이나?</a></li><li><a href="#논점-②-쏠림배수는-무엇을-재는가">논점 ② 쏠림배수는 무엇을 재는가?</a></li><li><a href="#논점-③-박스장에는-정말-쏠림이-없었나">논점 ③ 박스장에는 정말 쏠림이 없었나?</a></li><li><a href="#논점-④-2025년-10월이-분기점이다">논점 ④ 2025년 10월이 분기점이다</a></li><li><a href="#논점-⑤-폭이-좁아지는데-무게가-남은-자리">논점 ⑤ 폭이 좁아지는데 무게가 남은 자리</a></li><li><a href="#논점-⑥-투매-없이-흘러내린-종목이-있는-이유">논점 ⑥ 투매 없이 흘러내린 종목이 있는 이유</a></li><li><a href="#자료와-계산-방법">자료와 계산 방법</a></li><li><a href="#이-분석이-틀릴-수-있는-곳">이 분석이 틀릴 수 있는 곳</a></li></ol></div><!--TOC:END--><div class="claim">
 <p>이 글의 논점은 하나다. 2025년 10월부터 신고가가 소수 대형주에 몰리는 국면이 반복되었고,
 그것이 2026년 7월 폭락 직전까지 이어졌다는 것이다.</p>
 <p>① 쏠림배수는 신고가 종목의 시총 비중을 종목 수 비중으로 나눈 값이다.
@@ -1003,7 +1021,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 폭은 좁아지는데 무게는 남아 있는 상태다. 그 다음 달이 7월이다.</p>
 </div>
 
-<h2>논점 ① 쏠림배수는 코스피와 얼마나 같이 움직이나?</h2>
+<h2 id="논점-①-쏠림배수는-코스피와-얼마나-같이-움직이나">논점 ① 쏠림배수는 코스피와 얼마나 같이 움직이나?</h2>
 
 <div class="claim"><p>같이 움직인다. 그러나 앞서지는 않는다.
 쏠림배수 20일 평균의 변화와 코스피 20일 수익률의 상관계수가 +0.606이다.
@@ -1068,7 +1086,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 종목 수로는 2.86%다. 신고가가 나오기는 하는데 전부 작은 종목에서 나온다는 뜻이고,
 대형주는 하나도 신고가를 내지 못하고 있다. 2026년 6월과 정확히 반대의 모양이다.</p>
 
-<h2>논점 ② 쏠림배수는 무엇을 재는가?</h2>
+<h2 id="논점-②-쏠림배수는-무엇을-재는가">논점 ② 쏠림배수는 무엇을 재는가?</h2>
 <div class="claim"><p>신고가 종목의 시총 비중을 종목 수 비중으로 나눈다.
 1이면 신고가를 낸 종목의 크기가 시장 평균과 같다는 뜻이다.
 2배면 그 종목들이 평균보다 두 배 큰 자리를 차지한다는 뜻이다.</p></div>
@@ -1086,7 +1104,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 <div class="panel" data-reveal><div class="panel-head"><div><h3>신고가 쏠림배수와 코스피: 2023~2026년 8월</h3></div><div class="rng" role="group" aria-label="기간 선택"><button class="on" onclick="bcRange(&#39;g1&#39;,0,this)">전체 2023~</button><button onclick="bcRange(&#39;g1&#39;,1,this)">최근 2년</button></div></div><div class="kpis"><div class="kpi hl"><div class="k">지금 쏠림배수</div><div class="v">0.16배</div><div class="s">2026년 8월 · 작은 종목이 앞선다</div></div><div class="kpi"><div class="k">박스장 중앙</div><div class="v">0.76배</div><div class="s">2023~2024 · 483일</div></div><div class="kpi hl"><div class="k">쏠림 국면 평균</div><div class="v">3.24배</div><div class="s">2025-10~2026-06 · 179일</div></div><div class="kpi"><div class="k">2배 넘은 날</div><div class="v">18% 대 43%</div><div class="s">박스장 대 쏠림 국면</div></div></div><figure class="fig"><div class="cbox" style="height:400px"><canvas id="g1"></canvas></div><figcaption><span class="freq d">일간</span>얇은 황금색이 일별 쏠림배수, 굵은 빨강이 그 월평균이다(좌축). 파랑이 코스피, 회색 점선이 코스닥이며 둘 다 시작을 100으로 맞췄다(우축). 쏠림배수가 4배를 넘은 달은 44개월 중 5개다.</figcaption></figure><p class="panel-cap rngnote" style="margin-top:12px">2023년 1월부터 전 구간이다. 쏠림배수 1은 신고가 종목의 크기가 시장 평균과 같다는 뜻이다.</p><div class="srcline"><span class="lbl">출처</span><span>KRX 전종목 일별시세 · 자체 계산 20230110 ~ 20260813</span></div></div>
 
-<h2>논점 ③ 박스장에는 정말 쏠림이 없었나?</h2>
+<h2 id="논점-③-박스장에는-정말-쏠림이-없었나">논점 ③ 박스장에는 정말 쏠림이 없었나?</h2>
 <div class="claim"><p>절반만 맞다.
 중앙값은 박스장 0.76배와 2026년 0.90배로 비슷하다.
 갈리는 것은 평균과 빈도와 최대값이다.
@@ -1112,7 +1130,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 반도체 장비주가 크게 오르던 시기와 겹친다.
 쏠림 자체가 처음 나타난 현상이 아니라는 뜻이다.</p>
 
-<h2>논점 ④ 2025년 10월이 분기점이다</h2>
+<h2 id="논점-④-2025년-10월이-분기점이다">논점 ④ 2025년 10월이 분기점이다</h2>
 <div class="claim"><p>월평균 4배를 넘은 달은 44개월 중 다섯이다.
 박스장 2년에 한 번이었는데 2025년 10월 이후 열 달 사이에 네 번 나왔다.</p></div>
 
@@ -1131,7 +1149,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 2025년 10월의 코스피가 4,108이고 2026년 6월이 8,476이다.
 지수가 두 배가 되는 동안 신고가를 내는 종목은 줄고 그 무게는 커졌다.</p>
 
-<h2>논점 ⑤ 폭이 좁아지는데 무게가 남은 자리</h2>
+<h2 id="논점-⑤-폭이-좁아지는데-무게가-남은-자리">논점 ⑤ 폭이 좁아지는데 무게가 남은 자리</h2>
 <div class="claim"><p>2026년 6월은 신고가 종목 수 비중이 2.7%인데
 시총 비중이 14.7%다. 그 앞 1년과 모양이 다르다.
 2025년 5월부터 7월까지는 종목 수 비중이 5%에서 7% 사이였다.
@@ -1147,7 +1165,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <p>7월과 8월에는 쏠림배수가 0%로 내려간다.
 2배를 넘는 날이 하나도 없다. 대형주가 무너지면서 쏠림이 끝났다.</p>
 
-<h2>논점 ⑥ 투매 없이 흘러내린 종목이 있는 이유</h2>
+<h2 id="논점-⑥-투매-없이-흘러내린-종목이-있는-이유">논점 ⑥ 투매 없이 흘러내린 종목이 있는 이유</h2>
 <div class="claim"><p>쏠림 국면에서는 수급에서 소외된 종목이 투매 없이 밀린다.
 공포에 팔린 것이 아니라 돈이 다른 데로 간 것이고,
 그런 하락에는 대량 거래를 동반한 급락이 나오지 않는다.</p></div>
@@ -1167,7 +1185,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <p>이 보조 경로는 강의 원문에 없는 규칙이다.
 종목 페이지에도 그렇게 밝혀 두었다.</p>
 
-<h2>자료와 계산 방법</h2>
+<h2 id="자료와-계산-방법">자료와 계산 방법</h2>
 <figure class="tw"><figcaption>자료</figcaption>
 <div class="tblwrap"><table>
 <thead><tr><th>항목</th><th>범위</th><th>출처</th></tr></thead>
@@ -1184,7 +1202,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <p>수집기는 scripts/krx_backfill.py 이고 계산기는 scripts/concentration.py 다.
 매일 갱신되며 화면은 52주 신고가와 상대강도 페이지에도 붙어 있다.</p>
 
-<h2>이 분석이 틀릴 수 있는 곳</h2>
+<h2 id="이-분석이-틀릴-수-있는-곳">이 분석이 틀릴 수 있는 곳</h2>
 <ul>
 <li>표본이 44개월이다. 국면이 넷뿐이고 그중 쏠림 국면은 아홉 달이다.
 규칙이라 부르기에는 이르고 관찰로 두는 것이 맞다.</li>
@@ -1675,6 +1693,10 @@ setTimeout(bcBuild,400);
 
 
 <div class="wrap"><!--TOPICNEWS:BEGIN--><style id="tnewscss">.tnews{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 10px;margin:34px 0 10px}.tnews h3{margin:0 0 10px;font-size:1.02rem}.tnews table{width:100%;border-collapse:collapse;font-size:.9rem}.tnews td{padding:5px 8px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}.tnews td.d{white-space:nowrap;color:var(--text-secondary)}.tnews p.cap{margin:10px 0 8px;font-size:.8rem;color:var(--text-secondary);line-height:1.6}</style><div class="tnews"><h3>관련 뉴스 · 코스피</h3><div class="tblwrap"><table><tbody><tr><td class="d">08/21</td><td class="d">뉴스핌</td><td><a href="https://search.naver.com/search.naver?where=news&query=%EC%97%98%EB%A6%AC%EC%8A%A4%EA%B7%B8%EB%A3%B9%2C%20%EC%BD%94%EC%8A%A4%EB%8B%A5%20%EC%83%81%EC%9E%A5%20%EC%B0%A9%EC%88%98%E2%80%A6%EA%B3%B5%EB%AA%A8%20%EC%B5%9C%EB%8C%80%202011%EC%96%B5" target="_blank" rel="noopener nofollow">엘리스그룹, 코스닥 상장 착수…공모 최대 2011억</a></td></tr><tr><td class="d">08/21</td><td class="d">IRGO</td><td><a href="https://search.naver.com/search.naver?where=news&query=%5BIR%EC%9D%BC%EC%A0%95%5D%20%EC%82%BC%EC%96%91%EC%97%94%EC%94%A8%EC%BC%90%2C%202026%EB%85%84%202%EB%B6%84%EA%B8%B0%20%EA%B2%BD%EC%98%81%EC%8B%A4%EC%A0%81" target="_blank" rel="noopener nofollow">[IR일정] 삼양엔씨켐, 2026년 2분기 경영실적</a></td></tr><tr><td class="d">08/21</td><td class="d">파이낸셜</td><td><a href="https://search.naver.com/search.naver?where=news&query=%EB%B6%80%EC%82%B0%20%27%EB%B6%80%EA%B2%BD%EA%B2%BD%EB%A7%88%EA%B3%B5%EC%9B%90%EC%97%AD%20%EB%94%94%EC%97%90%ED%8A%B8%EB%A5%B4%20%EB%8D%94%20%EB%A6%AC%EB%B2%84%27%20%EC%9E%94%EC%97%AC%20%EC%84%B8%EB%8C%80%20%EB%AA%A8%EC%A7%91" target="_blank" rel="noopener nofollow">부산 '부경경마공원역 디에트르 더 리버' 잔여 세대 모집</a></td></tr><tr><td class="d">08/21</td><td class="d">뉴스핌</td><td><a href="https://search.naver.com/search.naver?where=news&query=%5B%ED%95%8Cin%EC%9E%A0%EC%8B%A4%5D%20%27ERA%202.53%27%20%EB%91%90%EC%82%B0%20%EB%B2%A4%EC%9E%90%EB%AF%BC%2C%20%EC%99%BC%EC%AA%BD%20%EC%96%B4%EA%B9%A8%20%EB%B6%88%ED%8E%B8%EC%9C%BC%EB%A1%9C%201%EA%B5%B0%20%EC%97%94%ED%8A%B8%EB%A6%AC%20%EB%A7%90%EC%86%8C" target="_blank" rel="noopener nofollow">[핌in잠실] 'ERA 2.53' 두산 벤자민, 왼쪽 어깨 불편으로 1군 엔트리 말소</a></td></tr><tr><td class="d">08/21</td><td class="d">서울경제</td><td><a href="https://search.naver.com/search.naver?where=news&query=%EC%82%BC%EC%84%B1%EC%A0%84%EA%B8%B0%20%EC%A3%BC%EC%A3%BC%EC%88%98%EC%9D%B5%EB%A5%A0%20755%25%20%EC%B5%9C%EA%B3%A0%E2%80%A6%EC%82%BC%EC%84%B1%EB%B0%94%EC%9D%B4%EC%98%A4%3FLG%EC%97%94%EC%86%94%20%EC%86%90%EC%8B%A4" target="_blank" rel="noopener nofollow">삼성전기 주주수익률 755% 최고…삼성바이오?LG엔솔 손실</a></td></tr><tr><td class="d">08/21</td><td class="d">파이낸셜</td><td><a href="https://search.naver.com/search.naver?where=news&query=%EC%A0%9C%EC%A3%BC%EB%8C%80%20726%EB%AA%85%20%EC%83%88%20%EC%B6%9C%EB%B0%9C%E2%80%A6%20%EC%96%91%EB%8D%95%EC%88%9C%20%EC%B4%9D%EC%9E%A5%20%22%EC%98%A4%EB%8A%98%EC%9D%80%20%EC%9D%B8%EC%83%9D%EC%9D%98%20%EC%B6%9C%ED%95%AD%EC%8B%9D%22" target="_blank" rel="noopener nofollow">제주대 726명 새 출발… 양덕순 총장 "오늘은 인생의 출항식"</a></td></tr><tr><td class="d">08/21</td><td class="d">코스닥 공시</td><td><a href="https://search.naver.com/search.naver?where=news&query=%EC%97%90%EC%8A%A4%EC%BC%80%EC%9D%B4%EC%A6%9D%EA%B6%8C%EC%A0%9C11%ED%98%B8%EA%B8%B0%EC%97%85%EC%9D%B8%EC%88%98%EB%AA%A9%EC%A0%81%20%EC%A3%BC%EC%8B%9D%ED%9A%8C%EC%82%AC%20%EA%B4%80%EB%A6%AC%EC%A2%85%EB%AA%A9%EC%A7%80%EC%A0%95%28SPAC%20%EC%83%81%EC%9E%A5%EC%98%88%EB%B9%84%EC%8B%AC%EC%82%AC%EC%B2%AD%EA%B5%AC%EC%84%9C%20%EB%AF%B8%EC%A0%9C%EC%B6%9C%20%EB%93%B1%29" target="_blank" rel="noopener nofollow">에스케이증권제11호기업인수목적 주식회사 관리종목지정(SPAC 상장예비심사청구서 미제출 등)</a></td></tr><tr><td class="d">08/21</td><td class="d">헤럴드경제</td><td><a href="https://search.naver.com/search.naver?where=news&query=%EC%B6%94%EB%9D%BD%20%EC%A0%84%ED%88%AC%EA%B8%B0%20%EC%A1%B0%EC%A2%85%EC%82%AC%20%EA%B5%AC%ED%95%9C%20%EC%8A%A4%EB%A6%AC%EB%9E%91%EC%B9%B4%20%EA%B7%BC%EB%A1%9C%EC%9E%90%EB%93%A4%2C%20%E9%9F%93%20%EC%9E%A5%EA%B8%B0%20%EC%B2%B4%EB%A5%98%20%EA%B8%B8%20%EC%97%B4%EB%A0%A4" target="_blank" rel="noopener nofollow">추락 전투기 조종사 구한 스리랑카 근로자들, 韓 장기 체류 길 열려</a></td></tr></tbody></table></div><p class="cap">출처 KIS news-title(제목 검색) · 2026-07-29 이후. KIS 는 원문 주소를 주지 않는다. 제목을 누르면 그 제목의 검색 결과로 간다. 해당 기사로 바로 가지 않을 수 있다. 제목은 뉴스일 뿐 이 페이지의 분석과 무관하며, 서로 어긋날 수 있다.</p></div><!--TOPICNEWS:END--><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="audition.html">오디션 피라미딩</a> — 이 지표의 실전 자리 — 후보 폭 패널이 그 페이지에 붙어 «지금 이길 종목이 몇 개 남았나»를 매일 셉니다.</p><p><a href="breadth-rs.html">52주 신고가·상대강도</a> — 오늘의 신고가 종목이 실제로 누구인지의 일별 명부가 그 페이지입니다.</p><p><a href="kospi-analog.html">지금과 닮은 과거 — 유사국면</a> — 쏠림이 끝난 뒤의 각본을 과거에서 찾는 페이지 — 1998년 유사국면과 세 가지 시나리오가 있습니다.</p></div><!--RELATED:END--></div>
+
+
+
+
 
 
 

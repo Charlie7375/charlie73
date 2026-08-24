@@ -389,7 +389,25 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
   html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
   html body .site-bar-in{padding:9px 14px 7px}
 }
-/* BAR:END */</style><style id="freqcss">
+/* BAR:END */
+/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
+.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
+ margin:16px 0 22px;background:var(--surface)}
+.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
+ color:var(--text-secondary);margin-bottom:7px}
+.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
+.ptoc li{font-size:.9rem}
+.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
+.ptoc a:hover{border-bottom-color:var(--text-secondary)}
+@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
+
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
+</style><style id="freqcss">
 .freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
  padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
  border:1px solid currentColor;opacity:.85}
@@ -950,7 +968,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <p class="pauth">2026-08-13 작성 · 수출 1984-01~2026-04 · 코스피 1981-01~2026-08-12 · 고정 자료</p>
 </div>
 
-<div class="disclaimer">
+<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>수출 전년비의 마이너스 20퍼센트와 플러스 40퍼센트 두 선은 42년 분포에서 거의 정확히 양 끝이었다. 바닥 선은 매수 신호로도 잘 들어맞았다. 다만 이 선은 범위를 말하는 것이지 시점을 말하는 것이 아니다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#자료와-계산-방법">자료와 계산 방법</a></li><li><a href="#코스피가-수출을-앞선다">코스피가 수출을 앞선다</a></li><li><a href="#이야기꾼의-두-선-42년-분포로-확인">★ 이야기꾼의 두 선: 42년 분포로 확인</a></li><li><a href="#두-선의-뜻은-서로-다르다">두 선의 뜻은 서로 다르다</a></li><li><a href="#국면으로-나눠-보면">국면으로 나눠 보면</a></li><li><a href="#꺾인-뒤">꺾인 뒤</a></li><li><a href="#그래서-지금">그래서 지금</a></li><li><a href="#이-분석이-틀릴-수-있는-곳">이 분석이 틀릴 수 있는 곳</a></li></ol></div><!--TOC:END--><div class="disclaimer">
 <p>결론부터 넷.</p>
 <p>① 두 선은 '범위'로서 놀랍도록 정확하다. 42년 분포에서 2.5분위가 -19.6%,
 97.5분위가 +40.1%이다. 이야기꾼이 말한 −20 / +40 이 거의 그대로이다.
@@ -967,7 +985,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 관세청 원계열로는 2026-07 +62.8%이다. 6장에서 따로 본다.</p>
 </div>
 
-<h2>자료와 계산 방법</h2>
+<h2 id="자료와-계산-방법">자료와 계산 방법</h2>
 
 <p>수출 전년비는 OECD 계열(FRED <code>XTEXVA01KRM659S</code>)을 쓴다.
 1984년 1월부터 508개월이고, 이 사이트가 가진 경기지표 중 가장 긴 계열이다.</p>
@@ -982,7 +1000,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <thead><tr><th>관세청 원계열 (참고)</th><th class="n">수출 전년비</th></tr></thead>
 <tbody><tr><td>2026-05</td><td class="n">+53.2%</td></tr><tr><td>2026-06</td><td class="n">+70.9%</td></tr><tr><td>2026-07</td><td class="n">+62.8%</td></tr></tbody></table></div></div>
 
-<h2>코스피가 수출을 앞선다</h2>
+<h2 id="코스피가-수출을-앞선다">코스피가 수출을 앞선다</h2>
 
 <div class="panel" data-reveal><div class="panel-head"><div><h3>한국 수출 전년비와 코스피 전년비: 1984~2026-04</h3></div><div class="rng" role="group" aria-label="기간 선택"><button class="on" onclick="exRange(&#39;g1&#39;,0,this)">전체 1984~</button><button onclick="exRange(&#39;g1&#39;,1,this)">최근 10년</button></div></div><div class="kpis"><div class="kpi hl"><div class="k">지금 수출</div><div class="v">+48.8%</div><div class="s">2026-04 · OECD 계절조정(차트 기준)</div></div><div class="kpi"><div class="k">관세청 최신</div><div class="v">+62.8%</div><div class="s">2026-07 원계열 · 계열이 달라 차트에는 없습니다</div></div><div class="kpi"><div class="k">코스피와 상관</div><div class="v">0.553</div><div class="s">시차 -4개월에서 가장 높음</div></div><div class="kpi hl"><div class="k">누가 먼저</div><div class="v">코스피가 4개월 앞선다</div><div class="s">수출은 선행 지표가 아닙니다</div></div></div><figure class="fig"><div class="cbox" style="height:400px"><canvas id="g1"></canvas></div><figcaption><span class="freq m">월간</span>굵은 황금색이 수출 전년비(우축), 회색이 코스피 전년비(좌축)이다. 회색이 황금색보다 반 박자 먼저 움직인다. 아래 시차표에서 확인한다.</figcaption></figure><p class="panel-cap rngnote" style="margin-top:12px">1984년부터 전 구간이다. 코스피가 수출보다 반 박자 먼저 움직인다.</p><div class="srcline"><span class="lbl">출처</span><span>관세청 수출입 통계 월별 전년동월비 · OECD 한국 주가지수 월별 원계열</span><a href="https://unipass.customs.go.kr" target="_blank" rel="noopener">관세청 UNI-PASS &#8599;</a></div></div>
 
@@ -998,7 +1016,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 주가는 그 실적을 미리 사는 값이니 당연한 순서이다.
 수출 지표로 매수 시점을 잡는 것은 안 되고, '지금 어느 구간인가'를 확인하는 데는 된다.</p></div>
 
-<h2>★ 이야기꾼의 두 선: 42년 분포로 확인</h2>
+<h2 id="이야기꾼의-두-선-42년-분포로-확인">★ 이야기꾼의 두 선: 42년 분포로 확인</h2>
 
 <p>강의에서 이렇게 말했다.</p>
 
@@ -1017,7 +1035,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <p>'대충 바닥·대충 끝'이라는 말이 통계적으로는 '2.5%·97.5% 분위'였다.
 지표를 오래 본 사람의 눈이 분위수를 맞춘 셈이다.</p>
 
-<h2>두 선의 뜻은 서로 다르다</h2>
+<h2 id="두-선의-뜻은-서로-다르다">두 선의 뜻은 서로 다르다</h2>
 
 <figure class="fig"><div class="cbox" style="height:340px"><canvas id="g2"></canvas></div><figcaption><span class="freq m">월간</span>맨 왼쪽이 '수출이 −20% 아래'일 때, 맨 오른쪽이 '+40% 위'일 때이다. 왼쪽 끝이 압도적으로 높고, 오른쪽 끝은 생각만큼 나쁘지 않다.</figcaption></figure>
 
@@ -1067,7 +1085,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 '수출 +40%'가 '반도체가 끌어올린 +40%'일 때 특히 나빴다고 읽을 여지가 있다.
 사례가 셋이라 가설로만 적다. 그리고 지금이 정확히 그 모양이다.</p></div>
 
-<h2>국면으로 나눠 보면</h2>
+<h2 id="국면으로-나눠-보면">국면으로 나눠 보면</h2>
 
 <p>수출 전년비의 국소 저점에서 국소 고점까지를 한 국면으로 잡았다(±6개월 기준).</p>
 
@@ -1086,7 +1104,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <th class="n">코스피 낙폭</th><th>그때 무슨 일</th></tr></thead>
 <tbody><tr><td>1997-07 ~ 1998-07</td><td class="n">12</td><td class="n">+19.0 → -14.9</td><td class="n bad">-51.2%</td><td>외환위기</td></tr><tr><td>2000-02 ~ 2001-07</td><td class="n">17</td><td class="n">+34.9 → -21.5</td><td class="n bad">-49.7%</td><td>닷컴 붕괴</td></tr><tr><td>2017-09 ~ 2020-04</td><td class="n">31</td><td class="n">+29.9 → -26.3</td><td class="n bad">-43.9%</td><td>미중 무역분쟁~코로나</td></tr><tr><td>2008-07 ~ 2009-01</td><td class="n">6</td><td class="n">+30.5 → -32.2</td><td class="n bad">-43.7%</td><td>리먼</td></tr><tr><td>2021-05 ~ 2023-04</td><td class="n">23</td><td class="n">+44.3 → -16.0</td><td class="n bad">-34.8%</td><td>반도체 다운사이클</td></tr><tr><td>1991-10 ~ 1992-12</td><td class="n">14</td><td class="n">+20.7 → -7.6</td><td class="n bad">-29.6%</td><td></td></tr></tbody></table></div>
 
-<h2>꺾인 뒤</h2>
+<h2 id="꺾인-뒤">꺾인 뒤</h2>
 
 <div class="tblwrap"><table class="tw">
 <thead><tr><th>기준</th><th class="n">+3개월</th><th class="n">+6개월</th>
@@ -1101,7 +1119,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 다른 지표들과 같은 모양이지만 차이가 훨씬 작다. 수출은 후행 성격이 강해
 전환점 자체의 신호값이 약하다.</p>
 
-<h2>그래서 지금</h2>
+<h2 id="그래서-지금">그래서 지금</h2>
 
 <p>계절조정 기준 2026-04 +48.8%, 관세청 원계열로는 2026-07 +62.8%이다.
 어느 쪽으로 봐도 42년 분포의 맨 끝이다. +40% 위는 42년에 13개월뿐이었다.</p>
@@ -1120,7 +1138,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 지금 볼 것은 '수출이 몇 %인가'가 아니라 '언제 꺾이는가'이다.
 7월 +62.8%는 6월 +70.9%에서 이미 내려온 값이다. 이야기꾼도 "정점인지 한두 달 더 지켜봐야 한다"고 썼다.</p></div>
 
-<h2>이 분석이 틀릴 수 있는 곳</h2>
+<h2 id="이-분석이-틀릴-수-있는-곳">이 분석이 틀릴 수 있는 곳</h2>
 
 <ul>
 <li>극단 구간의 표본이 열 개 남짓이다. −20% 이하 11개월 · +40% 이상 13개월이고
@@ -1648,6 +1666,15 @@ setTimeout(exBuild,400);
 
 
 
+
+
+
+
+
+
+
+
+
 <script id="dotcom-defaults">
 /* ★ 차트 형식 정본 — kospi-dotcom-1998-2000 의 눈맛 (2026-08-08 상수님 지시)
    고치는 곳은 scripts/apply_dotcom_style.py 하나다. 개별 차트의 명시 설정이 우선한다. */
@@ -1669,11 +1696,6 @@ setTimeout(exBuild,400);
  d.plugins.legend.labels.usePointStyle=true;
 }go();})();
 </script>
-
-
-
-
-
 
 
 <button class="toggle" onclick="__toggleTheme()">&#9728;</button>

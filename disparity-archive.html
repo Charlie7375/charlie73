@@ -330,7 +330,25 @@ a.card:focus-visible,.lst-i:focus-visible{
   .wrap{padding-left:18px!important;padding-right:18px!important}
   .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
 }
-/* LAYOUT:END *//* PAPER:BEGIN */
+/* LAYOUT:END */
+/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
+.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
+ margin:16px 0 22px;background:var(--surface)}
+.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
+ color:var(--text-secondary);margin-bottom:7px}
+.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
+.ptoc li{font-size:.9rem}
+.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
+.ptoc a:hover{border-bottom-color:var(--text-secondary)}
+@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
+
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
+/* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -613,20 +631,20 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <p class="sub">2026 AI 버블(실데이터)과 1999 닷컴 버블(시뮬레이션)을 동일 스케일로 비교한다. 이격도는 이동평균선에서 얼마나 벌어졌는지를 백분율로 나타낸 단기 과열 지표이고, 버블 국면의 과열 정도와 식는 속도를 비교하는 데 가장 적합하다.</p>
 <p class="pauth">코스피 일별시세(① 2026 AI 자동 갱신) · 매일 갱신</p></div>
 
-<section class="compare">
-  <h2>현재, 코스피와 50일 이격도: 2026 AI (실데이터)</h2>
+<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>2026년 AI 국면과 1999년 닷컴 국면을 같은 자로 놓고 비교한다. 이격도는 과열의 정도와 식는 속도를 견주는 데 가장 알맞다. 두 국면의 모양은 닮았으나 식는 속도가 다르다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#현재-코스피와-50일-이격도-2026-ai-실데이터">현재, 코스피와 50일 이격도: 2026 AI (실데이터)</a></li><li><a href="#닷컴버블-코스피와-50일-이격도-1999-시뮬레이션">닷컴버블, 코스피와 50일 이격도: 1999 (시뮬레이션)</a></li><li><a href="#2026년-7월-이격도가-말해준-것">2026년 7월, 이격도가 말해준 것</a></li><li><a href="#1999와-무엇이-같고-무엇이-다른가">1999와 무엇이 같고 무엇이 다른가</a></li><li><a href="#지금-무엇을-봐야-하나">지금 무엇을 봐야 하나?</a></li><li><a href="#50일-이격도를-읽는-법">50일 이격도를 읽는 법</a></li></ol></div><!--TOC:END--><section class="compare">
+  <h2 id="현재-코스피와-50일-이격도-2026-ai-실데이터">현재, 코스피와 50일 이격도: 2026 AI (실데이터)</h2>
   <div class="panel-cap">3월·6월 모두 이격도 130%를 넘은 뒤 조정장 진행. 이격도 고점 <b>130 → 131 → 133</b>. <span style="color:#ef4444">실데이터</span></div>
   <div class="chart-box"><canvas id="comboAI" role="img" aria-label="2026 AI 코스피 종가지수, 50일선, 50일 이격도 콤보차트"></canvas></div>
 
   <div class="divider"></div>
-  <h2 style="margin-top:22px">닷컴버블, 코스피와 50일 이격도: 1999 (시뮬레이션)</h2>
+  <h2 id="닷컴버블-코스피와-50일-이격도-1999-시뮬레이션" style="margin-top:22px">닷컴버블, 코스피와 50일 이격도: 1999 (시뮬레이션)</h2>
   <div class="panel-cap">당시에도 이격도 130% 부근에서 조정이 진행. 이후 주가는 계속 올랐지만 <b>이격도 고점은 134 → 132 → 129 → 125 → 112로 계단식으로 낮아진</b> 점이 특이. <span style="color:#3b82f6">참조 리포트(W28) 재현·시뮬레이션</span></div>
   <div class="chart-box"><canvas id="comboDC" role="img" aria-label="1999 닷컴 코스피 종가지수, 50일선, 50일 이격도 콤보차트"></canvas></div>
 
   <div class="verdict">한눈에 보면 — 두 버블 모두 <b>이격도 130%대에서 첫 정점(닷컴 134·AI 133)</b>을 찍고 조정에 들어갔습니다. 결정적 차이는 <b>그 이후</b>입니다. 닷컴은 이격도 고점이 <b>1년에 걸쳐 완만히</b> 낮아지며 주가는 계속 올랐던 반면, 2026 AI는 첫 정점 직후 <b>단 6주 만에</b> 이격도가 100선(50일선)을 깨고 급락했습니다. 7/28 −10.84%, 7/29 −5.98%에 이어 7/30 −1.23%로 낙폭은 줄었지만 <b>5,593 · 이격도 72.0</b>으로 2년 최저를 다시 썼습니다. 7/29에는 하이닉스·삼성전자 거래량이 나란히 <b>2.07배</b>로 항복 기준선을 넘었고, 7/30 거래량이 일제히 줄며 <b>투매가 한 차례 소화된</b> 모습입니다.</div>
 </section>
 
-<h2 class="sec">2026년 7월, 이격도가 말해준 것</h2>
+<h2 id="2026년-7월-이격도가-말해준-것" class="sec">2026년 7월, 이격도가 말해준 것</h2>
 <div class="explain">
 <p>이격도 133.1(6/1) → 72.0(7/30) → 85.1(7/31). 두 달 만에 61포인트가 빠졌다가 하루에 13포인트가 돌아왔다.
   코스피는 6/22에 9,115로 사상 최고를 찍고 7/30 5,594까지 −38.6%, 그리고 7/31 하루에 +17.9% 되돌려 6,595로 마감했다.
@@ -638,7 +656,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   4배 레버리지를 걸었다가 마진콜을 맞았고 시타델이 인수해 강제청산했다. 7/31의 폭등도 같은 원인이다. 투매 리스크가 소멸한 것이지 매수가 들어온 것이 아니다. 이격도가 하루에 13포인트 튀어오른 것을 수요의 증거로 읽으면 곤란하다.</p>
 </div>
 
-<h2 class="sec">1999와 무엇이 같고 무엇이 다른가</h2>
+<h2 id="1999와-무엇이-같고-무엇이-다른가" class="sec">1999와 무엇이 같고 무엇이 다른가</h2>
 <div class="explain">
 <p>같은 것: 과열의 절대 온도. 닷컴은 134, 지금은 133.1에서 첫 정점을 찍었다. 버블이 감당할 수 있는
   50일선 이격의 한계가 대략 130대 초중반이라는 점은 28년을 사이에 두고도 같았다.</p>
@@ -654,7 +672,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   이 붕괴가 버블의 종료인지, 아니면 레버리지 사고가 만든 일회성 급락이고 본체는 아직 남았는지: 이 페이지의 두 차트만으로는 답이 나오지 않는다. 다만 닷컴식 완만한 다이버전스는 이번엔 없었다는 사실은 확실하다.</p>
 </div>
 
-<h2 class="sec">지금 무엇을 봐야 하나?</h2>
+<h2 id="지금-무엇을-봐야-하나" class="sec">지금 무엇을 봐야 하나?</h2>
 <div class="explain">
 <p>50일선은 7,753이다. 현재 6,595이므로 이격도 100을 회복하려면 여기서 +17.6%가 더 필요하다.
   다만 50일선 자체가 하락 중이다(7/22 7,936 → 7/31 7,753). 지수가 제자리여도 시간이 지나면 이격도는 올라간다.
@@ -667,7 +685,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   참고로 7/31 신저가는 557에서 79로 급감했다. 지수만이 아니라 시장 전반에서 매도가 멈췄다는 신호이다.</p>
 </div>
 
-<h2 class="sec">50일 이격도를 읽는 법</h2>
+<h2 id="50일-이격도를-읽는-법" class="sec">50일 이격도를 읽는 법</h2>
 <div class="explain">
 <p>이격도 = 종가 ÷ 50일 이동평균 × 100. 100이면 주가가 정확히 50일선 위에 있다는 뜻이고, 130이면 50일선보다 30% 위에 떠 있다는 뜻이다. 평균에서 멀어질수록 되돌림 압력이 커지는 평균회귀 지표이다.</p>
 <p>버블 국면에서 특히 유용한 이유는 이격도 고점이 가격 고점보다 먼저 꺾이기 때문이다. 주가는 계속 오르는데 이격도 고점이 낮아지면, 같은 상승을 만드는 데 드는 힘이 줄고 있다는 뜻이다. 닷컴의 134 → 132 → 129 → 125 → 112 시퀀스가 교과서적 사례이다.</p>
@@ -799,6 +817,15 @@ window.addEventListener('load',build);
 
 
 
+
+
+
+
+
+
+
+
+
 <script id="dotcom-defaults">
 /* ★ 차트 형식 정본 — kospi-dotcom-1998-2000 의 눈맛 (2026-08-08 상수님 지시)
    고치는 곳은 scripts/apply_dotcom_style.py 하나다. 개별 차트의 명시 설정이 우선한다. */
@@ -820,11 +847,6 @@ window.addEventListener('load',build);
  d.plugins.legend.labels.usePointStyle=true;
 }go();})();
 </script>
-
-
-
-
-
 
 
 <button class="toggle" onclick="__toggleTheme()">&#9728;</button>

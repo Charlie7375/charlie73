@@ -424,6 +424,24 @@ html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;-
 .reveal.visible{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 @media(max-width:720px){.panel{padding:22px 16px 18px}.panel .cbox{min-height:320px}}
+
+/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
+.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
+ margin:16px 0 22px;background:var(--surface)}
+.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
+ color:var(--text-secondary);margin-bottom:7px}
+.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
+.ptoc li{font-size:.9rem}
+.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
+.ptoc a:hover{border-bottom-color:var(--text-secondary)}
+@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
+
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 </style><style id="freqcss">
 .freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
  padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
@@ -716,7 +734,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 다만 그것도 '금리가 40년 내리막이던 시대'의 규칙이었다.
 <a href="fed-kospi.html">연준 편</a>과 같은 기준으로 시대를 갈라 다시 계산했다.</p>
 <p class="pauth">원달러와 코스피 · 장기 · 고정 자료 · 시장 데이터로 갱신되지 않는다</p>
-</header>
+<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>달러와 코스피의 관계는 디스인플레 시대에는 섰고 새 인플레 시대에서는 서지 않는다. 표에서 디스인플레 시대만 계단이 지고 맨 아래 새 시대에서는 세 줄이 뒤엉킨다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#논점-①-시대를-갈라도-달러-약세-한국-강세-가-서는가">논점 ①: 시대를 갈라도 「달러 약세 = 한국 강세」가 서는가?</a></li><li><a href="#논점-②-달러-국면-으로-갈라도-같은-말이-나오나">논점 ②: 달러 '국면'으로 갈라도 같은 말이 나오나?</a></li><li><a href="#논점-③-이-관계는-원래부터-있었나">논점 ③: 이 관계는 원래부터 있었나?</a></li><li><a href="#논점-④-지금도-그-관계가-살아-있나">논점 ④: 지금도 그 관계가 살아 있나?</a></li><li><a href="#그래서-지금">그래서 지금</a></li><li><a href="#이-주장을-하는-다른-사람들-부가">이 주장을 하는 다른 사람들 부가</a></li><li><a href="#이-분석이-틀릴-수-있는-곳">이 분석이 틀릴 수 있는 곳</a></li><li><a href="#자료와-계산-방법">자료와 계산 방법</a></li></ol></div><!--TOC:END--></header>
 
 <div class="disclaimer">
 <p>이 글의 논점: 「달러를 보고 코스피를 사도 되는가」.
@@ -749,7 +767,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <p class="dim">※ 방법과 한계는 맨 뒤 두 장에 모았다.</p>
 </div>
 
-<h2>논점 ①: 시대를 갈라도 「달러 약세 = 한국 강세」가 서는가?</h2>
+<h2 id="논점-①-시대를-갈라도-달러-약세-한국-강세-가-서는가">논점 ①: 시대를 갈라도 「달러 약세 = 한국 강세」가 서는가?</h2>
 
 <div class="claim"><p>디스인플레 시대에는 섰고, 새 인플레 시대에서는 안 선다.
 아래 표에서 디스인플레 시대만 위→아래로 계단이 지고,
@@ -774,7 +792,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 '계단이 무너졌다'까지가 이 표가 말할 수 있는 전부이고,
 "새 시대에는 달러가 이렇게 작동한다"는 말은 아직 못 한다.</p></div>
 
-<h2>논점 ②: 달러 '국면'으로 갈라도 같은 말이 나오나?</h2>
+<h2 id="논점-②-달러-국면-으로-갈라도-같은-말이-나오나">논점 ②: 달러 '국면'으로 갈라도 같은 말이 나오나?</h2>
 
 <div class="claim"><p>나온다. 달러 약세 구간에만 큰 수익이 났다.
 강세 구간 셋을 합치면 20년이 넘는데 그동안 코스피는 사실상 제자리였다. 1995~2002년은 IMF를 품고 있고, 2012~2020년은 흔히 말하는 박스피이다.</p></div>
@@ -793,7 +811,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 </section>
 
 <section class="s">
-<h2>논점 ③: 이 관계는 원래부터 있었나?</h2>
+<h2 id="논점-③-이-관계는-원래부터-있었나">논점 ③: 이 관계는 원래부터 있었나?</h2>
 
 <div class="claim"><p>아니다. 1980~90년대에는 관계가 거의 없었고,
 역상관이 뚜렷해진 것은 2000년대부터이다. 외국인 자금이 한국 증시를 좌우하게 된 시기와 겹친다.
@@ -809,7 +827,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 </section>
 
 <section class="s">
-<h2>논점 ④: 지금도 그 관계가 살아 있나?</h2>
+<h2 id="논점-④-지금도-그-관계가-살아-있나">논점 ④: 지금도 그 관계가 살아 있나?</h2>
 
 <div class="claim"><p>부호가 뒤집혔다.
 2020~2022년 −0.570으로 가장 강한 역상관이었다가 2025~2026년에는 +0.181이다.
@@ -831,7 +849,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 <section class="s">
 
-<h2>그래서 지금</h2>
+<h2 id="그래서-지금">그래서 지금</h2>
 
 <div class="claim"><p>달러는 지금 '중립'이다(12개월 전보다 +1.7%, 2026-06 94.7).
 그런데 중립 구간의 성적은 시대마다 다르다.
@@ -849,7 +867,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 그 뒤 사상 최저(2020-07 0.62%). 두 편을 나란히 읽으면
 「이야기꾼의 거시 규칙들이 전부 그 40년에서 나왔다」는 같은 결론에 닿는다.</p></div>
 
-<h2>이 주장을 하는 다른 사람들 <span class="dim"> 부가</span></h2>
+<h2 id="이-주장을-하는-다른-사람들-부가">이 주장을 하는 다른 사람들 <span class="dim"> 부가</span></h2>
 
 <div class="claim"><p>「달러 약세 = 신흥국 초과상승」은 이야기꾼만의 이야기가 아니다.
 해외 운용사 다섯 곳이 독립적으로 같은 말을 하고 숫자도 비슷하다.
@@ -888,7 +906,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 <section class="s">
 
-<h2>이 분석이 틀릴 수 있는 곳</h2>
+<h2 id="이-분석이-틀릴-수-있는-곳">이 분석이 틀릴 수 있는 곳</h2>
 
 <div class="claim"><p>여기부터 두 장은 숫자를 의심하실 때 보는 곳이다.</p></div>
 
@@ -907,7 +925,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 '계단이 무너졌다'는 관찰이고, '무너진 채로 있을 것이다'는 예측이 아니다.</p>
 <p>★ 반증 조건. 새 시대에서 달러 약세 칸이 강세 칸을 10%p 이상 앞서는 상태가
 2년 넘게 이어지면 이 페이지의 ②번 결론은 틀린 것이다.</p>
-<h2>자료와 계산 방법</h2>
+<h2 id="자료와-계산-방법">자료와 계산 방법</h2>
 
 <ul>
 <li>시대: 10년물 국채금리(FRED <code>GS10</code>)의 사상 최고(1981-09 15.32%)와
@@ -1393,6 +1411,15 @@ setTimeout(dkBuild,400);
 
 
 
+
+
+
+
+
+
+
+
+
 <script id="dotcom-defaults">
 /* ★ 차트 형식 정본 — kospi-dotcom-1998-2000 의 눈맛 (2026-08-08 상수님 지시)
    고치는 곳은 scripts/apply_dotcom_style.py 하나다. 개별 차트의 명시 설정이 우선한다. */
@@ -1414,11 +1441,6 @@ setTimeout(dkBuild,400);
  d.plugins.legend.labels.usePointStyle=true;
 }go();})();
 </script>
-
-
-
-
-
 
 
 <button class="toggle" onclick="__toggleTheme()">&#9728;</button>

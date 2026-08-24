@@ -389,7 +389,25 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
   html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
   html body .site-bar-in{padding:9px 14px 7px}
 }
-/* BAR:END */</style><style id="freqcss">
+/* BAR:END */
+/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
+.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
+ margin:16px 0 22px;background:var(--surface)}
+.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
+ color:var(--text-secondary);margin-bottom:7px}
+.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
+.ptoc li{font-size:.9rem}
+.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
+.ptoc a:hover{border-bottom-color:var(--text-secondary)}
+@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
+
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
+</style><style id="freqcss">
 .freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
  padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
  border:1px solid currentColor;opacity:.85}
@@ -950,7 +968,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <p class="pauth">2026-08-13 작성 · ISM 실측 1990-01~2026-07 · 코스피 1981-01~2026-08-12 · 고정 자료</p>
 </div>
 
-<div class="disclaimer">
+<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>ISM 반등은 사실이고 그것을 좋다고 읽는 시각이 있다. 다만 같은 숫자를 두 사람이 반대로 읽는다는 것이 이 글의 관찰이다. 지표 하나로 국면을 정하면 그 지표를 고른 사람의 결론을 따라가게 된다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#자료와-계산-방법">자료와 계산 방법</a></li><li><a href="#얼마나-같이-가나-누가-먼저-움직이나">얼마나 같이 가나, 누가 먼저 움직이나?</a></li><li><a href="#낮을수록-좋다-레벨과-방향">★ 낮을수록 좋다. 레벨과 방향</a></li><li><a href="#올라가는-동안-낙폭은-20-안쪽이었다">올라가는 동안: 낙폭은 20% 안쪽이었다</a></li><li><a href="#꺾인-뒤-여기서-결과가-뒤집힌다">꺾인 뒤: 여기서 결과가 뒤집힌다</a></li><li><a href="#이야기꾼의-시나리오-투자법과-맞대-보기">이야기꾼의 시나리오 투자법과 맞대 보기</a></li><li><a href="#이번-국면-2026년-7월-은-예외다">이번 국면(2026년 7월)은 예외다</a></li><li><a href="#같은-숫자를-반대로-읽는-사람들">같은 숫자를 반대로 읽는 사람들</a></li><li><a href="#이-분석이-틀릴-수-있는-곳">이 분석이 틀릴 수 있는 곳</a></li></ol></div><!--TOC:END--><div class="disclaimer">
 <p>발견한 것 넷.</p>
 <p>① 낮을수록 좋고 높을수록 나쁘다. ISM 이 45 미만일 때 사서 12개월 뒤
 코스피 중앙값이 +28.6%(77%가 플러스)인데, 56 이상일 때는
@@ -967,7 +985,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 전례가 없는 예외라서 결론을 여기에 기대지 않고 맨 뒤 7장에 따로 두었다.</p>
 </div>
 
-<h2>자료와 계산 방법</h2>
+<h2 id="자료와-계산-방법">자료와 계산 방법</h2>
 
 <p>ISM 제조업지수는 2021년 ISM 이 라이선스를 회수하면서 FRED 에서 계열이 사라졌다.
 그래서 이 글은 처음에 OECD 미국 BCI 를 대용으로 썼는데, 여러 경로를 뒤진 끝에
@@ -997,7 +1015,7 @@ ISM 은 매년 초 계절조정 인자를 다시 계산하고 그때 과거 값�
 실측 밖에 남는데, 그 구간만 BCI 로 잇는다. 겹치는 438개월에서 두 지표의 상관은
 0.980였으므로 잇는 용도로는 충분하다.</p>
 
-<h2>얼마나 같이 가나, 누가 먼저 움직이나?</h2>
+<h2 id="얼마나-같이-가나-누가-먼저-움직이나">얼마나 같이 가나, 누가 먼저 움직이나?</h2>
 
 <div class="panel" data-reveal><div class="panel-head"><div><h3>ISM 제조업지수와 코스피 전년비: 1990~2026-07</h3></div><div class="rng" role="group" aria-label="기간 선택"><button class="on" onclick="imRange(&#39;g1&#39;,0,this)">전체 1990~</button><button onclick="imRange(&#39;g1&#39;,1,this)">최근 10년</button></div></div><div class="kpis"><div class="kpi hl"><div class="k">지금 ISM</div><div class="v">55.6</div><div class="s">2026-07 기준</div></div><div class="kpi"><div class="k">기준선</div><div class="v">50</div><div class="s">위면 확장, 아래면 위축</div></div><div class="kpi"><div class="k">코스피와 상관</div><div class="v">0.453</div><div class="s">시차 -2개월에서 가장 높음</div></div><div class="kpi hl"><div class="k">누가 먼저</div><div class="v">코스피가 2개월 앞선다</div><div class="s">ISM 은 선행 지표가 아닙니다</div></div></div><figure class="fig"><div class="cbox" style="height:400px"><canvas id="g1"></canvas></div><figcaption><span class="freq m">월간</span>굵은 황금색이 ISM 제조업지수(우축), 회색이 코스피 전년비(좌축)이다. 황금색이 50 아래로 내려간 자리마다 회색이 곧 위로 솟는다. 이것이 3장에서 숫자로 확인할 내용이다.</figcaption></figure><p class="panel-cap rngnote" style="margin-top:12px">1990년부터 전 구간이다. ISM 이 50 아래로 내려간 자리마다 코스피 전년비가 곧 위로 솟는다.</p><div class="srcline"><span class="lbl">출처</span><span>ISM Manufacturing PMI 월별 실측 · OECD 한국 주가지수 월별 원계열</span><a href="https://www.ismworld.org" target="_blank" rel="noopener">ISM &#8599;</a></div></div>
 
@@ -1013,7 +1031,7 @@ ISM 은 매년 초 계절조정 인자를 다시 계산하고 그때 과거 값�
 ISM 은 앞을 보는 창이 아니라 지금 어느 국면인지 알려주는 나침반에 가깝다.
 그리고 나침반으로서는 아래에서 보듯 꽤 쓸 만하다.</p></div>
 
-<h2>★ 낮을수록 좋다. 레벨과 방향</h2>
+<h2 id="낮을수록-좋다-레벨과-방향">★ 낮을수록 좋다. 레벨과 방향</h2>
 
 <p>먼저 레벨이다. 그 달의 ISM 수준별로, 그때 코스피를 샀다면
 12개월 뒤 어땠는지를 셌다.</p>
@@ -1047,7 +1065,7 @@ ISM 은 앞을 보는 창이 아니라 지금 어느 국면인지 알려주는 �
 그래서 '지수가 낮다'는 것만으로 겁먹을 필요가 없고, '지수가 높다'는 것만으로
 안심할 수도 없다. 지금은 상승 · 50 위 칸에 있다.</p></div>
 
-<h2>올라가는 동안: 낙폭은 20% 안쪽이었다</h2>
+<h2 id="올라가는-동안-낙폭은-20-안쪽이었다">올라가는 동안: 낙폭은 20% 안쪽이었다</h2>
 
 <p>ISM 의 국소 저점에서 국소 고점까지를 한 국면으로 잡고(±6개월 기준),
 그 안에서 코스피가 고점 대비 얼마나 빠졌는지를 계산했다.
@@ -1072,7 +1090,7 @@ ISM 은 앞을 보는 창이 아니라 지금 어느 국면인지 알려주는 �
 <thead><tr><th>BCI 상승 국면 (1981~89)</th><th class="n">코스피 최대 하락폭</th></tr></thead>
 <tbody><tr><td>1982-05 ~ 1983-11</td><td class="n">-7.7%</td></tr><tr><td>1985-05 ~ 1985-11</td><td class="n">-1.2%</td></tr><tr><td>1986-07 ~ 1987-10</td><td class="n">-9.2%</td></tr></tbody></table></div></div>
 
-<h2>꺾인 뒤: 여기서 결과가 뒤집힌다</h2>
+<h2 id="꺾인-뒤-여기서-결과가-뒤집힌다">꺾인 뒤: 여기서 결과가 뒤집힌다</h2>
 
 <p>국면 '안'의 낙폭 말고, 전환점 그 달에 코스피를 들고 있었다면
 3·6·12·24개월 뒤 어땠는지를 셌다.</p>
@@ -1120,7 +1138,7 @@ ISM 은 앞을 보는 창이 아니라 지금 어느 국면인지 알려주는 �
 것뿐이다. 그 국면에서 현금 비중과 손절선을 다르게 잡으라는 뜻이지,
 특정한 날에 팔라는 뜻이 아니다.</p></div>
 
-<h2>이야기꾼의 시나리오 투자법과 맞대 보기</h2>
+<h2 id="이야기꾼의-시나리오-투자법과-맞대-보기">이야기꾼의 시나리오 투자법과 맞대 보기</h2>
 
 <p>강의에서 ISM 이 나오는 자리가 셋이다. 이제 실측으로 셋 다 확인할 수 있다.</p>
 
@@ -1173,7 +1191,7 @@ ISM 은 앞을 보는 창이 아니라 지금 어느 국면인지 알려주는 �
 실측으로 옮기면 이렇게 된다. 지수가 낮고 올라가기 시작하면 들고 있고, 높은데 꺾이면 나온다.
 지금은 낮은 데서 올라와 이미 높아진 자리이다.</p></div>
 
-<h2>이번 국면(2026년 7월)은 예외다</h2>
+<h2 id="이번-국면-2026년-7월-은-예외다">이번 국면(2026년 7월)은 예외다</h2>
 
 <p>여기까지가 36년의 규칙이고, 지금 국면은 그 규칙에 맞지 않는다.
 결론을 여기에 기대지 않으려고 맨 뒤에 따로 둔다.</p>
@@ -1194,7 +1212,7 @@ ISM 은 앞을 보는 창이 아니라 지금 어느 국면인지 알려주는 �
 그리고 3장의 레벨 표로 보면 지금 ISM 55.6는 '56 이상' 칸, 즉 12개월 성과가
 가장 나빴던 자리에 들어와 있다.</p></div>
 
-<h2>같은 숫자를 반대로 읽는 사람들</h2>
+<h2 id="같은-숫자를-반대로-읽는-사람들">같은 숫자를 반대로 읽는 사람들</h2>
 <div class="claim"><p>결론. ISM 반등은 사실이고, 그 반등을 '좋다'로 읽는 시각이 있다.
 KB증권 이그전은 2026-08-10 자료에서 ISM 제조업 반등을 「경기사이클 확장」의 근거로 들고,
 7월 미국 고용 부진(−2.3만·전망 +8만)을 계절조정 착시로 본다.
@@ -1231,7 +1249,7 @@ KB증권 이그전은 2026-08-10 자료에서 ISM 제조업 반등을 「경기�
 「하향이 반복된다」는 관찰이 깨진다. 그때는 ISM 55.6 를 '경기 확장'이 아니라
 '인상을 부르는 과열'로 읽어야 한다.</p></div>
 
-<h2>이 분석이 틀릴 수 있는 곳</h2>
+<h2 id="이-분석이-틀릴-수-있는-곳">이 분석이 틀릴 수 있는 곳</h2>
 
 <ul>
 <li>실측이지만 36년이다. 상승 국면 18개 · 하락 국면 18개로 소수점을 다툴 수
@@ -1760,6 +1778,15 @@ setTimeout(imBuild,400);
 
 
 
+
+
+
+
+
+
+
+
+
 <script id="dotcom-defaults">
 /* ★ 차트 형식 정본 — kospi-dotcom-1998-2000 의 눈맛 (2026-08-08 상수님 지시)
    고치는 곳은 scripts/apply_dotcom_style.py 하나다. 개별 차트의 명시 설정이 우선한다. */
@@ -1781,11 +1808,6 @@ setTimeout(imBuild,400);
  d.plugins.legend.labels.usePointStyle=true;
 }go();})();
 </script>
-
-
-
-
-
 
 
 <button class="toggle" onclick="__toggleTheme()">&#9728;</button>

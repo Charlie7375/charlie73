@@ -388,6 +388,24 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
 /* ── 제목 아래 한 줄 (좌상단 배지 폐기 후 유일한 자리) ── */
 .pauth{margin:10px 0 0;font-size:.8rem;color:var(--text-secondary);text-align:center}
 .pauth b{color:var(--text);font-variant-numeric:tabular-nums}
+
+/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
+.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
+ margin:16px 0 22px;background:var(--surface)}
+.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
+ color:var(--text-secondary);margin-bottom:7px}
+.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
+.ptoc li{font-size:.9rem}
+.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
+.ptoc a:hover{border-bottom-color:var(--text-secondary)}
+@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
+
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 </style><style id="freqcss">
 .freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
  padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
@@ -677,7 +695,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <div class="eyebrow">아카이브</div>
 <h1>수급이 만든 폭락의 역사</h1>
 <p class="pauth">1987~2026 · 수급발 폭락 8건 · 고정 자료 · 시장 데이터로 갱신되지 않는다</p>
-</header>
+<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>폭락은 전략이 틀려서가 아니라 같은 것을 들고 있어서 벌어졌다. 누군가 하나가 급하게 정리하면 비슷하게 투자하던 다른 펀드가 연쇄로 끌려 들어간다. 2007년 소우드와 2026년 SA펀드가 같은 모양이다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#두-종류의-하락">두 종류의 하락</a></li><li><a href="#여덟-번의-사례">여덟 번의 사례</a></li><li><a href="#여덟-번의-공통점">여덟 번의 공통점</a></li><li><a href="#2026년-7월은-무엇이-달랐나">2026년 7월은 무엇이 달랐나?</a></li><li><a href="#지금-어디쯤인가-확인할-것">지금 어디쯤인가: 확인할 것</a></li><li><a href="#이-글이-틀릴-수-있는-지점">이 글이 틀릴 수 있는 지점</a></li><li><a href="#출처">출처</a></li></ol></div><!--TOC:END--></header>
 
 <div class="abstract">
 <h4>요약</h4>
@@ -695,7 +713,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 </div>
 
 <section class="s">
-<h2>두 종류의 하락</h2>
+<h2 id="두-종류의-하락">두 종류의 하락</h2>
 
 <p>주가가 내려가면 보통 어떤 일이 벌어질까요. 싸졌으니 사려는 사람이 생긴다.
 그래서 하락에 브레이크가 걸린다. 이게 정상이다.</p>
@@ -780,7 +798,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 </section>
 
 <section class="s">
-<h2>여덟 번의 사례</h2>
+<h2 id="여덟-번의-사례">여덟 번의 사례</h2>
 
 <figure class="tw">
 <figcaption>수급으로 무너진 사례. 지수 낙폭은 시장 전체가 얼마나 빠졌는지,
@@ -866,7 +884,7 @@ CFD라는 파생 계좌를 썼는데, 적은 돈으로 큰 금액을 굴릴 수 
 </section>
 
 <section class="s">
-<h2>여덟 번의 공통점</h2>
+<h2 id="여덟-번의-공통점">여덟 번의 공통점</h2>
 
 <h3>경제는 멀쩡했다</h3>
 <p>여덟 번 모두 그랬다. 오히려 좋을 때가 많았다.
@@ -901,7 +919,7 @@ CFD라는 파생 계좌를 썼는데, 적은 돈으로 큰 금액을 굴릴 수 
 </section>
 
 <section class="s">
-<h2>2026년 7월은 무엇이 달랐나?</h2>
+<h2 id="2026년-7월은-무엇이-달랐나">2026년 7월은 무엇이 달랐나?</h2>
 
 <p>지금까지의 사례는 전부 한 자리에서만 터졌다.
 2026년 7월은 세 자리가 같은 달에 터졌다.</p>
@@ -962,7 +980,7 @@ CFD라는 파생 계좌를 썼는데, 적은 돈으로 큰 금액을 굴릴 수 
 </section>
 
 <section class="s">
-<h2>지금 어디쯤인가: 확인할 것</h2>
+<h2 id="지금-어디쯤인가-확인할-것">지금 어디쯤인가: 확인할 것</h2>
 
 <figure class="tw">
 <figcaption>강제매도가 끝났는지 판단하는 신호. 이 페이지의 사례들에서 공통으로 관찰된 것들이다.</figcaption>
@@ -988,7 +1006,7 @@ CFD라는 파생 계좌를 썼는데, 적은 돈으로 큰 금액을 굴릴 수 
 </section>
 
 <section class="s">
-<h2>이 글이 틀릴 수 있는 지점</h2>
+<h2 id="이-글이-틀릴-수-있는-지점">이 글이 틀릴 수 있는 지점</h2>
 
 <p>결론을 적었으면 그것이 틀렸다고 인정할 조건도 적어야 한다. 세 가지이다.</p>
 
@@ -1009,7 +1027,7 @@ CFD라는 파생 계좌를 썼는데, 적은 돈으로 큰 금액을 굴릴 수 
 </section>
 
 <section class="s refs-sec">
-<h2>출처</h2>
+<h2 id="출처">출처</h2>
 
 <p class="note">공개 자료는 링크를 걸었다. 이야기꾼 보고서는 회원 대상 자료라 링크하지 않는다. 호수와 발행일만 남겨 두니 회원방에서 찾아보시면 된다.</p>
 
@@ -1394,6 +1412,15 @@ ViacomCBS and Discovery Pare Losses After Archegos-Driven Selloff.</a>
 
 
 
+
+
+
+
+
+
+
+
+
 <script id="dotcom-defaults">
 /* ★ 차트 형식 정본 — kospi-dotcom-1998-2000 의 눈맛 (2026-08-08 상수님 지시)
    고치는 곳은 scripts/apply_dotcom_style.py 하나다. 개별 차트의 명시 설정이 우선한다. */
@@ -1415,11 +1442,6 @@ ViacomCBS and Discovery Pare Losses After Archegos-Driven Selloff.</a>
  d.plugins.legend.labels.usePointStyle=true;
 }go();})();
 </script>
-
-
-
-
-
 
 
 <button class="toggle" onclick="__toggleTheme()">&#9728;</button>
