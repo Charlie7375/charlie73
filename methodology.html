@@ -113,33 +113,7 @@ footer{margin-top:48px;border-top:1px solid var(--border);padding-top:22px;color
 /* ── 제목 아래 한 줄 (좌상단 배지 폐기 후 유일한 자리) ── */
 .pauth{margin:10px 0 0;font-size:.8rem;color:var(--text-secondary);text-align:center}
 .pauth b{color:var(--text);font-variant-numeric:tabular-nums}
-
-/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
-.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
-  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END *//* DESIGN:BEGIN */
+/* DESIGN:BEGIN */
 /* ── 숫자는 항상 고정폭 — 매일 바뀌는 값에 칸이 흔들리지 않게 ── */
 body{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
 table,.st-v,.kpi,.kpis,.pbadge b{font-variant-numeric:tabular-nums}
@@ -329,7 +303,48 @@ a.card:focus-visible,.lst-i:focus-visible{
   .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
 }
 /* LAYOUT:END */
+/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
+.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
+  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
+.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
+  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
+  background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+/* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END */
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
+
 .dim{color:var(--mut,#94a3b8)}
+.b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
+  font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
+/* 판정 5색(b-on 로즈·b-wa 앰버·b-ob 슬레이트·b-sf 에메랄드·b-rf 회색)과 겹치지 않는 색을 쓴다.
+   기존 배지처럼 다크 대응 없이 한 색으로 양쪽에서 읽히게 채도를 높인다. */
+.b-pri{background:#4f46e5;color:#fff}
+.b-upd{background:#c7d2fe;color:#312e81}   /* b-pri 의 옅은 형제 — 둘 다 인디고 계열로 묶어
+                                              「강의 대조」 어휘임을 드러낸다. 윤곽선은 라이트
+                                              모드에서 대비 2.56 이라 채움으로 바꿨다. */
 .bg{display:inline-block;min-width:44px;text-align:center;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:800;color:#fff}
 .b-on{background:#e11d48}.b-wa{background:#f59e0b}.b-ob{background:#64748b}.b-sf{background:#059669}.b-rf{background:#94a3b8}
 .gr{display:inline-block;font-size:.68rem;font-weight:800;padding:1px 6px;border-radius:5px;margin-left:6px;
@@ -400,24 +415,6 @@ table{width:100%}
 h2{margin-top:52px;font-size:23px;letter-spacing:-.02em;padding-bottom:8px;border-bottom:2px solid var(--border)}
 h3{letter-spacing:-.015em}
 .sub{max-width:none}
-
-/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
-.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
- margin:16px 0 22px;background:var(--surface)}
-.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
- color:var(--text-secondary);margin-bottom:7px}
-.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
-.ptoc li{font-size:.9rem}
-.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
-.ptoc a:hover{border-bottom-color:var(--text-secondary)}
-@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 /*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
@@ -719,11 +716,11 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <div class="phead"><div class="eyebrow">방법론 · Methodology</div>
 <h1>방법론</h1>
 <p class="pauth">기술분석 1·2탄 강의(2024) · 고정 자료 · 시장 데이터로 갱신되지 않는다</p></div>
-<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>이 사이트의 모든 숫자는 이 규칙을 확인하려고 본다. 순서가 있다. 지금 어디인지를 먼저 보고 무엇을 살지, 언제 사고 팔지 순이다. 규칙을 먼저 알고 지표를 보는 것과 그 반대는 전혀 다르다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#국면-모델-지금-어디인지부터-안다">국면 모델: 지금 어디인지부터 안다</a></li><li><a href="#이야기꾼의-오디션-피라미딩-무엇을-살지">이야기꾼의 오디션 피라미딩: 무엇을 살지</a></li><li><a href="#이야기꾼의-매매-5원칙-언제-사고-팔지">이야기꾼의 매매 5원칙: 언제 사고 팔지</a></li></ol></div><!--TOC:END--><div class="sub">이 사이트의 모든 숫자는 <b>이 규칙을 확인하려고</b> 본다.
+<div class="sub">이 사이트의 모든 숫자는 <b>이 규칙을 확인하려고</b> 본다.
 순서가 있다. <b>지금 어디인지</b>(국면 모델)를 먼저 보고, <b>무엇을 살지</b>(오디션 피라미딩),
 <b>언제 사고 팔지</b>(매매 5원칙) 순이다. 규칙을 먼저 알고 지표를 보는 것과 그 반대는 전혀 다르다.</div>
 
-<h2 id="국면-모델-지금-어디인지부터-안다" style="margin-top:34px">국면 모델: 지금 어디인지부터 안다</h2>
+<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>이 사이트의 모든 숫자는 이 규칙을 확인하려고 본다. 순서가 있다. 지금 어디인지를 먼저 보고 무엇을 살지, 언제 사고 팔지 순이다. 규칙을 먼저 알고 지표를 보는 것과 그 반대는 전혀 다르다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#국면-모델-지금-어디인지부터-안다">국면 모델: 지금 어디인지부터 안다</a></li><li><a href="#이야기꾼의-오디션-피라미딩-무엇을-살지">이야기꾼의 오디션 피라미딩: 무엇을 살지</a></li><li><a href="#이야기꾼의-매매-5원칙-언제-사고-팔지">이야기꾼의 매매 5원칙: 언제 사고 팔지</a></li></ol></div><!--TOC:END--><h2 id="국면-모델-지금-어디인지부터-안다" style="margin-top:34px">국면 모델: 지금 어디인지부터 안다</h2>
 <div class="explain" style="border-left-color:var(--risk,#b45309)">
 <b>이 절은 2026-08-24 에 더했다.</b> 아래 두 장이 「무엇을 살지」와 「언제 사고 팔지」인데,
 그 앞에 <b>「지금 어디인지」</b>가 빠져 있었다. 시나리오투자법의 순서는 국면이 먼저다.
@@ -789,9 +786,9 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 </div>
 
 <div class="explain" style="border-left-color:var(--dn,#dc2626)">
-<b>⚠ 이 모델은 디스인플레 시대에서 만들어졌다.</b>
-디스인플레 시대는 1981-09부터 2020-06까지 38.8년이고 그 뒤는 인플레 시대다.
-코스피 546개월 가운데 466개월(85%)이 디스인플레이므로,
+<b>⚠ 이 모델은 디플레이션 시대에서 만들어졌다.</b>
+디플레이션 시대는 1981-09부터 2020-06까지 38.8년이고 그 뒤는 인플레 시대다.
+코스피 546개월 가운데 466개월(85%)이 디플레이션이므로,
 여기서 「과거 패턴」이라 부르는 것은 대부분 그 40년의 산물이다.
 <b>이야기꾼 본인이 먼저 말했다</b> — 「1980년 이후 40년 간 디플레이션 시대였고
 금리 시나리오에 단 한 번도 예외가 없었던 것이다. 금리 시나리오도 수정이 불가피할 것이다」(2022-06-05).
@@ -1011,7 +1008,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 </div>
 
 </div>
-<div class="wrap"><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="rules-scored.html">원칙 채점</a> — ⚠ 이 방법론의 매수 5원칙을 대조군과 견줘 채점한 자리다. 사는 쪽 초과분은 +1%p 안팎인데 피하는 쪽은 −1.8%p까지 벌어진다.</p><p><a href="jeonjo.html">중공황 전조현상</a> — 강의가 압축한 전조 열 가지가 지금 28종의 어디로 갔는지 대조한 자리다. 열 가지 중 둘은 아직 칸이 없다.</p><p><a href="fed-kospi.html">연준 기준금리와 증시</a> — 이 방법론의 금리 3가설을 실측으로 가른 자리다. 「뜬금없는 선제적 인하」만 강하게 지지되고 「세 번째 인상」은 기각에 가깝다.</p><p><a href="inflation-playbook.html">인플레 시대에 무엇이 통했나</a> — ⚠ 이 강의가 디스인플레 시대의 산물이라는 단서의 근거다. 시대가 바뀌면 무엇이 통했는지가 자산별로 갈린다.</p><p><a href="jeoji-kospi.html">제오지산수와 코스피</a> — 전조 Top 10 의 7번을 코스피 시계열로 검증한 자리다. 강의가 이름 붙인 개념 가운데 실측이 가장 두껍다.</p><p><a href="audition.html">오디션 피라미딩</a> — 방법론 Ⅱ장의 매매 절차가 매일 돌아가는 화면이다. 후보 선정부터 비중 조절까지가 여기서 자동으로 집계된다.</p><p><a href="bottom-top.html">바닥·천장 추적 분석</a> — 국면 판단을 날짜 단위로 좁히는 자리다. 방법론이 「어디인지」를 말한다면 이쪽은 「지금 그 자리가 맞는지」를 매일 검산한다.</p></div><!--RELATED:END--></div>
+<div class="wrap"><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="rules-scored.html">원칙 채점</a> ⚠ 이 방법론의 매수 5원칙을 대조군과 견줘 채점한 자리다. 사는 쪽 초과분은 +1%p 안팎인데 피하는 쪽은 −1.8%p까지 벌어진다.</p><p><a href="jeonjo.html">중공황 전조현상</a> 강의가 압축한 전조 열 가지가 지금 28종의 어디로 갔는지 대조한 자리다. 열 가지 중 둘은 아직 칸이 없다.</p><p><a href="fed-kospi.html">연준 기준금리와 증시</a> 이 방법론의 금리 3가설을 실측으로 가른 자리다. 「뜬금없는 선제적 인하」만 강하게 지지되고 「세 번째 인상」은 기각에 가깝다.</p><p><a href="inflation-playbook.html">인플레 시대에 무엇이 통했나</a> ⚠ 이 강의가 디플레이션 시대의 산물이라는 단서의 근거다. 시대가 바뀌면 무엇이 통했는지가 자산별로 갈린다.</p><p><a href="jeoji-kospi.html">제오지산수와 코스피</a> 전조 Top 10 의 7번을 코스피 시계열로 검증한 자리다. 강의가 이름 붙인 개념 가운데 실측이 가장 두껍다.</p><p><a href="audition.html">오디션 피라미딩</a> 방법론 Ⅱ장의 매매 절차가 매일 돌아가는 화면이다. 후보 선정부터 비중 조절까지가 여기서 자동으로 집계된다.</p><p><a href="bottom-top.html">바닥·천장 추적 분석</a> 국면 판단을 날짜 단위로 좁히는 자리다. 방법론이 「어디인지」를 말한다면 이쪽은 「지금 그 자리가 맞는지」를 매일 검산한다.</p></div><!--RELATED:END--></div>
 <footer>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.
     · 근거: 이야기꾼 주간 시투 보고서(W31·2026-08-01) 및 자체 실측.</footer>
 </div>
@@ -1059,39 +1056,6 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
