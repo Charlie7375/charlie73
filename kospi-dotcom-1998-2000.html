@@ -199,7 +199,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── 테마 토글 버튼 (전 페이지 공통) ── */
 /* ⚠⚠ `top:auto` 와 z-index 가 핵심이다 (2026-08-08).
-   생성기 SHELL 들이 `.toggle{top:62px;z-index:88;position:fixed;…}` 를 따로 갖고 있는데(45장),
+   생성기 SHELL 들이 `.toggle{position:fixed;top:18px;…}` 를 따로 갖고 있는데(45장),
    이 규칙은 뒤에 와서 z-index 만 이기고 **위치는 top:18px 가 남았다.**
    그 자리는 sticky 상단바(.site-bar, z-index 90)가 덮는 자리라
    **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 세 번째 원인이다.
@@ -855,7 +855,6 @@ h2,h2.sec,h3{text-align:center!important;text-wrap:balance;margin-left:auto!impo
 })();
 /* THEME:END */</script>
 
-<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 <script id="dotcom-defaults">
 /* ★ 차트 형식 정본 — kospi-dotcom-1998-2000 의 눈맛 (2026-08-08 상수님 지시)
    고치는 곳은 scripts/apply_dotcom_style.py 하나다. 개별 차트의 명시 설정이 우선한다. */
@@ -877,5 +876,6 @@ h2,h2.sec,h3{text-align:center!important;text-wrap:balance;margin-left:auto!impo
  d.plugins.legend.labels.usePointStyle=true;
 }go();})();
 </script>
+<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 </body>
 </html>
