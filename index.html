@@ -121,7 +121,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── 테마 토글 버튼 (전 페이지 공통) ── */
 /* ⚠⚠ `top:auto` 와 z-index 가 핵심이다 (2026-08-08).
-   생성기 SHELL 들이 `.toggle{position:fixed;top:18px;…}` 를 따로 갖고 있는데(45장),
+   생성기 SHELL 들이 `.toggle{top:62px;z-index:88;position:fixed;…}` 를 따로 갖고 있는데(45장),
    이 규칙은 뒤에 와서 z-index 만 이기고 **위치는 top:18px 가 남았다.**
    그 자리는 sticky 상단바(.site-bar, z-index 90)가 덮는 자리라
    **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 세 번째 원인이다.
@@ -446,12 +446,12 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
 
 <!-- STATUS:BEGIN -->
 <section class="status">
-  <div class="st-head">데이터 기준일 <b>2026-08-26</b><span class="st-gen">갱신 2026-08-26</span></div>
-  <div class="st-grid"><div class="st-c up"><div class="st-l">코스피</div><div class="st-v">6,808</div><div class="st-s">+0.97% · 이격도 94.1</div></div><div class="st-c dn"><div class="st-l">코스닥</div><div class="st-v">826.9</div><div class="st-s">-0.03% · 08/26</div></div><div class="st-c dn"><div class="st-l">수급 5일 · 외국인</div><div class="st-v">-6.1<span class="st-u">조</span></div><div class="st-s">개인 -1.3 · 기관 +0.4 (근사)</div></div><div class="st-c up"><div class="st-l">외인·기관 쌍끌이</div><div class="st-v">5<span class="st-u">/15종목</span></div><div class="st-s">삼성전자 등 5종목 · <span class="nb">08-26</span></div></div><div class="st-c warn"><div class="st-l">코스피 바닥 7단계</div><div class="st-v">2<span class="st-u">/7단계</span></div><div class="st-s">투매 9회 확인</div></div><div class="st-c dn"><div class="st-l">신고가 − 신저가</div><div class="st-v">-18</div><div class="st-s">신고가 62 · 신저가 80</div></div><div class="st-c warn old"><div class="st-l">전조현상 점등</div><div class="st-v">14<span class="st-u">/28</span></div><div class="st-s"><span class="st-age">25일 전</span> 1급 8개 W31</div></div><div class="st-c"><div class="st-l">오디션 생존</div><div class="st-v">283<span class="st-u">/308</span></div><div class="st-s">92% · 기준일 07-29 대비</div></div></div>
+  <div class="st-head">데이터 기준일 <b>2026-08-27</b><span class="st-gen">갱신 2026-08-27</span></div>
+  <div class="st-grid"><div class="st-c up"><div class="st-l">코스피</div><div class="st-v">6,912</div><div class="st-s">+1.53% · 이격도 96.0</div></div><div class="st-c up"><div class="st-l">코스닥</div><div class="st-v">837.6</div><div class="st-s">+1.30% · 08/27</div></div><div class="st-c dn"><div class="st-l">수급 5일 · 외국인</div><div class="st-v">-7.6<span class="st-u">조</span></div><div class="st-s">개인 -1.0 · 기관 +1.1 (근사)</div></div><div class="st-c up"><div class="st-l">외인·기관 쌍끌이</div><div class="st-v">4<span class="st-u">/15종목</span></div><div class="st-s">삼성전기 등 4종목 · <span class="nb">08-27</span></div></div><div class="st-c warn"><div class="st-l">코스피 바닥 7단계</div><div class="st-v">2<span class="st-u">/7단계</span></div><div class="st-s">투매 8회 확인</div></div><div class="st-c dn"><div class="st-l">신고가 − 신저가</div><div class="st-v">-28</div><div class="st-s">신고가 54 · 신저가 82</div></div><div class="st-c warn old"><div class="st-l">전조현상 점등</div><div class="st-v">14<span class="st-u">/28</span></div><div class="st-s"><span class="st-age">26일 전</span> 1급 8개 W31</div></div><div class="st-c"><div class="st-l">오디션 생존</div><div class="st-v">282<span class="st-u">/308</span></div><div class="st-s">92% · 기준일 07-29 대비</div></div></div>
 <div class="st-note">전조현상 점등 <b>08-01</b> — 나머지 칸보다 뒤처진 자료입니다</div></section>
 <!-- STATUS:END -->
 <!-- CHANGED:BEGIN -->
-<div class="chg"><div class="chg-h">어제와 견주어 달라진 것<span class="chg-d">08-25 → 08-26</span></div><ul class="chg-l"><li><span class="chg-k">외인·기관 쌍끌이</span><span class="chg-v">1종목 <i>→</i> 5종목</span></li><li><span class="chg-k">오디션 생존</span><span class="chg-v">279종목 <i>→</i> 283종목</span></li><li><span class="chg-k">외국인 5일 수급</span><span class="chg-v">-9.4조 <i>→</i> -6.1조</span></li><li><span class="chg-k">신고가 − 신저가</span><span class="chg-v">+6 <i>→</i> -18</span><span class="chg-n">신저가가 더 많아졌다</span></li></ul></div>
+<div class="chg"><div class="chg-h">어제와 견주어 달라진 것<span class="chg-d">08-26 → 08-27</span></div><ul class="chg-l"><li><span class="chg-k">외인·기관 쌍끌이</span><span class="chg-v">5종목 <i>→</i> 4종목</span></li><li><span class="chg-k">오디션 생존</span><span class="chg-v">283종목 <i>→</i> 282종목</span></li><li><span class="chg-k">외국인 5일 수급</span><span class="chg-v">-6.1조 <i>→</i> -7.6조</span></li><li><span class="chg-k">신고가 − 신저가</span><span class="chg-v">-18 <i>→</i> -28</span></li></ul></div>
 <!-- CHANGED:END -->
 
 <!-- SECS:BEGIN -->
