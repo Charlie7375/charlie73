@@ -1,4 +1,4 @@
-<!doctype html><html lang="ko" class="theme-light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>환율·원자재·암호 · 찰리의 시투 추종</title><style>html.theme-light{--bg:#fff;--surface:#F6F7F9;--border:rgba(15,23,42,.12);--text:#0f172a;--text-secondary:#475569;--accent:#2563eb;--up:#d21f3c;--up-bg:rgba(210,31,60,.09);--dn:#1161c4;--dn-bg:rgba(17,97,196,.09);--risk:#b45309;--risk-bg:rgba(245,158,11,.14);--mute:#5b6470;--mute-bg:rgba(91,100,112,.10);}
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>환율·원자재·암호 · 찰리의 시투 추종</title><style>html.theme-light{--bg:#fff;--surface:#F6F7F9;--border:rgba(15,23,42,.12);--text:#0f172a;--text-secondary:#475569;--accent:#2563eb;--up:#d21f3c;--up-bg:rgba(210,31,60,.09);--dn:#1161c4;--dn-bg:rgba(17,97,196,.09);--risk:#b45309;--risk-bg:rgba(245,158,11,.14);--mute:#5b6470;--mute-bg:rgba(91,100,112,.10);}
 html.theme-light{--chart-accent:#B7791F;--chart-pos:#0F8A53;--chart-neg:#D62839;--chart-mute:#8a8f98;
   --chart-grid:rgba(0,0,0,0.06);--chart-band:rgba(183,121,31,0.07)}
 html.theme-dark{--bg:#0A0A0A;--surface:#141414;--border:rgba(255,255,255,.07);--text:#EDEDED;--text-secondary:#8a8a8a;--accent:#2563eb;--up:#ff6b7a;--up-bg:rgba(255,107,122,.14);--dn:#5aa9ff;--dn-bg:rgba(90,169,255,.14);--risk:#fbbf24;--risk-bg:rgba(251,191,36,.16);--mute:#9aa3ad;--mute-bg:rgba(154,163,173,.13);}
@@ -107,515 +107,11 @@ html.theme-dark .site-dd{box-shadow:0 18px 44px rgba(0,0,0,.55)}
   .site-dd{right:auto;left:50%;transform:translate(-50%,-6px)}
   .site-group.on .site-dd{transform:translate(-50%,0)}
 }
-/* DESIGN:BEGIN */
-/* ── 숫자는 항상 고정폭 — 매일 바뀌는 값에 칸이 흔들리지 않게 ── */
-body{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
-table,.st-v,.kpi,.kpis,.pbadge b{font-variant-numeric:tabular-nums}
-
-/* ── 표 밀도 — 행이 많은 화면(오디션 255행·RS 55행)은 조밀해야 훑기 쉽다 ── */
-table{font-size:13px}
-thead th{font-size:12px;letter-spacing:-.01em;white-space:nowrap}
-tbody td{padding-top:7px!important;padding-bottom:7px!important}
-tbody tr:hover{background:color-mix(in srgb,var(--text) 3.5%,transparent)}
-
-/* ── 등락 색 (한국 관행: 빨강=상승 · 파랑=하락) ──
-   ⚠ **가격 등락에만** 적용한다. 초록/빨강이 '충족·미충족'이나 '발생·미발생'을
-     뜻하는 자리(bottom-top의 .b-pos 추세템플릿, peak-debate의 .fstat)는 건드리지
-     않는다. 거기선 초록=좋음이 맞고, 뒤집으면 오히려 뜻이 깨진다. */
-td.pos,.delta.up,.up-t{color:var(--up)!important}
-td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
-
-/* ── 테마 토글 버튼 (전 페이지 공통) ── */
-/* ⚠⚠ `top:auto` 와 z-index 가 핵심이다 (2026-08-08).
-   생성기 SHELL 들이 `.toggle{top:62px;z-index:88;position:fixed;…}` 를 따로 갖고 있는데(45장),
-   이 규칙은 뒤에 와서 z-index 만 이기고 **위치는 top:18px 가 남았다.**
-   그 자리는 sticky 상단바(.site-bar, z-index 90)가 덮는 자리라
-   **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 세 번째 원인이다.
-   → top 을 명시적으로 풀고(z-index 도 상단바 위로) 우하단으로 되돌린다. */
-.toggle{position:fixed;right:18px;bottom:18px;top:auto;z-index:130;width:42px;height:42px;
-  border-radius:50%;border:1px solid var(--border);background:var(--surface);
-  color:var(--text);font-size:17px;cursor:pointer;line-height:1;
-  box-shadow:0 2px 14px rgba(0,0,0,.10);transition:transform .12s,box-shadow .12s}
-.toggle:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(0,0,0,.16)}
-/* DESIGN:END *//* LAYOUT:BEGIN */
-:root{--w-data:1440px;--w-chart:1100px;
-  /* 산문 폭은 **고정 px이 아니라 em**이다.
-     ① px로 고정하면 글자를 키워도 한 줄에 담기는 글자 수가 늘어나 도로 길어진다.
-        em이면 글자 크기에 비례해 폭도 같이 자라서 **한 줄 글자 수가 유지**된다.
-     ② min(…,100%)이라 좁은 화면에서는 알아서 줄어든다. 유동이다. */
-  --w-prose:min(50em,100%)}
-
-/* ── ① 데이터층은 전폭 ── */
-/* 폭은 apply_paper.py 가 정한다. 여기서 !important 로 잡으면 그쪽이 못 이긴다.
-   두 곳에서 폭을 정하면 반드시 한쪽이 조용히 진다. */
-.wrap{padding-left:32px!important;padding-right:32px!important}
-
-/* ── ② 해설층은 좁은 단 + 세리프 ──
-   숫자·표·라벨은 산세리프로 남는다. 서체가 바뀌는 지점이 곧 층이 바뀌는 지점이다. */
-.explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{
-  /* ⚠ 가운데 정렬하면 제목은 왼쪽 끝, 본문은 화면 한가운데가 되어 **둘이 따로 논다.**
-       2026-08-02에 2600px 화면에서 그게 드러났다. 제목과 왼쪽을 맞춘다. */
-  max-width:var(--w-prose);margin-left:0!important;margin-right:auto!important;
-  font-size:16.5px;line-height:1.85;letter-spacing:-.004em}
-.explain b,.explain strong,.ebody b,.ebody strong,.hbody b,.hbody strong,.verdict b,.verdict strong,.callout b,.callout strong,.lesson b,.lesson strong,.note b,.note strong,.disclaimer b,.disclaimer strong,.fdetail b,.fdetail strong,.panel-cap b,.panel-cap strong{font-weight:600}
-.explain code,.explain .num,.explain table,.ebody code,.ebody .num,.ebody table,.hbody code,.hbody .num,.hbody table,.verdict code,.verdict .num,.verdict table,.callout code,.callout .num,.callout table,.lesson code,.lesson .num,.lesson table,.note code,.note .num,.note table,.disclaimer code,.disclaimer .num,.disclaimer table,.fdetail code,.fdetail .num,.fdetail table,.panel-cap code,.panel-cap .num,.panel-cap table{
-  font-family:inherit}
-.explain h2,.explain h3,.explain h4,.ebody h2,.ebody h3,.ebody h4,.hbody h2,.hbody h3,.hbody h4,.verdict h2,.verdict h3,.verdict h4,.callout h2,.callout h3,.callout h4,.lesson h2,.lesson h3,.lesson h4,.note h2,.note h3,.note h4,.disclaimer h2,.disclaimer h3,.disclaimer h4,.fdetail h2,.fdetail h3,.fdetail h4,.panel-cap h2,.panel-cap h3,.panel-cap h4{font-family:inherit}
-
-/* 해설 박스 안의 소제목 — 박스 밖 h2와 같은 크기면 위계가 무너진다.
-   본문보다 한 단만 크게, 위로 여백을 줘서 문단 묶음이 눈에 보이게 한다. */
-.explain h2,.ebody h2,.hbody h2,.verdict h2,.callout h2,.lesson h2,.note h2,.disclaimer h2,.fdetail h2,.panel-cap h2{
-  font-size:1.06em;font-weight:700;margin:22px 0 9px;letter-spacing:-.01em}
-.explain h2:first-child,.ebody h2:first-child,.hbody h2:first-child,.verdict h2:first-child,.callout h2:first-child,.lesson h2:first-child,.note h2:first-child,.disclaimer h2:first-child,.fdetail h2:first-child,.panel-cap h2:first-child{margin-top:0}
-.explain p,.ebody p,.hbody p,.verdict p,.callout p,.lesson p,.note p,.disclaimer p,.fdetail p,.panel-cap p{margin:0 0 11px}
-.explain p:last-child,.ebody p:last-child,.hbody p:last-child,.verdict p:last-child,.callout p:last-child,.lesson p:last-child,.note p:last-child,.disclaimer p:last-child,.fdetail p:last-child,.panel-cap p:last-child{margin-bottom:0}
-
-/* ── 폰트 통일 — 나눔고딕 ──
-   본문·제목·표·차트 라벨까지 한 벌로 간다. 예전엔 해설층만 세리프를 썼는데,
-   서체가 둘이면 같은 페이지 안에서 글자 크기와 행간이 미묘하게 어긋난다. */
-html body,html body h1,html body h2,html body h3,html body h4,
-html body table,html body button,html body input,html body .site-brand,
-html body .eyebrow,html body .sub,html body .card,html body .st-v,html body .st-l{
-  font-family:'Nanum Gothic','나눔고딕',AppleGothic,sans-serif!important}
-
-/* 차트는 전폭까지 늘리면 납작해진다 — 따로 잡는다 */
-.chart,.chart-box,.chart-container{max-width:var(--w-chart);margin-left:auto;margin-right:auto}
-
-/* 푸터 본문은 1440px 전폭으로 흐르면 한 줄이 100자를 넘는다 */
-.foot-in p,.foot-in>br{max-width:var(--w-prose)}
-.foot-in{padding-left:32px!important;padding-right:32px!important}
-
-/* 섹션 제목도 랜딩 크기(40px)라 밀도와 안 맞는다 */
-.sec-head h2{font-size:clamp(22px,2.2vw,26px)!important}
-.sec-head p{font-size:15px!important;max-width:var(--w-prose)!important;margin-left:0}
-.sub{font-size:16px!important;max-width:var(--w-prose)!important;line-height:1.7}
-.sec,.status{padding-left:32px!important;padding-right:32px!important}
-
-/* ── ③ 세로 간격 압축 ── */
-.sec{padding-bottom:48px!important}
-.sec-head{padding:28px 0 16px!important}
-.wrap{padding-top:28px!important}
-
-/* ── ④ 카드 밀도 ── */
-.card{padding:18px 20px 16px!important;border-radius:12px!important}
-.card::after{border-radius:12px!important}
-.card h3{margin-top:12px!important;font-size:17px!important}
-.card p{margin-top:7px!important;font-size:13px!important;line-height:1.6!important}
-.card .tag{font-size:11px!important;padding:3px 9px!important}
-.card .go{margin-top:14px!important;font-size:13px!important}
-.grid{gap:12px!important}
-@media(min-width:1200px){.g3{grid-template-columns:repeat(4,1fr)!important}
-  .g2{grid-template-columns:repeat(3,1fr)!important}}
-
-/* ── ⑤ CDS 컴포넌트 문법 — 헤어라인, 그림자 없음 ── */
-.card::after,.st-c,.compare::after,.panel,table td,table th{border-width:.5px!important}
-.card:hover{transform:none!important;box-shadow:none!important}
-.card:hover::after{border-color:var(--text3)!important}
-html.theme-dark .card:hover{box-shadow:none!important}
-
-/* 상태판은 숫자가 주인공이라 굵기를 안 내린다 */
-.st-v{font-weight:700!important}
-
-/* ── ⑦ index 첫 화면 — 세 층 구조 (2026-08-20) ──
-   다섯 섹션이 같은 4열 카드를 쓰던 탓에 «매일 바뀌는 것»과 «영원히 안 바뀌는 것»이
-   똑같이 생겼다. 층마다 다른 구조를 준다 — 라이브는 격자, 판단은 큰 카드, 참고는 목록.
-   ⚠ 선택자를 `a.card` 로 좁힌 것은 일부러다. bottom-top·disparity-3 의 `div.card` 는
-     차트 상자라 같은 이름을 쓰지만 다른 것이다. 거기까지 번지면 안 된다. */
-:root{--w-sec:1080px}   /* 상태판(build_status.py 의 .status max-width)과 **같은 값**이다.
-     달랐던 탓에 스트립은 L205, 카드는 L245 에서 시작해 첫 화면에 왼쪽 끝이 둘이었다.
-     ⚠ build_status.py 에서 1080 을 바꾸면 여기도 같이 바꾼다. 두 곳이 한 줄을 그린다. */
-.sec{max-width:var(--w-sec)!important}
-
-/* 리드 한 줄 — 푸터에 있던 첫 문장을 올린 것이다. 히어로 블록이 아니다 */
-.idx-lede{max-width:var(--w-sec);margin:30px auto 0;padding:0 32px}
-.idx-lede h1{margin:0;font-size:clamp(19px,1.85vw,23px);font-weight:700;
-  line-height:1.45;letter-spacing:-.022em;color:var(--text)}
-.idx-lede+.status{margin-top:16px!important}
-
-/* 층 구분자 — 제목 위 꼬리표가 아니라 «여기서부터 성격이 바뀐다»는 선이다.
-   그래서 글자 오른쪽으로 선이 끝까지 흐른다. */
-.tier-r{display:flex;align-items:center;gap:14px;
-  max-width:var(--w-sec);margin:54px auto 0;padding:0 32px;
-  font-size:12px;font-weight:800;letter-spacing:.055em;color:var(--text3)}
-.tier-r::after{content:"";flex:1;height:1px;background:var(--border)}
-.tier-r:first-of-type{margin-top:34px}
-.tier-r+.sec .sec-head{padding-top:16px!important}
-
-/* 격자 셋 */
-@media(min-width:1100px){
-  .g-today{grid-template-columns:repeat(3,1fr)!important}
-  .g-judge{grid-template-columns:repeat(2,1fr)!important}
-}
-.g-watch{grid-template-columns:repeat(auto-fill,minmax(196px,1fr))!important}
-
-/* 소속 배지를 걷었으니 제목 위 여백도 없앤다 */
-a.card h3{margin-top:0!important}
-
-/* 판단 첫 장 — 중공황 전조현상이 이 사이트의 본론이다 */
-.g-judge>a.card:first-child{grid-column:1/-1}
-.g-judge>a.card:first-child h3{font-size:21px!important}
-.g-judge>a.card:first-child p{font-size:14px!important;max-width:64ch}
-
-/* 관심종목 — 이름이 주인공, 설명은 한 줄짜리 꼬리표 */
-.g-watch a.card{padding:14px 16px 13px!important}
-.g-watch a.card h3{font-size:15.5px!important}
-.g-watch a.card p{margin-top:4px!important;font-size:12.5px!important;line-height:1.5!important}
-
-/* ── 목록층 — 카드에서 내린 방법론·아카이브 ──
-   21편을 카드로 두면 스크롤의 절반을 «안 바뀌는 것»이 가져간다. */
-.lst{display:grid;gap:26px 34px;grid-template-columns:1fr;align-items:start}
-@media(min-width:820px){.lst{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:1280px){.lst{grid-template-columns:repeat(3,1fr)}}
-@media(min-width:820px){.lst-flat{grid-template-columns:repeat(2,1fr)}}
-.lst-h{display:flex;align-items:baseline;gap:7px;margin:0 0 6px;
-  font-size:12px;font-weight:800;letter-spacing:.04em;color:var(--text3)}
-.lst-n{font-weight:400;opacity:.6}
-.lst-i{display:block;padding:9px 10px;margin:0 -10px;border-radius:9px;
-  text-decoration:none;transition:background .13s ease}
-.lst-i{box-shadow:inset 0 .5px 0 var(--border)}
-.lst-t{display:block;font-size:14.5px;font-weight:600;line-height:1.4;
-  color:var(--text);letter-spacing:-.012em}
-/* 두 줄에서 자른다 — 훅은 남기고 높이는 묶는다 */
-.lst-d{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;
-  overflow:hidden;margin-top:3px;font-size:12.5px;line-height:1.55;color:var(--text3)}
-.lst-d b{font-weight:400}
-.lst-i:hover{background:color-mix(in srgb,var(--text) 6%,transparent)}
-.lst-i:hover .lst-t{color:var(--accent)}
-
-/* 새로 만든 링크를 브라우저 기본 링만 믿고 내보내지 않는다 */
-a.card:focus-visible,.lst-i:focus-visible{
-  outline:2px solid var(--accent);outline-offset:3px;border-radius:10px}
-
-@media(max-width:900px){
-  .idx-lede,.tier-r{padding-left:18px!important;padding-right:18px!important}
-  .tier-r{margin-top:40px}
-  .g-watch{grid-template-columns:repeat(auto-fill,minmax(148px,1fr))!important}
-}
-
-@media(max-width:900px){
-  .wrap{padding-left:18px!important;padding-right:18px!important}
-  .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
-}
-/* LAYOUT:END */
-/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
-.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
-  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END *//*TOCCSS:BEGIN*/
-/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
-
-/* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
-   원인은 상단바다. .site-bar 가 position:sticky · 높이 78px 로 화면 맨 위를 덮는데
-   앵커로 이동하면 제목이 정확히 그 아래에 깔린다. 그래서 독자는 제목을 못 보고
-   그 다음 문단부터 보게 된다. 눌러 간 곳과 보이는 글이 어긋나는 것이 이 때문이다.
-   scroll-margin-top 이 0 이었다. 78 에 여백 14 를 더해 92 로 둔다.
-   ⚠ 상단바 높이를 바꾸면 이 값도 같이 바꾼다. 측정: .site-bar 의 getBoundingClientRect().height */
-h2[id],h3[id],[id]:target{scroll-margin-top:92px}
-@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
- margin:22px 0 24px;background:var(--surface);text-align:left}
-.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
- color:var(--text-secondary);margin-bottom:7px;text-align:left}
-.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
-.ptoc li{font-size:.9rem}
-.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
-.ptoc a:hover{border-bottom-color:var(--text-secondary)}
-@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*//* PAPER:BEGIN */
-/* ── 논문 판형 ─────────────────────────────────────────────── */
-
-:root{
-  /* 읽기 기둥. em이라 글자 크기를 키우면 폭도 같이 는다. */
-  --w-col:  clamp(18rem, 93vw, 68rem);
-  /* (더 이상 쓰지 않음) 예전에 표·차트를 본문보다 넓힐 때 쓰던 폭.
-     2026-08-03 부터 표·차트도 --w-col 안에 둔다. 남겨만 둔다. */
-  --w-wide: var(--w-col);
-  --w-data: var(--w-col);
-  --w-prose: 100%;
-  --rule: var(--border,#e3e3e6);
-  --gut: clamp(12px, 3vw, 26px);
-}
-
-/* breakout이 스크롤바 폭만큼 넘칠 수 있다(100vw는 스크롤바를 포함한다).
-   clip은 hidden과 달리 position:sticky 를 깨지 않는다. */
-html{overflow-x:clip}
-
-/* 본문 기둥 — 가운데. 제목·문단·목록이 모두 같은 왼쪽 선에서 시작한다. */
-html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
-  margin-right:auto!important;padding-left:var(--gut);padding-right:var(--gut);
-  box-sizing:border-box}
-.paper .sec,.paper .status,.paper .foot-in{max-width:none}
-
-/* 자료 breakout — **그림·표 알맹이만** 기둥 밖으로. 가운데는 유지.
-
-   ⚠ 처음엔 <figure> 통째로 넓혔다가 2026-08-02에 문제가 드러났다.
-     figure 안의 **캡션까지 같이 넓어져서** 캡션 왼쪽 선이 본문보다 46px 왼쪽에 섰다.
-     한 화면에 왼쪽 선이 두 개 생기니 글이 들쭉날쭉해 보인다.
-     → figure 자체는 본문 폭에 두고, 안의 svg·차트·표만 넓힌다.
-       캡션은 자연히 본문과 같은 선에서 시작한다. */
-.paper figure{width:auto;margin-left:0;margin-right:0}
-/* ⚠ breakout(표·차트를 본문보다 넓히는 것)을 **쓰지 않는다.** 2026-08-03 결정.
-     넓히면 데이터는 시원하게 보이지만 왼쪽 선이 본문과 어긋나 눈이 계속 튄다.
-     논문 판형의 값어치는 **모든 것이 한 줄에서 시작하는 것**이라 그쪽을 택했다.
-     표·차트·도해·캡션 전부 본문 기둥(--w-col) 안에 둔다.
-     넘치는 표는 .tblwrap 의 가로 스크롤로 처리한다(아래). */
-.paper figure>.cbox,.paper figure>table,
-.paper figure>.tblwrap,.paper .cchart,.paper .wide,.paper>.tblwrap,
-.paper figure>figcaption{
-  width:auto!important;max-width:100%!important;
-  margin-left:0!important;margin-right:0!important}
-.paper figure svg,.paper .cchart svg{width:100%;height:auto;display:block}
-/* 좁은 화면에서 표가 넘치면 잘리지 말고 가로로 밀리게 한다 */
-.paper .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
-/* ★ 2026-08-13 상수님 «ROE 가 짤려 보이네» — 정렬 가능한 큰 표(오디션·상대강도)는
-   열이 15개까지 간다. min-width 가 없으면 표가 «압축»되어 마지막 열이 잘린 것처럼 보인다.
-   최소 폭을 박아 두면 좁은 화면에서 **가로로 밀려** 전부 읽힌다.
-   ⚠ 열이 적은 본문 표에는 붙이지 않는다 — 쓸데없는 가로 스크롤이 생긴다. */
-.paper .tblwrap>table.sortable{min-width:1160px}
-.paper .tblwrap>table.sortable thead th,
-.paper .tblwrap>table.sortable tbody td{white-space:nowrap}
-.paper .tblwrap::-webkit-scrollbar{height:8px}
-.paper .tblwrap::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
-.paper .tblwrap>table{min-width:100%}
-
-/* 제목부 */
-.wrap .phead{margin:6px 0 26px;padding-bottom:20px;border-bottom:2px solid var(--text,#1d1d1f)}
-.wrap .phead h1{margin:6px 0 8px;letter-spacing:-.03em;line-height:1.22}
-.wrap .phead .pauth{margin:0;font-size:15px;color:var(--text2,#6e6e73);line-height:1.6}
-
-/* 요약(초록) */
-.wrap .abstract{margin:0 0 34px;padding:20px clamp(16px,3.4vw,24px);
-  background:var(--surface,#fafafa);border:1px solid var(--rule);border-radius:4px}
-.wrap .abstract h4{margin:0 0 10px;font-size:12px;font-weight:700;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--text2,#6e6e73)}
-.wrap .abstract p{margin:0 0 10px;font-size:15px;line-height:1.82}
-.wrap .abstract p:last-child{margin-bottom:0}
-
-/* 절 번호 자동 매김 — 손으로 적으면 순서를 바꿀 때마다 어긋난다.
-
-   ⚠ 선택자를 **뒤집어서** 쓴다. 처음엔 "직계 자식만 센다"로 짰는데,
-     페이지마다 껍데기가 달라(.sec-head, section.compare, 무클래스 section …)
-     19장 중 6장이 번호를 못 받았다.
-     → **전부 세고, 해설 박스 안만 뺀다.** 예외 목록이 훨씬 짧고 안 샌다. */
-.paper{counter-reset:sec fig tbl}
-.paper h2{
-  counter-increment:sec;margin:34px 0 14px;font-size:clamp(18px,2.4vw,21px);
-  font-weight:700;letter-spacing:-.02em;padding-bottom:7px;
-  border-bottom:1px solid var(--rule)}
-.paper h2::before{content:counter(sec) ".  ";color:var(--text2,#6e6e73);
-  font-variant-numeric:tabular-nums}
-/* h3에는 번호를 붙이지 않는다.
-   ⚠ 2026-08-02: h2보다 h3가 먼저 나오는 페이지가 4장 있어 "0.1 탈락 하위 10"처럼
-     절 번호 0이 찍혔다. CSS 카운터는 "앞에 h2가 있었는지"를 조건으로 못 쓴다.
-     한 단계만 번호를 매기는 편이 안전하고, 읽기에도 충분하다. */
-.paper h3{margin:28px 0 10px;font-size:clamp(16px,2vw,17.5px);
-  font-weight:700;letter-spacing:-.015em}
-
-/* 예외 — 해설 박스·요약·표제부 안의 제목은 절이 아니다 */
-.paper .explain h2,.paper .ebody h2,.paper .hbody h2,.paper .verdict h2,
-.paper .callout h2,.paper .lesson h2,.paper .note h2,.paper .abstract h2,
-.paper .disclaimer h2,.paper .fdetail h2,.paper .phead h2,
-.paper .explain h3,.paper .ebody h3,.paper .hbody h3,.paper .verdict h3,
-.paper .callout h3,.paper .lesson h3,.paper .abstract h3,.paper .disclaimer h3{
-  counter-increment:none;font-size:1.06em;font-weight:700;margin:22px 0 9px;
-  letter-spacing:-.01em;border:none;padding:0}
-.paper .explain h2::before,.paper .ebody h2::before,.paper .hbody h2::before,
-.paper .verdict h2::before,.paper .callout h2::before,.paper .lesson h2::before,
-.paper .note h2::before,.paper .abstract h2::before,.paper .disclaimer h2::before,
-.paper .fdetail h2::before,.paper .phead h2::before,
-.paper .explain h3::before,.paper .ebody h3::before,.paper .hbody h3::before,
-.paper .verdict h3::before,.paper .callout h3::before,.paper .lesson h3::before,
-.paper .abstract h3::before,.paper .disclaimer h3::before{content:none}
-.paper .explain h2:first-child,.paper .abstract h2:first-child{margin-top:0}
-
-/* 본문 */
-.paper p,.paper li{font-size:clamp(15.5px,1.85vw,16.5px);line-height:1.85;
-  letter-spacing:-.004em}
-.paper p{margin:0 0 13px}
-.paper p.note{font-size:15px;color:var(--text2,#6e6e73);padding-left:14px;
-  border-left:2px solid var(--rule);line-height:1.75}
-
-/* 그림·표 캡션 자동 번호 */
-.paper figure{margin-top:22px;margin-bottom:26px}
-.paper figure>figcaption{margin-top:11px;font-size:13.5px;line-height:1.7;
-  color:var(--text2,#6e6e73)}
-.paper figure.fig{counter-increment:fig}
-.paper figure.fig>figcaption::before{content:"그림 " counter(fig) ".  ";
-  font-weight:700;color:var(--text,#1d1d1f)}
-.paper figure.tw{counter-increment:tbl}
-.paper figure.tw>figcaption{margin:0 0 9px}
-.paper figure.tw>figcaption::before{content:"표 " counter(tbl) ".  ";
-  font-weight:700;color:var(--text,#1d1d1f)}
-
-/* 표 — 가로줄만(booktabs). 세로줄은 칸을 따라가는 눈의 흐름을 끊는다. */
-.paper table{width:100%;border-collapse:collapse;font-size:clamp(13px,1.6vw,14.5px);
-  font-variant-numeric:tabular-nums}
-.paper table thead th{text-align:left;font-size:.9em;font-weight:700;
-  padding:8px 12px 7px;background:transparent;color:var(--text,#1d1d1f);
-  border-top:1.6px solid var(--text,#1d1d1f);
-  border-bottom:1px solid var(--text,#1d1d1f);letter-spacing:.01em}
-.paper table tbody td{padding:8px 12px;border-bottom:1px solid var(--rule);
-  vertical-align:top;line-height:1.6}
-.paper table tbody tr:last-child td{border-bottom:1.6px solid var(--text,#1d1d1f)}
-.paper table th.n,.paper table td.n{text-align:right}
-.paper table tbody tr:hover{background:var(--surface,#fafafa)}
-/* 칸이 많은 표는 줄이지 말고 옆으로 굴린다 — 글자를 줄이면 못 읽는다 */
-.paper .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
-
-/* 차트 */
-.paper .cbox{position:relative;height:clamp(240px,42vw,380px)}
-
-/* ── 박스 벗기기 ──
-   해설·요약·섹션을 감싸던 회색 상자와 파란 왼쪽 띠를 모두 걷어낸다.
-   구분은 **여백과 얇은 선**으로만 한다. 상자가 많으면 화면이 조각나 보이고,
-   좁은 폰에서는 상자 안쪽 여백까지 겹쳐 글 폭이 더 좁아진다. */
-.paper .sec,.paper .sec-head,.paper .explain,.paper .ebody,.paper .hbody,
-.paper .verdict,.paper .callout,.paper .lesson,.paper .note,.paper .fdetail,
-.paper .abstract,.paper .panel,.paper figure.tw,.paper figure.fig{
-  background:none!important;border:0!important;border-radius:0!important;
-  box-shadow:none!important;padding-left:0!important;padding-right:0!important}
-.paper .sec{padding-top:0!important;padding-bottom:0!important;margin:0 0 8px}
-.paper .explain,.paper .ebody,.paper .hbody,.paper .verdict,.paper .callout,
-.paper .lesson,.paper .fdetail{padding-top:0!important;padding-bottom:0!important;
-  margin:14px 0 22px}
-.paper .abstract{padding:0!important;margin:0 0 32px}
-.paper .abstract p{font-size:clamp(15.5px,1.9vw,17px)}
-/* 요약만 위아래 가는 선으로 구분 — 상자 대신 */
-.paper .abstract{border-top:1px solid var(--rule)!important;
-  border-bottom:1px solid var(--rule)!important;padding:18px 0!important}
-/* note 는 왼쪽 띠 대신 색만 옅게 */
-.paper p.note,.paper .note{padding-left:0!important;border-left:0!important;
-  color:var(--text2,#6e6e73)}
-.paper .disclaimer{border-top:1px solid var(--rule)!important}
-
-/* ── 두괄식 «결론» 블록 (2026-08-06)
-   상수님 «모든 글을 논점을 검증하는 방식으로. 두괄식».
-   각 장이 결론 한 문단으로 시작하고 그 아래에 근거가 온다.
-   상자를 안 쓰는 것이 이 판형의 원칙이라, **왼쪽 굵은 선 + 살짝 큰 글씨**로만 구분한다.
-   그래야 훑어볼 때 «각 장의 첫 블록만» 읽어도 글 전체가 읽힌다. */
-.paper .claim{margin:6px 0 22px;padding:2px 0 2px 16px!important;
-  border-left:3px solid var(--up,#d21f3c)!important;background:none!important}
-.paper .claim p{font-size:clamp(15.5px,1.9vw,17px);line-height:1.72;margin:0}
-.paper .claim+figure,.paper .claim+.tblwrap{margin-top:4px}
-/* 경고형 note — 한계·반증을 적는 자리. 색만 바꾼다 */
-.paper .note.warn{border-left:2px solid var(--risk,#c98a00)!important;
-  padding-left:12px!important}
-
-/* ── 정렬 ──
-   **제목(맨 위 표제부)만 가운데.** 소제목(h2·h3)과 본문은 왼쪽이다.
-   소제목까지 가운데로 두면 문단 첫 줄과 제목의 시작점이 매번 어긋나
-   눈이 다음 줄을 찾는 데 시간이 걸린다. 표제부는 한 번뿐이라 가운데가 낫고,
-   반복되는 소제목은 왼쪽이 낫다. */
-.wrap .phead,
-.paper>.site-crumb,.paper>.crumb,.paper>.eyebrow,.paper>h1,.paper>.sub,
-.paper .phead .eyebrow,.paper .phead h1,.paper .phead .pauth,
-/* ⚠ .phead 안의 .sub 를 빠뜨려서 종목 페이지 설명 문구만 좌측 정렬로 남았다(2026-08-03).
-     제목부는 전부 가운데다. 하나만 왼쪽이면 깨져 보인다. */
-.paper .phead .sub,.paper .phead p.sub{text-align:center}
-.paper .phead .sub{margin-left:auto;margin-right:auto;max-width:46em}
-.paper>.site-crumb,.paper>.crumb{justify-content:center;display:flex;
-  flex-wrap:wrap;gap:4px;align-items:center}
-.paper>.sub,.paper .pauth{margin-left:auto;margin-right:auto}
-
-/* 소제목·본문은 왼쪽 */
-.paper h2,.paper h3,.paper h4,.paper p,.paper li,.paper figure>figcaption,
-.paper .explain,.paper .ebody,.paper .hbody,.paper .verdict,.paper .callout,
-.paper .lesson,.paper .note,.paper .abstract,.paper .disclaimer{text-align:left}
-.paper h2{margin-left:0;margin-right:0}
-
-/* 표 안 제목은 가운데로 몰면 칸이 어긋난다 */
-.paper table th,.paper table td{text-align:left}
-.paper table th.n,.paper table td.n{text-align:right}
-
-/* ── 본문 볼드 제거 ──
-   문단·목록·캡션 안의 <b>/<strong> 은 굵기를 없앤다.
-   `font-weight:inherit` 를 쓰는 이유: 부모의 굵기를 그대로 따르므로
-   문단(400) 안에서는 보통 글씨가 되고, **제목이나 표 머리글 안에서는
-   그대로 굵게** 남는다. 400으로 못박으면 제목 속 강조까지 풀려 버린다.
-
-   제목(h1~h4)·표(th/td)·상단바는 손대지 않는다 — 본문만이다. */
-.paper p b,.paper p strong,
-.paper li b,.paper li strong,
-.paper figcaption b,.paper figcaption strong,
-.paper .sub b,.paper .sub strong,
-.paper .pauth b,.paper .pauth strong,
-.paper .disclaimer b,.paper .disclaimer strong,
-.paper ol.refs li b,.paper ol.refs li strong{font-weight:inherit}
-
-/* 해설 박스 안의 참고문헌 소제목 — 절 번호를 붙이지 않고 작게 */
-.paper .explain h3.sub-h{font-size:1.02em;font-weight:700;margin:24px 0 8px;
-  color:var(--text,#1d1d1f)}
-.paper .explain h3.sub-h::before{content:none}
-
-/* 인용문 — 박스를 안 쓰기로 했으니 **왼쪽 괘선**으로만 구분한다.
-     들여쓰기만 하면 본문 문단과 구별이 안 돼서 그냥 흘러가 버린다(2026-08-03 확인). */
-.paper .quote{margin:22px 0!important;padding:2px 0 2px 18px!important;
-  border:0!important;border-left:3px solid var(--accent,#1161c4)!important;
-  background:none!important;border-radius:0!important;
-  color:var(--text,#1d1d1f);font-size:.99em;line-height:1.75}
-.paper .quote .src{display:block;margin-top:6px;font-size:.86em;color:var(--muted,#6b7280)}
-
-/* 참고문헌 */
-.paper ol.refs{margin:10px 0 20px;padding-left:0;list-style:none;counter-reset:refitem}
-.paper ol.refs li{position:relative;padding-left:32px;margin:0 0 11px;
-  font-size:15px;line-height:1.72;color:var(--text,#1d1d1f)}
-.paper ol.refs li::before{content:"[" counter(refitem) "]";counter-increment:refitem;
-  position:absolute;left:0;top:0;font-variant-numeric:tabular-nums;font-size:13.5px;
-  color:var(--text2,#6e6e73);font-weight:600}
-.paper ol.refs[start="6"]{counter-reset:refitem 5}
-.paper ol.refs[start="11"]{counter-reset:refitem 10}
-.paper ol.refs a{color:var(--accent,#1161c4);text-decoration:none;
-  border-bottom:1px solid currentColor;border-bottom-color:transparent}
-.paper ol.refs a:hover{border-bottom-color:currentColor}
-.paper .refs-sec h3{margin-top:24px}
-
-/* 맺음말 */
-.paper .disclaimer{margin-top:38px;padding-top:16px;border-top:1px solid var(--rule);
-  font-size:13.5px;line-height:1.75;color:var(--text2,#6e6e73)}
-.paper .disclaimer p{font-size:13.5px;line-height:1.75;margin-bottom:9px}
-
-/* ── 모바일 ── 줄일 수 없는 것만 손본다 */
-@media(max-width:760px){
-  /* ⚠ 모바일에도 breakout 을 두지 않는다(2026-08-03).
-       여기 남겨두면 좁은 화면에서만 표가 본문 밖으로 튀어나와
-       "왜 폰에서만 다르지" 하는 상태가 된다. 데스크톱과 같은 규칙으로 간다. */
-  .paper figure>.cbox,.paper figure>table,
-  .paper figure>.tblwrap,.paper .cchart,.paper .wide,.paper>.tblwrap{
-    width:auto;max-width:100%;margin-left:0;margin-right:0}
-  .paper table thead th,.paper table tbody td{padding:7px 9px}
-  .paper figure{margin-top:18px;margin-bottom:22px}
-  .paper .abstract{padding:16px 15px}
-  .wrap .phead{margin-bottom:20px;padding-bottom:16px}
-}
-@media(max-width:430px){
-  .paper table{font-size:12.5px}
-  .paper p.note{padding-left:11px}
-}
-/* PAPER:END */</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body><div class="site-bar"><div class="site-bar-in">
+</style><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body><div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
-  <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-nhn.html">NHN</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="gold-rates.html">금과 장기금리는 시대마다 반대로 움직인다</a><a href="treasury-trust.html">국채는 부도로 무너지지 않는다</a><a href="deleveraging.html">강제청산은 어떻게 끝나는가</a><a href="inflation-playbook.html">인플레 시대에 무엇이 통했나</a><a href="rates-century.html">미국 금리 100년과 인플레 시대</a><a href="memory-price.html">메모리 가격과 반도체 주가</a><a href="breadth-concentration.html">신고가 쏠림배수 2023~2026</a><a href="kospi-analog.html">지금과 닮은 과거 — 유사국면</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><div class="site-group"><button class="here" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 46계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a class="here" href="data-fx.html">환율·원자재·암호</a><a href="data-macro.html">재정·거시</a></div></div><!-- NAV:END --></nav>
-</div></div><div class="wrap paper dwrap"><div class="site-crumb"><a href="index.html">홈</a><span class="sep">›</span><span>원자료</span><span class="sep">›</span><span class="cur">환율·원자재·암호</span></div><a class="dback" href="data.html">← 원자료</a><header class="phead"><span class="eb">원자료</span><h1>환율·원자재·암호</h1><p class="pauth">달러가 강한가 약한가. 금과 비트코인은 어디인가. 계열 9개.</p></header><div class="dgrid"><a class="dcard" href="d-dxy.html"><div class="n">광의 달러지수</div><div class="m">2006-01-02 ~ 2026-08-21 · 5,174개<br>매일 · 2006-01=100</div><div class="now">118.0628</div></a><a class="dcard" href="d-dxy-m.html"><div class="n">달러지수 월봉 (접합)</div><div class="m">1973-01 ~ 2026-06 · 642개<br>매월 · 지수</div><div class="now">94.6534</div></a><a class="dcard" href="d-jpy.html"><div class="n">엔달러 환율</div><div class="m">1971-01-04 ~ 2026-08-21 · 13,946개<br>매일 · 엔/달러</div><div class="now">158.91</div></a><a class="dcard" href="d-gold.html"><div class="n">금 현물 (XAU/USD)</div><div class="m">1979-12-27 ~ 2026-08-27 · 12,101개<br>매일 · 달러/온스</div><div class="now">4623.75</div></a><a class="dcard" href="d-gold-kr.html"><div class="n">국제 금 선물 (네이버)</div><div class="m">2023-08-25 ~ 2026-08-26 · 754개<br>매일 · 달러/온스</div><div class="now">4653.3</div></a><a class="dcard" href="d-btc-usd.html"><div class="n">비트코인 (달러)</div><div class="m">2010-08-18 ~ 2026-08-27 · 5,854개<br>매일 · 달러</div><div class="now">79892.4766</div></a><a class="dcard" href="d-btc-krw.html"><div class="n">비트코인 (원화)</div><div class="m">2017-09-25 ~ 2026-08-26 · 3,258개<br>매일 · 원</div><div class="now">109,165,000</div></a><a class="dcard" href="d-wti-long.html"><div class="n">WTI 원유 장기 (1946~)<span class="dtag man">손으로</span></div><div class="m">1946-01 ~ 2026-07 · 967개<br>손으로 · 달러/배럴</div><div class="now">80.46</div></a><a class="dcard" href="d-gold-long.html"><div class="n">금 시세 장기 (1833~)<span class="dtag man">손으로</span></div><div class="m">1833-01 ~ 2026-07 · 2,323개<br>손으로 · 달러/온스</div><div class="now">4,073</div></a></div></div>
+  <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-nhn.html">NHN</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="gold-rates.html">금과 장기금리는 시대마다 반대로 움직인다</a><a href="treasury-trust.html">국채는 부도로 무너지지 않는다</a><a href="deleveraging.html">강제청산은 어떻게 끝나는가</a><a href="inflation-playbook.html">인플레 시대에 무엇이 통했나</a><a href="rates-century.html">미국 금리 100년과 인플레 시대</a><a href="memory-price.html">메모리 가격과 반도체 주가</a><a href="breadth-concentration.html">신고가 쏠림배수 2023~2026</a><a href="kospi-analog.html">지금과 닮은 과거 — 유사국면</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><div class="site-group"><button class="here" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 65계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a href="data-kr-rates.html">한국 금리</a><a href="data-us-market.html">미국 시장</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a class="here" href="data-fx.html">환율·원자재·암호</a><a href="data-macro.html">재정·거시</a></div></div><!-- NAV:END --></nav>
+  <button class="toggle" type="button" onclick="__toggleTheme()" aria-label="테마 전환">◐</button>
+</div></div><div class="wrap paper dwrap"><div class="site-crumb"><a href="index.html">홈</a><span class="sep">›</span><span>원자료</span><span class="sep">›</span><span class="cur">환율·원자재·암호</span></div><a class="dback" href="data.html">← 원자료</a><header class="phead"><span class="eb">원자료</span><h1>환율·원자재·암호</h1><p class="pauth">달러가 강한가 약한가. 금과 비트코인은 어디인가. 계열 9개.</p></header><div class="dgrid"><a class="dcard" href="d-dxy.html"><div class="n">광의 달러지수</div><div class="m">2006-01-02 ~ 2026-08-21 · 5,174개<br>매일 · 2006-01=100</div><div class="now">118.0628</div></a><a class="dcard" href="d-dxy-m.html"><div class="n">달러지수 월봉 (접합)</div><div class="m">1973-01 ~ 2026-06 · 642개<br>매월 · 지수</div><div class="now">94.6534</div></a><a class="dcard" href="d-jpy.html"><div class="n">엔달러 환율</div><div class="m">1971-01-04 ~ 2026-08-21 · 13,946개<br>매일 · 엔/달러</div><div class="now">158.91</div></a><a class="dcard" href="d-gold.html"><div class="n">금 현물 (XAU/USD)</div><div class="m">1979-12-27 ~ 2026-08-27 · 12,101개<br>매일 · 달러/온스</div><div class="now">4623.75</div></a><a class="dcard" href="d-gold-kr.html"><div class="n">국제 금 선물 (네이버)</div><div class="m">2023-08-25 ~ 2026-08-27 · 755개<br>매일 · 달러/온스</div><div class="now">4,664</div></a><a class="dcard" href="d-btc-usd.html"><div class="n">비트코인 (달러)</div><div class="m">2010-08-18 ~ 2026-08-28 · 5,855개<br>매일 · 달러</div><div class="now">79612.2734</div></a><a class="dcard" href="d-btc-krw.html"><div class="n">비트코인 (원화)</div><div class="m">2017-09-25 ~ 2026-08-27 · 3,259개<br>매일 · 원</div><div class="now">109,830,000</div></a><a class="dcard" href="d-wti-long.html"><div class="n">WTI 원유 장기 (1946~)<span class="dtag man">손으로</span></div><div class="m">1946-01 ~ 2026-07 · 967개<br>손으로 · 달러/배럴</div><div class="now">80.46</div></a><a class="dcard" href="d-gold-long.html"><div class="n">금 시세 장기 (1833~)<span class="dtag man">손으로</span></div><div class="m">1833-01 ~ 2026-07 · 2,323개<br>손으로 · 달러/온스</div><div class="now">4,073</div></a></div></div>
 <script>
 (function(){
   var gs=document.querySelectorAll('.site-group');
@@ -670,14 +166,22 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   function build(d,n){
     var cv=document.getElementById(d.id); if(!cv||typeof Chart==='undefined') return;
     var i0 = startIdx(d.lab, n);
-    var lab=d.lab.slice(i0), val=d.val.slice(i0);
-    if(val.length<2) return;
+    var lab=d.lab.slice(i0);
+    if(lab.length<2) return;
+    /* ★ 여러 계열을 함께 그린다(상수님 «개인만 보인다»).
+       색은 --chart-accent 를 으뜸으로 두고 나머지는 의미색을 쓴다. */
+    var SC=[css('--chart-accent','#B7791F'),css('--dn','#1161c4'),css('--up','#d21f3c'),
+            css('--chart-mute','#8a8f98'),css('--risk','#b45309')];
+    var sers=d.ser.map(function(se,k){ return {name:se.name, val:se.val.slice(i0), c:SC[k%SC.length]}; });
     /* ★ 저점 기준 확대 — 0 에서 시작하지 않는다. 보이는 구간의 최저·최고로 잡는다. */
-    var lo=Math.min.apply(null,val), hi=Math.max.apply(null,val);
+    var lo=null, hi=null;
+    sers.forEach(function(se){ se.val.forEach(function(x){
+      if(x===null||x===undefined) return;
+      if(lo===null||x<lo) lo=x; if(hi===null||x>hi) hi=x; }); });
+    if(lo===null) return;
     var pad=(hi-lo)||Math.abs(hi)||1; pad*=0.06;
     var tx=css('--text-secondary','#6b7280'),
-        grid=css('--chart-grid','rgba(0,0,0,0.06)'),
-        acc=css('--chart-accent','#B7791F');
+        grid=css('--chart-grid','rgba(0,0,0,0.06)');
     /* ★ 2026-08-28 — 기간 버튼이 안 먹었다. 내가 쥔 손잡이로 destroy() 를 불렀는데
        ⑯-e chart_theme.js 가 **Chart 생성자를 감싸** 두어서 그 손잡이가 원본이 아니다.
        캔버스에 등록된 인스턴스를 Chart.getChart 로 찾아 지운다. 감싸든 말든 통한다.
@@ -695,18 +199,24 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
       return t.slice(2);                    /* 25-08-27  */
     }
     CH[d.id]=new Chart(cv.getContext('2d'),{type:'line',
-      data:{labels:lab,datasets:[{label:d.name,data:val,
-        borderColor:acc,backgroundColor:hexA(acc,0.13),
-        borderWidth:3.2,pointRadius:0,pointHoverRadius:6,tension:.3,fill:true}]},
+      data:{labels:lab,datasets:sers.map(function(se,k){ return {
+        label:se.name, data:se.val, borderColor:se.c,
+        backgroundColor: sers.length===1 ? hexA(se.c,0.13) : 'transparent',
+        borderWidth: sers.length===1 ? 3.2 : 2.2,
+        pointRadius:0, pointHoverRadius:6, tension:.3,
+        fill: sers.length===1, spanGaps:true }; })},
       options:{responsive:true,maintainAspectRatio:false,
         layout:{padding:{top:10,right:14,left:4,bottom:2}},
         animation:{duration:700,easing:'easeOutQuart'},
         interaction:{mode:'index',intersect:false},
-        plugins:{legend:{display:false},
+        plugins:{legend:{display:sers.length>1,position:'bottom',
+            labels:{color:tx,boxWidth:14,boxHeight:8,padding:14,
+                    font:{family:'Noto Sans KR',size:12}}},
           tooltip:{padding:12,cornerRadius:8,
             titleFont:{size:13,family:'Inter'},
             bodyFont:{size:13,family:'Noto Sans KR'},
-            callbacks:{label:function(c){ return ' '+d.name+' '+nfmt(c.parsed.y); }}}},
+            callbacks:{label:function(c){
+              return ' '+c.dataset.label+' '+nfmt(c.parsed.y); }}}},
         scales:{
           x:{ticks:{color:tx,autoSkip:true,maxTicksLimit:6,maxRotation:0,font:{size:11},
                callback:function(v,i){ return shortLab(lab[i]); }},
@@ -716,7 +226,8 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
              grid:{color:grid}}}}});
     cv.setAttribute('role','img');
     cv.setAttribute('aria-label',
-      d.name+' — '+lab[0]+'부터 '+lab[lab.length-1]+'까지 '+lab.length+'개. '+
+      sers.map(function(se){return se.name;}).join('·')+
+      ' — '+lab[0]+'부터 '+lab[lab.length-1]+'까지 '+lab.length+'개. '+
       '최저 '+nfmt(lo)+' 최고 '+nfmt(hi)+'.');
   }
   /* ★ 자르는 기준은 행 개수가 아니라 **날짜**다. 라벨이 'YYYY-MM-DD' 나 'YYYY-MM'
@@ -758,29 +269,4 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   setTimeout(function(){ try{ if(!Object.keys(CH).length) window.rebuild(); }catch(e){} },400);
 })();
 /* DCHART:END */
-</script><script>/* THEME:BEGIN */
-(function(){
-  var h=document.documentElement;
-  try{var v=localStorage.getItem('charlie-theme'); if(v){h.className=v;}}catch(e){}
-  window.__toggleTheme=function(){
-    var n=h.className==='theme-light'?'theme-dark':'theme-light';
-    h.className=n; try{localStorage.setItem('charlie-theme',n);}catch(e){}
-    /* ★ 차트는 CSS 변수를 «그릴 때 한 번» 읽는다 — 테마만 바꾸면 색이 안 따라온다.
-       2026-08-08 에 stage-analysis 가 다크로 바꿔도 라이트 황금색(#B7791F)을 유지했다.
-       예전엔 생성기가 넣은 인라인 onclick 이 rebuild 를 불렀는데, 이 함수로 통일되면서
-       그 호출이 사라졌다. 여기서 부른다 — 없는 페이지는 그냥 넘어간다. */
-    try{ if(window.rebuild) window.rebuild(); }catch(e){}
-  };
-})();
-/* 보험 — 토글 말고 다른 경로로 테마가 바뀌어도 따라 그린다(첫 로드 시 1회는 건너뛴다) */
-(function(){
-  if(!window.MutationObserver) return;
-  var h=document.documentElement, last=h.className;
-  new MutationObserver(function(){
-    if(h.className===last) return; last=h.className;
-    try{ if(window.rebuild) window.rebuild(); }catch(e){}
-  }).observe(h,{attributes:true,attributeFilter:['class']});
-})();
-/* THEME:END */</script>
-<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
-</body></html>
+</script></body></html>
