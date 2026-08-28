@@ -108,19 +108,9 @@ footer{margin-top:48px;border-top:1px solid var(--border);padding-top:22px;color
 .toggle{top:62px;z-index:88;position:fixed;right:18px;width:42px;height:42px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:18px}
 @media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}h1{font-size:2.05rem}}
 
-/* ── 공통 기준일 배지 ── */
-.pbadge{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:2px 0 18px;
-  font-size:.79rem;color:var(--text-secondary)}
-.pbadge b{color:var(--text);font-variant-numeric:tabular-nums}
-.pb-k{font-size:.7rem;font-weight:800;padding:2px 8px;border-radius:999px;letter-spacing:.01em}
-.pb-live{color:#047857;background:color-mix(in srgb,#059669 14%,transparent)}
-.pb-weekly{color:#1d4ed8;background:color-mix(in srgb,#2563eb 13%,transparent)}
-.pb-monthly{color:#6d28d9;background:color-mix(in srgb,#7c3aed 13%,transparent)}
-.pb-fixed{color:#475569;background:color-mix(in srgb,#64748b 15%,transparent)}
-.pb-src{opacity:.72}
-.pb-note{opacity:.55;font-size:.74rem}
-.pb-old{font-size:.7rem;font-weight:800;padding:2px 8px;border-radius:999px;
-  color:#b45309;background:color-mix(in srgb,#f59e0b 18%,transparent)}
+/* ── 제목 아래 한 줄 (좌상단 배지 폐기 후 유일한 자리) ── */
+.pauth{margin:10px 0 0;font-size:.8rem;color:var(--text-secondary);text-align:center}
+.pauth b{color:var(--text);font-variant-numeric:tabular-nums}
 /* DESIGN:BEGIN */
 /* ── 숫자는 항상 고정폭 — 매일 바뀌는 값에 칸이 흔들리지 않게 ── */
 body{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
@@ -311,6 +301,48 @@ a.card:focus-visible,.lst-i:focus-visible{
   .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
 }
 /* LAYOUT:END */
+/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
+.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
+  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
+.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
+  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
+  background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+/* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END */
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
+
+.dim{color:var(--mut,#94a3b8)}
+.b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
+  font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
+/* 판정 5색(b-on 로즈·b-wa 앰버·b-ob 슬레이트·b-sf 에메랄드·b-rf 회색)과 겹치지 않는 색을 쓴다.
+   기존 배지처럼 다크 대응 없이 한 색으로 양쪽에서 읽히게 채도를 높인다. */
+.b-pri{background:#4f46e5;color:#fff}
+.b-upd{background:#c7d2fe;color:#312e81}   /* b-pri 의 옅은 형제 — 둘 다 인디고 계열로 묶어
+                                              「강의 대조」 어휘임을 드러낸다. 윤곽선은 라이트
+                                              모드에서 대비 2.56 이라 채움으로 바꿨다. */
 .bg{display:inline-block;min-width:44px;text-align:center;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:800;color:#fff}
 .b-on{background:#e11d48}.b-wa{background:#f59e0b}.b-ob{background:#64748b}.b-sf{background:#059669}.b-rf{background:#94a3b8}
 .gr{display:inline-block;font-size:.68rem;font-weight:800;padding:1px 6px;border-radius:5px;margin-left:6px;
@@ -356,54 +388,6 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .hchg .ar{white-space:nowrap}
 .to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
 @media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
-
-/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
-.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
-  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END */
-/* ── 제목 아래 한 줄 (좌상단 배지 폐기 후 유일한 자리) ── */
-.pauth{margin:10px 0 0;font-size:.8rem;color:var(--text-secondary);text-align:center}
-.pauth b{color:var(--text);font-variant-numeric:tabular-nums}
-
-/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
-.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
- margin:16px 0 22px;background:var(--surface)}
-.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
- color:var(--text-secondary);margin-bottom:7px}
-.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
-.ptoc li{font-size:.9rem}
-.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
-.ptoc a:hover{border-bottom-color:var(--text-secondary)}
-@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 /*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
@@ -424,13 +408,7 @@ h2[id],h3[id],[id]:target{scroll-margin-top:92px}
 .ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
 .ptoc a:hover{border-bottom-color:var(--text-secondary)}
 @media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*/</style><style id="freqcss">
-.freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
- padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
- border:1px solid currentColor;opacity:.85}
-.freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
-.freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
-/* PAPER:BEGIN */
+/*TOCCSS:END*//* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -700,8 +678,14 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
+/* PAPER:END */</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><style id="freqcss">
+.freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
+ padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
+ border:1px solid currentColor;opacity:.85}
+.freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
+.freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
+</style>
+</head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="ledger.html">판정 장부</a><a href="rules-scored.html">원칙 채점</a><a href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-nhn.html">NHN</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="here" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="gold-rates.html">금과 장기금리는 시대마다 반대로 움직인다</a><a href="treasury-trust.html">국채는 부도로 무너지지 않는다</a><a href="deleveraging.html">강제청산은 어떻게 끝나는가</a><a href="inflation-playbook.html">인플레 시대에 무엇이 통했나</a><a href="rates-century.html">미국 금리 100년과 인플레 시대</a><a href="memory-price.html">메모리 가격과 반도체 주가</a><a href="breadth-concentration.html">신고가 쏠림배수 2023~2026</a><a href="kospi-analog.html">지금과 닮은 과거 — 유사국면</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a class="here" href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><!-- NAV:END --></nav>
@@ -713,7 +697,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <div class="eyebrow">아카이브</div>
 <h1>수급이 만든 폭락의 역사</h1>
 <p class="pauth">1987~2026 · 수급발 폭락 8건 · 고정 자료 · 시장 데이터로 갱신되지 않는다</p>
-<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>폭락은 전략이 틀려서가 아니라 같은 것을 들고 있어서 벌어졌다. 누군가 하나가 급하게 정리하면 비슷하게 투자하던 다른 펀드가 연쇄로 끌려 들어간다. 2007년 소우드와 2026년 SA펀드가 같은 모양이다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#두-종류의-하락">두 종류의 하락</a></li><li><a href="#여덟-번의-사례">여덟 번의 사례</a></li><li><a href="#여덟-번의-공통점">여덟 번의 공통점</a></li><li><a href="#2026년-7월은-무엇이-달랐나">2026년 7월은 무엇이 달랐나?</a></li><li><a href="#지금-어디쯤인가-확인할-것">지금 어디쯤인가: 확인할 것</a></li><li><a href="#이-글이-틀릴-수-있는-지점">이 글이 틀릴 수 있는 지점</a></li><li><a href="#출처">출처</a></li></ol></div><!--TOC:END--></header>
+<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>폭락은 전략이 틀려서가 아니라 같은 것을 들고 있어서 벌어졌다. 누군가 하나가 급하게 정리하면 비슷하게 투자하던 다른 펀드가 연쇄로 끌려 들어간다. 2007년 소우드와 2026년 SA펀드가 같은 모양이다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#두-종류의-하락">두 종류의 하락</a></li><li><a href="#여덟-번의-사례">여덟 번의 사례</a></li><li><a href="#여덟-번의-공통점">여덟 번의 공통점</a></li><li><a href="#2026년-7월은-무엇이-달랐나">2026년 7월은 무엇이 달랐나</a></li><li><a href="#지금-어디쯤인가-확인할-것">지금 어디쯤인가: 확인할 것</a></li><li><a href="#이-글이-틀릴-수-있는-지점">이 글이 틀릴 수 있는 지점</a></li><li><a href="#출처">출처</a></li></ol></div><!--TOC:END--></header>
 
 <div class="abstract">
 <h4>요약</h4>
@@ -856,8 +840,8 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 몇 년간 잘 굴러갔고 개인 투자자들이 많이 샀다.</p>
 <p>2월 5일 하루에 이 상품은 −97%가 됐다. 사실상 없어진 것이다.
 같은 날 S&amp;P 500은 −4.1%였다.</p>
-<p>왜 이런 차이가 났을까요. 변동성이 튀자 이 상품은 규칙에 따라 무언가를 사야 했고,
-그 매수가 변동성을 더 밀어 올렸고, 그래서 더 사야 했다.
+<p>왜 이런 차이가 났을까요. 변동성이 튀자 이 상품은 규칙에 따라 무언가를 사야 했다.
+그 매수가 변동성을 더 밀어 올렸다. 그래서 더 사야 했다.
 상품 자신의 규칙이 자신을 죽인 것이다.</p>
 <p>지금 한국의 단일종목 레버리지 ETF가 정확히 이 자리에 있다.</p>
 
@@ -1057,7 +1041,7 @@ CFD라는 파생 계좌를 썼는데, 적은 돈으로 큰 금액을 굴릴 수 
 &mdash; 2007년 8월 사례. 소우드 캐피털의 시타델 인수, 골드만 GEO −30%, 강제청산 가설.</li>
 
 <li>CFA Institute (2021).
-<a href="https://rpc.cfainstitute.org/research/financial-analysts-journal/2021/volmageddon-failure-short-volatility-products" target="_blank" rel="noopener">
+<a href="https://rpc.cfainstitute.org/research/financial-analysts-06_journal/2021/volmageddon-failure-short-volatility-products" target="_blank" rel="noopener">
 Volmageddon and the Failure of Short Volatility Products.</a>
 <i>Financial Analysts Journal.</i>
 &mdash; 2018년 2월 XIV −97%와 상품 구조가 만든 되먹임.</li>
@@ -1130,28 +1114,6 @@ ViacomCBS and Discovery Pare Losses After Archegos-Driven Selloff.</a>
 })();
 </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
-<!-- CHARTTHEME:BEGIN -->
-<script src="chart-theme.js?v=64a62d8d"></script>
-<!-- CHARTTHEME:END -->
-<script>
-(window.__FC||[]).forEach(function(c){
-  var el=document.getElementById(c.id); if(!el||!window.Chart) return;
-  new Chart(el,{type:'bar',data:{labels:c.l,datasets:c.d},options:{
-    indexAxis:'y',responsive:true,maintainAspectRatio:false,
-    interaction:{mode:'index',intersect:false},
-    plugins:{legend:{display:true,position:'bottom',
-        labels:{boxWidth:10,boxHeight:10,font:{size:11.5},usePointStyle:true}},
-      tooltip:{callbacks:{
-        title:function(x){return c.f[x[0].dataIndex];},
-        label:function(x){return x.dataset.label+'  '+x.parsed.x+'%';}}}},
-    scales:{x:{grid:{color:'rgba(128,128,128,.15)'},
-        title:{display:true,text:'고점 대비 하락률 (%)'},
-        ticks:{callback:function(v){return v+'%';}}},
-      y:{grid:{display:false}}}}});
-});
-</script>
-
 <script>/* THEME:BEGIN */
 (function(){
   var h=document.documentElement;
@@ -1177,7 +1139,27 @@ ViacomCBS and Discovery Pare Losses After Archegos-Driven Selloff.</a>
 })();
 /* THEME:END */</script>
 
-<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<!-- CHARTTHEME:BEGIN -->
+<script src="chart-theme.js?v=64a62d8d"></script>
+<!-- CHARTTHEME:END -->
+<script>
+(window.__FC||[]).forEach(function(c){
+  var el=document.getElementById(c.id); if(!el||!window.Chart) return;
+  new Chart(el,{type:'bar',data:{labels:c.l,datasets:c.d},options:{
+    indexAxis:'y',responsive:true,maintainAspectRatio:false,
+    interaction:{mode:'index',intersect:false},
+    plugins:{legend:{display:true,position:'bottom',
+        labels:{boxWidth:10,boxHeight:10,font:{size:11.5},usePointStyle:true}},
+      tooltip:{callbacks:{
+        title:function(x){return c.f[x[0].dataIndex];},
+        label:function(x){return x.dataset.label+'  '+x.parsed.x+'%';}}}},
+    scales:{x:{grid:{color:'rgba(128,128,128,.15)'},
+        title:{display:true,text:'고점 대비 하락률 (%)'},
+        ticks:{callback:function(v){return v+'%';}}},
+      y:{grid:{display:false}}}}});
+});
+</script><button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 <script id="dotcom-defaults">
 /* ★ 차트 형식 정본 — kospi-dotcom-1998-2000 의 눈맛 (2026-08-08 상수님 지시)
    고치는 곳은 scripts/apply_dotcom_style.py 하나다. 개별 차트의 명시 설정이 우선한다. */
