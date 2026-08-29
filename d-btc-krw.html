@@ -55,6 +55,13 @@ body{font-family:'Inter','Noto Sans KR',-apple-system,sans-serif;background:var(
   color:var(--text-secondary);border-bottom:1px solid var(--border);font-weight:600}
 .dtable td{padding:8px 13px;border-bottom:1px solid var(--border);font-variant-numeric:tabular-nums}
 .dtable tr:last-child td{border-bottom:none}
+/* 글자 열 — 성명서 요약처럼 문장이 들어가는 칸. 숫자 칸과 규칙이 달라야 한다. */
+.dtable td.tx{font-variant-numeric:normal;white-space:normal;line-height:1.55;
+  max-width:400px;word-break:keep-all}
+.dtable td.tx:empty::after{content:'—';color:var(--muted)}
+/* 표가 길어지면 머리글이 따라와야 어느 열인지 안다 */
+.dtable thead th{position:sticky;top:0;z-index:1;background:var(--card)}
+.dtable.tall{max-height:78vh;overflow-y:auto}
 .dtable td.n,.dtable th.n{text-align:right}
 .dmeta{display:grid;grid-template-columns:auto 1fr;gap:7px 16px;font-size:14px;margin:0 0 24px}
 .dmeta dt{color:var(--text-secondary);font-size:12.5px;align-self:center}
