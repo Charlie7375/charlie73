@@ -141,33 +141,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
   color:var(--text);font-size:17px;cursor:pointer;line-height:1;
   box-shadow:0 2px 14px rgba(0,0,0,.10);transition:transform .12s,box-shadow .12s}
 .toggle:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(0,0,0,.16)}
-/* DESIGN:END */
-/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
-.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
-  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END *//* LAYOUT:BEGIN */
+/* DESIGN:END *//* LAYOUT:BEGIN */
 :root{--w-data:1440px;--w-chart:1100px;
   /* 산문 폭은 **고정 px이 아니라 em**이다.
      ① px로 고정하면 글자를 키워도 한 줄에 담기는 글자 수가 늘어나 도로 길어진다.
@@ -327,13 +301,32 @@ a.card:focus-visible,.lst-i:focus-visible{
   .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
 }
 /* LAYOUT:END */
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
-/*TOCCSS:BEGIN*/
+/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
+.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
+  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
+.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
+  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
+  background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+/* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END *//*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
 /* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
@@ -353,7 +346,14 @@ h2[id],h3[id],[id]:target{scroll-margin-top:92px}
 .ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
 .ptoc a:hover{border-bottom-color:var(--text-secondary)}
 @media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*//* PAPER:BEGIN */
+/*TOCCSS:END*/
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
+/* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -630,10 +630,10 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 </div></div>
 <div class="wrap paper">
 <div class="site-crumb"><a href="index.html">홈</a><span class="sep">›</span><span>오늘의 시장</span><span class="sep">›</span><span class="cur">52주 신고가와 상대강도</span></div>
-<div class="phead"><div class="eyebrow">찰리 오늘의 시장 · Market Breadth &amp; Relative Strength</div>
+<div class="phead"><div class="eyebrow">찰리 기술적 분석 · Market Breadth &amp; Relative Strength</div>
 <h1>52주 신고가와 상대강도</h1>
-<p class="sub">지수 하나만 보면 <b>소수 대형주가 끄는 반등</b>과 <b>진짜 회복</b>을 구분할 수 없습니다. 코스피·코스닥 전종목을 훑어 <b>얼마나 많은 종목이 신고가를 내는지(시장 폭)</b>와 <b>어느 종목이 지수를 이기고 있는지(상대강도)</b>를 봅니다.</p>
-<p class="pauth">기준일 <b>2026-08-28</b> · KRX 전종목 캐시 · 매일 갱신</p></div>
+<p class="sub">지수 하나만 보면 소수 대형주가 끄는 반등과 진짜 회복을 구분할 수 없다. 코스피·코스닥 전종목을 훑어 얼마나 많은 종목이 신고가를 내는지(시장 폭)와 어느 종목이 지수를 이기고 있는지(상대강도)를 본다.</p>
+<p class="pauth">기준일 2026-08-28 · KRX 전종목 캐시 · 매일 갱신</p></div>
 <div class="stats">
   <div class="stat"><div class="l">52주 신고가</div><div class="v" style="color:#059669">69</div><div class="s">종목</div></div>
   <div class="stat"><div class="l">52주 신저가</div><div class="v" style="color:#e11d48">75</div><div class="s">종목</div></div>
@@ -645,30 +645,28 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 지수가 반등해도 신고가 종목이 늘지 않으면 소수 대형주가 끄는 반등이라 신뢰도가 낮습니다.</div>
 <div class="panel"><h3>신고가 · 신저가 종목 수 추이</h3>
   <div class="chart"><canvas id="bc"></canvas></div></div>
-<div class="panel"><h3>신고가 쏠림배수 <span class="sub2">소수 대형주가 시장을 끄는가</span></h3>
+<div class="panel"><h3>신고가 쏠림배수 <span class="sub2">소수 대형주가 시장을 끄는가</span>?</h3>
   <div class="chart"><canvas id="cc"></canvas></div>
   <p class="note" style="margin-top:8px">
-  <b>쏠림배수 = 신고가 종목의 시총 비중 ÷ 종목 수 비중.</b>
-  1보다 크면 «큰 종목이 신고가를 낸다»는 뜻이고, 클수록 소수 대형주에 쏠린 국면입니다.<br>
-  ★ <b>2026년 5월 5.4배 · 6월 5.2배</b>였습니다. 신고가 종목이 8.8%에서 2.7%로 줄어드는 동안
-  그 소수가 시총의 15~28%를 차지했습니다. 종목 수로는 시장이 죽어가는데 무게로는
-  몇몇 대형주가 신고가를 계속 낸 것입니다. <b>7월에 0.2배로 뒤집힙니다</b> —
-  대형주가 무너지면서 쏠림이 끝났습니다.<br>
-  이것이 <b>«투매 없이 흘러내린 종목»</b>의 원인입니다. 공포에 팔린 게 아니라
-  <b>돈이 다른 데로 간 것</b>이고, 그런 하락에는 투매가 나지 않습니다.<br>
-  ★★ <b>2023년까지 늘려 재 봤습니다</b>(2026-08-13, KRX 백필 743일 추가).
-  «박스장에는 이런 쏠림이 없었다»는 관찰은 <b>절반만 맞습니다.</b>
-  2023~2024 박스장은 중앙 <b>0.76배</b>로 대부분의 날 작은 종목이 앞섰고,
-  2026년도 중앙 0.91배로 비슷합니다. 그런데 <b>평균이 1.36배 대 2.88배</b>로 갈립니다 —
-  소수의 날에 극단으로 쏠린다는 뜻입니다.
-  2배를 넘는 날이 박스장 <b>18%</b>, 2026년 <b>39%</b>입니다. 최대값은 11.2배 대 <b>19.5배</b>입니다.<br>
-  ⚠ 다만 <b>박스장에도 쏠림 달은 있었습니다</b> — 2023년 12월 4.2배 · 2024년 3월 2.7배.
-  쏠림 자체가 새로운 것이 아니라 <b>빈도와 크기</b>가 달라졌습니다.
-  박스장에서는 어쩌다 한 달이었고 지금은 상태가 됐습니다.<br>
-  ★ 그리고 <b>2025년 10월 5.3배</b>부터 반복이 시작됩니다. 박스장 2년에 4배를 넘은 달이
-  하나뿐인데 그 뒤 10개월에 네 번 나왔습니다.<br>
-  ⚠ 신고가 판정은 <b>252거래일 최고 종가의 99.9% 이상</b>이며 장중 고가가 아니라 종가 기준입니다.
-  자료는 <b>2022년 1월부터</b>이고 쏠림배수는 창 길이 때문에 <b>2023년 1월부터</b> 나옵니다.</p></div>
+  쏠림배수 = 신고가 종목의 시총 비중 ÷ 종목 수 비중.
+  1보다 크면 '큰 종목이 신고가를 낸다'는 뜻이고, 클수록 소수 대형주에 쏠린 국면이다.<br>
+  ★ 2026년 5월 5.4배 · 6월 5.2배였다. 신고가 종목이 8.8%에서 2.7%로 줄어드는 동안
+  그 소수가 시총의 15~28%를 차지했다. 종목 수로는 시장이 죽어가는데 무게로는
+  몇몇 대형주가 신고가를 계속 낸 것이다. 7월에 0.2배로 뒤집힌다. 대형주가 무너지면서 쏠림이 끝났다.<br>
+  이것이 '투매 없이 흘러내린 종목'의 원인이다. 공포에 팔린 게 아니라
+  돈이 다른 데로 간 것이고, 그런 하락에는 투매가 나지 않는다.<br>
+  ★★ 2023년까지 늘려 재 봤다(2026-08-13, KRX 백필 743일 추가).
+  "박스장에는 이런 쏠림이 없었다"는 관찰은 절반만 맞다.
+  2023~2024 박스장은 중앙 0.76배로 대부분의 날 작은 종목이 앞섰고,
+  2026년도 중앙 0.91배로 비슷하다. 그런데 평균이 1.36배 대 2.88배로 갈린다. 소수의 날에 극단으로 쏠린다는 뜻이다.
+  2배를 넘는 날이 박스장 18%, 2026년 39%이다. 최대값은 11.2배 대 19.5배이다.<br>
+  ⚠ 다만 박스장에도 쏠림 달은 있었다. 2023년 12월 4.2배 · 2024년 3월 2.7배.
+  쏠림 자체가 새로운 것이 아니라 빈도와 크기가 달라졌다.
+  박스장에서는 어쩌다 한 달이었고 지금은 상태가 됐다.<br>
+  ★ 그리고 2025년 10월 5.3배부터 반복이 시작된다. 박스장 2년에 4배를 넘은 달이
+  하나뿐인데 그 뒤 10개월에 네 번 나왔다.<br>
+  ⚠ 신고가 판정은 252거래일 최고 종가의 99.9% 이상이며 장중 고가가 아니라 종가 기준이다.
+  자료는 2022년 1월부터이고 쏠림배수는 창 길이 때문에 2023년 1월부터 나온다.</p></div>
 <div class="panel"><h3>RS 80+ 주도주 후보 <span class="sub2">RS Rating 80 이상 · 시총 2조 이상 · 52주 고점 −25% 이내</span></h3>
   <div class="tblwrap"><table class="sortable" id="tbl-rs"><thead><tr><th>코드</th><th>종목명</th><th>시장</th><th>종가</th><th>시가총액</th><th>RS</th><th>3M</th><th>지수대비</th><th>고점대비</th><th>OPM</th><th>ROE</th><th>RS선</th></tr></thead>
   <tbody><tr><td class="c" data-v="131290">131290</td><td class="nm" data-v="티에스이">티에스이</td><td class="c" data-v="코스닥"><span class="mktb mk2">코스닥</span></td><td class="n" data-v="238500">238,500</td><td class="n" data-v="2638200000000">2.6조</td><td class="c" data-v="99"><span class="rs">99</span></td><td class="n" data-v="16.3">16.3%</td><td class="n pos" data-v="33.4">+33.4%p</td><td class="n" data-v="-16.2">-16.2%</td><td class="n pos" data-v="27.84">+27.8%</td><td class="n pos" data-v="28.36">+28.4%</td><td class="c" data-v="0"></td></tr>
@@ -693,47 +691,50 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <tr><td class="c" data-v="055550">055550</td><td class="nm" data-v="신한지주">신한지주</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="109700">109,700</td><td class="n" data-v="51498700000000">51.5조</td><td class="c" data-v="92"><span class="rs">92</span></td><td class="n" data-v="18.2">18.2%</td><td class="n pos" data-v="35.3">+35.3%p</td><td class="n" data-v="-0.3">-0.3%</td><td class="n pos" data-v="0.92">+0.9%</td><td class="n pos" data-v="11.18">+11.2%</td><td class="c" data-v="0"></td></tr>
 <tr><td class="c" data-v="086790">086790</td><td class="nm" data-v="하나금융지주">하나금융지주</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="136000">136,000</td><td class="n" data-v="37314000000000">37.3조</td><td class="c" data-v="92"><span class="rs">92</span></td><td class="n" data-v="18">18%</td><td class="n pos" data-v="35">+35.0%p</td><td class="n" data-v="-0.6">-0.6%</td><td class="n pos" data-v="0.81">+0.8%</td><td class="n pos" data-v="10.06">+10.1%</td><td class="c" data-v="0"></td></tr>
 <tr><td class="c" data-v="028670">028670</td><td class="nm" data-v="팬오션">팬오션</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="5790">5,790</td><td class="n" data-v="3095200000000">3.1조</td><td class="c" data-v="91"><span class="rs">91</span></td><td class="n" data-v="5.7">5.7%</td><td class="n pos" data-v="22.7">+22.7%p</td><td class="n" data-v="-9.2">-9.2%</td><td class="n pos" data-v="9.78">+9.8%</td><td class="n pos" data-v="7.34">+7.3%</td><td class="c" data-v="0"></td></tr></tbody></table></div>
-  <p class="note">열 제목을 클릭하면 그 기준으로 정렬됩니다(다시 클릭하면 역순).
+  <p class="note">열 제목을 클릭하면 그 기준으로 정렬된다(다시 클릭하면 역순).
   </p>
 
-  <details class="gloss" open><summary>표의 각 항목은 무엇인가 — 열 설명</summary>
+  <details class="gloss" open><summary>표의 각 항목은 무엇인가: 열 설명</summary>
   <dl>
     <dt>코드 · 종목명</dt>
-    <dd>6자리 종목코드와 종목명입니다. 우선주(◯우·◯우B)와 <b>스팩·리츠 일부</b>는 목록에서 제외했습니다 — 본주와 중복되거나 추세 판단이 무의미하기 때문입니다.</dd>
+    <dd>6자리 종목코드와 종목명이다. 우선주(◯우·◯우B)와 <b>스팩·리츠 일부</b>는 목록에서 제외했다. 본주와 중복되거나 추세 판단이 무의미하기 때문이다.</dd>
 
     <dt>시장</dt>
-    <dd><span class="mktb mk1">코스피</span> / <span class="mktb mk2">코스닥</span> 소속 구분입니다. RS Rating 백분위는 <b>두 시장을 합친 전종목</b>을 모수로 계산하므로, 코스닥 종목의 RS 90도 코스피 종목과 같은 기준에서 상위 10%라는 뜻입니다.</dd>
+    <dd><span class="mktb mk1">코스피</span> / <span class="mktb mk2">코스닥</span> 소속 구분이다. RS Rating 백분위는 <b>두 시장을 합친 전종목</b>을 모수로 계산하므로, 코스닥 종목의 RS 90도 코스피 종목과 같은 기준에서 상위 10%라는 뜻이다.</dd>
 
     <dt>종가</dt>
-    <dd>기준일 종가(원). 수정주가가 아닌 <b>KRX 공시 종가 그대로</b>이므로, 액면분할·무상증자가 있었던 종목은 과거 수익률 계산에 왜곡이 있을 수 있습니다. 그래서 3M 수익률이 <b>+300%를 넘는 종목은 자동 제외</b>합니다.</dd>
+    <dd>기준일 종가(원). 수정주가가 아닌 <b>KRX 공시 종가 그대로</b>이므로, 액면분할·무상증자가 있었던 종목은 과거 수익률 계산에 왜곡이 있을 수 있다. 그래서 3M 수익률이 <b>+300%를 넘는 종목은 자동 제외</b>한다.</dd>
 
     <dt>시가총액</dt>
-    <dd>기준일 시총입니다. <b>2조 미만은 목록에서 제외</b>했습니다(2026-08-12부터 2조입니다. 8/10에는 3조, 그전에는 1조였습니다). 미너비니가 유동성이 얕은 종목을 피하는 이유와 같습니다 — 기관이 들어올 수 없는 크기면 추세가 오래 못 갑니다.</dd>
+    <dd>기준일 시총이다. <b>2조 미만은 목록에서 제외</b>했다(2026-08-12부터 2조이다. 8/10에는 3조, 그전에는 1조였다). 미너비니가 유동성이 얕은 종목을 피하는 이유와 같다. 기관이 들어올 수 없는 크기면 추세가 오래 못 간다.</dd>
 
     <dt>RS (Rating)</dt>
-    <dd>IBD·미너비니 방식의 <b>상대강도 등급(1~99)</b>입니다. <span class="f">(3M×2 + 6M + 9M + 12M) ÷ 5</span>로 가중 수익률을 구한 뒤 전종목 대비 백분위로 환산합니다. <b>RS 90 = 상위 10%</b>. 최근 3개월에 2배 가중을 주는 이유는 "과거에 좋았던 종목"이 아니라 <b>지금 힘이 실린 종목</b>을 찾기 위해서입니다. 미너비니는 매수 후보를 <b>RS 80 이상</b>으로 좁힙니다.</dd>
+    <dd>IBD·미너비니 방식의 <b>상대강도 등급(1~99)</b>이다. <span class="f">(3M×2 + 6M + 9M + 12M) ÷ 5</span>로 가중 수익률을 구한 뒤 전종목 대비 백분위로 환산한다. <b>RS 90 = 상위 10%</b>. 최근 3개월에 2배 가중을 주는 이유는 "과거에 좋았던 종목"이 아니라 <b>지금 힘이 실린 종목</b>을 찾기 위해서이다. 미너비니는 매수 후보를 <b>RS 80 이상</b>으로 좁힌다.</dd>
 
     <dt>3M</dt>
-    <dd>최근 <b>3개월(63거래일) 수익률</b>입니다. RS Rating이 순위라면 이쪽은 실제 수익률 크기입니다. 둘을 같이 보는 이유 — 하락장에서는 <b>덜 빠진 것만으로도 RS가 높게</b> 나오므로, 3M이 마이너스인데 RS가 높다면 "강해서"가 아니라 "남들이 더 빠져서"입니다.</dd>
+    <dd>최근 <b>3개월(63거래일) 수익률</b>이다. RS Rating이 순위라면 이쪽은 실제 수익률 크기이다. 둘을 같이 보는 이유: 하락장에서는 <b>덜 빠진 것만으로도 RS가 높게</b> 나오므로, 3M이 마이너스인데 RS가 높다면 "강해서"가 아니라 "남들이 더 빠져서"이다.</dd>
 
     <dt>지수대비</dt>
-    <dd>종목의 3M 수익률에서 <b>코스피 3M 수익률을 뺀 값</b>(%p)입니다. 시장 전체가 빠진 국면에서 이 값이 크게 플러스면 <b>자금이 실제로 이 종목에 남아 있다</b>는 뜻입니다. 코스닥 종목도 벤치마크는 코스피로 통일해 같은 잣대로 비교합니다.</dd>
+    <dd>종목의 3M 수익률에서 <b>코스피 3M 수익률을 뺀 값</b>(%p)이다. 시장 전체가 빠진 국면에서 이 값이 크게 플러스면 <b>자금이 실제로 이 종목에 남아 있다</b>는 뜻이다. 코스닥 종목도 벤치마크는 코스피로 통일해 같은 잣대로 비교한다.</dd>
 
     <dt>고점대비</dt>
-    <dd>52주 최고가 대비 현재 위치입니다. <b>−25% 이내</b>만 목록에 남깁니다(추세 템플릿 7번 조건). 고점에서 그보다 더 무너진 종목은 아무리 RS가 높아도 <b>이미 추세가 꺾인 것</b>으로 보기 때문입니다. 0%에 가까울수록 신고가 부근입니다.</dd>
+    <dd>52주 최고가 대비 현재 위치이다. <b>−25% 이내</b>만 목록에 남긴다(추세 템플릿 7번 조건). 고점에서 그보다 더 무너진 종목은 아무리 RS가 높아도 <b>이미 추세가 꺾인 것</b>으로 보기 때문이다. 0%에 가까울수록 신고가 부근이다.</dd>
 
     <dt>OPM (영업이익률)</dt>
-    <dd>DART 전자공시 기준 <b>영업이익 ÷ 매출액</b>입니다. 최신 사업연도(연간) 우선, 없으면 최근 분기로 대체합니다. 미너비니의 SEPA에서 <b>펀더멘털 확인용</b> 항목 — 차트가 좋아도 이익을 못 내는 회사는 추세가 오래 못 간다는 전제입니다. 금융·지주사는 업종 특성상 낮게 나오니 <b>같은 업종끼리만</b> 비교하세요.</dd>
+    <dd>DART 전자공시 기준 <b>영업이익 ÷ 매출액</b>이다. 최신 사업연도(연간) 우선, 없으면 최근 분기로 대체한다. 미너비니의 SEPA에서 <b>펀더멘털 확인용</b> 항목: 차트가 좋아도 이익을 못 내는 회사는 추세가 오래 못 간다는 전제이다. 금융·지주사는 업종 특성상 낮게 나오니 <b>같은 업종끼리만</b> 비교하세요.</dd>
 
     <dt>ROE (자기자본이익률)</dt>
-    <dd><b>최신 분기 재무제표에서 직접 계산</b>한 <b>순이익 ÷ 자기자본</b>입니다. 분기는 <b>연환산</b>했습니다(1Q×4·반기×2·3Q×4/3). 미너비니는 대략 <b>ROE 17% 이상</b>을 선호 기준으로 언급합니다. 다만 부채를 많이 쓰면 ROE가 올라가는 착시가 있으니 OPM과 함께 봐야 하고, 연환산 값은 <b>확정 연간 실적이 아닙니다</b>. <b>−</b>는 재무제표가 없는 경우(리츠·인프라펀드 등)입니다.</dd>
+    <dd><b>최신 분기 재무제표에서 직접 계산</b>한 <b>순이익 ÷ 자기자본</b>이다. 분기는 <b>연환산</b>했다(1Q×4·반기×2·3Q×4/3). 미너비니는 대략 <b>ROE 17% 이상</b>을 선호 기준으로 언급한다. 다만 부채를 많이 쓰면 ROE가 올라가는 착시가 있으니 OPM과 함께 봐야 하고, 연환산 값은 <b>확정 연간 실적이 아니다</b>. <b>−</b>는 재무제표가 없는 경우(리츠·인프라펀드 등)이다.</dd>
 
     <dt>RS선</dt>
-    <dd><b>종가 ÷ 코스피지수</b>를 이은 선(상대강도선)이 52주 최고치일 때 <b>●</b>가 붙습니다. 미너비니가 가장 중요하게 보는 신호 중 하나 — <b>주가가 돌파하기 전에 RS선이 먼저 신고가</b>를 내는 종목이 다음 주도주가 되는 경우가 많습니다. 주가는 아직 눌려 있어도 <b>시장 대비로는 이미 이기고 있다</b>는 뜻이기 때문입니다.</dd>
+    <dd><b>종가 ÷ 코스피지수</b>를 이은 선(상대강도선)이 52주 최고치일 때 <b>●</b>가 붙는다. 미너비니가 가장 중요하게 보는 신호 중 하나? <b>주가가 돌파하기 전에 RS선이 먼저 신고가</b>를 내는 종목이 다음 주도주가 되는 경우가 많다. 주가는 아직 눌려 있어도 <b>시장 대비로는 이미 이기고 있다</b>는 뜻이기 때문이다.</dd>
   </dl>
-  <p class="note" style="margin-top:4px">이 표는 <b>기계적 필터의 결과이며 종목 추천이 아닙니다.</b> 그리고 순서가 중요합니다 — 미너비니는 <b>시장 국면이 나쁠 때는 아무리 좋은 종목도 사지 않습니다</b>. 이 목록은 바닥이 확인된 뒤(항복 거래량 → FTD) 주도주를 고를 <b>후보 풀</b>로 쓰는 것이 맞습니다.</p>
+  <p class="note" style="margin-top:4px">이 표는 기계적 필터의 결과이며 종목 추천이 아니다. 그리고 순서가 중요하다. 미너비니는 시장 국면이 나쁠 때는 아무리 좋은 종목도 사지 않는다. 이 목록은 바닥이 확인된 뒤(항복 거래량 → FTD) 주도주를 고를 후보 풀로 쓰는 것이 맞다.</p>
   </details></div>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<!-- CHARTTHEME:BEGIN -->
+<script src="chart-theme.js?v=64a62d8d"></script>
+<!-- CHARTTHEME:END -->
 <script>
 new Chart(document.getElementById('bc'),{type:'line',
  data:{labels:['03/06', '03/09', '03/10', '03/11', '03/12', '03/13', '03/16', '03/17', '03/18', '03/19', '03/20', '03/23', '03/24', '03/25', '03/26', '03/27', '03/30', '03/31', '04/01', '04/02', '04/03', '04/06', '04/07', '04/08', '04/09', '04/10', '04/13', '04/14', '04/15', '04/16', '04/17', '04/20', '04/21', '04/22', '04/23', '04/24', '04/27', '04/28', '04/29', '04/30', '05/04', '05/06', '05/07', '05/08', '05/11', '05/12', '05/13', '05/14', '05/15', '05/18', '05/19', '05/20', '05/21', '05/22', '05/26', '05/27', '05/28', '05/29', '06/01', '06/02', '06/04', '06/05', '06/08', '06/09', '06/10', '06/11', '06/12', '06/15', '06/16', '06/17', '06/18', '06/19', '06/22', '06/23', '06/24', '06/25', '06/26', '06/29', '06/30', '07/01', '07/02', '07/03', '07/06', '07/07', '07/08', '07/09', '07/10', '07/13', '07/14', '07/15', '07/16', '07/20', '07/21', '07/22', '07/23', '07/24', '07/27', '07/28', '07/29', '07/30', '07/31', '08/03', '08/04', '08/05', '08/06', '08/07', '08/10', '08/11', '08/12', '08/13', '08/14', '08/18', '08/19', '08/20', '08/21', '08/24', '08/25', '08/26', '08/27', '08/28'],datasets:[
@@ -763,7 +764,7 @@ new Chart(document.getElementById('cc'),{type:'line',
 
 <div class="panel" style="margin-top:26px">
   <h3>미너비니 VCP · 피벗 후보 <span class="sub2">변동성 수축 + 거래량 마름</span></h3>
-  <p class="note" style="margin-top:6px">RS 80+ · 시총 1조+ · 추세 템플릿 7/8+ · <b>조정폭 순차 축소</b> · 10일 고저폭 12% 이내 · 5일 거래량 ≤ 50일 평균 · 52주 고점 −20% 이내</p>
+  <p class="note" style="margin-top:6px">RS 80+ · 시총 1조+ · 추세 템플릿 7/8+ · 조정폭 순차 축소 · 10일 고저폭 12% 이내 · 5일 거래량 ≤ 50일 평균 · 52주 고점 −20% 이내</p>
   
   <div class="tblwrap"><table class="sortable" id="tbl-vcp"><thead><tr><th>등급</th><th>종목명</th><th>시장</th><th>종가</th><th>시가총액</th><th>RS</th><th>템플릿</th><th>고점대비</th><th>수축 수열</th><th>10일 폭</th><th>거래량비</th><th>OPM</th><th>ROE</th></tr></thead>
   <tbody><tr><td class="c" data-v="1"><span class="gd g1">엄격</span></td><td class="nm" data-v="신한지주">신한지주</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="109700.0">109,700</td><td class="n" data-v="51498700000000.0">51.5조</td><td class="c" data-v="92"><span class="rs">92</span></td><td class="c" data-v="8">8/8</td><td class="n" data-v="-3.2">-3.2%</td><td class="c seq" data-v="8.4">19.3 → 15.5 → 8.4</td><td class="n" data-v="9.4">9.4%</td><td class="n" data-v="0.65">0.65</td><td class="n" data-v="0.92">+0.9%</td><td class="n" data-v="11.18">+11.2%</td></tr>
@@ -773,30 +774,30 @@ new Chart(document.getElementById('cc'),{type:'line',
 <tr><td class="c" data-v="1"><span class="gd g1">엄격</span></td><td class="nm" data-v="코리안리">코리안리</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="14640.0">14,640</td><td class="n" data-v="2587200000000.0">2.6조</td><td class="c" data-v="88"><span class="rs">88</span></td><td class="c" data-v="8">8/8</td><td class="n" data-v="-5.5">-5.5%</td><td class="c seq" data-v="9.8">16.7 → 15.3 → 9.8</td><td class="n" data-v="10.7">10.7%</td><td class="n" data-v="0.4">0.4</td><td class="n" data-v="3.44">+3.4%</td><td class="n" data-v="17.27">+17.3%</td></tr>
 <tr><td class="c" data-v="1"><span class="gd g1">엄격</span></td><td class="nm" data-v="동양생명">동양생명</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="8250.0">8,250</td><td class="n" data-v="1287500000000.0">1.3조</td><td class="c" data-v="86"><span class="rs">86</span></td><td class="c" data-v="7">7/8</td><td class="n" data-v="-12.0">-12.0%</td><td class="c seq" data-v="3.2">23.5 → 18.3 → 3.2</td><td class="n" data-v="0.0">0.0%</td><td class="n" data-v="0.0">0.0</td><td class="n" data-v="0.57">+0.6%</td><td class="n" data-v="7.87">+7.9%</td></tr>
 <tr><td class="c" data-v="1"><span class="gd g1">엄격</span></td><td class="nm" data-v="코웨이">코웨이</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="n" data-v="100400.0">100,400</td><td class="n" data-v="7105000000000.0">7.1조</td><td class="c" data-v="84"><span class="rs">84</span></td><td class="c" data-v="7">7/8</td><td class="n" data-v="-8.1">-8.1%</td><td class="c seq" data-v="9.7">16.1 → 10.7 → 9.7</td><td class="n" data-v="10.7">10.7%</td><td class="n" data-v="0.72">0.72</td><td class="n" data-v="18.19">+18.2%</td><td class="n" data-v="18.86">+18.9%</td></tr></tbody></table></div>
-  <p class="note">열 제목을 클릭하면 그 기준으로 정렬됩니다(다시 클릭하면 역순). <b>수축 수열</b>은 최근 조정폭입니다. 18.4 → 14.1 → 7.9 처럼 <b>절반씩 줄어드는 모양</b>이 VCP입니다. 매물이 소화되며 변동성이 마르는 과정이고, 거래량비가 1 아래면 그 마름이 거래량으로도 확인된 것입니다.</p>
-  <p class="note" style="opacity:.85">기계적 필터 결과이며 종목 추천이 아닙니다. 조건을 조금만 바꿔도 목록은 달라집니다.</p>
+  <p class="note">열 제목을 클릭하면 그 기준으로 정렬된다(다시 클릭하면 역순). 수축 수열은 최근 조정폭이다. 18.4 → 14.1 → 7.9 처럼 절반씩 줄어드는 모양이 VCP이다. 매물이 소화되며 변동성이 마르는 과정이고, 거래량비가 1 아래면 그 마름이 거래량으로도 확인된 것이다.</p>
+  <p class="note" style="opacity:.85">기계적 필터 결과이며 종목 추천이 아니다. 조건을 조금만 바꿔도 목록은 달라진다.</p>
 </div>
 
 <!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>지수 하나만 보면 소수 대형주가 끄는 반등과 진짜 회복을 구분할 수 없다. 신고가 종목이 몇 개인지와 어느 종목이 지수를 이기는지를 함께 본다. 지수가 오르는 동안에도 폭이 좁아지면 소수가 끄는 상승이다.</p></div><!--PCLAIM:END--><h2 class="sec">지표 설명</h2>
 <div class="explain">
-<p><b>52주 신고가 종목 수 — 시장 폭(breadth)</b><br>
-지수가 오르는데 신고가 종목이 줄면, 그 상승은 소수 종목이 만든 착시입니다. 반대로 지수가 눌려도 신고가가 늘면 바닥에서 주도주가 형성되는 중입니다. <b>신고가 − 신저가</b>가 마이너스면 시장 폭이 수축한 상태입니다. 이야기꾼도 주간 보고서에서 이 비율을 인용합니다.</p>
-<p><b>RS Rating — 상대강도 등급 (1~99)</b><br>
-IBD·미너비니 방식입니다. <span class="f">(3M×2 + 6M + 9M + 12M) ÷ 5</span> 로 가중 수익률을 구한 뒤 <b>코스피·코스닥 전종목 대비 백분위</b>로 환산합니다. RS 90이면 상위 10%입니다. 미너비니는 매수 후보를 <b>RS 80 이상</b>으로 좁힙니다. 최근 3개월에 2배 가중을 주는 이유는 <b>지금 힘이 실린 종목</b>을 찾기 위해서입니다.</p>
-<p><b>지수 대비 초과수익률</b><br>
-종목의 3개월 수익률에서 코스피 3개월 수익률을 뺀 값(%p)입니다. RS Rating이 상대 순위라면, 이쪽은 <b>지수를 몇 %p 이겼는지</b>를 직접 보여줍니다.</p>
-<p><b>RS선 신고가</b><br>
-<span class="f">종가 ÷ 코스피지수</span> 를 이은 선이 상대강도선입니다. 이 값이 52주 최고치면 ● 표시가 붙습니다. 미너비니는 <b>주가가 돌파하기 전에 RS선이 먼저 신고가를 내는 종목</b>을 가장 강한 후보로 봅니다. 주가는 아직 눌려 있어도 시장 대비로는 이미 이기고 있다는 뜻이기 때문입니다.</p>
+<p>52주 신고가 종목 수: 시장 폭(breadth)<br>
+지수가 오르는데 신고가 종목이 줄면, 그 상승은 소수 종목이 만든 착시이다. 반대로 지수가 눌려도 신고가가 늘면 바닥에서 주도주가 형성되는 중이다. 신고가 − 신저가가 마이너스면 시장 폭이 수축한 상태이다. 이야기꾼도 주간 보고서에서 이 비율을 인용한다.</p>
+<p>RS Rating: 상대강도 등급 (1~99)<br>
+IBD·미너비니 방식이다. <span class="f">(3M×2 + 6M + 9M + 12M) ÷ 5</span> 로 가중 수익률을 구한 뒤 코스피·코스닥 전종목 대비 백분위로 환산한다. RS 90이면 상위 10%이다. 미너비니는 매수 후보를 RS 80 이상으로 좁힌다. 최근 3개월에 2배 가중을 주는 이유는 지금 힘이 실린 종목을 찾기 위해서이다.</p>
+<p>지수 대비 초과수익률<br>
+종목의 3개월 수익률에서 코스피 3개월 수익률을 뺀 값(%p)이다. RS Rating이 상대 순위라면, 이쪽은 지수를 몇 %p 이겼는지를 직접 보여준다.</p>
+<p>RS선 신고가<br>
+<span class="f">종가 ÷ 코스피지수</span> 를 이은 선이 상대강도선이다. 이 값이 52주 최고치면 ● 표시가 붙는다. 미너비니는 주가가 돌파하기 전에 RS선이 먼저 신고가를 내는 종목을 가장 강한 후보로 본다. 주가는 아직 눌려 있어도 시장 대비로는 이미 이기고 있다는 뜻이기 때문이다.</p>
 </div>
 
 <h2 class="sec">이격도·분산일과 함께 읽는 법</h2>
 <div class="explain">
-<p>이 사이트의 지표는 서로 다른 질문에 답합니다. <b>이격도</b>는 "얼마나 벌어졌나(위치)", <b>분산일</b>은 "누가 팔고 있나(수급)", <b>FTD</b>는 "바닥이 확인됐나(증명)", 그리고 <b>시장 폭·RS</b>는 <b>"어디가 살아 있나(범위와 주도주)"</b>입니다.</p>
-<p>실전에서 순서는 이렇습니다. 이격도가 과매도를 알리고 → 항복 거래량과 FTD로 바닥이 확인되면 → <b>그때 RS 상위 목록에서 주도주를 고릅니다.</b> 하락장에서도 신고가를 내는 종목은 시장과 다른 힘을 받고 있어, 다음 상승의 주도주가 여기서 나오는 경우가 많습니다.</p>
+<p>이 사이트의 지표는 서로 다른 질문에 답한다. 이격도는 "얼마나 벌어졌나(위치)", 분산일은 "누가 팔고 있나(수급)", FTD는 "바닥이 확인됐나(증명)", 그리고 시장 폭·RS는 "어디가 살아 있나(범위와 주도주)"이다.</p>
+<p>실전에서 순서는 이렇다. 이격도가 과매도를 알리고 → 항복 거래량과 FTD로 바닥이 확인되면 → 그때 RS 상위 목록에서 주도주를 고르다. 하락장에서도 신고가를 내는 종목은 시장과 다른 힘을 받고 있어, 다음 상승의 주도주가 여기서 나오는 경우가 많다.</p>
 </div>
 
-<div class="wrap"><!--TOPICNEWS:BEGIN--><style id="tnewscss">.tnews{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 10px;margin:34px 0 10px}.tnews h3{margin:0 0 10px;font-size:1.02rem}.tnews table{width:100%;border-collapse:collapse;font-size:.9rem}.tnews td{padding:5px 8px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}.tnews td.d{white-space:nowrap;color:var(--text-secondary)}.tnews p.cap{margin:10px 0 8px;font-size:.8rem;color:var(--text-secondary);line-height:1.6}</style><div class="tnews"><h3>관련 뉴스</h3><p class="cap">제목에 그 낱말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.</p><p class="cap">국내 — 「코스피 상대강도 주도주」 로 찾았다.</p><div class="tblwrap"><table><tbody><tr><td class="d">Mon, 13 Jul</td><td class="d">Chosunbiz</td><td><a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxOY2hKWmFiY2NvcF8wZFJMRzZjZWMxcmFYYUszOXY5ZV9Lb3h4UUJtemR2dGo0M0k5aWhnMnRQTXVFLWtiU3FZR2JSMVhIVkpYT19yX2F6WU5DVzRkeW9WaGR4SGJYTnFiM1J1M0dnMWY5aUlwdk5OZEpvN2pLRjJLUFduRU85SmR00gGcAUFVX3lxTE4zeXZlUG9Zd1RUN21KUEpzWHVoc2RmT0ZVQ0gtcm9rSE9DRzlHM2RHOGJXNkZUYkkxNWJJNVdQSDc5eTJ3YUVHeE0yc1hxVjNuMjg1Yks2TmZVRWtzZ1labDRRTHM1TG0wMlJDRVFsaFNNc1pZRGFHYjJHLTBkaEdQUUQyNmtIc2JVcTV3dENieEYxWTlmY0prSDlvcQ?oc=5" target="_blank" rel="noopener nofollow">코스피 ‘극단적 저평가’ 벗어나나…한투證 “주도주 회복에 낙폭 과대주도 반등 기대” - 조선비즈</a></td></tr><tr><td class="d">Tue, 20 Jan</td><td class="d">연합뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE1FV1U2VGNsWWhncVNNcExoV0dZeUJkaERUSlB1d2ttU2t4a1NUcExpTDUzUmkyRExzTUVBWE9IT1ZRd2M5NkZySk02WVpJUUNFeHQwY25sYTU2dE3SAWBBVV95cUxNcEVjS1pOR3RvTjY4cndVcFNJLVBEaWRlUHNtYTk1QmY4YVdUTjlHX3pVZUltNVQ5RE9zRGM5R09jUHU0VG5fVEdmbDZxSXloWVFybDBhaDQzUGI0Tld3MFY?oc=5" target="_blank" rel="noopener nofollow">주도주 순환매 장세에 '쏠림' 심화…중소형과 대형주 격차 커져(종합)</a></td></tr><tr><td class="d">Wed, 29 Apr</td><td class="d">파이낸셜뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTFBzUkFwXzVvR2dqQTJCWWduZEZnMW5SVU1QTGkxT1FyQWJWSl9XNGR1YjlVSzZRMnYyZzBsZ2lNRVFvNEVza1BzamYydEEwWDVJa3pHY0NnQXlBUQ?oc=5" target="_blank" rel="noopener nofollow">코스피 7000 향해 뛰는데…코스닥, 주도주 부진에 느린 걸음</a></td></tr><tr><td class="d">Fri, 08 May</td><td class="d">마켓인</td><td><a href="https://news.google.com/rss/articles/CBMic0FVX3lxTE1MVWdNRmNwcHY3R3B4TEdRVHlWelh2QU1MXzFGNllMSmNudktDa3VidjZUUWlZbFk5SWZjTGc3SDZodUVsOUp2YzBoSk1WR1BzazVWUzM5VFllb05ac2tKc1ZBSmtPMENnQjg3cm1MZXR1TW8?oc=5" target="_blank" rel="noopener nofollow">PLUS코스피50 최근 1년 수익률 261.38%... 코스피지수 추종 ETF 중 1위</a></td></tr><tr><td class="d">Tue, 28 Jul</td><td class="d">디지털투데이</td><td><a href="https://news.google.com/rss/articles/CBMic0FVX3lxTE8tWENFWldwU1NCcm5GbVBSeE5kazBqNHRnbE8yUkEwUS1iTVZrMERvckJfVFM3RHRhZEQtRDJ1VlBkX2Y2dER6MFo3Zk5oQXVCdlZhVHdlQUFoaHlyZDBVSjhmSmVxbWR0WFQtWEVnVWhrWGc?oc=5" target="_blank" rel="noopener nofollow">검은 화요일 뒤 반등 온다면...증권가 "기존 주도주 다시 강세"</a></td></tr><tr><td class="d">Sat, 13 Jun</td><td class="d">thefairnews.co.kr</td><td><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTE13VEZVVkNzVV9mVU5qeVdtZ3Joc3RxSFhOVmFPVHdzQ0twYW1rWFBJRGdINThCTG5hQVJiMXJ2dzVQNlkwRVJpWmlWVk9jWHFERWVIcGdIVWExdEt5aXdRajVndDhJdkxYZVhDc2FrNDfSAXRBVV95cUxOS2RPeElfeVVRdTBGOThpdDloYU1ybnl6MkdEamhmXzFya1NzSjdkckNQdXUzTDY5Qk93Mmh6M013bUZCTHpPNGlLM2JzTXFqdDdIUVNGWDlqbFZrNC1vS0NvVmN4T0x3aFRYTklScExvM2ZMZw?oc=5" target="_blank" rel="noopener nofollow">[증시 프리즘] 코스피 8100선 폭등에 시총 상위주 ‘과열 신호’…삼성전자·하이닉스 RSI 70선 돌파</a></td></tr></tbody></table></div><p class="cap">출처 구글 뉴스 · 2026-08-30 기준. 뉴스는 이 글의 분석과 무관하며 서로 어긋날 수 있다.</p></div><!--TOPICNEWS:END--><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="audition.html">오디션 피라미딩</a> — 52주 신고가·RS 상위가 오디션 유니버스의 입구입니다.</p><p><a href="minervini.html">마크 미너비니의 방법론</a> — RS·신고가를 쓰는 이유의 원전 — 미너비니 추세 템플릿.</p><p><a href="breadth-concentration.html">신고가 쏠림배수</a> — 여기 신고가 «수»의 3년 반 역사가 그 페이지입니다 — 수가 줄고 무게만 남던 국면의 끝이 7월이었습니다.</p></div><!--RELATED:END--></div>
-<footer><p>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다. · 데이터: KRX Open API 코스피·코스닥 전종목 일별매매정보(2010년 이후 제공) 기반 자체 산출. RS Rating은 IBD 방식을 참고한 자체 계산값으로 IBD 공식 수치와 다를 수 있습니다. 초과수익률·RS선의 벤치마크 지수는 코스피로 통일했습니다(코스닥 종목도 동일 기준 비교).</p></footer>
+<div class="wrap"><!--TOPICNEWS:BEGIN--><style id="tnewscss">.tnews{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 10px;margin:34px 0 10px}.tnews h3{margin:0 0 10px;font-size:1.02rem}.tnews table{width:100%;border-collapse:collapse;font-size:.9rem}.tnews td{padding:5px 8px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}.tnews td.d{white-space:nowrap;color:var(--text-secondary)}.tnews p.cap{margin:10px 0 8px;font-size:.8rem;color:var(--text-secondary);line-height:1.6}</style><div class="tnews"><h3>관련 뉴스</h3><p class="cap">제목에 그 낱말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.</p><p class="cap">국내: 「코스피 상대강도 주도주」 로 찾았다.</p><div class="tblwrap"><table><tbody><tr><td class="d">Mon, 13 Jul</td><td class="d">Chosunbiz</td><td><a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxOY2hKWmFiY2NvcF8wZFJMRzZjZWMxcmFYYUszOXY5ZV9Lb3h4UUJtemR2dGo0M0k5aWhnMnRQTXVFLWtiU3FZR2JSMVhIVkpYT19yX2F6WU5DVzRkeW9WaGR4SGJYTnFiM1J1M0dnMWY5aUlwdk5OZEpvN2pLRjJLUFduRU85SmR00gGcAUFVX3lxTE4zeXZlUG9Zd1RUN21KUEpzWHVoc2RmT0ZVQ0gtcm9rSE9DRzlHM2RHOGJXNkZUYkkxNWJJNVdQSDc5eTJ3YUVHeE0yc1hxVjNuMjg1Yks2TmZVRWtzZ1labDRRTHM1TG0wMlJDRVFsaFNNc1pZRGFHYjJHLTBkaEdQUUQyNmtIc2JVcTV3dENieEYxWTlmY0prSDlvcQ?oc=5" target="_blank" rel="noopener nofollow">코스피 ‘극단적 저평가’ 벗어나나…한투證 “주도주 회복에 낙폭 과대주도 반등 기대” - 조선비즈</a></td></tr><tr><td class="d">Tue, 20 Jan</td><td class="d">연합뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE1FV1U2VGNsWWhncVNNcExoV0dZeUJkaERUSlB1d2ttU2t4a1NUcExpTDUzUmkyRExzTUVBWE9IT1ZRd2M5NkZySk02WVpJUUNFeHQwY25sYTU2dE3SAWBBVV95cUxNcEVjS1pOR3RvTjY4cndVcFNJLVBEaWRlUHNtYTk1QmY4YVdUTjlHX3pVZUltNVQ5RE9zRGM5R09jUHU0VG5fVEdmbDZxSXloWVFybDBhaDQzUGI0Tld3MFY?oc=5" target="_blank" rel="noopener nofollow">주도주 순환매 장세에 '쏠림' 심화…중소형과 대형주 격차 커져(종합)</a></td></tr><tr><td class="d">Wed, 29 Apr</td><td class="d">파이낸셜뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTFBzUkFwXzVvR2dqQTJCWWduZEZnMW5SVU1QTGkxT1FyQWJWSl9XNGR1YjlVSzZRMnYyZzBsZ2lNRVFvNEVza1BzamYydEEwWDVJa3pHY0NnQXlBUQ?oc=5" target="_blank" rel="noopener nofollow">코스피 7000 향해 뛰는데…코스닥, 주도주 부진에 느린 걸음</a></td></tr><tr><td class="d">Fri, 08 May</td><td class="d">마켓인</td><td><a href="https://news.google.com/rss/articles/CBMic0FVX3lxTE1MVWdNRmNwcHY3R3B4TEdRVHlWelh2QU1MXzFGNllMSmNudktDa3VidjZUUWlZbFk5SWZjTGc3SDZodUVsOUp2YzBoSk1WR1BzazVWUzM5VFllb05ac2tKc1ZBSmtPMENnQjg3cm1MZXR1TW8?oc=5" target="_blank" rel="noopener nofollow">PLUS코스피50 최근 1년 수익률 261.38%... 코스피지수 추종 ETF 중 1위</a></td></tr><tr><td class="d">Tue, 28 Jul</td><td class="d">디지털투데이</td><td><a href="https://news.google.com/rss/articles/CBMic0FVX3lxTE8tWENFWldwU1NCcm5GbVBSeE5kazBqNHRnbE8yUkEwUS1iTVZrMERvckJfVFM3RHRhZEQtRDJ1VlBkX2Y2dER6MFo3Zk5oQXVCdlZhVHdlQUFoaHlyZDBVSjhmSmVxbWR0WFQtWEVnVWhrWGc?oc=5" target="_blank" rel="noopener nofollow">검은 화요일 뒤 반등 온다면...증권가 "기존 주도주 다시 강세"</a></td></tr><tr><td class="d">Sat, 13 Jun</td><td class="d">thefairnews.co.kr</td><td><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTE13VEZVVkNzVV9mVU5qeVdtZ3Joc3RxSFhOVmFPVHdzQ0twYW1rWFBJRGdINThCTG5hQVJiMXJ2dzVQNlkwRVJpWmlWVk9jWHFERWVIcGdIVWExdEt5aXdRajVndDhJdkxYZVhDc2FrNDfSAXRBVV95cUxOS2RPeElfeVVRdTBGOThpdDloYU1ybnl6MkdEamhmXzFya1NzSjdkckNQdXUzTDY5Qk93Mmh6M013bUZCTHpPNGlLM2JzTXFqdDdIUVNGWDlqbFZrNC1vS0NvVmN4T0x3aFRYTklScExvM2ZMZw?oc=5" target="_blank" rel="noopener nofollow">[증시 프리즘] 코스피 8100선 폭등에 시총 상위주 ‘과열 신호’…삼성전자·하이닉스 RSI 70선 돌파</a></td></tr></tbody></table></div><p class="cap">출처 구글 뉴스 · 2026-08-30 기준. 뉴스는 이 글의 분석과 무관하며 서로 어긋날 수 있다.</p></div><!--TOPICNEWS:END--><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="audition.html">오디션 피라미딩</a> 52주 신고가·RS 상위가 오디션 유니버스의 입구이다.</p><p><a href="minervini.html">마크 미너비니의 방법론</a> RS·신고가를 쓰는 이유의 원전: 미너비니 추세 템플릿.</p><p><a href="breadth-concentration.html">신고가 쏠림배수</a> 여기 신고가 '수'의 3년 반 역사가 그 페이지이다. 수가 줄고 무게만 남던 국면의 끝이 7월이었다.</p></div><!--RELATED:END--></div>
+<footer><p>본 자료는 정보 제공·교육 목적이며 투자 권유가 아니다. 투자의 최종 판단과 책임은 투자자 본인에게 있다. · 데이터: KRX Open API 코스피·코스닥 전종목 일별매매정보(2010년 이후 제공) 기반 자체 산출. RS Rating은 IBD 방식을 참고한 자체 계산값으로 IBD 공식 수치와 다를 수 있다. 초과수익률·RS선의 벤치마크 지수는 코스피로 통일했다(코스닥 종목도 동일 기준 비교).</p></footer>
 </div>
 <script>
 (function(){
