@@ -128,7 +128,53 @@ html.theme-dark .site-dd{box-shadow:0 18px 44px rgba(0,0,0,.55)}
   .site-dd{right:auto;left:50%;transform:translate(-50%,-6px)}
   .site-group.on .site-dd{transform:translate(-50%,0)}
 }
-/* DESIGN:BEGIN */
+/*TOCCSS:BEGIN*/
+/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
+
+/* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
+   원인은 상단바다. .site-bar 가 position:sticky · 높이 78px 로 화면 맨 위를 덮는데
+   앵커로 이동하면 제목이 정확히 그 아래에 깔린다. 그래서 독자는 제목을 못 보고
+   그 다음 문단부터 보게 된다. 눌러 간 곳과 보이는 글이 어긋나는 것이 이 때문이다.
+   scroll-margin-top 이 0 이었다. 78 에 여백 14 를 더해 92 로 둔다.
+   ⚠ 상단바 높이를 바꾸면 이 값도 같이 바꾼다. 측정: .site-bar 의 getBoundingClientRect().height */
+h2[id],h3[id],[id]:target{scroll-margin-top:92px}
+@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
+ margin:22px 0 24px;background:var(--surface);text-align:left}
+.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
+ color:var(--text-secondary);margin-bottom:7px;text-align:left}
+.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
+.ptoc li{font-size:.9rem}
+.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
+.ptoc a:hover{border-bottom-color:var(--text-secondary)}
+@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
+/*TOCCSS:END*/
+/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
+.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
+  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
+.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
+  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
+  background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+/* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END *//* DESIGN:BEGIN */
 /* ── 숫자는 항상 고정폭 — 매일 바뀌는 값에 칸이 흔들리지 않게 ── */
 body{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
 table,.st-v,.kpi,.kpis,.pbadge b{font-variant-numeric:tabular-nums}
@@ -148,7 +194,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── 테마 토글 버튼 (전 페이지 공통) ── */
 /* ⚠⚠ `top:auto` 와 z-index 가 핵심이다 (2026-08-08).
-   생성기 SHELL 들이 `.toggle{position:fixed;top:18px;…}` 를 따로 갖고 있는데(45장),
+   생성기 SHELL 들이 `.toggle{top:62px;z-index:88;position:fixed;…}` 를 따로 갖고 있는데(45장),
    이 규칙은 뒤에 와서 z-index 만 이기고 **위치는 top:18px 가 남았다.**
    그 자리는 sticky 상단바(.site-bar, z-index 90)가 덮는 자리라
    **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 세 번째 원인이다.
@@ -317,53 +363,7 @@ a.card:focus-visible,.lst-i:focus-visible{
   .wrap{padding-left:18px!important;padding-right:18px!important}
   .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
 }
-/* LAYOUT:END */
-/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
-.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
-  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END *//*TOCCSS:BEGIN*/
-/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
-
-/* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
-   원인은 상단바다. .site-bar 가 position:sticky · 높이 78px 로 화면 맨 위를 덮는데
-   앵커로 이동하면 제목이 정확히 그 아래에 깔린다. 그래서 독자는 제목을 못 보고
-   그 다음 문단부터 보게 된다. 눌러 간 곳과 보이는 글이 어긋나는 것이 이 때문이다.
-   scroll-margin-top 이 0 이었다. 78 에 여백 14 를 더해 92 로 둔다.
-   ⚠ 상단바 높이를 바꾸면 이 값도 같이 바꾼다. 측정: .site-bar 의 getBoundingClientRect().height */
-h2[id],h3[id],[id]:target{scroll-margin-top:92px}
-@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
- margin:22px 0 24px;background:var(--surface);text-align:left}
-.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
- color:var(--text-secondary);margin-bottom:7px;text-align:left}
-.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
-.ptoc li{font-size:.9rem}
-.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
-.ptoc a:hover{border-bottom-color:var(--text-secondary)}
-@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*//* PAPER:BEGIN */
+/* LAYOUT:END *//* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -633,7 +633,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"></head><body><div class="site-bar"><div class="site-bar-in">
+/* PAPER:END */</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body><div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-nhn.html">NHN</a><a href="stock-kolmar.html">한국콜마</a><a href="stock-cosmax.html">코스맥스</a><a href="stock-pharmaresearch.html">파마리서치</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="gold-rates.html">금과 장기금리는 시대마다 반대로 움직인다</a><a href="treasury-trust.html">국채는 부도로 무너지지 않는다</a><a href="deleveraging.html">강제청산은 어떻게 끝나는가</a><a href="inflation-playbook.html">인플레 시대에 무엇이 통했나</a><a href="rates-century.html">미국 금리 100년과 인플레 시대</a><a href="memory-price.html">메모리 가격과 반도체 주가</a><a href="breadth-concentration.html">신고가 쏠림배수 2023~2026</a><a href="kospi-analog.html">지금과 닮은 과거 — 유사국면</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><div class="site-group"><button class="here" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 69계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a class="here" href="data-kr-rates.html">한국 금리</a><a href="data-us-market.html">미국 시장</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a href="data-fx.html">환율·원자재·암호</a><a href="data-macro.html">재정·거시</a></div></div><!-- NAV:END --></nav>
 </div></div><div class="wrap paper dwrap"><div class="site-crumb"><a href="index.html">홈</a><span class="sep">›</span><span>원자료</span><span class="sep">›</span><span class="cur">한국 금리</span></div><a class="dback" href="data.html">← 원자료</a><header class="phead"><span class="eb">원자료</span><h1>한국 금리</h1><p class="pauth">국고채와 회사채. 둘의 차이가 신용스프레드다. 계열 2개.</p></header><div class="dgrid"><a class="dcard" href="d-kofia-bond.html"><div class="n">채권수익률·신용스프레드</div><div class="m">2000-10 ~ 2026-08 · 311개<br>매주 금 · %p·%</div><div class="now">0.704</div></a><a class="dcard" href="d-ecos-spread.html"><div class="n">신용스프레드 장기 (1995~)</div><div class="m">1995-05 ~ 2026-07 · 375개<br>매월 · %p·%</div><div class="now">0.697</div></a></div></div>
@@ -799,7 +799,8 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   setTimeout(function(){ try{ if(!Object.keys(CH).length) window.rebuild(); }catch(e){} },400);
 })();
 /* DCHART:END */
-</script><script>/* THEME:BEGIN */
+</script><button class="toggle" onclick="__toggleTheme()">&#9728;</button>
+<script>/* THEME:BEGIN */
 (function(){
   var h=document.documentElement;
   try{var v=localStorage.getItem('charlie-theme'); if(v){h.className=v;}}catch(e){}
@@ -823,5 +824,4 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
-<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 </body></html>

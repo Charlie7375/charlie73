@@ -199,7 +199,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── 테마 토글 버튼 (전 페이지 공통) ── */
 /* ⚠⚠ `top:auto` 와 z-index 가 핵심이다 (2026-08-08).
-   생성기 SHELL 들이 `.toggle{position:fixed;top:18px;…}` 를 따로 갖고 있는데(45장),
+   생성기 SHELL 들이 `.toggle{top:62px;z-index:88;position:fixed;…}` 를 따로 갖고 있는데(45장),
    이 규칙은 뒤에 와서 z-index 만 이기고 **위치는 top:18px 가 남았다.**
    그 자리는 sticky 상단바(.site-bar, z-index 90)가 덮는 자리라
    **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 세 번째 원인이다.
@@ -433,7 +433,7 @@ h2[id],h3[id],[id]:target{scroll-margin-top:92px}
 .ptoc a:hover{border-bottom-color:var(--text-secondary)}
 @media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
 /*TOCCSS:END*/</style>
-<!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><style id="arcv2">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><style id="arcv2">
 /* ═ 아카이브 스타일 v2 (정렬만) — 제목·소제목 센터 · restyle_archive.py 가 관리 ═ */
 h1{text-align:center!important;text-wrap:balance;margin-left:auto!important;margin-right:auto!important}
 .hero h1,.phead h1{text-align:center!important}
@@ -441,278 +441,8 @@ h2,h2.sec,h3{text-align:center!important;text-wrap:balance;margin-left:auto!impo
 .sec-head{text-align:center!important}
 .sec-head p,.sec-head .n{margin-left:auto!important;margin-right:auto!important}
 .hero .lead,.lead,.sub{margin-left:auto!important;margin-right:auto!important;text-align:center!important}
-/* PAPER:BEGIN */
-/* ── 논문 판형 ─────────────────────────────────────────────── */
-
-:root{
-  /* 읽기 기둥. em이라 글자 크기를 키우면 폭도 같이 는다. */
-  --w-col:  clamp(18rem, 93vw, 68rem);
-  /* (더 이상 쓰지 않음) 예전에 표·차트를 본문보다 넓힐 때 쓰던 폭.
-     2026-08-03 부터 표·차트도 --w-col 안에 둔다. 남겨만 둔다. */
-  --w-wide: var(--w-col);
-  --w-data: var(--w-col);
-  --w-prose: 100%;
-  --rule: var(--border,#e3e3e6);
-  --gut: clamp(12px, 3vw, 26px);
-}
-
-/* breakout이 스크롤바 폭만큼 넘칠 수 있다(100vw는 스크롤바를 포함한다).
-   clip은 hidden과 달리 position:sticky 를 깨지 않는다. */
-html{overflow-x:clip}
-
-/* 본문 기둥 — 가운데. 제목·문단·목록이 모두 같은 왼쪽 선에서 시작한다. */
-html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
-  margin-right:auto!important;padding-left:var(--gut);padding-right:var(--gut);
-  box-sizing:border-box}
-.paper .sec,.paper .status,.paper .foot-in{max-width:none}
-
-/* 자료 breakout — **그림·표 알맹이만** 기둥 밖으로. 가운데는 유지.
-
-   ⚠ 처음엔 <figure> 통째로 넓혔다가 2026-08-02에 문제가 드러났다.
-     figure 안의 **캡션까지 같이 넓어져서** 캡션 왼쪽 선이 본문보다 46px 왼쪽에 섰다.
-     한 화면에 왼쪽 선이 두 개 생기니 글이 들쭉날쭉해 보인다.
-     → figure 자체는 본문 폭에 두고, 안의 svg·차트·표만 넓힌다.
-       캡션은 자연히 본문과 같은 선에서 시작한다. */
-.paper figure{width:auto;margin-left:0;margin-right:0}
-/* ⚠ breakout(표·차트를 본문보다 넓히는 것)을 **쓰지 않는다.** 2026-08-03 결정.
-     넓히면 데이터는 시원하게 보이지만 왼쪽 선이 본문과 어긋나 눈이 계속 튄다.
-     논문 판형의 값어치는 **모든 것이 한 줄에서 시작하는 것**이라 그쪽을 택했다.
-     표·차트·도해·캡션 전부 본문 기둥(--w-col) 안에 둔다.
-     넘치는 표는 .tblwrap 의 가로 스크롤로 처리한다(아래). */
-.paper figure>.cbox,.paper figure>table,
-.paper figure>.tblwrap,.paper .cchart,.paper .wide,.paper>.tblwrap,
-.paper figure>figcaption{
-  width:auto!important;max-width:100%!important;
-  margin-left:0!important;margin-right:0!important}
-.paper figure svg,.paper .cchart svg{width:100%;height:auto;display:block}
-/* 좁은 화면에서 표가 넘치면 잘리지 말고 가로로 밀리게 한다 */
-.paper .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
-/* ★ 2026-08-13 상수님 «ROE 가 짤려 보이네» — 정렬 가능한 큰 표(오디션·상대강도)는
-   열이 15개까지 간다. min-width 가 없으면 표가 «압축»되어 마지막 열이 잘린 것처럼 보인다.
-   최소 폭을 박아 두면 좁은 화면에서 **가로로 밀려** 전부 읽힌다.
-   ⚠ 열이 적은 본문 표에는 붙이지 않는다 — 쓸데없는 가로 스크롤이 생긴다. */
-.paper .tblwrap>table.sortable{min-width:1160px}
-.paper .tblwrap>table.sortable thead th,
-.paper .tblwrap>table.sortable tbody td{white-space:nowrap}
-.paper .tblwrap::-webkit-scrollbar{height:8px}
-.paper .tblwrap::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
-.paper .tblwrap>table{min-width:100%}
-
-/* 제목부 */
-.wrap .phead{margin:6px 0 26px;padding-bottom:20px;border-bottom:2px solid var(--text,#1d1d1f)}
-.wrap .phead h1{margin:6px 0 8px;letter-spacing:-.03em;line-height:1.22}
-.wrap .phead .pauth{margin:0;font-size:15px;color:var(--text2,#6e6e73);line-height:1.6}
-
-/* 요약(초록) */
-.wrap .abstract{margin:0 0 34px;padding:20px clamp(16px,3.4vw,24px);
-  background:var(--surface,#fafafa);border:1px solid var(--rule);border-radius:4px}
-.wrap .abstract h4{margin:0 0 10px;font-size:12px;font-weight:700;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--text2,#6e6e73)}
-.wrap .abstract p{margin:0 0 10px;font-size:15px;line-height:1.82}
-.wrap .abstract p:last-child{margin-bottom:0}
-
-/* 절 번호 자동 매김 — 손으로 적으면 순서를 바꿀 때마다 어긋난다.
-
-   ⚠ 선택자를 **뒤집어서** 쓴다. 처음엔 "직계 자식만 센다"로 짰는데,
-     페이지마다 껍데기가 달라(.sec-head, section.compare, 무클래스 section …)
-     19장 중 6장이 번호를 못 받았다.
-     → **전부 세고, 해설 박스 안만 뺀다.** 예외 목록이 훨씬 짧고 안 샌다. */
-.paper{counter-reset:sec fig tbl}
-.paper h2{
-  counter-increment:sec;margin:34px 0 14px;font-size:clamp(18px,2.4vw,21px);
-  font-weight:700;letter-spacing:-.02em;padding-bottom:7px;
-  border-bottom:1px solid var(--rule)}
-.paper h2::before{content:counter(sec) ".  ";color:var(--text2,#6e6e73);
-  font-variant-numeric:tabular-nums}
-/* h3에는 번호를 붙이지 않는다.
-   ⚠ 2026-08-02: h2보다 h3가 먼저 나오는 페이지가 4장 있어 "0.1 탈락 하위 10"처럼
-     절 번호 0이 찍혔다. CSS 카운터는 "앞에 h2가 있었는지"를 조건으로 못 쓴다.
-     한 단계만 번호를 매기는 편이 안전하고, 읽기에도 충분하다. */
-.paper h3{margin:28px 0 10px;font-size:clamp(16px,2vw,17.5px);
-  font-weight:700;letter-spacing:-.015em}
-
-/* 예외 — 해설 박스·요약·표제부 안의 제목은 절이 아니다 */
-.paper .explain h2,.paper .ebody h2,.paper .hbody h2,.paper .verdict h2,
-.paper .callout h2,.paper .lesson h2,.paper .note h2,.paper .abstract h2,
-.paper .disclaimer h2,.paper .fdetail h2,.paper .phead h2,
-.paper .explain h3,.paper .ebody h3,.paper .hbody h3,.paper .verdict h3,
-.paper .callout h3,.paper .lesson h3,.paper .abstract h3,.paper .disclaimer h3{
-  counter-increment:none;font-size:1.06em;font-weight:700;margin:22px 0 9px;
-  letter-spacing:-.01em;border:none;padding:0}
-.paper .explain h2::before,.paper .ebody h2::before,.paper .hbody h2::before,
-.paper .verdict h2::before,.paper .callout h2::before,.paper .lesson h2::before,
-.paper .note h2::before,.paper .abstract h2::before,.paper .disclaimer h2::before,
-.paper .fdetail h2::before,.paper .phead h2::before,
-.paper .explain h3::before,.paper .ebody h3::before,.paper .hbody h3::before,
-.paper .verdict h3::before,.paper .callout h3::before,.paper .lesson h3::before,
-.paper .abstract h3::before,.paper .disclaimer h3::before{content:none}
-.paper .explain h2:first-child,.paper .abstract h2:first-child{margin-top:0}
-
-/* 본문 */
-.paper p,.paper li{font-size:clamp(15.5px,1.85vw,16.5px);line-height:1.85;
-  letter-spacing:-.004em}
-.paper p{margin:0 0 13px}
-.paper p.note{font-size:15px;color:var(--text2,#6e6e73);padding-left:14px;
-  border-left:2px solid var(--rule);line-height:1.75}
-
-/* 그림·표 캡션 자동 번호 */
-.paper figure{margin-top:22px;margin-bottom:26px}
-.paper figure>figcaption{margin-top:11px;font-size:13.5px;line-height:1.7;
-  color:var(--text2,#6e6e73)}
-.paper figure.fig{counter-increment:fig}
-.paper figure.fig>figcaption::before{content:"그림 " counter(fig) ".  ";
-  font-weight:700;color:var(--text,#1d1d1f)}
-.paper figure.tw{counter-increment:tbl}
-.paper figure.tw>figcaption{margin:0 0 9px}
-.paper figure.tw>figcaption::before{content:"표 " counter(tbl) ".  ";
-  font-weight:700;color:var(--text,#1d1d1f)}
-
-/* 표 — 가로줄만(booktabs). 세로줄은 칸을 따라가는 눈의 흐름을 끊는다. */
-.paper table{width:100%;border-collapse:collapse;font-size:clamp(13px,1.6vw,14.5px);
-  font-variant-numeric:tabular-nums}
-.paper table thead th{text-align:left;font-size:.9em;font-weight:700;
-  padding:8px 12px 7px;background:transparent;color:var(--text,#1d1d1f);
-  border-top:1.6px solid var(--text,#1d1d1f);
-  border-bottom:1px solid var(--text,#1d1d1f);letter-spacing:.01em}
-.paper table tbody td{padding:8px 12px;border-bottom:1px solid var(--rule);
-  vertical-align:top;line-height:1.6}
-.paper table tbody tr:last-child td{border-bottom:1.6px solid var(--text,#1d1d1f)}
-.paper table th.n,.paper table td.n{text-align:right}
-.paper table tbody tr:hover{background:var(--surface,#fafafa)}
-/* 칸이 많은 표는 줄이지 말고 옆으로 굴린다 — 글자를 줄이면 못 읽는다 */
-.paper .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
-
-/* 차트 */
-.paper .cbox{position:relative;height:clamp(240px,42vw,380px)}
-
-/* ── 박스 벗기기 ──
-   해설·요약·섹션을 감싸던 회색 상자와 파란 왼쪽 띠를 모두 걷어낸다.
-   구분은 **여백과 얇은 선**으로만 한다. 상자가 많으면 화면이 조각나 보이고,
-   좁은 폰에서는 상자 안쪽 여백까지 겹쳐 글 폭이 더 좁아진다. */
-.paper .sec,.paper .sec-head,.paper .explain,.paper .ebody,.paper .hbody,
-.paper .verdict,.paper .callout,.paper .lesson,.paper .note,.paper .fdetail,
-.paper .abstract,.paper .panel,.paper figure.tw,.paper figure.fig{
-  background:none!important;border:0!important;border-radius:0!important;
-  box-shadow:none!important;padding-left:0!important;padding-right:0!important}
-.paper .sec{padding-top:0!important;padding-bottom:0!important;margin:0 0 8px}
-.paper .explain,.paper .ebody,.paper .hbody,.paper .verdict,.paper .callout,
-.paper .lesson,.paper .fdetail{padding-top:0!important;padding-bottom:0!important;
-  margin:14px 0 22px}
-.paper .abstract{padding:0!important;margin:0 0 32px}
-.paper .abstract p{font-size:clamp(15.5px,1.9vw,17px)}
-/* 요약만 위아래 가는 선으로 구분 — 상자 대신 */
-.paper .abstract{border-top:1px solid var(--rule)!important;
-  border-bottom:1px solid var(--rule)!important;padding:18px 0!important}
-/* note 는 왼쪽 띠 대신 색만 옅게 */
-.paper p.note,.paper .note{padding-left:0!important;border-left:0!important;
-  color:var(--text2,#6e6e73)}
-.paper .disclaimer{border-top:1px solid var(--rule)!important}
-
-/* ── 두괄식 «결론» 블록 (2026-08-06)
-   상수님 «모든 글을 논점을 검증하는 방식으로. 두괄식».
-   각 장이 결론 한 문단으로 시작하고 그 아래에 근거가 온다.
-   상자를 안 쓰는 것이 이 판형의 원칙이라, **왼쪽 굵은 선 + 살짝 큰 글씨**로만 구분한다.
-   그래야 훑어볼 때 «각 장의 첫 블록만» 읽어도 글 전체가 읽힌다. */
-.paper .claim{margin:6px 0 22px;padding:2px 0 2px 16px!important;
-  border-left:3px solid var(--up,#d21f3c)!important;background:none!important}
-.paper .claim p{font-size:clamp(15.5px,1.9vw,17px);line-height:1.72;margin:0}
-.paper .claim+figure,.paper .claim+.tblwrap{margin-top:4px}
-/* 경고형 note — 한계·반증을 적는 자리. 색만 바꾼다 */
-.paper .note.warn{border-left:2px solid var(--risk,#c98a00)!important;
-  padding-left:12px!important}
-
-/* ── 정렬 ──
-   **제목(맨 위 표제부)만 가운데.** 소제목(h2·h3)과 본문은 왼쪽이다.
-   소제목까지 가운데로 두면 문단 첫 줄과 제목의 시작점이 매번 어긋나
-   눈이 다음 줄을 찾는 데 시간이 걸린다. 표제부는 한 번뿐이라 가운데가 낫고,
-   반복되는 소제목은 왼쪽이 낫다. */
-.wrap .phead,
-.paper>.site-crumb,.paper>.crumb,.paper>.eyebrow,.paper>h1,.paper>.sub,
-.paper .phead .eyebrow,.paper .phead h1,.paper .phead .pauth,
-/* ⚠ .phead 안의 .sub 를 빠뜨려서 종목 페이지 설명 문구만 좌측 정렬로 남았다(2026-08-03).
-     제목부는 전부 가운데다. 하나만 왼쪽이면 깨져 보인다. */
-.paper .phead .sub,.paper .phead p.sub{text-align:center}
-.paper .phead .sub{margin-left:auto;margin-right:auto;max-width:46em}
-.paper>.site-crumb,.paper>.crumb{justify-content:center;display:flex;
-  flex-wrap:wrap;gap:4px;align-items:center}
-.paper>.sub,.paper .pauth{margin-left:auto;margin-right:auto}
-
-/* 소제목·본문은 왼쪽 */
-.paper h2,.paper h3,.paper h4,.paper p,.paper li,.paper figure>figcaption,
-.paper .explain,.paper .ebody,.paper .hbody,.paper .verdict,.paper .callout,
-.paper .lesson,.paper .note,.paper .abstract,.paper .disclaimer{text-align:left}
-.paper h2{margin-left:0;margin-right:0}
-
-/* 표 안 제목은 가운데로 몰면 칸이 어긋난다 */
-.paper table th,.paper table td{text-align:left}
-.paper table th.n,.paper table td.n{text-align:right}
-
-/* ── 본문 볼드 제거 ──
-   문단·목록·캡션 안의 <b>/<strong> 은 굵기를 없앤다.
-   `font-weight:inherit` 를 쓰는 이유: 부모의 굵기를 그대로 따르므로
-   문단(400) 안에서는 보통 글씨가 되고, **제목이나 표 머리글 안에서는
-   그대로 굵게** 남는다. 400으로 못박으면 제목 속 강조까지 풀려 버린다.
-
-   제목(h1~h4)·표(th/td)·상단바는 손대지 않는다 — 본문만이다. */
-.paper p b,.paper p strong,
-.paper li b,.paper li strong,
-.paper figcaption b,.paper figcaption strong,
-.paper .sub b,.paper .sub strong,
-.paper .pauth b,.paper .pauth strong,
-.paper .disclaimer b,.paper .disclaimer strong,
-.paper ol.refs li b,.paper ol.refs li strong{font-weight:inherit}
-
-/* 해설 박스 안의 참고문헌 소제목 — 절 번호를 붙이지 않고 작게 */
-.paper .explain h3.sub-h{font-size:1.02em;font-weight:700;margin:24px 0 8px;
-  color:var(--text,#1d1d1f)}
-.paper .explain h3.sub-h::before{content:none}
-
-/* 인용문 — 박스를 안 쓰기로 했으니 **왼쪽 괘선**으로만 구분한다.
-     들여쓰기만 하면 본문 문단과 구별이 안 돼서 그냥 흘러가 버린다(2026-08-03 확인). */
-.paper .quote{margin:22px 0!important;padding:2px 0 2px 18px!important;
-  border:0!important;border-left:3px solid var(--accent,#1161c4)!important;
-  background:none!important;border-radius:0!important;
-  color:var(--text,#1d1d1f);font-size:.99em;line-height:1.75}
-.paper .quote .src{display:block;margin-top:6px;font-size:.86em;color:var(--muted,#6b7280)}
-
-/* 참고문헌 */
-.paper ol.refs{margin:10px 0 20px;padding-left:0;list-style:none;counter-reset:refitem}
-.paper ol.refs li{position:relative;padding-left:32px;margin:0 0 11px;
-  font-size:15px;line-height:1.72;color:var(--text,#1d1d1f)}
-.paper ol.refs li::before{content:"[" counter(refitem) "]";counter-increment:refitem;
-  position:absolute;left:0;top:0;font-variant-numeric:tabular-nums;font-size:13.5px;
-  color:var(--text2,#6e6e73);font-weight:600}
-.paper ol.refs[start="6"]{counter-reset:refitem 5}
-.paper ol.refs[start="11"]{counter-reset:refitem 10}
-.paper ol.refs a{color:var(--accent,#1161c4);text-decoration:none;
-  border-bottom:1px solid currentColor;border-bottom-color:transparent}
-.paper ol.refs a:hover{border-bottom-color:currentColor}
-.paper .refs-sec h3{margin-top:24px}
-
-/* 맺음말 */
-.paper .disclaimer{margin-top:38px;padding-top:16px;border-top:1px solid var(--rule);
-  font-size:13.5px;line-height:1.75;color:var(--text2,#6e6e73)}
-.paper .disclaimer p{font-size:13.5px;line-height:1.75;margin-bottom:9px}
-
-/* ── 모바일 ── 줄일 수 없는 것만 손본다 */
-@media(max-width:760px){
-  /* ⚠ 모바일에도 breakout 을 두지 않는다(2026-08-03).
-       여기 남겨두면 좁은 화면에서만 표가 본문 밖으로 튀어나와
-       "왜 폰에서만 다르지" 하는 상태가 된다. 데스크톱과 같은 규칙으로 간다. */
-  .paper figure>.cbox,.paper figure>table,
-  .paper figure>.tblwrap,.paper .cchart,.paper .wide,.paper>.tblwrap{
-    width:auto;max-width:100%;margin-left:0;margin-right:0}
-  .paper table thead th,.paper table tbody td{padding:7px 9px}
-  .paper figure{margin-top:18px;margin-bottom:22px}
-  .paper .abstract{padding:16px 15px}
-  .wrap .phead{margin-bottom:20px;padding-bottom:16px}
-}
-@media(max-width:430px){
-  .paper table{font-size:12.5px}
-  .paper p.note{padding-left:11px}
-}
-/* PAPER:END */</style>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"></head>
+</style>
+</head>
 <body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
@@ -1098,7 +828,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 })();
 </script>
 
-<div class="wrap"><!--TOPICNEWS:BEGIN--><style id="tnewscss">.tnews{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 10px;margin:34px 0 10px}.tnews h3{margin:0 0 10px;font-size:1.02rem}.tnews table{width:100%;border-collapse:collapse;font-size:.9rem}.tnews td{padding:5px 8px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}.tnews td.d{white-space:nowrap;color:var(--text-secondary)}.tnews p.cap{margin:10px 0 8px;font-size:.8rem;color:var(--text-secondary);line-height:1.6}</style><div class="tnews"><h3>관련 뉴스</h3><p class="cap">제목에 그 낱말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.</p><p class="cap">국내: 「닷컴버블 코스피」 로 찾았다.</p><div class="tblwrap"><table><tbody><tr><td class="d">Tue, 02 Jun</td><td class="d">v.daum.net</td><td><a href="https://news.google.com/rss/articles/CBMiT0FVX3lxTFBzRTcxLVQ5NzUtel9xVHNsSVZGaGxBUW54cDBFTEsxX1Y0emJZLVZmdHdlMFdUUmpqNGIxdnpYZE54ZjJpYS0xSG53ZmNMSUU?oc=5" target="_blank" rel="noopener nofollow">"닷컴버블 무분별한 열기 닮았다" 8900 찍고 하락하는 코스피에 커지는 반도체 거품론</a></td></tr><tr><td class="d">Thu, 18 Jun</td><td class="d">한국일보</td><td><a href="https://news.google.com/rss/articles/CBMibkFVX3lxTE9OS25KUTloNl9QWktzclpoT21vdU9PejFvRl9YSDZTWHNRWmJiX0h0U2d1SXNqd2huSVo2Y0tKSXdrTUZPMFNmNGlmNmRVWk45VkxOaU5rZFZzSkt4eV84a0tCTUVoTlptZnRqYnpn0gFzQVVfeXFMUGtjRmtVc0hTeTJDWFBDcFAxaFl2MThPTmxEb2JtQUpDeEV4bllXdThFMldqbDc0azd2QjVJdjRaek8wTWlOYURJVGw0NktfTEUyTXlDM2NFVVg5UVlra3JOVGNKMjhYaHdjMVl3a2JTVENzVQ?oc=5" target="_blank" rel="noopener nofollow">'9000' 코스피, 9월 조정 오나…"닷컴 버블 때도 3개월 주기로 하락"</a></td></tr><tr><td class="d">Wed, 29 Jul</td><td class="d">리드경제</td><td><a href="https://news.google.com/rss/articles/CBMib0FVX3lxTE9IMFZPUVE0WV9lYUZuU2U4cmVjVG9xUUVnUmc3enpPWXgzNHUwYk1wTzhrSl8xWUJEM1RlWktjZFBiNktPMVRUcURjUnN5TlBCTjJqQmE3T0JvemVEWTR4NE5LcUREd1BERmxpMk5LMA?oc=5" target="_blank" rel="noopener nofollow">AI주 이탈에 코스피 10% 급락… “닷컴 버블 데자뷔”</a></td></tr><tr><td class="d">Mon, 08 Jun</td><td class="d">서울경제</td><td><a href="https://news.google.com/rss/articles/CBMiUkFVX3lxTE9JNC1sSk9yOVpmQTNodXJQaktaWlZObloteGNtclJId0RIZ1h5bGI3V1NIejY5cXoxa3F0aFFBMVBvMzBwVktnT2M5YlZkR01Cd3c?oc=5" target="_blank" rel="noopener nofollow">AI 랠리와 닮은 닷컴버블도 조정 뒤 고점 내달렸다</a></td></tr><tr><td class="d">Wed, 12 Aug</td><td class="d">뉴데일리</td><td><a href="https://news.google.com/rss/articles/CBMie0FVX3lxTE9MUHRncGVnTDFERUJtbGEyLVpOZUZTRldZbXUxWS1Fb0NNRFI5UzQxTzF4a0pCekxxcDdId21fSC1vMEFZdWs2Ymd0dVY4MG4zNjR4STg0WU9JREdUa0VJVzBhWWlkSkJEVkJ2NnIxUTZpSHRGbFBaWEh4c9IBgAFBVV95cUxPRUlDWktmSGtUOGNNOFJyNzYxam1GNTZTMGk4SC1XZXRlNU5Gczk5SWxob1lSUFRQN0VqR2JMbDRRUjNLQl9kY29CWFZyS3ZMWGowYjAzOG55N01CVmNBUWkwV05tOHZvTXY3bTlXVGZoYnNoamNqcE9oOGxZWV9ybg?oc=5" target="_blank" rel="noopener nofollow">코스피 중장기 이격도 마이너스 전환 … 닷컴버블 조정과 판박이</a></td></tr><tr><td class="d">Mon, 20 Jul</td><td class="d">Investing.com 한국어</td><td><a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE5DTEN4Z2pfU215S2NhNU1IZzZvellXempuSkt5V0RGeFk3SjNFODhjamVPeTBTcEJOWlhRWS1iSTdmRUtNTE1wanZwRDkybkh6VTR0TEFodldxVzhpUmVFSA?oc=5" target="_blank" rel="noopener nofollow">폭락장의 연속 : 코스피 7월 현재: 24% 낙폭은 어느 정도 인가?</a></td></tr></tbody></table></div><p class="cap">해외: 「dot-com bubble」 로 찾았다. 이 글의 소재가 외국이라 함께 본다.</p><div class="tblwrap"><table><tbody><tr><td class="d">Tue, 21 Jul</td><td class="d">CNBC</td><td><a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxNV1J0WnZXZWEzNU9CWFBIMUFoRUNBd2staXctREdTcUdfVWtYWjlUVkFILXMyMG9vU0dpT1hBWS1hSmJGbk9aVzRUZlJzdExKOGFGdUM0MGZlTWV6QUhyR2dDVlQxcGw5TTU4bFR4WVM0LUNQUURKX1JiZmZmS2xKTElpS2xpQ0hV0gGOAUFVX3lxTE81emJfTFcwQjNhZWF0QmQ1SklocGktOFdWc1piYjl5YWN6Ymp6UHZkNVJTSllaVHZyWHV5elNBQ0hTMGhkd2pZRzhYU3huWkRhUTBpQmdmeVBTUUpjQVFkNkoyb1R0bnlEMjJLeWpoMm9fWkt5a0N6eV9YMmpBS3pqNDlkU0VGY3c0Y0U1V0E?oc=5" target="_blank" rel="noopener nofollow">The worst dotcom bubble investing mistakes are coming for your portfolio. Avoid them</a></td></tr><tr><td class="d">Thu, 20 Aug</td><td class="d">Business Insider</td><td><a href="https://news.google.com/rss/articles/CBMipAFBVV95cUxOY2VTRk81aUtEbl9kWEpVVGI3UURGR2ZqMm1BQVRmOHFlbjBSekUxSlo1YVJyeUgzV29JZExvYWFBcnBPREhDSDZPcXVybmpoUVpBcTI1Z0N4cW5WZzlKb0txaGxXR1c5a0gzWk5Xc3VwTEZrdFQ3blc2X1U2UmVPQjZPVDJaY1FuZ2IzM0lkcFN0cUt4d3QyUmtFZ01hNWVJemhUeQ?oc=5" target="_blank" rel="noopener nofollow">I was there for the dot-com burst. Here's how the AI bubble will pop.</a></td></tr><tr><td class="d">Fri, 19 Jun</td><td class="d">Yahoo Finance</td><td><a href="https://news.google.com/rss/articles/CBMimAFBVV95cUxNZEdzajJrVFdhbVNNUHcwcWdpRjItQllvUlNpc3E2cVZqZ3VYM2s5UkFhc3JTcmpHbjl0ZnVIdkdGM0VaQlZuOHVyLVlPbmhGeWxaVTNRMEw1Vkc5YUlXUVFmMF83V190RU1GMk9OOU43bnpBamNoMFNoVW1fZE5XbmQ0akdEV3A0ZEVOUlgwMHdQV3hvUVpabw?oc=5" target="_blank" rel="noopener nofollow">'Exactly how the dot-com bubble burst': A market research firm says keep an eye on this AI warning sign</a></td></tr><tr><td class="d">Mon, 17 Aug</td><td class="d">inc.com</td><td><a href="https://news.google.com/rss/articles/CBMiqAFBVV95cUxQU25JYUpxQ0R4QkFaZlNKTnhWWFotMzJmZHltTWZ3UksyMmhOU09hNWRGb1p1M2ZVVGJfRGotSFdXSHFXZEw5aVVHR0JCNXFGZ0RIelV5ck91STNzYVlsOG8wZUJfcU0zRkk2amxWSnpuZ08tSC1OMzN6TEUwNXNJZmNuZFpENnpUZVBPMWdpdVJBQnJ0QzlJQW4zdEVxY1lxS19SczdIbVM?oc=5" target="_blank" rel="noopener nofollow">Stocks Haven’t Been This Expensive Since the Dot-Com Boom, but That Doesn’t Mean AI Is Another Bubble</a></td></tr><tr><td class="d">Tue, 25 Aug</td><td class="d">The Motley Fool</td><td><a href="https://news.google.com/rss/articles/CBMikAFBVV95cUxPUzNvRDItM2dWM2FoMHdBTGZRYUh0VklhRVptRjdoSnlVLWVudFp4Nk85RFhlc2Z5Y1NqZzF0TzNHcHd3a1FWbUxvYktPN2FKcE1OU3BVTldic1d3R1NIZ3VtZk5CcWstMFdLWkp6RV9NZWR5dW1mWVd4aGRnc1hwd1pnQWJhNVZ2b1duVXpSZWQ?oc=5" target="_blank" rel="noopener nofollow">If You'd Invested $5,000 in the S&P 500 Ahead of the Dot-Com Bubble Burst, Here's What You'd Have Today</a></td></tr><tr><td class="d">Thu, 27 Aug</td><td class="d">Barron's</td><td><a href="https://news.google.com/rss/articles/CBMijAFBVV95cUxPOThyck9PYW5UWlF3QndFXzd6SENFVFY4RFNJQTg1UjgyNTZMWnY3RUM1RDk5RE5EN3VUVjQ1WmctZWtINUhySmtSRVVuLUhrUDJQMWJraW1GUFhhZkMzMDVSMkMtYVFLSi1rajZmS0otRThySUg3VDNTWHc0eG1oR2drMGVCOGJlM3VHdw?oc=5" target="_blank" rel="noopener nofollow">Why This Strategist Sees ‘Eerie Parallels’ Between Today’s AI Boom and the Dot-Com Crash</a></td></tr></tbody></table></div><p class="cap">출처 구글 뉴스 · 2026-08-31 기준. 뉴스는 이 글의 분석과 무관하며 서로 어긋날 수 있다.</p></div><!--TOPICNEWS:END--><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="disparity-archive.html">두 버블의 50일 이격도</a> — 같은 비교를 «과열의 온도(이격도)»로 잰 것이 그 페이지입니다.</p></div><!--RELATED:END--><!--GLOSSARY:BEGIN--><style id="glocss">.glo{margin:34px 0 8px}.glo h3{font-size:1.02rem;margin:0 0 12px}.glo dl{margin:0;font-size:.9rem;line-height:1.62}.glo dt{font-weight:800;margin-top:10px}.glo dd{margin:2px 0 0 0;color:var(--text-secondary,#555)}</style><div class="glo"><h3>용어 설명</h3><dl><dt>국면</dt><dd>시장이 지금 어느 상태에 있는가를 가리키는 말. 봄·여름·가을·겨울처럼 몇 개로 나누고, 한번 들어가면 여러 달에서 몇 해까지 이어진다고 본다. 오르내림 하나하나가 아니라 그 오르내림이 놓인 자리를 가리킨다.</dd><dt>수급</dt><dd>누가 사고 누가 파는가. 개인·외국인·기관 셋으로 나눠 본다. 같은 가격이라도 누가 샀느냐에 따라 다음이 달라진다고 보는 관점이다.</dd><dt>이동평균</dt><dd>최근 며칠의 종가를 평균한 값. 날마다 다시 계산해 선으로 잇는다. 하루하루 오르내림을 지워 방향만 남기려고 쓴다. 20일선은 최근 20일 평균이다.</dd><dt>변동성</dt><dd>가격이 얼마나 크게 흔들리는가. 방향과는 상관이 없다. 많이 오른 달과 많이 내린 달은 방향이 반대지만 변동성은 똑같이 크다.</dd><dt>스프레드</dt><dd>두 금리의 차이. 예를 들어 회사채 금리에서 국채 금리를 빼면, 그 기업이 나라보다 얼마나 더 이자를 물어야 하는지가 나온다. 벌어지면 시장이 위험을 크게 본다는 뜻이다.</dd><dt>유동성</dt><dd>시장에 돌아다니는 돈. 중앙은행이 금리를 내리거나 돈을 풀면 늘어난다. 늘면 자산 가격이 오르기 쉽다고 본다.</dd><dt>기준금리</dt><dd>중앙은행이 정하는 초단기 금리. 연준의 연방기금금리가 세계 돈값의 기준이 된다.</dd><dt>신용스프레드</dt><dd>회사채 금리에서 국고채 금리를 뺀 값. 기업이 국가보다 더 부담하는 금리이고, 시장이 매긴 부도 위험의 값이다.</dd><dt>이격도</dt><dd>주가가 이동평균선에서 얼마나 떨어져 있는지의 백분율. 100이면 이동평균과 같은 자리, 90 아래는 과매도·110 위는 과열로 읽는다.</dd><dt>이동평균선</dt><dd>일정 기간 종가의 평균을 이은 선. 20일선은 단기, 20주선(=100거래일 근사)은 이야기꾼의 «생명선», 200일선은 장기 추세 기준이다.</dd><dt>RS</dt><dd>Relative Strength(상대강도). 시장 전체 대비 그 종목이 얼마나 더 올랐는지를 백분위로 매긴 값. RS 90이면 «시장의 90%보다 더 올랐다»는 뜻이다. 미너비니는 RS 상위 종목만 후보로 둔다.</dd><dt>스테이지</dt><dd>와인스타인의 4국면 — 1 바닥, 2 상승, 3 천장, 4 하락. 이동평균의 기울기와 가격 위치로 판정한다.</dd><dt>제오지산수</dt><dd>이야기꾼의 다섯 경기지표 — 제(ISM 제조업지수)·오(OECD 경기선행지수)·지(GDP)·산(산업생산)·수(한국 수출).</dd><dt>10년물 국채금리</dt><dd>시장이 정하는 장기 돈값. 이 사이트의 시대 구분(인플레·디플레이션)은 이 금리의 사상 최고(1981-09)와 사상 최저(2020-07)로 가른다.</dd></dl><p style="font-size:.8rem;color:var(--text-secondary,#777);margin-top:12px">이 글에 나온 용어만 실었다. 정의는 <code>scripts/glossary.py</code> 에서 한곳으로 관리한다.</p></div><!--GLOSSARY:END--></div>
+<div class="wrap"><!--TOPICNEWS:BEGIN--><style id="tnewscss">.tnews{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 10px;margin:34px 0 10px}.tnews h3{margin:0 0 10px;font-size:1.02rem}.tnews table{width:100%;border-collapse:collapse;font-size:.9rem}.tnews td{padding:5px 8px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}.tnews td.d{white-space:nowrap;color:var(--text-secondary)}.tnews p.cap{margin:10px 0 8px;font-size:.8rem;color:var(--text-secondary);line-height:1.6}</style><div class="tnews"><h3>관련 뉴스</h3><p class="cap">제목에 그 낱말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.</p><p class="cap">국내 — 「닷컴버블 코스피」 로 찾았다.</p><div class="tblwrap"><table><tbody><tr><td class="d">Tue, 02 Jun</td><td class="d">v.daum.net</td><td><a href="https://news.google.com/rss/articles/CBMiT0FVX3lxTFBzRTcxLVQ5NzUtel9xVHNsSVZGaGxBUW54cDBFTEsxX1Y0emJZLVZmdHdlMFdUUmpqNGIxdnpYZE54ZjJpYS0xSG53ZmNMSUU?oc=5" target="_blank" rel="noopener nofollow">"닷컴버블 무분별한 열기 닮았다" 8900 찍고 하락하는 코스피에 커지는 반도체 거품론</a></td></tr><tr><td class="d">Thu, 18 Jun</td><td class="d">한국일보</td><td><a href="https://news.google.com/rss/articles/CBMibkFVX3lxTE9OS25KUTloNl9QWktzclpoT21vdU9PejFvRl9YSDZTWHNRWmJiX0h0U2d1SXNqd2huSVo2Y0tKSXdrTUZPMFNmNGlmNmRVWk45VkxOaU5rZFZzSkt4eV84a0tCTUVoTlptZnRqYnpn0gFzQVVfeXFMUGtjRmtVc0hTeTJDWFBDcFAxaFl2MThPTmxEb2JtQUpDeEV4bllXdThFMldqbDc0azd2QjVJdjRaek8wTWlOYURJVGw0NktfTEUyTXlDM2NFVVg5UVlra3JOVGNKMjhYaHdjMVl3a2JTVENzVQ?oc=5" target="_blank" rel="noopener nofollow">'9000' 코스피, 9월 조정 오나…"닷컴 버블 때도 3개월 주기로 하락"</a></td></tr><tr><td class="d">Wed, 29 Jul</td><td class="d">리드경제</td><td><a href="https://news.google.com/rss/articles/CBMib0FVX3lxTE9IMFZPUVE0WV9lYUZuU2U4cmVjVG9xUUVnUmc3enpPWXgzNHUwYk1wTzhrSl8xWUJEM1RlWktjZFBiNktPMVRUcURjUnN5TlBCTjJqQmE3T0JvemVEWTR4NE5LcUREd1BERmxpMk5LMA?oc=5" target="_blank" rel="noopener nofollow">AI주 이탈에 코스피 10% 급락… “닷컴 버블 데자뷔”</a></td></tr><tr><td class="d">Mon, 08 Jun</td><td class="d">서울경제</td><td><a href="https://news.google.com/rss/articles/CBMiUkFVX3lxTE9JNC1sSk9yOVpmQTNodXJQaktaWlZObloteGNtclJId0RIZ1h5bGI3V1NIejY5cXoxa3F0aFFBMVBvMzBwVktnT2M5YlZkR01Cd3c?oc=5" target="_blank" rel="noopener nofollow">AI 랠리와 닮은 닷컴버블도 조정 뒤 고점 내달렸다</a></td></tr><tr><td class="d">Wed, 12 Aug</td><td class="d">뉴데일리</td><td><a href="https://news.google.com/rss/articles/CBMie0FVX3lxTE9MUHRncGVnTDFERUJtbGEyLVpOZUZTRldZbXUxWS1Fb0NNRFI5UzQxTzF4a0pCekxxcDdId21fSC1vMEFZdWs2Ymd0dVY4MG4zNjR4STg0WU9JREdUa0VJVzBhWWlkSkJEVkJ2NnIxUTZpSHRGbFBaWEh4c9IBgAFBVV95cUxPRUlDWktmSGtUOGNNOFJyNzYxam1GNTZTMGk4SC1XZXRlNU5Gczk5SWxob1lSUFRQN0VqR2JMbDRRUjNLQl9kY29CWFZyS3ZMWGowYjAzOG55N01CVmNBUWkwV05tOHZvTXY3bTlXVGZoYnNoamNqcE9oOGxZWV9ybg?oc=5" target="_blank" rel="noopener nofollow">코스피 중장기 이격도 마이너스 전환 … 닷컴버블 조정과 판박이</a></td></tr><tr><td class="d">Mon, 20 Jul</td><td class="d">Investing.com 한국어</td><td><a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE5DTEN4Z2pfU215S2NhNU1IZzZvellXempuSkt5V0RGeFk3SjNFODhjamVPeTBTcEJOWlhRWS1iSTdmRUtNTE1wanZwRDkybkh6VTR0TEFodldxVzhpUmVFSA?oc=5" target="_blank" rel="noopener nofollow">폭락장의 연속 : 코스피 7월 현재 –24% 낙폭은 어느 정도 인가?</a></td></tr></tbody></table></div><p class="cap">해외 — 「dot-com bubble」 로 찾았다. 이 글의 소재가 외국이라 함께 본다.</p><div class="tblwrap"><table><tbody><tr><td class="d">Tue, 21 Jul</td><td class="d">CNBC</td><td><a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxNV1J0WnZXZWEzNU9CWFBIMUFoRUNBd2staXctREdTcUdfVWtYWjlUVkFILXMyMG9vU0dpT1hBWS1hSmJGbk9aVzRUZlJzdExKOGFGdUM0MGZlTWV6QUhyR2dDVlQxcGw5TTU4bFR4WVM0LUNQUURKX1JiZmZmS2xKTElpS2xpQ0hV0gGOAUFVX3lxTE81emJfTFcwQjNhZWF0QmQ1SklocGktOFdWc1piYjl5YWN6Ymp6UHZkNVJTSllaVHZyWHV5elNBQ0hTMGhkd2pZRzhYU3huWkRhUTBpQmdmeVBTUUpjQVFkNkoyb1R0bnlEMjJLeWpoMm9fWkt5a0N6eV9YMmpBS3pqNDlkU0VGY3c0Y0U1V0E?oc=5" target="_blank" rel="noopener nofollow">The worst dotcom bubble investing mistakes are coming for your portfolio. Avoid them</a></td></tr><tr><td class="d">Thu, 20 Aug</td><td class="d">Business Insider</td><td><a href="https://news.google.com/rss/articles/CBMipAFBVV95cUxOY2VTRk81aUtEbl9kWEpVVGI3UURGR2ZqMm1BQVRmOHFlbjBSekUxSlo1YVJyeUgzV29JZExvYWFBcnBPREhDSDZPcXVybmpoUVpBcTI1Z0N4cW5WZzlKb0txaGxXR1c5a0gzWk5Xc3VwTEZrdFQ3blc2X1U2UmVPQjZPVDJaY1FuZ2IzM0lkcFN0cUt4d3QyUmtFZ01hNWVJemhUeQ?oc=5" target="_blank" rel="noopener nofollow">I was there for the dot-com burst. Here's how the AI bubble will pop.</a></td></tr><tr><td class="d">Fri, 19 Jun</td><td class="d">Yahoo Finance</td><td><a href="https://news.google.com/rss/articles/CBMimAFBVV95cUxNZEdzajJrVFdhbVNNUHcwcWdpRjItQllvUlNpc3E2cVZqZ3VYM2s5UkFhc3JTcmpHbjl0ZnVIdkdGM0VaQlZuOHVyLVlPbmhGeWxaVTNRMEw1Vkc5YUlXUVFmMF83V190RU1GMk9OOU43bnpBamNoMFNoVW1fZE5XbmQ0akdEV3A0ZEVOUlgwMHdQV3hvUVpabw?oc=5" target="_blank" rel="noopener nofollow">'Exactly how the dot-com bubble burst': A market research firm says keep an eye on this AI warning sign</a></td></tr><tr><td class="d">Mon, 17 Aug</td><td class="d">inc.com</td><td><a href="https://news.google.com/rss/articles/CBMiqAFBVV95cUxQU25JYUpxQ0R4QkFaZlNKTnhWWFotMzJmZHltTWZ3UksyMmhOU09hNWRGb1p1M2ZVVGJfRGotSFdXSHFXZEw5aVVHR0JCNXFGZ0RIelV5ck91STNzYVlsOG8wZUJfcU0zRkk2amxWSnpuZ08tSC1OMzN6TEUwNXNJZmNuZFpENnpUZVBPMWdpdVJBQnJ0QzlJQW4zdEVxY1lxS19SczdIbVM?oc=5" target="_blank" rel="noopener nofollow">Stocks Haven’t Been This Expensive Since the Dot-Com Boom, but That Doesn’t Mean AI Is Another Bubble</a></td></tr><tr><td class="d">Tue, 25 Aug</td><td class="d">The Motley Fool</td><td><a href="https://news.google.com/rss/articles/CBMikAFBVV95cUxPUzNvRDItM2dWM2FoMHdBTGZRYUh0VklhRVptRjdoSnlVLWVudFp4Nk85RFhlc2Z5Y1NqZzF0TzNHcHd3a1FWbUxvYktPN2FKcE1OU3BVTldic1d3R1NIZ3VtZk5CcWstMFdLWkp6RV9NZWR5dW1mWVd4aGRnc1hwd1pnQWJhNVZ2b1duVXpSZWQ?oc=5" target="_blank" rel="noopener nofollow">If You'd Invested $5,000 in the S&P 500 Ahead of the Dot-Com Bubble Burst, Here's What You'd Have Today</a></td></tr><tr><td class="d">Thu, 27 Aug</td><td class="d">Barron's</td><td><a href="https://news.google.com/rss/articles/CBMijAFBVV95cUxPOThyck9PYW5UWlF3QndFXzd6SENFVFY4RFNJQTg1UjgyNTZMWnY3RUM1RDk5RE5EN3VUVjQ1WmctZWtINUhySmtSRVVuLUhrUDJQMWJraW1GUFhhZkMzMDVSMkMtYVFLSi1rajZmS0otRThySUg3VDNTWHc0eG1oR2drMGVCOGJlM3VHdw?oc=5" target="_blank" rel="noopener nofollow">Why This Strategist Sees ‘Eerie Parallels’ Between Today’s AI Boom and the Dot-Com Crash</a></td></tr></tbody></table></div><p class="cap">출처 구글 뉴스 · 2026-08-31 기준. 뉴스는 이 글의 분석과 무관하며 서로 어긋날 수 있다.</p></div><!--TOPICNEWS:END--><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="disparity-archive.html">두 버블의 50일 이격도</a> — 같은 비교를 «과열의 온도(이격도)»로 잰 것이 그 페이지입니다.</p></div><!--RELATED:END--><!--GLOSSARY:BEGIN--><style id="glocss">.glo{margin:34px 0 8px}.glo h3{font-size:1.02rem;margin:0 0 12px}.glo dl{margin:0;font-size:.9rem;line-height:1.62}.glo dt{font-weight:800;margin-top:10px}.glo dd{margin:2px 0 0 0;color:var(--text-secondary,#555)}</style><div class="glo"><h3>용어 설명</h3><dl><dt>국면</dt><dd>시장이 지금 어느 상태에 있는가를 가리키는 말. 봄·여름·가을·겨울처럼 몇 개로 나누고, 한번 들어가면 여러 달에서 몇 해까지 이어진다고 본다. 오르내림 하나하나가 아니라 그 오르내림이 놓인 자리를 가리킨다.</dd><dt>수급</dt><dd>누가 사고 누가 파는가. 개인·외국인·기관 셋으로 나눠 본다. 같은 가격이라도 누가 샀느냐에 따라 다음이 달라진다고 보는 관점이다.</dd><dt>이동평균</dt><dd>최근 며칠의 종가를 평균한 값. 날마다 다시 계산해 선으로 잇는다. 하루하루 오르내림을 지워 방향만 남기려고 쓴다. 20일선은 최근 20일 평균이다.</dd><dt>변동성</dt><dd>가격이 얼마나 크게 흔들리는가. 방향과는 상관이 없다. 많이 오른 달과 많이 내린 달은 방향이 반대지만 변동성은 똑같이 크다.</dd><dt>스프레드</dt><dd>두 금리의 차이. 예를 들어 회사채 금리에서 국채 금리를 빼면, 그 기업이 나라보다 얼마나 더 이자를 물어야 하는지가 나온다. 벌어지면 시장이 위험을 크게 본다는 뜻이다.</dd><dt>유동성</dt><dd>시장에 돌아다니는 돈. 중앙은행이 금리를 내리거나 돈을 풀면 늘어난다. 늘면 자산 가격이 오르기 쉽다고 본다.</dd><dt>기준금리</dt><dd>중앙은행이 정하는 초단기 금리. 연준의 연방기금금리가 세계 돈값의 기준이 된다.</dd><dt>신용스프레드</dt><dd>회사채 금리에서 국고채 금리를 뺀 값. 기업이 국가보다 더 부담하는 금리이고, 시장이 매긴 부도 위험의 값이다.</dd><dt>이격도</dt><dd>주가가 이동평균선에서 얼마나 떨어져 있는지의 백분율. 100이면 이동평균과 같은 자리, 90 아래는 과매도·110 위는 과열로 읽는다.</dd><dt>이동평균선</dt><dd>일정 기간 종가의 평균을 이은 선. 20일선은 단기, 20주선(=100거래일 근사)은 이야기꾼의 «생명선», 200일선은 장기 추세 기준이다.</dd><dt>RS</dt><dd>Relative Strength(상대강도). 시장 전체 대비 그 종목이 얼마나 더 올랐는지를 백분위로 매긴 값. RS 90이면 «시장의 90%보다 더 올랐다»는 뜻이다. 미너비니는 RS 상위 종목만 후보로 둔다.</dd><dt>스테이지</dt><dd>와인스타인의 4국면 — 1 바닥, 2 상승, 3 천장, 4 하락. 이동평균의 기울기와 가격 위치로 판정한다.</dd><dt>제오지산수</dt><dd>이야기꾼의 다섯 경기지표 — 제(ISM 제조업지수)·오(OECD 경기선행지수)·지(GDP)·산(산업생산)·수(한국 수출).</dd><dt>10년물 국채금리</dt><dd>시장이 정하는 장기 돈값. 이 사이트의 시대 구분(인플레·디플레이션)은 이 금리의 사상 최고(1981-09)와 사상 최저(2020-07)로 가른다.</dd></dl><p style="font-size:.8rem;color:var(--text-secondary,#777);margin-top:12px">이 글에 나온 용어만 실었다. 정의는 <code>scripts/glossary.py</code> 에서 한곳으로 관리한다.</p></div><!--GLOSSARY:END--></div>
 
 <script>/* THEME:BEGIN */
 (function(){
