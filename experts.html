@@ -388,27 +388,7 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .hchg .ar{white-space:nowrap}
 .to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
 @media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
-/*TOCCSS:BEGIN*/
-/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
-/* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
-   원인은 상단바다. .site-bar 가 position:sticky · 높이 78px 로 화면 맨 위를 덮는데
-   앵커로 이동하면 제목이 정확히 그 아래에 깔린다. 그래서 독자는 제목을 못 보고
-   그 다음 문단부터 보게 된다. 눌러 간 곳과 보이는 글이 어긋나는 것이 이 때문이다.
-   scroll-margin-top 이 0 이었다. 78 에 여백 14 를 더해 92 로 둔다.
-   ⚠ 상단바 높이를 바꾸면 이 값도 같이 바꾼다. 측정: .site-bar 의 getBoundingClientRect().height */
-h2[id],h3[id],[id]:target{scroll-margin-top:92px}
-@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
- margin:22px 0 24px;background:var(--surface);text-align:left}
-.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
- color:var(--text-secondary);margin-bottom:7px;text-align:left}
-.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
-.ptoc li{font-size:.9rem}
-.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
-.ptoc a:hover{border-bottom-color:var(--text-secondary)}
-@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*/
 /* 전문가 의견 — 타임라인 */
 .cchart{margin:10px 0 28px}
 .cbox{position:relative;width:100%;height:340px}
@@ -445,7 +425,27 @@ body.showclip .xrow.clip{display:flex}
 .xday.hide{display:none}
 .xcov td.n,.xcov th.n{text-align:right;font-variant-numeric:tabular-nums}
 @media(max-width:600px){.xwho{flex:0 0 100%}.xsum{margin-left:0}}
-/* PAPER:BEGIN */
+/*TOCCSS:BEGIN*/
+/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
+
+/* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
+   원인은 상단바다. .site-bar 가 position:sticky · 높이 78px 로 화면 맨 위를 덮는데
+   앵커로 이동하면 제목이 정확히 그 아래에 깔린다. 그래서 독자는 제목을 못 보고
+   그 다음 문단부터 보게 된다. 눌러 간 곳과 보이는 글이 어긋나는 것이 이 때문이다.
+   scroll-margin-top 이 0 이었다. 78 에 여백 14 를 더해 92 로 둔다.
+   ⚠ 상단바 높이를 바꾸면 이 값도 같이 바꾼다. 측정: .site-bar 의 getBoundingClientRect().height */
+h2[id],h3[id],[id]:target{scroll-margin-top:92px}
+@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
+ margin:22px 0 24px;background:var(--surface);text-align:left}
+.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
+ color:var(--text-secondary);margin-bottom:7px;text-align:left}
+.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
+.ptoc li{font-size:.9rem}
+.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
+.ptoc a:hover{border-bottom-color:var(--text-secondary)}
+@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
+/*TOCCSS:END*//* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -718,117 +718,117 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 /* PAPER:END */</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
-  <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a class="" href="jeonjo.html">중공황 전조현상</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-nhn.html">NHN</a><a href="stock-kolmar.html">한국콜마</a><a href="stock-cosmax.html">코스맥스</a><a href="stock-pharmaresearch.html">파마리서치</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="gold-rates.html">금과 장기금리는 시대마다 반대로 움직인다</a><a href="treasury-trust.html">국채는 부도로 무너지지 않는다</a><a href="deleveraging.html">강제청산은 어떻게 끝나는가</a><a href="inflation-playbook.html">인플레 시대에 무엇이 통했나</a><a href="rates-century.html">미국 금리 100년과 인플레 시대</a><a href="memory-price.html">메모리 가격과 반도체 주가</a><a href="breadth-concentration.html">신고가 쏠림배수 2023~2026</a><a href="kospi-analog.html">지금과 닮은 과거 — 유사국면</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><div class="site-group"><button class="" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 69계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a href="data-kr-rates.html">한국 금리</a><a href="data-us-market.html">미국 시장</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a href="data-fx.html">환율·원자재·암호</a><a href="data-macro.html">재정·거시</a></div></div><!-- NAV:END --></nav>
+  <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="here" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="macro-timeline.html">거시 이벤트 연대기</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a class="here" href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-nhn.html">NHN</a><a href="stock-kolmar.html">한국콜마</a><a href="stock-cosmax.html">코스맥스</a><a href="stock-pharmaresearch.html">파마리서치</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="gold-rates.html">금과 장기금리는 시대마다 반대로 움직인다</a><a href="treasury-trust.html">국채는 부도로 무너지지 않는다</a><a href="deleveraging.html">강제청산은 어떻게 끝나는가</a><a href="inflation-playbook.html">인플레 시대에 무엇이 통했나</a><a href="rates-century.html">미국 금리 100년과 인플레 시대</a><a href="memory-price.html">메모리 가격과 반도체 주가</a><a href="breadth-concentration.html">신고가 쏠림배수 2023~2026</a><a href="kospi-analog.html">지금과 닮은 과거 — 유사국면</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><div class="site-group"><button class="" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 69계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a href="data-kr-rates.html">한국 금리</a><a href="data-us-market.html">미국 시장</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a href="data-fx.html">환율·원자재·암호</a><a href="data-macro.html">재정·거시</a></div></div><!-- NAV:END --></nav>
 </div></div>
 <div class="wrap paper">
 <div class="crumb"><a href="index.html">홈</a> · 판단 · 전문가 의견 추적</div>
 <div class="phead"><div class="eyebrow">판단</div>
 <h1>전문가 의견 추적</h1>
-<p class="sub">국내 시장 전문가 다섯 분이 <b>언제 무슨 이야기를 했는지</b>를 날짜순으로 쌓아 둔 곳입니다.
-<b>가장 최근 것이 맨 위</b>에 옵니다.
-각 발언 옆에는 <b>그날의 코스피 종가</b>가 붙어 있습니다.
+<p class="sub">국내 시장 전문가 다섯 분이 언제 무슨 이야기를 했는지를 날짜순으로 쌓아 둔 곳이다.
+가장 최근 것이 맨 위에 온다.
+각 발언 옆에는 그날의 코스피 종가가 붙어 있다.
 지수가 6,500일 때 한 말인지 9,000일 때 한 말인지가 같이 보여야
-나중에 <b>누가 맞았는지</b>를 따져볼 수 있기 때문입니다.</p>
-<p class="pauth">기준일 <b>2026-08-31</b> · 유튜브·블로그 공개 피드 · 2026-05~ · 주 1회 갱신</p></div>
+나중에 누가 맞았는지를 따져볼 수 있기 때문이다.</p>
+<p class="pauth">기준일 2026-08-31 · 유튜브·블로그 공개 피드 · 2026-05~ · 주 1회 갱신</p></div>
 
-<div class="sec">
+<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>전문가들의 결론은 전고점은 시도할 수 있고 그 이상은 다음 텀이라는 데 모인다. 핵심은 다운사이클에서 이익률을 지키는가이다. TSMC 는 메모리 다운턴마다 해냈고 하이닉스는 못 했다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#이-페이지를-어떻게-쓰나">이 페이지를 어떻게 쓰나?</a></li><li><a href="#일부러-하지-않은-것-강세-약세-판정">일부러 하지 않은 것: 강세·약세 판정</a></li><li><a href="#대신-무엇을-분석했나-방향-말고-화제">대신 무엇을 분석했나? 방향 말고 '화제'</a></li><li><a href="#관심의-총량-주간-발언량과-코스피">관심의 총량: 주간 발언량과 코스피</a></li><li><a href="#무엇이-화두였나-주제어-점유율">무엇이 화두였나? 주제어 점유율</a></li><li><a href="#누구를-얼마나-담고-있나">누구를, 얼마나 담고 있나?</a></li><li><a href="#발언-타임라인">발언 타임라인</a></li></ol></div><!--TOC:END--><div class="sec">
 <div class="explain">
-<h2>이 페이지를 어떻게 쓰나</h2>
-<p><b>모아 둔 것.</b> 2026-05-01부터 2026-08-31까지 다섯 분의 발언 <b>958건</b>입니다.
-그중 <b>877건</b>이 본편이고, 나머지는 하이라이트나 복습본 같은 <b>짧은 클립</b>이라
-기본으로 접어 두었습니다(맨 아래에서 펼칠 수 있습니다).</p>
-<p>주말 방송에는 <b>직전 거래일 종가</b>를 붙였습니다.
-토요일 고정 코너가 많은데 토요일엔 장이 열리지 않아 종가가 없기 때문입니다.</p>
+<h2 id="이-페이지를-어떻게-쓰나">이 페이지를 어떻게 쓰나?</h2>
+<p>모아 둔 것. 2026-05-01부터 2026-08-31까지 다섯 분의 발언 958건이다.
+그중 877건이 본편이고, 나머지는 하이라이트나 복습본 같은 짧은 클립이라
+기본으로 접어 두었다(맨 아래에서 펼칠 수 있다).</p>
+<p>주말 방송에는 직전 거래일 종가를 붙였다.
+토요일 고정 코너가 많은데 토요일엔 장이 열리지 않아 종가가 없기 때문이다.</p>
 
-<h2>일부러 하지 않은 것 — 강세·약세 판정</h2>
-<p>표에 "이 사람은 상승을 봤다 / 하락을 봤다" 칸을 <b>넣지 않았습니다.</b>
+<h2 id="일부러-하지-않은-것-강세-약세-판정">일부러 하지 않은 것: 강세·약세 판정</h2>
+<p>표에 "이 사람은 상승을 봤다 / 하락을 봤다" 칸을 넣지 않았다.
 넣으려면 958건의 방향을 일일이 정해야 하는데,
-<b>제목만 보고는 정할 수 없기 때문</b>입니다.</p>
-<p>예를 들어 "화투판에서 딸 자신 있나요?"라는 제목이 있습니다.
+제목만 보고는 정할 수 없기 때문이다.</p>
+<p>예를 들어 "화투판에서 딸 자신 있나요?"라는 제목이 있다.
 겁을 주는 이야기일까요, 지금이 기회라는 이야기일까요?
-제목만으로는 알 수 없습니다. 유튜브 제목은 원래 <b>클릭을 끌려고 세게 쓰기</b> 때문입니다.</p>
+제목만으로는 알 수 없다. 유튜브 제목은 원래 클릭을 끌려고 세게 쓰기 때문이다.</p>
 <p>그런데도 기계적으로 분류하면 어떻게 될까요.
-<b>표는 그럴듯해 보이는데 내용은 엉터리가 됩니다.</b>
-그리고 한번 틀린 채로 쌓이면 나중에 되돌릴 수 없습니다.
-그래서 방향 칸은 비워 두었습니다.
-영상 요약을 보고 <b>사람이 직접 채우는 몫</b>으로 남겨 둔 것입니다.</p>
+표는 그럴듯해 보이는데 내용은 엉터리가 된다.
+그리고 한번 틀린 채로 쌓이면 나중에 되돌릴 수 없다.
+그래서 방향 칸은 비워 두었다.
+영상 요약을 보고 사람이 직접 채우는 몫으로 남겨 둔 것이다.</p>
 
-<h2>대신 무엇을 분석했나 — 방향 말고 '화제'</h2>
-<p>여기에 중요한 구분이 하나 있습니다.
-<b>"어느 방향인가"와 "무엇에 대해 말하는가"는 다릅니다.</b></p>
+<h2 id="대신-무엇을-분석했나-방향-말고-화제">대신 무엇을 분석했나? 방향 말고 '화제'</h2>
+<p>여기에 중요한 구분이 하나 있다.
+"어느 방향인가"와 "무엇에 대해 말하는가"는 다르다.</p>
 <p>제목에 '폭락'이라는 말이 있으면,
-그 사람이 <b>폭락에 대해 이야기하고 있다</b>는 사실만큼은 확실합니다.
+그 사람이 폭락에 대해 이야기하고 있다는 사실만큼은 확실하다.
 폭락을 경고하는 건지 "그런 걱정은 과하다"고 반박하는 건지는 모르지만,
-<b>폭락이 화제였다</b>는 것은 틀림없습니다.</p>
-<p>그래서 제목만으로도 정직하게 알 수 있는 두 가지만 뽑았습니다.
-<b>얼마나 자주 말하는가</b>(아래 ①)와
-<b>무엇을 말하는가</b>(아래 ②)입니다.</p>
+폭락이 화제였다는 것은 틀림없다.</p>
+<p>그래서 제목만으로도 정직하게 알 수 있는 두 가지만 뽑았다.
+얼마나 자주 말하는가(아래 ①)와
+무엇을 말하는가(아래 ②)이다.</p>
 </div>
 </div>
 
 <div class="sec">
-<h2>관심의 총량 — 주간 발언량과 코스피</h2>
-<p class="sub">전문가들이 <b>얼마나 자주 입을 여는가</b>는 시장의 온도계 같은 것입니다.
-지수가 크게 흔들리면 방송이 늘고, 조용하면 줄어듭니다.
-<b>막대의 높이</b>가 그 주의 발언 건수이고, 색깔은 사람별로 나눈 것입니다.
-<b>점선</b>은 같은 기간의 코스피 지수입니다(눈금은 오른쪽).</p>
+<h2 id="관심의-총량-주간-발언량과-코스피">관심의 총량: 주간 발언량과 코스피</h2>
+<p class="sub">전문가들이 얼마나 자주 입을 여는가는 시장의 온도계 같은 것이다.
+지수가 크게 흔들리면 방송이 늘고, 조용하면 줄어든다.
+막대의 높이가 그 주의 발언 건수이고, 색깔은 사람별로 나눈 것이다.
+점선은 같은 기간의 코스피 지수이다(눈금은 오른쪽).</p>
 <div class="cchart"><div class="cbox"><canvas id="xw"></canvas></div></div><script>(window.__XCH=window.__XCH||[]).push({"id": "xw", "t": "주간 발언량과 코스피 — 6인 합산", "l": ["04/27", "05/04", "05/11", "05/18", "05/25", "06/01", "06/08", "06/15", "06/22", "06/29", "07/06", "07/13", "07/20", "07/27", "08/03", "08/10", "08/17", "08/24", "08/31"], "f": ["2026-04-27 주 (월요일 기준)", "2026-05-04 주 (월요일 기준)", "2026-05-11 주 (월요일 기준)", "2026-05-18 주 (월요일 기준)", "2026-05-25 주 (월요일 기준)", "2026-06-01 주 (월요일 기준)", "2026-06-08 주 (월요일 기준)", "2026-06-15 주 (월요일 기준)", "2026-06-22 주 (월요일 기준)", "2026-06-29 주 (월요일 기준)", "2026-07-06 주 (월요일 기준)", "2026-07-13 주 (월요일 기준)", "2026-07-20 주 (월요일 기준)", "2026-07-27 주 (월요일 기준)", "2026-08-03 주 (월요일 기준)", "2026-08-10 주 (월요일 기준)", "2026-08-17 주 (월요일 기준)", "2026-08-24 주 (월요일 기준)", "2026-08-31 주 (월요일 기준)"], "d": [{"label": "증시각도기", "data": [6, 22, 24, 23, 27, 21, 22, 24, 26, 23, 25, 25, 24, 27, 24, 20, 19, 20, 3], "type": "bar", "backgroundColor": "#d21f3c", "borderWidth": 0}, {"label": "박세익", "data": [4, 15, 21, 19, 15, 17, 19, 19, 18, 18, 20, 19, 41, 41, 40, 40, 38, 40, 7], "type": "bar", "backgroundColor": "#1161c4", "borderWidth": 0}, {"label": "이은택", "data": [0, 1, 0, 0, 0, 4, 7, 4, 7, 5, 4, 3, 4, 4, 2, 3, 4, 5, 1], "type": "bar", "backgroundColor": "#b45309", "borderWidth": 0}, {"label": "윤지호", "data": [2, 2, 5, 3, 3, 1, 2, 0, 0, 0, 0, 1, 0, 3, 0, 2, 2, 1, 0], "type": "bar", "backgroundColor": "#4c7a34", "borderWidth": 0}, {"label": "김효진", "data": [0, 0, 0, 2, 1, 0, 2, 1, 1, 1, 0, 1, 1, 1, 3, 2, 1, 0, 0], "type": "bar", "backgroundColor": "#7a3fa0", "borderWidth": 0}, {"label": "3.3캠퍼스", "data": [2, 2, 5, 2, 3, 1, 0, 0, 0, 0, 0, 1, 0, 2, 2, 2, 2, 1, 0], "type": "bar", "backgroundColor": "#0f7b8a", "borderWidth": 0}, {"label": "코스피", "data": [6598.87, 7498.0, 7493.18, 7847.71, 8476.15, 8160.59, 8123.62, 9052.42, 8411.21, 8088.34, 7475.94, 6820.6, 6690.62, 6595.45, 6258.77, 6977.94, 6912.95, 6788.88, 6820.02], "yAxisID": "y1", "type": "line", "borderColor": "rgba(110,110,115,.9)", "borderWidth": 2, "pointRadius": 0, "tension": 0.25, "borderDash": [4, 3]}], "st": true, "yt": "발언 수(건)", "k": "bar", "u": " 건"});</script>
 <div class="explain">
-<p>가장 많았던 주는 <b>76건</b>(07-27 주),
-가장 적었던 주는 <b>11건</b>(08-31 주)입니다.</p>
-<p><b>여기서 주의하실 점이 있습니다.</b>
-발언이 많아진다고 해서 앞으로 무슨 일이 생긴다는 뜻이 <b>아닙니다.</b>
-순서가 반대입니다 — <b>시장이 먼저 흔들리고, 그 다음에 방송이 늘어납니다.</b></p>
-<p>그러니 이 차트는 "신호"가 아니라 <b>"그때 분위기가 어땠나"</b>를 보는 용도입니다.
+<p>가장 많았던 주는 76건(07-27 주),
+가장 적었던 주는 11건(08-31 주)이다.</p>
+<p>여기서 주의하실 점이 있다.
+발언이 많아진다고 해서 앞으로 무슨 일이 생긴다는 뜻이 아니다.
+순서가 반대이다. 시장이 먼저 흔들리고, 그 다음에 방송이 늘어난다.</p>
+<p>그러니 이 차트는 "신호"가 아니라 "그때 분위기가 어땠나"를 보는 용도이다.
 막대가 유난히 높은 주의 코멘트일수록
-앞을 내다본 말이 아니라 <b>이미 벌어진 일에 대한 반응</b>일 가능성이 큽니다.</p>
+앞을 내다본 말이 아니라 이미 벌어진 일에 대한 반응일 가능성이 크다.</p>
 </div>
 </div>
 
 <div class="sec">
-<h2>무엇이 화두였나 — 주제어 점유율</h2>
-<p class="sub">그 주에 나온 제목 <b>100개 중 몇 개에 그 단어가 들어 있었나</b>를 나타냅니다.
-예를 들어 '반도체'가 40%라면, 그 주 발언 열 개 중 네 개가 반도체 이야기였다는 뜻입니다.
-다시 말씀드리지만 <b>방향이 아니라 화제</b>입니다.</p>
+<h2 id="무엇이-화두였나-주제어-점유율">무엇이 화두였나? 주제어 점유율</h2>
+<p class="sub">그 주에 나온 제목 100개 중 몇 개에 그 단어가 들어 있었나를 나타낸다.
+예를 들어 '반도체'가 40%라면, 그 주 발언 열 개 중 네 개가 반도체 이야기였다는 뜻이다.
+다시 말씀드리지만 방향이 아니라 화제이다.</p>
 <div class="cchart"><div class="cbox"><canvas id="xt"></canvas></div></div><script>(window.__XCH=window.__XCH||[]).push({"id": "xt", "t": "주제어 점유율 — 제목에 그 말이 등장한 비율(%)", "l": ["04/27", "05/04", "05/11", "05/18", "05/25", "06/01", "06/08", "06/15", "06/22", "06/29", "07/06", "07/13", "07/20", "07/27", "08/03", "08/10", "08/17", "08/24", "08/31"], "f": ["2026-04-27 주 (월요일 기준)", "2026-05-04 주 (월요일 기준)", "2026-05-11 주 (월요일 기준)", "2026-05-18 주 (월요일 기준)", "2026-05-25 주 (월요일 기준)", "2026-06-01 주 (월요일 기준)", "2026-06-08 주 (월요일 기준)", "2026-06-15 주 (월요일 기준)", "2026-06-22 주 (월요일 기준)", "2026-06-29 주 (월요일 기준)", "2026-07-06 주 (월요일 기준)", "2026-07-13 주 (월요일 기준)", "2026-07-20 주 (월요일 기준)", "2026-07-27 주 (월요일 기준)", "2026-08-03 주 (월요일 기준)", "2026-08-10 주 (월요일 기준)", "2026-08-17 주 (월요일 기준)", "2026-08-24 주 (월요일 기준)", "2026-08-31 주 (월요일 기준)"], "d": [{"label": "폭락·조정", "data": [0.0, 2.5, 16.0, 12.8, 4.3, 18.6, 23.1, 8.3, 34.6, 19.1, 12.2, 26.5, 10.0, 36.8, 15.9, 10.4, 6.2, 13.6, 0.0], "borderColor": "#d21f3c", "backgroundColor": "transparent", "borderWidth": 2, "pointRadius": 0, "tension": 0.3}, {"label": "바닥·반등", "data": [16.7, 10.0, 10.0, 4.3, 2.2, 2.3, 13.5, 6.2, 0.0, 10.6, 10.2, 8.2, 10.0, 11.8, 2.9, 10.4, 3.1, 7.6, 0.0], "borderColor": "#1161c4", "backgroundColor": "transparent", "borderWidth": 2, "pointRadius": 0, "tension": 0.3}, {"label": "반도체", "data": [16.7, 32.5, 26.0, 12.8, 26.1, 16.3, 26.9, 41.7, 25.0, 38.3, 32.7, 40.8, 31.4, 27.6, 24.6, 19.4, 17.2, 9.1, 27.3], "borderColor": "#b45309", "backgroundColor": "transparent", "borderWidth": 2, "pointRadius": 0, "tension": 0.3}, {"label": "금리·환율", "data": [8.3, 2.5, 14.0, 8.5, 10.9, 9.3, 11.5, 20.8, 1.9, 10.6, 12.2, 2.0, 0.0, 10.5, 10.1, 11.9, 21.9, 19.7, 18.2], "borderColor": "#4c7a34", "backgroundColor": "transparent", "borderWidth": 2, "pointRadius": 0, "tension": 0.3}, {"label": "주도주", "data": [0.0, 0.0, 4.0, 0.0, 0.0, 2.3, 0.0, 6.2, 3.8, 12.8, 2.0, 2.0, 0.0, 1.3, 0.0, 1.5, 1.6, 0.0, 0.0], "borderColor": "#7a3fa0", "backgroundColor": "transparent", "borderWidth": 2, "pointRadius": 0, "tension": 0.3}, {"label": "AI·빅테크", "data": [0.0, 12.5, 14.0, 12.8, 28.3, 11.6, 11.5, 12.5, 13.5, 19.1, 20.4, 12.2, 8.6, 9.2, 10.1, 10.4, 17.2, 16.7, 0.0], "borderColor": "#0f7b8a", "backgroundColor": "transparent", "borderWidth": 2, "pointRadius": 0, "tension": 0.3}], "st": false, "yt": "비율(%)", "k": "line", "u": "%"});</script>
 <div class="explain">
-<p><b>읽는 법.</b> 선이 올라간다는 것은 그 주제가 <b>많이 언급됐다</b>는 뜻일 뿐입니다.
-사람들 의견이 그쪽으로 기울었다는 뜻이 <b>아닙니다.</b>
-'폭락·조정' 선이 치솟은 주에도 실제 내용은 "지금이 바닥이다"일 수 있습니다.</p>
-<p><b>이번 구간이 그 증거입니다.</b> '폭락·조정' 점유율이 가장 높았던 두 주는
-07/27 주(37%, 코스피 6,595)와 06/22 주(35%, 코스피 8,411)입니다.
-그런데 이 구간의 코스피 <b>고점은 06/15 주
-(9,052)</b>, <b>저점은 08/03 주
-(6,259)</b>였습니다.
-같은 단어가 <b>천장 근처에서도, 바닥 근처에서도</b> 똑같이 치솟았다는 뜻입니다.
-'폭락' 이야기가 많아지는 것은 <b>방향의 신호가 아니라 변동성의 신호</b>입니다.
-방향을 알고 싶으면 제목을 세지 말고 아래에서 원본을 여십시오.</p>
+<p>읽는 법. 선이 올라간다는 것은 그 주제가 많이 언급됐다는 뜻일 뿐이다.
+사람들 의견이 그쪽으로 기울었다는 뜻이 아니다.
+'폭락·조정' 선이 치솟은 주에도 실제 내용은 "지금이 바닥이다"일 수 있다.</p>
+<p>이번 구간이 그 증거이다. '폭락·조정' 점유율이 가장 높았던 두 주는
+07/27 주(37%, 코스피 6,595)와 06/22 주(35%, 코스피 8,411)이다.
+그런데 이 구간의 코스피 고점은 06/15 주
+(9,052), 저점은 08/03 주
+(6,259)였다.
+같은 단어가 천장 근처에서도, 바닥 근처에서도 똑같이 치솟았다는 뜻이다.
+'폭락' 이야기가 많아지는 것은 방향의 신호가 아니라 변동성의 신호이다.
+방향을 알고 싶으면 제목을 세지 말고 아래에서 원본을 여라.</p>
 </div>
 </div>
 
 <div class="sec">
-<h2>누구를, 얼마나 담고 있나</h2>
+<h2 id="누구를-얼마나-담고-있나">누구를, 얼마나 담고 있나?</h2>
 <div class="tblwrap"><table class="xcov">
 <thead><tr><th>인물</th><th class="n">전체</th><th class="n">본편</th><th class="n">기간</th></tr></thead>
 <tbody><tr><td><b>증시각도기</b><br><span style="font-size:11.5px;color:var(--text2)">곽상준 · 증시각도기TV</span></td><td class="n">405</td><td class="n">378</td><td class="n">05-01~08-31</td></tr><tr><td><b>박세익</b><br><span style="font-size:11.5px;color:var(--text2)">체슬리투자자문 전무 · 체슬리TV</span></td><td class="n">451</td><td class="n">398</td><td class="n">05-01~08-31</td></tr><tr><td><b>이은택</b><br><span style="font-size:11.5px;color:var(--text2)">KB증권 · 이그전 블로그</span></td><td class="n">58</td><td class="n">58</td><td class="n">05-04~08-31</td></tr><tr><td><b>윤지호</b><br><span style="font-size:11.5px;color:var(--text2)">리서치센터장 출신 · 삼쩜삼캠퍼스 등</span></td><td class="n">27</td><td class="n">26</td><td class="n">05-01~08-25</td></tr><tr><td><b>김효진</b><br><span style="font-size:11.5px;color:var(--text2)">신영증권 이코노미스트</span></td><td class="n">17</td><td class="n">17</td><td class="n">05-19~08-18</td></tr><tr><td><b>3.3캠퍼스</b><br><span style="font-size:11.5px;color:var(--text2)">삼쩜삼캠퍼스 · 여러 게스트</span></td><td class="n">25</td><td class="n">24</td><td class="n">05-01~08-25</td></tr></tbody></table></div>
 <div class="explain">
-<p><b>건수가 사람마다 크게 다릅니다. 이건 실력이나 영향력과 아무 상관이 없습니다.</b></p>
-<p>증시각도기·박세익 두 분은 <b>본인 채널이나 고정 코너</b>가 있어 거의 매일 잡힙니다.
+<p>건수가 사람마다 크게 다르다. 이건 실력이나 영향력과 아무 상관이 없다.</p>
+<p>증시각도기·박세익 두 분은 본인 채널이나 고정 코너가 있어 거의 매일 잡힌다.
 반면 윤지호·김효진 두 분은 개인 채널이 없어,
-<b>다른 채널에 출연하면서 제목에 이름이 뜰 때만</b> 걸립니다.</p>
-<p>그래서 <b>건수가 적다고 발언이 적었다는 뜻이 아닙니다.</b>
-제가 못 잡은 것일 뿐입니다.
-이 표는 자랑하려고 둔 게 아니라, <b>이 페이지가 무엇을 놓치고 있는지</b>를 먼저 밝히려고 둔 것입니다.</p>
+다른 채널에 출연하면서 제목에 이름이 뜰 때만 걸린다.</p>
+<p>그래서 건수가 적다고 발언이 적었다는 뜻이 아니다.
+제가 못 잡은 것일 뿐이다.
+이 표는 자랑하려고 둔 게 아니라, 이 페이지가 무엇을 놓치고 있는지를 먼저 밝히려고 둔 것이다.</p>
 </div>
 </div>
 
 <div class="sec">
-<h2>발언 타임라인</h2>
-<p class="sub"><b>맨 위가 가장 최근</b>입니다. 제목을 누르면 원본 영상이나 글로 갑니다.<br>
-위쪽 <b>이름 버튼</b>을 누르면 그 사람 것만 봅니다.
-<b>검색창</b>에 '반도체'처럼 단어를 넣으면 그 말이 든 것만 남습니다.
+<h2 id="발언-타임라인">발언 타임라인</h2>
+<p class="sub">맨 위가 가장 최근이다. 제목을 누르면 원본 영상이나 글로 간다.<br>
+위쪽 이름 버튼을 누르면 그 사람 것만 본다.
+검색창에 '반도체'처럼 단어를 넣으면 그 말이 든 것만 남는다.
 하이라이트·복습본 같은 짧은 클립은 접어 두었는데,
-<b>체크박스</b>를 누르면 같이 보입니다.</p>
+체크박스를 누르면 같이 보인다.</p>
 <div class="xf"><button class="on" data-p="all">전체</button><button data-p="증시각도기">증시각도기</button><button data-p="박세익">박세익</button><button data-p="이은택">이은택</button><button data-p="윤지호">윤지호</button><button data-p="김효진">김효진</button><button data-p="3.3캠퍼스">3.3캠퍼스</button></div>
 <div class="xtools">
   <input type="search" id="xq" placeholder="제목·채널 검색" aria-label="검색">
@@ -840,15 +840,16 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 <div class="sec">
 <div class="disclaimer">
-<p><b>출처.</b> 유튜브 채널 공개 피드(증시각도기TV, 체슬리TV, 삼프로TV, 3.3캠퍼스)와
-네이버 블로그 이그전 RSS. 제목·게시일·링크는 공개된 원본 그대로이며 본문은 옮기지 않았습니다.
-코스피 종가는 별도 수집분입니다.</p>
-<p><b>한계.</b> 여러 사람이 나오는 채널에서는 제목이나 설명에 이름이 적혀 있어야만 잡힙니다.
-그래서 빠진 발언이 있습니다. 강세·약세 판정은 비어 있습니다.
-이 페이지는 <b>투자 판단을 대신하지 않습니다.</b> 참고 자료로만 봐 주십시오.</p>
+<p>출처. 유튜브 채널 공개 피드(증시각도기TV, 체슬리TV, 삼프로TV, 3.3캠퍼스)와
+네이버 블로그 이그전 RSS. 제목·게시일·링크는 공개된 원본 그대로이며 본문은 옮기지 않았다.
+코스피 종가는 별도 수집분이다.</p>
+<p>한계. 여러 사람이 나오는 채널에서는 제목이나 설명에 이름이 적혀 있어야만 잡힌다.
+그래서 빠진 발언이 있다. 강세·약세 판정은 비어 있다.
+이 페이지는 투자 판단을 대신하지 않는다. 참고 자료로만 보기 바란다.</p>
 </div>
 </div>
 </div>
+<div class="wrap"><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="peak-debate.html">반도체 정점 논쟁</a> — 여기 쌓인 외부 의견이 실제 판단으로 이어지는 자리가 그 페이지입니다 — 반증 조건과 확신도까지.</p></div><!--RELATED:END--></div>
 <footer>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.
     · 근거: 이야기꾼 주간 시투 보고서(W31·2026-08-01) 및 자체 실측.</footer>
 </div>
@@ -896,34 +897,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 })();
 /* THEME:END */</script>
 
-<!--TOCJS:BEGIN--><script>
-/* 목차 클릭 보정 — 2026-08-24
-   ⚠ 해시가 이미 그 값이면 브라우저가 클릭을 무시한다. 스크롤을 내린 뒤
-     같은 항목을 다시 누르면 아무 일도 일어나지 않는다(실측으로 확인).
-   ⚠ 그리고 상단바가 sticky 라 앵커로 가면 제목이 그 아래 깔린다.
-     CSS 의 scroll-margin-top 이 그것을 막는데, scrollIntoView 는 그 값을 존중한다.
-   → 해시에 기대지 않고 직접 옮긴다. */
-(function(){
-  function go(el){ if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); }
-  document.addEventListener('click', function(e){
-    var a = e.target && e.target.closest && e.target.closest('.ptoc a[href^="#"]');
-    if(!a) return;
-    var el = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
-    if(!el) return;
-    e.preventDefault();
-    go(el);
-    if(history.replaceState) history.replaceState(null,'',a.getAttribute('href'));
-  }, false);
-  /* 밖에서 #앵커로 들어온 경우에도 상단바 높이를 반영해 한 번 더 맞춘다 */
-  addEventListener('load', function(){
-    var h = location.hash;
-    if(h && h.length > 1){
-      var el = document.getElementById(decodeURIComponent(h.slice(1)));
-      if(el) setTimeout(function(){ el.scrollIntoView({block:'start'}); }, 120);
-    }
-  });
-})();
-</script><!--TOCJS:END--><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>
 (window.__XCH||[]).forEach(function(c){
   var el=document.getElementById(c.id); if(!el||!window.Chart) return;
@@ -980,5 +954,32 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   cc.addEventListener('change', function(){ b.classList.toggle('showclip', cc.checked); apply(); });
   apply();
 })();
-</script><button class="toggle" onclick="__toggleTheme()">&#9728;</button>
+</script><!--TOCJS:BEGIN--><script>
+/* 목차 클릭 보정 — 2026-08-24
+   ⚠ 해시가 이미 그 값이면 브라우저가 클릭을 무시한다. 스크롤을 내린 뒤
+     같은 항목을 다시 누르면 아무 일도 일어나지 않는다(실측으로 확인).
+   ⚠ 그리고 상단바가 sticky 라 앵커로 가면 제목이 그 아래 깔린다.
+     CSS 의 scroll-margin-top 이 그것을 막는데, scrollIntoView 는 그 값을 존중한다.
+   → 해시에 기대지 않고 직접 옮긴다. */
+(function(){
+  function go(el){ if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); }
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest && e.target.closest('.ptoc a[href^="#"]');
+    if(!a) return;
+    var el = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
+    if(!el) return;
+    e.preventDefault();
+    go(el);
+    if(history.replaceState) history.replaceState(null,'',a.getAttribute('href'));
+  }, false);
+  /* 밖에서 #앵커로 들어온 경우에도 상단바 높이를 반영해 한 번 더 맞춘다 */
+  addEventListener('load', function(){
+    var h = location.hash;
+    if(h && h.length > 1){
+      var el = document.getElementById(decodeURIComponent(h.slice(1)));
+      if(el) setTimeout(function(){ el.scrollIntoView({block:'start'}); }, 120);
+    }
+  });
+})();
+</script><!--TOCJS:END--><button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 </body></html>
