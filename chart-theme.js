@@ -140,6 +140,17 @@ function tweak(cfg){
 /* ── 생성자 감싸기 ── */
 var LIVE = [];
 function Wrapped(item, cfg){
+  /* ★★ 2026-09-01 — 그 캔버스에 이미 물려 있는 차트를 **먼저 부순다.**
+     Chart.js 는 캔버스 하나에 차트 둘을 허용하지 않고
+     «Canvas is already in use ...» 로 던진다.
+     페이지들은 대개 자기 변수(chart / CH.a)가 가리키는 것만 부수는데,
+     그 변수가 실제로 캔버스에 물린 차트와 어긋나면 부수지 못한 채 새로 만들다 터진다.
+     터지면 그 변수는 null 로 남고 **그 뒤로는 영영 못 그린다** — 화면에는
+     «버튼을 눌러도 그림이 그대로»로만 보인다(kospi-dotcom 에서 실제로 그랬다).
+     → 변수가 아니라 **캔버스를 기준으로** 부순다. 129장 중 94장은 이미 페이지에서
+       Chart.getChart 로 이렇게 하고 있었고, 나머지 35장이 이 한 줄로 함께 낫는다.
+     ⚠ 그림체는 건드리지 않는다 — 부수고 다시 만드는 순서만 바로잡는 것이다. */
+  try { var prev = _C.getChart(item); if (prev) prev.destroy(); } catch(e) {}
   try { tweak(cfg); } catch(e) { /* 실패해도 원래 설정 그대로 만든다 */ }
   var c = new _C(item, cfg);
   try { LIVE.push({c:c, cfg:cfg}); } catch(e) {}
