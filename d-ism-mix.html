@@ -128,7 +128,27 @@ html.theme-dark .site-dd{box-shadow:0 18px 44px rgba(0,0,0,.55)}
   .site-dd{right:auto;left:50%;transform:translate(-50%,-6px)}
   .site-group.on .site-dd{transform:translate(-50%,0)}
 }
+/*TOCCSS:BEGIN*/
+/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
+/* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
+   원인은 상단바다. .site-bar 가 position:sticky · 높이 78px 로 화면 맨 위를 덮는데
+   앵커로 이동하면 제목이 정확히 그 아래에 깔린다. 그래서 독자는 제목을 못 보고
+   그 다음 문단부터 보게 된다. 눌러 간 곳과 보이는 글이 어긋나는 것이 이 때문이다.
+   scroll-margin-top 이 0 이었다. 78 에 여백 14 를 더해 92 로 둔다.
+   ⚠ 상단바 높이를 바꾸면 이 값도 같이 바꾼다. 측정: .site-bar 의 getBoundingClientRect().height */
+h2[id],h3[id],[id]:target{scroll-margin-top:92px}
+@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
+ margin:22px 0 24px;background:var(--surface);text-align:left}
+.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
+ color:var(--text-secondary);margin-bottom:7px;text-align:left}
+.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
+.ptoc li{font-size:.9rem}
+.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
+.ptoc a:hover{border-bottom-color:var(--text-secondary)}
+@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
+/*TOCCSS:END*/
 /* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
 .site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
   letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
@@ -174,7 +194,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── 테마 토글 버튼 (전 페이지 공통) ── */
 /* ⚠⚠ `top:auto` 와 z-index 가 핵심이다 (2026-08-08).
-   생성기 SHELL 들이 `.toggle{position:fixed;top:18px;…}` 를 따로 갖고 있는데(45장),
+   생성기 SHELL 들이 `.toggle{top:62px;z-index:88;position:fixed;…}` 를 따로 갖고 있는데(45장),
    이 규칙은 뒤에 와서 z-index 만 이기고 **위치는 top:18px 가 남았다.**
    그 자리는 sticky 상단바(.site-bar, z-index 90)가 덮는 자리라
    **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 세 번째 원인이다.
@@ -343,27 +363,7 @@ a.card:focus-visible,.lst-i:focus-visible{
   .wrap{padding-left:18px!important;padding-right:18px!important}
   .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
 }
-/* LAYOUT:END *//*TOCCSS:BEGIN*/
-/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
-
-/* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
-   원인은 상단바다. .site-bar 가 position:sticky · 높이 78px 로 화면 맨 위를 덮는데
-   앵커로 이동하면 제목이 정확히 그 아래에 깔린다. 그래서 독자는 제목을 못 보고
-   그 다음 문단부터 보게 된다. 눌러 간 곳과 보이는 글이 어긋나는 것이 이 때문이다.
-   scroll-margin-top 이 0 이었다. 78 에 여백 14 를 더해 92 로 둔다.
-   ⚠ 상단바 높이를 바꾸면 이 값도 같이 바꾼다. 측정: .site-bar 의 getBoundingClientRect().height */
-h2[id],h3[id],[id]:target{scroll-margin-top:92px}
-@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
- margin:22px 0 24px;background:var(--surface);text-align:left}
-.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
- color:var(--text-secondary);margin-bottom:7px;text-align:left}
-.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
-.ptoc li{font-size:.9rem}
-.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
-.ptoc a:hover{border-bottom-color:var(--text-secondary)}
-@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*//* PAPER:BEGIN */
+/* LAYOUT:END *//* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -633,7 +633,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"></head><body><div class="site-bar"><div class="site-bar-in">
+/* PAPER:END */</style><link rel="stylesheet" href="vendor/fonts.css"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body><div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="macro-timeline.html">거시 이벤트 연대기</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-nhn.html">NHN</a><a href="stock-kolmar.html">한국콜마</a><a href="stock-cosmax.html">코스맥스</a><a href="stock-pharmaresearch.html">파마리서치</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="us-elections.html">미국 선거와 증시</a><a href="gold-rates.html">금과 장기금리는 시대마다 반대로 움직인다</a><a href="treasury-trust.html">국채는 부도로 무너지지 않는다</a><a href="deleveraging.html">강제청산은 어떻게 끝나는가</a><a href="inflation-playbook.html">인플레 시대에 무엇이 통했나</a><a href="rates-century.html">미국 금리 100년과 인플레 시대</a><a href="memory-price.html">메모리 가격과 반도체 주가</a><a href="breadth-concentration.html">신고가 쏠림배수 2023~2026</a><a href="kospi-analog.html">지금과 닮은 과거 — 유사국면</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><div class="site-group"><button class="" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 69계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a href="data-kr-rates.html">한국 금리</a><a href="data-us-market.html">미국 시장</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a href="data-fx.html">환율·원자재·암호</a><a href="data-macro.html">재정·거시</a></div></div><!-- NAV:END --></nav>
 </div></div><div class="wrap paper dwrap"><a class="dback" href="data-macro.html">← 재정·거시</a><header class="phead"><span class="eb">원자료 · 재정·거시</span><h1>ISM 제조업 PMI (취합본)</h1><p class="pauth">ISM 공식 + TE 현재빈티지 취합 · 지수 · 매월</p><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#pmi">PMI</a></li><li><a href="#최근-30개">최근 30개</a></li><li><a href="#관련-뉴스">관련 뉴스</a></li></ol></div><!--TOC:END--></header><div class="dsum"><p class="w">ISM 공식 발표와 다른 창구의 값을 이어 붙인 취합본이다.</p><p class="u">최근 값을 빨리 채우려고 둔 계열이다. 긴 대조에는 1990년 계열을 쓴다.</p></div><dl class="dmeta"><dt>출처</dt><dd><a href="https://www.ismworld.org" target="_blank" rel="noopener">ISM 공식 + TE 현재빈티지 취합 ↗</a></dd><dt>파일</dt><dd><code>ISM_제조업PMI_월별.csv</code></dd><dt>단위</dt><dd>지수</dd><dt>쓰는 글</dt><dd><a href="ism-kospi.html">ism-kospi</a> · <a href="jeoji-kospi.html">jeoji-kospi</a></dd><dt>내려받기</dt><dd><a href="../_sources_dl/ISM_제조업PMI_월별.csv">ISM_제조업PMI_월별.csv 내려받기</a> <span style="color:var(--text-secondary)">(4 KB)</span></dd></dl><div class="dkpi"><div class="k"><div class="l">지금 값</div><div class="v">55.6</div><div class="s">2026-07 · 지수</div></div><div class="k"><div class="l">자료 범위</div><div class="v" style="font-size:15px">2016-08<br>~ 2026-07</div><div class="s">120개</div></div><div class="k"><div class="l">갱신</div><div class="v" style="font-size:17px">매월</div><div class="s">자동</div></div></div><div class="panel dpanel"><div class="panel-head"><h2 id="pmi" class="psub">PMI</h2><div class="rng"><button type="button" data-y="1">1년</button><button type="button" data-y="3">3년</button><button type="button" data-y="5">5년</button><button type="button" data-y="0" class="on">전체</button></div></div><div class="cbox2"><canvas id="c"></canvas></div><div class="srcline"><span>ISM 공식 + TE 현재빈티지 취합</span><span>지수 · 매월</span></div></div><script>(window.__DATA=window.__DATA||[]).push({"id": "c", "lab": ["2016-08", "2016-09", "2016-10", "2016-11", "2016-12", "2017-01", "2017-02", "2017-03", "2017-04", "2017-05", "2017-06", "2017-07", "2017-08", "2017-09", "2017-10", "2017-11", "2017-12", "2018-01", "2018-02", "2018-03", "2018-04", "2018-05", "2018-06", "2018-07", "2018-08", "2018-09", "2018-10", "2018-11", "2018-12", "2019-01", "2019-02", "2019-03", "2019-04", "2019-05", "2019-06", "2019-07", "2019-08", "2019-09", "2019-10", "2019-11", "2019-12", "2020-01", "2020-02", "2020-03", "2020-04", "2020-05", "2020-06", "2020-07", "2020-08", "2020-09", "2020-10", "2020-11", "2020-12", "2021-01", "2021-02", "2021-03", "2021-04", "2021-05", "2021-06", "2021-07", "2021-08", "2021-09", "2021-10", "2021-11", "2021-12", "2022-01", "2022-02", "2022-03", "2022-04", "2022-05", "2022-06", "2022-07", "2022-08", "2022-09", "2022-10", "2022-11", "2022-12", "2023-01", "2023-02", "2023-03", "2023-04", "2023-05", "2023-06", "2023-07", "2023-08", "2023-09", "2023-10", "2023-11", "2023-12", "2024-01", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07", "2024-08", "2024-09", "2024-10", "2024-11", "2024-12", "2025-01", "2025-02", "2025-03", "2025-04", "2025-05", "2025-06", "2025-07", "2025-08", "2025-09", "2025-10", "2025-11", "2025-12", "2026-01", "2026-02", "2026-03", "2026-04", "2026-05", "2026-06", "2026-07"], "ser": [{"name": "PMI", "val": [49.7, 51.0, 51.8, 53.3, 54.2, 55.7, 57.7, 56.8, 55.7, 56.4, 56.1, 56.5, 58.5, 59.9, 58.6, 57.9, 59.2, 59.4, 60.8, 59.2, 58.6, 58.9, 59.7, 58.0, 60.4, 59.5, 58.3, 58.7, 54.8, 55.7, 54.2, 55.3, 53.6, 52.2, 51.3, 51.0, 48.4, 48.3, 48.3, 48.2, 47.7, 51.1, 50.3, 49.7, 41.7, 43.1, 52.2, 53.7, 55.6, 55.7, 58.8, 57.7, 60.5, 58.7, 60.8, 64.7, 60.7, 61.2, 60.6, 59.5, 59.9, 61.1, 60.8, 60.8, 58.6, 57.6, 58.4, 57.0, 55.9, 56.1, 53.1, 52.7, 52.9, 51.0, 50.0, 49.0, 48.4, 47.4, 47.7, 46.3, 47.1, 46.9, 46.0, 46.4, 47.6, 49.0, 46.7, 46.6, 47.1, 49.1, 47.6, 49.8, 48.8, 48.5, 48.3, 47.0, 47.5, 47.5, 46.9, 48.4, 49.2, 50.9, 50.0, 48.9, 48.8, 48.6, 49.0, 48.4, 48.9, 48.9, 48.8, 48.0, 47.9, 52.6, 52.4, 52.7, 52.7, 54.0, 53.3, 55.6], "grp": 0}], "log": false});</script><h2 id="최근-30개" class="dsec">최근 30개</h2><p class="dsub">전체 120개 가운데 마지막 30개다.</p><div class="dtable"><div class="tblwrap"><table><thead><tr><th>날짜</th><th class="n">PMI</th></tr></thead><tbody><tr><td>2026-07</td><td class="n">55.6</td></tr><tr><td>2026-06</td><td class="n">53.3</td></tr><tr><td>2026-05</td><td class="n">54</td></tr><tr><td>2026-04</td><td class="n">52.7</td></tr><tr><td>2026-03</td><td class="n">52.7</td></tr><tr><td>2026-02</td><td class="n">52.4</td></tr><tr><td>2026-01</td><td class="n">52.6</td></tr><tr><td>2025-12</td><td class="n">47.9</td></tr><tr><td>2025-11</td><td class="n">48</td></tr><tr><td>2025-10</td><td class="n">48.8</td></tr><tr><td>2025-09</td><td class="n">48.9</td></tr><tr><td>2025-08</td><td class="n">48.9</td></tr><tr><td>2025-07</td><td class="n">48.4</td></tr><tr><td>2025-06</td><td class="n">49</td></tr><tr><td>2025-05</td><td class="n">48.6</td></tr><tr><td>2025-04</td><td class="n">48.8</td></tr><tr><td>2025-03</td><td class="n">48.9</td></tr><tr><td>2025-02</td><td class="n">50</td></tr><tr><td>2025-01</td><td class="n">50.9</td></tr><tr><td>2024-12</td><td class="n">49.2</td></tr><tr><td>2024-11</td><td class="n">48.4</td></tr><tr><td>2024-10</td><td class="n">46.9</td></tr><tr><td>2024-09</td><td class="n">47.5</td></tr><tr><td>2024-08</td><td class="n">47.5</td></tr><tr><td>2024-07</td><td class="n">47</td></tr><tr><td>2024-06</td><td class="n">48.3</td></tr><tr><td>2024-05</td><td class="n">48.5</td></tr><tr><td>2024-04</td><td class="n">48.8</td></tr><tr><td>2024-03</td><td class="n">49.8</td></tr><tr><td>2024-02</td><td class="n">47.6</td></tr></tbody></table></div></div><h2 id="관련-뉴스" class="dsec">관련 뉴스</h2><p class="dsub">제목에 그 낱말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.</p><p class="dsub">국내 — 「ISM 제조업 PMI」 로 찾았다.</p><div class="dtable"><div class="tblwrap"><table><tbody><tr><td class="d">Tue, 04 Aug</td><td class="d">연합인포맥스</td><td><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTE8zUE50TkVoZlZWMVFSelBiVVhXM3IyN29jS2g1bnZERWp6N1NqOWdkc1cyVERaSEU2T0F1ZUdBMktqcTZ2RFlsSGoxZ2xFSVF0VXlZQTlobDc3OHFXdEpmb3daTG5OQ3EyZDdMUmFiYXo?oc=5" target="_blank" rel="noopener nofollow">美 7월 ISM 제조업 PMI 55.6…확장 속도 빨라져(상보)</a></td></tr><tr><td class="d">Tue, 04 Aug</td><td class="d">뉴데일리</td><td><a href="https://news.google.com/rss/articles/CBMie0FVX3lxTE9JeTVOME9UVTB1M05uTFhoWlNvRGJnenM5bjZET3RiR202SEFnQ1BOX0JZMDRNUHUwMFVBYWVMQ1lVOTBzUFdNYTVXZXJaWDFmT0FmR3ZtZVN6cEJCRHMwZVU3Y3NnUER4T1NzLXpUdUtLY0lnejVqeVRVc9IBgAFBVV95cUxOczlkRExFQm5RWWo2R3pNYUFCb2tyd2NyNHNXQzBXTTBKSUUyOWE2Y2Q4SnNpWGF6N0ZkNEFQcXpwY29nWjZlY1c0RHR4akllUS1mWkdHU1BjVWxNMEE0YnlpQUhVLW5ieUN4QkhzMXNvNWo0ZHZpUzRwWWlzMjF0Xw?oc=5" target="_blank" rel="noopener nofollow">'美 제조업 회복세' 7월 ISM 제조업 PMI, 4년 2개월 만에 최고치</a></td></tr><tr><td class="d">Sat, 02 May</td><td class="d">뉴시스</td><td><a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE9mOWJneXg5WGVfeUs0bWVUOE9hYTVjNk1ueGV4a2x5OF9ZTDc4OGZ0UzBGZGVNVGQ5NXQ2d2RDZGZNckUzTmd0NlIwWUdLVy1OMzcxVVdKNUJmcXFJcmRNMNIBeEFVX3lxTE9Wc2xlNVFaUWJBWXFMTDNma3E0YkQ3QnVfLW1YR3UzUWFNcWdDTE85Ul9jamw4N0hueVlRaVhWQWlIUDdJdXhRcElRUWZhb1ZNX2haT1lSdkdURndMQkJlMjhQeXloYW9feF9wdVBON2VYZlVpSUY0Xw?oc=5" target="_blank" rel="noopener nofollow">4월 美 ISM 제조업 PMI 52.7 '보합'…"중동전쟁 납기·비용에 영향"</a></td></tr><tr><td class="d">Mon, 01 Jun</td><td class="d">한국경제</td><td><a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE9SVDZZUTl3QmwyZHdYZ1dyTmVvTlFlM01pUGMtZFNfaV9fVTFzYWR1OHBCR2ZaZ21Jel9SYk9WWmxTS0JrYUx4SGltUHpRaXFqUDNMTFRnRTc1UQ?oc=5" target="_blank" rel="noopener nofollow">5월 美 제조업 지수, 4년 만에 최고치…시장 전망치 상회</a></td></tr><tr><td class="d">Mon, 29 Jun</td><td class="d">네이버 프리미엄콘텐츠</td><td><a href="https://news.google.com/rss/articles/CBMifkFVX3lxTFBjNmt4aGREeDJNT28wWXVOaDN5SUxBaUxxbkFTbWZmZ2xDSUo5U2ZreWMteTRwSjRTdUxwZjJrdWtXU3p1XzlMNUtvNTdGY3ZJa1lPRDJGcl93ZHFka3MxTGU0UHRJaF9iLUlOd0xkcUFKZlV2Uy11d0xiMWF3dw?oc=5" target="_blank" rel="noopener nofollow">7월 1일 미국 제조업 PMI 발표, 반도체와 환율에 미칠 영향은</a></td></tr><tr><td class="d">Mon, 03 Aug</td><td class="d">블루밍비트</td><td><a href="https://news.google.com/rss/articles/CBMiUEFVX3lxTE9wY25sdl9FbTVEdnJJeHhPNW9abW1QX2VkZkE0Yk13NW4xME9ORmw3SjYxcDVYb3dSSHAtcjV6RlJyaDJhWTlmZWNNODNfTTA3?oc=5" target="_blank" rel="noopener nofollow">美 7월 제조업 PMI 예상 상회…S&P글로벌은 성장 둔화 경고</a></td></tr></tbody></table></div></div><p class="dsub">해외 — 「ISM manufacturing index」 로 찾았다. 이 자료의 출처가 외국이라 함께 본다.</p><div class="dtable"><div class="tblwrap"><table><tbody><tr><td class="d">Mon, 31 Aug</td><td class="d">Continuum Economics</td><td><a href="https://news.google.com/rss/articles/CBMixAFBVV95cUxQOW5reVoxeVFLVk9TUXo5a2xEVDBRV09aN1pSYTUyYi1OR2dkN25TVktMUzJXbXFvUk83WGZHd2RIalMxSjVUWkxyb1RQQWN4empoaElNcGpKLTVUTUQ5ZGN1V3R6akZUM1Q2S05tZnJaYWtWRENPS0djTEtRUHJyRnVlYTBERXR0RkJWSllfMXFJZFgwZFNPaFNLamdta3FwOVZDV0FSaUpFSjVwdHNVakxVb1BRSHBSM0VSSGxpS3RwOUNH?oc=5" target="_blank" rel="noopener nofollow">Preview: Due September 1 - U.S. August ISM Manufacturing - S</a></td></tr><tr><td class="d">Mon, 03 Aug</td><td class="d">PR Newswire</td><td><a href="https://news.google.com/rss/articles/CBMivAFBVV95cUxOTm9EdnQ1V1kxcWhCM1d3aW5wUVNUVnZ2R1B2UDc0S0lVNWIycFdNRlZ2X2FzUEN6QjlraXRFS0JSS3VqekJJaWdCSFRyUW54TXBWcmk2OHdMdUpOcTB2Z1B3VDNSa0hkR0ZJRFhzOHdhWG9lc1dsZTlQWVVkTVBnaFNGdkhTaTlMdWZhOERWbFdPUHZLNGh0cFhyRmh6WlNfaXJWRUtSbHNoRzVMellVbEVMLUxlOXVzbkJ4SA?oc=5" target="_blank" rel="noopener nofollow">Manufacturing PMI® at 55.6%; July 2026 ISM® Manufacturing PMI® Report</a></td></tr><tr><td class="d">Mon, 31 Aug</td><td class="d">Investing.com Canada</td><td><a href="https://news.google.com/rss/articles/CBMivgFBVV95cUxQeGIzTGZzTzlNWnhlWWN3bGp3NllRbzVVZTY5c1FYLVZCVWJOSlgtSHE5QUxyRW05SGkwLWJvWkFLbFdHZmhWV2IwZnhKSks2Q0Z6dmMyeVltemhZTHB5X1dOaVp4ZXVqUVd3WF9ZZ0ZkREtQTWp1ZFBSZVNleFdGRVFxTGlBcE1SdzBfY0VTWS1abzF1ZVEybGNTc1cwWl9uTFhSUE40MjFyYkJGdFlUQTR4MEdETzNLeWpiWUZn?oc=5" target="_blank" rel="noopener nofollow">Manufacturing PMI, ISM PMI, and JOLTs job openings due Tuesday By Investing.com</a></td></tr><tr><td class="d">Wed, 01 Jul</td><td class="d">Haver Analytics</td><td><a href="https://news.google.com/rss/articles/CBMi7gFBVV95cUxObkJZeFlHSnBHR1NZbEpSb2F3N3E5ZUFmNUtMb0pYQ3hJREsxYjlpTG9ISnlhTWt6N2pfb19MeWhTOVhGN3FNb2hseXREZ1pqSDcwZ1M0MHpEaHpqWllRbVVMY0U3WHkybGRGRG5mUnRFRWRZTW1XMTZUQXJzcDQyRDJoV0FCdmp4OXZDQm1kSzJ1cXZGYUUtQm9YUHAxYXVSbTlsNVY5dTNDQmJOSnoxaE05QWdEX3YxSkxzb2R1VVhaaUJjTVBIOHJ2UHQ4MHNfTjZobVlsTEFadTBpcUY3MDlDRnZiczJCZVpTTE93?oc=5" target="_blank" rel="noopener nofollow">U.S. ISM Manufacturing PMI Still Expansionary in June; New Orders and Production Growing at a Slower Pace; Employment Contracting</a></td></tr><tr><td class="d">Mon, 03 Aug</td><td class="d">CNBC</td><td><a href="https://news.google.com/rss/articles/CBMikAFBVV95cUxPU3JqaWVwaERfMFBYY1FZbE9uSWxYX2k3dVNWYlQ3QjZBUi1BR1FRUHJxczVtN0tUQmVHbGE1S2hKamFlUFNncWIxaVBBd2twTEw1NHV6MGo2Z2FBdUEyd3Zvc3RTNVRuMllzVXBYYTFSdXZCbEVkdFR0RVBpQW5iRmpMV3QzYjBscG8tdUsxTkM?oc=5" target="_blank" rel="noopener nofollow">ISM manufacturing gauge hits highest since May 2022</a></td></tr><tr><td class="d">Wed, 01 Apr</td><td class="d">Institute for Supply Management (ISM)</td><td><a href="https://news.google.com/rss/articles/CBMiiwJBVV95cUxQZS1zNVA0SS1iYUUxVF9YNDZBYXVnLU95MVJ2QnZ0VVRNSXF1V2NiaVJMMEl1bW9qc1pBeVpuSlJfWU1ZMGtPTnFLWWk1eHBRRnpvZ3lmbHVBdm9taXJ1bF9uWHV6UHUxX0hPZjM2NnYtR0JOT0t5dWFUcXNCMTFpdU1YT0JGbkxELUo4Y2JyVkdjamRwS0VSNHljQldhU0l2NlpzdkljUWNMV3NtMlpOS3RjaFZTQi1nZ1l2dWJySXNma3NnT2tjcUVoUERITU51OHdQYl9GcHpab0VPY0o2U01IbUZJbXBHc1FLYkRQWE56YldVdFVJajlDLWQ5NXBLaTctd1Z6VzRhczA?oc=5" target="_blank" rel="noopener nofollow">ISM® PMI® Reports Roundup: March Manufacturing</a></td></tr></tbody></table></div></div><p class="dsub" style="margin-top:-14px">출처 구글 뉴스 · 2026-09-01 기준. 뉴스는 이 페이지의 분석과 무관하며 서로 어긋날 수 있다.</p></div>
@@ -655,7 +655,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 })();
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="vendor/chart-4.4.7.umd.min.js"></script>
 <script>
 /* DCHART:BEGIN — 원자료 계열 차트.
    ★ 2026-08-28 두 번째 고침. 상수님 세 가지 —
@@ -799,31 +799,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   setTimeout(function(){ try{ if(!Object.keys(CH).length) window.rebuild(); }catch(e){} },400);
 })();
 /* DCHART:END */
-</script><script>/* THEME:BEGIN */
-(function(){
-  var h=document.documentElement;
-  try{var v=localStorage.getItem('charlie-theme'); if(v){h.className=v;}}catch(e){}
-  window.__toggleTheme=function(){
-    var n=h.className==='theme-light'?'theme-dark':'theme-light';
-    h.className=n; try{localStorage.setItem('charlie-theme',n);}catch(e){}
-    /* ★ 차트는 CSS 변수를 «그릴 때 한 번» 읽는다 — 테마만 바꾸면 색이 안 따라온다.
-       2026-08-08 에 stage-analysis 가 다크로 바꿔도 라이트 황금색(#B7791F)을 유지했다.
-       예전엔 생성기가 넣은 인라인 onclick 이 rebuild 를 불렀는데, 이 함수로 통일되면서
-       그 호출이 사라졌다. 여기서 부른다 — 없는 페이지는 그냥 넘어간다. */
-    try{ if(window.rebuild) window.rebuild(); }catch(e){}
-  };
-})();
-/* 보험 — 토글 말고 다른 경로로 테마가 바뀌어도 따라 그린다(첫 로드 시 1회는 건너뛴다) */
-(function(){
-  if(!window.MutationObserver) return;
-  var h=document.documentElement, last=h.className;
-  new MutationObserver(function(){
-    if(h.className===last) return; last=h.className;
-    try{ if(window.rebuild) window.rebuild(); }catch(e){}
-  }).observe(h,{attributes:true,attributeFilter:['class']});
-})();
-/* THEME:END */</script>
-<!--TOCJS:BEGIN--><script>
+</script><!--TOCJS:BEGIN--><script>
 /* 목차 클릭 보정 — 2026-08-24
    ⚠ 해시가 이미 그 값이면 브라우저가 클릭을 무시한다. 스크롤을 내린 뒤
      같은 항목을 다시 누르면 아무 일도 일어나지 않는다(실측으로 확인).
@@ -851,4 +827,28 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   });
 })();
 </script><!--TOCJS:END--><button class="toggle" onclick="__toggleTheme()">&#9728;</button>
+<script>/* THEME:BEGIN */
+(function(){
+  var h=document.documentElement;
+  try{var v=localStorage.getItem('charlie-theme'); if(v){h.className=v;}}catch(e){}
+  window.__toggleTheme=function(){
+    var n=h.className==='theme-light'?'theme-dark':'theme-light';
+    h.className=n; try{localStorage.setItem('charlie-theme',n);}catch(e){}
+    /* ★ 차트는 CSS 변수를 «그릴 때 한 번» 읽는다 — 테마만 바꾸면 색이 안 따라온다.
+       2026-08-08 에 stage-analysis 가 다크로 바꿔도 라이트 황금색(#B7791F)을 유지했다.
+       예전엔 생성기가 넣은 인라인 onclick 이 rebuild 를 불렀는데, 이 함수로 통일되면서
+       그 호출이 사라졌다. 여기서 부른다 — 없는 페이지는 그냥 넘어간다. */
+    try{ if(window.rebuild) window.rebuild(); }catch(e){}
+  };
+})();
+/* 보험 — 토글 말고 다른 경로로 테마가 바뀌어도 따라 그린다(첫 로드 시 1회는 건너뛴다) */
+(function(){
+  if(!window.MutationObserver) return;
+  var h=document.documentElement, last=h.className;
+  new MutationObserver(function(){
+    if(h.className===last) return; last=h.className;
+    try{ if(window.rebuild) window.rebuild(); }catch(e){}
+  }).observe(h,{attributes:true,attributeFilter:['class']});
+})();
+/* THEME:END */</script>
 </body></html>
