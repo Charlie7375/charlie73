@@ -199,7 +199,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── 테마 토글 버튼 (전 페이지 공통) ── */
 /* ⚠⚠ `top:auto` 와 z-index 가 핵심이다 (2026-08-08).
-   생성기 SHELL 들이 `.toggle{top:62px;z-index:88;position:fixed;…}` 를 따로 갖고 있는데(45장),
+   생성기 SHELL 들이 `.toggle{position:fixed;top:18px;…}` 를 따로 갖고 있는데(45장),
    이 규칙은 뒤에 와서 z-index 만 이기고 **위치는 top:18px 가 남았다.**
    그 자리는 sticky 상단바(.site-bar, z-index 90)가 덮는 자리라
    **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 세 번째 원인이다.
@@ -728,7 +728,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   <div class="phead">
     <span class="eyebrow animate">OECD 원계열 · 실측 데이터</span>
     <h1 class="animate delay-1">코스피 1998~2000<br>닷컴 랠리 실제 차트</h1>
-<p class="pauth">기준일 2026-08-31 · 1998~2002 (OECD 월평균) · 월 1회 갱신</p>
+<p class="pauth">기준일 2026-09-01 · 1998~2002 (OECD 월평균) · 월 1회 갱신</p>
     <p class="lead animate delay-2">
       IMF 바닥(1998.6)에서 닷컴 꼭대기(1999.12)까지 18개월, +214%. 그리고 무너졌다.
       천장은 예고 없이 오지 않았다. 1999년 안에 이미 이중 천장이 서 있었고,
