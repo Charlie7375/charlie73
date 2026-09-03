@@ -95,6 +95,24 @@ function lastOf(d){
   for (var i = d.data.length - 1; i >= 0; i--) { var v = num(d.data[i]); if (v !== null) return v; }
   return null;
 }
+/* 시대 띠인가 — 축을 가득 채우려고 같은 값을 늘어놓은 배경 계열이다.
+   (2026-09-03 상수님 «인플레이션·디플레이션 시기를 배경으로 구분»)
+   ⚠ 이것을 «지금 값» 타일로 그리면 «인플레이션 시대 5.9» 같은 **뜻 없는 숫자**가 나온다.
+     5.9 는 띠의 높이일 뿐이다. 실제로 us-credit-spread 에서 그렇게 나왔다.
+     gold-rates 는 계열이 다섯을 넘어 이름표만 나오는 바람에 여태 안 보였다.
+   → 띠가 하나라도 있으면 그 차트는 **숫자를 접고 이름표만** 낸다. 띠도 켜고 끌 수 있다. */
+function isBand(d){
+  /* ⚠ borderWidth 로 가리면 안 된다. 이 파일의 tweak() 이 **먼저 돌면서**
+     선 계열의 borderWidth 를 2 로 덮어쓴다. 그래서 «0 이면 띠»는 언제나 거짓이었다.
+     실제로 그렇게 짰다가 «인플레이션 시대 5.98» 이 그대로 나왔다.
+     → 채움이 있고 값이 하나도 안 변하면 띠다. 선은 값이 변한다. */
+  if (!d.fill) return false;
+  var v = [], i;
+  for (i = 0; i < d.data.length; i++) { var x = num(d.data[i]); if (x !== null) v.push(x); }
+  if (v.length < 3) return false;
+  for (i = 1; i < v.length; i++) if (v[i] !== v[0]) return false;
+  return true;
+}
 /* 기준선(과열 110·과매도 90 처럼 값이 안 변하는 점선)인가.
    데이터가 아니라 눈금이므로 색을 가질 이유가 없다. */
 function isBase(d){
@@ -253,7 +271,8 @@ function tiles(ch){
          그건 딱지 하나로 대신할 색이 없다 — 첫 칸 색을 쓰면 거짓말이 된다. 회색으로 둔다. */
       var col = key((typeof d.borderColor === 'string') ? d.borderColor
                   : (typeof d.backgroundColor === 'string') ? d.backgroundColor : dim());
-      items.push({l: d.label, v: v, p: p, i: i, on: ch.isDatasetVisible(i), c: col});
+      items.push({l: d.label, v: v, p: p, i: i, on: ch.isDatasetVisible(i), c: col,
+                  band: isBand(d)});
     });
     if (!items.length) return;
 
@@ -272,7 +291,7 @@ function tiles(ch){
        ⚠ 넷 이하는 지금 그림 그대로다 — 쓰고 계신 디자인을 바꾸지 않는다.
        ⚠ 값을 안 적는 이유 — 계열이 다섯을 넘으면 축도 여럿이라 서로 다른 자로 잰 값이
          한 줄에 서게 되고, «인플레이션 시대» 같은 띠는 애초에 값이 뜻을 갖지 않는다. */
-    var big = items.length <= 4;
+    var big = items.length <= 4 && !items.some(function(x){ return x.band; });
 
     function chip(it){
       return '<div class="ct-tile" role="button" tabindex="0" data-i="' + it.i + '"' +
