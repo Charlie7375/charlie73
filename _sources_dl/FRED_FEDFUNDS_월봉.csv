@@ -1,6 +1,7 @@
 # 연방기금 실효금리 (%, 월평균)
-# Series: FEDFUNDS | Source: FRED (fredgraph.csv)
-# Range: 1954-07 ~ 2026-07 (865개월) | scripts/fred_fed_us.py
+# Series: RIFSPFF_N.M | Source: 연준 H.15 (federalreserve.gov DDP)
+# Range: 1954-07 ~ 2026-08 (866개월) | scripts/fed_official.py
+# 2026-08-29 FRED 에서 연준 원본으로 바꿨다. 865개월 전수 대조 결과 값은 같다.
 date,value
 1954-07,0.8000
 1954-08,1.2200
@@ -867,3 +868,4 @@ date,value
 2026-05,3.6300
 2026-06,3.6300
 2026-07,3.6300
+2026-08,3.6300

@@ -137,7 +137,24 @@ html.theme-dark .site-dd{box-shadow:0 18px 44px rgba(0,0,0,.55)}
 .site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
   background:color-mix(in srgb,var(--text) 6%,transparent)}
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/* DESIGN:BEGIN */
+/* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END *//* DESIGN:BEGIN */
 /* ── 숫자는 항상 고정폭 — 매일 바뀌는 값에 칸이 흔들리지 않게 ── */
 body{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
 table,.st-v,.kpi,.kpis,.pbadge b{font-variant-numeric:tabular-nums}
@@ -157,7 +174,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── 테마 토글 버튼 (전 페이지 공통) ── */
 /* ⚠⚠ `top:auto` 와 z-index 가 핵심이다 (2026-08-08).
-   생성기 SHELL 들이 `.toggle{top:62px;z-index:88;position:fixed;…}` 를 따로 갖고 있는데(45장),
+   생성기 SHELL 들이 `.toggle{position:fixed;top:18px;…}` 를 따로 갖고 있는데(45장),
    이 규칙은 뒤에 와서 z-index 만 이기고 **위치는 top:18px 가 남았다.**
    그 자리는 sticky 상단바(.site-bar, z-index 90)가 덮는 자리라
    **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 세 번째 원인이다.
@@ -167,203 +184,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
   color:var(--text);font-size:17px;cursor:pointer;line-height:1;
   box-shadow:0 2px 14px rgba(0,0,0,.10);transition:transform .12s,box-shadow .12s}
 .toggle:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(0,0,0,.16)}
-/* DESIGN:END *//* LAYOUT:BEGIN */
-:root{--w-data:1440px;--w-chart:1100px;
-  /* 산문 폭은 **고정 px이 아니라 em**이다.
-     ① px로 고정하면 글자를 키워도 한 줄에 담기는 글자 수가 늘어나 도로 길어진다.
-        em이면 글자 크기에 비례해 폭도 같이 자라서 **한 줄 글자 수가 유지**된다.
-     ② min(…,100%)이라 좁은 화면에서는 알아서 줄어든다. 유동이다. */
-  --w-prose:min(50em,100%)}
-
-/* ── ① 데이터층은 전폭 ── */
-/* 폭은 apply_paper.py 가 정한다. 여기서 !important 로 잡으면 그쪽이 못 이긴다.
-   두 곳에서 폭을 정하면 반드시 한쪽이 조용히 진다. */
-.wrap{padding-left:32px!important;padding-right:32px!important}
-
-/* ── ② 해설층은 좁은 단 + 세리프 ──
-   숫자·표·라벨은 산세리프로 남는다. 서체가 바뀌는 지점이 곧 층이 바뀌는 지점이다. */
-.explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{
-  /* ⚠ 가운데 정렬하면 제목은 왼쪽 끝, 본문은 화면 한가운데가 되어 **둘이 따로 논다.**
-       2026-08-02에 2600px 화면에서 그게 드러났다. 제목과 왼쪽을 맞춘다. */
-  max-width:var(--w-prose);margin-left:0!important;margin-right:auto!important;
-  font-size:16.5px;line-height:1.85;letter-spacing:-.004em}
-.explain b,.explain strong,.ebody b,.ebody strong,.hbody b,.hbody strong,.verdict b,.verdict strong,.callout b,.callout strong,.lesson b,.lesson strong,.note b,.note strong,.disclaimer b,.disclaimer strong,.fdetail b,.fdetail strong,.panel-cap b,.panel-cap strong{font-weight:600}
-.explain code,.explain .num,.explain table,.ebody code,.ebody .num,.ebody table,.hbody code,.hbody .num,.hbody table,.verdict code,.verdict .num,.verdict table,.callout code,.callout .num,.callout table,.lesson code,.lesson .num,.lesson table,.note code,.note .num,.note table,.disclaimer code,.disclaimer .num,.disclaimer table,.fdetail code,.fdetail .num,.fdetail table,.panel-cap code,.panel-cap .num,.panel-cap table{
-  font-family:inherit}
-.explain h2,.explain h3,.explain h4,.ebody h2,.ebody h3,.ebody h4,.hbody h2,.hbody h3,.hbody h4,.verdict h2,.verdict h3,.verdict h4,.callout h2,.callout h3,.callout h4,.lesson h2,.lesson h3,.lesson h4,.note h2,.note h3,.note h4,.disclaimer h2,.disclaimer h3,.disclaimer h4,.fdetail h2,.fdetail h3,.fdetail h4,.panel-cap h2,.panel-cap h3,.panel-cap h4{font-family:inherit}
-
-/* 해설 박스 안의 소제목 — 박스 밖 h2와 같은 크기면 위계가 무너진다.
-   본문보다 한 단만 크게, 위로 여백을 줘서 문단 묶음이 눈에 보이게 한다. */
-.explain h2,.ebody h2,.hbody h2,.verdict h2,.callout h2,.lesson h2,.note h2,.disclaimer h2,.fdetail h2,.panel-cap h2{
-  font-size:1.06em;font-weight:700;margin:22px 0 9px;letter-spacing:-.01em}
-.explain h2:first-child,.ebody h2:first-child,.hbody h2:first-child,.verdict h2:first-child,.callout h2:first-child,.lesson h2:first-child,.note h2:first-child,.disclaimer h2:first-child,.fdetail h2:first-child,.panel-cap h2:first-child{margin-top:0}
-.explain p,.ebody p,.hbody p,.verdict p,.callout p,.lesson p,.note p,.disclaimer p,.fdetail p,.panel-cap p{margin:0 0 11px}
-.explain p:last-child,.ebody p:last-child,.hbody p:last-child,.verdict p:last-child,.callout p:last-child,.lesson p:last-child,.note p:last-child,.disclaimer p:last-child,.fdetail p:last-child,.panel-cap p:last-child{margin-bottom:0}
-
-/* ── 폰트 통일 — 나눔고딕 ──
-   본문·제목·표·차트 라벨까지 한 벌로 간다. 예전엔 해설층만 세리프를 썼는데,
-   서체가 둘이면 같은 페이지 안에서 글자 크기와 행간이 미묘하게 어긋난다. */
-html body,html body h1,html body h2,html body h3,html body h4,
-html body table,html body button,html body input,html body .site-brand,
-html body .eyebrow,html body .sub,html body .card,html body .st-v,html body .st-l{
-  font-family:'Nanum Gothic','나눔고딕',AppleGothic,sans-serif!important}
-
-/* 차트는 전폭까지 늘리면 납작해진다 — 따로 잡는다 */
-.chart,.chart-box,.chart-container{max-width:var(--w-chart);margin-left:auto;margin-right:auto}
-
-/* 푸터 본문은 1440px 전폭으로 흐르면 한 줄이 100자를 넘는다 */
-.foot-in p,.foot-in>br{max-width:var(--w-prose)}
-.foot-in{padding-left:32px!important;padding-right:32px!important}
-
-/* 섹션 제목도 랜딩 크기(40px)라 밀도와 안 맞는다 */
-.sec-head h2{font-size:clamp(22px,2.2vw,26px)!important}
-.sec-head p{font-size:15px!important;max-width:var(--w-prose)!important;margin-left:0}
-.sub{font-size:16px!important;max-width:var(--w-prose)!important;line-height:1.7}
-.sec,.status{padding-left:32px!important;padding-right:32px!important}
-
-/* ── ③ 세로 간격 압축 ── */
-.sec{padding-bottom:48px!important}
-.sec-head{padding:28px 0 16px!important}
-.wrap{padding-top:28px!important}
-
-/* ── ④ 카드 밀도 ── */
-.card{padding:18px 20px 16px!important;border-radius:12px!important}
-.card::after{border-radius:12px!important}
-.card h3{margin-top:12px!important;font-size:17px!important}
-.card p{margin-top:7px!important;font-size:13px!important;line-height:1.6!important}
-.card .tag{font-size:11px!important;padding:3px 9px!important}
-.card .go{margin-top:14px!important;font-size:13px!important}
-.grid{gap:12px!important}
-@media(min-width:1200px){.g3{grid-template-columns:repeat(4,1fr)!important}
-  .g2{grid-template-columns:repeat(3,1fr)!important}}
-
-/* ── ⑤ CDS 컴포넌트 문법 — 헤어라인, 그림자 없음 ── */
-.card::after,.st-c,.compare::after,.panel,table td,table th{border-width:.5px!important}
-.card:hover{transform:none!important;box-shadow:none!important}
-.card:hover::after{border-color:var(--text3)!important}
-html.theme-dark .card:hover{box-shadow:none!important}
-
-/* 상태판은 숫자가 주인공이라 굵기를 안 내린다 */
-.st-v{font-weight:700!important}
-
-/* ── ⑦ index 첫 화면 — 세 층 구조 (2026-08-20) ──
-   다섯 섹션이 같은 4열 카드를 쓰던 탓에 «매일 바뀌는 것»과 «영원히 안 바뀌는 것»이
-   똑같이 생겼다. 층마다 다른 구조를 준다 — 라이브는 격자, 판단은 큰 카드, 참고는 목록.
-   ⚠ 선택자를 `a.card` 로 좁힌 것은 일부러다. bottom-top·disparity-3 의 `div.card` 는
-     차트 상자라 같은 이름을 쓰지만 다른 것이다. 거기까지 번지면 안 된다. */
-:root{--w-sec:1080px}   /* 상태판(build_status.py 의 .status max-width)과 **같은 값**이다.
-     달랐던 탓에 스트립은 L205, 카드는 L245 에서 시작해 첫 화면에 왼쪽 끝이 둘이었다.
-     ⚠ build_status.py 에서 1080 을 바꾸면 여기도 같이 바꾼다. 두 곳이 한 줄을 그린다. */
-.sec{max-width:var(--w-sec)!important}
-
-/* 리드 한 줄 — 푸터에 있던 첫 문장을 올린 것이다. 히어로 블록이 아니다 */
-.idx-lede{max-width:var(--w-sec);margin:30px auto 0;padding:0 32px}
-.idx-lede h1{margin:0;font-size:clamp(19px,1.85vw,23px);font-weight:700;
-  line-height:1.45;letter-spacing:-.022em;color:var(--text)}
-.idx-lede+.status{margin-top:16px!important}
-
-/* 층 구분자 — 제목 위 꼬리표가 아니라 «여기서부터 성격이 바뀐다»는 선이다.
-   그래서 글자 오른쪽으로 선이 끝까지 흐른다. */
-.tier-r{display:flex;align-items:center;gap:14px;
-  max-width:var(--w-sec);margin:54px auto 0;padding:0 32px;
-  font-size:12px;font-weight:800;letter-spacing:.055em;color:var(--text3)}
-.tier-r::after{content:"";flex:1;height:1px;background:var(--border)}
-.tier-r:first-of-type{margin-top:34px}
-.tier-r+.sec .sec-head{padding-top:16px!important}
-
-/* 격자 셋 */
-@media(min-width:1100px){
-  .g-today{grid-template-columns:repeat(3,1fr)!important}
-  .g-judge{grid-template-columns:repeat(2,1fr)!important}
-}
-.g-watch{grid-template-columns:repeat(auto-fill,minmax(196px,1fr))!important}
-
-/* 소속 배지를 걷었으니 제목 위 여백도 없앤다 */
-a.card h3{margin-top:0!important}
-
-/* 판단 첫 장 — 중공황 전조현상이 이 사이트의 본론이다 */
-.g-judge>a.card:first-child{grid-column:1/-1}
-.g-judge>a.card:first-child h3{font-size:21px!important}
-.g-judge>a.card:first-child p{font-size:14px!important;max-width:64ch}
-
-/* 관심종목 — 이름이 주인공, 설명은 한 줄짜리 꼬리표 */
-.g-watch a.card{padding:14px 16px 13px!important}
-.g-watch a.card h3{font-size:15.5px!important}
-.g-watch a.card p{margin-top:4px!important;font-size:12.5px!important;line-height:1.5!important}
-
-/* ── 목록층 — 카드에서 내린 방법론·아카이브 ──
-   21편을 카드로 두면 스크롤의 절반을 «안 바뀌는 것»이 가져간다. */
-.lst{display:grid;gap:26px 34px;grid-template-columns:1fr;align-items:start}
-@media(min-width:820px){.lst{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:1280px){.lst{grid-template-columns:repeat(3,1fr)}}
-@media(min-width:820px){.lst-flat{grid-template-columns:repeat(2,1fr)}}
-.lst-h{display:flex;align-items:baseline;gap:7px;margin:0 0 6px;
-  font-size:12px;font-weight:800;letter-spacing:.04em;color:var(--text3)}
-.lst-n{font-weight:400;opacity:.6}
-.lst-i{display:block;padding:9px 10px;margin:0 -10px;border-radius:9px;
-  text-decoration:none;transition:background .13s ease}
-.lst-i{box-shadow:inset 0 .5px 0 var(--border)}
-.lst-t{display:block;font-size:14.5px;font-weight:600;line-height:1.4;
-  color:var(--text);letter-spacing:-.012em}
-/* 두 줄에서 자른다 — 훅은 남기고 높이는 묶는다 */
-.lst-d{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;
-  overflow:hidden;margin-top:3px;font-size:12.5px;line-height:1.55;color:var(--text3)}
-.lst-d b{font-weight:400}
-.lst-i:hover{background:color-mix(in srgb,var(--text) 6%,transparent)}
-.lst-i:hover .lst-t{color:var(--accent)}
-
-/* 새로 만든 링크를 브라우저 기본 링만 믿고 내보내지 않는다 */
-a.card:focus-visible,.lst-i:focus-visible{
-  outline:2px solid var(--accent);outline-offset:3px;border-radius:10px}
-
-@media(max-width:900px){
-  .idx-lede,.tier-r{padding-left:18px!important;padding-right:18px!important}
-  .tier-r{margin-top:40px}
-  .g-watch{grid-template-columns:repeat(auto-fill,minmax(148px,1fr))!important}
-}
-
-@media(max-width:900px){
-  .wrap{padding-left:18px!important;padding-right:18px!important}
-  .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
-}
-/* LAYOUT:END *//* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END *//*TOCCSS:BEGIN*/
-/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
-
-/* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
-   원인은 상단바다. .site-bar 가 position:sticky · 높이 78px 로 화면 맨 위를 덮는데
-   앵커로 이동하면 제목이 정확히 그 아래에 깔린다. 그래서 독자는 제목을 못 보고
-   그 다음 문단부터 보게 된다. 눌러 간 곳과 보이는 글이 어긋나는 것이 이 때문이다.
-   scroll-margin-top 이 0 이었다. 78 에 여백 14 를 더해 92 로 둔다.
-   ⚠ 상단바 높이를 바꾸면 이 값도 같이 바꾼다. 측정: .site-bar 의 getBoundingClientRect().height */
-h2[id],h3[id],[id]:target{scroll-margin-top:92px}
-@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
- margin:22px 0 24px;background:var(--surface);text-align:left}
-.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
- color:var(--text-secondary);margin-bottom:7px;text-align:left}
-.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
-.ptoc li{font-size:.9rem}
-.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
-.ptoc a:hover{border-bottom-color:var(--text-secondary)}
-@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*//* PAPER:BEGIN */
+/* DESIGN:END *//* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -633,10 +454,30 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style><link rel="stylesheet" href="vendor/fonts.css"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body><div class="site-bar"><div class="site-bar-in">
+/* PAPER:END *//*TOCCSS:BEGIN*/
+/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
+
+/* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
+   원인은 상단바다. .site-bar 가 position:sticky · 높이 78px 로 화면 맨 위를 덮는데
+   앵커로 이동하면 제목이 정확히 그 아래에 깔린다. 그래서 독자는 제목을 못 보고
+   그 다음 문단부터 보게 된다. 눌러 간 곳과 보이는 글이 어긋나는 것이 이 때문이다.
+   scroll-margin-top 이 0 이었다. 78 에 여백 14 를 더해 92 로 둔다.
+   ⚠ 상단바 높이를 바꾸면 이 값도 같이 바꾼다. 측정: .site-bar 의 getBoundingClientRect().height */
+h2[id],h3[id],[id]:target{scroll-margin-top:92px}
+@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
+ margin:22px 0 24px;background:var(--surface);text-align:left}
+.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
+ color:var(--text-secondary);margin-bottom:7px;text-align:left}
+.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
+.ptoc li{font-size:.9rem}
+.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
+.ptoc a:hover{border-bottom-color:var(--text-secondary)}
+@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
+/*TOCCSS:END*/</style><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body><div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="macro-timeline.html">거시 이벤트 연대기</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-nhn.html">NHN</a><a href="stock-kolmar.html">한국콜마</a><a href="stock-cosmax.html">코스맥스</a><a href="stock-pharmaresearch.html">파마리서치</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="us-credit-spread.html">미국 신용스프레드는 주가를 앞서지 않는다</a><a href="us-elections.html">미국 선거와 증시</a><a href="gold-rates.html">금과 장기금리는 시대마다 반대로 움직인다</a><a href="treasury-trust.html">국채는 부도로 무너지지 않는다</a><a href="deleveraging.html">강제청산은 어떻게 끝나는가</a><a href="inflation-playbook.html">인플레 시대에 무엇이 통했나</a><a href="rates-century.html">미국 금리 100년과 인플레 시대</a><a href="memory-price.html">메모리 가격과 반도체 주가</a><a href="breadth-concentration.html">신고가 쏠림배수 2023~2026</a><a href="kospi-analog.html">지금과 닮은 과거 — 유사국면</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><div class="site-group"><button class="" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 73계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a href="data-kr-rates.html">한국 금리</a><a href="data-us-market.html">미국 시장</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a href="data-fx.html">환율·원자재·암호</a><a href="data-macro.html">재정·거시</a></div></div><!-- NAV:END --></nav>
-</div></div><div class="wrap paper dwrap"><a class="dback" href="data-macro.html">← 재정·거시</a><header class="phead"><span class="eb">원자료 · 재정·거시</span><h1>OECD 경기선행지수 (한국)</h1><p class="pauth">OECD SDMX 4.1 · 100=추세 · 매월</p><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#cli">CLI</a></li><li><a href="#최근-30개">최근 30개</a></li><li><a href="#관련-뉴스">관련 뉴스</a></li></ol></div><!--TOC:END--></header><div class="dsum"><p class="w">OECD 가 만드는 한국 경기선행지수다. 100 이 장기 추세다.</p><p class="u">경기가 추세 위인지 아래인지를 본다. 102 위는 36년에 네 번뿐인 과열권이었다.</p></div><dl class="dmeta"><dt>출처</dt><dd><a href="https://data-explorer.oecd.org" target="_blank" rel="noopener">OECD SDMX 4.1 ↗</a></dd><dt>파일</dt><dd><code>OECD_CLI_한국_월봉.txt</code></dd><dt>단위</dt><dd>100=추세</dd><dt>쓰는 글</dt><dd><a href="cli-kospi.html">cli-kospi</a> · <a href="jeoji-kospi.html">jeoji-kospi</a> · <a href="kospi-analog.html">kospi-analog</a> · <a href="macro-timeline.html">macro-timeline</a> · <a href="samsung-long.html">samsung-long</a></dd><dt>내려받기</dt><dd><a href="../_sources_dl/OECD_CLI_한국_월봉.txt">OECD_CLI_한국_월봉.txt 내려받기</a> <span style="color:var(--text-secondary)">(4 KB)</span></dd></dl><div class="dkpi"><div class="k"><div class="l">지금 값</div><div class="v">102.2063</div><div class="s">2026-06 · 100=추세</div></div><div class="k"><div class="l">자료 범위</div><div class="v" style="font-size:15px">1990-01<br>~ 2026-06</div><div class="s">438개</div></div><div class="k"><div class="l">갱신</div><div class="v" style="font-size:17px">매월</div><div class="s">자동</div></div></div><div class="panel dpanel"><div class="panel-head"><h2 id="cli" class="psub">CLI</h2><div class="rng"><button type="button" data-y="1">1년</button><button type="button" data-y="3">3년</button><button type="button" data-y="5">5년</button><button type="button" data-y="10">10년</button><button type="button" data-y="25">25년</button><button type="button" data-y="0" class="on">전체</button></div></div><div class="cbox2"><canvas id="c"></canvas></div><div class="srcline"><span>OECD SDMX 4.1</span><span>100=추세 · 매월</span></div></div><script>(window.__DATA=window.__DATA||[]).push({"id": "c", "lab": ["1990-01", "1990-02", "1990-03", "1990-04", "1990-05", "1990-06", "1990-07", "1990-08", "1990-09", "1990-10", "1990-11", "1990-12", "1991-01", "1991-02", "1991-03", "1991-04", "1991-05", "1991-06", "1991-07", "1991-08", "1991-09", "1991-10", "1991-11", "1991-12", "1992-01", "1992-02", "1992-03", "1992-04", "1992-05", "1992-06", "1992-07", "1992-08", "1992-09", "1992-10", "1992-11", "1992-12", "1993-01", "1993-02", "1993-03", "1993-04", "1993-05", "1993-06", "1993-07", "1993-08", "1993-09", "1993-10", "1993-11", "1993-12", "1994-01", "1994-02", "1994-03", "1994-04", "1994-05", "1994-06", "1994-07", "1994-08", "1994-09", "1994-10", "1994-11", "1994-12", "1995-01", "1995-02", "1995-03", "1995-04", "1995-05", "1995-06", "1995-07", "1995-08", "1995-09", "1995-10", "1995-11", "1995-12", "1996-01", "1996-02", "1996-03", "1996-04", "1996-05", "1996-06", "1996-07", "1996-08", "1996-09", "1996-10", "1996-11", "1996-12", "1997-01", "1997-02", "1997-03", "1997-04", "1997-05", "1997-06", "1997-07", "1997-08", "1997-09", "1997-10", "1997-11", "1997-12", "1998-01", "1998-02", "1998-03", "1998-04", "1998-05", "1998-06", "1998-07", "1998-08", "1998-09", "1998-10", "1998-11", "1998-12", "1999-01", "1999-02", "1999-03", "1999-04", "1999-05", "1999-06", "1999-07", "1999-08", "1999-09", "1999-10", "1999-11", "1999-12", "2000-01", "2000-02", "2000-03", "2000-04", "2000-05", "2000-06", "2000-07", "2000-08", "2000-09", "2000-10", "2000-11", "2000-12", "2001-01", "2001-02", "2001-03", "2001-04", "2001-05", "2001-06", "2001-07", "2001-08", "2001-09", "2001-10", "2001-11", "2001-12", "2002-01", "2002-02", "2002-03", "2002-04", "2002-05", "2002-06", "2002-07", "2002-08", "2002-09", "2002-10", "2002-11", "2002-12", "2003-01", "2003-02", "2003-03", "2003-04", "2003-05", "2003-06", "2003-07", "2003-08", "2003-09", "2003-10", "2003-11", "2003-12", "2004-01", "2004-02", "2004-03", "2004-04", "2004-05", "2004-06", "2004-07", "2004-08", "2004-09", "2004-10", "2004-11", "2004-12", "2005-01", "2005-02", "2005-03", "2005-04", "2005-05", "2005-06", "2005-07", "2005-08", "2005-09", "2005-10", "2005-11", "2005-12", "2006-01", "2006-02", "2006-03", "2006-04", "2006-05", "2006-06", "2006-07", "2006-08", "2006-09", "2006-10", "2006-11", "2006-12", "2007-01", "2007-02", "2007-03", "2007-04", "2007-05", "2007-06", "2007-07", "2007-08", "2007-09", "2007-10", "2007-11", "2007-12", "2008-01", "2008-02", "2008-03", "2008-04", "2008-05", "2008-06", "2008-07", "2008-08", "2008-09", "2008-10", "2008-11", "2008-12", "2009-01", "2009-02", "2009-03", "2009-04", "2009-05", "2009-06", "2009-07", "2009-08", "2009-09", "2009-10", "2009-11", "2009-12", "2010-01", "2010-02", "2010-03", "2010-04", "2010-05", "2010-06", "2010-07", "2010-08", "2010-09", "2010-10", "2010-11", "2010-12", "2011-01", "2011-02", "2011-03", "2011-04", "2011-05", "2011-06", "2011-07", "2011-08", "2011-09", "2011-10", "2011-11", "2011-12", "2012-01", "2012-02", "2012-03", "2012-04", "2012-05", "2012-06", "2012-07", "2012-08", "2012-09", "2012-10", "2012-11", "2012-12", "2013-01", "2013-02", "2013-03", "2013-04", "2013-05", "2013-06", "2013-07", "2013-08", "2013-09", "2013-10", "2013-11", "2013-12", "2014-01", "2014-02", "2014-03", "2014-04", "2014-05", "2014-06", "2014-07", "2014-08", "2014-09", "2014-10", "2014-11", "2014-12", "2015-01", "2015-02", "2015-03", "2015-04", "2015-05", "2015-06", "2015-07", "2015-08", "2015-09", "2015-10", "2015-11", "2015-12", "2016-01", "2016-02", "2016-03", "2016-04", "2016-05", "2016-06", "2016-07", "2016-08", "2016-09", "2016-10", "2016-11", "2016-12", "2017-01", "2017-02", "2017-03", "2017-04", "2017-05", "2017-06", "2017-07", "2017-08", "2017-09", "2017-10", "2017-11", "2017-12", "2018-01", "2018-02", "2018-03", "2018-04", "2018-05", "2018-06", "2018-07", "2018-08", "2018-09", "2018-10", "2018-11", "2018-12", "2019-01", "2019-02", "2019-03", "2019-04", "2019-05", "2019-06", "2019-07", "2019-08", "2019-09", "2019-10", "2019-11", "2019-12", "2020-01", "2020-02", "2020-03", "2020-04", "2020-05", "2020-06", "2020-07", "2020-08", "2020-09", "2020-10", "2020-11", "2020-12", "2021-01", "2021-02", "2021-03", "2021-04", "2021-05", "2021-06", "2021-07", "2021-08", "2021-09", "2021-10", "2021-11", "2021-12", "2022-01", "2022-02", "2022-03", "2022-04", "2022-05", "2022-06", "2022-07", "2022-08", "2022-09", "2022-10", "2022-11", "2022-12", "2023-01", "2023-02", "2023-03", "2023-04", "2023-05", "2023-06", "2023-07", "2023-08", "2023-09", "2023-10", "2023-11", "2023-12", "2024-01", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07", "2024-08", "2024-09", "2024-10", "2024-11", "2024-12", "2025-01", "2025-02", "2025-03", "2025-04", "2025-05", "2025-06", "2025-07", "2025-08", "2025-09", "2025-10", "2025-11", "2025-12", "2026-01", "2026-02", "2026-03", "2026-04", "2026-05", "2026-06"], "ser": [{"name": "CLI", "val": [100.3595, 100.3598, 100.4166, 100.476, 100.5012, 100.4732, 100.3718, 100.2001, 99.9783, 99.7464, 99.5449, 99.3999, 99.3197, 99.3256, 99.3937, 99.4884, 99.5604, 99.5614, 99.484, 99.2815, 99.0406, 98.7816, 98.5095, 98.2511, 98.0455, 97.9208, 97.8854, 97.8937, 97.9199, 97.9519, 97.9908, 98.0453, 98.1224, 98.2157, 98.3215, 98.4253, 98.5175, 98.6268, 98.7792, 98.9846, 99.2224, 99.475, 99.7225, 99.9491, 100.141, 100.2911, 100.4029, 100.485, 100.5506, 100.6397, 100.766, 100.9246, 101.0893, 101.2472, 101.3968, 101.5325, 101.6472, 101.7339, 101.7689, 101.7378, 101.6537, 101.7438, 101.8173, 101.8699, 101.8994, 101.9019, 101.8643, 101.7813, 101.6556, 101.4907, 101.2978, 101.0854, 100.8638, 100.6429, 100.4073, 100.1361, 99.8254, 99.4929, 99.1615, 98.8553, 98.5994, 98.4117, 98.3034, 98.281, 98.319, 98.4044, 98.5304, 98.6923, 98.8603, 98.9739, 98.9544, 98.7498, 98.3451, 97.7914, 97.1829, 96.6312, 96.2303, 96.0259, 96.0213, 96.1882, 96.4933, 96.9069, 97.3996, 97.9276, 98.4505, 98.9536, 99.4706, 100.046, 100.6925, 101.3854, 102.0786, 102.7223, 103.2835, 103.7417, 104.0735, 104.2501, 104.2716, 104.1584, 103.9507, 103.6606, 103.3161, 102.9548, 102.6276, 102.3512, 102.0968, 101.8289, 101.4996, 101.0779, 100.5497, 99.9396, 99.3055, 98.7179, 98.2358, 97.9291, 97.8077, 97.8162, 97.9004, 98.0367, 98.2302, 98.4779, 98.7839, 99.1689, 99.6315, 100.1387, 100.6437, 101.101, 101.4663, 101.6861, 101.7543, 101.6997, 101.5612, 101.355, 101.1012, 100.7979, 100.4439, 100.0335, 99.5845, 99.1737, 98.8713, 98.7078, 98.6896, 98.804, 99.0129, 99.2719, 99.5251, 99.7407, 99.913, 100.0421, 100.1295, 100.1754, 100.1911, 100.1953, 100.1851, 100.1675, 100.1444, 100.1067, 100.0489, 99.9715, 99.8954, 99.8405, 99.8271, 99.8592, 99.9093, 99.9634, 100.0407, 100.1594, 100.3139, 100.4892, 100.6546, 100.7853, 100.8569, 100.8586, 100.7894, 100.6721, 100.5319, 100.3899, 100.263, 100.1751, 100.1495, 100.1834, 100.2339, 100.2673, 100.269, 100.2589, 100.2635, 100.311, 100.4062, 100.5502, 100.7213, 100.8858, 101.0001, 101.0237, 100.9443, 100.7518, 100.4628, 100.1089, 99.7205, 99.3362, 98.9801, 98.6574, 98.3664, 98.1019, 97.877, 97.6949, 97.5526, 97.481, 97.5482, 97.8013, 98.2389, 98.8217, 99.4517, 100.0657, 100.6143, 101.0829, 101.4704, 101.7682, 101.9624, 102.0511, 102.0578, 102.0036, 101.9017, 101.7769, 101.6529, 101.5327, 101.4123, 101.2808, 101.1279, 100.9632, 100.7997, 100.6641, 100.5869, 100.5696, 100.5844, 100.5792, 100.5148, 100.391, 100.2142, 99.9971, 99.7562, 99.5005, 99.2513, 99.0306, 98.8688, 98.7997, 98.8199, 98.904, 99.0101, 99.1082, 99.1753, 99.2064, 99.2028, 99.1907, 99.1872, 99.1948, 99.2229, 99.2823, 99.3597, 99.4618, 99.5885, 99.7086, 99.8006, 99.8489, 99.8457, 99.8138, 99.7634, 99.7175, 99.6938, 99.6985, 99.7144, 99.7257, 99.7235, 99.7035, 99.6757, 99.6558, 99.6576, 99.6962, 99.7707, 99.8769, 100.0075, 100.1374, 100.2368, 100.3056, 100.3431, 100.3495, 100.3315, 100.299, 100.2728, 100.2571, 100.2527, 100.2484, 100.24, 100.2285, 100.2202, 100.2303, 100.2627, 100.3098, 100.3696, 100.4428, 100.5268, 100.6196, 100.7107, 100.7947, 100.8864, 100.9946, 101.1068, 101.2058, 101.2752, 101.3045, 101.2933, 101.2501, 101.1734, 101.0715, 100.9513, 100.8182, 100.6683, 100.5185, 100.3905, 100.2904, 100.206, 100.134, 100.0653, 99.9887, 99.9089, 99.8325, 99.7574, 99.683, 99.6216, 99.5832, 99.5567, 99.533, 99.4917, 99.4252, 99.3517, 99.2846, 99.2203, 99.1787, 99.1711, 99.2036, 99.2664, 99.3364, 99.3813, 99.4092, 99.4346, 99.4828, 99.5759, 99.7406, 99.9684, 100.2411, 100.5352, 100.8283, 101.1112, 101.3815, 101.6416, 101.8744, 102.0625, 102.1828, 102.2003, 102.1052, 101.9183, 101.6754, 101.4036, 101.1367, 100.9099, 100.7307, 100.5826, 100.4598, 100.351, 100.2345, 100.0872, 99.9024, 99.6935, 99.4682, 99.2098, 98.9213, 98.6332, 98.3929, 98.2246, 98.1508, 98.1667, 98.2478, 98.3761, 98.5203, 98.6448, 98.7581, 98.8721, 98.996, 99.1366, 99.2884, 99.4368, 99.5714, 99.6772, 99.7449, 99.7678, 99.7581, 99.7224, 99.6669, 99.5991, 99.5317, 99.483, 99.4645, 99.4719, 99.4999, 99.536, 99.5758, 99.6336, 99.7071, 99.7859, 99.8785, 99.9988, 100.1678, 100.3804, 100.6292, 100.9181, 101.2308, 101.5406, 101.8181, 102.0438, 102.2063], "grp": 0}], "log": false});</script><h2 id="최근-30개" class="dsec">최근 30개</h2><p class="dsub">전체 438개 가운데 마지막 30개다.</p><div class="dtable"><div class="tblwrap"><table><thead><tr><th>날짜</th><th class="n">CLI</th></tr></thead><tbody><tr><td>2026-06</td><td class="n">102.2063</td></tr><tr><td>2026-05</td><td class="n">102.0438</td></tr><tr><td>2026-04</td><td class="n">101.8181</td></tr><tr><td>2026-03</td><td class="n">101.5406</td></tr><tr><td>2026-02</td><td class="n">101.2308</td></tr><tr><td>2026-01</td><td class="n">100.9181</td></tr><tr><td>2025-12</td><td class="n">100.6292</td></tr><tr><td>2025-11</td><td class="n">100.3804</td></tr><tr><td>2025-10</td><td class="n">100.1678</td></tr><tr><td>2025-09</td><td class="n">99.9988</td></tr><tr><td>2025-08</td><td class="n">99.8785</td></tr><tr><td>2025-07</td><td class="n">99.7859</td></tr><tr><td>2025-06</td><td class="n">99.7071</td></tr><tr><td>2025-05</td><td class="n">99.6336</td></tr><tr><td>2025-04</td><td class="n">99.5758</td></tr><tr><td>2025-03</td><td class="n">99.536</td></tr><tr><td>2025-02</td><td class="n">99.4999</td></tr><tr><td>2025-01</td><td class="n">99.4719</td></tr><tr><td>2024-12</td><td class="n">99.4645</td></tr><tr><td>2024-11</td><td class="n">99.483</td></tr><tr><td>2024-10</td><td class="n">99.5317</td></tr><tr><td>2024-09</td><td class="n">99.5991</td></tr><tr><td>2024-08</td><td class="n">99.6669</td></tr><tr><td>2024-07</td><td class="n">99.7224</td></tr><tr><td>2024-06</td><td class="n">99.7581</td></tr><tr><td>2024-05</td><td class="n">99.7678</td></tr><tr><td>2024-04</td><td class="n">99.7449</td></tr><tr><td>2024-03</td><td class="n">99.6772</td></tr><tr><td>2024-02</td><td class="n">99.5714</td></tr><tr><td>2024-01</td><td class="n">99.4368</td></tr></tbody></table></div></div><h2 id="관련-뉴스" class="dsec">관련 뉴스</h2><p class="dsub">제목에 그 낱말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.</p><p class="dsub">국내: 「OECD 경기선행지수」 로 찾았다.</p><div class="dtable"><div class="tblwrap"><table><tbody><tr><td class="d">Sat, 18 Jul</td><td class="d">한국일보</td><td><a href="https://news.google.com/rss/articles/CBMibkFVX3lxTE52VUxhcEZtRkdlbWJBYl9ZLWtQc2tqM1NlR1JKVFlESllQNG1xekYtZlp2MEVXbTJZRjJpS25iVGdzazM5MU5zWmxpX2lxdms3cWxLRzFMbkJBSnlUUWtTLXA5N3F5R3doSjlZcjRB0gFzQVVfeXFMTzR4dV9QTEgzbm40Y2NZblBGWE9iZFZtWG5fVHVJdGxBa2ZlZ0VFSXVaRzZQa2V4OEdqNDFiTjE1ZW1oNnoxaHJDY0xoTHJGaHdfbDIwN01oT1lOUkFUV3BqaUxWMUh5aHpYVkRhbXhlLUxITQ?oc=5" target="_blank" rel="noopener nofollow">한국, 경기선행지수 26년 만에 최고…고성장에도 고용은 주춤</a></td></tr><tr><td class="d">Sun, 07 Jun</td><td class="d">뉴스1</td><td><a href="https://news.google.com/rss/articles/CBMiVEFVX3lxTE1NTWRfdG9zTGVEVTJqUV9Oa3ppV1AyUHJfaGRWVzk2eXpzTEJ4X1AxUHFTWVBvMXVHNjVwbzlDZUVOYU1HaGw3THJOZTRMMzRGaVhDVNIBWkFVX3lxTE5YUll3ck9yOXMxYXk2Wkl3b1lGQ2tYbWhDR0tNMmRPVnZ5ZW5vNzVPZXZaOFZ6Yzd0bnBKVVYtbjZrNl9rYXpSSFBsZHRYS1RoOUxYZU44T3QyQQ?oc=5" target="_blank" rel="noopener nofollow">경기선행지수 4년10개월만에 최고…실물경기와 격차 '닷컴버블' 수준</a></td></tr><tr><td class="d">Sun, 07 Jun</td><td class="d">부산일보</td><td><a href="https://news.google.com/rss/articles/CBMieEFVX3lxTE9kN1hIblRfQVBpcE1waVRMbVROcFcyVjh1SmN3VXVOSjNWcWhKdEt4UDJKZVJoMFlnTjJnV09QTW9EdzNjMUs2ZU0ySG5IQ2N5eDlaZTJZY2E2RURQSmh6anFvQ3hwTXJuRVJjQ2dlS2dENFppZUZKcQ?oc=5" target="_blank" rel="noopener nofollow">한국 경기선행지수 16개월 연속 상승…실물경제 전반 확산은 미적</a></td></tr><tr><td class="d">Tue, 09 Jun</td><td class="d">중앙뉴스</td><td><a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE1HYm1yOGkzYVlPMVpMNFZfamhVMFZKbEh2RS1GZ2s2N3pEMDZCN0dNVkRUTm9tYjd4MERPdWl0RUltU0JydVpHa2Z6TUhreFg2VXp2U0JIejlOVzN2X3F1UVJWNkdNWUhnOXRBedIBb0FVX3lxTE5lN1VkRjA1dzJnRmx4TUktTjhTZnVKUFJJVjNwdjh5eVliOUpDTGdzdGpCc0dral9ydU5oMWFrOTRXRjdlNkNkdHNuUzBJbmU1WVZSNGhmdUhraFRYazZEbWxPX1RGTmlROFVia0xsNA?oc=5" target="_blank" rel="noopener nofollow">[칼럼]OECD 한국 잠재성장률 하향, 반도체 착시 딛고 경제체질 바꾸란 경고</a></td></tr><tr><td class="d">Sun, 07 Jun</td><td class="d">한국경제TV</td><td><a href="https://news.google.com/rss/articles/CBMigAFBVV95cUxQZWlrak1Jd1JWZ1pFV3h2RnZPbk5zTzFXY3dRZzdfLXdaN0J3bjdpVElZaXJYSHZuQUhDbGhjdENValY4VGdMU2FkR2tMQ2ItUUJyMUI5ay1mR1g0YWkxMmhwb1ozN1loblg4N0QxdTdfT2hqWnJYVmdqTWxXd3RRaw?oc=5" target="_blank" rel="noopener nofollow">OECD 선행지수 16개월째↑…동행지수와 차이는 닷컴버블 후 최대</a></td></tr><tr><td class="d">Fri, 17 Jul</td><td class="d">파이낸셜뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE4zSmhtMGlTOWM3LXJUeDVUbkdlemNLUktlallIMXY2Ymo2b1dscUFyRERuUFIyWlpYS2tJNjBCYm9tMVM4Sl9HUHItSm5BdkpJeTNuVHgyMUdvQQ?oc=5" target="_blank" rel="noopener nofollow">韓 경기선행지수 26년 만에 최고…하반기 성장세 이어갈까</a></td></tr></tbody></table></div></div><p class="dsub">해외: 「OECD leading indicator Korea」 로 찾았다. 이 자료의 출처가 외국이라 함께 본다.</p><div class="dtable"><div class="tblwrap"><table><tbody><tr><td class="d">Thu, 23 Jul</td><td class="d">Chosunbiz</td><td><a href="https://news.google.com/rss/articles/CBMigAFBVV95cUxNNXdLcTVpeVd1Z3FCRjhMdlVhZG0zaEY1eGtpd01KbVVObUZDdm05cHU5Y0lwWWhycE1mOUowQkhDTzlXQWlGMEFidDRZRHFybno2aTdJbzRvMjZqQ2QzRDIwNk9RbFpIbmhSZ3h4OGxuMDZZYTlrdERyYjFwYzBvLdIBlAFBVV95cUxPQnBWc0pQYkYtamt2YldCVENqTGRRNVNyU2hyQlI4X1RIZ21QT3BlYVBURUY4RWlDZ1l6enVCT3lCNEpvOTVRZ3lWZ0UtbEppOG10cDZSTjcxRVJJNzI1NW1GaXo3dGRTdHM2dzVNRFd2WldOUk1kOFdLSTFUc1dvLUlQaWN1ZnktUU5OSjZxeERLLUFL?oc=5" target="_blank" rel="noopener nofollow">South Korea boosts longevity but leads OECD in suicide amid doctor shortage - CHOSUNBIZ</a></td></tr><tr><td class="d">Thu, 09 Jul</td><td class="d">매일경제</td><td><a href="https://news.google.com/rss/articles/CBMiUkFVX3lxTE5UTU8yN0xHdFBFXzVHM2o2WFNSWFJpU2hOSUJOMEtOc0RvcE15dm5lZ1I2Zm92eHNheVU1N2JOM0dfQ1FtQjd3aW5aVjBsdGpmeGc?oc=5" target="_blank" rel="noopener nofollow">Korea's food and beverage price level, which reflects real purchasing power, has been the highest am..</a></td></tr><tr><td class="d">Fri, 03 May</td><td class="d">MacroMicro</td><td><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTFBiamtMWXVXQ3Z1MWRhaWNZNXVuV3g2M0pMcW9rQWNFVUo1dnBWZjFEXzZBYy1Rb0V2dE15ZUQtRnJOTUR4Vk5WSWpmU0RZU0EzMG9Xb0V1dHdKZ28?oc=5" target="_blank" rel="noopener nofollow">OECD CLI Diffusion Index: Key to Spotting the Next Stock Market Reversal</a></td></tr><tr><td class="d">Sun, 05 Jul</td><td class="d">finance.biggo.com</td><td><a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE9XSTlQVC1jcGZSQlJRLTJtOEZpZGtRejJicEVxNEV5VGU1Ukp1UXFKMFBtZW9vdU16UVotNWVnclFTel9sazE3NWE4STI3V2wzZWlySGxqdlh3eTF4M2dqUFpyeDg0Vkd2SnZqUXdjNmZxVUZjS0E?oc=5" target="_blank" rel="noopener nofollow">IMF Likely to Raise South Korea Growth Forecast to High 2% Range; Samsung Earnings Also in Focus</a></td></tr><tr><td class="d">Sat, 10 Jan</td><td class="d">Nature</td><td><a href="https://news.google.com/rss/articles/CBMiX0FVX3lxTE96cURsbXdRTWJoX1ZVRlJyZUJMa2RoclJMRk1ORmFsT3hfQjNLLURVaXl5UGliNEhHWUEtNE12b3dkRlJxQ1dVMThjZUo3clhWbjNlMVkyVGZmN1ozYjFr?oc=5" target="_blank" rel="noopener nofollow">Redefining economic trajectories: examining the U-shaped dynamics between renewable energy and economic leading indicators</a></td></tr><tr><td class="d">Tue, 12 Nov</td><td class="d">Bain & Company</td><td><a href="https://news.google.com/rss/articles/CBMiowFBVV95cUxPcl90TkdpVmFLcWFaZFhyQks0UWNYWWs1M1BObzNlamhTc2tyYTVweVJ0a2oyYVh2bG5XeWROa1JtLWJsNDNJZml1Zi1KZ2lwT2pmTmlSUS1LTXZYVktualJ2TVA4RzRyUEV2MVpqUU85eWN1TlEwenNyeDZxcHBKQkRjQ09sVFI1Slc5SkFHbUZrWGFvUmswY2taVmNabmdVNXlR?oc=5" target="_blank" rel="noopener nofollow">Unlocking Korea's Growth Potential by Empowering Women in the Workplace</a></td></tr></tbody></table></div></div><p class="dsub" style="margin-top:-14px">출처 구글 뉴스 · 2026-09-03 기준. 뉴스는 이 페이지의 분석과 무관하며 서로 어긋날 수 있다.</p></div>
+</div></div><div class="wrap paper dwrap"><a class="dback" href="data-macro.html">← 재정·거시</a><header class="phead"><span class="eb">원자료 · 재정·거시</span><h1>OECD 경기선행지수 (한국)</h1><p class="pauth">OECD SDMX 4.1 · 100=추세 · 매월</p><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#cli">CLI</a></li><li><a href="#최근-30개">최근 30개</a></li><li><a href="#관련-뉴스">관련 뉴스</a></li></ol></div><!--TOC:END--></header><div class="dsum"><p class="w">OECD 가 만드는 한국 경기선행지수다. 100 이 장기 추세다.</p><p class="u">경기가 추세 위인지 아래인지를 본다. 102 위는 36년에 네 번뿐인 과열권이었다.</p></div><dl class="dmeta"><dt>출처</dt><dd><a href="https://data-explorer.oecd.org" target="_blank" rel="noopener">OECD SDMX 4.1 ↗</a></dd><dt>파일</dt><dd><code>OECD_CLI_한국_월봉.txt</code></dd><dt>단위</dt><dd>100=추세</dd><dt>쓰는 글</dt><dd><a href="cli-kospi.html">cli-kospi</a> · <a href="jeoji-kospi.html">jeoji-kospi</a> · <a href="kospi-analog.html">kospi-analog</a> · <a href="macro-timeline.html">macro-timeline</a> · <a href="samsung-long.html">samsung-long</a></dd><dt>내려받기</dt><dd><a href="_sources_dl/OECD_CLI_한국_월봉.txt" download>OECD_CLI_한국_월봉.txt 내려받기</a> <span style="color:var(--text-secondary)">(4 KB)</span></dd></dl><div class="dkpi"><div class="k"><div class="l">지금 값</div><div class="v">102.2063</div><div class="s">2026-06 · 100=추세</div></div><div class="k"><div class="l">자료 범위</div><div class="v" style="font-size:15px">1990-01<br>~ 2026-06</div><div class="s">438개</div></div><div class="k"><div class="l">갱신</div><div class="v" style="font-size:17px">매월</div><div class="s">자동</div></div></div><div class="panel dpanel"><div class="panel-head"><h2 id="cli" class="psub">CLI</h2><div class="rng"><button type="button" data-y="1">1년</button><button type="button" data-y="3">3년</button><button type="button" data-y="5">5년</button><button type="button" data-y="10">10년</button><button type="button" data-y="25">25년</button><button type="button" data-y="0" class="on">전체</button></div></div><div class="cbox2"><canvas id="c"></canvas></div><div class="srcline"><span>OECD SDMX 4.1</span><span>100=추세 · 매월</span></div></div><script>(window.__DATA=window.__DATA||[]).push({"id": "c", "lab": ["1990-01", "1990-02", "1990-03", "1990-04", "1990-05", "1990-06", "1990-07", "1990-08", "1990-09", "1990-10", "1990-11", "1990-12", "1991-01", "1991-02", "1991-03", "1991-04", "1991-05", "1991-06", "1991-07", "1991-08", "1991-09", "1991-10", "1991-11", "1991-12", "1992-01", "1992-02", "1992-03", "1992-04", "1992-05", "1992-06", "1992-07", "1992-08", "1992-09", "1992-10", "1992-11", "1992-12", "1993-01", "1993-02", "1993-03", "1993-04", "1993-05", "1993-06", "1993-07", "1993-08", "1993-09", "1993-10", "1993-11", "1993-12", "1994-01", "1994-02", "1994-03", "1994-04", "1994-05", "1994-06", "1994-07", "1994-08", "1994-09", "1994-10", "1994-11", "1994-12", "1995-01", "1995-02", "1995-03", "1995-04", "1995-05", "1995-06", "1995-07", "1995-08", "1995-09", "1995-10", "1995-11", "1995-12", "1996-01", "1996-02", "1996-03", "1996-04", "1996-05", "1996-06", "1996-07", "1996-08", "1996-09", "1996-10", "1996-11", "1996-12", "1997-01", "1997-02", "1997-03", "1997-04", "1997-05", "1997-06", "1997-07", "1997-08", "1997-09", "1997-10", "1997-11", "1997-12", "1998-01", "1998-02", "1998-03", "1998-04", "1998-05", "1998-06", "1998-07", "1998-08", "1998-09", "1998-10", "1998-11", "1998-12", "1999-01", "1999-02", "1999-03", "1999-04", "1999-05", "1999-06", "1999-07", "1999-08", "1999-09", "1999-10", "1999-11", "1999-12", "2000-01", "2000-02", "2000-03", "2000-04", "2000-05", "2000-06", "2000-07", "2000-08", "2000-09", "2000-10", "2000-11", "2000-12", "2001-01", "2001-02", "2001-03", "2001-04", "2001-05", "2001-06", "2001-07", "2001-08", "2001-09", "2001-10", "2001-11", "2001-12", "2002-01", "2002-02", "2002-03", "2002-04", "2002-05", "2002-06", "2002-07", "2002-08", "2002-09", "2002-10", "2002-11", "2002-12", "2003-01", "2003-02", "2003-03", "2003-04", "2003-05", "2003-06", "2003-07", "2003-08", "2003-09", "2003-10", "2003-11", "2003-12", "2004-01", "2004-02", "2004-03", "2004-04", "2004-05", "2004-06", "2004-07", "2004-08", "2004-09", "2004-10", "2004-11", "2004-12", "2005-01", "2005-02", "2005-03", "2005-04", "2005-05", "2005-06", "2005-07", "2005-08", "2005-09", "2005-10", "2005-11", "2005-12", "2006-01", "2006-02", "2006-03", "2006-04", "2006-05", "2006-06", "2006-07", "2006-08", "2006-09", "2006-10", "2006-11", "2006-12", "2007-01", "2007-02", "2007-03", "2007-04", "2007-05", "2007-06", "2007-07", "2007-08", "2007-09", "2007-10", "2007-11", "2007-12", "2008-01", "2008-02", "2008-03", "2008-04", "2008-05", "2008-06", "2008-07", "2008-08", "2008-09", "2008-10", "2008-11", "2008-12", "2009-01", "2009-02", "2009-03", "2009-04", "2009-05", "2009-06", "2009-07", "2009-08", "2009-09", "2009-10", "2009-11", "2009-12", "2010-01", "2010-02", "2010-03", "2010-04", "2010-05", "2010-06", "2010-07", "2010-08", "2010-09", "2010-10", "2010-11", "2010-12", "2011-01", "2011-02", "2011-03", "2011-04", "2011-05", "2011-06", "2011-07", "2011-08", "2011-09", "2011-10", "2011-11", "2011-12", "2012-01", "2012-02", "2012-03", "2012-04", "2012-05", "2012-06", "2012-07", "2012-08", "2012-09", "2012-10", "2012-11", "2012-12", "2013-01", "2013-02", "2013-03", "2013-04", "2013-05", "2013-06", "2013-07", "2013-08", "2013-09", "2013-10", "2013-11", "2013-12", "2014-01", "2014-02", "2014-03", "2014-04", "2014-05", "2014-06", "2014-07", "2014-08", "2014-09", "2014-10", "2014-11", "2014-12", "2015-01", "2015-02", "2015-03", "2015-04", "2015-05", "2015-06", "2015-07", "2015-08", "2015-09", "2015-10", "2015-11", "2015-12", "2016-01", "2016-02", "2016-03", "2016-04", "2016-05", "2016-06", "2016-07", "2016-08", "2016-09", "2016-10", "2016-11", "2016-12", "2017-01", "2017-02", "2017-03", "2017-04", "2017-05", "2017-06", "2017-07", "2017-08", "2017-09", "2017-10", "2017-11", "2017-12", "2018-01", "2018-02", "2018-03", "2018-04", "2018-05", "2018-06", "2018-07", "2018-08", "2018-09", "2018-10", "2018-11", "2018-12", "2019-01", "2019-02", "2019-03", "2019-04", "2019-05", "2019-06", "2019-07", "2019-08", "2019-09", "2019-10", "2019-11", "2019-12", "2020-01", "2020-02", "2020-03", "2020-04", "2020-05", "2020-06", "2020-07", "2020-08", "2020-09", "2020-10", "2020-11", "2020-12", "2021-01", "2021-02", "2021-03", "2021-04", "2021-05", "2021-06", "2021-07", "2021-08", "2021-09", "2021-10", "2021-11", "2021-12", "2022-01", "2022-02", "2022-03", "2022-04", "2022-05", "2022-06", "2022-07", "2022-08", "2022-09", "2022-10", "2022-11", "2022-12", "2023-01", "2023-02", "2023-03", "2023-04", "2023-05", "2023-06", "2023-07", "2023-08", "2023-09", "2023-10", "2023-11", "2023-12", "2024-01", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07", "2024-08", "2024-09", "2024-10", "2024-11", "2024-12", "2025-01", "2025-02", "2025-03", "2025-04", "2025-05", "2025-06", "2025-07", "2025-08", "2025-09", "2025-10", "2025-11", "2025-12", "2026-01", "2026-02", "2026-03", "2026-04", "2026-05", "2026-06"], "ser": [{"name": "CLI", "val": [100.3595, 100.3598, 100.4166, 100.476, 100.5012, 100.4732, 100.3718, 100.2001, 99.9783, 99.7464, 99.5449, 99.3999, 99.3197, 99.3256, 99.3937, 99.4884, 99.5604, 99.5614, 99.484, 99.2815, 99.0406, 98.7816, 98.5095, 98.2511, 98.0455, 97.9208, 97.8854, 97.8937, 97.9199, 97.9519, 97.9908, 98.0453, 98.1224, 98.2157, 98.3215, 98.4253, 98.5175, 98.6268, 98.7792, 98.9846, 99.2224, 99.475, 99.7225, 99.9491, 100.141, 100.2911, 100.4029, 100.485, 100.5506, 100.6397, 100.766, 100.9246, 101.0893, 101.2472, 101.3968, 101.5325, 101.6472, 101.7339, 101.7689, 101.7378, 101.6537, 101.7438, 101.8173, 101.8699, 101.8994, 101.9019, 101.8643, 101.7813, 101.6556, 101.4907, 101.2978, 101.0854, 100.8638, 100.6429, 100.4073, 100.1361, 99.8254, 99.4929, 99.1615, 98.8553, 98.5994, 98.4117, 98.3034, 98.281, 98.319, 98.4044, 98.5304, 98.6923, 98.8603, 98.9739, 98.9544, 98.7498, 98.3451, 97.7914, 97.1829, 96.6312, 96.2303, 96.0259, 96.0213, 96.1882, 96.4933, 96.9069, 97.3996, 97.9276, 98.4505, 98.9536, 99.4706, 100.046, 100.6925, 101.3854, 102.0786, 102.7223, 103.2835, 103.7417, 104.0735, 104.2501, 104.2716, 104.1584, 103.9507, 103.6606, 103.3161, 102.9548, 102.6276, 102.3512, 102.0968, 101.8289, 101.4996, 101.0779, 100.5497, 99.9396, 99.3055, 98.7179, 98.2358, 97.9291, 97.8077, 97.8162, 97.9004, 98.0367, 98.2302, 98.4779, 98.7839, 99.1689, 99.6315, 100.1387, 100.6437, 101.101, 101.4663, 101.6861, 101.7543, 101.6997, 101.5612, 101.355, 101.1012, 100.7979, 100.4439, 100.0335, 99.5845, 99.1737, 98.8713, 98.7078, 98.6896, 98.804, 99.0129, 99.2719, 99.5251, 99.7407, 99.913, 100.0421, 100.1295, 100.1754, 100.1911, 100.1953, 100.1851, 100.1675, 100.1444, 100.1067, 100.0489, 99.9715, 99.8954, 99.8405, 99.8271, 99.8592, 99.9093, 99.9634, 100.0407, 100.1594, 100.3139, 100.4892, 100.6546, 100.7853, 100.8569, 100.8586, 100.7894, 100.6721, 100.5319, 100.3899, 100.263, 100.1751, 100.1495, 100.1834, 100.2339, 100.2673, 100.269, 100.2589, 100.2635, 100.311, 100.4062, 100.5502, 100.7213, 100.8858, 101.0001, 101.0237, 100.9443, 100.7518, 100.4628, 100.1089, 99.7205, 99.3362, 98.9801, 98.6574, 98.3664, 98.1019, 97.877, 97.6949, 97.5526, 97.481, 97.5482, 97.8013, 98.2389, 98.8217, 99.4517, 100.0657, 100.6143, 101.0829, 101.4704, 101.7682, 101.9624, 102.0511, 102.0578, 102.0036, 101.9017, 101.7769, 101.6529, 101.5327, 101.4123, 101.2808, 101.1279, 100.9632, 100.7997, 100.6641, 100.5869, 100.5696, 100.5844, 100.5792, 100.5148, 100.391, 100.2142, 99.9971, 99.7562, 99.5005, 99.2513, 99.0306, 98.8688, 98.7997, 98.8199, 98.904, 99.0101, 99.1082, 99.1753, 99.2064, 99.2028, 99.1907, 99.1872, 99.1948, 99.2229, 99.2823, 99.3597, 99.4618, 99.5885, 99.7086, 99.8006, 99.8489, 99.8457, 99.8138, 99.7634, 99.7175, 99.6938, 99.6985, 99.7144, 99.7257, 99.7235, 99.7035, 99.6757, 99.6558, 99.6576, 99.6962, 99.7707, 99.8769, 100.0075, 100.1374, 100.2368, 100.3056, 100.3431, 100.3495, 100.3315, 100.299, 100.2728, 100.2571, 100.2527, 100.2484, 100.24, 100.2285, 100.2202, 100.2303, 100.2627, 100.3098, 100.3696, 100.4428, 100.5268, 100.6196, 100.7107, 100.7947, 100.8864, 100.9946, 101.1068, 101.2058, 101.2752, 101.3045, 101.2933, 101.2501, 101.1734, 101.0715, 100.9513, 100.8182, 100.6683, 100.5185, 100.3905, 100.2904, 100.206, 100.134, 100.0653, 99.9887, 99.9089, 99.8325, 99.7574, 99.683, 99.6216, 99.5832, 99.5567, 99.533, 99.4917, 99.4252, 99.3517, 99.2846, 99.2203, 99.1787, 99.1711, 99.2036, 99.2664, 99.3364, 99.3813, 99.4092, 99.4346, 99.4828, 99.5759, 99.7406, 99.9684, 100.2411, 100.5352, 100.8283, 101.1112, 101.3815, 101.6416, 101.8744, 102.0625, 102.1828, 102.2003, 102.1052, 101.9183, 101.6754, 101.4036, 101.1367, 100.9099, 100.7307, 100.5826, 100.4598, 100.351, 100.2345, 100.0872, 99.9024, 99.6935, 99.4682, 99.2098, 98.9213, 98.6332, 98.3929, 98.2246, 98.1508, 98.1667, 98.2478, 98.3761, 98.5203, 98.6448, 98.7581, 98.8721, 98.996, 99.1366, 99.2884, 99.4368, 99.5714, 99.6772, 99.7449, 99.7678, 99.7581, 99.7224, 99.6669, 99.5991, 99.5317, 99.483, 99.4645, 99.4719, 99.4999, 99.536, 99.5758, 99.6336, 99.7071, 99.7859, 99.8785, 99.9988, 100.1678, 100.3804, 100.6292, 100.9181, 101.2308, 101.5406, 101.8181, 102.0438, 102.2063], "grp": 0}], "log": false});</script><h2 id="최근-30개" class="dsec">최근 30개</h2><p class="dsub">전체 438개 가운데 마지막 30개다.</p><div class="dtable"><div class="tblwrap"><table><thead><tr><th>날짜</th><th class="n">CLI</th></tr></thead><tbody><tr><td>2026-06</td><td class="n">102.2063</td></tr><tr><td>2026-05</td><td class="n">102.0438</td></tr><tr><td>2026-04</td><td class="n">101.8181</td></tr><tr><td>2026-03</td><td class="n">101.5406</td></tr><tr><td>2026-02</td><td class="n">101.2308</td></tr><tr><td>2026-01</td><td class="n">100.9181</td></tr><tr><td>2025-12</td><td class="n">100.6292</td></tr><tr><td>2025-11</td><td class="n">100.3804</td></tr><tr><td>2025-10</td><td class="n">100.1678</td></tr><tr><td>2025-09</td><td class="n">99.9988</td></tr><tr><td>2025-08</td><td class="n">99.8785</td></tr><tr><td>2025-07</td><td class="n">99.7859</td></tr><tr><td>2025-06</td><td class="n">99.7071</td></tr><tr><td>2025-05</td><td class="n">99.6336</td></tr><tr><td>2025-04</td><td class="n">99.5758</td></tr><tr><td>2025-03</td><td class="n">99.536</td></tr><tr><td>2025-02</td><td class="n">99.4999</td></tr><tr><td>2025-01</td><td class="n">99.4719</td></tr><tr><td>2024-12</td><td class="n">99.4645</td></tr><tr><td>2024-11</td><td class="n">99.483</td></tr><tr><td>2024-10</td><td class="n">99.5317</td></tr><tr><td>2024-09</td><td class="n">99.5991</td></tr><tr><td>2024-08</td><td class="n">99.6669</td></tr><tr><td>2024-07</td><td class="n">99.7224</td></tr><tr><td>2024-06</td><td class="n">99.7581</td></tr><tr><td>2024-05</td><td class="n">99.7678</td></tr><tr><td>2024-04</td><td class="n">99.7449</td></tr><tr><td>2024-03</td><td class="n">99.6772</td></tr><tr><td>2024-02</td><td class="n">99.5714</td></tr><tr><td>2024-01</td><td class="n">99.4368</td></tr></tbody></table></div></div><h2 id="관련-뉴스" class="dsec">관련 뉴스</h2><p class="dsub">제목에 그 낱말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.</p><p class="dsub">국내: 「OECD 경기선행지수」 로 찾았다.</p><div class="dtable"><div class="tblwrap"><table><tbody><tr><td class="d">Sat, 18 Jul</td><td class="d">한국일보</td><td><a href="https://news.google.com/rss/articles/CBMibkFVX3lxTE52VUxhcEZtRkdlbWJBYl9ZLWtQc2tqM1NlR1JKVFlESllQNG1xekYtZlp2MEVXbTJZRjJpS25iVGdzazM5MU5zWmxpX2lxdms3cWxLRzFMbkJBSnlUUWtTLXA5N3F5R3doSjlZcjRB0gFzQVVfeXFMTzR4dV9QTEgzbm40Y2NZblBGWE9iZFZtWG5fVHVJdGxBa2ZlZ0VFSXVaRzZQa2V4OEdqNDFiTjE1ZW1oNnoxaHJDY0xoTHJGaHdfbDIwN01oT1lOUkFUV3BqaUxWMUh5aHpYVkRhbXhlLUxITQ?oc=5" target="_blank" rel="noopener nofollow">한국, 경기선행지수 26년 만에 최고…고성장에도 고용은 주춤</a></td></tr><tr><td class="d">Sun, 07 Jun</td><td class="d">뉴스1</td><td><a href="https://news.google.com/rss/articles/CBMiVEFVX3lxTE1NTWRfdG9zTGVEVTJqUV9Oa3ppV1AyUHJfaGRWVzk2eXpzTEJ4X1AxUHFTWVBvMXVHNjVwbzlDZUVOYU1HaGw3THJOZTRMMzRGaVhDVNIBWkFVX3lxTE5YUll3ck9yOXMxYXk2Wkl3b1lGQ2tYbWhDR0tNMmRPVnZ5ZW5vNzVPZXZaOFZ6Yzd0bnBKVVYtbjZrNl9rYXpSSFBsZHRYS1RoOUxYZU44T3QyQQ?oc=5" target="_blank" rel="noopener nofollow">경기선행지수 4년10개월만에 최고…실물경기와 격차 '닷컴버블' 수준</a></td></tr><tr><td class="d">Sun, 07 Jun</td><td class="d">부산일보</td><td><a href="https://news.google.com/rss/articles/CBMieEFVX3lxTE9kN1hIblRfQVBpcE1waVRMbVROcFcyVjh1SmN3VXVOSjNWcWhKdEt4UDJKZVJoMFlnTjJnV09QTW9EdzNjMUs2ZU0ySG5IQ2N5eDlaZTJZY2E2RURQSmh6anFvQ3hwTXJuRVJjQ2dlS2dENFppZUZKcQ?oc=5" target="_blank" rel="noopener nofollow">한국 경기선행지수 16개월 연속 상승…실물경제 전반 확산은 미적</a></td></tr><tr><td class="d">Tue, 09 Jun</td><td class="d">중앙뉴스</td><td><a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE1HYm1yOGkzYVlPMVpMNFZfamhVMFZKbEh2RS1GZ2s2N3pEMDZCN0dNVkRUTm9tYjd4MERPdWl0RUltU0JydVpHa2Z6TUhreFg2VXp2U0JIejlOVzN2X3F1UVJWNkdNWUhnOXRBedIBb0FVX3lxTE5lN1VkRjA1dzJnRmx4TUktTjhTZnVKUFJJVjNwdjh5eVliOUpDTGdzdGpCc0dral9ydU5oMWFrOTRXRjdlNkNkdHNuUzBJbmU1WVZSNGhmdUhraFRYazZEbWxPX1RGTmlROFVia0xsNA?oc=5" target="_blank" rel="noopener nofollow">[칼럼]OECD 한국 잠재성장률 하향, 반도체 착시 딛고 경제체질 바꾸란 경고</a></td></tr><tr><td class="d">Sun, 07 Jun</td><td class="d">한국경제TV</td><td><a href="https://news.google.com/rss/articles/CBMigAFBVV95cUxQZWlrak1Jd1JWZ1pFV3h2RnZPbk5zTzFXY3dRZzdfLXdaN0J3bjdpVElZaXJYSHZuQUhDbGhjdENValY4VGdMU2FkR2tMQ2ItUUJyMUI5ay1mR1g0YWkxMmhwb1ozN1loblg4N0QxdTdfT2hqWnJYVmdqTWxXd3RRaw?oc=5" target="_blank" rel="noopener nofollow">OECD 선행지수 16개월째↑…동행지수와 차이는 닷컴버블 후 최대</a></td></tr><tr><td class="d">Fri, 17 Jul</td><td class="d">파이낸셜뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE4zSmhtMGlTOWM3LXJUeDVUbkdlemNLUktlallIMXY2Ymo2b1dscUFyRERuUFIyWlpYS2tJNjBCYm9tMVM4Sl9HUHItSm5BdkpJeTNuVHgyMUdvQQ?oc=5" target="_blank" rel="noopener nofollow">韓 경기선행지수 26년 만에 최고…하반기 성장세 이어갈까</a></td></tr></tbody></table></div></div><p class="dsub">해외: 「OECD leading indicator Korea」 로 찾았다. 이 자료의 출처가 외국이라 함께 본다.</p><div class="dtable"><div class="tblwrap"><table><tbody><tr><td class="d">Thu, 23 Jul</td><td class="d">Chosunbiz</td><td><a href="https://news.google.com/rss/articles/CBMigAFBVV95cUxNNXdLcTVpeVd1Z3FCRjhMdlVhZG0zaEY1eGtpd01KbVVObUZDdm05cHU5Y0lwWWhycE1mOUowQkhDTzlXQWlGMEFidDRZRHFybno2aTdJbzRvMjZqQ2QzRDIwNk9RbFpIbmhSZ3h4OGxuMDZZYTlrdERyYjFwYzBvLdIBlAFBVV95cUxPQnBWc0pQYkYtamt2YldCVENqTGRRNVNyU2hyQlI4X1RIZ21QT3BlYVBURUY4RWlDZ1l6enVCT3lCNEpvOTVRZ3lWZ0UtbEppOG10cDZSTjcxRVJJNzI1NW1GaXo3dGRTdHM2dzVNRFd2WldOUk1kOFdLSTFUc1dvLUlQaWN1ZnktUU5OSjZxeERLLUFL?oc=5" target="_blank" rel="noopener nofollow">South Korea boosts longevity but leads OECD in suicide amid doctor shortage - CHOSUNBIZ</a></td></tr><tr><td class="d">Thu, 09 Jul</td><td class="d">매일경제</td><td><a href="https://news.google.com/rss/articles/CBMiUkFVX3lxTE5UTU8yN0xHdFBFXzVHM2o2WFNSWFJpU2hOSUJOMEtOc0RvcE15dm5lZ1I2Zm92eHNheVU1N2JOM0dfQ1FtQjd3aW5aVjBsdGpmeGc?oc=5" target="_blank" rel="noopener nofollow">Korea's food and beverage price level, which reflects real purchasing power, has been the highest am..</a></td></tr><tr><td class="d">Fri, 03 May</td><td class="d">MacroMicro</td><td><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTFBiamtMWXVXQ3Z1MWRhaWNZNXVuV3g2M0pMcW9rQWNFVUo1dnBWZjFEXzZBYy1Rb0V2dE15ZUQtRnJOTUR4Vk5WSWpmU0RZU0EzMG9Xb0V1dHdKZ28?oc=5" target="_blank" rel="noopener nofollow">OECD CLI Diffusion Index: Key to Spotting the Next Stock Market Reversal</a></td></tr><tr><td class="d">Sun, 05 Jul</td><td class="d">finance.biggo.com</td><td><a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE9XSTlQVC1jcGZSQlJRLTJtOEZpZGtRejJicEVxNEV5VGU1Ukp1UXFKMFBtZW9vdU16UVotNWVnclFTel9sazE3NWE4STI3V2wzZWlySGxqdlh3eTF4M2dqUFpyeDg0Vkd2SnZqUXdjNmZxVUZjS0E?oc=5" target="_blank" rel="noopener nofollow">IMF Likely to Raise South Korea Growth Forecast to High 2% Range; Samsung Earnings Also in Focus</a></td></tr><tr><td class="d">Sat, 10 Jan</td><td class="d">Nature</td><td><a href="https://news.google.com/rss/articles/CBMiX0FVX3lxTE96cURsbXdRTWJoX1ZVRlJyZUJMa2RoclJMRk1ORmFsT3hfQjNLLURVaXl5UGliNEhHWUEtNE12b3dkRlJxQ1dVMThjZUo3clhWbjNlMVkyVGZmN1ozYjFr?oc=5" target="_blank" rel="noopener nofollow">Redefining economic trajectories: examining the U-shaped dynamics between renewable energy and economic leading indicators</a></td></tr><tr><td class="d">Tue, 12 Nov</td><td class="d">Bain & Company</td><td><a href="https://news.google.com/rss/articles/CBMiowFBVV95cUxPcl90TkdpVmFLcWFaZFhyQks0UWNYWWs1M1BObzNlamhTc2tyYTVweVJ0a2oyYVh2bG5XeWROa1JtLWJsNDNJZml1Zi1KZ2lwT2pmTmlSUS1LTXZYVktualJ2TVA4RzRyUEV2MVpqUU85eWN1TlEwenNyeDZxcHBKQkRjQ09sVFI1Slc5SkFHbUZrWGFvUmswY2taVmNabmdVNXlR?oc=5" target="_blank" rel="noopener nofollow">Unlocking Korea's Growth Potential by Empowering Women in the Workplace</a></td></tr></tbody></table></div></div><p class="dsub" style="margin-top:-14px">출처 구글 뉴스 · 2026-09-03 기준. 뉴스는 이 페이지의 분석과 무관하며 서로 어긋날 수 있다.</p></div>
 <script>
 (function(){
   var gs=document.querySelectorAll('.site-group');
@@ -802,7 +643,8 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   setTimeout(function(){ try{ if(!Object.keys(CH).length) window.rebuild(); }catch(e){} },400);
 })();
 /* DCHART:END */
-</script><script>/* THEME:BEGIN */
+</script><button class="toggle" onclick="__toggleTheme()">&#9728;</button>
+<script>/* THEME:BEGIN */
 (function(){
   var h=document.documentElement;
   try{var v=localStorage.getItem('charlie-theme'); if(v){h.className=v;}}catch(e){}
@@ -826,7 +668,6 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
-<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 <!--TOCJS:BEGIN--><script>
 /* 목차 클릭 보정 — 2026-08-24
    ⚠ 해시가 이미 그 값이면 브라우저가 클릭을 무시한다. 스크롤을 내린 뒤

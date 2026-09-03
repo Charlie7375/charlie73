@@ -2,7 +2,7 @@
 # 출처: OECD Data Explorer / SDMX API
 #   dataflow  OECD.SDD.STES,DSD_STES@DF_CLI,4.1
 #   key       USA.M.BCICP.IX._Z.AA.IX._Z.H
-# 범위 1950-01 ~ 2026-06 (918개월) | Accessed 2026-08-27 | 갱신: scripts/oecd_kospi_monthly.py
+# 범위 1950-01 ~ 2026-06 (918개월) | Accessed 2026-08-31 | 갱신: scripts/oecd_kospi_monthly.py
 #
 # ⚠ 이것은 ISM 제조업지수가 **아니다.** ISM 은 2021년 라이선스 회수로 공개 소스가 없다.
 #   OECD 기업경기실사지수(BCI)는 성격이 비슷한 대용품이다. 100 = 장기추세.
