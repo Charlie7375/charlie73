@@ -64,6 +64,19 @@ function surf(){ return dark() ? '#0E1116' : '#ffffff'; }
 function up(){   return dark() ? '#EF5350' : '#d21f3c'; }
 function dn(){   return dark() ? '#4DD0E1' : '#1161c4'; }
 function base(){ return dark() ? 'rgba(255,255,255,.22)' : 'rgba(15,23,42,.20)'; }
+function line(){ return dark() ? 'rgba(255,255,255,.16)' : 'rgba(15,23,42,.14)'; }
+/* 이름표 앞의 색딱지. 띠 계열(«인플레이션 시대»)은 화면에 7% 투명도로 깔리는데,
+   그 값을 9px 딱지에 그대로 칠하면 **아무 색도 안 보인다** — 이름표가 셋인데
+   딱지는 셋 다 빈칸이 된다. 색조는 그대로 두고 **불투명도만** 올린다.
+   (팔레트를 갈지 않고 밝기만 올리는 shade() 와 같은 원칙이다.) */
+function key(c){
+  if (typeof c !== 'string') return dim();
+  var m = c.match(/^rgba\(([^)]+)\)$/i);
+  if (!m) return c;
+  var q = m[1].split(',');
+  if (q.length < 4 || !(parseFloat(q[3]) < .5)) return c;
+  return 'rgba(' + q[0].trim() + ',' + q[1].trim() + ',' + q[2].trim() + ',.6)';
+}
 
 /* 소수 자리 — 값 크기에 맞춘다. 지수 2,900 에 소수 둘은 군더더기다. */
 function nfmt(v){
@@ -211,7 +224,8 @@ _C.register({
 });
 }catch(e){}
 
-/* ② 차트 위 «지금 값» 타일 ─ 큰 숫자로 한눈에. 범례 노릇도 겸한다. */
+/* ② 차트 위 «지금 값» 타일 ─ 큰 숫자로 한눈에. 범례 노릇도 겸한다.
+   계열이 다섯을 넘으면 숫자를 접고 **이름표만** 남긴다(아래 `big` 참조). */
 function tiles(ch){
   try{
     var box = ch.canvas.parentNode;
@@ -232,16 +246,52 @@ function tiles(ch){
       for (var j = d.data.length - 1; j >= 0; j--) { if (num(d.data[j]) !== null) { li = j; break; } }
       var p = null;
       for (var j = li - 1; j >= 0; j--) { p = num(d.data[j]); if (p !== null) break; }
-      items.push({l: d.label, v: v, p: p, i: i, on: ch.isDatasetVisible(i),
-                  c: (typeof d.borderColor === 'string' ? d.borderColor : dim())});
+      /* ⚠ 색은 «선 색 → 채움 색» 순으로 찾는다. 막대와 띠는 borderColor 가 없어서
+         예전에는 전부 같은 회색으로 나왔다 — 세 개가 같은 회색이면 그건 범례가 아니다.
+         gold-rates 의 «10년물·30년물·Aaa 회사채» 세 타일이 실제로 그랬다(2026-09-03). */
+      /* ⚠ 채움 색이 **배열**인 계열이 있다(막대를 부호별로 초록·빨강으로 칠한 것).
+         그건 딱지 하나로 대신할 색이 없다 — 첫 칸 색을 쓰면 거짓말이 된다. 회색으로 둔다. */
+      var col = key((typeof d.borderColor === 'string') ? d.borderColor
+                  : (typeof d.backgroundColor === 'string') ? d.backgroundColor : dim());
+      items.push({l: d.label, v: v, p: p, i: i, on: ch.isDatasetVisible(i), c: col});
     });
-    if (!items.length || items.length > 4) return;
+    if (!items.length) return;
+
+    /* ★★ 2026-09-03 상수님 «1·4 내용 차트가 범례별로 버튼이 없네»
+       예전에는 계열이 다섯이면 여기서 **그냥 돌아갔다**(`items.length > 4` return).
+       그런데 이 파일은 Chart.js 의 기본 범례도 꺼 놓는다(tweak 의 legend.display:false).
+       둘이 겹치면 **범례도 타일도 없는 차트**가 된다 — 어느 선이 무엇인지 알 방법이
+       사라지고, 본문이 «범례를 눌러 선을 끄고 켤 수 있다»고 적어 둔 것은 거짓말이 된다.
+       gold-rates 의 1·4번 차트(5계열·9계열)가 그랬다. 전수로 세니 **차트 6개**였다 —
+       gold-rates 둘, 코스피·코스닥의 «바닥 7단계»(p7), leadlag g2, liquidity c1.
+       ⚠ 그림체를 안 입힌 장(자료 페이지 90장·종목 20장)은 여기 안 든다. 거기는
+         Chart.js 기본 범례가 켜져 있어서 멀쩡하다 — 세다가 한 번 잘못 셌다.
+       → 다섯부터는 **큰 숫자를 접고 이름표만 남긴다.** 27px 숫자 아홉 개는 못 읽지만
+         이름표 아홉 개는 읽힌다. 켜고 끄는 동작은 넷 이하와 똑같다.
+       ⚠ 넷 이하는 지금 그림 그대로다 — 쓰고 계신 디자인을 바꾸지 않는다.
+       ⚠ 값을 안 적는 이유 — 계열이 다섯을 넘으면 축도 여럿이라 서로 다른 자로 잰 값이
+         한 줄에 서게 되고, «인플레이션 시대» 같은 띠는 애초에 값이 뜻을 갖지 않는다. */
+    var big = items.length <= 4;
+
+    function chip(it){
+      return '<div class="ct-tile" role="button" tabindex="0" data-i="' + it.i + '"' +
+        ' aria-pressed="' + (it.on ? 'true' : 'false') + '"' +
+        ' title="눌러서 이 계열을 켜고 끕니다"' +
+        ' style="cursor:pointer;user-select:none;display:inline-flex;align-items:center;gap:6px;' +
+        'border:1px solid ' + line() + ';border-radius:999px;padding:3px 10px 3px 8px;' +
+        'font-size:12px;letter-spacing:-.01em;color:' + ink() + ';' +
+        'transition:opacity .15s;opacity:' + (it.on ? '1' : '.34') + '">' +
+        '<span style="width:9px;height:9px;border-radius:2px;flex:none;background:' + it.c + '"></span>' +
+        it.l + '</div>';
+    }
 
     var row = document.createElement('div');
     row.className = 'ct-now';
-    row.style.cssText = 'display:flex;flex-wrap:wrap;gap:28px;margin:0 0 14px;' +
-                        'padding:0 2px;align-items:flex-end';
+    row.style.cssText = big
+      ? 'display:flex;flex-wrap:wrap;gap:28px;margin:0 0 14px;padding:0 2px;align-items:flex-end'
+      : 'display:flex;flex-wrap:wrap;gap:7px;margin:0 0 12px;padding:0 2px;align-items:center';
     items.forEach(function(it){
+      if (!big) { row.innerHTML += chip(it); return; }
       var d = (it.p === null) ? null : it.v - it.p;
       var mark = d === null ? '' : (d > 0 ? '▲ ' : (d < 0 ? '▼ ' : '– '));
       var col  = d === null ? dim() : (d > 0 ? up() : (d < 0 ? dn() : dim()));
