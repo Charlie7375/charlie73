@@ -388,6 +388,32 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .hchg .ar{white-space:nowrap}
 .to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
 @media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
+/*TOCCSS:BEGIN*/
+/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
+
+/* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
+   원인은 상단바다. .site-bar 가 position:sticky · 높이 78px 로 화면 맨 위를 덮는데
+   앵커로 이동하면 제목이 정확히 그 아래에 깔린다. 그래서 독자는 제목을 못 보고
+   그 다음 문단부터 보게 된다. 눌러 간 곳과 보이는 글이 어긋나는 것이 이 때문이다.
+   scroll-margin-top 이 0 이었다. 78 에 여백 14 를 더해 92 로 둔다.
+   ⚠ 상단바 높이를 바꾸면 이 값도 같이 바꾼다. 측정: .site-bar 의 getBoundingClientRect().height */
+h2[id],h3[id],[id]:target{scroll-margin-top:92px}
+@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
+ margin:22px 0 24px;background:var(--surface);text-align:left}
+.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
+ color:var(--text-secondary);margin-bottom:7px;text-align:left}
+.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
+.ptoc li{font-size:.9rem}
+.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
+.ptoc a:hover{border-bottom-color:var(--text-secondary)}
+@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
+/*TOCCSS:END*/</style><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><style id="freqcss">
+.freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
+ padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
+ border:1px solid currentColor;opacity:.85}
+.freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
+.freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
 /* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
@@ -658,33 +684,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END *//*TOCCSS:BEGIN*/
-/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
-
-/* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
-   원인은 상단바다. .site-bar 가 position:sticky · 높이 78px 로 화면 맨 위를 덮는데
-   앵커로 이동하면 제목이 정확히 그 아래에 깔린다. 그래서 독자는 제목을 못 보고
-   그 다음 문단부터 보게 된다. 눌러 간 곳과 보이는 글이 어긋나는 것이 이 때문이다.
-   scroll-margin-top 이 0 이었다. 78 에 여백 14 를 더해 92 로 둔다.
-   ⚠ 상단바 높이를 바꾸면 이 값도 같이 바꾼다. 측정: .site-bar 의 getBoundingClientRect().height */
-h2[id],h3[id],[id]:target{scroll-margin-top:92px}
-@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
- margin:22px 0 24px;background:var(--surface);text-align:left}
-.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
- color:var(--text-secondary);margin-bottom:7px;text-align:left}
-.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
-.ptoc li{font-size:.9rem}
-.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
-.ptoc a:hover{border-bottom-color:var(--text-secondary)}
-@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*/</style><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><style id="freqcss">
-.freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
- padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
- border:1px solid currentColor;opacity:.85}
-.freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
-.freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
-</style>
+/* PAPER:END */</style>
 <!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
@@ -706,7 +706,7 @@ tr.cs-now td{background:rgba(43,108,176,.07)}
 <div class="eyebrow">아카이브</div>
 <h1>지수로 만든 신용스프레드는 늦고 채권으로 만든 것은 앞선다</h1>
 <p class="pauth">기준일 2026-08-01 · FRED BAA−AAA 월봉 · S&P 500 월별 · 주 1회 갱신</p>
-<!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#먼저-107년을-한-화면에">먼저 107년을 한 화면에</a></li><li><a href="#쉽게-말하면-이렇다">쉽게 말하면 이렇다</a></li><li><a href="#논점-①-무엇을-어떻게-셌나">논점 ① 무엇을 어떻게 셌나</a></li><li><a href="#논점-②-시대마다-다르다">논점 ② 시대마다 다르다</a></li><li><a href="#논점-③-지금은-얼마나-좁은가">논점 ③ 지금은 얼마나 좁은가</a></li><li><a href="#논점-④-좁으면-위험한가">논점 ④ 좁으면 위험한가</a></li><li><a href="#논점-⑤-그러면-언제-움직이나">논점 ⑤ 그러면 언제 움직이나</a></li><li><a href="#논점-⑥-그림은-벌어지면-떨어진다-로-보인다">논점 ⑥ 그림은 '벌어지면 떨어진다'로 보인다</a></li><li><a href="#논점-⑦-어떤-스프레드로-재느냐">논점 ⑦ 어떤 스프레드로 재느냐</a></li><li><a href="#논점-⑧-공황-등급마다-다른가">논점 ⑧ 공황 등급마다 다른가</a></li><li><a href="#논점-⑨-코스피에는-쓸모가-있나">논점 ⑨ 코스피에는 쓸모가 있나</a></li><li><a href="#논점-⑩-그러면-무엇에-쓰나">논점 ⑩ 그러면 무엇에 쓰나</a></li><li><a href="#자료와-계산-방법">자료와 계산 방법</a></li><li><a href="#이-글이-틀렸다고-인정해야-할-때">이 글이 틀렸다고 인정해야 할 때</a></li></ol></div><!--TOC:END--></header>
+<!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#먼저-107년을-한-화면에">먼저 107년을 한 화면에</a></li><li><a href="#쉽게-말하면-이렇다">쉽게 말하면 이렇다</a></li><li><a href="#논점-①-무엇을-어떻게-셌나">논점 ① 무엇을 어떻게 셌나?</a></li><li><a href="#논점-②-시대마다-다르다">논점 ② 시대마다 다르다</a></li><li><a href="#논점-③-지금은-얼마나-좁은가">논점 ③ 지금은 얼마나 좁은가?</a></li><li><a href="#논점-④-좁으면-위험한가">논점 ④ 좁으면 위험한가</a></li><li><a href="#논점-⑤-그러면-언제-움직이나">논점 ⑤ 그러면 언제 움직이나?</a></li><li><a href="#논점-⑥-그림은-벌어지면-떨어진다-로-보인다">논점 ⑥ 그림은 '벌어지면 떨어진다'로 보인다</a></li><li><a href="#논점-⑦-어떤-스프레드로-재느냐">논점 ⑦ 어떤 스프레드로 재느냐</a></li><li><a href="#논점-⑧-공황-등급마다-다른가">논점 ⑧ 공황 등급마다 다른가</a></li><li><a href="#논점-⑨-코스피에는-쓸모가-있나">논점 ⑨ 코스피에는 쓸모가 있나?</a></li><li><a href="#논점-⑩-그러면-무엇에-쓰나">논점 ⑩ 그러면 무엇에 쓰나?</a></li><li><a href="#자료와-계산-방법">자료와 계산 방법</a></li><li><a href="#이-글이-틀렸다고-인정해야-할-때">이 글이 틀렸다고 인정해야 할 때</a></li></ol></div><!--TOC:END--></header>
 <!-- ⚠ 위 넷은 한 세트다. header.phead + .eyebrow + h1 + p.pauth 를 check_header 가 매일 본다. -->
 
 <!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div>
