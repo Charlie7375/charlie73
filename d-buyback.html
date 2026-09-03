@@ -128,6 +128,15 @@ html.theme-dark .site-dd{box-shadow:0 18px 44px rgba(0,0,0,.55)}
   .site-dd{right:auto;left:50%;transform:translate(-50%,-6px)}
   .site-group.on .site-dd{transform:translate(-50%,0)}
 }
+
+/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
+.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
+  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
+.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
+  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
+  background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
 /* DESIGN:BEGIN */
 /* ── 숫자는 항상 고정폭 — 매일 바뀌는 값에 칸이 흔들리지 않게 ── */
 body{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
@@ -148,7 +157,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── 테마 토글 버튼 (전 페이지 공통) ── */
 /* ⚠⚠ `top:auto` 와 z-index 가 핵심이다 (2026-08-08).
-   생성기 SHELL 들이 `.toggle{position:fixed;top:18px;…}` 를 따로 갖고 있는데(45장),
+   생성기 SHELL 들이 `.toggle{top:62px;z-index:88;position:fixed;…}` 를 따로 갖고 있는데(45장),
    이 규칙은 뒤에 와서 z-index 만 이기고 **위치는 top:18px 가 남았다.**
    그 자리는 sticky 상단바(.site-bar, z-index 90)가 덮는 자리라
    **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 세 번째 원인이다.
@@ -158,16 +167,166 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
   color:var(--text);font-size:17px;cursor:pointer;line-height:1;
   box-shadow:0 2px 14px rgba(0,0,0,.10);transition:transform .12s,box-shadow .12s}
 .toggle:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(0,0,0,.16)}
-/* DESIGN:END */
-/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
-.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
-  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/* BAR:BEGIN */
+/* DESIGN:END *//* LAYOUT:BEGIN */
+:root{--w-data:1440px;--w-chart:1100px;
+  /* 산문 폭은 **고정 px이 아니라 em**이다.
+     ① px로 고정하면 글자를 키워도 한 줄에 담기는 글자 수가 늘어나 도로 길어진다.
+        em이면 글자 크기에 비례해 폭도 같이 자라서 **한 줄 글자 수가 유지**된다.
+     ② min(…,100%)이라 좁은 화면에서는 알아서 줄어든다. 유동이다. */
+  --w-prose:min(50em,100%)}
+
+/* ── ① 데이터층은 전폭 ── */
+/* 폭은 apply_paper.py 가 정한다. 여기서 !important 로 잡으면 그쪽이 못 이긴다.
+   두 곳에서 폭을 정하면 반드시 한쪽이 조용히 진다. */
+.wrap{padding-left:32px!important;padding-right:32px!important}
+
+/* ── ② 해설층은 좁은 단 + 세리프 ──
+   숫자·표·라벨은 산세리프로 남는다. 서체가 바뀌는 지점이 곧 층이 바뀌는 지점이다. */
+.explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{
+  /* ⚠ 가운데 정렬하면 제목은 왼쪽 끝, 본문은 화면 한가운데가 되어 **둘이 따로 논다.**
+       2026-08-02에 2600px 화면에서 그게 드러났다. 제목과 왼쪽을 맞춘다. */
+  max-width:var(--w-prose);margin-left:0!important;margin-right:auto!important;
+  font-size:16.5px;line-height:1.85;letter-spacing:-.004em}
+.explain b,.explain strong,.ebody b,.ebody strong,.hbody b,.hbody strong,.verdict b,.verdict strong,.callout b,.callout strong,.lesson b,.lesson strong,.note b,.note strong,.disclaimer b,.disclaimer strong,.fdetail b,.fdetail strong,.panel-cap b,.panel-cap strong{font-weight:600}
+.explain code,.explain .num,.explain table,.ebody code,.ebody .num,.ebody table,.hbody code,.hbody .num,.hbody table,.verdict code,.verdict .num,.verdict table,.callout code,.callout .num,.callout table,.lesson code,.lesson .num,.lesson table,.note code,.note .num,.note table,.disclaimer code,.disclaimer .num,.disclaimer table,.fdetail code,.fdetail .num,.fdetail table,.panel-cap code,.panel-cap .num,.panel-cap table{
+  font-family:inherit}
+.explain h2,.explain h3,.explain h4,.ebody h2,.ebody h3,.ebody h4,.hbody h2,.hbody h3,.hbody h4,.verdict h2,.verdict h3,.verdict h4,.callout h2,.callout h3,.callout h4,.lesson h2,.lesson h3,.lesson h4,.note h2,.note h3,.note h4,.disclaimer h2,.disclaimer h3,.disclaimer h4,.fdetail h2,.fdetail h3,.fdetail h4,.panel-cap h2,.panel-cap h3,.panel-cap h4{font-family:inherit}
+
+/* 해설 박스 안의 소제목 — 박스 밖 h2와 같은 크기면 위계가 무너진다.
+   본문보다 한 단만 크게, 위로 여백을 줘서 문단 묶음이 눈에 보이게 한다. */
+.explain h2,.ebody h2,.hbody h2,.verdict h2,.callout h2,.lesson h2,.note h2,.disclaimer h2,.fdetail h2,.panel-cap h2{
+  font-size:1.06em;font-weight:700;margin:22px 0 9px;letter-spacing:-.01em}
+.explain h2:first-child,.ebody h2:first-child,.hbody h2:first-child,.verdict h2:first-child,.callout h2:first-child,.lesson h2:first-child,.note h2:first-child,.disclaimer h2:first-child,.fdetail h2:first-child,.panel-cap h2:first-child{margin-top:0}
+.explain p,.ebody p,.hbody p,.verdict p,.callout p,.lesson p,.note p,.disclaimer p,.fdetail p,.panel-cap p{margin:0 0 11px}
+.explain p:last-child,.ebody p:last-child,.hbody p:last-child,.verdict p:last-child,.callout p:last-child,.lesson p:last-child,.note p:last-child,.disclaimer p:last-child,.fdetail p:last-child,.panel-cap p:last-child{margin-bottom:0}
+
+/* ── 폰트 통일 — 나눔고딕 ──
+   본문·제목·표·차트 라벨까지 한 벌로 간다. 예전엔 해설층만 세리프를 썼는데,
+   서체가 둘이면 같은 페이지 안에서 글자 크기와 행간이 미묘하게 어긋난다. */
+html body,html body h1,html body h2,html body h3,html body h4,
+html body table,html body button,html body input,html body .site-brand,
+html body .eyebrow,html body .sub,html body .card,html body .st-v,html body .st-l{
+  font-family:'Nanum Gothic','나눔고딕',AppleGothic,sans-serif!important}
+
+/* 차트는 전폭까지 늘리면 납작해진다 — 따로 잡는다 */
+.chart,.chart-box,.chart-container{max-width:var(--w-chart);margin-left:auto;margin-right:auto}
+
+/* 푸터 본문은 1440px 전폭으로 흐르면 한 줄이 100자를 넘는다 */
+.foot-in p,.foot-in>br{max-width:var(--w-prose)}
+.foot-in{padding-left:32px!important;padding-right:32px!important}
+
+/* 섹션 제목도 랜딩 크기(40px)라 밀도와 안 맞는다 */
+.sec-head h2{font-size:clamp(22px,2.2vw,26px)!important}
+.sec-head p{font-size:15px!important;max-width:var(--w-prose)!important;margin-left:0}
+.sub{font-size:16px!important;max-width:var(--w-prose)!important;line-height:1.7}
+.sec,.status{padding-left:32px!important;padding-right:32px!important}
+
+/* ── ③ 세로 간격 압축 ── */
+.sec{padding-bottom:48px!important}
+.sec-head{padding:28px 0 16px!important}
+.wrap{padding-top:28px!important}
+
+/* ── ④ 카드 밀도 ── */
+.card{padding:18px 20px 16px!important;border-radius:12px!important}
+.card::after{border-radius:12px!important}
+.card h3{margin-top:12px!important;font-size:17px!important}
+.card p{margin-top:7px!important;font-size:13px!important;line-height:1.6!important}
+.card .tag{font-size:11px!important;padding:3px 9px!important}
+.card .go{margin-top:14px!important;font-size:13px!important}
+.grid{gap:12px!important}
+@media(min-width:1200px){.g3{grid-template-columns:repeat(4,1fr)!important}
+  .g2{grid-template-columns:repeat(3,1fr)!important}}
+
+/* ── ⑤ CDS 컴포넌트 문법 — 헤어라인, 그림자 없음 ── */
+.card::after,.st-c,.compare::after,.panel,table td,table th{border-width:.5px!important}
+.card:hover{transform:none!important;box-shadow:none!important}
+.card:hover::after{border-color:var(--text3)!important}
+html.theme-dark .card:hover{box-shadow:none!important}
+
+/* 상태판은 숫자가 주인공이라 굵기를 안 내린다 */
+.st-v{font-weight:700!important}
+
+/* ── ⑦ index 첫 화면 — 세 층 구조 (2026-08-20) ──
+   다섯 섹션이 같은 4열 카드를 쓰던 탓에 «매일 바뀌는 것»과 «영원히 안 바뀌는 것»이
+   똑같이 생겼다. 층마다 다른 구조를 준다 — 라이브는 격자, 판단은 큰 카드, 참고는 목록.
+   ⚠ 선택자를 `a.card` 로 좁힌 것은 일부러다. bottom-top·disparity-3 의 `div.card` 는
+     차트 상자라 같은 이름을 쓰지만 다른 것이다. 거기까지 번지면 안 된다. */
+:root{--w-sec:1080px}   /* 상태판(build_status.py 의 .status max-width)과 **같은 값**이다.
+     달랐던 탓에 스트립은 L205, 카드는 L245 에서 시작해 첫 화면에 왼쪽 끝이 둘이었다.
+     ⚠ build_status.py 에서 1080 을 바꾸면 여기도 같이 바꾼다. 두 곳이 한 줄을 그린다. */
+.sec{max-width:var(--w-sec)!important}
+
+/* 리드 한 줄 — 푸터에 있던 첫 문장을 올린 것이다. 히어로 블록이 아니다 */
+.idx-lede{max-width:var(--w-sec);margin:30px auto 0;padding:0 32px}
+.idx-lede h1{margin:0;font-size:clamp(19px,1.85vw,23px);font-weight:700;
+  line-height:1.45;letter-spacing:-.022em;color:var(--text)}
+.idx-lede+.status{margin-top:16px!important}
+
+/* 층 구분자 — 제목 위 꼬리표가 아니라 «여기서부터 성격이 바뀐다»는 선이다.
+   그래서 글자 오른쪽으로 선이 끝까지 흐른다. */
+.tier-r{display:flex;align-items:center;gap:14px;
+  max-width:var(--w-sec);margin:54px auto 0;padding:0 32px;
+  font-size:12px;font-weight:800;letter-spacing:.055em;color:var(--text3)}
+.tier-r::after{content:"";flex:1;height:1px;background:var(--border)}
+.tier-r:first-of-type{margin-top:34px}
+.tier-r+.sec .sec-head{padding-top:16px!important}
+
+/* 격자 셋 */
+@media(min-width:1100px){
+  .g-today{grid-template-columns:repeat(3,1fr)!important}
+  .g-judge{grid-template-columns:repeat(2,1fr)!important}
+}
+.g-watch{grid-template-columns:repeat(auto-fill,minmax(196px,1fr))!important}
+
+/* 소속 배지를 걷었으니 제목 위 여백도 없앤다 */
+a.card h3{margin-top:0!important}
+
+/* 판단 첫 장 — 중공황 전조현상이 이 사이트의 본론이다 */
+.g-judge>a.card:first-child{grid-column:1/-1}
+.g-judge>a.card:first-child h3{font-size:21px!important}
+.g-judge>a.card:first-child p{font-size:14px!important;max-width:64ch}
+
+/* 관심종목 — 이름이 주인공, 설명은 한 줄짜리 꼬리표 */
+.g-watch a.card{padding:14px 16px 13px!important}
+.g-watch a.card h3{font-size:15.5px!important}
+.g-watch a.card p{margin-top:4px!important;font-size:12.5px!important;line-height:1.5!important}
+
+/* ── 목록층 — 카드에서 내린 방법론·아카이브 ──
+   21편을 카드로 두면 스크롤의 절반을 «안 바뀌는 것»이 가져간다. */
+.lst{display:grid;gap:26px 34px;grid-template-columns:1fr;align-items:start}
+@media(min-width:820px){.lst{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1280px){.lst{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:820px){.lst-flat{grid-template-columns:repeat(2,1fr)}}
+.lst-h{display:flex;align-items:baseline;gap:7px;margin:0 0 6px;
+  font-size:12px;font-weight:800;letter-spacing:.04em;color:var(--text3)}
+.lst-n{font-weight:400;opacity:.6}
+.lst-i{display:block;padding:9px 10px;margin:0 -10px;border-radius:9px;
+  text-decoration:none;transition:background .13s ease}
+.lst-i{box-shadow:inset 0 .5px 0 var(--border)}
+.lst-t{display:block;font-size:14.5px;font-weight:600;line-height:1.4;
+  color:var(--text);letter-spacing:-.012em}
+/* 두 줄에서 자른다 — 훅은 남기고 높이는 묶는다 */
+.lst-d{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;
+  overflow:hidden;margin-top:3px;font-size:12.5px;line-height:1.55;color:var(--text3)}
+.lst-d b{font-weight:400}
+.lst-i:hover{background:color-mix(in srgb,var(--text) 6%,transparent)}
+.lst-i:hover .lst-t{color:var(--accent)}
+
+/* 새로 만든 링크를 브라우저 기본 링만 믿고 내보내지 않는다 */
+a.card:focus-visible,.lst-i:focus-visible{
+  outline:2px solid var(--accent);outline-offset:3px;border-radius:10px}
+
+@media(max-width:900px){
+  .idx-lede,.tier-r{padding-left:18px!important;padding-right:18px!important}
+  .tier-r{margin-top:40px}
+  .g-watch{grid-template-columns:repeat(auto-fill,minmax(148px,1fr))!important}
+}
+
+@media(max-width:900px){
+  .wrap{padding-left:18px!important;padding-right:18px!important}
+  .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
+}
+/* LAYOUT:END *//* BAR:BEGIN */
 /* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
    flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
 html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
@@ -184,7 +343,27 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
   html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
   html body .site-bar-in{padding:9px 14px 7px}
 }
-/* BAR:END *//* PAPER:BEGIN */
+/* BAR:END *//*TOCCSS:BEGIN*/
+/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
+
+/* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
+   원인은 상단바다. .site-bar 가 position:sticky · 높이 78px 로 화면 맨 위를 덮는데
+   앵커로 이동하면 제목이 정확히 그 아래에 깔린다. 그래서 독자는 제목을 못 보고
+   그 다음 문단부터 보게 된다. 눌러 간 곳과 보이는 글이 어긋나는 것이 이 때문이다.
+   scroll-margin-top 이 0 이었다. 78 에 여백 14 를 더해 92 로 둔다.
+   ⚠ 상단바 높이를 바꾸면 이 값도 같이 바꾼다. 측정: .site-bar 의 getBoundingClientRect().height */
+h2[id],h3[id],[id]:target{scroll-margin-top:92px}
+@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
+ margin:22px 0 24px;background:var(--surface);text-align:left}
+.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
+ color:var(--text-secondary);margin-bottom:7px;text-align:left}
+.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
+.ptoc li{font-size:.9rem}
+.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
+.ptoc a:hover{border-bottom-color:var(--text-secondary)}
+@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
+/*TOCCSS:END*//* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -454,30 +633,10 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END *//*TOCCSS:BEGIN*/
-/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
-
-/* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
-   원인은 상단바다. .site-bar 가 position:sticky · 높이 78px 로 화면 맨 위를 덮는데
-   앵커로 이동하면 제목이 정확히 그 아래에 깔린다. 그래서 독자는 제목을 못 보고
-   그 다음 문단부터 보게 된다. 눌러 간 곳과 보이는 글이 어긋나는 것이 이 때문이다.
-   scroll-margin-top 이 0 이었다. 78 에 여백 14 를 더해 92 로 둔다.
-   ⚠ 상단바 높이를 바꾸면 이 값도 같이 바꾼다. 측정: .site-bar 의 getBoundingClientRect().height */
-h2[id],h3[id],[id]:target{scroll-margin-top:92px}
-@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
- margin:22px 0 24px;background:var(--surface);text-align:left}
-.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
- color:var(--text-secondary);margin-bottom:7px;text-align:left}
-.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
-.ptoc li{font-size:.9rem}
-.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
-.ptoc a:hover{border-bottom-color:var(--text-secondary)}
-@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*/</style><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body><div class="site-bar"><div class="site-bar-in">
+/* PAPER:END */</style><link rel="stylesheet" href="vendor/fonts.css"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body><div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="macro-timeline.html">거시 이벤트 연대기</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-nhn.html">NHN</a><a href="stock-kolmar.html">한국콜마</a><a href="stock-cosmax.html">코스맥스</a><a href="stock-pharmaresearch.html">파마리서치</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="us-credit-spread.html">미국 신용스프레드는 주가를 앞서지 않는다</a><a href="us-elections.html">미국 선거와 증시</a><a href="gold-rates.html">금과 장기금리는 시대마다 반대로 움직인다</a><a href="treasury-trust.html">국채는 부도로 무너지지 않는다</a><a href="deleveraging.html">강제청산은 어떻게 끝나는가</a><a href="inflation-playbook.html">인플레 시대에 무엇이 통했나</a><a href="rates-century.html">미국 금리 100년과 인플레 시대</a><a href="memory-price.html">메모리 가격과 반도체 주가</a><a href="breadth-concentration.html">신고가 쏠림배수 2023~2026</a><a href="kospi-analog.html">지금과 닮은 과거 — 유사국면</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><div class="site-group"><button class="" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 73계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a href="data-kr-rates.html">한국 금리</a><a href="data-us-market.html">미국 시장</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a href="data-fx.html">환율·원자재·암호</a><a href="data-macro.html">재정·거시</a></div></div><!-- NAV:END --></nav>
-</div></div><div class="wrap paper dwrap"><a class="dback" href="data-macro.html">← 재정·거시</a><header class="phead"><span class="eb">원자료 · 재정·거시</span><h1>미국 국채 되사기</h1><p class="pauth">Treasury Fiscal Data · buybacks_operations · 달러 · 작전별</p><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#한도">한도</a></li><li><a href="#최근-30개">최근 30개</a></li><li><a href="#관련-뉴스">관련 뉴스</a></li></ol></div><!--TOC:END--></header><div class="dsum"><p class="w">재무부가 이미 발행한 국채를 되사는 작전의 한도와 실제 매입액이다.</p><p class="u">거래가 잘 안 되는 옛 국채를 걷어 국채시장을 매끄럽게 하려는 조치다.</p></div><dl class="dmeta"><dt>출처</dt><dd><a href="https://fiscaldata.treasury.gov" target="_blank" rel="noopener">Treasury Fiscal Data · buybacks_operations ↗</a></dd><dt>파일</dt><dd><code>미국_국채되사기_작전별.csv</code></dd><dt>단위</dt><dd>달러</dd><dt>쓰는 글</dt><dd><a href="treasury-trust.html">treasury-trust</a></dd><dt>내려받기</dt><dd><a href="../_sources_dl/미국_국채되사기_작전별.csv">미국_국채되사기_작전별.csv 내려받기</a> <span style="color:var(--text-secondary)">(17 KB)</span></dd></dl><div class="dkpi"><div class="k"><div class="l">지금 값</div><div class="v">12,500,000,000</div><div class="s">2026-09-03 · 달러</div></div><div class="k"><div class="l">자료 범위</div><div class="v" style="font-size:15px">2000-03-09<br>~ 2026-09-03</div><div class="s">219개</div></div><div class="k"><div class="l">갱신</div><div class="v" style="font-size:17px">작전별</div><div class="s">자동</div></div></div><div class="panel dpanel"><div class="panel-head"><h2 id="한도" class="psub">한도</h2><div class="rng"><button type="button" data-y="1">1년</button><button type="button" data-y="0" class="on">전체</button></div></div><div class="cbox2"><canvas id="c"></canvas></div><p class="panel-cap">세로축은 로그눈금이다. 최고가 최저의 500배라 선형 눈금으로는 최근 구간이 바닥에 눕는다. 매입 은(는) 한도 와 2% 안쪽으로 붙어 다녀 겹쳐 그려도 한 줄로 보인다. 그림에서만 뺐고 아래 표에는 있다.</p><div class="srcline"><span>Treasury Fiscal Data · buybacks_operations</span><span>달러 · 작전별</span></div></div><script>(window.__DATA=window.__DATA||[]).push({"id": "c", "lab": ["2024-04-03", "2024-04-10", "2024-04-17", "2024-05-29", "2024-06-05", "2024-06-11", "2024-06-20", "2024-06-26", "2024-07-02", "2024-07-10", "2024-07-17", "2024-07-18", "2024-07-24", "2024-08-07", "2024-08-15", "2024-08-21", "2024-08-21", "2024-08-28", "2024-09-04", "2024-09-05", "2024-09-10", "2024-09-12", "2024-09-17", "2024-09-19", "2024-09-24", "2024-09-25", "2024-10-02", "2024-10-10", "2024-10-16", "2024-10-23", "2024-10-31", "2024-11-06", "2024-11-13", "2024-11-20", "2024-11-25", "2024-12-04", "2024-12-05", "2024-12-09", "2024-12-10", "2024-12-17", "2024-12-19", "2025-01-07", "2025-01-09", "2025-01-15", "2025-01-22", "2025-01-28", "2025-02-06", "2025-02-12", "2025-02-20", "2025-02-26", "2025-03-05", "2025-03-11", "2025-03-12", "2025-03-18", "2025-03-20", "2025-03-26", "2025-03-27", "2025-04-02", "2025-04-03", "2025-04-08", "2025-04-10", "2025-04-15", "2025-04-16", "2025-04-22", "2025-04-23", "2025-05-01", "2025-05-06", "2025-05-15", "2025-05-21", "2025-05-29", "2025-06-03", "2025-06-04", "2025-06-10", "2025-06-12", "2025-06-17", "2025-06-25", "2025-07-02", "2025-07-10", "2025-07-16", "2025-07-23", "2025-07-31", "2025-08-06", "2025-08-13", "2025-08-19", "2025-08-21", "2025-08-26", "2025-09-03", "2025-09-10", "2025-09-18", "2025-09-24", "2025-10-01", "2025-10-02", "2025-10-07", "2025-10-16", "2025-10-22", "2025-10-28", "2025-11-05", "2025-11-12", "2025-11-18", "2025-11-20", "2025-11-25", "2025-12-03", "2025-12-04", "2025-12-11", "2025-12-17", "2025-12-18", "2025-12-23", "2026-01-08", "2026-01-14", "2026-01-16", "2026-01-21", "2026-01-22", "2026-01-27", "2026-02-04", "2026-02-05", "2026-02-10", "2026-02-19", "2026-02-24", "2026-02-25", "2026-03-02", "2026-03-04", "2026-03-05", "2026-03-10", "2026-03-12", "2026-03-17", "2026-03-19", "2026-03-25", "2026-03-26", "2026-04-01", "2026-04-09", "2026-04-15", "2026-04-16", "2026-04-22", "2026-04-23", "2026-04-28", "2026-05-06", "2026-05-07", "2026-05-13", "2026-05-19", "2026-05-21", "2026-05-28", "2026-06-03", "2026-06-04", "2026-06-09", "2026-06-11", "2026-06-16", "2026-06-24", "2026-06-25", "2026-07-01", "2026-07-09", "2026-07-16", "2026-07-22", "2026-07-23", "2026-07-28", "2026-08-06", "2026-08-11", "2026-08-18", "2026-08-20", "2026-08-25", "2026-09-03"], "ser": [{"name": "한도", "val": [200000000.0, 200000000.0, 200000000.0, 2000000000.0, 2000000000.0, 500000000.0, 2000000000.0, 2000000000.0, 2000000000.0, 500000000.0, 2000000000.0, 2000000000.0, 2000000000.0, 4000000000.0, 2000000000.0, 500000000.0, 500000000.0, 2000000000.0, 4000000000.0, 5000000000.0, 4000000000.0, 5000000000.0, 500000000.0, 5000000000.0, 2000000000.0, 5000000000.0, 500000000.0, 4963000000.0, 4000000000.0, 500000000.0, 2000000000.0, 500000000.0, 4000000000.0, 2000000000.0, 2000000000.0, 7500000000.0, 4000000000.0, 4000000000.0, 7500000000.0, 500000000.0, 7500000000.0, 2000000000.0, 500000000.0, 4000000000.0, 4000000000.0, 500000000.0, 2000000000.0, 4000000000.0, 500000000.0, 2000000000.0, 2000000000.0, 4000000000.0, 8500000000.0, 4000000000.0, 8500000000.0, 500000000.0, 8500000000.0, 2000000000.0, 8500000000.0, 500000000.0, 8500000000.0, 4000000000.0, 8500000000.0, 4000000000.0, 8500000000.0, 500000000.0, 2000000000.0, 4000000000.0, 500000000.0, 2000000000.0, 10000000000.0, 2000000000.0, 10000000000.0, 4000000000.0, 4000000000.0, 500000000.0, 2000000000.0, 4000000000.0, 500000000.0, 4000000000.0, 2000000000.0, 500000000.0, 750000000.0, 4000000000.0, 2000000000.0, 4000000000.0, 2000000000.0, 2000000000.0, 2000000000.0, 750000000.0, 4000000000.0, 2000000000.0, 2000000000.0, 4000000000.0, 4000000000.0, 2000000000.0, 2000000000.0, 500000000.0, 4000000000.0, 2000000000.0, 750000000.0, 12500000000.0, 2000000000.0, 12500000000.0, 4000000000.0, 2000000000.0, 500000000.0, 2000000000.0, 2000000000.0, 4000000000.0, 4000000000.0, 2000000000.0, 750000000.0, 4000000000.0, 2000000000.0, 2000000000.0, 4000000000.0, 2000000000.0, 750000000.0, 30000000.0, 4000000000.0, 2000000000.0, 15000000000.0, 4000000000.0, 15000000000.0, 2000000000.0, 500000000.0, 2000000000.0, 15000000000.0, 2000000000.0, 2000000000.0, 15000000000.0, 15000000000.0, 4000000000.0, 2000000000.0, 2000000000.0, 4000000000.0, 750000000.0, 4000000000.0, 4000000000.0, 500000000.0, 2000000000.0, 12500000000.0, 2000000000.0, 12500000000.0, 4000000000.0, 750000000.0, 2000000000.0, 2000000000.0, 4000000000.0, 2000000000.0, 750000000.0, 2000000000.0, 2000000000.0, 4000000000.0, 2000000000.0, 2000000000.0, 4000000000.0, 4000000000.0, 12500000000.0], "grp": 0}], "log": true});</script><h2 id="최근-30개" class="dsec">최근 30개</h2><p class="dsub">전체 219개 가운데 마지막 30개다.</p><div class="dtable"><div class="tblwrap"><table><thead><tr><th>날짜</th><th class="n">한도</th><th class="n">매입</th></tr></thead><tbody><tr><td>2026-09-03</td><td class="n">12,500,000,000</td><td class="n"></td></tr><tr><td>2026-08-25</td><td class="n">4,000,000,000</td><td class="n">1,191,000,000</td></tr><tr><td>2026-08-20</td><td class="n">4,000,000,000</td><td class="n">1,860,000,000</td></tr><tr><td>2026-08-18</td><td class="n">2,000,000,000</td><td class="n">2,000,000,000</td></tr><tr><td>2026-08-11</td><td class="n">2,000,000,000</td><td class="n">2,000,000,000</td></tr><tr><td>2026-08-06</td><td class="n">4,000,000,000</td><td class="n">4,000,000,000</td></tr><tr><td>2026-07-28</td><td class="n">2,000,000,000</td><td class="n">2,000,000,000</td></tr><tr><td>2026-07-23</td><td class="n">2,000,000,000</td><td class="n">2,000,000,000</td></tr><tr><td>2026-07-22</td><td class="n">750,000,000</td><td class="n">405,000,000</td></tr><tr><td>2026-07-16</td><td class="n">2,000,000,000</td><td class="n">2,000,000,000</td></tr><tr><td>2026-07-09</td><td class="n">4,000,000,000</td><td class="n">2,295,000,000</td></tr><tr><td>2026-07-01</td><td class="n">2,000,000,000</td><td class="n">2,000,000,000</td></tr><tr><td>2026-06-25</td><td class="n">2,000,000,000</td><td class="n">2,000,000,000</td></tr><tr><td>2026-06-24</td><td class="n">750,000,000</td><td class="n">750,000,000</td></tr><tr><td>2026-06-16</td><td class="n">4,000,000,000</td><td class="n">570,000,000</td></tr><tr><td>2026-06-11</td><td class="n">12,500,000,000</td><td class="n">12,078,000,000</td></tr><tr><td>2026-06-09</td><td class="n">2,000,000,000</td><td class="n">2,000,000,000</td></tr><tr><td>2026-06-04</td><td class="n">12,500,000,000</td><td class="n">12,500,000,000</td></tr><tr><td>2026-06-03</td><td class="n">2,000,000,000</td><td class="n">2,000,000,000</td></tr><tr><td>2026-05-28</td><td class="n">500,000,000</td><td class="n">91,000,000</td></tr><tr><td>2026-05-21</td><td class="n">4,000,000,000</td><td class="n">300,000,000</td></tr><tr><td>2026-05-19</td><td class="n">4,000,000,000</td><td class="n">1,674,000,000</td></tr><tr><td>2026-05-13</td><td class="n">750,000,000</td><td class="n">735,000,000</td></tr><tr><td>2026-05-07</td><td class="n">4,000,000,000</td><td class="n">4,000,000,000</td></tr><tr><td>2026-05-06</td><td class="n">2,000,000,000</td><td class="n">2,000,000,000</td></tr><tr><td>2026-04-28</td><td class="n">2,000,000,000</td><td class="n">2,000,000,000</td></tr><tr><td>2026-04-23</td><td class="n">4,000,000,000</td><td class="n">358,000,000</td></tr><tr><td>2026-04-22</td><td class="n">15,000,000,000</td><td class="n">15,000,000,000</td></tr><tr><td>2026-04-16</td><td class="n">15,000,000,000</td><td class="n">15,000,000,000</td></tr><tr><td>2026-04-15</td><td class="n">2,000,000,000</td><td class="n">2,000,000,000</td></tr></tbody></table></div></div><h2 id="관련-뉴스" class="dsec">관련 뉴스</h2><p class="dsub">제목에 그 낱말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.</p><p class="dsub">국내: 「미국 국채 바이백」 로 찾았다.</p><div class="dtable"><div class="tblwrap"><table><tbody><tr><td class="d">Tue, 01 Sep</td><td class="d">ebn.co.kr</td><td><a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTE9oRGktSHQ4ZVBHQk9zZHRwSDQ3YUJrX0VLRFFkaS1hN25IWUhfbDQ4UE9tODBGR1drN0N3Qi1VSmRTVG5YZ1NhOUtXWFRHd01fXzNMVjA1TU9WWkNqdkJXNElzNkk0aGhj?oc=5" target="_blank" rel="noopener nofollow">美국채 ‘5%대 경고등’…베선트, 바이백·日 압박 총동원</a></td></tr><tr><td class="d">Mon, 31 Aug</td><td class="d">v.daum.net</td><td><a href="https://news.google.com/rss/articles/CBMiRkFVX3lxTFBldXNnVHdoaXVoM2IyakhqbE5peF9QQUJ5VXlkTmZxZ3NJNHNYbV9RME1YQVJQUWNRWDU2WHhZM3RXc3pxeFE?oc=5" target="_blank" rel="noopener nofollow">베선트, 국채 바이백 확대 옹호…"美 채권시장 성과 가장 좋아"</a></td></tr><tr><td class="d">Sun, 30 Aug</td><td class="d">블루밍비트</td><td><a href="https://news.google.com/rss/articles/CBMiUEFVX3lxTE13OGVTbGNjeERaZk9wNlptNktrdGVmMGZkMWYtbnpnaGZEby1CakZzb3B4WTVFVi04ajBSdnZxX0puMUt1NWNqVTNOREp3WHpw?oc=5" target="_blank" rel="noopener nofollow">금, 8월 10% 급등…美 국채 바이백에 금·비트코인 동반 강세</a></td></tr><tr><td class="d">Fri, 28 Aug</td><td class="d">KB Think</td><td><a href="https://news.google.com/rss/articles/CBMickFVX3lxTFA5OUhCQWNPZWQtTF9pbzJGcWdaY0NkU1QtWXZFNFlMV3NDSTlEOWJDMVQtOEV3d1ZEUnptcTgwUmRQS0lXMkRBdW5wVEpYRXEwc2x3MENtb08zRVhrN21Wa1dfWXJqQ3c2Qktnbkdrb1lTUQ?oc=5" target="_blank" rel="noopener nofollow">비트코인 8만달러대 안착…국채 바이백·규제 완화에 알트코인 순환매</a></td></tr><tr><td class="d">Thu, 20 Aug</td><td class="d">뉴스토마토</td><td><a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE5EeGw3dzJUZ0owWDVYbkd1aXFrdFRVWDV3Q2kxdWxicWNrYk1QOHkySERCVlptUVJFaVp4Y2YxNGVvOE9HNXBYNVVKREs2djhSdlRwTDZSYnpYbC1WbDlBYw?oc=5" target="_blank" rel="noopener nofollow">미국 국채 바이백 확대에…글로벌 증시 '안도'</a></td></tr><tr><td class="d">Sun, 30 Aug</td><td class="d">자본시장뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5xR2pLMFlkWTFUYjM0Zl9Vc0dYYmx0eHNvS1R3c29RbFpyTjhuUkNaRkRXUTQtMlBKcHlsb0EtZ0VaSDlMX0FqRGFFc2haZm1FTS13d042QkJBbFFZNTV1WERXTjdjR1E?oc=5" target="_blank" rel="noopener nofollow">[코인국채 ①] 비트코인 8만달러 뒤엔 국채…바이백 두 배로</a></td></tr></tbody></table></div></div><p class="dsub">해외: 「Treasury buyback」 로 찾았다. 이 자료의 출처가 외국이라 함께 본다.</p><div class="dtable"><div class="tblwrap"><table><tbody><tr><td class="d">Mon, 31 Aug</td><td class="d">Bloomberg.com</td><td><a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxQX3RoMGQyNlRUcVFuN1JyS05GbFdwb01NNjM3QjQzYi0tQlB4Wk9BdkMzMHgtbEdnUWFTc0hGLVFqYzBLM0RqTzl4WHZfUUNqSlpvTTdVMHZxb2E2MkMwT1RxQlY5aVY1RzFUSmRzWEw0SkFGdWVsRk51NHpIRW5xTTUydXpIRWFpdmxRN1dma2VaQ3pndTZTcWptUGFnNGttcUJMUzhCNkJWNGJzVUtB?oc=5" target="_blank" rel="noopener nofollow">Dollar Set to Weaken for a Second Month on Treasury Buyback</a></td></tr><tr><td class="d">Mon, 31 Aug</td><td class="d">Seeking Alpha</td><td><a href="https://news.google.com/rss/articles/CBMipwFBVV95cUxQR25KemNwSHUzRFY3Nm1ldGZreXlKcU16XzZESHZZREZHVDU2bDZDZlh3eUI4dzQtT0VIdXoycjdZSlpKYTY2YzlWVmRpenE3MUxyRzJ1THM3NHdFME5oSUVMMmpVSkpoNUVsZklKc2plSVNobkwyOU9nT0JqcUpXZVQ5RjVfUkcxQjRQVGwyWm90TUUtQ21uQVZSQ21hcUFLTHhTTWZ4TQ?oc=5" target="_blank" rel="noopener nofollow">The Tangible Benefit To The Treasury From Their Buyback Program (NYSEARCA:SPY)</a></td></tr><tr><td class="d">Wed, 19 Aug</td><td class="d">CNBC</td><td><a href="https://news.google.com/rss/articles/CBMiwgFBVV95cUxQN1dkbVJYY1BSZVN0VHZfNE9NSUVfaklpeUh5LTVLUTltMmxFX296QVNtSmtwYnh2ajZqYnlmRnJYXzc2Qk9CRm1PUnhGeVhTeGhJbVh5R3IwaGZWczhIaTF6WFpRbzRhM2tqekN0V2ZWQUozUHV6ZG9VeHNIRktITHo0bTJRTkxXY2dHd0swRWM1SEhzQTVEYlZ2ZTV1QXIxMEc0VTRzZ0pSRUpieFZsVnc4bEFwbFphUGhqZmxyZTlJd9IBxwFBVV95cUxQYUJJNDU3ZGxHeXNXMENUQXYzY3VVOU1JVmxEb0NJUExweVZiWGRLZmZqTE5HUHpKenJ3NTM0Vzk5UVBFRm1VUEdUOVVoOVBscS1kbmRWTDhHYmV3STdOd0dYOWRRUVZ2TWNSVUY5eTFENklCWTc4WnZoSDdUeHBFQ0NjbG5WOFVVYzRlaTEwT05KU0F6UHl2dXRWaHhCVkY3WVNvb3VDWml3djFhRm9VZFJQU3d1WFh1RG96OHpCdWZqdWlVMlZz?oc=5" target="_blank" rel="noopener nofollow">Treasury doubles debt buybacks as Bessent moves to steady bond market</a></td></tr><tr><td class="d">Wed, 19 Aug</td><td class="d">invesco.com</td><td><a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxPUUVfU1k4Ny16bzN3LVBvTG9rWnc3SkZSRHpXc3VRaWx0ZFM3N3drX3BWU0VKRWQ2UzFkaGpqM1I4VnZmVlVHNEYtLUlQUzdXXzBRQ0p0M3p5VFk4TDYzQmFxaHpmTnRnQ3NOdWF5akhGMldQd1cwNmN6emstUzBORFdGTElEUQ?oc=5" target="_blank" rel="noopener nofollow">New Treasury buyback eases ‘debt reckoning’ worries</a></td></tr><tr><td class="d">Thu, 20 Aug</td><td class="d">Yahoo Finance</td><td><a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxPYnFyd0RhbzE2c2NUX1JUUXM5Z2xzLUs1X1h1LW4wSDg5Q21KVTJCVkR2RW1vdWFpMWhzd25LS0g1eXVIZmx2NnYtcVptYXRiQ2trcWtZREhmeDRuNi1sS0xkM3gtWFNRcG9iMGJfZ29VYWhGVU1rNUlCQmVzVzFMVUd4S094Y3VudWpqdTlpeFBpZGZHMDlSaVVaYU4?oc=5" target="_blank" rel="noopener nofollow">US Treasury buyback strategy falls short as debt worries persist</a></td></tr><tr><td class="d">Fri, 21 Aug</td><td class="d">Reuters</td><td><a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxPTWc4bVJ0eEl6MmpreFhiWU9RajRyM05KRDVuNU01TkZnY3UxRTdHSkFBTEwtWVV3dHJfczQyS0dNcW9uR2s4cXRDUmN6Y1FjaUZULWpxejJGMUdRWHlnQi1rekZjN2hyQXJmUXZlMGJocGFkaVQwOUtQMWFNYUVyZG9WQnBtYUlEQVdvdnp0dnE1aTlRNUZ1Q1d6OFUyb2IyTEluOXB6Y0RIU0JOSzhmS1l3?oc=5" target="_blank" rel="noopener nofollow">Treasury's Bessent says upsized bond buybacks could increase further</a></td></tr></tbody></table></div></div><p class="dsub" style="margin-top:-14px">출처 구글 뉴스 · 2026-09-03 기준. 뉴스는 이 페이지의 분석과 무관하며 서로 어긋날 수 있다.</p></div>
+</div></div><div class="wrap paper dwrap"><a class="dback" href="data-macro.html">← 재정·거시</a><header class="phead"><span class="eb">원자료 · 재정·거시</span><h1>미국 국채 되사기</h1><p class="pauth">Treasury Fiscal Data · buybacks_operations · 달러 · 작전별</p><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#한도">한도</a></li><li><a href="#최근-30개">최근 30개</a></li><li><a href="#관련-뉴스">관련 뉴스</a></li></ol></div><!--TOC:END--></header><div class="dsum"><p class="w">재무부가 이미 발행한 국채를 되사는 작전의 한도와 실제 매입액이다.</p><p class="u">거래가 잘 안 되는 옛 국채를 걷어 국채시장을 매끄럽게 하려는 조치다.</p></div><dl class="dmeta"><dt>출처</dt><dd><a href="https://fiscaldata.treasury.gov" target="_blank" rel="noopener">Treasury Fiscal Data · buybacks_operations ↗</a></dd><dt>파일</dt><dd><code>미국_국채되사기_작전별.csv</code></dd><dt>단위</dt><dd>달러</dd><dt>쓰는 글</dt><dd><a href="treasury-trust.html">treasury-trust</a></dd><dt>내려받기</dt><dd><a href="../_sources_dl/미국_국채되사기_작전별.csv">미국_국채되사기_작전별.csv 내려받기</a> <span style="color:var(--text-secondary)">(17 KB)</span></dd></dl><div class="dkpi"><div class="k"><div class="l">지금 값</div><div class="v">12,500,000,000</div><div class="s">2026-09-03 · 달러</div></div><div class="k"><div class="l">자료 범위</div><div class="v" style="font-size:15px">2000-03-09<br>~ 2026-09-03</div><div class="s">219개</div></div><div class="k"><div class="l">갱신</div><div class="v" style="font-size:17px">작전별</div><div class="s">자동</div></div></div><div class="panel dpanel"><div class="panel-head"><h2 id="한도" class="psub">한도</h2><div class="rng"><button type="button" data-y="1">1년</button><button type="button" data-y="0" class="on">전체</button></div></div><div class="cbox2"><canvas id="c"></canvas></div><p class="panel-cap">세로축은 로그눈금이다. 최고가 최저의 500배라 선형 눈금으로는 최근 구간이 바닥에 눕는다. 매입 은(는) 한도 와 2% 안쪽으로 붙어 다녀 겹쳐 그려도 한 줄로 보인다. 그림에서만 뺐고 아래 표에는 있다.</p><div class="srcline"><span>Treasury Fiscal Data · buybacks_operations</span><span>달러 · 작전별</span></div></div><script>(window.__DATA=window.__DATA||[]).push({"id": "c", "lab": ["2024-04-03", "2024-04-10", "2024-04-17", "2024-05-29", "2024-06-05", "2024-06-11", "2024-06-20", "2024-06-26", "2024-07-02", "2024-07-10", "2024-07-17", "2024-07-18", "2024-07-24", "2024-08-07", "2024-08-15", "2024-08-21", "2024-08-21", "2024-08-28", "2024-09-04", "2024-09-05", "2024-09-10", "2024-09-12", "2024-09-17", "2024-09-19", "2024-09-24", "2024-09-25", "2024-10-02", "2024-10-10", "2024-10-16", "2024-10-23", "2024-10-31", "2024-11-06", "2024-11-13", "2024-11-20", "2024-11-25", "2024-12-04", "2024-12-05", "2024-12-09", "2024-12-10", "2024-12-17", "2024-12-19", "2025-01-07", "2025-01-09", "2025-01-15", "2025-01-22", "2025-01-28", "2025-02-06", "2025-02-12", "2025-02-20", "2025-02-26", "2025-03-05", "2025-03-11", "2025-03-12", "2025-03-18", "2025-03-20", "2025-03-26", "2025-03-27", "2025-04-02", "2025-04-03", "2025-04-08", "2025-04-10", "2025-04-15", "2025-04-16", "2025-04-22", "2025-04-23", "2025-05-01", "2025-05-06", "2025-05-15", "2025-05-21", "2025-05-29", "2025-06-03", "2025-06-04", "2025-06-10", "2025-06-12", "2025-06-17", "2025-06-25", "2025-07-02", "2025-07-10", "2025-07-16", "2025-07-23", "2025-07-31", "2025-08-06", "2025-08-13", "2025-08-19", "2025-08-21", "2025-08-26", "2025-09-03", "2025-09-10", "2025-09-18", "2025-09-24", "2025-10-01", "2025-10-02", "2025-10-07", "2025-10-16", "2025-10-22", "2025-10-28", "2025-11-05", "2025-11-12", "2025-11-18", "2025-11-20", "2025-11-25", "2025-12-03", "2025-12-04", "2025-12-11", "2025-12-17", "2025-12-18", "2025-12-23", "2026-01-08", "2026-01-14", "2026-01-16", "2026-01-21", "2026-01-22", "2026-01-27", "2026-02-04", "2026-02-05", "2026-02-10", "2026-02-19", "2026-02-24", "2026-02-25", "2026-03-02", "2026-03-04", "2026-03-05", "2026-03-10", "2026-03-12", "2026-03-17", "2026-03-19", "2026-03-25", "2026-03-26", "2026-04-01", "2026-04-09", "2026-04-15", "2026-04-16", "2026-04-22", "2026-04-23", "2026-04-28", "2026-05-06", "2026-05-07", "2026-05-13", "2026-05-19", "2026-05-21", "2026-05-28", "2026-06-03", "2026-06-04", "2026-06-09", "2026-06-11", "2026-06-16", "2026-06-24", "2026-06-25", "2026-07-01", "2026-07-09", "2026-07-16", "2026-07-22", "2026-07-23", "2026-07-28", "2026-08-06", "2026-08-11", "2026-08-18", "2026-08-20", "2026-08-25", "2026-09-03"], "ser": [{"name": "한도", "val": [200000000.0, 200000000.0, 200000000.0, 2000000000.0, 2000000000.0, 500000000.0, 2000000000.0, 2000000000.0, 2000000000.0, 500000000.0, 2000000000.0, 2000000000.0, 2000000000.0, 4000000000.0, 2000000000.0, 500000000.0, 500000000.0, 2000000000.0, 4000000000.0, 5000000000.0, 4000000000.0, 5000000000.0, 500000000.0, 5000000000.0, 2000000000.0, 5000000000.0, 500000000.0, 4963000000.0, 4000000000.0, 500000000.0, 2000000000.0, 500000000.0, 4000000000.0, 2000000000.0, 2000000000.0, 7500000000.0, 4000000000.0, 4000000000.0, 7500000000.0, 500000000.0, 7500000000.0, 2000000000.0, 500000000.0, 4000000000.0, 4000000000.0, 500000000.0, 2000000000.0, 4000000000.0, 500000000.0, 2000000000.0, 2000000000.0, 4000000000.0, 8500000000.0, 4000000000.0, 8500000000.0, 500000000.0, 8500000000.0, 2000000000.0, 8500000000.0, 500000000.0, 8500000000.0, 4000000000.0, 8500000000.0, 4000000000.0, 8500000000.0, 500000000.0, 2000000000.0, 4000000000.0, 500000000.0, 2000000000.0, 10000000000.0, 2000000000.0, 10000000000.0, 4000000000.0, 4000000000.0, 500000000.0, 2000000000.0, 4000000000.0, 500000000.0, 4000000000.0, 2000000000.0, 500000000.0, 750000000.0, 4000000000.0, 2000000000.0, 4000000000.0, 2000000000.0, 2000000000.0, 2000000000.0, 750000000.0, 4000000000.0, 2000000000.0, 2000000000.0, 4000000000.0, 4000000000.0, 2000000000.0, 2000000000.0, 500000000.0, 4000000000.0, 2000000000.0, 750000000.0, 12500000000.0, 2000000000.0, 12500000000.0, 4000000000.0, 2000000000.0, 500000000.0, 2000000000.0, 2000000000.0, 4000000000.0, 4000000000.0, 2000000000.0, 750000000.0, 4000000000.0, 2000000000.0, 2000000000.0, 4000000000.0, 2000000000.0, 750000000.0, 30000000.0, 4000000000.0, 2000000000.0, 15000000000.0, 4000000000.0, 15000000000.0, 2000000000.0, 500000000.0, 2000000000.0, 15000000000.0, 2000000000.0, 2000000000.0, 15000000000.0, 15000000000.0, 4000000000.0, 2000000000.0, 2000000000.0, 4000000000.0, 750000000.0, 4000000000.0, 4000000000.0, 500000000.0, 2000000000.0, 12500000000.0, 2000000000.0, 12500000000.0, 4000000000.0, 750000000.0, 2000000000.0, 2000000000.0, 4000000000.0, 2000000000.0, 750000000.0, 2000000000.0, 2000000000.0, 4000000000.0, 2000000000.0, 2000000000.0, 4000000000.0, 4000000000.0, 12500000000.0], "grp": 0}], "log": true});</script><h2 id="최근-30개" class="dsec">최근 30개</h2><p class="dsub">전체 219개 가운데 마지막 30개다.</p><div class="dtable"><div class="tblwrap"><table><thead><tr><th>날짜</th><th class="n">한도</th><th class="n">매입</th></tr></thead><tbody><tr><td>2026-09-03</td><td class="n">12,500,000,000</td><td class="n"></td></tr><tr><td>2026-08-25</td><td class="n">4,000,000,000</td><td class="n">1,191,000,000</td></tr><tr><td>2026-08-20</td><td class="n">4,000,000,000</td><td class="n">1,860,000,000</td></tr><tr><td>2026-08-18</td><td class="n">2,000,000,000</td><td class="n">2,000,000,000</td></tr><tr><td>2026-08-11</td><td class="n">2,000,000,000</td><td class="n">2,000,000,000</td></tr><tr><td>2026-08-06</td><td class="n">4,000,000,000</td><td class="n">4,000,000,000</td></tr><tr><td>2026-07-28</td><td class="n">2,000,000,000</td><td class="n">2,000,000,000</td></tr><tr><td>2026-07-23</td><td class="n">2,000,000,000</td><td class="n">2,000,000,000</td></tr><tr><td>2026-07-22</td><td class="n">750,000,000</td><td class="n">405,000,000</td></tr><tr><td>2026-07-16</td><td class="n">2,000,000,000</td><td class="n">2,000,000,000</td></tr><tr><td>2026-07-09</td><td class="n">4,000,000,000</td><td class="n">2,295,000,000</td></tr><tr><td>2026-07-01</td><td class="n">2,000,000,000</td><td class="n">2,000,000,000</td></tr><tr><td>2026-06-25</td><td class="n">2,000,000,000</td><td class="n">2,000,000,000</td></tr><tr><td>2026-06-24</td><td class="n">750,000,000</td><td class="n">750,000,000</td></tr><tr><td>2026-06-16</td><td class="n">4,000,000,000</td><td class="n">570,000,000</td></tr><tr><td>2026-06-11</td><td class="n">12,500,000,000</td><td class="n">12,078,000,000</td></tr><tr><td>2026-06-09</td><td class="n">2,000,000,000</td><td class="n">2,000,000,000</td></tr><tr><td>2026-06-04</td><td class="n">12,500,000,000</td><td class="n">12,500,000,000</td></tr><tr><td>2026-06-03</td><td class="n">2,000,000,000</td><td class="n">2,000,000,000</td></tr><tr><td>2026-05-28</td><td class="n">500,000,000</td><td class="n">91,000,000</td></tr><tr><td>2026-05-21</td><td class="n">4,000,000,000</td><td class="n">300,000,000</td></tr><tr><td>2026-05-19</td><td class="n">4,000,000,000</td><td class="n">1,674,000,000</td></tr><tr><td>2026-05-13</td><td class="n">750,000,000</td><td class="n">735,000,000</td></tr><tr><td>2026-05-07</td><td class="n">4,000,000,000</td><td class="n">4,000,000,000</td></tr><tr><td>2026-05-06</td><td class="n">2,000,000,000</td><td class="n">2,000,000,000</td></tr><tr><td>2026-04-28</td><td class="n">2,000,000,000</td><td class="n">2,000,000,000</td></tr><tr><td>2026-04-23</td><td class="n">4,000,000,000</td><td class="n">358,000,000</td></tr><tr><td>2026-04-22</td><td class="n">15,000,000,000</td><td class="n">15,000,000,000</td></tr><tr><td>2026-04-16</td><td class="n">15,000,000,000</td><td class="n">15,000,000,000</td></tr><tr><td>2026-04-15</td><td class="n">2,000,000,000</td><td class="n">2,000,000,000</td></tr></tbody></table></div></div><h2 id="관련-뉴스" class="dsec">관련 뉴스</h2><p class="dsub">제목에 그 낱말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.</p><p class="dsub">국내: 「미국 국채 바이백」 로 찾았다.</p><div class="dtable"><div class="tblwrap"><table><tbody><tr><td class="d">Tue, 01 Sep</td><td class="d">ebn.co.kr</td><td><a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTE9oRGktSHQ4ZVBHQk9zZHRwSDQ3YUJrX0VLRFFkaS1hN25IWUhfbDQ4UE9tODBGR1drN0N3Qi1VSmRTVG5YZ1NhOUtXWFRHd01fXzNMVjA1TU9WWkNqdkJXNElzNkk0aGhj?oc=5" target="_blank" rel="noopener nofollow">美국채 ‘5%대 경고등’…베선트, 바이백·日 압박 총동원</a></td></tr><tr><td class="d">Mon, 31 Aug</td><td class="d">v.daum.net</td><td><a href="https://news.google.com/rss/articles/CBMiRkFVX3lxTFBldXNnVHdoaXVoM2IyakhqbE5peF9QQUJ5VXlkTmZxZ3NJNHNYbV9RME1YQVJQUWNRWDU2WHhZM3RXc3pxeFE?oc=5" target="_blank" rel="noopener nofollow">베선트, 국채 바이백 확대 옹호…"美 채권시장 성과 가장 좋아"</a></td></tr><tr><td class="d">Thu, 20 Aug</td><td class="d">뉴스토마토</td><td><a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE5EeGw3dzJUZ0owWDVYbkd1aXFrdFRVWDV3Q2kxdWxicWNrYk1QOHkySERCVlptUVJFaVp4Y2YxNGVvOE9HNXBYNVVKREs2djhSdlRwTDZSYnpYbC1WbDlBYw?oc=5" target="_blank" rel="noopener nofollow">미국 국채 바이백 확대에…글로벌 증시 '안도'</a></td></tr><tr><td class="d">Sun, 30 Aug</td><td class="d">블루밍비트</td><td><a href="https://news.google.com/rss/articles/CBMiUEFVX3lxTE13OGVTbGNjeERaZk9wNlptNktrdGVmMGZkMWYtbnpnaGZEby1CakZzb3B4WTVFVi04ajBSdnZxX0puMUt1NWNqVTNOREp3WHpw?oc=5" target="_blank" rel="noopener nofollow">금, 8월 10% 급등…美 국채 바이백에 금·비트코인 동반 강세</a></td></tr><tr><td class="d">Fri, 28 Aug</td><td class="d">KB Think</td><td><a href="https://news.google.com/rss/articles/CBMickFVX3lxTFA5OUhCQWNPZWQtTF9pbzJGcWdaY0NkU1QtWXZFNFlMV3NDSTlEOWJDMVQtOEV3d1ZEUnptcTgwUmRQS0lXMkRBdW5wVEpYRXEwc2x3MENtb08zRVhrN21Wa1dfWXJqQ3c2Qktnbkdrb1lTUQ?oc=5" target="_blank" rel="noopener nofollow">비트코인 8만달러대 안착…국채 바이백·규제 완화에 알트코인 순환매</a></td></tr><tr><td class="d">Sun, 30 Aug</td><td class="d">자본시장뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5xR2pLMFlkWTFUYjM0Zl9Vc0dYYmx0eHNvS1R3c29RbFpyTjhuUkNaRkRXUTQtMlBKcHlsb0EtZ0VaSDlMX0FqRGFFc2haZm1FTS13d042QkJBbFFZNTV1WERXTjdjR1E?oc=5" target="_blank" rel="noopener nofollow">[코인국채 ①] 비트코인 8만달러 뒤엔 국채…바이백 두 배로</a></td></tr></tbody></table></div></div><p class="dsub">해외: 「Treasury buyback」 로 찾았다. 이 자료의 출처가 외국이라 함께 본다.</p><div class="dtable"><div class="tblwrap"><table><tbody><tr><td class="d">Thu, 03 Sep</td><td class="d">Yahoo Finance</td><td><a href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxOM1ozQXVZNllJNGpOVFBjMVFHUTVHbTJzc1E5OThSTXVuMmEwSWlpQkxOaDVmNTI3N3N3WmZnVmlTc2c3ZExWWWYyTl9oWlNlSjlmQXJMODM4Y0VZVFVqT2hrSkZOaFQwZENPcTdNY1daTFJlZ1ZydGJlY3lPSFhobmVTbmJpREgxaUJtbXp1ZlB5VFBIWjR4V0h4czJQZnAzeHFYOU1FdzFuWEE?oc=5" target="_blank" rel="noopener nofollow">Can Treasury Buyback Reverse Bearish Sentiment in Bonds?</a></td></tr><tr><td class="d">Thu, 03 Sep</td><td class="d">Seeking Alpha</td><td><a href="https://news.google.com/rss/articles/CBMigAFBVV95cUxPOHBsZmQ4YXByb1hyaTh1clAyTWdOMVB5UXNtTG1lVzVIdXNWdFFYYXYzemJJNFJtLXN1aDAxbzF3UkJ1YVpkQTVxWXkwOWY2YzN1aExtZ0RzUTUzX0Utc1VodzF6YVk0SVRNVGNFLXNsOEhFREIwZXpUNlFGem9BdA?oc=5" target="_blank" rel="noopener nofollow">U.S. Treasury set for $12.5B debt buyback (US10Y:)</a></td></tr><tr><td class="d">Wed, 19 Aug</td><td class="d">CNBC</td><td><a href="https://news.google.com/rss/articles/CBMiwgFBVV95cUxQN1dkbVJYY1BSZVN0VHZfNE9NSUVfaklpeUh5LTVLUTltMmxFX296QVNtSmtwYnh2ajZqYnlmRnJYXzc2Qk9CRm1PUnhGeVhTeGhJbVh5R3IwaGZWczhIaTF6WFpRbzRhM2tqekN0V2ZWQUozUHV6ZG9VeHNIRktITHo0bTJRTkxXY2dHd0swRWM1SEhzQTVEYlZ2ZTV1QXIxMEc0VTRzZ0pSRUpieFZsVnc4bEFwbFphUGhqZmxyZTlJd9IBxwFBVV95cUxQYUJJNDU3ZGxHeXNXMENUQXYzY3VVOU1JVmxEb0NJUExweVZiWGRLZmZqTE5HUHpKenJ3NTM0Vzk5UVBFRm1VUEdUOVVoOVBscS1kbmRWTDhHYmV3STdOd0dYOWRRUVZ2TWNSVUY5eTFENklCWTc4WnZoSDdUeHBFQ0NjbG5WOFVVYzRlaTEwT05KU0F6UHl2dXRWaHhCVkY3WVNvb3VDWml3djFhRm9VZFJQU3d1WFh1RG96OHpCdWZqdWlVMlZz?oc=5" target="_blank" rel="noopener nofollow">Treasury doubles debt buybacks as Bessent moves to steady bond market</a></td></tr><tr><td class="d">Wed, 02 Sep</td><td class="d">Bloomberg.com</td><td><a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxQUGphdmpYNEU1RGpsMEttVXdjbk81ck5UVXVNeHRxcXpDQWhTSU1ycTZIUUFSUEdNak9jdU9ZMkxPTnVWNTU3dXJXM0VVM1JSTmVYT3oxOGl6aHBvSV80RmZYOE1UcXp6djlUQTk3QzV3MzhtSWIyaGdJUkFEZUtzbnJZMUhZdTMyYjhFSGVod3Y3WXpsdjlYbW1OU01NOEtja3NUZEktb2hoaEJqYW13QTJBY1pnZw?oc=5" target="_blank" rel="noopener nofollow">Bessent’s Bond Gains Wiped Out as Treasury Yields Jump Again</a></td></tr><tr><td class="d">Wed, 19 Aug</td><td class="d">invesco.com</td><td><a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxPUUVfU1k4Ny16bzN3LVBvTG9rWnc3SkZSRHpXc3VRaWx0ZFM3N3drX3BWU0VKRWQ2UzFkaGpqM1I4VnZmVlVHNEYtLUlQUzdXXzBRQ0p0M3p5VFk4TDYzQmFxaHpmTnRnQ3NOdWF5akhGMldQd1cwNmN6emstUzBORFdGTElEUQ?oc=5" target="_blank" rel="noopener nofollow">New Treasury buyback eases ‘debt reckoning’ worries</a></td></tr><tr><td class="d">Thu, 20 Aug</td><td class="d">WSJ</td><td><a href="https://news.google.com/rss/articles/CBMimgFBVV95cUxPQ2ZEenJ5a1Bhd25rSkpMT3JFZ1ZwQWtIRjFWcTRjNkJ1Z1U0S0dOQ3ZMUGpJc2Iwazd1aVZVdGxQSzlPN1E0VmpRZ1dsWmlBR09CU2k0eVJ4dF8wazFEbE9MMU5YQzhIQnd6WWtiQU5aRzdSaXQxVkZBT1lTbVM0bnFhTG1TNXo0X3FfZl80TFF1ckVONjA2V2Jn?oc=5" target="_blank" rel="noopener nofollow">Treasury Buyback Only Briefly Tames Yields</a></td></tr></tbody></table></div></div><p class="dsub" style="margin-top:-14px">출처 구글 뉴스 · 2026-09-03 기준. 뉴스는 이 페이지의 분석과 무관하며 서로 어긋날 수 있다.</p></div>
 <script>
 (function(){
   var gs=document.querySelectorAll('.site-group');
