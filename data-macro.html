@@ -157,7 +157,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── 테마 토글 버튼 (전 페이지 공통) ── */
 /* ⚠⚠ `top:auto` 와 z-index 가 핵심이다 (2026-08-08).
-   생성기 SHELL 들이 `.toggle{top:62px;z-index:88;position:fixed;…}` 를 따로 갖고 있는데(45장),
+   생성기 SHELL 들이 `.toggle{position:fixed;top:18px;…}` 를 따로 갖고 있는데(45장),
    이 규칙은 뒤에 와서 z-index 만 이기고 **위치는 top:18px 가 남았다.**
    그 자리는 sticky 상단바(.site-bar, z-index 90)가 덮는 자리라
    **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 세 번째 원인이다.
@@ -343,27 +343,7 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
   html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
   html body .site-bar-in{padding:9px 14px 7px}
 }
-/* BAR:END *//*TOCCSS:BEGIN*/
-/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
-
-/* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
-   원인은 상단바다. .site-bar 가 position:sticky · 높이 78px 로 화면 맨 위를 덮는데
-   앵커로 이동하면 제목이 정확히 그 아래에 깔린다. 그래서 독자는 제목을 못 보고
-   그 다음 문단부터 보게 된다. 눌러 간 곳과 보이는 글이 어긋나는 것이 이 때문이다.
-   scroll-margin-top 이 0 이었다. 78 에 여백 14 를 더해 92 로 둔다.
-   ⚠ 상단바 높이를 바꾸면 이 값도 같이 바꾼다. 측정: .site-bar 의 getBoundingClientRect().height */
-h2[id],h3[id],[id]:target{scroll-margin-top:92px}
-@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
- margin:22px 0 24px;background:var(--surface);text-align:left}
-.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
- color:var(--text-secondary);margin-bottom:7px;text-align:left}
-.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
-.ptoc li{font-size:.9rem}
-.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
-.ptoc a:hover{border-bottom-color:var(--text-secondary)}
-@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*//* PAPER:BEGIN */
+/* BAR:END *//* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -633,7 +613,27 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style><link rel="stylesheet" href="vendor/fonts.css"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body><div class="site-bar"><div class="site-bar-in">
+/* PAPER:END *//*TOCCSS:BEGIN*/
+/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
+
+/* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
+   원인은 상단바다. .site-bar 가 position:sticky · 높이 78px 로 화면 맨 위를 덮는데
+   앵커로 이동하면 제목이 정확히 그 아래에 깔린다. 그래서 독자는 제목을 못 보고
+   그 다음 문단부터 보게 된다. 눌러 간 곳과 보이는 글이 어긋나는 것이 이 때문이다.
+   scroll-margin-top 이 0 이었다. 78 에 여백 14 를 더해 92 로 둔다.
+   ⚠ 상단바 높이를 바꾸면 이 값도 같이 바꾼다. 측정: .site-bar 의 getBoundingClientRect().height */
+h2[id],h3[id],[id]:target{scroll-margin-top:92px}
+@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
+ margin:22px 0 24px;background:var(--surface);text-align:left}
+.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
+ color:var(--text-secondary);margin-bottom:7px;text-align:left}
+.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
+.ptoc li{font-size:.9rem}
+.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
+.ptoc a:hover{border-bottom-color:var(--text-secondary)}
+@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
+/*TOCCSS:END*/</style><link rel="stylesheet" href="vendor/fonts.css"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body><div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="macro-timeline.html">거시 이벤트 연대기</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-nhn.html">NHN</a><a href="stock-kolmar.html">한국콜마</a><a href="stock-cosmax.html">코스맥스</a><a href="stock-pharmaresearch.html">파마리서치</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="us-credit-spread.html">지수로 만든 신용스프레드는 늦고 채권으로 만든 것은 앞선다</a><a href="us-elections.html">미국 선거와 증시</a><a href="gold-rates.html">금과 장기금리는 시대마다 반대로 움직인다</a><a href="treasury-trust.html">국채는 부도로 무너지지 않는다</a><a href="deleveraging.html">강제청산은 어떻게 끝나는가</a><a href="inflation-playbook.html">인플레 시대에 무엇이 통했나</a><a href="rates-century.html">미국 금리 100년과 인플레 시대</a><a href="memory-price.html">메모리 가격과 반도체 주가</a><a href="breadth-concentration.html">신고가 쏠림배수 2023~2026</a><a href="kospi-analog.html">지금과 닮은 과거 — 유사국면</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><div class="site-group"><button class="here" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 79계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a href="data-kr-rates.html">한국 금리</a><a href="data-us-market.html">미국 시장</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a href="data-fx.html">환율·원자재·암호</a><a class="here" href="data-macro.html">재정·거시</a></div></div><!-- NAV:END --></nav>
 </div></div><div class="wrap paper dwrap"><div class="site-crumb"><a href="index.html">홈</a><span class="sep">›</span><span>원자료</span><span class="sep">›</span><span class="cur">재정·거시</span></div><a class="dback" href="data.html">← 원자료</a><header class="phead"><span class="eb">원자료</span><h1>재정·거시</h1><p class="pauth">나라의 빚과 물가와 경기. 계열 22개.</p></header><div class="dgrid"><a class="dcard" href="d-debt.html"><div class="n">미국 국가부채</div><div class="m">1993-04-01 ~ 2026-09-02 · 8,385개<br>매일 · 달러</div><div class="now">40.12조</div></a><a class="dcard" href="d-interest.html"><div class="n">미국 이자지출</div><div class="m">2010-05-31 ~ 2026-07-31 · 5,811개<br>매월 · 달러</div><div class="now">401,520,057</div></a><a class="dcard" href="d-buyback.html"><div class="n">미국 국채 되사기</div><div class="m">2000-03-09 ~ 2026-09-03 · 219개<br>작전별 · 달러</div><div class="now">12,500,000,000</div></a><a class="dcard" href="d-cpi.html"><div class="n">미국 소비자물가</div><div class="m">1947-01 ~ 2026-07 · 954개<br>매월 · 1982-84=100</div><div class="now">332.813</div></a><a class="dcard" href="d-dram.html"><div class="n">메모리 수출물가</div><div class="m">1971-01 ~ 2026-07 · 667개<br>매월 · 2020=100</div><div class="now">274.79</div></a><a class="dcard" href="d-cli-kr.html"><div class="n">OECD 경기선행지수 (한국)</div><div class="m">1990-01 ~ 2026-06 · 438개<br>매월 · 100=추세</div><div class="now">102.2063</div></a><a class="dcard" href="d-bci-us.html"><div class="n">OECD 기업경기지수 (미국)</div><div class="m">1950-01 ~ 2026-06 · 918개<br>매월 · 100=추세</div><div class="now">100.1019</div></a><a class="dcard" href="d-kospi-oecd.html"><div class="n">OECD 한국 주가지수</div><div class="m">1981-01 ~ 2026-06 · 546개<br>매월 · 2015=100</div><div class="now">421.8348</div></a><a class="dcard" href="d-sp-oecd.html"><div class="n">OECD 미국 주가지수</div><div class="m">1957-01 ~ 2026-06 · 834개<br>매월 · 2015=100</div><div class="now">220.0752</div></a><a class="dcard" href="d-cpi-century.html"><div class="n">미국 소비자물가 장기 (1913~)<span class="dtag man">손으로</span></div><div class="m">1913-01 ~ 2026-07 · 1,362개<br>손으로 · 1982-84=100</div><div class="now">333.918</div></a><a class="dcard" href="d-cpi-goods.html"><div class="n">근원 공산품 물가<span class="dtag man">손으로</span></div><div class="m">1957-01 ~ 2026-07 · 834개<br>손으로 · 1982-84=100</div><div class="now">167.762</div></a><a class="dcard" href="d-cpi-svc.html"><div class="n">근원 서비스 물가<span class="dtag man">손으로</span></div><div class="m">1967-01 ~ 2026-07 · 714개<br>손으로 · 1982-84=100</div><div class="now">445.616</div></a><a class="dcard" href="d-imp-china.html"><div class="n">중국발 수입물가<span class="dtag man">손으로</span></div><div class="m">2003-12 ~ 2026-07 · 271개<br>손으로 · 2003-12=100</div><div class="now">99.5</div></a><a class="dcard" href="d-us-imp.html"><div class="n">미국 수입액 (월별)</div><div class="m">1992-01-01 ~ 2026-07-01 · 415개<br>매월 · 백만달러</div><div class="now">399,299</div></a><a class="dcard" href="d-us-imp-q.html"><div class="n">미국 수입액 (분기 1947~)</div><div class="m">1947-01-01 ~ 2026-04-01 · 318개<br>분기 · 십억달러</div><div class="now">4628.087</div></a><a class="dcard" href="d-prod.html"><div class="n">비농업 노동생산성<span class="dtag man">손으로</span></div><div class="m">1947-01 ~ 2026-04 · 318개<br>손으로 · 2017=100</div><div class="now">120.017</div></a><a class="dcard" href="d-indpro.html"><div class="n">미국 산업생산<span class="dtag man">손으로</span></div><div class="m">1990-01 ~ 2026-06 · 438개<br>손으로 · 2017=100</div><div class="now">102.6395</div></a><a class="dcard" href="d-gdp-us.html"><div class="n">미국 GDP 성장률</div><div class="m">1947-04-01 ~ 2026-04-01 · 317개<br>분기 · %</div><div class="now">1.5</div></a><a class="dcard" href="d-kr-export.html"><div class="n">한국 수출 증감률</div><div class="m">1984-01 ~ 2026-06 · 510개<br>매월 · %</div><div class="now">70.6709</div></a><a class="dcard" href="d-ism.html"><div class="n">ISM 제조업 PMI (1990~)</div><div class="m">1990-01 ~ 2026-07 · 439개<br>매월 · 지수</div><div class="now">55.6</div></a><a class="dcard" href="d-ism-mix.html"><div class="n">ISM 제조업 PMI (취합본)</div><div class="m">2016-08 ~ 2026-07 · 120개<br>매월 · 지수</div><div class="now">55.6</div></a><a class="dcard" href="d-kospi-oecd-est.html"><div class="n">OECD 한국주가지수 (코스피 환산)<span class="dtag man">손으로</span></div><div class="m">1981-01 ~ 2026-08 · 548개<br>손으로 · 2015=100</div><div class="now">330.6228</div></a></div></div>
