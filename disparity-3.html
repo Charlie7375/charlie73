@@ -371,27 +371,7 @@ a.card:focus-visible,.lst-i:focus-visible{
 .pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
  color:var(--accent);margin-bottom:5px}
 .pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
-/*TOCCSS:BEGIN*/
-/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
-
-/* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
-   원인은 상단바다. .site-bar 가 position:sticky · 높이 78px 로 화면 맨 위를 덮는데
-   앵커로 이동하면 제목이 정확히 그 아래에 깔린다. 그래서 독자는 제목을 못 보고
-   그 다음 문단부터 보게 된다. 눌러 간 곳과 보이는 글이 어긋나는 것이 이 때문이다.
-   scroll-margin-top 이 0 이었다. 78 에 여백 14 를 더해 92 로 둔다.
-   ⚠ 상단바 높이를 바꾸면 이 값도 같이 바꾼다. 측정: .site-bar 의 getBoundingClientRect().height */
-h2[id],h3[id],[id]:target{scroll-margin-top:92px}
-@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
- margin:22px 0 24px;background:var(--surface);text-align:left}
-.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
- color:var(--text-secondary);margin-bottom:7px;text-align:left}
-.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
-.ptoc li{font-size:.9rem}
-.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
-.ptoc a:hover{border-bottom-color:var(--text-secondary)}
-@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*//* PAPER:BEGIN */
+/* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -661,12 +641,32 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style>
+/* PAPER:END *//*TOCCSS:BEGIN*/
+/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
+
+/* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
+   원인은 상단바다. .site-bar 가 position:sticky · 높이 78px 로 화면 맨 위를 덮는데
+   앵커로 이동하면 제목이 정확히 그 아래에 깔린다. 그래서 독자는 제목을 못 보고
+   그 다음 문단부터 보게 된다. 눌러 간 곳과 보이는 글이 어긋나는 것이 이 때문이다.
+   scroll-margin-top 이 0 이었다. 78 에 여백 14 를 더해 92 로 둔다.
+   ⚠ 상단바 높이를 바꾸면 이 값도 같이 바꾼다. 측정: .site-bar 의 getBoundingClientRect().height */
+h2[id],h3[id],[id]:target{scroll-margin-top:92px}
+@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
+ margin:22px 0 24px;background:var(--surface);text-align:left}
+.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
+ color:var(--text-secondary);margin-bottom:7px;text-align:left}
+.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
+.ptoc li{font-size:.9rem}
+.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
+.ptoc a:hover{border-bottom-color:var(--text-secondary)}
+@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
+/*TOCCSS:END*/</style>
 <link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head>
 <body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
-  <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="here" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="macro-timeline.html">거시 이벤트 연대기</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a><a class="here" href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-nhn.html">NHN</a><a href="stock-kolmar.html">한국콜마</a><a href="stock-cosmax.html">코스맥스</a><a href="stock-pharmaresearch.html">파마리서치</a><a href="stock-jyp.html">JYP Ent.</a><a href="stock-sm-ent.html">에스엠</a><a href="stock-yg-ent.html">와이지엔터테인먼트</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="us-credit-spread.html">지수로 만든 신용스프레드는 늦고 채권으로 만든 것은 앞선다</a><a href="us-elections.html">미국 선거와 증시</a><a href="gold-rates.html">금과 장기금리는 시대마다 반대로 움직인다</a><a href="treasury-trust.html">국채는 부도로 무너지지 않는다</a><a href="deleveraging.html">강제청산은 어떻게 끝나는가</a><a href="inflation-playbook.html">인플레 시대에 무엇이 통했나</a><a href="rates-century.html">미국 금리 100년과 인플레 시대</a><a href="memory-price.html">메모리 가격과 반도체 주가</a><a href="breadth-concentration.html">신고가 쏠림배수 2023~2026</a><a href="kospi-analog.html">지금과 닮은 과거 — 유사국면</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><div class="site-group"><button class="" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 79계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a href="data-kr-rates.html">한국 금리</a><a href="data-us-market.html">미국 시장</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a href="data-fx.html">환율·원자재·암호</a><a href="data-macro.html">재정·거시</a></div></div><!-- NAV:END --></nav>
+  <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="here" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="macro-timeline.html">거시 이벤트 연대기</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a><a class="here" href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-nhn.html">NHN</a><a href="stock-kolmar.html">한국콜마</a><a href="stock-cosmax.html">코스맥스</a><a href="stock-pharmaresearch.html">파마리서치</a><a href="stock-jyp.html">JYP Ent.</a><a href="stock-sm-ent.html">에스엠</a><a href="stock-yg-ent.html">와이지엔터테인먼트</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="us-credit-spread.html">미국 신용스프레드는 주가를 앞서지 않는다</a><a href="us-elections.html">미국 선거와 증시</a><a href="gold-rates.html">금과 장기금리는 시대마다 반대로 움직인다</a><a href="treasury-trust.html">국채는 부도로 무너지지 않는다</a><a href="deleveraging.html">강제청산은 어떻게 끝나는가</a><a href="inflation-playbook.html">인플레 시대에 무엇이 통했나</a><a href="rates-century.html">미국 금리 100년과 인플레 시대</a><a href="memory-price.html">메모리 가격과 반도체 주가</a><a href="breadth-concentration.html">신고가 쏠림배수 2023~2026</a><a href="kospi-analog.html">지금과 닮은 과거 — 유사국면</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><div class="site-group"><button class="" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 79계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a href="data-kr-rates.html">한국 금리</a><a href="data-us-market.html">미국 시장</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a href="data-fx.html">환율·원자재·암호</a><a href="data-macro.html">재정·거시</a></div></div><!-- NAV:END --></nav>
 </div></div>
 
 <main id="main-content" role="main">
@@ -678,7 +678,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
       <h1>코스피 · SK하이닉스 · 삼성전자<br>50일 이격도 분석</h1>
       <p class="sub">이격도 = 종가 ÷ 50일 이동평균 × 100. 100이면 주가가 정확히 50일선 위, 그보다 높으면 과열, 낮으면 침체이다. 2026년 상반기 반도체 주도 급등장에서 이격도는 코스피 133·하이닉스 176까지 치솟았다가 7월 급락으로 되돌려졌다. 7월 급락, 특히 7/13 투매로 두 지수 모두 50일선을 크게 밑도는 과매도 영역까지 급락했다.</p>
 <p class="pauth">기준일 2026-09-04 · 코스피·하닉·삼전 일별시세 · 매일 갱신</p>
-      <!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>이격도는 종가를 50일선으로 나눈 값이다. 100이면 선 위에 정확히 있다는 뜻이다. 2026년 상반기에 코스피 133, 하이닉스 176까지 올랐다가 7월 급락으로 되돌려졌다. 이격도는 방향을 말하지 않고 벌어진 정도만 말한다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#이격도-추이-2024-7-2026-7-2년">이격도 추이: 2024.7 ~ 2026.7 (2년)</a></li><li><a href="#종가-vs-50일-이동평균선-2024-7-2026-7">종가 vs 50일 이동평균선 (2024.7~2026.7)</a></li><li><a href="#최근-10거래일-비교-amp-국면-분포">최근 10거래일 비교 &amp; 국면 분포</a></li><li><a href="#현재-이격도-위치-게이지">현재 이격도 위치 게이지</a></li><li><a href="#구간-통계-요약">구간 통계 요약</a></li><li><a href="#이격도-구간과-주가의-관계">이격도 구간과 주가의 관계</a></li><li><a href="#이격도-100-미만-이후-상승-확률-전체기간-백테스트">이격도 100 미만 → 이후 상승 확률 (전체기간 백테스트)</a></li><li><a href="#해석-amp-시나리오">해석 &amp; 시나리오</a></li></ol></div><!--TOC:END--><div class="asof"><span class="dot"></span> 기준일 2026년 7월 31일 · 종가 실데이터 · 이격도 2024.7~2026.7 (2년) · 삼성전자는 2025.1 이후</div>
+      <!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>이격도는 종가를 50일선으로 나눈 값이다. 100이면 선 위에 정확히 있다는 뜻이다. 2026년 상반기에 코스피 133, 하이닉스 176까지 올랐다가 7월 급락으로 되돌려졌다. 이격도는 방향을 말하지 않고 벌어진 정도만 말한다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#이격도-추이-2024-7-2026-7-2년">이격도 추이: 2024.7 ~ 2026.7 (2년)</a></li><li><a href="#종가-vs-50일-이동평균선-2024-7-2026-7">종가 vs 50일 이동평균선 (2024.7~2026.7)</a></li><li><a href="#최근-10거래일-비교-amp-국면-분포">최근 10거래일 비교 &amp; 국면 분포</a></li><li><a href="#현재-이격도-위치-게이지">현재 이격도 위치 게이지</a></li><li><a href="#구간-통계-요약">구간 통계 요약</a></li><li><a href="#이격도-구간과-주가의-관계">이격도 구간과 주가의 관계</a></li><li><a href="#이격도-100-미만-이후-상승-확률-전체기간-백테스트">이격도 100 미만 → 이후 상승 확률 (전체기간 백테스트)</a></li><li><a href="#해석-amp-시나리오">해석 &amp; 시나리오 (7/31 기준 해석: 그날의 판단 기록)</a></li></ol></div><!--TOC:END--><div class="asof"><span class="dot"></span> 기준일 2026년 7월 31일 · 종가 실데이터 · 이격도 2024.7~2026.7 (2년) · 삼성전자는 2025.1 이후</div>
     </div>
 
     <section aria-label="핵심 지표" class="animate delay-1">
@@ -791,14 +791,14 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
     </section>
 
     <section data-reveal>
-      <div class="sec-head"><h2 id="해석-amp-시나리오">해석 &amp; 시나리오</h2></div>
+      <div class="sec-head"><h2 id="해석-amp-시나리오">해석 &amp; 시나리오 <small style="font-weight:400;font-size:.72em;color:var(--text-secondary)">(7/31 기준 해석: 그날의 판단 기록)</small></h2></div>
       <div class="insight" style="margin-bottom:22px;">
         <div class="card"><h4><span class="ic" style="background:color-mix(in srgb,var(--negative) 18%,transparent);color:var(--negative)">①</span>과열의 완전한 되돌림</h4>
           <p>상반기 내내 이격도가 과열권(코스피 최고 133, 하이닉스 최고 176 = 50일선 +76%)에 머물렀다. 이동평균에서 극단적으로 벌어진 파라볼릭 상승은 7월 급락으로 평균 아래까지 강하게 회귀했다가, 7/31 대폭등으로 다시 80대 중후반까지 되돌아왔다.</p></div>
         <div class="card"><h4><span class="ic" style="background:color-mix(in srgb,var(--accent) 20%,transparent);color:var(--accent)">②</span>하루 만의 급회복</h4>
           <p>7/31 대폭등으로 이격도가 하루 만에 뛰어올랐다. 코스피 72.0 → 85.1(50일선 −14.9%), 하이닉스 61.0 → 79.3(−20.7%), 삼성전자 69.1 → 87.6(−12.4%)이다. 코스피 +17.91%(6,595.45) · 하이닉스 +29.95%(171.8만원) · 삼성전자 +26.81%(262,500원)로 주도주가 가장 크게 반등했다. 어제까지 "하이닉스만 매물이 남았다"고 봤는데 하루 만에 뒤집혔다.</p></div>
         <div class="card"><h4><span class="ic" style="background:color-mix(in srgb,var(--warning) 18%,transparent);color:var(--warning)">③</span>관찰 포인트</h4>
-          <p>항복(7/29) → 소진(7/30) → 대량 반등(7/31) 순서가 완성됐다. 7/29 하닉·삼전 거래량 2.07배 항복 후, 7/30 거래량이 일제히 줄며 투매가 소화됐고, 7/31에 하닉 1.70배·삼전 1.80배의 대량 반등이 나왔다. 셀링 클라이맥스 이후의 교과서적 전개이다.</p><p>다만 두 가지가 아직 확인되지 않았다. 첫째, 지수 거래량이 0.91배로 여전히 50일 평균 이하이다. 개별주엔 자금이 들어왔지만 시장 전체로 확산됐다는 증거는 약하다. 둘째, 7/30이 종가 신저점이라 오늘은 FTD 2일차이고, 오닐·미너비니는 1~3일차 반등을 공매도 환매·기술적 반사로 본다.</p><p>추세 템플릿은 셋 다 5/8 → 6/8로 올라왔다(150·200일선 회복). 남은 관문은 「현재가 &gt; 50일선」 = 이격도 100 회복이고, 확인 시점은 4~7일차인 8/5~8/10이다. 7/23에도 4일차 +4.4%가 다음 날 무효화된 전례가 있어, 확인 전까지는 관찰 국면이다.</p></div>
+          <p>항복(7/29) → 소진(7/30) → 대량 반등(7/31) 순서가 완성됐다. 7/29 하닉·삼전 거래량 2.07배 항복 후, 7/30 거래량이 일제히 줄며 투매가 소화됐고, 7/31에 하닉 1.70배·삼전 1.80배의 대량 반등이 나왔다. 셀링 클라이맥스 이후의 교과서적 전개이다.</p><p>다만 두 가지가 아직 확인되지 않았다. 첫째, 지수 거래량이 0.91배로 여전히 50일 평균 이하이다. 개별주엔 자금이 들어왔지만 시장 전체로 확산됐다는 증거는 약하다. 둘째, 7/30이 종가 신저점이라 오늘은 FTD 2일차이고, 오닐·미너비니는 1~3일차 반등을 공매도 환매·기술적 반사로 본다.</p><p>추세 템플릿은 셋 다 5/8 → 6/8로 올라왔다(150·200일선 회복). 남은 관문은 「현재가 &gt; 50일선」 = 이격도 100 회복이고, 확인 시점은 4~7일차인 8/4~8/7이다. 7/23에도 4일차 +4.4%가 다음 날 무효화된 전례가 있어, 확인 전까지는 관찰 국면이다.</p></div>
       </div>
       <div class="callout"><h3>미너비니 관점의 체크리스트</h3>
         <p>마크 미너비니의 추세추종(SEPA)에서 이동평균에서 지나치게 확장된(over-extended) 상승은 추격 매수 금지 구간이다. 이번 사례는 그 원칙이 교과서적으로 실현된 케이스로, 이격도 130~176의 극단적 확장이 결국 평균으로 강하게 되돌려졌다. 미너비니는 이런 급락 직후에는 싸다는 이유로 즉시 받기보다 주가가 스스로 바닥(base)을 만들고 변동성을 줄이며 50일선을 회복하는지 확인한 뒤 낮은 위험 지점(low-risk entry)에서 대응할 것을 강조한다.</p>
@@ -933,6 +933,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 })();
 /* THEME:END */</script>
 
+<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 <!--TOCJS:BEGIN--><script>
 /* 목차 클릭 보정 — 2026-08-24
    ⚠ 해시가 이미 그 값이면 브라우저가 클릭을 무시한다. 스크롤을 내린 뒤
@@ -960,6 +961,5 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
     }
   });
 })();
-</script><!--TOCJS:END--><button class="toggle" onclick="__toggleTheme()">&#9728;</button>
-</body>
+</script><!--TOCJS:END--></body>
 </html>
