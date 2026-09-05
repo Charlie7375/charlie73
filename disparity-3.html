@@ -371,7 +371,27 @@ a.card:focus-visible,.lst-i:focus-visible{
 .pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
  color:var(--accent);margin-bottom:5px}
 .pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
-/* PAPER:BEGIN */
+/*TOCCSS:BEGIN*/
+/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
+
+/* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
+   원인은 상단바다. .site-bar 가 position:sticky · 높이 78px 로 화면 맨 위를 덮는데
+   앵커로 이동하면 제목이 정확히 그 아래에 깔린다. 그래서 독자는 제목을 못 보고
+   그 다음 문단부터 보게 된다. 눌러 간 곳과 보이는 글이 어긋나는 것이 이 때문이다.
+   scroll-margin-top 이 0 이었다. 78 에 여백 14 를 더해 92 로 둔다.
+   ⚠ 상단바 높이를 바꾸면 이 값도 같이 바꾼다. 측정: .site-bar 의 getBoundingClientRect().height */
+h2[id],h3[id],[id]:target{scroll-margin-top:92px}
+@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
+ margin:22px 0 24px;background:var(--surface);text-align:left}
+.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
+ color:var(--text-secondary);margin-bottom:7px;text-align:left}
+.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
+.ptoc li{font-size:.9rem}
+.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
+.ptoc a:hover{border-bottom-color:var(--text-secondary)}
+@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
+/*TOCCSS:END*//* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -641,27 +661,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END *//*TOCCSS:BEGIN*/
-/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
-
-/* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
-   원인은 상단바다. .site-bar 가 position:sticky · 높이 78px 로 화면 맨 위를 덮는데
-   앵커로 이동하면 제목이 정확히 그 아래에 깔린다. 그래서 독자는 제목을 못 보고
-   그 다음 문단부터 보게 된다. 눌러 간 곳과 보이는 글이 어긋나는 것이 이 때문이다.
-   scroll-margin-top 이 0 이었다. 78 에 여백 14 를 더해 92 로 둔다.
-   ⚠ 상단바 높이를 바꾸면 이 값도 같이 바꾼다. 측정: .site-bar 의 getBoundingClientRect().height */
-h2[id],h3[id],[id]:target{scroll-margin-top:92px}
-@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
- margin:22px 0 24px;background:var(--surface);text-align:left}
-.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
- color:var(--text-secondary);margin-bottom:7px;text-align:left}
-.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
-.ptoc li{font-size:.9rem}
-.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
-.ptoc a:hover{border-bottom-color:var(--text-secondary)}
-@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*/</style>
+/* PAPER:END */</style>
 <link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head>
 <body>
 <div class="site-bar"><div class="site-bar-in">
@@ -678,7 +678,7 @@ h2[id],h3[id],[id]:target{scroll-margin-top:92px}
       <h1>코스피 · SK하이닉스 · 삼성전자<br>50일 이격도 분석</h1>
       <p class="sub">이격도 = 종가 ÷ 50일 이동평균 × 100. 100이면 주가가 정확히 50일선 위, 그보다 높으면 과열, 낮으면 침체이다. 2026년 상반기 반도체 주도 급등장에서 이격도는 코스피 133·하이닉스 176까지 치솟았다가 7월 급락으로 되돌려졌다. 7월 급락, 특히 7/13 투매로 두 지수 모두 50일선을 크게 밑도는 과매도 영역까지 급락했다.</p>
 <p class="pauth">기준일 2026-09-04 · 코스피·하닉·삼전 일별시세 · 매일 갱신</p>
-      <!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>이격도는 종가를 50일선으로 나눈 값이다. 100이면 선 위에 정확히 있다는 뜻이다. 2026년 상반기에 코스피 133, 하이닉스 176까지 올랐다가 7월 급락으로 되돌려졌다. 이격도는 방향을 말하지 않고 벌어진 정도만 말한다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#이격도-추이-2024-7-2026-7-2년">이격도 추이: 2024.7 ~ 2026.7 (2년)</a></li><li><a href="#종가-vs-50일-이동평균선-2024-7-2026-7">종가 vs 50일 이동평균선 (2024.7~2026.7)</a></li><li><a href="#최근-10거래일-비교-amp-국면-분포">최근 10거래일 비교 &amp; 국면 분포</a></li><li><a href="#현재-이격도-위치-게이지">현재 이격도 위치 게이지</a></li><li><a href="#구간-통계-요약">구간 통계 요약</a></li><li><a href="#이격도-구간과-주가의-관계">이격도 구간과 주가의 관계</a></li><li><a href="#이격도-100-미만-이후-상승-확률-전체기간-백테스트">이격도 100 미만 → 이후 상승 확률 (전체기간 백테스트)</a></li><li><a href="#해석-amp-시나리오">해석 &amp; 시나리오 (7/31 기준 해석: 그날의 판단 기록)</a></li></ol></div><!--TOC:END--><div class="asof"><span class="dot"></span> 기준일 2026년 7월 31일 · 종가 실데이터 · 이격도 2024.7~2026.7 (2년) · 삼성전자는 2025.1 이후</div>
+      <!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#이격도-추이-2024-7-2026-7-2년">이격도 추이: 2024.7 ~ 2026.7 (2년)</a></li><li><a href="#종가-vs-50일-이동평균선-2024-7-2026-7">종가 vs 50일 이동평균선 (2024.7~2026.7)</a></li><li><a href="#최근-10거래일-비교-amp-국면-분포">최근 10거래일 비교 &amp; 국면 분포</a></li><li><a href="#현재-이격도-위치-게이지">현재 이격도 위치 게이지</a></li><li><a href="#구간-통계-요약">구간 통계 요약</a></li><li><a href="#이격도-구간과-주가의-관계">이격도 구간과 주가의 관계</a></li><li><a href="#이격도-100-미만-이후-상승-확률-전체기간-백테스트">이격도 100 미만 → 이후 상승 확률 (전체기간 백테스트)</a></li><li><a href="#해석-amp-시나리오">해석 &amp; 시나리오 (7/31 기준 해석: 그날의 판단 기록)</a></li></ol></div><!--TOC:END--><!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>이격도는 종가를 50일선으로 나눈 값이다. 100이면 선 위에 정확히 있다는 뜻이다. 2026년 상반기에 코스피 133, 하이닉스 176까지 올랐다가 7월 급락으로 되돌려졌다. 이격도는 방향을 말하지 않고 벌어진 정도만 말한다.</p></div><!--PCLAIM:END--><div class="asof"><span class="dot"></span> 기준일 2026년 7월 31일 · 종가 실데이터 · 이격도 2024.7~2026.7 (2년) · 삼성전자는 2025.1 이후</div>
     </div>
 
     <section aria-label="핵심 지표" class="animate delay-1">
