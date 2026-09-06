@@ -111,6 +111,15 @@ footer{margin-top:48px;border-top:1px solid var(--border);padding-top:22px;color
 /* ── 제목 아래 한 줄 (좌상단 배지 폐기 후 유일한 자리) ── */
 .pauth{margin:10px 0 0;font-size:.8rem;color:var(--text-secondary);text-align:center}
 .pauth b{color:var(--text);font-variant-numeric:tabular-nums}
+
+/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
+.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
+  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
+.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
+  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
+  background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
 /* DESIGN:BEGIN */
 /* ── 숫자는 항상 고정폭 — 매일 바뀌는 값에 칸이 흔들리지 않게 ── */
 body{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
@@ -300,16 +309,7 @@ a.card:focus-visible,.lst-i:focus-visible{
   .wrap{padding-left:18px!important;padding-right:18px!important}
   .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
 }
-/* LAYOUT:END */
-/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
-.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
-  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/* BAR:BEGIN */
+/* LAYOUT:END *//* BAR:BEGIN */
 /* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
    flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
 html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
@@ -408,7 +408,7 @@ h2[id],h3[id],[id]:target{scroll-margin-top:92px}
 .ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
 .ptoc a:hover{border-bottom-color:var(--text-secondary)}
 @media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*/</style><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><style>
+/*TOCCSS:END*/</style><style>
 /* ── 닷컴 대시보드 형식 (scripts/dotcom_panel.py) ── */
 /* 값은 kospi-dotcom-1998-2000.html 에서 그대로 옮겼다 — 눈맛의 정본이다 */
 html.theme-light{--chart-accent:#B7791F;--chart-pos:#0F8A53;--chart-neg:#D62839;--chart-mute:#8a8f98;
@@ -448,7 +448,7 @@ html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;-
 .reveal.visible{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 @media(max-width:720px){.panel{padding:22px 16px 18px}.panel .cbox{min-height:320px}}
-</style><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><style id="freqcss">
+</style><link rel="stylesheet" href="vendor/fonts.css"><style id="freqcss">
 .freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
  padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
  border:1px solid currentColor;opacity:.85}
@@ -725,7 +725,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper p.note{padding-left:11px}
 }
 /* PAPER:END */</style>
-</head><body>
+<!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="here" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a class="here" href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="macro-timeline.html">거시 이벤트 연대기</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-nhn.html">NHN</a><a href="stock-kolmar.html">한국콜마</a><a href="stock-cosmax.html">코스맥스</a><a href="stock-pharmaresearch.html">파마리서치</a><a href="stock-jyp.html">JYP Ent.</a><a href="stock-sm-ent.html">에스엠</a><a href="stock-yg-ent.html">와이지엔터테인먼트</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="us-credit-spread.html">미국 신용스프레드는 주가를 앞서지 않는다</a><a href="us-elections.html">미국 선거와 증시</a><a href="gold-rates.html">금과 장기금리는 시대마다 반대로 움직인다</a><a href="treasury-trust.html">국채는 부도로 무너지지 않는다</a><a href="deleveraging.html">강제청산은 어떻게 끝나는가</a><a href="inflation-playbook.html">인플레 시대에 무엇이 통했나</a><a href="rates-century.html">미국 금리 100년과 인플레 시대</a><a href="memory-price.html">메모리 가격과 반도체 주가</a><a href="breadth-concentration.html">신고가 쏠림배수 2023~2026</a><a href="kospi-analog.html">지금과 닮은 과거 — 유사국면</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><div class="site-group"><button class="" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 79계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a href="data-kr-rates.html">한국 금리</a><a href="data-us-market.html">미국 시장</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a href="data-fx.html">환율·원자재·암호</a><a href="data-macro.html">재정·거시</a></div></div><!-- NAV:END --></nav>
@@ -937,7 +937,7 @@ window.__qbRegister=function(){echarts.registerTheme('charlie', {"color": ["#d21
 투자 권유가 아니다. 저는 투자 전문가가 아니며, 투자의 최종 판단과 책임은 투자자 본인에게 있다.</p>
 </div>
 </div>
-<div class="wrap"><!--TOPICNEWS:BEGIN--><style id="tnewscss">.tnews{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 10px;margin:34px 0 10px}.tnews h3{margin:0 0 10px;font-size:1.02rem}.tnews table{width:100%;border-collapse:collapse;font-size:.9rem}.tnews td{padding:5px 8px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}.tnews td.d{white-space:nowrap;color:var(--text-secondary)}.tnews p.cap{margin:10px 0 8px;font-size:.8rem;color:var(--text-secondary);line-height:1.6}</style><div class="tnews"><h3>관련 뉴스</h3><p class="cap">제목에 그 낱말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.</p><p class="cap">국내: 「코스닥 지수」 로 찾았다.</p><div class="tblwrap"><table><tbody><tr><td class="d">Fri, 04 Sep</td><td class="d">v.daum.net</td><td><a href="https://news.google.com/rss/articles/CBMiT0FVX3lxTE9QZlF5SGRuLWlfY29nM2RLS0dKYjBucm1zTmFwdDZUeVAxcUZ2Q1NhTFNFcExJUkhGWnFJbXBtQmVMYmdXMnBBbzAtXzRsZ0E?oc=5" target="_blank" rel="noopener nofollow">코스닥 악화에…‘시총 300억 미만때 상장폐지’ 6개월 연기한다</a></td></tr><tr><td class="d">Fri, 04 Sep</td><td class="d">이투데이</td><td><a href="https://news.google.com/rss/articles/CBMiVEFVX3lxTE5GVmRsQjkwMmpubHlsTjIxQmxQZHpCQjZJQjdUd1A4cnJhd1lBWFNxdjZnU041RFZkaHpNTjJKU20tMldiUTBJQ19KLXFnSXJYcVdZVA?oc=5" target="_blank" rel="noopener nofollow">코스피 1.6%ㆍ코스닥 2.9% 강세⋯외인과 기관 2.1조 ‘쌍끌이 매수’</a></td></tr><tr><td class="d">Fri, 04 Sep</td><td class="d">한겨레</td><td><a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE8yS0FzamZZbU1iRnBneXFpdjFNWUdBdlJBdzdMYndhWjAzZk55R2JidWlPMjdqMWlxMTBHbW9nUEZqdk1NZDBTcVp4VHlxUEZOaDF4RFdBeDFQLUI1MmVvbTBneGZKbzA?oc=5" target="_blank" rel="noopener nofollow">시총 적어 코스닥 상장폐지 위기 ‘흑자 기업’, 코넥스로 옮긴다</a></td></tr><tr><td class="d">Thu, 03 Sep</td><td class="d">news.einfomax.co.kr</td><td><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTE1SN2dhc3pVZ1NvYm5VVENCcVp6RTBiZnRHXzFWbHFmTzdONm04M1FRM0RMSDBRUDVHclNDY0RIMV9idU8xbEpic2QyYVY1SW1XU003VFp4TndaZjgwNmFmclJpOWtFXzk0YWx5aDN2MFA?oc=5" target="_blank" rel="noopener nofollow">[증시-마감] 코스피, 기관 투매에 출렁였다 0.26% 상승…코스닥은 1.71% 하락</a></td></tr><tr><td class="d">Wed, 02 Sep</td><td class="d">연합뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE1yWXNpUkFFUERRYk9hekRYRkV6aFlmN2tVUktXdFMxQWlmYVhsYnFla0drS3p6bVhWQk5pcDY5cmRfVm5yMUl0MXJYZ1RyMTNWTGdmT1NzMVk3YzjSAWBBVV95cUxQaTh6Wm9QNHIxNjJqV2h3Uy1KTENnUzJxdjV2MWNDUTdGUEdrNWVqMUhEUDNkM1ROUHVWOEh1M2FuZ04wY2MtdnNoeW5XTjVxREplN0NOQ09pNC03bE1nNjQ?oc=5" target="_blank" rel="noopener nofollow">중동 긴장 고조에 코스피 4% 급락해 6,500대로…코스닥도 2.1%↓(종합)</a></td></tr><tr><td class="d">Fri, 04 Sep</td><td class="d">네이트</td><td><a href="https://news.google.com/rss/articles/CBMiU0FVX3lxTE9vajJvUUt1eEM5cGd0RmVEaW5QdjUxa0JtMmR1bjktLUlYMnBETUlDT00tNnBCMF92dE9USEVud3lHdVZGcHZNNlNUTFJPUTVlTlh3?oc=5" target="_blank" rel="noopener nofollow">코스피, 美금리 진정에 상승…코스닥 800선 회복</a></td></tr></tbody></table></div><p class="cap">출처 구글 뉴스 · 2026-09-05 기준. 뉴스는 이 글의 분석과 무관하며 서로 어긋날 수 있다.</p></div><!--TOPICNEWS:END--><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="sentiment.html">빚과 현금과 강제청산</a> — 코스닥은 신용융자에 가장 민감한 시장입니다 — 빚 지표와 지수의 28년 관계가 그 페이지입니다.</p><p><a href="breadth-rs.html">52주 신고가·상대강도</a> — 코스닥이 상위권에 들어오기 시작하는지 — 위험선호 회복의 첫 신호를 거기서 봅니다.</p></div><!--RELATED:END--></div>
+<div class="wrap"><!--TOPICNEWS:BEGIN--><style id="tnewscss">.tnews{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 10px;margin:34px 0 10px}.tnews h3{margin:0 0 10px;font-size:1.02rem}.tnews table{width:100%;border-collapse:collapse;font-size:.9rem}.tnews td{padding:5px 8px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}.tnews td.d{white-space:nowrap;color:var(--text-secondary)}.tnews p.cap{margin:10px 0 8px;font-size:.8rem;color:var(--text-secondary);line-height:1.6}</style><div class="tnews"><h3>관련 뉴스</h3><p class="cap">제목에 그 낱말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.</p><p class="cap">국내 — 「코스닥 지수」 로 찾았다.</p><div class="tblwrap"><table><tbody><tr><td class="d">Fri, 04 Sep</td><td class="d">v.daum.net</td><td><a href="https://news.google.com/rss/articles/CBMiT0FVX3lxTE9xOE02UlV6Q3F6ZlE3ZUs4ODg1dDNqY3hzalpqX1BWMVNfeC0xV2cxTDZRRVE5MjNqVThFVW1NdXdJMzZJU00yaUNrdXJrRUU?oc=5" target="_blank" rel="noopener nofollow">코스피 1%대 올라 6,680선…코스닥도 반등</a></td></tr><tr><td class="d">Fri, 04 Sep</td><td class="d">v.daum.net</td><td><a href="https://news.google.com/rss/articles/CBMiT0FVX3lxTE1FR2k3Vk41VGJSZlNCc3FKbTMyLXRWN2pwaHk0cmo5aFcyenRWSmMyUU5QWnBfNW45eUhWVW1hMTBMbHhjeVRybF9XRjJ5cW8?oc=5" target="_blank" rel="noopener nofollow">코스피 1.6%ㆍ코스닥 2.9% 강세⋯외인과 기관 2.1조 ‘쌍끌이 매수’</a></td></tr><tr><td class="d">Fri, 04 Sep</td><td class="d">hani.co.kr</td><td><a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE8yS0FzamZZbU1iRnBneXFpdjFNWUdBdlJBdzdMYndhWjAzZk55R2JidWlPMjdqMWlxMTBHbW9nUEZqdk1NZDBTcVp4VHlxUEZOaDF4RFdBeDFQLUI1MmVvbTBneGZKbzA?oc=5" target="_blank" rel="noopener nofollow">시총 적어 코스닥 상장폐지 위기 ‘흑자 기업’, 코넥스로 옮긴다</a></td></tr><tr><td class="d">Fri, 04 Sep</td><td class="d">이투데이</td><td><a href="https://news.google.com/rss/articles/CBMiVEFVX3lxTE1UUlFSODNHMU94TE9HdlhqTXlzaFJpaXVhOEZtSXhtZmtoSWY2dzByNzRoblRmTkNEcC0wbU9EQXlZUzRKRlpLR2toLTVUalFxMm5SWg?oc=5" target="_blank" rel="noopener nofollow">[베스트&워스트] 코스닥 약세에도 탈모주 질주…JW신약 55% 급등</a></td></tr><tr><td class="d">Fri, 04 Sep</td><td class="d">서울파이낸스</td><td><a href="https://news.google.com/rss/articles/CBMiakFVX3lxTE93dDNWSzRjZks1Zm5XX0FvaVY1Y0RKZmhWNmRNUGdDOUprYVo1ZEgzWHoxV2hLLXR3dWRSRGVaX2pocHhzQ0JtZkxSZTViaTdmdEZybzRPS2h4UFFtMDJnTGFOX0hGRnQxdWc?oc=5" target="_blank" rel="noopener nofollow">[코스닥 마감] 23.29P(2.95%) 오른 813.50</a></td></tr><tr><td class="d">Thu, 03 Sep</td><td class="d">한국강사신문</td><td><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTFA5MlE5d0pWcjlFeTdLNjdxMFJwZTFETGVWNnVvU2pNaGt2OWhtRWI3VV9SQXY5QWx6c28wYVlQalhTSWstdFZHYlA3emVTMzlWcmNQeUlEZ0hKaGF4TkNSQmhWMkVlYVBiM19pQ044aWE?oc=5" target="_blank" rel="noopener nofollow">[코스피‧코스닥지수] 코스피, 장중 6,400대로 급락 전환…코스닥도 2%대 하락</a></td></tr></tbody></table></div><p class="cap">출처 구글 뉴스 · 2026-09-06 기준. 뉴스는 이 글의 분석과 무관하며 서로 어긋날 수 있다.</p></div><!--TOPICNEWS:END--><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="sentiment.html">빚과 현금과 강제청산</a> — 코스닥은 신용융자에 가장 민감한 시장입니다 — 빚 지표와 지수의 28년 관계가 그 페이지입니다.</p><p><a href="breadth-rs.html">52주 신고가·상대강도</a> — 코스닥이 상위권에 들어오기 시작하는지 — 위험선호 회복의 첫 신호를 거기서 봅니다.</p></div><!--RELATED:END--></div>
 <footer>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.
     · 근거: 이야기꾼 주간 시투 보고서(W31·2026-08-01) 및 자체 실측.</footer>
 </div>
@@ -984,7 +984,6 @@ window.__qbRegister=function(){echarts.registerTheme('charlie', {"color": ["#d21
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
-
 <script src="vendor/chart-4.4.1.umd.js"></script>
 <!-- CHARTTHEME:BEGIN -->
 <script src="chart-theme.js?v=ce377133"></script>
@@ -1112,7 +1111,8 @@ window.__stRange=function(id,n,btn){
  els.forEach(function(e){var r=e.getBoundingClientRect();
    if(r.top<vh*0.95&&r.bottom>0) show(e);});
  setTimeout(function(){els.forEach(show);},1200);})();
-</script><!--TOCJS:BEGIN--><script>
+</script><button class="toggle" onclick="__toggleTheme()">&#9728;</button>
+<!--TOCJS:BEGIN--><script>
 /* 목차 클릭 보정 — 2026-08-24
    ⚠ 해시가 이미 그 값이면 브라우저가 클릭을 무시한다. 스크롤을 내린 뒤
      같은 항목을 다시 누르면 아무 일도 일어나지 않는다(실측으로 확인).
@@ -1139,5 +1139,4 @@ window.__stRange=function(id,n,btn){
     }
   });
 })();
-</script><!--TOCJS:END--><button class="toggle" onclick="__toggleTheme()">&#9728;</button>
-</body></html>
+</script><!--TOCJS:END--></body></html>

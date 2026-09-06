@@ -121,7 +121,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── 테마 토글 버튼 (전 페이지 공통) ── */
 /* ⚠⚠ `top:auto` 와 z-index 가 핵심이다 (2026-08-08).
-   생성기 SHELL 들이 `.toggle{position:fixed;top:18px;…}` 를 따로 갖고 있는데(45장),
+   생성기 SHELL 들이 `.toggle{top:62px;z-index:88;position:fixed;…}` 를 따로 갖고 있는데(45장),
    이 규칙은 뒤에 와서 z-index 만 이기고 **위치는 top:18px 가 남았다.**
    그 자리는 sticky 상단바(.site-bar, z-index 90)가 덮는 자리라
    **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 세 번째 원인이다.
@@ -446,7 +446,7 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
 
 <!-- STATUS:BEGIN -->
 <section class="status">
-  <div class="st-head">데이터 기준일 <b>2026-09-04</b><span class="st-gen">갱신 2026-09-05</span></div>
+  <div class="st-head">데이터 기준일 <b>2026-09-04</b><span class="st-gen">갱신 2026-09-06</span></div>
   <div class="st-grid"><div class="st-c up"><div class="st-l">코스피</div><div class="st-v">6,687</div><div class="st-s">+1.64% · 이격도 96.2</div></div><div class="st-c up"><div class="st-l">코스닥</div><div class="st-v">813.5</div><div class="st-s">+2.95% · 09/04</div></div><div class="st-c dn"><div class="st-l">수급 5일 · 외국인</div><div class="st-v">-3.0<span class="st-u">조</span></div><div class="st-s">개인 -3.1 · 기관 -2.0 (근사)</div></div><div class="st-c up"><div class="st-l">외인·기관 쌍끌이</div><div class="st-v">7<span class="st-u">/21종목</span></div><div class="st-s">SK하이닉스 등 7종목 · <span class="nb">09-04</span></div></div><div class="st-c warn"><div class="st-l">코스피 바닥 7단계</div><div class="st-v">1<span class="st-u">/7단계</span></div><div class="st-s">투매 7회 확인</div></div><div class="st-c dn"><div class="st-l">신고가 − 신저가</div><div class="st-v">-22</div><div class="st-s">신고가 55 · 신저가 77</div></div><div class="st-c warn old"><div class="st-l">전조현상 점등</div><div class="st-v">14<span class="st-u">/28</span></div><div class="st-s"><span class="st-age">34일 전</span> 1급 8개 W31</div></div><div class="st-c"><div class="st-l">오디션 생존</div><div class="st-v">268<span class="st-u">/303</span></div><div class="st-s">88% · 기준일 07-29 대비</div></div></div>
 <div class="st-note">전조현상 점등 <b>08-01</b> — 나머지 칸보다 뒤처진 자료입니다</div></section>
 <!-- STATUS:END -->
@@ -512,7 +512,7 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
   <a class="card " href="peak-debate.html"><h3>반도체 정점 논쟁</h3><p>"반도체는 정점을 찍었는가." 리포트가 나올 때마다 판단을 갱신하고 틀렸던 부분까지 지우지 않고 누적한다. 이야기꾼과 이은택이 갈리는 지점, 그리고 내가 틀릴 조건을 함께 추적한다.</p></a>
   <a class="card " href="supply-analysis.html"><h3>수급 심층 분석</h3><p>"외국인을 따라 사면 된다"는 말이 정말 맞는지 데이터로 확인했다. 2025년엔 맞았고 2026년엔 틀렸다. 따라가도 되는 기간은 20일까지였다.</p></a>
   <a class="card " href="experts.html"><h3>전문가 의견 추적</h3><p>전문가 6인이 언제 무슨 말을 했는지 최신순으로 쌓는다. 발언 옆에 그날 코스피가 붙어 있어, 시간이 지나면 누가 맞았는지가 드러난다.</p></a>
-  <a class="card " href="foreign-share.html"><h3>외국인 비중</h3><p>외국인은 올해 코스피에서 182조를 순매도하고도 비중이 올랐다. 남겨둔 반도체가 시장의 두 배 넘게 올랐기 때문이다. 코스피 28년·코스닥 26년 시계열과 역대 위기 열 번으로 확인한다.</p></a>
+  <a class="card " href="foreign-share.html"><h3>외국인 비중</h3><p>외국인은 올해 코스피에서 182조를 순매도하고도 비중이 올랐다. 남겨둔 반도체가 시장의 2배 넘게 올랐기 때문이다. 코스피 28년·코스닥 26년 시계열과 역대 위기 열 번으로 확인한다.</p></a>
   </div>
 </section>
 
