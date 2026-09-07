@@ -121,7 +121,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── 테마 토글 버튼 (전 페이지 공통) ── */
 /* ⚠⚠ `top:auto` 와 z-index 가 핵심이다 (2026-08-08).
-   생성기 SHELL 들이 `.toggle{position:fixed;top:18px;…}` 를 따로 갖고 있는데(45장),
+   생성기 SHELL 들이 `.toggle{top:62px;z-index:88;position:fixed;…}` 를 따로 갖고 있는데(45장),
    이 규칙은 뒤에 와서 z-index 만 이기고 **위치는 top:18px 가 남았다.**
    그 자리는 sticky 상단바(.site-bar, z-index 90)가 덮는 자리라
    **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 세 번째 원인이다.
@@ -451,7 +451,7 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
 </section>
 <!-- STATUS:END -->
 <!-- CHANGED:BEGIN -->
-<div class="chg"><div class="chg-h">어제와 견주어 달라진 것<span class="chg-d">09-04 → 09-07</span></div><ul class="chg-l"><li><span class="chg-k">코스피 바닥 7단계</span><span class="chg-v">1단계 <i>→</i> <b>2단계</b></span></li><li><span class="chg-k">전조현상 점등</span><span class="chg-v">14개 <i>→</i> <b>11개</b></span></li><li><span class="chg-k">외인·기관 쌍끌이</span><span class="chg-v">7종목 <i>→</i> <b>8종목</b></span></li><li><span class="chg-k">오디션 생존</span><span class="chg-v">268종목 <i>→</i> <b>269종목</b></span></li><li><span class="chg-k">외국인 5일 수급</span><span class="chg-v">-3.0조 <i>→</i> <b>+0.3조</b></span><span class="chg-n">순매수로 돌아섰습니다</span></li><li><span class="chg-k">신고가 − 신저가</span><span class="chg-v">-22 <i>→</i> <b>-27</b></span></li></ul></div>
+<div class="chg"><div class="chg-h">어제와 견주어 달라진 것<span class="chg-d">09-04 → 09-07</span></div><ul class="chg-l"><li><span class="chg-k">코스피 바닥 7단계</span><span class="chg-v">1단계 <i>→</i> 2단계</span></li><li><span class="chg-k">전조현상 점등</span><span class="chg-v">14개 <i>→</i> 11개</span></li><li><span class="chg-k">외인·기관 쌍끌이</span><span class="chg-v">7종목 <i>→</i> 8종목</span></li><li><span class="chg-k">오디션 생존</span><span class="chg-v">268종목 <i>→</i> 269종목</span></li><li><span class="chg-k">외국인 5일 수급</span><span class="chg-v">-3.0조 <i>→</i> +0.3조</span><span class="chg-n">순매수로 돌아섰다</span></li><li><span class="chg-k">신고가 − 신저가</span><span class="chg-v">-22 <i>→</i> -27</span></li></ul></div>
 <!-- CHANGED:END -->
 
 <!-- SECS:BEGIN -->
