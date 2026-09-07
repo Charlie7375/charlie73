@@ -50,6 +50,7 @@ td.d{font-variant-numeric:tabular-nums;color:var(--text-secondary);font-size:12p
 .note{font-size:12.5px;color:var(--text-secondary);margin-top:26px;padding-top:14px;border-top:1px solid var(--border)}
 @media(max-width:760px){.two{grid-template-columns:1fr}.wrap{padding:24px 14px 60px}}
 
+
 /* ── 사이트 공통 상단바 v2 ── */
 .site-bar{position:sticky;top:0;z-index:90;backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);
   background:color-mix(in srgb,var(--bg) 80%,transparent);border-bottom:1px solid var(--border);margin:0 0 30px}
@@ -284,31 +285,7 @@ a.card:focus-visible,.lst-i:focus-visible{
   .wrap{padding-left:18px!important;padding-right:18px!important}
   .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
 }
-/* LAYOUT:END *//* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END */
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
-/* PAPER:BEGIN */
+/* LAYOUT:END *//* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -578,62 +555,41 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END *//*TOCCSS:BEGIN*/
-/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
-
-/* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
-   원인은 상단바다. .site-bar 가 position:sticky · 높이 78px 로 화면 맨 위를 덮는데
-   앵커로 이동하면 제목이 정확히 그 아래에 깔린다. 그래서 독자는 제목을 못 보고
-   그 다음 문단부터 보게 된다. 눌러 간 곳과 보이는 글이 어긋나는 것이 이 때문이다.
-   scroll-margin-top 이 0 이었다. 78 에 여백 14 를 더해 92 로 둔다.
-   ⚠ 상단바 높이를 바꾸면 이 값도 같이 바꾼다. 측정: .site-bar 의 getBoundingClientRect().height */
-h2[id],h3[id],[id]:target{scroll-margin-top:92px}
-@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
- margin:22px 0 24px;background:var(--surface);text-align:left}
-.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
- color:var(--text-secondary);margin-bottom:7px;text-align:left}
-.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
-.ptoc li{font-size:.9rem}
-.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
-.ptoc a:hover{border-bottom-color:var(--text-secondary)}
-@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*/</style><link rel="stylesheet" href="vendor/fonts.css"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
+/* PAPER:END */</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"></head><body>
 <div class="site-bar"><div class="site-bar-in">
-  <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
+  <a class="site-brand" href="index.html">찰리의 시투 추종</a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="macro-timeline.html">거시 이벤트 연대기</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-nhn.html">NHN</a><a href="stock-kolmar.html">한국콜마</a><a href="stock-cosmax.html">코스맥스</a><a href="stock-pharmaresearch.html">파마리서치</a><a href="stock-jyp.html">JYP Ent.</a><a href="stock-sm-ent.html">에스엠</a><a href="stock-yg-ent.html">와이지엔터테인먼트</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="here" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="us-credit-spread.html">미국 신용스프레드는 주가를 앞서지 않는다</a><a class="here" href="us-elections.html">미국 선거와 증시</a><a href="gold-rates.html">금과 장기금리는 시대마다 반대로 움직인다</a><a href="treasury-trust.html">국채는 부도로 무너지지 않는다</a><a href="deleveraging.html">강제청산은 어떻게 끝나는가</a><a href="inflation-playbook.html">인플레 시대에 무엇이 통했나</a><a href="rates-century.html">미국 금리 100년과 인플레 시대</a><a href="memory-price.html">메모리 가격과 반도체 주가</a><a href="breadth-concentration.html">신고가 쏠림배수 2023~2026</a><a href="kospi-analog.html">지금과 닮은 과거 — 유사국면</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><div class="site-group"><button class="" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 79계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a href="data-kr-rates.html">한국 금리</a><a href="data-us-market.html">미국 시장</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a href="data-fx.html">환율·원자재·암호</a><a href="data-macro.html">재정·거시</a></div></div><!-- NAV:END --></nav>
 </div></div>
 <div class="wrap paper"><div class="site-crumb"><a href="index.html">홈</a><span class="sep">›</span><span>아카이브</span><span class="sep">›</span><span class="cur">미국 선거와 증시</span></div>
-<div class="phead"><div class="eyebrow">원자료 · 정치 달력</div>
+<div class="eyebrow">원자료 · 정치 달력</div>
 <h1>미국 선거와 증시</h1>
 <p class="sub">기준 2026-09-07 · 대통령 47대 · 대선 60회(1789~) · 연방 선거 85회(1856~) · 자료는 미국 정부 공식 창구에서 매일 받는다</p>
-<p class="pauth">기준일 2026-09-07 · 미 하원 역사국·국립기록보관소 선거 이력 · S&P500 1927~ · 매일 갱신</p></div>
 
-<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>이야기꾼이 말한 '1954년 이래 중간선거 뒤 1년간 하락 0회'를 볼트 자료로 재 보니 그대로였다. 18번 모두 올랐고 평균은 14퍼센트를 넘는다. 중간선거가 없는 해는 셋 중 하나꼴로 내렸으니 방향도 맞다. 다만 표본이 열여덟이다. 이것은 규칙이 아니라 관측이다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#이야기꾼의-중간선거-통계를-재-봤다">이야기꾼의 중간선거 통계를 재 봤다</a></li><li><a href="#중간선거-12개월">중간선거 → 12개월</a></li><li><a href="#대통령-47대-최신-위">대통령 47대 (최신 위)</a></li><li><a href="#연방-선거-시계열-최신이-위">연방 선거 시계열: 최신이 위</a></li></ol></div><!--TOC:END--><div class="stats"><div class="st"><div class="sk">대통령</div><div class="sv">47대 (1789~)</div></div><div class="st"><div class="sk">대선</div><div class="sv">60회 (1789~2024)</div></div><div class="st"><div class="sk">연방 선거</div><div class="sv">85회 (1856~)</div></div><div class="st"><div class="sk">중간선거 12개월</div><div class="sv">18회 중 하락 0회</div></div><div class="st"><div class="sk">그 평균</div><div class="sv">+14.8%</div></div><div class="st"><div class="sk">비중간선거 해</div><div class="sv">하락 34% · 평균 +5.5%</div></div></div>
+<div class="stats"><div class="st"><div class="sk">대통령</div><div class="sv">47대 (1789~)</div></div><div class="st"><div class="sk">대선</div><div class="sv">60회 (1789~2024)</div></div><div class="st"><div class="sk">연방 선거</div><div class="sv">85회 (1856~)</div></div><div class="st"><div class="sk">중간선거 12개월</div><div class="sv">18회 중 하락 0회</div></div><div class="st"><div class="sk">그 평균</div><div class="sv">+14.8%</div></div><div class="st"><div class="sk">비중간선거 해</div><div class="sv">하락 34% · 평균 +5.5%</div></div></div>
 
-<h2 id="이야기꾼의-중간선거-통계를-재-봤다" class="sec">이야기꾼의 중간선거 통계를 재 봤다</h2>
+<h2 class="sec">이야기꾼의 중간선거 통계를 재 봤다</h2>
 <div class="claim">
 <div class="q">「1954년 S&amp;P500 지수가 정의된 이래, S&amp;P500 지수는 중간선거 이후 1년간 단 한번도 하락한 적이 없다.
 반면 중간선거가 없는 대통령 1년차·3년차·4년차의 경우 10월부터 이듬해 9월까지 하락한 경우는 28%에 달했다.」
 — 이야기꾼, 2026-08-31 회원방</div>
-<p>앞 문장은 맞다. 1954년 이후 중간선거 18회를 선거일 종가에서 이듬해 11월까지 재면
-하락은 0회다. 평균 +14.8% · 중앙값 +12.6% · 가장 나빴던 해도 2010년 +2.1%로 플러스다.</p>
-<p style="margin-top:8px">뒤 문장도 방향은 맞다. 중간선거가 없는 해의 10월 → 이듬해 9월은 53회 중 18회가
-하락으로 34%다(그가 말한 28%와 가까운 자리). 평균은 +5.5%로 중간선거 쪽의 절반에 못 미친다.</p>
-<p style="margin-top:8px;color:var(--text-secondary);font-size:12.5px">⚠ 재는 법: 선거일은 11월 첫 월요일의 다음 화요일로 계산했고,
+<p><b>앞 문장은 맞다.</b> 1954년 이후 중간선거 <b>18회</b>를 선거일 종가에서 이듬해 11월까지 재면
+하락은 <b>0회</b>다. 평균 <b>+14.8%</b> · 중앙값 <b>+12.6%</b> · 가장 나빴던 해도 2010년 <b>+2.1%</b>로 플러스다.</p>
+<p style="margin-top:8px"><b>뒤 문장도 방향은 맞다.</b> 중간선거가 없는 해의 10월 → 이듬해 9월은 <b>53회 중 18회</b>가
+하락으로 <b>34%</b>다(그가 말한 28%와 가까운 자리). 평균은 <b>+5.5%</b>로 중간선거 쪽의 절반에 못 미친다.</p>
+<p style="margin-top:8px;color:var(--text-secondary);font-size:12.5px">⚠ 재는 법 — 선거일은 <b>11월 첫 월요일의 다음 화요일</b>로 계산했고,
 그 날(휴장이면 다음 거래일) 종가에서 이듬해 같은 시점까지의 변화다. 지수는 볼트의 <a href="d-sp500-long.html">S&amp;P500 1927~ 일별</a>을 쓴다.
-⚠ 1957-03-04 이전은 500종목 지수가 아니라 그 전신을 이어 붙인 것이다. 1954년 표본이 여기 걸린다.
-⚠ 표본 18회는 적다. 「한 번도 없었다」는 규칙이 아니라 관측이다.</p>
+⚠ 1957-03-04 이전은 500종목 지수가 아니라 그 전신을 이어 붙인 것이다 — 1954년 표본이 여기 걸린다.
+⚠ <b>표본 18회는 적다.</b> 「한 번도 없었다」는 규칙이 아니라 관측이다.</p>
 </div>
 
 <div class="two">
-<div><h2 id="중간선거-12개월" class="sec">중간선거 → 12개월</h2>
+<div><h2 class="sec">중간선거 → 12개월</h2>
 <div class="scroll"><div class="tblwrap"><table><thead><tr><th>선거</th><th>S&amp;P500</th></tr></thead><tbody><tr><td>2022</td><td class="up">+10.7%</td></tr><tr><td>2018</td><td class="up">+11.3%</td></tr><tr><td>2014</td><td class="up">+4.6%</td></tr><tr><td>2010</td><td class="up">+2.1%</td></tr><tr><td>2006</td><td class="up">+9.1%</td></tr><tr><td>2002</td><td class="up">+15.7%</td></tr><tr><td>1998</td><td class="up">+21.9%</td></tr><tr><td>1994</td><td class="up">+25.5%</td></tr><tr><td>1990</td><td class="up">+25.6%</td></tr><tr><td>1986</td><td class="up">+3.9%</td></tr><tr><td>1982</td><td class="up">+19.0%</td></tr><tr><td>1978</td><td class="up">+9.3%</td></tr><tr><td>1974</td><td class="up">+17.3%</td></tr><tr><td>1970</td><td class="up">+10.2%</td></tr><tr><td>1966</td><td class="up">+13.9%</td></tr><tr><td>1962</td><td class="up">+25.8%</td></tr><tr><td>1958</td><td class="up">+10.3%</td></tr><tr><td>1954</td><td class="up">+30.3%</td></tr></tbody></table></div></div></div>
-<div><h2 id="대통령-47대-최신-위" class="sec">대통령 47대 (최신 위)</h2>
+<div><h2 class="sec">대통령 47대 (최신 위)</h2>
 <div class="scroll"><div class="tblwrap"><table><thead><tr><th>#</th><th>대통령</th><th>부통령</th><th>임기</th><th>의회</th></tr></thead><tbody><tr><td>47</td><td>Donald J. Trump</td><td>James David (J.D.) Vance</td><td class="d">2025-01-20 ~ 재임 중</td><td class="d">119</td></tr><tr><td>46</td><td>Joseph R. Biden Jr.</td><td>Kamala D. Harris</td><td class="d">2021-01-20 ~ 2025-01-20</td><td class="d">117, 118, 119</td></tr><tr><td>45</td><td>Donald J. Trump</td><td>Mike Pence</td><td class="d">2017-01-20 ~ 2021-01-20</td><td class="d">115, 116, 117</td></tr><tr><td>44</td><td>Barack Obama</td><td>Joseph R. Biden Jr.</td><td class="d">2009-01-20 ~ 2017-01-20</td><td class="d">111, 112, 113, 114, 115</td></tr><tr><td>43</td><td>George W. Bush</td><td>Dick Cheney</td><td class="d">2001-01-20 ~ 2009-01-20</td><td class="d">107, 108, 109, 110, 111</td></tr><tr><td>42</td><td>William J. Clinton</td><td>Albert Gore Jr.</td><td class="d">1993-01-20 ~ 2001-01-20</td><td class="d">103, 104, 105, 106, 107</td></tr><tr><td>41</td><td>George H.W. Bush</td><td>J. Danforth Quayle</td><td class="d">1989-01-20 ~ 1993-01-20</td><td class="d">101, 102, 103,</td></tr><tr><td>40</td><td>Ronald Reagan</td><td>George H.W. Bush</td><td class="d">1981-01-20 ~ 1989-01-20</td><td class="d">97, 98, 99, 100, 101</td></tr><tr><td>39</td><td>James Earl “Jimmy” Carter</td><td>Walter F. Mondale</td><td class="d">1977-01-20 ~ 1981-01-20</td><td class="d">95, 96, 97</td></tr><tr><td>38</td><td>Gerald R. Ford</td><td>............</td><td class="d">1974-08-09 ~ 1974-12-19</td><td class="d">93</td></tr><tr><td>37</td><td>Richard M. Nixon</td><td>Spiro T. Agnew</td><td class="d">1969-01-20 ~ 1973-12-06</td><td class="d">91, 92, 93</td></tr><tr><td>36</td><td>Lyndon B. Johnson</td><td>............</td><td class="d">1963-11-22 ~ 1965-01-20</td><td class="d">88, 89</td></tr><tr><td>35</td><td>John F. Kennedy</td><td>Lyndon B. Johnson</td><td class="d">1961-01-20 ~ 1963-11-22</td><td class="d">87, 88</td></tr><tr><td>34</td><td>Dwight D. Eisenhower</td><td>Richard M. Nixon</td><td class="d">1953-01-20 ~ 1961-01-20</td><td class="d">83, 84, 85, 86, 87</td></tr><tr><td>33</td><td>Harry S. Truman</td><td>............</td><td class="d">1945-04-12 ~ 1949-01-20</td><td class="d">79, 80, 81</td></tr><tr><td>32</td><td>Franklin D. Roosevelt</td><td>John Nance Garner</td><td class="d">1933-03-04 ~ 1941-01-20</td><td class="d">73, 74, 75, 76, 77</td></tr><tr><td>31</td><td>Herbert Hoover</td><td>Charles Curtis</td><td class="d">1929-03-04 ~ 1933-03-03</td><td class="d">71, 72</td></tr><tr><td>30</td><td>Calvin Coolidge</td><td>............</td><td class="d">1923-08-03 ~ 1925-03-03</td><td class="d">68</td></tr><tr><td>29</td><td>Warren G. Harding</td><td>Calvin Coolidge</td><td class="d">1921-03-04 ~ 1923-08-02</td><td class="d">67, 68</td></tr><tr><td>28</td><td>Woodrow Wilson</td><td>Thomas R. Marshall</td><td class="d">1913-03-04 ~ 1921-03-03</td><td class="d">63, 64, 65, 66</td></tr><tr><td>27</td><td>William H. Taft</td><td>James S. Sherman</td><td class="d">1909-03-04 ~ 1913-03-03</td><td class="d">61, 62</td></tr><tr><td>26</td><td>Theodore Roosevelt</td><td>............</td><td class="d">1901-09-14 ~ 1905-03-03</td><td class="d">57, 58</td></tr><tr><td>25</td><td>William McKinley</td><td>Garret A. Hobart</td><td class="d">1897-03-04 ~ 1901-03-03</td><td class="d">55, 56</td></tr><tr><td>24</td><td>Grover Cleveland</td><td>Adlai E. Stevenson</td><td class="d">1893-03-04 ~ 1897-03-03</td><td class="d">53, 54</td></tr><tr><td>23</td><td>Benjamin Harrison</td><td>Levi P. Morton</td><td class="d">1889-03-04 ~ 1893-03-03</td><td class="d">51, 52</td></tr><tr><td>22</td><td>Grover Cleveland</td><td>Thomas A. Hendricks</td><td class="d">1885-03-04 ~ 1889-03-03</td><td class="d">49, 50</td></tr><tr><td>21</td><td>Chester A. Arthur</td><td>............</td><td class="d">1881-09-20 ~ 1885-03-03</td><td class="d">47, 48</td></tr><tr><td>20</td><td>James A. Garfield</td><td>Chester A. Arthur</td><td class="d">1881-03-04 ~ 1881-09-19</td><td class="d">47</td></tr><tr><td>19</td><td>Rutherford B. Hayes</td><td>William A. Wheeler</td><td class="d">1877-03-04 ~ 1881-03-03</td><td class="d">45, 46</td></tr><tr><td>18</td><td>Ulysses S. Grant</td><td>Schuyler Colfax</td><td class="d">1869-03-04 ~ 1873-03-03</td><td class="d">41, 42</td></tr><tr><td>17</td><td>Andrew Johnson</td><td>............</td><td class="d">1865-04-15 ~ 1869-03-03</td><td class="d">39, 40</td></tr><tr><td>16</td><td>Abraham Lincoln</td><td>Hannibal Hamlin</td><td class="d">1861-03-04 ~ 1865-03-03</td><td class="d">37, 38</td></tr><tr><td>15</td><td>James Buchanan</td><td>John C. Breckinridge</td><td class="d">1857-03-04 ~ 1861-03-03</td><td class="d">35, 36</td></tr><tr><td>14</td><td>Franklin Pierce</td><td>William R. King</td><td class="d">1853-03-04 ~ 1857-03-03</td><td class="d">33, 34</td></tr><tr><td>13</td><td>Millard Fillmore</td><td>............</td><td class="d">1850-07-10 ~ 1853-03-03</td><td class="d">31, 32</td></tr><tr><td>12</td><td>Zachary Taylor</td><td>Millard Fillmore</td><td class="d">1849-03-05 ~ 1850-07-09</td><td class="d">31</td></tr><tr><td>11</td><td>James K. Polk</td><td>George M. Dallas</td><td class="d">1845-03-04 ~ 1849-03-03</td><td class="d">29, 30</td></tr><tr><td>10</td><td>John Tyler</td><td>............</td><td class="d">1841-04-06 ~ 1845-03-03</td><td class="d">27, 28</td></tr><tr><td>9</td><td>William Henry Harrison</td><td>John Tyler</td><td class="d">1841-03-04 ~ 1841-04-04</td><td class="d">27</td></tr><tr><td>8</td><td>Martin Van Buren</td><td>Richard M. Johnson</td><td class="d">1837-03-04 ~ 1841-03-03</td><td class="d">25, 26</td></tr><tr><td>7</td><td>Andrew Jackson</td><td>John C. Calhoun</td><td class="d">1829-03-04 ~ 1833-03-03</td><td class="d">21, 22</td></tr><tr><td>6</td><td>John Quincy Adams</td><td>John C. Calhoun</td><td class="d">1825-03-04 ~ 1829-03-03</td><td class="d">19, 20</td></tr><tr><td>5</td><td>James Monroe</td><td>Daniel D. Tompkins</td><td class="d">1817-03-04 ~ 1825-03-03</td><td class="d">15, 16, 17, 18</td></tr><tr><td>4</td><td>James Madison</td><td>George Clinton</td><td class="d">1809-03-04 ~ 1813-03-03</td><td class="d">11, 12</td></tr><tr><td>3</td><td>Thomas Jefferson</td><td>Aaron Burr</td><td class="d">1801-03-04 ~ 1805-03-03</td><td class="d">7, 8</td></tr><tr><td>2</td><td>John Adams</td><td>Thomas Jefferson</td><td class="d">1797-03-04 ~ 1801-03-03</td><td class="d">5, 6</td></tr><tr><td>1</td><td>George Washington</td><td>John Adams</td><td class="d">1789-04-30 ~ 1797-03-03</td><td class="d">1, 2, 3, 4</td></tr></tbody></table></div></div></div>
 </div>
 
-<h2 id="연방-선거-시계열-최신이-위" class="sec">연방 선거 시계열: 최신이 위</h2>
+<h2 class="sec">연방 선거 시계열 — 최신이 위</h2>
 <div class="tl"><div class="tmark"><span>2020년대</span></div>
 <div class="tev" style="--c:#ef4444"><div class="tdot"></div><div class="tcard"><div class="thead"><span class="tdate">2024</span><span class="tgroup">대통령 선거</span><span class="tgov uni">통합정부</span></div><div class="tline"><b>Donald J. Trump</b> [R] 선거인단 <b>312</b> · 상대 Kamala D. Harris [D] 226</div><div class="tctl">대통령 <b>Trump</b>(Republican) · 하원 <b>Republicans</b> · 상원 <b>Republicans</b></div><div class="tfoot"><span class="sp up">선거 뒤 12개월 S&P500 +18.5%</span></div></div></div>
 <div class="tev" style="--c:#2563eb"><div class="tdot"></div><div class="tcard"><div class="thead"><span class="tdate">2022</span><span class="tgroup">중간선거</span><span class="tgov div">분점정부</span></div><div class="tline">118대 의회 — 하원 Democrats 213석 · Republicans 222석</div><div class="tctl">대통령 <b>Biden</b>(Democrat) · 하원 <b>Republicans</b> · 상원 <b>Democrats</b></div><div class="tfoot"><span class="sp up">선거 뒤 12개월 S&P500 +10.7%</span></div></div></div>
@@ -786,32 +742,5 @@ h2[id],h3[id],[id]:target{scroll-margin-top:92px}
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
-<!--TOCJS:BEGIN--><script>
-/* 목차 클릭 보정 — 2026-08-24
-   ⚠ 해시가 이미 그 값이면 브라우저가 클릭을 무시한다. 스크롤을 내린 뒤
-     같은 항목을 다시 누르면 아무 일도 일어나지 않는다(실측으로 확인).
-   ⚠ 그리고 상단바가 sticky 라 앵커로 가면 제목이 그 아래 깔린다.
-     CSS 의 scroll-margin-top 이 그것을 막는데, scrollIntoView 는 그 값을 존중한다.
-   → 해시에 기대지 않고 직접 옮긴다. */
-(function(){
-  function go(el){ if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); }
-  document.addEventListener('click', function(e){
-    var a = e.target && e.target.closest && e.target.closest('.ptoc a[href^="#"]');
-    if(!a) return;
-    var el = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
-    if(!el) return;
-    e.preventDefault();
-    go(el);
-    if(history.replaceState) history.replaceState(null,'',a.getAttribute('href'));
-  }, false);
-  /* 밖에서 #앵커로 들어온 경우에도 상단바 높이를 반영해 한 번 더 맞춘다 */
-  addEventListener('load', function(){
-    var h = location.hash;
-    if(h && h.length > 1){
-      var el = document.getElementById(decodeURIComponent(h.slice(1)));
-      if(el) setTimeout(function(){ el.scrollIntoView({block:'start'}); }, 120);
-    }
-  });
-})();
-</script><!--TOCJS:END--><button class="toggle" onclick="__toggleTheme()">&#9728;</button>
+<button class="toggle" onclick="__toggleTheme()" aria-label="라이트·다크 전환">&#9728;</button>
 </body></html>

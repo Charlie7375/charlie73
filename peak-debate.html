@@ -307,7 +307,27 @@ a.card:focus-visible,.lst-i:focus-visible{
   .wrap{padding-left:18px!important;padding-right:18px!important}
   .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
 }
-/* LAYOUT:END */
+/* LAYOUT:END *//*TOCCSS:BEGIN*/
+/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
+
+/* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
+   원인은 상단바다. .site-bar 가 position:sticky · 높이 78px 로 화면 맨 위를 덮는데
+   앵커로 이동하면 제목이 정확히 그 아래에 깔린다. 그래서 독자는 제목을 못 보고
+   그 다음 문단부터 보게 된다. 눌러 간 곳과 보이는 글이 어긋나는 것이 이 때문이다.
+   scroll-margin-top 이 0 이었다. 78 에 여백 14 를 더해 92 로 둔다.
+   ⚠ 상단바 높이를 바꾸면 이 값도 같이 바꾼다. 측정: .site-bar 의 getBoundingClientRect().height */
+h2[id],h3[id],[id]:target{scroll-margin-top:92px}
+@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
+ margin:22px 0 24px;background:var(--surface);text-align:left}
+.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
+ color:var(--text-secondary);margin-bottom:7px;text-align:left}
+.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
+.ptoc li{font-size:.9rem}
+.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
+.ptoc a:hover{border-bottom-color:var(--text-secondary)}
+@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
+/*TOCCSS:END*/
 /* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
 .pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
  margin:18px 0 20px;text-align:left}
@@ -601,27 +621,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END *//*TOCCSS:BEGIN*/
-/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
-
-/* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
-   원인은 상단바다. .site-bar 가 position:sticky · 높이 78px 로 화면 맨 위를 덮는데
-   앵커로 이동하면 제목이 정확히 그 아래에 깔린다. 그래서 독자는 제목을 못 보고
-   그 다음 문단부터 보게 된다. 눌러 간 곳과 보이는 글이 어긋나는 것이 이 때문이다.
-   scroll-margin-top 이 0 이었다. 78 에 여백 14 를 더해 92 로 둔다.
-   ⚠ 상단바 높이를 바꾸면 이 값도 같이 바꾼다. 측정: .site-bar 의 getBoundingClientRect().height */
-h2[id],h3[id],[id]:target{scroll-margin-top:92px}
-@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
- margin:22px 0 24px;background:var(--surface);text-align:left}
-.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
- color:var(--text-secondary);margin-bottom:7px;text-align:left}
-.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
-.ptoc li{font-size:.9rem}
-.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
-.ptoc a:hover{border-bottom-color:var(--text-secondary)}
-@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*/</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"></head><body>
+/* PAPER:END */</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"></head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="here" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="macro-timeline.html">거시 이벤트 연대기</a><a class="here" href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-nhn.html">NHN</a><a href="stock-kolmar.html">한국콜마</a><a href="stock-cosmax.html">코스맥스</a><a href="stock-pharmaresearch.html">파마리서치</a><a href="stock-jyp.html">JYP Ent.</a><a href="stock-sm-ent.html">에스엠</a><a href="stock-yg-ent.html">와이지엔터테인먼트</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="us-credit-spread.html">미국 신용스프레드는 주가를 앞서지 않는다</a><a href="us-elections.html">미국 선거와 증시</a><a href="gold-rates.html">금과 장기금리는 시대마다 반대로 움직인다</a><a href="treasury-trust.html">국채는 부도로 무너지지 않는다</a><a href="deleveraging.html">강제청산은 어떻게 끝나는가</a><a href="inflation-playbook.html">인플레 시대에 무엇이 통했나</a><a href="rates-century.html">미국 금리 100년과 인플레 시대</a><a href="memory-price.html">메모리 가격과 반도체 주가</a><a href="breadth-concentration.html">신고가 쏠림배수 2023~2026</a><a href="kospi-analog.html">지금과 닮은 과거 — 유사국면</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a><a href="fed-kospi.html">연준 기준금리와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="sentiment.html">빚과 현금과 강제청산</a><a href="samsung-long.html">삼성전자 27년</a><a href="jeoji-kospi.html">제오지산수와 코스피</a><a href="dollar-kospi.html">달러 인덱스와 코스피</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><div class="site-group"><button class="" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 79계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a href="data-kr-rates.html">한국 금리</a><a href="data-us-market.html">미국 시장</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a href="data-fx.html">환율·원자재·암호</a><a href="data-macro.html">재정·거시</a></div></div><!-- NAV:END --></nav>
@@ -632,16 +632,16 @@ h2[id],h3[id],[id]:target{scroll-margin-top:92px}
 <h1>반도체 정점 논쟁</h1>
 <p class="sub" style="border:1px solid var(--border);border-radius:10px;padding:10px 14px;background:var(--surface);font-size:.95rem">⏸ 시투 주간보고서는 8월 한 달 휴간이다(9월 재개). 이 기간의 갱신은 KB 이그전 등 외부 리포트와 자체 실측으로만 한다.</p>
 <p class="sub">"반도체는 정점을 찍었는가." 시투 주간보고서와 KB 이그전 리포트가 나올 때마다 판단을 갱신하고, 바뀐 근거와 틀렸던 부분을 지우지 않고 누적한다. 결론보다 중요한 것은 내가 틀릴 조건이다.</p>
-<p class="pauth">기준일 2026-09-07 · 시투 주간보고서 · 증권사 리포트 · 주 1회 갱신</p></div>
+<p class="pauth">기준일 <b>2026-09-07</b> · 시투 주간보고서 · 증권사 리포트 · 주 1회 갱신</p></div>
 <!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>1차 정점은 맞다. 그러나 최종 정점을 단정하기는 이르다. 확신도는 중간이다. 이 페이지의 값어치는 결론이 아니라 틀릴 조건을 지우지 않고 쌓아 둔 데 있다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#두-전문가가-정면으로-갈린다">두 전문가가 정면으로 갈린다</a></li><li><a href="#핵심-증거-증가율-고점-에서-주가-고점-까지의-시차">핵심 증거: '증가율 고점'에서 '주가 고점'까지의 시차</a></li><li><a href="#내가-틀릴-조건-반증-조건">내가 틀릴 조건 (반증 조건)</a></li><li><a href="#감시-우선순위">감시 우선순위</a></li><li><a href="#판단-누적-로그">판단 누적 로그</a></li></ol></div><!--TOC:END--><div class="stance">
   <div class="lbl">현재 판단</div>
-  <div class="hl">1차 정점은 맞다. 그러나 최종 정점 단정은 이르다.</div>
-  <div class="cf">확신도 — <b>중간 이하 → <b>중간</b>으로 상향 (W31에서 이야기꾼 본인이 2차 정점 경로를 제시)</b></div>
+  <div class="hl">1차 정점은 맞다. 최종 정점 단정은 이르다.</div>
+  <div class="cf">확신도 — <b><b>중간</b> 유지 — 두 진영이 각자 <b>조건부 재도전 경로</b>를 냈다 (이야기꾼 W36 · 이은택 9/7)</b></div>
   <div class="spec">
     <div class="specbar"><div class="specdot" style="left:52%"></div></div>
     <div class="speclab"><span>&#9664; 정점 확정 (이야기꾼)</span><span>아직 진행 중 (이은택) &#9654;</span></div>
   </div>
-  <div class="note">W31이 7월의 정체를 밝혔다. 폭락도 7/31 폭등도 <b>SA펀드(아셴브레너) 4배 레버리지 마진콜 → 시타델 인수·강제청산</b>이라는 하나의 원인에서 나왔다. 따라서 <b>7/31 +18%는 수요의 증거가 아니라 매도압력의 소멸</b>이며, FTD 판정에서 반드시 할인해야 한다. 한편 이야기꾼은 <b>주가-실적 시간차</b>를 근거로 <b>하닉의 내년 상반기 2차 정점</b> 가능성을 명시했다 — 2016.4Q에 영업이익 yoy 700% 정점을 찍고 <b>100% 이하로 충분히 내려온 뒤에야</b> 2017.11 주가 정점이 나온 패턴이다. 이는 우리의 '2차 물결' 가설과 같은 구조이며, 반증조건 ④(20주선 회복 실패)가 성립했음에도 <b>가설 자체는 오히려 보강</b>됐다. 감시선은 국채금리 → 크레딧(엔비디아 CDS) → 반도체 주가.</div>
+  <div class="note"><b>두 진영이 같은 결론에 다른 계기판으로 도착했다.</b> 이야기꾼은 W36에서 「내년 영업이익이 또 크게 증가한다면 다시 한 번 정점을 테스트할 가능성」이라 했다. 이은택은 9/7에 메모리의 「성장 둔화 + 이익률 70~80% 유지 + 절대 이익 증가」가 <b>2024~2025년 엔비디아</b>와 같고, 엔비디아는 −20%→−30%→−40% 세 조정 뒤 <b>전고점을 돌파</b>했다고 적었다. 한쪽은 <b>이익 증가율</b>을 보고 다른 쪽은 <b>이익률과 절대액</b>을 본다.<br>★★ <b>감시 지점이 하나로 좁혀진다.</b> 반증조건 ①은 「반도체 영업이익률 <b>전망 하향</b>」이고 이은택의 결론은 「이익률 <b>70~80% 유지</b>」 위에 선다. <b>그 숫자가 내려가면 우리 조건이 성립하는 동시에 그의 논거가 무너진다.</b><br>★ <b>금리 축에서는 반대 진영이 우리 판정을 확인해 줬다.</b> 이은택이 9/2에 「미 10년물은 4.8%를 넘었지만 아직 2023년 고점을 돌파하지는 않았다」고 직접 적었다. 볼트 실측과 같다(4.77%, 4.98%까지 21bp).<br>★ <b>이야기꾼은 「내년 중공황」에 마감일을 붙였다</b> — 신용 스프레드가 <b>올해 안</b>에 상승 전환해야 한다는 것이다. 연준 GZ는 2026-07 0.842%p로 백분위 4.5%, 전환은 아직 없다. 시한은 2026-12-31이다.<br>가장 앞선 관문은 <b>9/11 CPI</b>다. 월러가 「완화가 확인되면 동결로 기울겠다」고 못 박았고, 이야기꾼은 그 태도를 「월가는 순진하다」고 적었다. 감시선은 국채금리 → 크레딧 → 반도체 주가 순서 그대로다.</div>
 </div>
 
 <h2 id="두-전문가가-정면으로-갈린다" class="sec">두 전문가가 정면으로 갈린다</h2>
