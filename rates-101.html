@@ -107,19 +107,6 @@ h2.sec{font-size:1.25rem;font-weight:700;margin-top:44px;letter-spacing:-.02em}
 footer{margin-top:48px;border-top:1px solid var(--border);padding-top:22px;color:var(--text-secondary);font-size:.82rem;line-height:1.7}
 .toggle{top:62px;z-index:88;position:fixed;right:18px;width:42px;height:42px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:18px}
 @media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}h1{font-size:2.05rem}}
-
-/* ── 제목 아래 한 줄 (좌상단 배지 폐기 후 유일한 자리) ── */
-.pauth{margin:10px 0 0;font-size:.8rem;color:var(--text-secondary);text-align:center}
-.pauth b{color:var(--text);font-variant-numeric:tabular-nums}
-
-/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
-.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
-  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
 /* DESIGN:BEGIN */
 /* ── 숫자는 항상 고정폭 — 매일 바뀌는 값에 칸이 흔들리지 않게 ── */
 body{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
@@ -309,7 +296,23 @@ a.card:focus-visible,.lst-i:focus-visible{
   .wrap{padding-left:18px!important;padding-right:18px!important}
   .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
 }
-/* LAYOUT:END *//* BAR:BEGIN */
+/* LAYOUT:END */
+/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
+.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
+  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
+.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
+  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
+  background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
+/* BAR:BEGIN */
 /* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
    flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
 html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
@@ -327,13 +330,6 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
   html body .site-bar-in{padding:9px 14px 7px}
 }
 /* BAR:END */
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
-
 .dim{color:var(--mut,#94a3b8)}
 .b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
   font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
@@ -879,9 +875,9 @@ EP.39 「적은 돈을 큰 돈으로 불리는 가장 확실한 투자 전략」
 전사본 <code>_sources/youtube/OhkXR23v5s0·dpeAk8_oRNs</code>. 자동자막을 다듬어 요지만 옮겼으며
 직접 인용은 최소화했다. 3장의 금리 층 해설은 사이트 자체 작성이다.</p>
 </div>
-<div class="wrap"><!--TOPICNEWS:BEGIN--><style id="tnewscss">.tnews{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 10px;margin:34px 0 10px}.tnews h3{margin:0 0 10px;font-size:1.02rem}.tnews table{width:100%;border-collapse:collapse;font-size:.9rem}.tnews td{padding:5px 8px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}.tnews td.d{white-space:nowrap;color:var(--text-secondary)}.tnews p.cap{margin:10px 0 8px;font-size:.8rem;color:var(--text-secondary);line-height:1.6}</style><div class="tnews"><h3>관련 뉴스</h3><p class="cap">제목에 그 낱말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.</p><p class="cap">국내 — 「미국 국채 금리」 로 찾았다.</p><div class="tblwrap"><table><tbody><tr><td class="d">Mon, 07 Sep</td><td class="d">매일경제 마켓</td><td><a href="https://news.google.com/rss/articles/CBMiUkFVX3lxTE9md1RtZHBFMWQtbE9HUl82OGRFTUJ2R2tYR1BaQlJLbVV4TEZ5dy0tRy1Ec2hVQ1IwOEVvdHUwNFpEa3g1ckdFT2ZWeldab0YwcFE?oc=5" target="_blank" rel="noopener nofollow">원화 강세에 美금리 인상 우려도…美국채 2.5조 담은 서학개미 울상</a></td></tr><tr><td class="d">Mon, 07 Sep</td><td class="d">연합인포맥스</td><td><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTE1ZSl9tdTdVSGpBck56d3Y4Y04wR21aTlg5anBlcVpFV2I2Y1N1UHVxOGVFVDdLVWNGdnA5NUF3LWVqMGdOTU9GN3VKbTU2R0swVjdlckFXRWhOMVNsbTQ4NV83eHlBTFdnMkNMX2xWb20?oc=5" target="_blank" rel="noopener nofollow">"美 국채시장 추가 혼란 대비해야…해외 수요 위축"</a></td></tr><tr><td class="d">Mon, 07 Sep</td><td class="d">글로벌경제신문</td><td><a href="https://news.google.com/rss/articles/CBMibEFVX3lxTFBKU2pCUm9COE1VaGFQUmFQakVTLXJMTEhuMW1oWkhpM1lzWWlRYjNNX1pOek5YbkNMalJBc1AzTG0wMV9EZkVLdHlZZWdWYnBIVmxtbjhlQk4zVjcyUGp2OHVtSTVYa2paUEg3S9IBcEFVX3lxTE9RZVZtSUkxNTY5cVBBQVBhYi1UNXF0dHkwMEs1RVZVMWNodnE1ZXYxLUFtY1gzaDVwMXdXT1Q1REZkcTUxZExUODdpLTZTREhLR2Z5a3FmVE1WWFdnUmpydGFyRklGdnl1cDhNS0poX3k?oc=5" target="_blank" rel="noopener nofollow">'뚫을까?'... 채권시장, 美국채 10년물 금리 5% 돌파 여부 예의주시</a></td></tr><tr><td class="d">Mon, 07 Sep</td><td class="d">네이버 프리미엄콘텐츠</td><td><a href="https://news.google.com/rss/articles/CBMigwFBVV95cUxOZWNjSTJNY1VTSlB5ZllOS0tBaGxuZ0NVdFJ5TWtEQU9qQzVLYU5ENjBpQmZzQ3JWWVRwT1RycHVLN2lZZDcxTjZxbHhXSldPemUzaGQtZDBLdDFZeG81RWc2bERyZEV6LWNIOG9YczJYcTk1aWw3X1phbEhSaXlMdzY1UQ?oc=5" target="_blank" rel="noopener nofollow">9월 국내증시 전망, 코스피와 삼성전자 주가 추가 상승 가능성이 높다 (feat. 미국 국채금리, 환율)</a></td></tr><tr><td class="d">Mon, 07 Sep</td><td class="d">edaily.co.kr</td><td><a href="https://news.google.com/rss/articles/CBMigAFBVV95cUxQczlncDFqblpTLXd4NTRxODBhd3RCWFgtNU5Pc3Z2d2JRUWVmU2ZBUW4waU8ySkh5WEVIeFoxMWRhXzhRSUVXMm1YUllNZkpjUzlSbkhqNWVmdmpIVmRDWjFvVmk3Vlp6cU9tMm9pc1R4VFJ3VTVEd3FSSHZqelcwNQ?oc=5" target="_blank" rel="noopener nofollow">‘탈달러’ 외치던 中, 美 국채 사들이는 까닭</a></td></tr><tr><td class="d">Mon, 07 Sep</td><td class="d">네이트</td><td><a href="https://news.google.com/rss/articles/CBMiU0FVX3lxTE5PdHVtZm85VUQyaHE4dl9vUk9QM3NSRENqLWF3OXIxbm0zdmZ0X0R3SGphRnNkalR1NVEtSEQyWTUtWUQ2dDNlVGgyU0xDUzF6WjRZ?oc=5" target="_blank" rel="noopener nofollow">미국 금리 왜 오르나…연준 인상 우려·인플레·재정 부담 겹쳐</a></td></tr></tbody></table></div><p class="cap">해외 — 「US Treasury yields」 로 찾았다. 이 글의 소재가 외국이라 함께 본다.</p><div class="tblwrap"><table><tbody><tr><td class="d">Mon, 07 Sep</td><td class="d">CNBC</td><td><a href="https://news.google.com/rss/articles/CBMigwFBVV95cUxOcGtDcDVaREoxQzFxVG1INXhHRmVnV2x0XzF1bmNDS2plclpiY0FSR2FzWFhscEhvb2hEaFZ5N1hlTFBOLWlodTBpbExKRm55aFd5eDFwRjlUZVhNaFhiTGdGQkZiTHYxY2ktMVdKcUdBdzkzbkpvQkIyTEd4Y2c3aG5Pb9IBiAFBVV95cUxOQ0RZenZlQm1vblVaUXBtR3B6ektHZndOWWd5a1E5Q0p4VmdCTGt2NFBrb2pXWUxCQ01XZ2Q0aHJoZC1OMjk2Vzg5VTQ4aXJ4QTFCd3dvRFMzZW1ScXdzei1ERVNVaFY5aE9PMXdZYW1lMFREZjhwZUJILTVYTW1JcFhVa0h1anZv?oc=5" target="_blank" rel="noopener nofollow">Treasury yields face 4.8% test as fiscal risks threaten to spill into other assets</a></td></tr><tr><td class="d">Sun, 06 Sep</td><td class="d">Yahoo Finance</td><td><a href="https://news.google.com/rss/articles/CBMikgFBVV95cUxPa18ySndxckdtT2g5aVNFSXZoa2E3ZW9tLXhJWXBaeS15WjExY3A2U280aXpaTFhOMjF5NEl1eWpSRmlNZTZCVnFGWjBEVVY4QktueHFZWnBuYTB3NWVEUVp3d1dKNTUwUk05MHdpSGZGWTRGZDZNVnQ5cWtrOURqc3ctdjkyUklVdmVsTjd5T0NTZw?oc=5" target="_blank" rel="noopener nofollow">U.S. debt is even worse than it seems, and rising Treasury yields are now an ‘all-hands-on-deck situation,’ top economist warns</a></td></tr><tr><td class="d">Sun, 06 Sep</td><td class="d">Seeking Alpha</td><td><a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxPQUM5Qm5RRlR2a016TW1QTkVReGhZMEVEdmxaWGU5VjVXaE5XVEZaRzRpVVBBT2p6LWtwVlpuRlNwcHJHZkVKNHI5V1JVVzJYbHdxcVBnMDlrTEJDMExDRDc2UEpWRWkxU0JHc3gtZHN1NjZUaTN3OGNzelU4YjhSZlFDZmthOG5QblJKTndmTjhlZDV6SENQT2NBaHpjMDZUOTRHai1CTVpCT3hUMnctZTNoaVI?oc=5" target="_blank" rel="noopener nofollow">Riskiest U.S. companies face surging borrowing costs as Treasury yields climb (US10Y:) (US10Y:)</a></td></tr><tr><td class="d">Wed, 02 Sep</td><td class="d">reuters.com</td><td><a href="https://news.google.com/rss/articles/CBMisAFBVV95cUxOVVczNWtaWmZ0TmRaZTk0UjJBaHBJb3ZmWVIwdEt4RnFwRTVLdnNQVEV6RmhJTmItdlFiR1pkTXZEUEZXZjk4elVNUE55TFJ4ckt1MHJzekhGVFhHRGNpby1Pel8xOGUydmRGdlV3REQtbFJ4VnRRc3U3c0pGaHZSTmhabDVqX0pyVWlBZzFOUWZ6dVJaNTA1QXctTm5xbnNTT3FNQ1gtckUwMnBpVEhFWg?oc=5" target="_blank" rel="noopener nofollow">No shortage of culprits in panic over long US Treasury yields</a></td></tr><tr><td class="d">Wed, 02 Sep</td><td class="d">PBS</td><td><a href="https://news.google.com/rss/articles/CBMilwFBVV95cUxOdFZ4T2tWendKU28yS0d2WkVEVFQwTUNCWnQ5RDJvckpMbDVsVlcyYk1aZW5JYzYxTVhDX25IRm9kMm5ydFo5OWdjZk1XS2Rpc05wR0dZdm5kYjdDcXJfa2pJVGJ4ODNrcjVRMzNoUXEyVVFqdzFQTWt4RzNNSGt1Q1l0TXdCTndfbDYxdnpObWxfeGJJaUkw0gGcAUFVX3lxTE05aXlnM2xsaF9hS0NjSmpYeVF1VEpIRFpiQnBlY2NZUEdjOFhyVlJ5RVpzLVlxeWJsTllPNjhwR19NOTNJQVEzbWU0bU15UDNMbFhLYVZ1MEljM0w3MUM0QnRUVXVHMmJ4U045QVpEUlVjTW5IQndPU2Ntc1d0NkVybFVSQzNTZTh4blRIODJXekpPUFJ5N2ZFdTEwTA?oc=5" target="_blank" rel="noopener nofollow">Why bond yields are rising and why everyone should care</a></td></tr><tr><td class="d">Fri, 04 Sep</td><td class="d">WSJ</td><td><a href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxOLWlKTW5EdEF0Z25VNzRSRVl1VDdkMnlPTENSRmZ4WVJ6eDJhYjdLYnlrZEJyQUVpNWVXQ2FpRE0zU0VOVmZheDZVYXl3Z1pKM1BEd3FlUlpVdXBZcVRLTGxoOURYUFM1Ui1LZV9xaUtjVldGdG1OenpaMWdrLWN5WUIwMHM5eVdCelo4VkRXWm1BWmlNX0VwamlNWFVuRlFzSk5lVXpIaURUQQ?oc=5" target="_blank" rel="noopener nofollow">Treasury Yields, Fed Rate-Hike Bets Rise After Strong U.S. Jobs Data</a></td></tr></tbody></table></div><p class="cap">출처 구글 뉴스 · 2026-09-08 기준. 뉴스는 이 글의 분석과 무관하며 서로 어긋날 수 있다.</p></div><!--TOPICNEWS:END--><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="rates-century.html">미국 금리 100년과 인플레 시대</a> — 여기서 배운 세 층으로 100년 궤적을 읽는 페이지다. 금본위제 이탈 2번이 기대인플레를 어떻게 움직였는지가 보인다.</p><p><a href="rates-crashes.html">금리 5%는 공황선인가</a> — 여기서 배운 «금리의 세 층»으로 실제 73년 데이터를 검증한 것이 그 페이지입니다.</p><p><a href="fed-kospi.html">연준 기준금리와 증시</a> — 기초를 마쳤다면 — 기준금리와 코스피 45년, 그리고 이야기꾼 3가설 검증.</p></div><!--RELATED:END--><!--GLOSSARY:BEGIN--><style id="glocss">.glo{margin:34px 0 8px}.glo h3{font-size:1.02rem;margin:0 0 12px}.glo dl{margin:0;font-size:.9rem;line-height:1.62}.glo dt{font-weight:800;margin-top:10px}.glo dd{margin:2px 0 0 0;color:var(--text-secondary,#555)}</style><div class="glo"><h3>용어 설명</h3><dl><dt>국면</dt><dd>시장이 지금 어느 상태에 있는가를 가리키는 말. 봄·여름·가을·겨울처럼 몇 개로 나누고, 한번 들어가면 여러 달에서 몇 해까지 이어진다고 본다. 오르내림 하나하나가 아니라 그 오르내림이 놓인 자리를 가리킨다.</dd><dt>수급</dt><dd>누가 사고 누가 파는가. 개인·외국인·기관 셋으로 나눠 본다. 같은 가격이라도 누가 샀느냐에 따라 다음이 달라진다고 보는 관점이다.</dd><dt>이동평균</dt><dd>최근 며칠의 종가를 평균한 값. 날마다 다시 계산해 선으로 잇는다. 하루하루 오르내림을 지워 방향만 남기려고 쓴다. 20일선은 최근 20일 평균이다.</dd><dt>스프레드</dt><dd>두 금리의 차이. 예를 들어 회사채 금리에서 국채 금리를 빼면, 그 기업이 나라보다 얼마나 더 이자를 물어야 하는지가 나온다. 벌어지면 시장이 위험을 크게 본다는 뜻이다.</dd><dt>유동성</dt><dd>시장에 돌아다니는 돈. 중앙은행이 금리를 내리거나 돈을 풀면 늘어난다. 늘면 자산 가격이 오르기 쉽다고 본다.</dd><dt>10년물</dt><dd>만기가 10년 남은 국채. 나라가 10년 뒤에 갚기로 하고 빌린 돈이고, 그 이자율이 «10년물 금리»다. 주택담보대출 같은 장기 금리의 기준이 되어 세계에서 가장 많이 인용된다.</dd><dt>회사채</dt><dd>기업이 돈을 빌리려고 발행한 채권. 나라보다 떼일 위험이 커서 국채보다 이자를 더 준다. Aaa 는 신용평가사 무디스가 매기는 가장 높은 등급이다.</dd><dt>기준금리</dt><dd>중앙은행이 정하는 초단기 금리. 연준의 연방기금금리가 세계 돈값의 기준이 된다.</dd><dt>신용스프레드</dt><dd>회사채 금리에서 국고채 금리를 뺀 값. 기업이 국가보다 더 부담하는 금리이고, 시장이 매긴 부도 위험의 값이다.</dd><dt>이격도</dt><dd>주가가 이동평균선에서 얼마나 떨어져 있는지의 백분율. 100이면 이동평균과 같은 자리, 90 아래는 과매도·110 위는 과열로 읽는다.</dd><dt>이동평균선</dt><dd>일정 기간 종가의 평균을 이은 선. 20일선은 단기, 20주선(=100거래일 근사)은 이야기꾼의 «생명선», 200일선은 장기 추세 기준이다.</dd><dt>RS</dt><dd>Relative Strength(상대강도). 시장 전체 대비 그 종목이 얼마나 더 올랐는지를 백분위로 매긴 값. RS 90이면 «시장의 90%보다 더 올랐다»는 뜻이다. 미너비니는 RS 상위 종목만 후보로 둔다.</dd><dt>스테이지</dt><dd>와인스타인의 4국면 — 1 바닥, 2 상승, 3 천장, 4 하락. 이동평균의 기울기와 가격 위치로 판정한다.</dd><dt>제오지산수</dt><dd>이야기꾼의 다섯 경기지표 — 제(ISM 제조업지수)·오(OECD 경기선행지수)·지(GDP)·산(산업생산)·수(한국 수출).</dd><dt>ISM</dt><dd>Institute for Supply Management(미국 공급관리자협회)의 제조업 구매관리자지수(PMI). 구매 담당자에게 «지난달보다 나아졌나»를 묻는 설문이라 50이 기준이고 위면 확장, 아래면 위축이다. 설문이라 주가가 섞이지 않고 사후 수정이 없어 선행지표로 쓴다.</dd><dt>10년물 국채금리</dt><dd>시장이 정하는 장기 돈값. 이 사이트의 시대 구분(인플레·디플레이션)은 이 금리의 사상 최고(1981-09)와 사상 최저(2020-07)로 가른다.</dd><dt>기간 프리미엄</dt><dd>장기채를 오래 들고 가는 위험에 붙는 추가 금리. 물가·성장이 조용한데 금리가 오르면 이 층이 움직인 것이다.</dd><dt>BEI</dt><dd>Break-Even Inflation(기대 인플레이션). 명목 국채 금리에서 물가연동채 금리를 뺀 값. «시장이 앞으로 물가가 이만큼 오를 것으로 보고 있다»는 뜻이다.</dd><dt>QE·QT</dt><dd>QE(양적완화)는 연준이 채권을 사서 돈을 푸는 것, QT(양적긴축)는 만기 채권을 재투자하지 않아 돈을 거두는 것.</dd></dl><p style="font-size:.8rem;color:var(--text-secondary,#777);margin-top:12px">이 글에 나온 용어만 실었다. 정의는 <code>scripts/glossary.py</code> 에서 한곳으로 관리한다.</p></div><!--GLOSSARY:END--></div>
+<div class="wrap"><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="rates-century.html">미국 금리 100년과 인플레 시대</a> — 여기서 배운 세 층으로 100년 궤적을 읽는 페이지다. 금본위제 이탈 2번이 기대인플레를 어떻게 움직였는지가 보인다.</p><p><a href="rates-crashes.html">금리 5%는 공황선인가</a> — 여기서 배운 «금리의 세 층»으로 실제 73년 데이터를 검증한 것이 그 페이지입니다.</p><p><a href="fed-kospi.html">연준 기준금리와 증시</a> — 기초를 마쳤다면 — 기준금리와 코스피 45년, 그리고 이야기꾼 3가설 검증.</p></div><!--RELATED:END--></div>
 <footer>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.
-    · 근거: 이야기꾼 주간 시투 보고서(W31·2026-08-01) 및 자체 실측.</footer>
+    · 근거: 이야기꾼 주간 시투 보고서(W36·2026-09-05) 및 자체 실측.</footer>
 </div>
 
 <script>
@@ -926,7 +922,6 @@ EP.39 「적은 돈을 큰 돈으로 불리는 가장 확실한 투자 전략」
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
-<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 <!--TOCJS:BEGIN--><script>
 /* 목차 클릭 보정 — 2026-08-24
    ⚠ 해시가 이미 그 값이면 브라우저가 클릭을 무시한다. 스크롤을 내린 뒤
@@ -954,4 +949,5 @@ EP.39 「적은 돈을 큰 돈으로 불리는 가장 확실한 투자 전략」
     }
   });
 })();
-</script><!--TOCJS:END--></body></html>
+</script><!--TOCJS:END--><button class="toggle" onclick="__toggleTheme()">&#9728;</button>
+</body></html>
