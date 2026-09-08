@@ -305,6 +305,13 @@ a.card:focus-visible,.lst-i:focus-visible{
 .site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
   background:color-mix(in srgb,var(--text) 6%,transparent)}
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 /* BAR:BEGIN */
 /* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
    flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
@@ -323,13 +330,6 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
   html body .site-bar-in{padding:9px 14px 7px}
 }
 /* BAR:END */
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
-
 .dim{color:var(--mut,#94a3b8)}
 .b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
   font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
@@ -417,13 +417,7 @@ h2[id],h3[id],[id]:target{scroll-margin-top:92px}
 .ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
 .ptoc a:hover{border-bottom-color:var(--text-secondary)}
 @media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*/</style><link rel="stylesheet" href="vendor/fonts.css"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><style id="freqcss">
-.freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
- padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
- border:1px solid currentColor;opacity:.85}
-.freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
-.freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
-/* PAPER:BEGIN */
+/*TOCCSS:END*//* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -693,7 +687,13 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style>
+/* PAPER:END */</style><link rel="stylesheet" href="vendor/fonts.css"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><style id="freqcss">
+.freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
+ padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
+ border:1px solid currentColor;opacity:.85}
+.freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
+.freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
+</style>
 </head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
@@ -703,8 +703,8 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <div class="site-crumb"><a href="index.html">홈</a><span class="sep">›</span><span>판단</span><span class="sep">›</span><span class="cur">수급 심층 분석</span></div>
 <div class="phead"><div class="eyebrow">판단 · Supply Regime</div>
 <h1>수급 심층 분석</h1>
-<p class="pauth">기준일 2026-09-07 · KIS 투자자매매동향 · 2025-04~ · 주 1회 갱신</p></div>
-<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>시장을 끈 주체는 2026년에 바뀌었다. 외국인이 사 모으며 오르던 장이 외국인이 파는데도 오르는 장으로 바뀌었다. 다만 따라 샀을 때의 성과는 두 시기 모두 플러스였다. 누가 끌었나와 따라 사면 돈이 됐나는 서로 다른 질문이다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#누적-곡선-읽는-법">누적 곡선 읽는 법</a></li><li><a href="#시장-전체-코스피-vs-코스닥">시장 전체: 코스피 vs 코스닥</a></li><li><a href="#주요-종목-시총-상위-12">주요 종목: 시총 상위 12</a></li><li><a href="#2026년-1월을-기점으로-시장이-뒤집혔습니다">2026년 1월을 기점으로 시장이 뒤집혔다</a></li><li><a href="#외국인을-따라가도-되는-기간은-20일까지입니다">외국인을 따라가도 되는 기간은 20일까지이다</a></li><li><a href="#7월-31일-하루가-말해주는-것">7월 31일 하루가 말해주는 것</a></li><li><a href="#따라-샀으면-돈이-됐나-두-시기를-따로-재봤습니다">따라 샀으면 돈이 됐나? 두 시기를 따로 재봤다</a></li><li><a href="#그래서-실제로-어떻게-쓰나">그래서 실제로 어떻게 쓰나?</a></li></ol></div><!--TOC:END--><div class="sub">"외국인을 따라 사면 된다"는 흔한 말이 <b>정말 맞는지 실제 데이터로 확인</b>했습니다.
+<p class="pauth">기준일 2026-09-08 · KIS 투자자매매동향 · 2025-04~ · 주 1회 갱신</p></div>
+<div class="sub">"외국인을 따라 사면 된다"는 흔한 말이 <b>정말 맞는지 실제 데이터로 확인</b>했습니다.
 결론부터 말씀드리면 — <b>시장을 끈 주체는 2026년에 바뀌었지만, 따라 샀을 때의 성과는
 그만큼 바뀌지 않았습니다.</b> 이 둘은 다른 질문이라 갈라서 봅니다.
 Ⅱ절에서 <b>누가 사면서 올랐는지</b>를 보고, Ⅴ절에서 <b>따라 샀으면 돈이 됐는지</b>를 봅니다.
@@ -715,7 +715,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 "틀렸다"고 적을 근거가 없었습니다. 바뀐 자취를 지우지 않고 남깁니다.
 </span></div>
 
-<h2 id="누적-곡선-읽는-법" style="margin-top:36px">누적 곡선 읽는 법</h2><div class="explain"><p>아래 곡선은 매일의 순매수를 계속 더해 나간 값이다. 첫날부터 오늘까지 그 주체가 순수하게 얼마나 사 모았는지를 보여준다.</p><p>읽는 법은 간단하다. 선이 올라가면 사 모으는 중, 내려가면 팔고 있는 중이다.</p><p>선의 높이보다 기울기를 보라. 완만히 오르던 선이 갑자기 꺾여 내려가는 지점이다. 그것이 사던 쪽이 파는 쪽으로 바뀐 곳이고 시장의 성격이 바뀐 곳이다. 이 페이지에서 찾으려는 것이 바로 그 지점이다.</p><p>코스피와 코스닥을 따로 그린 데는 이유가 있다. 두 시장은 주요 손님이 다르다. 코스피는 외국인 자금이 크게 움직이고, 코스닥은 개인 비중이 크다. 같은 상승이라도 어느 시장에서 났느냐에 따라 오래 갈지가 달라진다.</p><p>점선(오른쪽 눈금)은 같은 기간의 코스피 지수이다. 지수가 오를 때 어느 선이 같이 올랐는지를 보시면 된다.</p></div><h2 id="시장-전체-코스피-vs-코스닥" style="margin-top:36px">시장 전체: 코스피 vs 코스닥</h2><div class="cchart">
+<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>시장을 끈 주체는 2026년에 바뀌었다. 외국인이 사 모으며 오르던 장이 외국인이 파는데도 오르는 장으로 바뀌었다. 다만 따라 샀을 때의 성과는 두 시기 모두 플러스였다. 누가 끌었나와 따라 사면 돈이 됐나는 서로 다른 질문이다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#누적-곡선-읽는-법">누적 곡선 읽는 법</a></li><li><a href="#시장-전체-코스피-vs-코스닥">시장 전체: 코스피 vs 코스닥</a></li><li><a href="#주요-종목-시총-상위-12">주요 종목: 시총 상위 12</a></li><li><a href="#2026년-1월을-기점으로-시장이-뒤집혔습니다">2026년 1월을 기점으로 시장이 뒤집혔다</a></li><li><a href="#외국인을-따라가도-되는-기간은-20일까지입니다">외국인을 따라가도 되는 기간은 20일까지이다</a></li><li><a href="#7월-31일-하루가-말해주는-것">7월 31일 하루가 말해주는 것</a></li><li><a href="#따라-샀으면-돈이-됐나-두-시기를-따로-재봤습니다">따라 샀으면 돈이 됐나? 두 시기를 따로 재봤다</a></li><li><a href="#그래서-실제로-어떻게-쓰나">그래서 실제로 어떻게 쓰나</a></li></ol></div><!--TOC:END--><h2 id="누적-곡선-읽는-법" style="margin-top:36px">누적 곡선 읽는 법</h2><div class="explain"><p>아래 곡선은 매일의 순매수를 계속 더해 나간 값이다. 첫날부터 오늘까지 그 주체가 순수하게 얼마나 사 모았는지를 보여준다.</p><p>읽는 법은 간단하다. 선이 올라가면 사 모으는 중, 내려가면 팔고 있는 중이다.</p><p>선의 높이보다 기울기를 보라. 완만히 오르던 선이 갑자기 꺾여 내려가는 지점이다. 그것이 사던 쪽이 파는 쪽으로 바뀐 곳이고 시장의 성격이 바뀐 곳이다. 이 페이지에서 찾으려는 것이 바로 그 지점이다.</p><p>코스피와 코스닥을 따로 그린 데는 이유가 있다. 두 시장은 주요 손님이 다르다. 코스피는 외국인 자금이 크게 움직이고, 코스닥은 개인 비중이 크다. 같은 상승이라도 어느 시장에서 났느냐에 따라 오래 갈지가 달라진다.</p><p>점선(오른쪽 눈금)은 같은 기간의 코스피 지수이다. 지수가 오를 때 어느 선이 같이 올랐는지를 보시면 된다.</p></div><h2 id="시장-전체-코스피-vs-코스닥" style="margin-top:36px">시장 전체: 코스피 vs 코스닥</h2><div class="cchart">
 <div class="clg"><span><i style="background:#2a78d6"></i>외국인</span>
 <span><i style="background:#eb6834"></i>개인</span>
 <span><i style="background:#888780"></i>기관</span>
@@ -785,7 +785,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 외국인이 내놓는 물량을 개인이 사들이면서 올린 장이다.
 앞 페이지에서 설명한 분배가 정확히 이 상태이다.</p>
 
-<figure class="tw"><figcaption>Ⅱ절에서 인용한 수치. 전부 원천 데이터에서 계산한다. 본문에 손으로 적지 않다. 데이터가 늘어나면 이 표와 본문이 같이 바뀐다.</figcaption><table class="statt"><thead><tr><th>항목</th><th class="n">값</th><th>기준</th></tr></thead><tbody><tr><td><b>코스피 고점</b></td><td class="n"><b>9,114.55</b></td><td>2026-06-22</td></tr><tr><td>코스피 고점 후 저점</td><td class="n">5,593.56</td><td>2026-07-30 · 고점 대비 -38.6%</td></tr><tr><td>코스피 최근 종가</td><td class="n">6,995.39</td><td>2026-09-07</td></tr><tr><td>25년 삼성전자 외국인</td><td class="n pos">+1,002만주</td><td>2025-04 ~ 2025-12 누적</td></tr><tr><td>25년 삼성전자 개인</td><td class="n neg">-1,743만주</td><td>2025-04 ~ 2025-12 누적</td></tr><tr><td>25년 코스피</td><td class="n">2,521 → 4,214</td><td>2025-04-01 ~ 2025-12 말</td></tr><tr><td>26년 삼성전자 외국인</td><td class="n neg">-8,688만주</td><td>2026-01 ~ 최근 누적</td></tr><tr><td>26년 삼성전자 개인</td><td class="n pos">+6,013만주</td><td>2026-01 ~ 최근 누적</td></tr></tbody></table></figure>
+<figure class="tw"><figcaption>Ⅱ절에서 인용한 수치. 전부 원천 데이터에서 계산한다. 본문에 손으로 적지 않다. 데이터가 늘어나면 이 표와 본문이 같이 바뀐다.</figcaption><table class="statt"><thead><tr><th>항목</th><th class="n">값</th><th>기준</th></tr></thead><tbody><tr><td><b>코스피 고점</b></td><td class="n"><b>9,114.55</b></td><td>2026-06-22</td></tr><tr><td>코스피 고점 후 저점</td><td class="n">5,593.56</td><td>2026-07-30 · 고점 대비 -38.6%</td></tr><tr><td>코스피 최근 종가</td><td class="n">6,954.52</td><td>2026-09-08</td></tr><tr><td>25년 삼성전자 외국인</td><td class="n pos">+1,002만주</td><td>2025-04 ~ 2025-12 누적</td></tr><tr><td>25년 삼성전자 개인</td><td class="n neg">-1,743만주</td><td>2025-04 ~ 2025-12 누적</td></tr><tr><td>25년 코스피</td><td class="n">2,521 → 4,214</td><td>2025-04-01 ~ 2025-12 말</td></tr><tr><td>26년 삼성전자 외국인</td><td class="n neg">-8,688만주</td><td>2026-01 ~ 최근 누적</td></tr><tr><td>26년 삼성전자 개인</td><td class="n pos">+6,013만주</td><td>2026-01 ~ 최근 누적</td></tr></tbody></table></figure>
 
 <p>다만 여기엔 단서가 붙는다. 위 문단은 삼성전자 한 종목의 이야기이다.
 같은 기간 SK하이닉스는 정반대였다. 외국인이 -1,085만 주를 팔고
@@ -800,7 +800,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 <p>그리고 그 상태에서 7월 폭락을 맞았다.
 코스피는 고점 대비 -38.6%인 5,594(2026-07-30)까지 밀렸다가,
-7월 31일 하루에 되올라 6,995으로 마감했다.
+7월 31일 하루에 되올라 6,955으로 마감했다.
 비싼 값에 물량을 받아 든 쪽이 개인이었으니, 결과적으로 개인이 물린 구조이다.
 이야기꾼이 W31에서 신용융자(빚을 내서 주식을 산 금액)를
 1급 전조로 올린 것과 정확히 같은 그림이다.</p>
@@ -808,7 +808,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 <h2 id="외국인을-따라가도-되는-기간은-20일까지입니다" style="margin-top:44px">외국인을 따라가도 되는 기간은 20일까지이다</h2>
 <div class="tblwrap"><table><thead><tr><th>종목</th><th>구간 수익률</th><th>외국인 누적</th><th>개인 누적</th>
-<th>20일 신호</th><th>60일 신호</th></tr></thead><tbody><tr><td><b>삼성전자</b></td><td>+359%</td><td class="neg">-7,301만주</td><td class="pos">+2,499만주</td><td class="pos">+4.8%p</td><td class="pos">+2.4%p</td></tr><tr><td><b>SK하이닉스</b></td><td>+805%</td><td class="neg">-8,962만주</td><td class="pos">+6,768만주</td><td class="pos">+7.2%p</td><td class="neg">-5.9%p</td></tr></tbody></table></div>
+<th>20일 신호</th><th>60일 신호</th></tr></thead><tbody><tr><td><b>삼성전자</b></td><td>+358%</td><td class="neg">-6,963만주</td><td class="pos">+1,726만주</td><td class="pos">+4.7%p</td><td class="pos">+2.0%p</td></tr><tr><td><b>SK하이닉스</b></td><td>+810%</td><td class="neg">-8,952만주</td><td class="pos">+6,696만주</td><td class="pos">+7.1%p</td><td class="neg">-6.5%p</td></tr></tbody></table></div>
 <div class="explain">
 <p>표의 '20일 신호'가 무엇인지부터 설명드린다.
 외국인이 산 날들만 모아서 그 뒤 20일 동안의 수익률 평균을 구한다.
@@ -872,7 +872,7 @@ SK하이닉스: 개인이 515만 주를 팔았고, 외국인이 439만 주를 �
   text-align:left;color:var(--text,#0f172a)}
 .vbox th{font-weight:600;color:var(--text-secondary,#475569);font-size:12.5px}
 .vbox td.n{text-align:right;font-variant-numeric:tabular-nums}
-</style><div class="vbox"><h4>'따라 사면 되나'는 따로 재봤다</h4><p>먼저 2가지 질문을 갈라 놓겠다. 위 Ⅱ절이 보여준 것은 '누가 사면서 올랐나'이다. 2025년에는 외국인이 사 모으며 올랐고 2026년에는 외국인이 파는데도 올랐다. 이 관찰 자체는 누적 곡선에 그대로 찍혀 있는 사실이고, 아래 검증이 이것을 뒤집지 않는다.</p><p>그런데 이 페이지의 제목이 던진 질문은 그것과 조금 다르다. '외국인을 따라 사면 되나'는 따라 샀을 때 실제로 돈이 됐나를 묻는다. 이것은 따로 재야 한다.</p><p>측정 방법은 이렇다. 외국인이 순매수한 날에 사서 20거래일 뒤 팔았을 때의 평균 수익률에서, 순매도한 날에 사서 똑같이 했을 때의 평균 수익률을 뺀다. 이 값이 플러스면 '따라가는 쪽이 유리했다'는 뜻이다. 두 시기를 따로 계산하고 각각 참값이 들어 있을 범위까지 구했다.</p><p><div class="tblwrap"><table><thead><tr><th>시기</th><th class="n">따라간 성과</th><th class="n">참값의 범위</th><th>판정</th></tr></thead><tbody><tr><td>2025년 4~12월</td><td class="n pos">+4.7%p</td><td class="n">-0.3 ~ +9.0</td><td>판정할 수 없다. 범위가 0을 걸친다</td></tr><tr class="cur"><td>2026년 1월 이후</td><td class="n pos">+6.7%p</td><td class="n">-0.6 ~ +16.2</td><td>판정할 수 없다. 범위가 0을 걸친다</td></tr></tbody></table></div></p><p>결과는 예상과 달랐다. 두 시기 모두 부호가 플러스이다. 따라 사서 손해였던 시기가 나오지 않았다. 두 범위가 서로 겹친다. 겹친다는 것은 '두 시기가 정말 달랐다'고 잘라 말할 수 없다는 뜻이다. 부호가 뒤집힌 것은 사실이지만, 그 차이가 우연히 생겼을 가능성을 아직 배제하지 못한다.</p><p>그래서 이렇게 정리한다. "2026년 상승은 외국인이 만든 것이 아니다"는 맞다. 누적 곡선이 그렇게 찍혀 있다. 다만 "그러니 2026년에는 외국인을 따라 사면 틀렸다"까지 나아가면 이 측정이 뒷받침하지 않는다. 누가 시장을 끌었나와, 그 사람을 따라 사면 돈이 됐나는 서로 다른 질문이다.</p><p class="vlim">⚠ 표본은 2025년 4~12월 368개 · 2026년 1월 이후 294개이다(삼성전자·SK하이닉스 합산). 20거래일 구간이 서로 겹치므로 완전히 독립된 표본이 아니고, 그래서 범위가 넓게 나온다. 또 '2026년 1월'이라는 경계를 사람이 미리 정해 놓고 갈랐다. 경계까지 자료가 스스로 찾게 하는 방법(국면전환모형)이 따로 있고 이 페이지는 아직 그것을 쓰지 않는다. 20거래일이 아닌 다른 기간으로 계산하면 결과가 달라질 수 있다. 이 페이지가 위에서 "60일로 늘리면 무의미하거나 역전된다"고 적어 둔 것이 그 사례이다.</p></div>
+</style><div class="vbox"><h4>'따라 사면 되나'는 따로 재봤다</h4><p>먼저 2가지 질문을 갈라 놓겠다. 위 Ⅱ절이 보여준 것은 '누가 사면서 올랐나'이다. 2025년에는 외국인이 사 모으며 올랐고 2026년에는 외국인이 파는데도 올랐다. 이 관찰 자체는 누적 곡선에 그대로 찍혀 있는 사실이고, 아래 검증이 이것을 뒤집지 않는다.</p><p>그런데 이 페이지의 제목이 던진 질문은 그것과 조금 다르다. '외국인을 따라 사면 되나'는 따라 샀을 때 실제로 돈이 됐나를 묻는다. 이것은 따로 재야 한다.</p><p>측정 방법은 이렇다. 외국인이 순매수한 날에 사서 20거래일 뒤 팔았을 때의 평균 수익률에서, 순매도한 날에 사서 똑같이 했을 때의 평균 수익률을 뺀다. 이 값이 플러스면 '따라가는 쪽이 유리했다'는 뜻이다. 두 시기를 따로 계산하고 각각 참값이 들어 있을 범위까지 구했다.</p><p><div class="tblwrap"><table><thead><tr><th>시기</th><th class="n">따라간 성과</th><th class="n">참값의 범위</th><th>판정</th></tr></thead><tbody><tr><td>2025년 4~12월</td><td class="n pos">+4.7%p</td><td class="n">-0.3 ~ +9.0</td><td>판정할 수 없다. 범위가 0을 걸친다</td></tr><tr class="cur"><td>2026년 1월 이후</td><td class="n pos">+6.6%p</td><td class="n">-0.8 ~ +15.1</td><td>판정할 수 없다. 범위가 0을 걸친다</td></tr></tbody></table></div></p><p>결과는 예상과 달랐다. 두 시기 모두 부호가 플러스이다. 따라 사서 손해였던 시기가 나오지 않았다. 두 범위가 서로 겹친다. 겹친다는 것은 '두 시기가 정말 달랐다'고 잘라 말할 수 없다는 뜻이다. 부호가 뒤집힌 것은 사실이지만, 그 차이가 우연히 생겼을 가능성을 아직 배제하지 못한다.</p><p>그래서 이렇게 정리한다. "2026년 상승은 외국인이 만든 것이 아니다"는 맞다. 누적 곡선이 그렇게 찍혀 있다. 다만 "그러니 2026년에는 외국인을 따라 사면 틀렸다"까지 나아가면 이 측정이 뒷받침하지 않는다. 누가 시장을 끌었나와, 그 사람을 따라 사면 돈이 됐나는 서로 다른 질문이다.</p><p class="vlim">⚠ 표본은 2025년 4~12월 368개 · 2026년 1월 이후 296개이다(삼성전자·SK하이닉스 합산). 20거래일 구간이 서로 겹치므로 완전히 독립된 표본이 아니고, 그래서 범위가 넓게 나온다. 또 '2026년 1월'이라는 경계를 사람이 미리 정해 놓고 갈랐다. 경계까지 자료가 스스로 찾게 하는 방법(국면전환모형)이 따로 있고 이 페이지는 아직 그것을 쓰지 않는다. 20거래일이 아닌 다른 기간으로 계산하면 결과가 달라질 수 있다. 이 페이지가 위에서 "60일로 늘리면 무의미하거나 역전된다"고 적어 둔 것이 그 사례이다.</p></div>
 
 <h2 id="그래서-실제로-어떻게-쓰나" style="margin-top:44px">그래서 실제로 어떻게 쓰나?</h2>
 <div class="tblwrap"><table><thead><tr><th style="width:150px">이럴 때</th><th>이렇게 본다</th></tr></thead><tbody>
@@ -896,7 +896,7 @@ SK하이닉스: 개인이 515만 주를 팔았고, 외국인이 439만 주를 �
 숫자를 그대로 믿기보다 방향을 가늠하는 힌트 정도로 읽기 바란다.</p>
 <p>데이터: 한국투자 KIS 투자자 매매동향 · 주식 수 기준(금액 아님) · 2025년 4월 ~ 최신.</p>
 </div>
-</div><div class="wrap"><!--TOPICNEWS:BEGIN--><style id="tnewscss">.tnews{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 10px;margin:34px 0 10px}.tnews h3{margin:0 0 10px;font-size:1.02rem}.tnews table{width:100%;border-collapse:collapse;font-size:.9rem}.tnews td{padding:5px 8px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}.tnews td.d{white-space:nowrap;color:var(--text-secondary)}.tnews p.cap{margin:10px 0 8px;font-size:.8rem;color:var(--text-secondary);line-height:1.6}</style><div class="tnews"><h3>관련 뉴스</h3><p class="cap">제목에 그 낱말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.</p><p class="cap">국내: 「외국인 기관 순매수」 로 찾았다.</p><div class="tblwrap"><table><tbody><tr><td class="d">Tue, 08 Sep</td><td class="d">뉴스핌</td><td><a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTFBEbHRDQkViaGk4Ni1KdXVvR1VnTEFCYlc2cXFxZ3NPYzZJdTFvb1pYcEdpbS1TUGlRUU90cEZmV0RLT25FRndhYTlpU0ptMXdWZ3F5cy02LUpsTlot?oc=5" target="_blank" rel="noopener nofollow">[장중수급포착] 대한광통신, 외국인/기관 동시 순매수… 주가 +4.31%</a></td></tr><tr><td class="d">Mon, 07 Sep</td><td class="d">경인방송 뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiZEFVX3lxTE9CMEVMS055bzBydEd5TlY4UnR0N0w1ZkphT21iQy16REFaWmdRM25tb2NsU203c3NoZDNjUkE5V1FQRVhHaDN0WVFGQ0JJZjNHZGlOS0g1VWphWFpQOVdKNENCV1_SAWhBVV95cUxNWFFXRG1tRnpkd1R3MWEwWFRLRFZVNTl3VnFOb2xqRlMtdWhrSXBBakVmTVZwYldDZXJZZWFZUWIwNGZnZmw1Z3h0VTRUM29PUGVORVBFR2szazVjbkE0Y2hlbjlKbFZFTg?oc=5" target="_blank" rel="noopener nofollow">[오늘의증시] 코스피 7000선 눈앞…외국인·기관 5조원대 순매수에 4.6% 급등</a></td></tr><tr><td class="d">Mon, 07 Sep</td><td class="d">소년한국일보</td><td><a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE1WWmxJQ2NYa1FNRXNCUXgzUDZfaTBWcUtRZlFab2YxQmhlOG1DNnc2ZDF1cG1SSnJIQUlHVHI1R2NWYmpDRE5hSHdCWG03TGROTDVpR2Qtelp6bEdTYldyaGRFd1NacUYya21IYtIBcEFVX3lxTFBXSGNoQmItRF90cUFtd1FtQ3BXOWh4OERjNTRhUDBvMjktcEV3Y3ViS0kzejhJWDJjTHB2bk1oWVVHWU1xZ09JbGdaVzE2WGtzOUo5eWRCbmtmdkJGTWs0TGlUYWIzSEhtX0JfU1ZZZEY?oc=5" target="_blank" rel="noopener nofollow">코스피, 외국인·기관 순매수에 6990선 마감</a></td></tr><tr><td class="d">Mon, 07 Sep</td><td class="d">네이버 프리미엄콘텐츠</td><td><a href="https://news.google.com/rss/articles/CBMiigFBVV95cUxPVEItUm9HTTJabTByZEtlOVJYUjhYRENzVTlXQ203Q09ybndSRU0tZHRWWnlXUjNVNjZBVHRBa1cxdDVaTTJuSHJ6bTRiM2RyM2dLTVpEVlN0ZHk5SURXVjFRSXVMeVJIWEJDaGVqNzI0TEtFZV83NFdZeEdkN0VwcHZKWm9QN25fLWc?oc=5" target="_blank" rel="noopener nofollow">외국인·기관 5조 원 대규모 순매수, 반도체 및 전력 인프라 상승 주도 (2026.09.07)</a></td></tr><tr><td class="d">Mon, 07 Sep</td><td class="d">에너지경제신문</td><td><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE9GdHIxazAxWWhESmY3ZmlpMjdKRHFjeS1ya2Q2RUlmS1pvTFFkdmVfb1JpM19HWmVJa2ZWWDJFNldpMDVjaUZ0UmpzM2xfdWRzNU5nc2QteEFybms?oc=5" target="_blank" rel="noopener nofollow">외국인·기관 ‘쌍끌이’에 반도체 강세…코스피 7000선 눈앞 [마감시황]</a></td></tr><tr><td class="d">Tue, 08 Sep</td><td class="d">톱스타뉴스</td><td><a href="https://news.google.com/rss/articles/CBMickFVX3lxTE94SVdZd2xJRWxoUTI1VGNMY3RPenVlVDZYQUZKbGh0ZmVBTnZ5a3dueVZWYnpiTnphRTBEcEIxeVItVHEyVllQNGprS1NaSUhUNFNKN005YVMzZ193bnRqQWRPX2ZyQjJoUjExeU42ZWt4UQ?oc=5" target="_blank" rel="noopener nofollow">[코스피 시황] 기관 매수·SK하이닉스 강세…외국인 매도에도 7000선 위</a></td></tr></tbody></table></div><p class="cap">출처 구글 뉴스 · 2026-09-08 기준. 뉴스는 이 글의 분석과 무관하며 서로 어긋날 수 있다.</p></div><!--TOPICNEWS:END--><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="supply.html">투자자 수급</a> — 이 분석의 일별 원장 — 오늘 누가 사고 팔았는지가 그 페이지입니다.</p><p><a href="foreign-share.html">외국인 비중</a> — «외국인을 따라 사면 되는가»의 반대편 각도 — 비중은 팔고도 오를 수 있다는 28년 실측입니다.</p></div><!--RELATED:END--></div>
+</div><div class="wrap"><!--TOPICNEWS:BEGIN--><style id="tnewscss">.tnews{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 10px;margin:34px 0 10px}.tnews h3{margin:0 0 10px;font-size:1.02rem}.tnews table{width:100%;border-collapse:collapse;font-size:.9rem}.tnews td{padding:5px 8px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}.tnews td.d{white-space:nowrap;color:var(--text-secondary)}.tnews p.cap{margin:10px 0 8px;font-size:.8rem;color:var(--text-secondary);line-height:1.6}</style><div class="tnews"><h3>관련 뉴스</h3><p class="cap">제목에 그 낱말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.</p><p class="cap">국내: 「외국인 기관 순매수」 로 찾았다.</p><div class="tblwrap"><table><tbody><tr><td class="d">Tue, 08 Sep</td><td class="d">Chosunbiz</td><td><a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxQWVRMVTE2cG1zZnBORFY4d0NCZWhlNTd0Y1NRNG9ERkRzVzZENExJWkJOMUZqQzd5SzNFd2JXT2N0cDJOUnNSR1d2RDV2RW1PbDhPOTZHQXVGTkF4ZGtjdTRQclpDWDlpV2YzQ0ZwendRVDJHUTZmU3EwNVVyd2lQd2x3ckdpWWVz0gGcAUFVX3lxTE5ZZHBjcG5oaFRVQUQ3ZTh0eW9FcEpCNFk1eF9aa2RRWEwxV3lWNWRmUDdPdldCdnRpNmZpMllIMktFT1VzUzRfLTdXaHJ1U0JzN1dxckJFbUUyX0lrWWtlOE5UU1RZVnRYeElTR0VHMmNYOEJaUmprWFhwVVplOEhIb2cydzViQ0lnMlY4SFNkbkM0N3RuZ2JSVVUxTA?oc=5" target="_blank" rel="noopener nofollow">코스피, 외국인·기관 ‘사자’에 7100선 돌파… 코스닥도 상승 - 조선비즈</a></td></tr><tr><td class="d">Tue, 08 Sep</td><td class="d">ebn.co.kr</td><td><a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTE1BM2kweE4zOUZHY0FTVzN0NEFSTF9FMUU0Tlg0XzRGWi1GSWJiZktUMFc5clZ4NmYtSG9IdlFSejFoSDRPc0s5MVhtZUFkMDllRWV4cGZuUUtoSFVGbi1IZ01abGxEbzJs?oc=5" target="_blank" rel="noopener nofollow">"다시 칠천피"…외국인 돈은 또 '삼전닉스'로 몰렸다</a></td></tr><tr><td class="d">Tue, 08 Sep</td><td class="d">뉴스핌</td><td><a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTFBHNnJMdW5BbWQ3MHNNdDdaWk1VU0tsMnJnUC1maWthb0pOTFhlS1ZoX1JYRGRZdmlJWG5Ic0IxRW1BNUh0WGdoSGFmTkZaR1hMQnZ4RkZRbkc4Y3Vq?oc=5" target="_blank" rel="noopener nofollow">[장중수급포착] 한전기술, 외국인/기관 동시 순매수… 주가 +16.52%</a></td></tr><tr><td class="d">Mon, 07 Sep</td><td class="d">뉴스퀘스트</td><td><a href="https://news.google.com/rss/articles/CBMib0FVX3lxTE9QZFlxdDNXSWluT2lDNXhOTktVQ1VndGNJRUppclh2SWpvMzZLOHlHOVcxTUkyT1N4UmFfTFNRRjNfdzNSRWJSaUdXREE3YUpjT1dLYWlfQ0FXNTluN0Yydy1RajJiNUdCUU5VZmx1cw?oc=5" target="_blank" rel="noopener nofollow">[박정식의 국내 주식시황] 외국인·기관 3일째 순매수…코스피 7200선 다시 노린다</a></td></tr><tr><td class="d">Tue, 08 Sep</td><td class="d">뉴스티앤티</td><td><a href="https://news.google.com/rss/articles/CBMiakFVX3lxTFBRakVfMXotZmJ0QXNJNldPTjEzMzZ1bE8zbThYb094enRKX2oyMWw3ajNnTjl3TUNfZXREUHFjVDdqXzA1d1BLMUtPaFk3akVvX2pnN3l2czRsRWtHTkU0TnRfNTAxSnRRUEE?oc=5" target="_blank" rel="noopener nofollow">[특징주] 외국인·기관, 빛과전자·삼성전자·두산에너빌리티 매수</a></td></tr><tr><td class="d">Tue, 08 Sep</td><td class="d">뉴스핌</td><td><a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTE9peHBZWFlEd0VHaWZiM3Q4Y2MzYmdBeF8tOHMwQnRQVmhWQV9EZ2QxdHhoVWV3dl9icjZ0dGJkeTFLY3VTa3lZREUtNDJVWHE5OU03aHA4MEhKaU5Z?oc=5" target="_blank" rel="noopener nofollow">[장중수급포착] 하이젠알앤엠, 외국인/기관 동시 순매수… 주가 +10.09%</a></td></tr></tbody></table></div><p class="cap">출처 구글 뉴스 · 2026-09-08 기준. 뉴스는 이 글의 분석과 무관하며 서로 어긋날 수 있다.</p></div><!--TOPICNEWS:END--><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="supply.html">투자자 수급</a> 이 분석의 일별 원장: 오늘 누가 사고 팔았는지가 그 페이지이다.</p><p><a href="foreign-share.html">외국인 비중</a> '외국인을 따라 사면 되는가'의 반대편 각도: 비중은 팔고도 오를 수 있다는 28년 실측이다.</p></div><!--RELATED:END--></div>
 <footer>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.
     · 근거: 이야기꾼 주간 시투 보고서(W36·2026-09-05) 및 자체 실측.</footer>
 </div>
@@ -967,7 +967,8 @@ SK하이닉스: 개인이 515만 주를 팔았고, 외국인이 439만 주를 �
        title:{display:true,text:c.ov||''}},
      x:{grid:{display:false},ticks:{maxTicksLimit:12}}}}});
 });
-</script><!--TOCJS:BEGIN--><script>
+</script><button class="toggle" onclick="__toggleTheme()">&#9728;</button>
+<!--TOCJS:BEGIN--><script>
 /* 목차 클릭 보정 — 2026-08-24
    ⚠ 해시가 이미 그 값이면 브라우저가 클릭을 무시한다. 스크롤을 내린 뒤
      같은 항목을 다시 누르면 아무 일도 일어나지 않는다(실측으로 확인).
@@ -994,5 +995,4 @@ SK하이닉스: 개인이 515만 주를 팔았고, 외국인이 439만 주를 �
     }
   });
 })();
-</script><!--TOCJS:END--><button class="toggle" onclick="__toggleTheme()">&#9728;</button>
-</body></html>
+</script><!--TOCJS:END--></body></html>
