@@ -121,7 +121,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── 테마 토글 버튼 (전 페이지 공통) ── */
 /* ⚠⚠ `top:auto` 와 z-index 가 핵심이다 (2026-08-08).
-   생성기 SHELL 들이 `.toggle{position:fixed;top:18px;…}` 를 따로 갖고 있는데(45장),
+   생성기 SHELL 들이 `.toggle{top:62px;z-index:88;position:fixed;…}` 를 따로 갖고 있는데(45장),
    이 규칙은 뒤에 와서 z-index 만 이기고 **위치는 top:18px 가 남았다.**
    그 자리는 sticky 상단바(.site-bar, z-index 90)가 덮는 자리라
    **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 세 번째 원인이다.
@@ -466,7 +466,7 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
   <a class="card " href="kosdaq.html"><h3>코스닥</h3><p>코스닥 지수를 일반 종목처럼 분석한다. 이격도(이동평균선에서 얼마나 벌어졌나), 바닥 7단계, 시장 수급, 그리고 개인 수급 사분면. 매일 갱신.</p></a>
   <a class="card " href="stock-samsung.html"><h3>삼성전자</h3><p>시총 1위. 반도체 사이클의 기준선</p></a>
   <a class="card " href="stock-skhynix.html"><h3>SK하이닉스</h3><p>HBM 주도주. 이야기꾼이 가장 자주 언급</p></a>
-  <a class="card " href="bottom-top.html"><h3>바닥·천장 추적 분석</h3><p>지금이 바닥인지 천장인지를 세 가지로 본다. 기관이 파는 날을 세는 분산일, 바닥을 지났는지 확인하는 FTD, 상승 추세인지 가르는 추세 템플릿. 용어는 페이지 안에서 푼다.</p></a>
+  <a class="card " href="bottom-top.html"><h3>바닥·천장 추적 분석</h3><p>지금이 바닥인지 천장인지를 세 가지로 본다. 기관이 파는 날을 집계하는 분산일, 바닥을 지났는지 확인하는 FTD, 상승 추세인지 가르는 추세 템플릿. 용어는 페이지 안에서 푼다.</p></a>
   <a class="card " href="sentiment-daily.html"><h3>투자심리 3종</h3><p>시장에 낀 빚, 대기 중인 현금, 강제로 팔린 물량. 2025년 4월부터 매일 이어 붙인다.</p></a>
   <a class="card " href="breadth-rs.html"><h3>52주 신고가와 상대강도</h3><p>코스피 전종목을 훑어 시장 폭과 주도주를 본다. RS Rating, 지수 대비 초과수익률, RS선 신고가.</p></a>
   <a class="card " href="audition.html"><h3>오디션 피라미딩</h3><p>시투의 종목 선정법: 뽑는 게 아니라 떨어뜨린다. 시총 1조 이상에서 기준일 대비 상승률로 줄을 세우고 누가 살아남는지를 매일 추적한다.</p></a>
@@ -558,8 +558,8 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
       <a class="lst-i" href="us-credit-spread.html"><span class="lst-t">미국 신용스프레드는 주가를 앞서지 않는다</span><span class="lst-d">무디스 Baa 와 Aaa 의 차이를 <b>1919년부터 1,292개월</b> 재 봤다. 지금 <b>0.44%p</b>는 107년 안에서 하위 <b>1.8%</b>이고 0.50%p 아래로 내려간 국면은 여섯 번뿐이다. 그런데 이 지표로는 앞을 볼 수 없다 — 큰 정점 여섯 번에서 스프레드 꼭대기는 주가 바닥보다 중앙값 <b>1개월 늦었고</b>, 스프레드가 한 달 앞선 자리의 상관은 <b>-0.11</b>에 그친다. 예보가 아니라 온도계다.</span></a>
       <a class="lst-i" href="gold-rates.html"><span class="lst-t">금과 장기금리는 시대마다 반대로 움직인다</span><span class="lst-d">금과 미 장기금리의 관계에는 고정된 부호가 없다. 디플레이션 시대 40년 동안 상관은 <b>-0.70</b>이었는데 지금 시대에는 <b>+0.53</b>이다. 30년물로 봐도 회사채로 봐도 물가를 걷어낸 실질 금값으로 봐도 같은 부호가 나온다. 1968년까지 금값은 시장가가 아니라 법으로 정한 값이었다는 사실도 표에 남겼다.</span></a>
       <a class="lst-i" href="treasury-trust.html"><span class="lst-t">국채는 부도로 무너지지 않는다</span><span class="lst-d">미국 국채가 신뢰를 잃은 방식은 부도가 아니라 희석이었다. 재무부가 국채를 되사는 자리를 보면 그 희석이 지금 진행 중인지 보인다. 2000년 이래 되사기 <b>156작전</b>을 전수로 세니 <b>53건(34%)</b>이 한도를 다 못 채웠다. 그런데 그 미달은 금리 탓이 아니다 — 30년물과의 상관은 <b>+0.06</b>이고, 가르는 것은 만기다.</span></a>
-      <a class="lst-i" href="deleveraging.html"><span class="lst-t">강제청산은 어떻게 끝나는가</span><span class="lst-d">빌려서 산 돈이 하루에 얼마나 사라졌는지를 센다. 1998년부터 <b>6,915거래일</b>을 전수로 훑어 급감 국면 <b>42번</b>을 뽑았고, 그중 하루 6% 넘게 빠진 깊은 국면 열한 번은 <b>아홉 번</b>이나 코스피 저점이 그 날로부터 사흘 안이었다. 그런데 <b>기다리면 늦는다</b> — 잔고가 다시 늘기를 확인하고 들어가면 42번 평균 60일 성적이 +8.0%에서 +4.5%로 내려앉는다.</span></a>
-      <a class="lst-i" href="breadth-concentration.html"><span class="lst-t">신고가 쏠림배수 2023~2026</span><span class="lst-d">신고가가 <b>몇 종목인가</b>만 세면 절반을 놓칩니다. 그 종목들이 <b>얼마나 큰지</b>를 함께 계산하면 다른 그림이 나옵니다. 2025년 10월부터 소수 대형주 쏠림이 반복됐고 <b>2026년 6월은 폭 2.7%에 무게 14.7%</b>였습니다. 그 다음 달이 7월입니다. 다만 <b>코스피와는 동행이지 선행이 아닙니다</b> — 시차를 밀어 봐도 최대가 0일입니다.</span></a>
+      <a class="lst-i" href="deleveraging.html"><span class="lst-t">강제청산은 어떻게 끝나는가</span><span class="lst-d">빌려서 산 돈이 하루에 얼마나 사라졌는지를 집계한다. 1998년부터 <b>6,915거래일</b>을 전수로 훑어 급감 국면 <b>42번</b>을 뽑았고, 그중 하루 6% 넘게 빠진 깊은 국면 열한 번은 <b>아홉 번</b>이나 코스피 저점이 그 날로부터 사흘 안이었다. 그런데 <b>기다리면 늦는다</b> — 잔고가 다시 늘기를 확인하고 들어가면 42번 평균 60일 성적이 +8.0%에서 +4.5%로 내려앉는다.</span></a>
+      <a class="lst-i" href="breadth-concentration.html"><span class="lst-t">신고가 쏠림배수 2023~2026</span><span class="lst-d">신고가가 <b>몇 종목인가</b>만 집계하면 절반을 놓칩니다. 그 종목들이 <b>얼마나 큰지</b>를 함께 계산하면 다른 그림이 나옵니다. 2025년 10월부터 소수 대형주 쏠림이 반복됐고 <b>2026년 6월은 폭 2.7%에 무게 14.7%</b>였습니다. 그 다음 달이 7월입니다. 다만 <b>코스피와는 동행이지 선행이 아닙니다</b> — 시차를 밀어 봐도 최대가 0일입니다.</span></a>
       <a class="lst-i" href="sentiment.html"><span class="lst-t">빚과 현금과 강제청산</span><span class="lst-d">신용융자·예탁금·반대매매를 코스피·코스닥과 <b>28년 전수</b>로 맞춰봤습니다. 빚은 지수를 <b>1주 뒤따르고</b>, 예탁금은 동행합니다. 앞을 보는 건 <b>반대매매 하나</b>인데 방향이 반대입니다.</span></a>
       <a class="lst-i" href="flow-crashes.html"><span class="lst-t">수급이 만든 폭락의 역사</span><span class="lst-d">회사가 잘못한 게 없는데 주가가 무너진 <b>여덟 번</b>. 1987년부터 2026년까지, 공통점과 당시 거시경제.</span></a>
       <a class="lst-i" href="disparity-archive.html"><span class="lst-t">두 버블의 50일 이격도</span><span class="lst-d">2026 AI(실데이터)와 1999 닷컴(시뮬레이션)을 동일 스케일로 비교. 둘 다 <b>이격도 130%대</b>에서 첫 정점을 찍었고, 갈린 것은 <b>식는 속도</b>였습니다.</span></a>
