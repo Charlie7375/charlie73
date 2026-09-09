@@ -2226,9 +2226,8 @@ function fxBuild(){
     else if(d.fill){ o.fill=true; o.backgroundColor=dpA(col,0.13); }
     else { o.backgroundColor=col; o.fill=false; }
     return o;});
-  var sc={y1:c.y1?{position:'right',type:'linear',grid:{display:false},ticks:{color:tx,font:{family:'Inter',size:11.5},callback:function(v){return v+'%';}},
-             title:{display:true,text:c.y1,color:tx,font:{family:'Noto Sans KR',size:12.5}}}:undefined,
-         y:{position:'left',type:c.ylog?'logarithmic':'linear',grid:{color:grid},
+  /* ⚠ y 를 먼저 정의한다 — yAxisID 없는 계열은 Chart.js 가 첫 y축에 붙인다 (2026-09-09 y1 이 먼저라 코스피가 오른쪽 축에 붙었다) */
+  var sc={y:{position:'left',type:c.ylog?'logarithmic':'linear',grid:{color:grid},
              min:c.k==='scatter'?-35:undefined,max:c.k==='scatter'?35:undefined,
              ticks:{color:tx,font:{family:'Inter',size:12},maxTicksLimit:c.ylog?7:5,callback:function(v){return typeof v==='number'?v.toLocaleString():v;}},
              afterBuildTicks:c.ylog?function(ax){ax.ticks=[1500,2000,3000,4000,6000,9000].map(function(v){return {value:v};});}:undefined,
@@ -2239,6 +2238,8 @@ function fxBuild(){
            :{grid:{display:false},
             ticks:{color:tx,font:{family:'Inter',size:11.5},autoSkip:true,maxTicksLimit:c.xt||10,
               maxRotation:(c.k==='bar'&&c.rot!==0)?45:0,minRotation:(c.k==='bar'&&c.rot!==0)?45:0}}};
+  if(c.y1) sc.y1={position:'right',type:'linear',grid:{display:false},ticks:{color:tx,font:{family:'Inter',size:11.5},callback:function(v){return v+'%';}},
+             title:{display:true,text:c.y1,color:tx,font:{family:'Noto Sans KR',size:12.5}}};
   /* 사분면 — 0선과 문턱선을 그린다 */
   var quad={id:'fxquad',beforeDatasetsDraw:function(ch){
     if(ch.config.options.plugins.fxquad!==true) return;
