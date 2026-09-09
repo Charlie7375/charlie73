@@ -156,6 +156,8 @@ function tweak(cfg){
     if (d.__c0 === undefined) d.__c0 = d.borderColor;
     if (d.__b0 === undefined) d.__b0 = d.backgroundColor;
     if (isBase(d)) { d.borderColor = base(); d.borderWidth = 1; d.pointRadius = 0; return; }
+    /* 점 계열(선을 끈 데이터셋)은 점이 자료다 — 점 크기를 지우지 않는다 (2026-09-09 flow-extremes 에서 점 132개가 사라졌다) */
+    if (d.showLine === false || cfg.type === 'scatter') { d.borderColor = shade(d.__c0); if (typeof d.__b0 === 'string') d.backgroundColor = shade(d.__b0); if (!d.pointRadius) d.pointRadius = 3; return; }
     d.borderColor = shade(d.__c0);              /* 색조 유지 · 어두울 때만 밝기 ↑ */
     if (typeof d.__b0 === 'string') d.backgroundColor = shade(d.__b0);
     if (bar0 || d.type === 'bar') {
