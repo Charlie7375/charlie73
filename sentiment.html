@@ -130,7 +130,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
    생성기 SHELL 들이 `.toggle{position:fixed;top:18px;…}` 를 따로 갖고 있는데(45장),
    이 규칙은 뒤에 와서 z-index 만 이기고 **위치는 top:18px 가 남았다.**
    그 자리는 sticky 상단바(.site-bar, z-index 90)가 덮는 자리라
-   **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 세 번째 원인이다.
+   **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 3번째 원인이다.
    → top 을 명시적으로 풀고(z-index 도 상단바 위로) 우하단으로 되돌린다. */
 .toggle{position:fixed;right:18px;bottom:18px;top:auto;z-index:130;width:42px;height:42px;
   border-radius:50%;border:1px solid var(--border);background:var(--surface);
@@ -147,13 +147,13 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── ① 데이터층은 전폭 ── */
 /* 폭은 apply_paper.py 가 정한다. 여기서 !important 로 잡으면 그쪽이 못 이긴다.
-   두 곳에서 폭을 정하면 반드시 한쪽이 조용히 진다. */
+   2곳에서 폭을 정하면 반드시 한쪽이 조용히 진다. */
 .wrap{padding-left:32px!important;padding-right:32px!important}
 
 /* ── ② 해설층은 좁은 단 + 세리프 ──
    숫자·표·라벨은 산세리프로 남는다. 서체가 바뀌는 지점이 곧 층이 바뀌는 지점이다. */
 .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{
-  /* ⚠ 가운데 정렬하면 제목은 왼쪽 끝, 본문은 화면 한가운데가 되어 **둘이 따로 논다.**
+  /* ⚠ 가운데 정렬하면 제목은 왼쪽 끝, 본문은 화면 한가운데가 되어 **2가지가 따로 논다.**
        2026-08-02에 2600px 화면에서 그게 드러났다. 제목과 왼쪽을 맞춘다. */
   max-width:var(--w-prose);margin-left:0!important;margin-right:auto!important;
   font-size:16.5px;line-height:1.85;letter-spacing:-.004em}
@@ -172,7 +172,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── 폰트 통일 — 나눔고딕 ──
    본문·제목·표·차트 라벨까지 한 벌로 간다. 예전엔 해설층만 세리프를 썼는데,
-   서체가 둘이면 같은 페이지 안에서 글자 크기와 행간이 미묘하게 어긋난다. */
+   서체가 2가지면 같은 페이지 안에서 글자 크기와 행간이 미묘하게 어긋난다. */
 html body,html body h1,html body h2,html body h3,html body h4,
 html body table,html body button,html body input,html body .site-brand,
 html body .eyebrow,html body .sub,html body .card,html body .st-v,html body .st-l{
@@ -222,8 +222,8 @@ html.theme-dark .card:hover{box-shadow:none!important}
    ⚠ 선택자를 `a.card` 로 좁힌 것은 일부러다. bottom-top·disparity-3 의 `div.card` 는
      차트 상자라 같은 이름을 쓰지만 다른 것이다. 거기까지 번지면 안 된다. */
 :root{--w-sec:1080px}   /* 상태판(build_status.py 의 .status max-width)과 **같은 값**이다.
-     달랐던 탓에 스트립은 L205, 카드는 L245 에서 시작해 첫 화면에 왼쪽 끝이 둘이었다.
-     ⚠ build_status.py 에서 1080 을 바꾸면 여기도 같이 바꾼다. 두 곳이 한 줄을 그린다. */
+     달랐던 탓에 스트립은 L205, 카드는 L245 에서 시작해 첫 화면에 왼쪽 끝이 2개였다.
+     ⚠ build_status.py 에서 1080 을 바꾸면 여기도 같이 바꾼다. 2곳이 한 줄을 그린다. */
 .sec{max-width:var(--w-sec)!important}
 
 /* 리드 한 줄 — 푸터에 있던 첫 문장을 올린 것이다. 히어로 블록이 아니다 */
@@ -305,6 +305,30 @@ a.card:focus-visible,.lst-i:focus-visible{
 .site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
   background:color-mix(in srgb,var(--text) 6%,transparent)}
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+/* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END */
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 
 .dim{color:var(--mut,#94a3b8)}
 .b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
@@ -360,30 +384,6 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .hchg .ar{white-space:nowrap}
 .to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
 @media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
-/* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END */
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 
 /* ── 닷컴 대시보드 형식 (scripts/dotcom_panel.py) ── */
 /* 값은 kospi-dotcom-1998-2000.html 에서 그대로 옮겼다 — 눈맛의 정본이다 */
@@ -507,7 +507,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
    ⚠ 처음엔 <figure> 통째로 넓혔다가 2026-08-02에 문제가 드러났다.
      figure 안의 **캡션까지 같이 넓어져서** 캡션 왼쪽 선이 본문보다 46px 왼쪽에 섰다.
-     한 화면에 왼쪽 선이 두 개 생기니 글이 들쭉날쭉해 보인다.
+     한 화면에 왼쪽 선이 2개 생기니 글이 들쭉날쭉해 보인다.
      → figure 자체는 본문 폭에 두고, 안의 svg·차트·표만 넓힌다.
        캡션은 자연히 본문과 같은 선에서 시작한다. */
 .paper figure{width:auto;margin-left:0;margin-right:0}
@@ -758,8 +758,8 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <div class="phead">
 <div class="eyebrow">찰리 아카이브 · 투자심리</div>
 <h1>빚과 현금과 강제청산</h1>
-<p class="sub">빚 · 현금 · 강제청산. 이 셋을 코스피·코스닥과 나란히 놓고
-28년 전부를 집계해 봤다. 통념 셋이 무너졌다. 빚은 앞서지 않고, 현금은 알려주지 않고,
+<p class="sub">빚 · 현금 · 강제청산. 이 3가지를 코스피·코스닥과 나란히 놓고
+28년 전부를 집계해 봤다. 통념 3가지가 무너졌다. 빚은 앞서지 않고, 현금은 알려주지 않고,
 앞을 보는 건 반대매매 하나인데 방향이 반대이다.</p>
 <p class="pauth">기준일 2026-09-08 · 금투협 투심 3종 · 매일 갱신</p>
 </div>
@@ -768,7 +768,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <p>3줄 요약. ① 신용융자는 앞날의 신호가 아니다.
 지수가 먼저 움직이고, 신용융자는 5영업일 뒤에 따라 움직인다(20일 변화율로 계산한 최적 시차).
 ② 예탁금은 같은 날 움직인다(시차 0일). 역시 앞을 알려 주지 않는다.
-③ 셋 중 앞을 보는 건 반대매매 하나인데, 방향이 통념과 반대이다. 급증일(직전 60영업일 평균의 3배 초과) 뒤 60영업일 코스피는
+③ 3개 중 앞을 보는 건 반대매매 하나인데, 방향이 통념과 반대이다. 급증일(직전 60영업일 평균의 3배 초과) 뒤 60영업일 코스피는
 8번 중 7번 올랐다.
 그리고 지금 코스닥÷코스피 비율은 2001년 이후 최저이다.</p>
 </div>
@@ -779,7 +779,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 빚은 무리해서 뛰고 있는지, 현금은 아직 힘이 남았는지,
 강제청산은 쓰러져 실려 나간 사람이 몇인지를 보여 준다.</p>
 
-<p>이 셋을 투자심리 지표라고 부른다.
+<p>이 3가지를 투자심리 지표라고 부른다.
 실적이나 금리 같은 펀더멘털이 아니라
 시장 참여자의 위험선호를 금액으로 측정하는 지표이다.</p>
 
@@ -840,7 +840,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <figcaption>6,307일치를 전부 넣어 계산했다. 20일 단위로 '얼마나 올랐나·빠졌나'를 서로 맞춰 본 것이다.</figcaption></figure>
 
 <p>봉우리가 0의 오른쪽(= 지표가 지수보다 먼저 움직인 쪽)에 있는 지표가 하나도 없다.
-셋 중 어느 것도 지수를 앞서 움직이지 않는다는 뜻이다.</p>
+3개 중 어느 것도 지수를 앞서 움직이지 않는다는 뜻이다.</p>
 
 <p>생각해 보면 당연하다. 사람은 주가가 오르는 걸 본 뒤에 빌린다.
 "이거 더 가겠는데" 싶어야 대출 버튼을 누르지, 오르기 전에 미리 빌려 두지 않는다.
@@ -970,7 +970,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 <p>③ 이번엔 빚이 코스닥에서 코스피로 옮겨 갔다.
 예전에는 빚이 주로 코스닥 중소형주에 붙었다.
-2007·2018·2021 세 국면 모두 빚은 코스피보다 코스닥과 더 닮게 움직였다
+2007·2018·2021 3개 국면 모두 빚은 코스피보다 코스닥과 더 닮게 움직였다
 (0.62 · 0.70 ·
 0.70).<br>
 그런데 이번엔 처음으로 뒤집혔다. 코스피 0.70 &gt; 코스닥 0.47.
@@ -1001,7 +1001,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 코스피가 2007-10-31에 꼭대기를 찍어 111일 차였고,
 그 뒤 금융위기가 왔다.</p>
 
-<p>다만 사례가 둘뿐이다. "코스닥이 먼저 꺾이면 폭락이 온다"고 말하기엔 너무 적다.
+<p>다만 사례가 2개뿐이다. "코스닥이 먼저 꺾이면 폭락이 온다"고 말하기엔 너무 적다.
 지금은 그런 일이 2번 있었다 정도로만 알아 두는 게 맞다.</p>
 
 <h2 id="지금-어디에-서-있나">지금 어디에 서 있나?</h2>
@@ -1084,7 +1084,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 항목 정의는 공공데이터포털 「금융위원회_금융투자협회종합통계정보」 응답명세로 대조 확인했다.
 상관은 20영업일 변화율 기준이며, 이 페이지의 모든 숫자는 원자료에서 다시 계산한 값이다.</p>
 
-<p class="src-note">갱신 2026-09-09 · 기준일 2026-09-08</p>
+<p class="src-note">갱신 2026-09-10 · 기준일 2026-09-08</p>
 </div>
 <script src="vendor/chart-4.4.1.umd.js"></script>
 <!-- CHARTTHEME:BEGIN -->

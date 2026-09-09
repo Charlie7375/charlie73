@@ -188,7 +188,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
    생성기 SHELL 들이 `.toggle{position:fixed;top:18px;…}` 를 따로 갖고 있는데(45장),
    이 규칙은 뒤에 와서 z-index 만 이기고 **위치는 top:18px 가 남았다.**
    그 자리는 sticky 상단바(.site-bar, z-index 90)가 덮는 자리라
-   **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 세 번째 원인이다.
+   **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 3번째 원인이다.
    → top 을 명시적으로 풀고(z-index 도 상단바 위로) 우하단으로 되돌린다. */
 .toggle{position:fixed;right:18px;bottom:18px;top:auto;z-index:130;width:42px;height:42px;
   border-radius:50%;border:1px solid var(--border);background:var(--surface);
@@ -205,13 +205,13 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── ① 데이터층은 전폭 ── */
 /* 폭은 apply_paper.py 가 정한다. 여기서 !important 로 잡으면 그쪽이 못 이긴다.
-   두 곳에서 폭을 정하면 반드시 한쪽이 조용히 진다. */
+   2곳에서 폭을 정하면 반드시 한쪽이 조용히 진다. */
 .wrap{padding-left:32px!important;padding-right:32px!important}
 
 /* ── ② 해설층은 좁은 단 + 세리프 ──
    숫자·표·라벨은 산세리프로 남는다. 서체가 바뀌는 지점이 곧 층이 바뀌는 지점이다. */
 .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{
-  /* ⚠ 가운데 정렬하면 제목은 왼쪽 끝, 본문은 화면 한가운데가 되어 **둘이 따로 논다.**
+  /* ⚠ 가운데 정렬하면 제목은 왼쪽 끝, 본문은 화면 한가운데가 되어 **2가지가 따로 논다.**
        2026-08-02에 2600px 화면에서 그게 드러났다. 제목과 왼쪽을 맞춘다. */
   max-width:var(--w-prose);margin-left:0!important;margin-right:auto!important;
   font-size:16.5px;line-height:1.85;letter-spacing:-.004em}
@@ -230,7 +230,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── 폰트 통일 — 나눔고딕 ──
    본문·제목·표·차트 라벨까지 한 벌로 간다. 예전엔 해설층만 세리프를 썼는데,
-   서체가 둘이면 같은 페이지 안에서 글자 크기와 행간이 미묘하게 어긋난다. */
+   서체가 2가지면 같은 페이지 안에서 글자 크기와 행간이 미묘하게 어긋난다. */
 html body,html body h1,html body h2,html body h3,html body h4,
 html body table,html body button,html body input,html body .site-brand,
 html body .eyebrow,html body .sub,html body .card,html body .st-v,html body .st-l{
@@ -280,8 +280,8 @@ html.theme-dark .card:hover{box-shadow:none!important}
    ⚠ 선택자를 `a.card` 로 좁힌 것은 일부러다. bottom-top·disparity-3 의 `div.card` 는
      차트 상자라 같은 이름을 쓰지만 다른 것이다. 거기까지 번지면 안 된다. */
 :root{--w-sec:1080px}   /* 상태판(build_status.py 의 .status max-width)과 **같은 값**이다.
-     달랐던 탓에 스트립은 L205, 카드는 L245 에서 시작해 첫 화면에 왼쪽 끝이 둘이었다.
-     ⚠ build_status.py 에서 1080 을 바꾸면 여기도 같이 바꾼다. 두 곳이 한 줄을 그린다. */
+     달랐던 탓에 스트립은 L205, 카드는 L245 에서 시작해 첫 화면에 왼쪽 끝이 2개였다.
+     ⚠ build_status.py 에서 1080 을 바꾸면 여기도 같이 바꾼다. 2곳이 한 줄을 그린다. */
 .sec{max-width:var(--w-sec)!important}
 
 /* 리드 한 줄 — 푸터에 있던 첫 문장을 올린 것이다. 히어로 블록이 아니다 */
@@ -1459,6 +1459,166 @@ html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;-
 .reveal.visible{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 @media(max-width:720px){.panel{padding:22px 16px 18px}.panel .cbox{min-height:320px}}
+
+/* ── 닷컴 대시보드 형식 (scripts/dotcom_panel.py) ── */
+/* 값은 kospi-dotcom-1998-2000.html 에서 그대로 옮겼다 — 눈맛의 정본이다 */
+html.theme-light{--chart-accent:#B7791F;--chart-pos:#0F8A53;--chart-neg:#D62839;--chart-mute:#8a8f98;
+  --chart-grid:rgba(0,0,0,0.06);--chart-band:rgba(183,121,31,0.07)}
+html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;--chart-mute:#9aa3ad;
+  --chart-grid:rgba(255,255,255,0.05);--chart-band:rgba(240,180,41,0.055)}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:20px;
+  padding:30px 32px 26px;margin:22px 0}
+.panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap}
+.panel-head h3{font-size:1.08rem;font-weight:700;letter-spacing:-.02em;margin:0}
+.panel figure{margin:14px 0 0}
+.panel .cbox{position:relative;height:min(60vh,540px);min-height:420px}
+.panel-head p{color:var(--text-secondary);font-size:.95rem;margin:6px 0 0;max-width:640px}
+.rng{display:inline-flex;gap:6px;flex-shrink:0}
+.rng button{font:600 12px/1 'Noto Sans KR',sans-serif;padding:8px 12px;border-radius:9px;
+  background:transparent;border:1px solid var(--border);color:var(--text-secondary);cursor:pointer;
+  transition:background .18s,color .18s,border-color .18s}
+.rng button:hover{background:var(--surface2,var(--bg));color:var(--text)}
+.rng button.on{background:var(--chart-accent);border-color:var(--chart-accent);color:#fff}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:12px;margin:16px 0 4px}
+.kpi{background:var(--bg);border:1px solid var(--border);border-radius:13px;padding:15px 16px;
+  transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s,border-color .25s}
+.kpi:hover{transform:translateY(-5px);box-shadow:0 14px 30px rgba(0,0,0,.12);
+  border-color:color-mix(in srgb,var(--chart-accent) 40%,var(--border))}
+.kpi .k{font-size:11.5px;font-weight:700;letter-spacing:.05em;color:var(--text-secondary)}
+.kpi .v{font-size:1.45rem;font-weight:800;letter-spacing:-.03em;margin-top:5px}
+.kpi .s{font-size:11.5px;color:var(--text-secondary);margin-top:3px;line-height:1.5}
+.kpi.hl .v{color:var(--chart-accent)}
+.kpi .v.neg{color:var(--chart-neg)}
+.srcline{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:baseline;margin-top:14px;
+  padding-top:12px;border-top:1px solid var(--border);font-size:12px;
+  color:var(--text-secondary);line-height:1.6}
+.srcline .lbl{font-weight:800;letter-spacing:.06em;color:var(--chart-accent);flex-shrink:0}
+.srcline a{color:var(--chart-accent);font-weight:700;text-decoration:none}
+.srcline a:hover{text-decoration:underline}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+@media(max-width:720px){.panel{padding:22px 16px 18px}.panel .cbox{min-height:320px}}
+
+/* ── 닷컴 대시보드 형식 (scripts/dotcom_panel.py) ── */
+/* 값은 kospi-dotcom-1998-2000.html 에서 그대로 옮겼다 — 눈맛의 정본이다 */
+html.theme-light{--chart-accent:#B7791F;--chart-pos:#0F8A53;--chart-neg:#D62839;--chart-mute:#8a8f98;
+  --chart-grid:rgba(0,0,0,0.06);--chart-band:rgba(183,121,31,0.07)}
+html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;--chart-mute:#9aa3ad;
+  --chart-grid:rgba(255,255,255,0.05);--chart-band:rgba(240,180,41,0.055)}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:20px;
+  padding:30px 32px 26px;margin:22px 0}
+.panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap}
+.panel-head h3{font-size:1.08rem;font-weight:700;letter-spacing:-.02em;margin:0}
+.panel figure{margin:14px 0 0}
+.panel .cbox{position:relative;height:min(60vh,540px);min-height:420px}
+.panel-head p{color:var(--text-secondary);font-size:.95rem;margin:6px 0 0;max-width:640px}
+.rng{display:inline-flex;gap:6px;flex-shrink:0}
+.rng button{font:600 12px/1 'Noto Sans KR',sans-serif;padding:8px 12px;border-radius:9px;
+  background:transparent;border:1px solid var(--border);color:var(--text-secondary);cursor:pointer;
+  transition:background .18s,color .18s,border-color .18s}
+.rng button:hover{background:var(--surface2,var(--bg));color:var(--text)}
+.rng button.on{background:var(--chart-accent);border-color:var(--chart-accent);color:#fff}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:12px;margin:16px 0 4px}
+.kpi{background:var(--bg);border:1px solid var(--border);border-radius:13px;padding:15px 16px;
+  transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s,border-color .25s}
+.kpi:hover{transform:translateY(-5px);box-shadow:0 14px 30px rgba(0,0,0,.12);
+  border-color:color-mix(in srgb,var(--chart-accent) 40%,var(--border))}
+.kpi .k{font-size:11.5px;font-weight:700;letter-spacing:.05em;color:var(--text-secondary)}
+.kpi .v{font-size:1.45rem;font-weight:800;letter-spacing:-.03em;margin-top:5px}
+.kpi .s{font-size:11.5px;color:var(--text-secondary);margin-top:3px;line-height:1.5}
+.kpi.hl .v{color:var(--chart-accent)}
+.kpi .v.neg{color:var(--chart-neg)}
+.srcline{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:baseline;margin-top:14px;
+  padding-top:12px;border-top:1px solid var(--border);font-size:12px;
+  color:var(--text-secondary);line-height:1.6}
+.srcline .lbl{font-weight:800;letter-spacing:.06em;color:var(--chart-accent);flex-shrink:0}
+.srcline a{color:var(--chart-accent);font-weight:700;text-decoration:none}
+.srcline a:hover{text-decoration:underline}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+@media(max-width:720px){.panel{padding:22px 16px 18px}.panel .cbox{min-height:320px}}
+
+/* ── 닷컴 대시보드 형식 (scripts/dotcom_panel.py) ── */
+/* 값은 kospi-dotcom-1998-2000.html 에서 그대로 옮겼다 — 눈맛의 정본이다 */
+html.theme-light{--chart-accent:#B7791F;--chart-pos:#0F8A53;--chart-neg:#D62839;--chart-mute:#8a8f98;
+  --chart-grid:rgba(0,0,0,0.06);--chart-band:rgba(183,121,31,0.07)}
+html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;--chart-mute:#9aa3ad;
+  --chart-grid:rgba(255,255,255,0.05);--chart-band:rgba(240,180,41,0.055)}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:20px;
+  padding:30px 32px 26px;margin:22px 0}
+.panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap}
+.panel-head h3{font-size:1.08rem;font-weight:700;letter-spacing:-.02em;margin:0}
+.panel figure{margin:14px 0 0}
+.panel .cbox{position:relative;height:min(60vh,540px);min-height:420px}
+.panel-head p{color:var(--text-secondary);font-size:.95rem;margin:6px 0 0;max-width:640px}
+.rng{display:inline-flex;gap:6px;flex-shrink:0}
+.rng button{font:600 12px/1 'Noto Sans KR',sans-serif;padding:8px 12px;border-radius:9px;
+  background:transparent;border:1px solid var(--border);color:var(--text-secondary);cursor:pointer;
+  transition:background .18s,color .18s,border-color .18s}
+.rng button:hover{background:var(--surface2,var(--bg));color:var(--text)}
+.rng button.on{background:var(--chart-accent);border-color:var(--chart-accent);color:#fff}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:12px;margin:16px 0 4px}
+.kpi{background:var(--bg);border:1px solid var(--border);border-radius:13px;padding:15px 16px;
+  transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s,border-color .25s}
+.kpi:hover{transform:translateY(-5px);box-shadow:0 14px 30px rgba(0,0,0,.12);
+  border-color:color-mix(in srgb,var(--chart-accent) 40%,var(--border))}
+.kpi .k{font-size:11.5px;font-weight:700;letter-spacing:.05em;color:var(--text-secondary)}
+.kpi .v{font-size:1.45rem;font-weight:800;letter-spacing:-.03em;margin-top:5px}
+.kpi .s{font-size:11.5px;color:var(--text-secondary);margin-top:3px;line-height:1.5}
+.kpi.hl .v{color:var(--chart-accent)}
+.kpi .v.neg{color:var(--chart-neg)}
+.srcline{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:baseline;margin-top:14px;
+  padding-top:12px;border-top:1px solid var(--border);font-size:12px;
+  color:var(--text-secondary);line-height:1.6}
+.srcline .lbl{font-weight:800;letter-spacing:.06em;color:var(--chart-accent);flex-shrink:0}
+.srcline a{color:var(--chart-accent);font-weight:700;text-decoration:none}
+.srcline a:hover{text-decoration:underline}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+@media(max-width:720px){.panel{padding:22px 16px 18px}.panel .cbox{min-height:320px}}
+
+/* ── 닷컴 대시보드 형식 (scripts/dotcom_panel.py) ── */
+/* 값은 kospi-dotcom-1998-2000.html 에서 그대로 옮겼다 — 눈맛의 정본이다 */
+html.theme-light{--chart-accent:#B7791F;--chart-pos:#0F8A53;--chart-neg:#D62839;--chart-mute:#8a8f98;
+  --chart-grid:rgba(0,0,0,0.06);--chart-band:rgba(183,121,31,0.07)}
+html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;--chart-mute:#9aa3ad;
+  --chart-grid:rgba(255,255,255,0.05);--chart-band:rgba(240,180,41,0.055)}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:20px;
+  padding:30px 32px 26px;margin:22px 0}
+.panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap}
+.panel-head h3{font-size:1.08rem;font-weight:700;letter-spacing:-.02em;margin:0}
+.panel figure{margin:14px 0 0}
+.panel .cbox{position:relative;height:min(60vh,540px);min-height:420px}
+.panel-head p{color:var(--text-secondary);font-size:.95rem;margin:6px 0 0;max-width:640px}
+.rng{display:inline-flex;gap:6px;flex-shrink:0}
+.rng button{font:600 12px/1 'Noto Sans KR',sans-serif;padding:8px 12px;border-radius:9px;
+  background:transparent;border:1px solid var(--border);color:var(--text-secondary);cursor:pointer;
+  transition:background .18s,color .18s,border-color .18s}
+.rng button:hover{background:var(--surface2,var(--bg));color:var(--text)}
+.rng button.on{background:var(--chart-accent);border-color:var(--chart-accent);color:#fff}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:12px;margin:16px 0 4px}
+.kpi{background:var(--bg);border:1px solid var(--border);border-radius:13px;padding:15px 16px;
+  transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s,border-color .25s}
+.kpi:hover{transform:translateY(-5px);box-shadow:0 14px 30px rgba(0,0,0,.12);
+  border-color:color-mix(in srgb,var(--chart-accent) 40%,var(--border))}
+.kpi .k{font-size:11.5px;font-weight:700;letter-spacing:.05em;color:var(--text-secondary)}
+.kpi .v{font-size:1.45rem;font-weight:800;letter-spacing:-.03em;margin-top:5px}
+.kpi .s{font-size:11.5px;color:var(--text-secondary);margin-top:3px;line-height:1.5}
+.kpi.hl .v{color:var(--chart-accent)}
+.kpi .v.neg{color:var(--chart-neg)}
+.srcline{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:baseline;margin-top:14px;
+  padding-top:12px;border-top:1px solid var(--border);font-size:12px;
+  color:var(--text-secondary);line-height:1.6}
+.srcline .lbl{font-weight:800;letter-spacing:.06em;color:var(--chart-accent);flex-shrink:0}
+.srcline a{color:var(--chart-accent);font-weight:700;text-decoration:none}
+.srcline a:hover{text-decoration:underline}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+@media(max-width:720px){.panel{padding:22px 16px 18px}.panel .cbox{min-height:320px}}
 </style>
 <link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><style id="plainlead-css">.plain{margin:12px 0 22px;padding:18px 20px 16px;border-radius:5px;background:var(--surface,#f6f7f9);border-left:4px solid var(--accent,#1161c4);box-shadow:0 1px 2px rgba(0,0,0,.04)}.plain .pl-lb{display:block;font-size:11px;letter-spacing:.14em;font-weight:700;color:var(--accent,#1161c4);margin-bottom:9px;text-transform:none}.plain p:first-of-type{font-size:clamp(17px,2.1vw,19px);line-height:1.7;font-weight:600;letter-spacing:-.012em;color:var(--text,#1d1d1f);margin:0 0 9px}.plain p{margin:0 0 7px;font-size:clamp(15px,1.8vw,16px);line-height:1.75;color:var(--text2,var(--text-secondary,#4a5566))}.plain p:last-child{margin-bottom:0}@media(max-width:600px){.plain{padding:15px 16px 13px}}/* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
@@ -1489,7 +1649,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
    ⚠ 처음엔 <figure> 통째로 넓혔다가 2026-08-02에 문제가 드러났다.
      figure 안의 **캡션까지 같이 넓어져서** 캡션 왼쪽 선이 본문보다 46px 왼쪽에 섰다.
-     한 화면에 왼쪽 선이 두 개 생기니 글이 들쭉날쭉해 보인다.
+     한 화면에 왼쪽 선이 2개 생기니 글이 들쭉날쭉해 보인다.
      → figure 자체는 본문 폭에 두고, 안의 svg·차트·표만 넓힌다.
        캡션은 자연히 본문과 같은 선에서 시작한다. */
 .paper figure{width:auto;margin-left:0;margin-right:0}
@@ -1741,7 +1901,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <h1>메모리 가격과 반도체 주가</h1>
 <p class="sub">DRAM 값이 오르면 삼성전자를 사야 하는가.
 33년치로 계산해 보니 순서가 반대였다.</p>
-<p class="pauth">2026년 9월 8일 작성 · 자료 1993년 1월 ~ 2026년 7월 · 403개월 · 한국은행 ECOS · 월 1회 갱신</p>
+<p class="pauth">2026년 9월 10일 작성 · 자료 1993년 1월 ~ 2026년 7월 · 403개월 · 한국은행 ECOS · 월 1회 갱신</p>
 </div>
 
 <!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>삼성전자 주가가 메모리 값보다 석 달 먼저 움직인다. 값이 오르는 것을 보고 사면 늦다는 뜻이다. 주가가 먼저 꺾이는 것도 같은 이치로 읽어야 한다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#논점-①-지금-메모리-값은-어디인가">논점 ① 지금 메모리 값은 어디인가?</a></li><li><a href="#논점-②-값과-주가-중-무엇이-먼저-움직이나">논점 ② 값과 주가 중 무엇이 먼저 움직이나?</a></li><li><a href="#논점-③-값이-좋을-때-사면-되는가">논점 ③ 값이 좋을 때 사면 되는가?</a></li><li><a href="#논점-④-2026년-7월에-무슨-일이-있었나">논점 ④ 2026년 7월에 무슨 일이 있었나?</a></li><li><a href="#이-분석이-틀릴-수-있는-곳">이 분석이 틀릴 수 있는 곳</a></li><li><a href="#자료와-계산-방법">자료와 계산 방법</a></li></ol></div><!--TOC:END--><div class="claim">
@@ -1758,7 +1918,9 @@ DRAM 이 252.74에서 274.79로 8.7% 오르는 동안 삼성전자는 334,000원
 21.4% 내렸다. 그달의 급락이 메모리 업황 때문이 아니었다는 실측이다.</p>
 </div>
 
-<h2 id="논점-①-지금-메모리-값은-어디인가">논점 ① 지금 메모리 값은 어디인가?</h2><div class="plain"><span class="pl-lb">한 줄로 말하면</span><p>메모리 값이 10년 안에서 가장 높다.</p><p>다만 오른 것은 메모리뿐이다. 시스템반도체는 제자리다. AI 서버 수요가 한쪽에만 몰렸다.</p></div><div class="claim"><p>10년 안에서 가장 높다.
+<h2 id="논점-①-지금-메모리-값은-어디인가">논점 ① 지금 메모리 값은 어디인가?</h2><div class="plain"><span class="pl-lb">한 줄로 말하면</span><p>메모리 값이 10년 안에서 가장 높다.</p><p>다만 오른 것은 메모리뿐이다. 시스템반도체는 제자리다. AI 서버 수요가 한쪽에만 몰렸다.</p></div>
+
+<div class="claim"><p>10년 안에서 가장 높다.
 DRAM 수출물가지수가 2026년 7월에 274.79이고 최근 10년 백분위 100%다.
 2025년 2월 70.70이 바닥이었으니 17개월에 +289% 올랐다.</p>
 <p>다만 오른 것은 메모리뿐이다. 같은 기간 시스템반도체는 85 근처에서 움직이지 않았다.
@@ -1774,7 +1936,9 @@ DRAM 수출물가지수가 2026년 7월에 274.79이고 최근 10년 백분위 1
 이 글은 달러 기준을 쓴다. 원화 기준을 쓰면 환율이 가격으로 보인다.
 2026년 3월에 달러 기준 187.19와 원화 기준 235.54가 25% 벌어지는데 그 차이는 전부 환율이다.</p>
 
-<h2 id="논점-②-값과-주가-중-무엇이-먼저-움직이나">논점 ② 값과 주가 중 무엇이 먼저 움직이나?</h2><div class="plain"><span class="pl-lb">한 줄로 말하면</span><p>★ 값보다 주가가 먼저 움직인다. 2~3개월 앞선다.</p><p>값이 오르는 것을 보고 사면 이미 늦다는 뜻이다.</p></div><div class="claim"><p>주가가 먼저다. 3개월 앞선다.
+<h2 id="논점-②-값과-주가-중-무엇이-먼저-움직이나">논점 ② 값과 주가 중 무엇이 먼저 움직이나?</h2><div class="plain"><span class="pl-lb">한 줄로 말하면</span><p>★ 값보다 주가가 먼저 움직인다. 2~3개월 앞선다.</p><p>값이 오르는 것을 보고 사면 이미 늦다는 뜻이다.</p></div>
+
+<div class="claim"><p>주가가 먼저다. 3개월 앞선다.
 DRAM 전년비와 삼성전자 전년비의 상관계수를 시차별로 계산하면 −3개월에서 +0.685로 가장 높다.
 −2개월 +0.672, −4개월 +0.663로 봉우리가 넓어 2~3개월 앞선다고 읽는 것이 안전하다.</p></div>
 
@@ -1790,9 +1954,11 @@ DRAM 값이 오른 뒤에 삼성전자를 사는 것은 늦다.</p>
 
 <div class="panel" data-reveal><div class="panel-head"><div><h3>DRAM 전년비와 삼성전자 전년비</h3></div><div class="rng" role="group" aria-label="기간 선택"><button class="on" onclick="mpRange(&#39;g3&#39;,0,this)">전체</button><button onclick="mpRange(&#39;g3&#39;,1,this)">2015~</button></div></div><figure class="fig"><div class="cbox" style="height:360px"><canvas id="g3"></canvas></div><figcaption><span class="freq m">월간</span>황금색이 DRAM, 파랑이 삼성전자다. 둘 다 전년 같은 달 대비 변화율이다.</figcaption></figure><p class="panel-cap rngnote" style="margin-top:12px">두 선이 같이 움직이되 파랑이 먼저 돈다.</p><div class="srcline"><span class="lbl">출처</span><span>한국은행 ECOS · yfinance</span></div></div>
 
-<h2 id="논점-③-값이-좋을-때-사면-되는가">논점 ③ 값이 좋을 때 사면 되는가?</h2><div class="plain"><span class="pl-lb">한 줄로 말하면</span><p>값이 가장 나쁠 때 산 경우의 성과가 가장 좋았다.</p><p>좋아 보일 때 사는 것과 반대다.</p></div><div class="claim"><p>반대다. 값이 가장 나쁠 때 산 경우의 성과가 가장 좋았다.</p></div>
+<h2 id="논점-③-값이-좋을-때-사면-되는가">논점 ③ 값이 좋을 때 사면 되는가?</h2><div class="plain"><span class="pl-lb">한 줄로 말하면</span><p>값이 가장 나쁠 때 산 경우의 성과가 가장 좋았다.</p><p>좋아 보일 때 사는 것과 반대다.</p></div>
 
-<p>DRAM 전년비를 넷으로 나누고, 그 시점에 삼성전자를 사서 12개월 들고 있었으면
+<div class="claim"><p>반대다. 값이 가장 나쁠 때 산 경우의 성과가 가장 좋았다.</p></div>
+
+<p>DRAM 전년비를 4개로 나누고, 그 시점에 삼성전자를 사서 12개월 들고 있었으면
 어떻게 됐는지를 집계했다.</p>
 
 <div class="tblwrap"><table><thead><tr><th>DRAM 전년비</th><th class="n">삼전 이후 12개월</th>
@@ -1801,14 +1967,16 @@ DRAM 값이 오른 뒤에 삼성전자를 사는 것은 늦다.</p>
 <p class="note">오른쪽 두 열은 매달 겹쳐 집계한 값이라 표본이 부풀려져 있다.
 왼쪽이 12개월 간격으로 겹치지 않게 뽑은 실질이다.</p>
 
-<p>0~+50% 구간이 넷 중 유일한 마이너스다. 값이 좋아지기 시작하는 구간이 가장 나빴다.
+<p>0~+50% 구간이 4개 중 유일한 마이너스다. 값이 좋아지기 시작하는 구간이 가장 나빴다.
 두 방식 모두에서 같은 결과가 나온다.</p>
 
 <p>다만 실질 표본이 10개·5개·8개·2개다. 규칙이라 부를 수 없다.
-특히 +50% 이상 칸은 표본이 둘뿐이라 지금 국면을 여기에 대고 판단하면 안 된다.
+특히 +50% 이상 칸은 표본이 2개뿐이라 지금 국면을 여기에 대고 판단하면 안 된다.
 이 표가 말하는 것은 '그랬다'이지 '그럴 것이다'가 아니다.</p>
 
-<h2 id="논점-④-2026년-7월에-무슨-일이-있었나">논점 ④ 2026년 7월에 무슨 일이 있었나?</h2><div class="plain"><span class="pl-lb">한 줄로 말하면</span><p>2026년 7월에는 값은 오르고 주가는 빠졌다. 같은 달에 반대로 갔다.</p></div><div class="claim"><p>값은 오르고 주가는 빠졌다. 같은 달에 반대로 갔다.</p></div>
+<h2 id="논점-④-2026년-7월에-무슨-일이-있었나">논점 ④ 2026년 7월에 무슨 일이 있었나?</h2><div class="plain"><span class="pl-lb">한 줄로 말하면</span><p>2026년 7월에는 값은 오르고 주가는 빠졌다. 같은 달에 반대로 갔다.</p></div>
+
+<div class="claim"><p>값은 오르고 주가는 빠졌다. 같은 달에 반대로 갔다.</p></div>
 
 <div class="tblwrap"><table><thead><tr><th>시점</th><th class="n">DRAM 수출물가</th><th class="n">삼성전자</th></tr></thead>
 <tbody>
@@ -1836,10 +2004,10 @@ DRAM 값이 오른 뒤에 삼성전자를 사는 것은 늦다.</p>
 <li>지수는 가격이 아니다. 수준을 견줄 수 없고 변화율만 읽는다.
 트렌드포스가 내는 D램 가격과 측정 대상이 다르다. 대조해 본 적도 없다.</li>
 <li>통관 기준이라 한 달 늦다. 급변하는 국면에서 이 시차는 작지 않다.</li>
-<li>국면별 성과의 실질 표본이 10개·5개·8개·2개다. 특히 지금 국면(+50% 이상)은 둘뿐이다.
+<li>국면별 성과의 실질 표본이 10개·5개·8개·2개다. 특히 지금 국면(+50% 이상)은 2개뿐이다.
 규칙이라 부를 수 없고 관찰로 둔다.</li>
 <li>'주가가 3개월 먼저'는 2001년 이후 300개월 남짓에서 나온 값이다.
-그 안에 반도체 사이클이 네 번쯤 있었다. 사이클을 표본으로 집계하면 넷이다.</li>
+그 안에 반도체 사이클이 4번쯤 있었다. 사이클을 표본으로 집계하면 4개다.</li>
 <li>이 분석이 틀렸다고 인정하게 되는 조건. 앞으로 사이클 2번에서
 DRAM 값이 삼성전자보다 먼저 꺾이는 일이 반복되면 '주가가 먼저'라는 판정을 거둔다.</li>
 </ul>

@@ -130,7 +130,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
    생성기 SHELL 들이 `.toggle{position:fixed;top:18px;…}` 를 따로 갖고 있는데(45장),
    이 규칙은 뒤에 와서 z-index 만 이기고 **위치는 top:18px 가 남았다.**
    그 자리는 sticky 상단바(.site-bar, z-index 90)가 덮는 자리라
-   **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 세 번째 원인이다.
+   **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 3번째 원인이다.
    → top 을 명시적으로 풀고(z-index 도 상단바 위로) 우하단으로 되돌린다. */
 .toggle{position:fixed;right:18px;bottom:18px;top:auto;z-index:130;width:42px;height:42px;
   border-radius:50%;border:1px solid var(--border);background:var(--surface);
@@ -147,13 +147,13 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── ① 데이터층은 전폭 ── */
 /* 폭은 apply_paper.py 가 정한다. 여기서 !important 로 잡으면 그쪽이 못 이긴다.
-   두 곳에서 폭을 정하면 반드시 한쪽이 조용히 진다. */
+   2곳에서 폭을 정하면 반드시 한쪽이 조용히 진다. */
 .wrap{padding-left:32px!important;padding-right:32px!important}
 
 /* ── ② 해설층은 좁은 단 + 세리프 ──
    숫자·표·라벨은 산세리프로 남는다. 서체가 바뀌는 지점이 곧 층이 바뀌는 지점이다. */
 .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{
-  /* ⚠ 가운데 정렬하면 제목은 왼쪽 끝, 본문은 화면 한가운데가 되어 **둘이 따로 논다.**
+  /* ⚠ 가운데 정렬하면 제목은 왼쪽 끝, 본문은 화면 한가운데가 되어 **2가지가 따로 논다.**
        2026-08-02에 2600px 화면에서 그게 드러났다. 제목과 왼쪽을 맞춘다. */
   max-width:var(--w-prose);margin-left:0!important;margin-right:auto!important;
   font-size:16.5px;line-height:1.85;letter-spacing:-.004em}
@@ -172,7 +172,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── 폰트 통일 — 나눔고딕 ──
    본문·제목·표·차트 라벨까지 한 벌로 간다. 예전엔 해설층만 세리프를 썼는데,
-   서체가 둘이면 같은 페이지 안에서 글자 크기와 행간이 미묘하게 어긋난다. */
+   서체가 2가지면 같은 페이지 안에서 글자 크기와 행간이 미묘하게 어긋난다. */
 html body,html body h1,html body h2,html body h3,html body h4,
 html body table,html body button,html body input,html body .site-brand,
 html body .eyebrow,html body .sub,html body .card,html body .st-v,html body .st-l{
@@ -222,8 +222,8 @@ html.theme-dark .card:hover{box-shadow:none!important}
    ⚠ 선택자를 `a.card` 로 좁힌 것은 일부러다. bottom-top·disparity-3 의 `div.card` 는
      차트 상자라 같은 이름을 쓰지만 다른 것이다. 거기까지 번지면 안 된다. */
 :root{--w-sec:1080px}   /* 상태판(build_status.py 의 .status max-width)과 **같은 값**이다.
-     달랐던 탓에 스트립은 L205, 카드는 L245 에서 시작해 첫 화면에 왼쪽 끝이 둘이었다.
-     ⚠ build_status.py 에서 1080 을 바꾸면 여기도 같이 바꾼다. 두 곳이 한 줄을 그린다. */
+     달랐던 탓에 스트립은 L205, 카드는 L245 에서 시작해 첫 화면에 왼쪽 끝이 2개였다.
+     ⚠ build_status.py 에서 1080 을 바꾸면 여기도 같이 바꾼다. 2곳이 한 줄을 그린다. */
 .sec{max-width:var(--w-sec)!important}
 
 /* 리드 한 줄 — 푸터에 있던 첫 문장을 올린 것이다. 히어로 블록이 아니다 */
@@ -305,6 +305,30 @@ a.card:focus-visible,.lst-i:focus-visible{
 .site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
   background:color-mix(in srgb,var(--text) 6%,transparent)}
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+/* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END */
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 
 .dim{color:var(--mut,#94a3b8)}
 .b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
@@ -360,30 +384,6 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .hchg .ar{white-space:nowrap}
 .to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
 @media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
-/* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END */
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 /*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
@@ -439,7 +439,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
    ⚠ 처음엔 <figure> 통째로 넓혔다가 2026-08-02에 문제가 드러났다.
      figure 안의 **캡션까지 같이 넓어져서** 캡션 왼쪽 선이 본문보다 46px 왼쪽에 섰다.
-     한 화면에 왼쪽 선이 두 개 생기니 글이 들쭉날쭉해 보인다.
+     한 화면에 왼쪽 선이 2개 생기니 글이 들쭉날쭉해 보인다.
      → figure 자체는 본문 폭에 두고, 안의 svg·차트·표만 넓힌다.
        캡션은 자연히 본문과 같은 선에서 시작한다. */
 .paper figure{width:auto;margin-left:0;margin-right:0}
@@ -728,7 +728,7 @@ tr.cs-now td{background:rgba(43,108,176,.07)}
 다음 시대의 시작은 그 금리가 사상 최저를 기록한 2020년 7월이다.
 같은 기준을 <a href="gold-rates.html">금과 장기금리</a>와
 <a href="rates-century.html">미국 금리 100년</a>도 쓴다.</p>
-<p>선은 셋이다. 붉은 선이 신용스프레드, 푸른 선이 S&amp;P 500, 초록 선이 미국 10년 국채 금리다.
+<p>선은 3개다. 붉은 선이 신용스프레드, 푸른 선이 S&amp;P 500, 초록 선이 미국 10년 국채 금리다.
 스프레드와 금리는 단위가 같지만 크기가 달라 축을 나눴다. 이름표를 눌러 하나씩 끄고 볼 수 있다.</p>
 
 <h2 id="신용스프레드가-무엇인가">신용스프레드가 무엇인가?</h2>
@@ -765,7 +765,7 @@ Aaa는 무디스가 매긴 최고 등급 회사채의 평균 수익률이고, Ba
 그 계열은 라이선스 때문에 최근 3년치만 공개되어 이 글에서는 측정하지 못했다.</p>
 
 <h2 id="논점-②-시대가-바뀌면-같은-숫자를-다르게-읽어야-하는가">논점 ② 시대가 바뀌면 같은 숫자를 다르게 읽어야 하는가?</h2>
-<div class="claim"><div class="h">답</div><p>그렇다. 두 가지가 시대마다 바뀐다.
+<div class="claim"><div class="h">답</div><p>그렇다. 2가지가 시대마다 바뀐다.
 평상시 스프레드 수준이 다르고, 스프레드가 주가와 맞물려 움직이는 정도가 다르다.
 디플레이션 시대에는 스프레드 수준이 높고 인플레이션 시대에는 낮다.
 1941년부터 1981년까지는 주가와의 상관계수가 -0.08로 사실상 0이었다.
@@ -803,7 +803,7 @@ Aaa는 무디스가 매긴 최고 등급 회사채의 평균 수익률이고, Ba
 <div class="tblwrap"><table><thead><tr><th>국면</th><th>길이</th><th>최저값</th><th>첫 달 뒤 12개월</th><th>끝난 달 뒤 12개월</th></tr></thead>
 <tbody><tr><td>1945-12 ~ 1946-04</td><td>5개월</td><td>0.47 (1946-01)</td><td>-11.9%</td><td>-22.3%</td></tr><tr><td>1951-02 ~ 1951-04</td><td>3개월</td><td>0.45 (1951-03)</td><td>+6.7%</td><td>+4.0%</td></tr><tr><td>1953-01 ~ 1953-06</td><td>6개월</td><td>0.42 (1953-04)</td><td>-1.1%</td><td>+21.0%</td></tr><tr><td>1955-03 ~ 1956-08</td><td>17개월</td><td>0.44 (1956-04)</td><td>+32.5%</td><td>-4.8%</td></tr><tr><td>1963-12 ~ 1966-05</td><td>30개월</td><td>0.32 (1966-01)</td><td>+13.0%</td><td>+3.4%</td></tr><tr class="cs-now"><td>2026-06 ~ 2026-08</td><td>3개월</td><td>0.43 (2026-07)</td><td>아직 모른다</td><td>아직 모른다</td></tr></tbody></table></div>
 <p>앞선 5번 뒤에 무슨 일이 있었는지는 갈린다. 1945 국면 뒤 -22.3% · 1951 국면 뒤 +4.0% · 1953 국면 뒤 +21.0% · 1955 국면 뒤 -4.8% · 1963 국면 뒤 +3.4% 였다.
-표본이 다섯이고 결과가 상승과 하락으로 흩어져 있다.
+표본이 5개이고 결과가 상승과 하락으로 흩어져 있다.
 스프레드 수준이 매우 낮다는 사실만으로 이후 주가의 방향을 정할 수 없다.</p>
 <p>그림 2는 최근 20년만 따로 본 것이다. 지금이 그 안에서 가장 낮은 수준이다. 2026년 7월 0.43%포인트가 한 달 더 낮았다.</p>
 <figure class="fig"><div class="cbox" style="height:300px"><canvas id="csNow"></canvas></div><figcaption><span class="freq m">월간</span>푸른 배경이 디플레이션 시대이고 2020-07부터 붉은 배경이 인플레이션 시대다. 2008년과 2020년에 솟았고 그 뒤로는 계속 내려왔다. 지금이 이 그림에서 가장 낮은 쪽이고 직전 달이 한 단계 더 낮았다.</figcaption><div class="srcline"><span class="lbl">출처</span><span>FRED BAA − FRED AAA (2006년 이후) · 시대 구분은 gold-rates 와 같다</span></div></figure><script>(window.__CS=window.__CS||[]).push({"id": "csNow", "t": "line", "l": ["2006-01", "2006-02", "2006-03", "2006-04", "2006-05", "2006-06", "2006-07", "2006-08", "2006-09", "2006-10", "2006-11", "2006-12", "2007-01", "2007-02", "2007-03", "2007-04", "2007-05", "2007-06", "2007-07", "2007-08", "2007-09", "2007-10", "2007-11", "2007-12", "2008-01", "2008-02", "2008-03", "2008-04", "2008-05", "2008-06", "2008-07", "2008-08", "2008-09", "2008-10", "2008-11", "2008-12", "2009-01", "2009-02", "2009-03", "2009-04", "2009-05", "2009-06", "2009-07", "2009-08", "2009-09", "2009-10", "2009-11", "2009-12", "2010-01", "2010-02", "2010-03", "2010-04", "2010-05", "2010-06", "2010-07", "2010-08", "2010-09", "2010-10", "2010-11", "2010-12", "2011-01", "2011-02", "2011-03", "2011-04", "2011-05", "2011-06", "2011-07", "2011-08", "2011-09", "2011-10", "2011-11", "2011-12", "2012-01", "2012-02", "2012-03", "2012-04", "2012-05", "2012-06", "2012-07", "2012-08", "2012-09", "2012-10", "2012-11", "2012-12", "2013-01", "2013-02", "2013-03", "2013-04", "2013-05", "2013-06", "2013-07", "2013-08", "2013-09", "2013-10", "2013-11", "2013-12", "2014-01", "2014-02", "2014-03", "2014-04", "2014-05", "2014-06", "2014-07", "2014-08", "2014-09", "2014-10", "2014-11", "2014-12", "2015-01", "2015-02", "2015-03", "2015-04", "2015-05", "2015-06", "2015-07", "2015-08", "2015-09", "2015-10", "2015-11", "2015-12", "2016-01", "2016-02", "2016-03", "2016-04", "2016-05", "2016-06", "2016-07", "2016-08", "2016-09", "2016-10", "2016-11", "2016-12", "2017-01", "2017-02", "2017-03", "2017-04", "2017-05", "2017-06", "2017-07", "2017-08", "2017-09", "2017-10", "2017-11", "2017-12", "2018-01", "2018-02", "2018-03", "2018-04", "2018-05", "2018-06", "2018-07", "2018-08", "2018-09", "2018-10", "2018-11", "2018-12", "2019-01", "2019-02", "2019-03", "2019-04", "2019-05", "2019-06", "2019-07", "2019-08", "2019-09", "2019-10", "2019-11", "2019-12", "2020-01", "2020-02", "2020-03", "2020-04", "2020-05", "2020-06", "2020-07", "2020-08", "2020-09", "2020-10", "2020-11", "2020-12", "2021-01", "2021-02", "2021-03", "2021-04", "2021-05", "2021-06", "2021-07", "2021-08", "2021-09", "2021-10", "2021-11", "2021-12", "2022-01", "2022-02", "2022-03", "2022-04", "2022-05", "2022-06", "2022-07", "2022-08", "2022-09", "2022-10", "2022-11", "2022-12", "2023-01", "2023-02", "2023-03", "2023-04", "2023-05", "2023-06", "2023-07", "2023-08", "2023-09", "2023-10", "2023-11", "2023-12", "2024-01", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07", "2024-08", "2024-09", "2024-10", "2024-11", "2024-12", "2025-01", "2025-02", "2025-03", "2025-04", "2025-05", "2025-06", "2025-07", "2025-08", "2025-09", "2025-10", "2025-11", "2025-12", "2026-01", "2026-02", "2026-03", "2026-04", "2026-05", "2026-06", "2026-07", "2026-08"], "d": [{"label": "인플레이션 시대", "yAxisID": "y", "data": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58], "backgroundColor": "rgba(210,31,60,.07)", "borderWidth": 0, "pointRadius": 0, "fill": "origin", "spanGaps": false, "u": ""}, {"label": "디플레이션 시대", "yAxisID": "y", "data": [3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, 3.58, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null], "backgroundColor": "rgba(43,108,176,.09)", "borderWidth": 0, "pointRadius": 0, "fill": "origin", "spanGaps": false, "u": ""}, {"label": "신용스프레드 Baa−Aaa (%p)", "data": [0.95, 0.92, 0.88, 0.84, 0.8, 0.89, 0.91, 0.91, 0.92, 0.91, 0.87, 0.9, 0.94, 0.89, 0.97, 0.92, 0.92, 0.91, 0.92, 0.86, 0.85, 0.82, 0.96, 1.16, 1.21, 1.29, 1.38, 1.42, 1.36, 1.39, 1.49, 1.51, 1.66, 2.6, 3.09, 3.38, 3.09, 2.81, 2.92, 3.0, 2.52, 1.89, 1.68, 1.32, 1.18, 1.14, 1.13, 1.11, 0.99, 0.99, 1.0, 0.96, 1.09, 1.35, 1.29, 1.17, 1.13, 1.04, 1.05, 1.08, 1.05, 0.93, 0.9, 0.86, 0.82, 0.76, 0.83, 0.99, 1.18, 1.39, 1.27, 1.32, 1.38, 1.29, 1.24, 1.23, 1.27, 1.38, 1.47, 1.43, 1.35, 1.11, 1.01, 0.98, 0.93, 0.95, 0.92, 0.86, 0.84, 0.92, 0.98, 0.88, 0.83, 0.78, 0.75, 0.76, 0.7, 0.65, 0.68, 0.66, 0.6, 0.55, 0.57, 0.61, 0.69, 0.77, 0.87, 0.95, 0.99, 0.9, 0.9, 0.96, 0.91, 0.94, 1.05, 1.15, 1.27, 1.39, 1.4, 1.49, 1.45, 1.38, 1.31, 1.17, 1.03, 1.03, 0.94, 0.92, 0.9, 0.87, 0.85, 0.77, 0.74, 0.69, 0.67, 0.7, 0.7, 0.69, 0.69, 0.68, 0.67, 0.72, 0.7, 0.71, 0.71, 0.69, 0.77, 0.82, 0.83, 0.87, 0.92, 0.89, 0.9, 0.93, 1.0, 1.11, 1.19, 1.16, 1.07, 1.01, 0.96, 1.04, 0.99, 0.89, 0.88, 0.91, 0.88, 0.87, 0.83, 0.83, 1.27, 1.7, 1.45, 1.2, 1.17, 1.02, 1.05, 1.09, 1.0, 0.9, 0.79, 0.72, 0.7, 0.7, 0.66, 0.65, 0.67, 0.69, 0.7, 0.67, 0.66, 0.65, 0.65, 0.72, 0.86, 0.9, 0.99, 1.03, 1.15, 1.08, 1.1, 1.16, 1.17, 1.16, 1.1, 1.03, 1.11, 1.06, 1.1, 1.1, 1.08, 1.07, 1.03, 1.02, 1.01, 0.9, 0.81, 0.74, 0.74, 0.72, 0.7, 0.69, 0.72, 0.73, 0.74, 0.68, 0.64, 0.6, 0.62, 0.6, 0.64, 0.73, 0.75, 0.69, 0.65, 0.65, 0.62, 0.61, 0.6, 0.59, 0.54, 0.51, 0.56, 0.61, 0.54, 0.48, 0.43, 0.44], "yAxisID": "y", "borderColor": "#d21f3c", "backgroundColor": "rgba(210,31,60,.08)", "borderWidth": 1.7, "pointRadius": 0, "fill": true, "u": "%p"}], "s": {"x": {"ticks": {"maxTicksLimit": 12}, "grid": {"display": false}}, "y": {"title": {"display": true, "text": "스프레드 (%p)"}, "grid": {"color": "rgba(128,128,128,.12)"}, "min": 0, "max": 3.58}}});</script>
@@ -868,7 +868,7 @@ Aaa는 무디스가 매긴 최고 등급 회사채의 평균 수익률이고, Ba
 <div class="tblwrap"><table><thead><tr><th>신호를 고른 방법</th><th>횟수</th><th>이후 3개월</th><th>6개월</th><th>12개월</th></tr></thead>
 <tbody><tr><td>사후에 확인한 확대 구간</td><td>13회</td><td>-6.4%</td><td>-4.8%</td><td>+3.6%</td></tr><tr class="cs-now"><td>그날 알 수 있었던 확대 신호</td><td>20회</td><td>+2.9%</td><td>+6.9%</td><td>+12.6%</td></tr><tr><td>모든 거래일</td><td>10194일</td><td>+3.2%</td><td>+5.8%</td><td>+12.0%</td></tr></tbody></table></div>
 <p>성적이 모든 거래일의 평균과 사실상 같다.
-그렇다면 1년 뒤 수익률이 아니라 중간에 얼마나 아팠는지는 어떤가. 하락을 계산하는 기준이 둘이라 함께 적는다.</p>
+그렇다면 1년 뒤 수익률이 아니라 중간에 얼마나 아팠는지는 어떤가. 하락을 계산하는 기준이 2가지라 함께 적는다.</p>
 
 <div class="tblwrap"><table><thead><tr><th>1년 안 15% 이상 하락 기준</th><th>확대 신호 20회</th><th>같은 창의 모든 거래일</th></tr></thead>
 <tbody>
@@ -1006,7 +1006,7 @@ S&amp;P 500이 이미 중앙값 -17.8% 하락해 있었다. 전체 하락폭의 
 지금 신용시장의 상태를 확인하는 지표로 쓰는 편이 타당하다.</p></div>
 <p>주가가 하락해도 스프레드가 안정적이면 신용시장까지 손상된 상황은 아니다.
 주가가 하락하면서 신용스프레드가 함께 빠르게 확대되면
-기업의 자금 조달과 부도 위험까지 나빠지고 있다는 뜻이다. 둘은 다른 사건이다.</p>
+기업의 자금 조달과 부도 위험까지 나빠지고 있다는 뜻이다. 2가지는 다른 사건이다.</p>
 <p>지금 0.44%포인트는 미국 회사채 시장에 급한 신용경색이 없다는 뜻이다.
 주가가 앞으로 오른다는 뜻도, 주가 하락 위험이 없다는 뜻도 아니다.</p>
 <p>이 볼트는 한국 신용스프레드를 따로 본다.
@@ -1066,12 +1066,12 @@ scripts/fred_rates.py 가 매일 두 계열을 받아 뺀 값을 파일로 남�
 <p>지금 값은 이 글 쪽이다. GZ 스프레드가 2026년 7월에 0.842%포인트로
 1973년 이후 643개월 가운데 낮은 쪽 4.5%에 들고, 초과채권프리미엄은 −0.319다.
 최근 열네 달이 0.83에서 1.03 사이로 추세라 할 것이 없다.</p>
-<p>그가 근거로 든 두 번을 GZ 로 다시 계산하면 그의 시계와 어긋난다.
+<p>그가 근거로 든 2번을 GZ 로 다시 계산하면 그의 시계와 어긋난다.
 저점이 1999년 4월과 2007년 5월이고 중공황까지 각각 17개월과 6개월이다.
 그가 연체율로 말한 두 분기·여섯 분기와 다른데, 지표가 다르면 선행 기간도 다르므로 이것이 그의 주장을 반증하지는 않는다.
 그가 건 조건은 스프레드가 올해 안에 상승 추세로 돌아서는가이고, 그것만 같은 지표로 확인하면 된다.
 저점의 높이도 1.611과 1.471%포인트로 지금보다 63~77bp 높다.
-과거 두 번은 지금보다 훨씬 높은 스프레드 수준에서 출발했다.</p>
+과거 2번은 지금보다 훨씬 높은 스프레드 수준에서 출발했다.</p>
 <p>⚠ 다만 이 대조에는 위에 적은 규칙을 적용할 수 없다.
 Baa−Aaa 는 월평균 금리라 주가도 월평균으로 맞출 수 있는데, GZ 는 한 달에 값이 하나뿐이라 그 짝을 만들 수 없다.
 GZ 와의 비교가 불가능하다는 뜻이 아니라 이 글이 쓰는 월평균 맞추기를 못 쓴다는 뜻이다.

@@ -130,7 +130,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
    생성기 SHELL 들이 `.toggle{position:fixed;top:18px;…}` 를 따로 갖고 있는데(45장),
    이 규칙은 뒤에 와서 z-index 만 이기고 **위치는 top:18px 가 남았다.**
    그 자리는 sticky 상단바(.site-bar, z-index 90)가 덮는 자리라
-   **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 세 번째 원인이다.
+   **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 3번째 원인이다.
    → top 을 명시적으로 풀고(z-index 도 상단바 위로) 우하단으로 되돌린다. */
 .toggle{position:fixed;right:18px;bottom:18px;top:auto;z-index:130;width:42px;height:42px;
   border-radius:50%;border:1px solid var(--border);background:var(--surface);
@@ -147,13 +147,13 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── ① 데이터층은 전폭 ── */
 /* 폭은 apply_paper.py 가 정한다. 여기서 !important 로 잡으면 그쪽이 못 이긴다.
-   두 곳에서 폭을 정하면 반드시 한쪽이 조용히 진다. */
+   2곳에서 폭을 정하면 반드시 한쪽이 조용히 진다. */
 .wrap{padding-left:32px!important;padding-right:32px!important}
 
 /* ── ② 해설층은 좁은 단 + 세리프 ──
    숫자·표·라벨은 산세리프로 남는다. 서체가 바뀌는 지점이 곧 층이 바뀌는 지점이다. */
 .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{
-  /* ⚠ 가운데 정렬하면 제목은 왼쪽 끝, 본문은 화면 한가운데가 되어 **둘이 따로 논다.**
+  /* ⚠ 가운데 정렬하면 제목은 왼쪽 끝, 본문은 화면 한가운데가 되어 **2가지가 따로 논다.**
        2026-08-02에 2600px 화면에서 그게 드러났다. 제목과 왼쪽을 맞춘다. */
   max-width:var(--w-prose);margin-left:0!important;margin-right:auto!important;
   font-size:16.5px;line-height:1.85;letter-spacing:-.004em}
@@ -172,7 +172,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── 폰트 통일 — 나눔고딕 ──
    본문·제목·표·차트 라벨까지 한 벌로 간다. 예전엔 해설층만 세리프를 썼는데,
-   서체가 둘이면 같은 페이지 안에서 글자 크기와 행간이 미묘하게 어긋난다. */
+   서체가 2가지면 같은 페이지 안에서 글자 크기와 행간이 미묘하게 어긋난다. */
 html body,html body h1,html body h2,html body h3,html body h4,
 html body table,html body button,html body input,html body .site-brand,
 html body .eyebrow,html body .sub,html body .card,html body .st-v,html body .st-l{
@@ -222,8 +222,8 @@ html.theme-dark .card:hover{box-shadow:none!important}
    ⚠ 선택자를 `a.card` 로 좁힌 것은 일부러다. bottom-top·disparity-3 의 `div.card` 는
      차트 상자라 같은 이름을 쓰지만 다른 것이다. 거기까지 번지면 안 된다. */
 :root{--w-sec:1080px}   /* 상태판(build_status.py 의 .status max-width)과 **같은 값**이다.
-     달랐던 탓에 스트립은 L205, 카드는 L245 에서 시작해 첫 화면에 왼쪽 끝이 둘이었다.
-     ⚠ build_status.py 에서 1080 을 바꾸면 여기도 같이 바꾼다. 두 곳이 한 줄을 그린다. */
+     달랐던 탓에 스트립은 L205, 카드는 L245 에서 시작해 첫 화면에 왼쪽 끝이 2개였다.
+     ⚠ build_status.py 에서 1080 을 바꾸면 여기도 같이 바꾼다. 2곳이 한 줄을 그린다. */
 .sec{max-width:var(--w-sec)!important}
 
 /* 리드 한 줄 — 푸터에 있던 첫 문장을 올린 것이다. 히어로 블록이 아니다 */
@@ -433,7 +433,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
    ⚠ 처음엔 <figure> 통째로 넓혔다가 2026-08-02에 문제가 드러났다.
      figure 안의 **캡션까지 같이 넓어져서** 캡션 왼쪽 선이 본문보다 46px 왼쪽에 섰다.
-     한 화면에 왼쪽 선이 두 개 생기니 글이 들쭉날쭉해 보인다.
+     한 화면에 왼쪽 선이 2개 생기니 글이 들쭉날쭉해 보인다.
      → figure 자체는 본문 폭에 두고, 안의 svg·차트·표만 넓힌다.
        캡션은 자연히 본문과 같은 선에서 시작한다. */
 .paper figure{width:auto;margin-left:0;margin-right:0}
@@ -723,7 +723,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   <div class="explain">
     <p>이 28종은 강의 목록이 아니다. 이야기꾼은 강의(2020~21)에서 수백 개의 보조지표를 버리고
       10가지로 압축했다. 지금의 28종은 그 뒤 주간 리포트에서 그가 갱신해 온 것이고,
-      둘을 나란히 놓으면 무엇이 남았고 무엇이 늘었는지가 보인다.</p>
+      2가지를 나란히 놓으면 무엇이 남았고 무엇이 늘었는지가 보인다.</p>
   </div>
   <div class="tblwrap"><table class="t">
     <thead><tr><th style="width:34px">#</th><th>강의의 전조현상 Top 10 (2020~21)</th><th style="width:158px">지금 28종의 어디</th></tr></thead>
@@ -741,7 +741,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
     </tbody>
   </table></div>
   <div class="explain">
-    <p>1번과 4번이 「5분 대기조」이다. 매주 반드시 확인해야 하는 둘이고, 강의는
+    <p>1번과 4번이 「5분 대기조」이다. 매주 반드시 확인해야 하는 2가지이고, 강의는
       이 10가지만 제대로 보면 나머지 수백 개 보조지표는 재미로 참고하는 수준으로 충분하다고 정리한다.
       지금 이 표에서 1번(신용 스프레드)이 점등이라는 사실을 그 무게로 읽어야 한다.</p>
     <p>3번과 6번은 칸이 없다. 다만 그가 폐기한 것이 아니다. 강의 이후 주간 리포트 195편에서 「환율 급등」은 12회, 「팽창현상」은 17회 계속 등장한다.
@@ -804,7 +804,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
       이야기꾼의 전망도 "내년에 중공황이 서서히 시작"으로, 이 표는 그 국면에 얼마나 가까워졌는지를 측정하는 도구이다.</p>
     <p>반등의 원인을 먼저 물어야 한다. 7/31 코스피 +18%는 역대 최대 상승률이지만,
       원인은 헤지펀드 하나의 강제청산이 끝난 것이었다. 매도 주체가 사라져서 오른 것과
-      매수 주체가 들어와서 오른 것은 전혀 다른 신호이다. 지수의 크기만 보면 이 둘을 구분할 수 없다.</p>
+      매수 주체가 들어와서 오른 것은 전혀 다른 신호이다. 지수의 크기만 보면 이 2가지를 구분할 수 없다.</p>
     <p>신용경색 선행의 기준을 넓혔다. 하이일드 스프레드·CMBS 연체율에 더해
       AI 인프라 크레딧(오라클·소프트뱅크·코어위브에 더해 엔비디아 CDS까지)과 하이퍼스케일러 선행 FCF를 함께 본다.
       근거는 "빅테크는 못 멈춰도 자본공급자는 멈출 수 있다" CAPEX 하향은 가장 늦게 오는 신호이고,

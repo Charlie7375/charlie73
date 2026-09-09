@@ -188,7 +188,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
    생성기 SHELL 들이 `.toggle{position:fixed;top:18px;…}` 를 따로 갖고 있는데(45장),
    이 규칙은 뒤에 와서 z-index 만 이기고 **위치는 top:18px 가 남았다.**
    그 자리는 sticky 상단바(.site-bar, z-index 90)가 덮는 자리라
-   **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 세 번째 원인이다.
+   **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 3번째 원인이다.
    → top 을 명시적으로 풀고(z-index 도 상단바 위로) 우하단으로 되돌린다. */
 .toggle{position:fixed;right:18px;bottom:18px;top:auto;z-index:130;width:42px;height:42px;
   border-radius:50%;border:1px solid var(--border);background:var(--surface);
@@ -205,13 +205,13 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── ① 데이터층은 전폭 ── */
 /* 폭은 apply_paper.py 가 정한다. 여기서 !important 로 잡으면 그쪽이 못 이긴다.
-   두 곳에서 폭을 정하면 반드시 한쪽이 조용히 진다. */
+   2곳에서 폭을 정하면 반드시 한쪽이 조용히 진다. */
 .wrap{padding-left:32px!important;padding-right:32px!important}
 
 /* ── ② 해설층은 좁은 단 + 세리프 ──
    숫자·표·라벨은 산세리프로 남는다. 서체가 바뀌는 지점이 곧 층이 바뀌는 지점이다. */
 .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{
-  /* ⚠ 가운데 정렬하면 제목은 왼쪽 끝, 본문은 화면 한가운데가 되어 **둘이 따로 논다.**
+  /* ⚠ 가운데 정렬하면 제목은 왼쪽 끝, 본문은 화면 한가운데가 되어 **2가지가 따로 논다.**
        2026-08-02에 2600px 화면에서 그게 드러났다. 제목과 왼쪽을 맞춘다. */
   max-width:var(--w-prose);margin-left:0!important;margin-right:auto!important;
   font-size:16.5px;line-height:1.85;letter-spacing:-.004em}
@@ -230,7 +230,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── 폰트 통일 — 나눔고딕 ──
    본문·제목·표·차트 라벨까지 한 벌로 간다. 예전엔 해설층만 세리프를 썼는데,
-   서체가 둘이면 같은 페이지 안에서 글자 크기와 행간이 미묘하게 어긋난다. */
+   서체가 2가지면 같은 페이지 안에서 글자 크기와 행간이 미묘하게 어긋난다. */
 html body,html body h1,html body h2,html body h3,html body h4,
 html body table,html body button,html body input,html body .site-brand,
 html body .eyebrow,html body .sub,html body .card,html body .st-v,html body .st-l{
@@ -280,8 +280,8 @@ html.theme-dark .card:hover{box-shadow:none!important}
    ⚠ 선택자를 `a.card` 로 좁힌 것은 일부러다. bottom-top·disparity-3 의 `div.card` 는
      차트 상자라 같은 이름을 쓰지만 다른 것이다. 거기까지 번지면 안 된다. */
 :root{--w-sec:1080px}   /* 상태판(build_status.py 의 .status max-width)과 **같은 값**이다.
-     달랐던 탓에 스트립은 L205, 카드는 L245 에서 시작해 첫 화면에 왼쪽 끝이 둘이었다.
-     ⚠ build_status.py 에서 1080 을 바꾸면 여기도 같이 바꾼다. 두 곳이 한 줄을 그린다. */
+     달랐던 탓에 스트립은 L205, 카드는 L245 에서 시작해 첫 화면에 왼쪽 끝이 2개였다.
+     ⚠ build_status.py 에서 1080 을 바꾸면 여기도 같이 바꾼다. 2곳이 한 줄을 그린다. */
 .sec{max-width:var(--w-sec)!important}
 
 /* 리드 한 줄 — 푸터에 있던 첫 문장을 올린 것이다. 히어로 블록이 아니다 */
@@ -1619,6 +1619,86 @@ html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;-
 .reveal.visible{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 @media(max-width:720px){.panel{padding:22px 16px 18px}.panel .cbox{min-height:320px}}
+
+/* ── 닷컴 대시보드 형식 (scripts/dotcom_panel.py) ── */
+/* 값은 kospi-dotcom-1998-2000.html 에서 그대로 옮겼다 — 눈맛의 정본이다 */
+html.theme-light{--chart-accent:#B7791F;--chart-pos:#0F8A53;--chart-neg:#D62839;--chart-mute:#8a8f98;
+  --chart-grid:rgba(0,0,0,0.06);--chart-band:rgba(183,121,31,0.07)}
+html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;--chart-mute:#9aa3ad;
+  --chart-grid:rgba(255,255,255,0.05);--chart-band:rgba(240,180,41,0.055)}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:20px;
+  padding:30px 32px 26px;margin:22px 0}
+.panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap}
+.panel-head h3{font-size:1.08rem;font-weight:700;letter-spacing:-.02em;margin:0}
+.panel figure{margin:14px 0 0}
+.panel .cbox{position:relative;height:min(60vh,540px);min-height:420px}
+.panel-head p{color:var(--text-secondary);font-size:.95rem;margin:6px 0 0;max-width:640px}
+.rng{display:inline-flex;gap:6px;flex-shrink:0}
+.rng button{font:600 12px/1 'Noto Sans KR',sans-serif;padding:8px 12px;border-radius:9px;
+  background:transparent;border:1px solid var(--border);color:var(--text-secondary);cursor:pointer;
+  transition:background .18s,color .18s,border-color .18s}
+.rng button:hover{background:var(--surface2,var(--bg));color:var(--text)}
+.rng button.on{background:var(--chart-accent);border-color:var(--chart-accent);color:#fff}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:12px;margin:16px 0 4px}
+.kpi{background:var(--bg);border:1px solid var(--border);border-radius:13px;padding:15px 16px;
+  transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s,border-color .25s}
+.kpi:hover{transform:translateY(-5px);box-shadow:0 14px 30px rgba(0,0,0,.12);
+  border-color:color-mix(in srgb,var(--chart-accent) 40%,var(--border))}
+.kpi .k{font-size:11.5px;font-weight:700;letter-spacing:.05em;color:var(--text-secondary)}
+.kpi .v{font-size:1.45rem;font-weight:800;letter-spacing:-.03em;margin-top:5px}
+.kpi .s{font-size:11.5px;color:var(--text-secondary);margin-top:3px;line-height:1.5}
+.kpi.hl .v{color:var(--chart-accent)}
+.kpi .v.neg{color:var(--chart-neg)}
+.srcline{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:baseline;margin-top:14px;
+  padding-top:12px;border-top:1px solid var(--border);font-size:12px;
+  color:var(--text-secondary);line-height:1.6}
+.srcline .lbl{font-weight:800;letter-spacing:.06em;color:var(--chart-accent);flex-shrink:0}
+.srcline a{color:var(--chart-accent);font-weight:700;text-decoration:none}
+.srcline a:hover{text-decoration:underline}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+@media(max-width:720px){.panel{padding:22px 16px 18px}.panel .cbox{min-height:320px}}
+
+/* ── 닷컴 대시보드 형식 (scripts/dotcom_panel.py) ── */
+/* 값은 kospi-dotcom-1998-2000.html 에서 그대로 옮겼다 — 눈맛의 정본이다 */
+html.theme-light{--chart-accent:#B7791F;--chart-pos:#0F8A53;--chart-neg:#D62839;--chart-mute:#8a8f98;
+  --chart-grid:rgba(0,0,0,0.06);--chart-band:rgba(183,121,31,0.07)}
+html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;--chart-mute:#9aa3ad;
+  --chart-grid:rgba(255,255,255,0.05);--chart-band:rgba(240,180,41,0.055)}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:20px;
+  padding:30px 32px 26px;margin:22px 0}
+.panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap}
+.panel-head h3{font-size:1.08rem;font-weight:700;letter-spacing:-.02em;margin:0}
+.panel figure{margin:14px 0 0}
+.panel .cbox{position:relative;height:min(60vh,540px);min-height:420px}
+.panel-head p{color:var(--text-secondary);font-size:.95rem;margin:6px 0 0;max-width:640px}
+.rng{display:inline-flex;gap:6px;flex-shrink:0}
+.rng button{font:600 12px/1 'Noto Sans KR',sans-serif;padding:8px 12px;border-radius:9px;
+  background:transparent;border:1px solid var(--border);color:var(--text-secondary);cursor:pointer;
+  transition:background .18s,color .18s,border-color .18s}
+.rng button:hover{background:var(--surface2,var(--bg));color:var(--text)}
+.rng button.on{background:var(--chart-accent);border-color:var(--chart-accent);color:#fff}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:12px;margin:16px 0 4px}
+.kpi{background:var(--bg);border:1px solid var(--border);border-radius:13px;padding:15px 16px;
+  transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s,border-color .25s}
+.kpi:hover{transform:translateY(-5px);box-shadow:0 14px 30px rgba(0,0,0,.12);
+  border-color:color-mix(in srgb,var(--chart-accent) 40%,var(--border))}
+.kpi .k{font-size:11.5px;font-weight:700;letter-spacing:.05em;color:var(--text-secondary)}
+.kpi .v{font-size:1.45rem;font-weight:800;letter-spacing:-.03em;margin-top:5px}
+.kpi .s{font-size:11.5px;color:var(--text-secondary);margin-top:3px;line-height:1.5}
+.kpi.hl .v{color:var(--chart-accent)}
+.kpi .v.neg{color:var(--chart-neg)}
+.srcline{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:baseline;margin-top:14px;
+  padding-top:12px;border-top:1px solid var(--border);font-size:12px;
+  color:var(--text-secondary);line-height:1.6}
+.srcline .lbl{font-weight:800;letter-spacing:.06em;color:var(--chart-accent);flex-shrink:0}
+.srcline a{color:var(--chart-accent);font-weight:700;text-decoration:none}
+.srcline a:hover{text-decoration:underline}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+@media(max-width:720px){.panel{padding:22px 16px 18px}.panel .cbox{min-height:320px}}
 /* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
@@ -1648,7 +1728,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
    ⚠ 처음엔 <figure> 통째로 넓혔다가 2026-08-02에 문제가 드러났다.
      figure 안의 **캡션까지 같이 넓어져서** 캡션 왼쪽 선이 본문보다 46px 왼쪽에 섰다.
-     한 화면에 왼쪽 선이 두 개 생기니 글이 들쭉날쭉해 보인다.
+     한 화면에 왼쪽 선이 2개 생기니 글이 들쭉날쭉해 보인다.
      → figure 자체는 본문 폭에 두고, 안의 svg·차트·표만 넓힌다.
        캡션은 자연히 본문과 같은 선에서 시작한다. */
 .paper figure{width:auto;margin-left:0;margin-right:0}
@@ -1963,8 +2043,8 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 <div class="tblwrap"><table class="tw"><thead><tr><th>대량 순매도 기준<br><span class="dim">순매도 ÷ 거래대금</span></th><th class="n">신호일</th><th class="n">그중 상승일</th><th class="n">상승 추세 사건</th><th class="n">12개월 뒤 코스피<br><span class="dim">중앙값 · 상승 확률 · 표본</span></th></tr></thead><tbody><tr><td>8.00%</td><td class="n">118</td><td class="n">117</td><td class="n">26</td><td class="n good">+7.4%<span class="dim"> · 53% · 17</span></td></tr><tr><td>10.00%</td><td class="n">58</td><td class="n">58</td><td class="n">21</td><td class="n bad">-2.0%<span class="dim"> · 45% · 11</span></td></tr><tr class="cur"><td>11.28% (이 글)</td><td class="n">39</td><td class="n">39</td><td class="n">17</td><td class="n bad">-4.1%<span class="dim"> · 44% · 9</span></td></tr><tr><td>15.00%</td><td class="n">14</td><td class="n">14</td><td class="n">9</td><td class="n bad">-5.0%<span class="dim"> · 25% · 4</span></td></tr></tbody></table></div>
 
-<p>날마다 계산하면 3개월 뒤 수익률이 +4.0%로 좋아 보인다. 2025년 9월과 11~12월에 신호일이 사흘씩 붙어 있었고 그 뒤 코스피가 두 배가 됐다. 같은 상승이 아홉 번 세어진 것이다.
-그래서 사건으로 묶었고, 표에는 「묶지 않고 날마다 계산하면」 행을 같이 두었다. 둘이 같은 방향이면 믿을 만하다.
+<p>날마다 계산하면 3개월 뒤 수익률이 +4.0%로 좋아 보인다. 2025년 9월과 11~12월에 신호일이 사흘씩 붙어 있었고 그 뒤 코스피가 두 배가 됐다. 같은 상승이 9번 집계된 것이다.
+그래서 사건으로 묶었고, 표에는 「묶지 않고 날마다 계산하면」 행을 같이 두었다. 2가지가 같은 방향이면 믿을 만하다.
 묶음에는 길이 상한이 없다. 개인 대량 순매수는 2026년 6월 10일부터 9월 2일까지 59거래일이 한 사건으로 묶였다. 10거래일 안이면 묶는다는 규칙이 사건의 독립을 보장하지는 않는다.</p>
 
 <div class="claim"><div class="h">기저율과 표 읽는 법</div><p>기저율은 비교의 기준이다. 아무 조건 없이 그 국면의 모든 거래일에서 1·3·6·12개월 뒤 코스피가 얼마나 올랐는지 계산한 값이다. 신호가 이것을 못 이기면 그 매매는 보통 날이었다는 뜻이다.
@@ -1975,7 +2055,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 <div class="tblwrap"><table class="tw"><thead><tr><th>코스피 상승 추세 · 916일</th><th class="n">1개월 뒤 코스피<br><span class="dim">중앙값 · 상승 확률 · 표본</span></th><th class="n">3개월 뒤<br><span class="dim">중앙값 · 상승 확률 · 표본</span></th><th class="n">6개월 뒤<br><span class="dim">중앙값 · 상승 확률 · 표본</span></th><th class="n">12개월 뒤<br><span class="dim">중앙값 · 상승 확률 · 표본</span></th></tr></thead><tbody><tr><td>기저율 · 코스피가 상승 추세였던 전체 거래일</td><td class="n">+1.2%<span class="dim"> · 60% · 896</span></td><td class="n">+4.1%<span class="dim"> · 65% · 854</span></td><td class="n">+4.3%<span class="dim"> · 61% · 793</span></td><td class="n">+5.0%<span class="dim"> · 57% · 675</span></td></tr><tr><td>개인 대량 순매도 · 17사건</td><td class="n good">+2.5%<span class="dim"> · 56% · 16</span></td><td class="n good">+2.9%<span class="dim"> · 67% · 15</span></td><td class="n good">+4.9%<span class="dim"> · 57% · 14</span></td><td class="n bad">-4.1%<span class="dim"> · 44% · 9</span></td></tr><tr><td><span class="dim">같은 것을 묶지 않고 날마다 계산하면 · 28일</span></td><td class="n good">+4.3%<span class="dim"> · 68% · 25</span></td><td class="n good">+23.1%<span class="dim"> · 79% · 24</span></td><td class="n good">+19.1%<span class="dim"> · 71% · 21</span></td><td class="n bad">-5.0%<span class="dim"> · 40% · 10</span></td></tr><tr><td>개인 대량 순매수 · 16사건</td><td class="n bad">-0.3%<span class="dim"> · 44% · 16</span></td><td class="n good">+3.8%<span class="dim"> · 73% · 15</span></td><td class="n good">+5.5%<span class="dim"> · 64% · 14</span></td><td class="n bad">-10.4%<span class="dim"> · 36% · 11</span></td></tr><tr><td><span class="dim">같은 것을 묶지 않고 날마다 계산하면 · 39일</span></td><td class="n good">+1.6%<span class="dim"> · 64% · 36</span></td><td class="n good">+6.5%<span class="dim"> · 78% · 27</span></td><td class="n good">+7.2%<span class="dim"> · 71% · 21</span></td><td class="n bad">-10.9%<span class="dim"> · 29% · 14</span></td></tr><tr><td>외국인 대량 순매도 · 11사건</td><td class="n good">+2.0%<span class="dim"> · 64% · 11</span></td><td class="n good">+17.5%<span class="dim"> · 78% · 9</span></td><td class="n good">+10.7%<span class="dim"> · 71% · 7</span></td><td class="n bad">-14.9%<span class="dim"> · 25% · 4</span></td></tr><tr><td><span class="dim">같은 것을 묶지 않고 날마다 계산하면 · 24일</span></td><td class="n good">+6.6%<span class="dim"> · 71% · 21</span></td><td class="n good">+31.8%<span class="dim"> · 71% · 17</span></td><td class="n good">+23.6%<span class="dim"> · 78% · 9</span></td><td class="n bad">-14.9%<span class="dim"> · 25% · 4</span></td></tr><tr><td>외국인 대량 순매수 · 7사건</td><td class="n good">+3.9%<span class="dim"> · 83% · 6</span></td><td class="n good">+6.6%<span class="dim"> · 100% · 5</span></td><td class="n good">+13.8%<span class="dim"> · 80% · 5</span></td><td class="n bad">-4.1%<span class="dim"> · 0% · 3</span></td></tr><tr><td><span class="dim">같은 것을 묶지 않고 날마다 계산하면 · 7일</span></td><td class="n good">+3.9%<span class="dim"> · 83% · 6</span></td><td class="n good">+6.6%<span class="dim"> · 100% · 5</span></td><td class="n good">+13.8%<span class="dim"> · 80% · 5</span></td><td class="n bad">-4.1%<span class="dim"> · 0% · 3</span></td></tr></tbody></table></div>
 
-<p>위 표를 행마다 말로 풀면 이렇다.</p><ul><li>첫 행이 기저율이다. 코스피가 상승 추세였던 916일 가운데 1개월 뒤 자료가 있는 896일을 보면 중앙값이 +1.2%이고 상승 확률이 60%다. 12개월 뒤는 675일 중 57%가 올랐고 중앙값은 +5.0%다. 이것이 「상승 추세의 전체 거래일에 코스피를 매수했을 때」의 성적이고, 아래 행들은 전부 이 행과 견준다.</li><li>개인 대량 순매도 17사건. 1개월 뒤 중앙값 +2.5%에 상승 확률 56%(표본 16)로 기저율보다 1.3%p 낫다, 3개월 뒤 중앙값 +2.9%에 상승 확률 67%(표본 15)로 기저율보다 1.2%p 못하다, 6개월 뒤 중앙값 +4.9%에 상승 확률 57%(표본 14)로 기저율과 거의 같다, 12개월 뒤 중앙값 -4.1%에 상승 확률 44%(표본 9)로 기저율보다 9.0%p 못하다.</li><li>개인 대량 순매수 16사건. 1개월 뒤 중앙값 -0.3%에 상승 확률 44%(표본 16)로 기저율보다 1.5%p 못하다, 3개월 뒤 중앙값 +3.8%에 상승 확률 73%(표본 15)로 기저율과 거의 같다, 6개월 뒤 중앙값 +5.5%에 상승 확률 64%(표본 14)로 기저율보다 1.2%p 낫다, 12개월 뒤 중앙값 -10.4%에 상승 확률 36%(표본 11)로 기저율보다 15.4%p 못하다.</li><li>외국인 대량 순매도 11사건. 1개월 뒤 중앙값 +2.0%에 상승 확률 64%(표본 11)로 기저율과 거의 같다, 3개월 뒤 중앙값 +17.5%에 상승 확률 78%(표본 9)로 기저율보다 13.3%p 낫다, 6개월 뒤 중앙값 +10.7%에 상승 확률 71%(표본 7)로 기저율보다 6.4%p 낫다, 12개월 뒤 중앙값 -14.9%에 상승 확률 25%(표본 4)로 기저율보다 19.8%p 못하다.</li><li>외국인 대량 순매수 7사건. 1개월 뒤 중앙값 +3.9%에 상승 확률 83%(표본 6)로 기저율보다 2.6%p 낫다, 3개월 뒤 중앙값 +6.6%에 상승 확률 100%(표본 5)로 기저율보다 2.4%p 낫다, 6개월 뒤 중앙값 +13.8%에 상승 확률 80%(표본 5)로 기저율보다 9.5%p 낫다, 12개월 뒤 중앙값 -4.1%에 상승 확률 0%(표본 3)로 기저율보다 9.0%p 못하다.</li><li>「묶지 않고 날마다 계산하면」 행이 사건 행과 크게 다른 곳이 3개월 칸이다. 개인 대량 순매도일을 날마다 계산하면 +23.1%인데 사건으로 묶으면 +2.9%다. 2025년 9월부터 12월 사이에 신호일이 사흘씩 붙어 있었고 그 뒤가 코스피가 두 배가 된 구간이라, 같은 상승이 여러 번 세어진 것이다. 그래서 이 글은 사건 행을 기준으로 읽는다.</li></ul><p>한 줄로 줄이면 이렇다. 상승 추세에서 개인이 대량 순매도하든(12개월 -4.1%) 대량 순매수하든(12개월 -10.4%) 1년 뒤 코스피는 기저율 +5.0%보다 나빴다. 외국인 대량 순매도 뒤 3개월 +17.5%는 9사건, 12개월 -14.9%는 4사건이라 같은 사건들이 올랐다 내린 것이 아니다. 12개월이 다 지난 4사건만으로 3개월을 다시 내면 +3.3%다. 표본이 열 개 안팎이라 방향만 읽고, 2027년에 칸이 채워지면 이 문장은 다시 쓴다.</p>
+<p>위 표를 행마다 말로 풀면 이렇다.</p><ul><li>첫 행이 기저율이다. 코스피가 상승 추세였던 916일 가운데 1개월 뒤 자료가 있는 896일을 보면 중앙값이 +1.2%이고 상승 확률이 60%다. 12개월 뒤는 675일 중 57%가 올랐고 중앙값은 +5.0%다. 이것이 「상승 추세의 전체 거래일에 코스피를 매수했을 때」의 성적이고, 아래 행들은 전부 이 행과 견준다.</li><li>개인 대량 순매도 17사건. 1개월 뒤 중앙값 +2.5%에 상승 확률 56%(표본 16)로 기저율보다 1.3%p 낫다, 3개월 뒤 중앙값 +2.9%에 상승 확률 67%(표본 15)로 기저율보다 1.2%p 못하다, 6개월 뒤 중앙값 +4.9%에 상승 확률 57%(표본 14)로 기저율과 거의 같다, 12개월 뒤 중앙값 -4.1%에 상승 확률 44%(표본 9)로 기저율보다 9.0%p 못하다.</li><li>개인 대량 순매수 16사건. 1개월 뒤 중앙값 -0.3%에 상승 확률 44%(표본 16)로 기저율보다 1.5%p 못하다, 3개월 뒤 중앙값 +3.8%에 상승 확률 73%(표본 15)로 기저율과 거의 같다, 6개월 뒤 중앙값 +5.5%에 상승 확률 64%(표본 14)로 기저율보다 1.2%p 낫다, 12개월 뒤 중앙값 -10.4%에 상승 확률 36%(표본 11)로 기저율보다 15.4%p 못하다.</li><li>외국인 대량 순매도 11사건. 1개월 뒤 중앙값 +2.0%에 상승 확률 64%(표본 11)로 기저율과 거의 같다, 3개월 뒤 중앙값 +17.5%에 상승 확률 78%(표본 9)로 기저율보다 13.3%p 낫다, 6개월 뒤 중앙값 +10.7%에 상승 확률 71%(표본 7)로 기저율보다 6.4%p 낫다, 12개월 뒤 중앙값 -14.9%에 상승 확률 25%(표본 4)로 기저율보다 19.8%p 못하다.</li><li>외국인 대량 순매수 7사건. 1개월 뒤 중앙값 +3.9%에 상승 확률 83%(표본 6)로 기저율보다 2.6%p 낫다, 3개월 뒤 중앙값 +6.6%에 상승 확률 100%(표본 5)로 기저율보다 2.4%p 낫다, 6개월 뒤 중앙값 +13.8%에 상승 확률 80%(표본 5)로 기저율보다 9.5%p 낫다, 12개월 뒤 중앙값 -4.1%에 상승 확률 0%(표본 3)로 기저율보다 9.0%p 못하다.</li><li>「묶지 않고 날마다 계산하면」 행이 사건 행과 크게 다른 곳이 3개월 칸이다. 개인 대량 순매도일을 날마다 계산하면 +23.1%인데 사건으로 묶으면 +2.9%다. 2025년 9월부터 12월 사이에 신호일이 사흘씩 붙어 있었고 그 뒤가 코스피가 두 배가 된 구간이라, 같은 상승이 여러 번 세어진 것이다. 그래서 이 글은 사건 행을 기준으로 읽는다.</li></ul><p>한 줄로 줄이면 이렇다. 상승 추세에서 개인이 대량 순매도하든(12개월 -4.1%) 대량 순매수하든(12개월 -10.4%) 1년 뒤 코스피는 기저율 +5.0%보다 나빴다. 외국인 대량 순매도 뒤 3개월 +17.5%는 9사건, 12개월 -14.9%는 4사건이라 같은 사건들이 올랐다 내린 것이 아니다. 12개월이 다 지난 4사건만으로 3개월을 다시 내면 +3.3%다. 표본이 10개 안팎이라 방향만 읽고, 2027년에 칸이 채워지면 이 문장은 다시 쓴다.</p>
 
 <figure class="fig"><div class="cbox" style="height:340px"><canvas id="g3"></canvas></div><figcaption><span class="freq d">일간</span>코스피가 하락 추세였던 날은 표본이 적다. 외국인 대량 순매도 사건은 셋뿐이고 그중 둘이 코로나와 관세 바닥이다.</figcaption></figure>
 
@@ -1985,7 +2065,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 <h3>세 국면을 견주면</h3>
 
-<div class="tblwrap"><table class="tw"><thead><tr><th>3개월 뒤 코스피</th><th class="n">상승 추세<br><span class="dim">중앙값 · 상승 확률 · 표본</span></th><th class="n">하락 추세<br><span class="dim">중앙값 · 상승 확률 · 표본</span></th><th class="n">혼조<br><span class="dim">중앙값 · 상승 확률 · 표본</span></th></tr></thead><tbody><tr><td>기저율 · 그 국면의 전체 거래일</td><td class="n good">+4.1%<span class="dim"> · 65% · 854</span></td><td class="n bad">-0.0%<span class="dim"> · 50% · 462</span></td><td class="n good">+2.9%<span class="dim"> · 64% · 248</span></td></tr><tr><td>개인 대량 순매도</td><td class="n good">+2.9%<span class="dim"> · 67% · 15</span></td><td class="n bad">-2.2%<span class="dim"> · 25% · 4</span></td><td class="n good">+5.1%<span class="dim"> · 100% · 1</span></td></tr><tr><td>개인 대량 순매수</td><td class="n good">+3.8%<span class="dim"> · 73% · 15</span></td><td class="n good">+4.0%<span class="dim"> · 60% · 10</span></td><td class="n bad">-6.7%<span class="dim"> · 25% · 4</span></td></tr><tr><td>외국인 대량 순매도</td><td class="n good">+17.5%<span class="dim"> · 78% · 9</span></td><td class="n good">+14.6%<span class="dim"> · 100% · 3</span></td><td class="n dim"> </td></tr><tr><td>외국인 대량 순매수</td><td class="n good">+6.6%<span class="dim"> · 100% · 5</span></td><td class="n good">+2.5%<span class="dim"> · 100% · 1</span></td><td class="n dim"> </td></tr></tbody></table></div><div class="tblwrap"><table class="tw"><thead><tr><th>12개월 뒤 코스피</th><th class="n">상승 추세<br><span class="dim">중앙값 · 상승 확률 · 표본</span></th><th class="n">하락 추세<br><span class="dim">중앙값 · 상승 확률 · 표본</span></th><th class="n">혼조<br><span class="dim">중앙값 · 상승 확률 · 표본</span></th></tr></thead><tbody><tr><td>기저율 · 그 국면의 전체 거래일</td><td class="n good">+5.0%<span class="dim"> · 57% · 675</span></td><td class="n good">+7.4%<span class="dim"> · 68% · 462</span></td><td class="n good">+11.9%<span class="dim"> · 83% · 248</span></td></tr><tr><td>개인 대량 순매도</td><td class="n bad">-4.1%<span class="dim"> · 44% · 9</span></td><td class="n good">+0.1%<span class="dim"> · 50% · 4</span></td><td class="n bad">-2.8%<span class="dim"> · 0% · 1</span></td></tr><tr><td>개인 대량 순매수</td><td class="n bad">-10.4%<span class="dim"> · 36% · 11</span></td><td class="n good">+11.3%<span class="dim"> · 80% · 10</span></td><td class="n good">+15.8%<span class="dim"> · 75% · 4</span></td></tr><tr><td>외국인 대량 순매도</td><td class="n bad">-14.9%<span class="dim"> · 25% · 4</span></td><td class="n good">+103.6%<span class="dim"> · 100% · 3</span></td><td class="n dim"> </td></tr><tr><td>외국인 대량 순매수</td><td class="n bad">-4.1%<span class="dim"> · 0% · 3</span></td><td class="n good">+1.7%<span class="dim"> · 100% · 1</span></td><td class="n dim"> </td></tr></tbody></table></div><p>세 국면을 한 표에 놓으면 이렇다. 12개월 표본이 3사건 미만인 칸은 요약에서 뺐다.</p><ul><li>상승 추세(916일). 12개월 뒤 기저율은 +5.0%다. 기저율을 이긴 것은 없고, 못 이긴 것은 개인 대량 순매도(-4.1%, 기저율 대비 -9.0%p) · 개인 대량 순매수(-10.4%, 기저율 대비 -15.4%p) · 외국인 대량 순매도(-14.9%, 기저율 대비 -19.8%p) · 외국인 대량 순매수(-4.1%, 기저율 대비 -9.0%p)이다.</li><li>하락 추세(462일). 12개월 뒤 기저율은 +7.4%다. 기저율을 이긴 것은 개인 대량 순매수(+11.3%, 기저율 대비 +3.9%p) · 외국인 대량 순매도(+103.6%, 기저율 대비 +96.2%p)이고, 못 이긴 것은 개인 대량 순매도(+0.1%, 기저율 대비 -7.3%p)이다.</li><li>혼조(250일). 12개월 뒤 기저율은 +11.9%다. 기저율을 이긴 것은 개인 대량 순매수(+15.8%, 기저율 대비 +4.0%p)이고, 못 이긴 것도 없다.</li></ul><p>국면을 나눠 보는 이유가 여기 있다. 같은 「개인 대량 순매도」라도 상승 추세에서는 1년 뒤가 기저율보다 나빴고, 하락 추세에서는 사건이 적어 방향만 읽힌다. 외국인 대량 순매도는 하락 추세에서만 바닥과 겹쳤다. 수급 하나만으로는 부족하고 코스피가 어느 국면에 있는지를 같이 봐야 한다는 뜻이다.</p>
+<div class="tblwrap"><table class="tw"><thead><tr><th>3개월 뒤 코스피</th><th class="n">상승 추세<br><span class="dim">중앙값 · 상승 확률 · 표본</span></th><th class="n">하락 추세<br><span class="dim">중앙값 · 상승 확률 · 표본</span></th><th class="n">혼조<br><span class="dim">중앙값 · 상승 확률 · 표본</span></th></tr></thead><tbody><tr><td>기저율 · 그 국면의 전체 거래일</td><td class="n good">+4.1%<span class="dim"> · 65% · 854</span></td><td class="n bad">-0.0%<span class="dim"> · 50% · 462</span></td><td class="n good">+2.9%<span class="dim"> · 64% · 248</span></td></tr><tr><td>개인 대량 순매도</td><td class="n good">+2.9%<span class="dim"> · 67% · 15</span></td><td class="n bad">-2.2%<span class="dim"> · 25% · 4</span></td><td class="n good">+5.1%<span class="dim"> · 100% · 1</span></td></tr><tr><td>개인 대량 순매수</td><td class="n good">+3.8%<span class="dim"> · 73% · 15</span></td><td class="n good">+4.0%<span class="dim"> · 60% · 10</span></td><td class="n bad">-6.7%<span class="dim"> · 25% · 4</span></td></tr><tr><td>외국인 대량 순매도</td><td class="n good">+17.5%<span class="dim"> · 78% · 9</span></td><td class="n good">+14.6%<span class="dim"> · 100% · 3</span></td><td class="n dim"> </td></tr><tr><td>외국인 대량 순매수</td><td class="n good">+6.6%<span class="dim"> · 100% · 5</span></td><td class="n good">+2.5%<span class="dim"> · 100% · 1</span></td><td class="n dim"> </td></tr></tbody></table></div><div class="tblwrap"><table class="tw"><thead><tr><th>12개월 뒤 코스피</th><th class="n">상승 추세<br><span class="dim">중앙값 · 상승 확률 · 표본</span></th><th class="n">하락 추세<br><span class="dim">중앙값 · 상승 확률 · 표본</span></th><th class="n">혼조<br><span class="dim">중앙값 · 상승 확률 · 표본</span></th></tr></thead><tbody><tr><td>기저율 · 그 국면의 전체 거래일</td><td class="n good">+5.0%<span class="dim"> · 57% · 675</span></td><td class="n good">+7.4%<span class="dim"> · 68% · 462</span></td><td class="n good">+11.9%<span class="dim"> · 83% · 248</span></td></tr><tr><td>개인 대량 순매도</td><td class="n bad">-4.1%<span class="dim"> · 44% · 9</span></td><td class="n good">+0.1%<span class="dim"> · 50% · 4</span></td><td class="n bad">-2.8%<span class="dim"> · 0% · 1</span></td></tr><tr><td>개인 대량 순매수</td><td class="n bad">-10.4%<span class="dim"> · 36% · 11</span></td><td class="n good">+11.3%<span class="dim"> · 80% · 10</span></td><td class="n good">+15.8%<span class="dim"> · 75% · 4</span></td></tr><tr><td>외국인 대량 순매도</td><td class="n bad">-14.9%<span class="dim"> · 25% · 4</span></td><td class="n good">+103.6%<span class="dim"> · 100% · 3</span></td><td class="n dim"> </td></tr><tr><td>외국인 대량 순매수</td><td class="n bad">-4.1%<span class="dim"> · 0% · 3</span></td><td class="n good">+1.7%<span class="dim"> · 100% · 1</span></td><td class="n dim"> </td></tr></tbody></table></div><p>3개 국면을 한 표에 놓으면 이렇다. 12개월 표본이 3사건 미만인 칸은 요약에서 뺐다.</p><ul><li>상승 추세(916일). 12개월 뒤 기저율은 +5.0%다. 기저율을 이긴 것은 없고, 못 이긴 것은 개인 대량 순매도(-4.1%, 기저율 대비 -9.0%p) · 개인 대량 순매수(-10.4%, 기저율 대비 -15.4%p) · 외국인 대량 순매도(-14.9%, 기저율 대비 -19.8%p) · 외국인 대량 순매수(-4.1%, 기저율 대비 -9.0%p)이다.</li><li>하락 추세(462일). 12개월 뒤 기저율은 +7.4%다. 기저율을 이긴 것은 개인 대량 순매수(+11.3%, 기저율 대비 +3.9%p) · 외국인 대량 순매도(+103.6%, 기저율 대비 +96.2%p)이고, 못 이긴 것은 개인 대량 순매도(+0.1%, 기저율 대비 -7.3%p)이다.</li><li>혼조(250일). 12개월 뒤 기저율은 +11.9%다. 기저율을 이긴 것은 개인 대량 순매수(+15.8%, 기저율 대비 +4.0%p)이고, 못 이긴 것도 없다.</li></ul><p>국면을 나눠 보는 이유가 여기 있다. 같은 「개인 대량 순매도」라도 상승 추세에서는 1년 뒤가 기저율보다 나빴고, 하락 추세에서는 사건이 적어 방향만 읽힌다. 외국인 대량 순매도는 하락 추세에서만 바닥과 겹쳤다. 수급 하나만으로는 부족하고 코스피가 어느 국면에 있는지를 같이 봐야 한다는 뜻이다.</p>
 
 <p>개인 대량 순매도 사건 하나하나는 이렇다. 뒤의 네 열은 사건 첫날 종가에서 1·3·6·12개월 뒤까지의 코스피 수익률이다.</p>
 
@@ -2000,7 +2080,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <p>외국인 순매수는 그날 코스피 등락률과 같은 방향으로 움직이고(상관계수 +0.49) 개인은 반대로 움직인다(−0.64). 외국인은 하락일에 매도하고 개인은 하락일에 매수한다.
 매매 규모가 커서가 아니다. 하루 순매수 절대값의 중앙값은 개인 0.39조, 외국인 0.26조로 개인이 크다. 방향이 다른 것이지 규모가 다른 것이 아니다.</p>
 
-<p>단서가 둘이다. 외국인 12개월 수익률이 좋은 것은 2020년 3월과 2025년 3월, 코로나 바닥과 관세 바닥이 만든다. 2021년 상승 추세 중의 대량 순매도 3사건은 12개월 뒤가 −10%에서 −20%였다.
+<p>단서가 2가지다. 외국인 12개월 수익률이 좋은 것은 2020년 3월과 2025년 3월, 코로나 바닥과 관세 바닥이 만든다. 2021년 상승 추세 중의 대량 순매도 3사건은 12개월 뒤가 −10%에서 −20%였다.
 상승 추세의 외국인 대량 순매도 뒤 3개월 +17.5%는 9사건이고 12개월 -14.9%는 4사건이다. 같은 사건들이 올랐다 내린 것이 아니다. 12개월이 다 지난 4사건만으로 3개월을 내면 +3.3%다.
 하락 추세의 3사건은 12개월 +103.6%로 전부 바닥과 겹쳤다.</p>
 
@@ -2025,12 +2105,12 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 <div class="tblwrap"><table class="tw"><thead><tr><th>코스피 매수일</th><th class="n">1개월 뒤 코스피<br><span class="dim">중앙값 · 상승 확률 · 표본</span></th><th class="n">3개월 뒤<br><span class="dim">중앙값 · 상승 확률 · 표본</span></th><th class="n">6개월 뒤<br><span class="dim">중앙값 · 상승 확률 · 표본</span></th><th class="n">12개월 뒤<br><span class="dim">중앙값 · 상승 확률 · 표본</span></th></tr></thead><tbody><tr><td>전체 거래일</td><td class="n good">+0.9%<span class="dim"> · 57% · 1608</span></td><td class="n good">+2.8%<span class="dim"> · 60% · 1564</span></td><td class="n good">+4.8%<span class="dim"> · 62% · 1503</span></td><td class="n good">+7.4%<span class="dim"> · 65% · 1385</span></td></tr><tr><td>기관 대량 순매도 · 44사건</td><td class="n good">+0.7%<span class="dim"> · 60% · 43</span></td><td class="n good">+0.3%<span class="dim"> · 51% · 41</span></td><td class="n bad">-2.2%<span class="dim"> · 38% · 39</span></td><td class="n good">+3.4%<span class="dim"> · 55% · 38</span></td></tr><tr><td>기관 대량 순매수 · 43사건</td><td class="n good">+0.2%<span class="dim"> · 55% · 42</span></td><td class="n good">+0.6%<span class="dim"> · 54% · 41</span></td><td class="n good">+1.9%<span class="dim"> · 59% · 39</span></td><td class="n good">+5.7%<span class="dim"> · 63% · 35</span></td></tr></tbody></table></div>
 
-<p>이 셋은 가설 11개를 세워 같은 자료로 검증한 것 가운데 표본이 10개를 넘고 방향이 뚜렷했던 것이다.
+<p>이 3가지는 가설 11개를 세워 같은 자료로 검증한 것 가운데 표본이 10개를 넘고 방향이 뚜렷했던 것이다.
 기각된 것은 「개인 대량 순매도가 60일 안에 몰리면 천장」(몰린 6사건 뒤 3개월 +39.7%), 「외국인 60일 누적 순매도가 크면 12개월이 나쁘다」(차이 없음),
 「개인 항복 뒤 외국인이 순매수로 돌아오면 바닥」(반대로 나왔고 계엄 사흘이 만든 숫자)이다. 200일선 위 30% 과열, 거래대금 급증은 해당 사건이 셋 이하라 판정하지 않았다.</p>
 
 <h2 id="확인일부터-다시-계산한-결합-관찰-6사건뿐이라-규칙이-아니다">확인일부터 다시 계산한 결합 관찰: 6사건뿐이라 규칙이 아니다</h2>
-<div class="claim"><div class="h">답</div><p>개인 대량 순매도 사건의 마지막 신호일에서 20거래일 지난 날을 확인일로 두고, 그날 알 수 있는 두 가지만 본다. 그 20일의 외국인 누적 순매수 부호와, 확인일에 이미 발표된 전달 수출 증감률의 방향이다. 수익률은 확인일 종가부터 계산한다.
+<div class="claim"><div class="h">답</div><p>개인 대량 순매도 사건의 마지막 신호일에서 20거래일 지난 날을 확인일로 두고, 그날 알 수 있는 2가지만 본다. 그 20일의 외국인 누적 순매수 부호와, 확인일에 이미 발표된 전달 수출 증감률의 방향이다. 수익률은 확인일 종가부터 계산한다.
 둘 다 맞은 6사건은 3개월 뒤 +16.1%(상승 확률 83%), 6개월 뒤 +25.7%(100%)였고, 둘 다 아닌 6사건은 6개월 +6.1%, 하나만 맞은 8사건은 6개월 -1.6%였다.
 판정 대기가 2사건이다. 표본이 이만큼이라 사후에 관찰된 차이이지 투자 규칙이 아니다.</p></div>
 
@@ -2087,12 +2167,12 @@ z가 −2.5 아래인 날은 23일 16사건이고 그중 상승일이 14일이�
 
 <p>그 뒤 코스피는 이렇다. 이례적 순매도 사건 뒤 3개월 +5.1%(상승 확률 85%), 12개월 +8.9%(70%, 10사건)로 같은 창의 전체 거래일 +2.8%·+7.5%보다 조금 낫고,
 같은 창에서 금액 비율 기준으로 집계한 사건의 12개월 -2.8%보다는 뚜렷이 낫다. 이례성이 금액보다 나은 잣대라는 코덱스의 짐작과 방향이 같다.
-다만 이례적 순매수 뒤 12개월도 +14.6%(75%)로 좋다. 어느 쪽으로든 이례적인 날 뒤가 좋았다는 것이라, 방향 신호로 쓸 수는 없고 표본도 열 개 안팎이다.</p>
+다만 이례적 순매수 뒤 12개월도 +14.6%(75%)로 좋다. 어느 쪽으로든 이례적인 날 뒤가 좋았다는 것이라, 방향 신호로 쓸 수는 없고 표본도 10개 안팎이다.</p>
 
 <div class="tblwrap"><table class="tw"><thead><tr><th>코스피 매수일</th><th class="n">1개월 뒤 코스피<br><span class="dim">중앙값 · 상승 확률 · 표본</span></th><th class="n">3개월 뒤<br><span class="dim">중앙값 · 상승 확률 · 표본</span></th><th class="n">6개월 뒤<br><span class="dim">중앙값 · 상승 확률 · 표본</span></th><th class="n">12개월 뒤<br><span class="dim">중앙값 · 상승 확률 · 표본</span></th></tr></thead><tbody><tr><td>전체 거래일 (회귀 창이 생긴 2022년 1월 21일부터 1128일)</td><td class="n good">+1.0%<span class="dim"> · 58% · 1108</span></td><td class="n good">+2.8%<span class="dim"> · 61% · 1064</span></td><td class="n good">+5.0%<span class="dim"> · 64% · 1003</span></td><td class="n good">+7.5%<span class="dim"> · 75% · 885</span></td></tr><tr><td>이례적 개인 순매도 (잔차 z ≤ −2.5) · 16사건</td><td class="n good">+3.1%<span class="dim"> · 60% · 15</span></td><td class="n good">+5.1%<span class="dim"> · 85% · 13</span></td><td class="n good">+8.5%<span class="dim"> · 77% · 13</span></td><td class="n good">+8.9%<span class="dim"> · 70% · 10</span></td></tr><tr><td>그중 상승일 · 8사건</td><td class="n bad">-3.3%<span class="dim"> · 43% · 7</span></td><td class="n good">+5.1%<span class="dim"> · 86% · 7</span></td><td class="n good">+7.3%<span class="dim"> · 71% · 7</span></td><td class="n bad">-2.8%<span class="dim"> · 40% · 5</span></td></tr><tr><td>그중 하락일 · 8사건</td><td class="n good">+4.4%<span class="dim"> · 75% · 8</span></td><td class="n good">+5.2%<span class="dim"> · 83% · 6</span></td><td class="n good">+9.8%<span class="dim"> · 83% · 6</span></td><td class="n good">+12.5%<span class="dim"> · 100% · 5</span></td></tr><tr><td>이례적 개인 순매수 (z ≥ +2.5) · 10사건</td><td class="n good">+1.1%<span class="dim"> · 60% · 10</span></td><td class="n good">+14.1%<span class="dim"> · 75% · 8</span></td><td class="n good">+9.3%<span class="dim"> · 86% · 7</span></td><td class="n good">+14.6%<span class="dim"> · 75% · 4</span></td></tr><tr><td>비교: 대량 순매도 기준 11.28% · 같은 창 19사건</td><td class="n good">+2.5%<span class="dim"> · 56% · 18</span></td><td class="n good">+2.9%<span class="dim"> · 65% · 17</span></td><td class="n good">+4.9%<span class="dim"> · 62% · 16</span></td><td class="n bad">-2.8%<span class="dim"> · 45% · 11</span></td></tr></tbody></table></div>
 
 <h2 id="바닥-7단계로는-0단계-하락일-매도는-외국인-쪽에-있다">바닥 7단계로는 0단계: 하락일 매도는 외국인 쪽에 있다</h2>
-<div class="claim"><div class="h">답</div><p>개인 대량 순매도일은 대부분 0단계다. 첫 칸인 공포의 삼각지, 즉 투매 두 번이 안 켜져서다. 외국인 대량 순매도일은 1단계 이상이 더 많다.
+<div class="claim"><div class="h">답</div><p>개인 대량 순매도일은 대부분 0단계다. 첫 칸인 공포의 삼각지, 즉 투매 2번이 안 켜져서다. 외국인 대량 순매도일은 1단계 이상이 더 많다.
 이야기꾼이 수급에서 개인의 항복이 아니라 외국인의 투매를 보는 이유가 여기 있다. 개인 대량 순매도는 20주선 위 고점권에서 나오고 개인 대량 순매수 뒤 12개월이 개인 쪽에서 가장 나쁘니, 상승 추세에서 개인 수급의 극단은 천장 쪽에 가깝다는 관찰이 남는다.</p></div>
 
 <h2 id="2025년-4월-바닥-ai-반도체-사이클의-출발점에서-외국인이-매도하고-">2025년 4월 바닥: AI 반도체 사이클의 출발점에서 외국인이 매도하고 개인이 매수했다</h2>
@@ -2152,7 +2232,7 @@ z가 −2.5 아래인 날은 23일 16사건이고 그중 상승일이 14일이�
 
 <h2 id="이-글이-틀렸다고-인정해야-할-때">이 글이 틀렸다고 인정해야 할 때</h2>
 <ul>
-<li>표본이 국면 둘에 몰려 있다. 큰 바닥이 2020년과 2025년 둘뿐이라, 다음 하락 추세에서 외국인 대량 순매도 뒤 코스피가 내리면 외국인 쪽 관찰은 깨진다.</li>
+<li>표본이 국면 2개에 몰려 있다. 큰 바닥이 2020년과 2025년 2개뿐이라, 다음 하락 추세에서 외국인 대량 순매도 뒤 코스피가 내리면 외국인 쪽 관찰은 깨진다.</li>
 <li>12개월 칸이 비어 있다. 24개 사건이 아직 1년이 안 됐다. 2027년에 채워져 개인 상승 추세 12개월이 기저율 위로 올라오면 이 글의 결론이 틀린 것이다.</li>
 <li>대량 순매도 기준 11.28%와 묶음 10거래일, 항복일의 3%는 사람이 정한 값이다. 기준을 8%나 15%로 바꿔 결론이 바뀌면 이 기준은 약하다.</li>
 <li>하락일 대규모 순매도 17일은 연도·추세·당일 하락폭을 맞춘 비교를 하지 않았다. 개인 매도 자체의 추가 예측력은 아직 모른다. 12개월 사건이 9개이고 같은 상승장을 여러 사건이 공유한다.</li>
@@ -2348,8 +2428,7 @@ function fxRange(id,n,btn){
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',fxBuild); else fxBuild();
 setTimeout(fxBuild,400);
 </script>
-<div class="wrap"><!--GLOSSARY:BEGIN--><style id="glocss">.glo{margin:34px 0 8px}.glo h3{font-size:1.02rem;margin:0 0 12px}.glo dl{margin:0;font-size:.9rem;line-height:1.62}.glo dt{font-weight:800;margin-top:10px}.glo dd{margin:2px 0 0 0;color:var(--text-secondary,#555)}</style><div class="glo"><h3>용어 설명</h3><dl><dt>국면</dt><dd>시장이 지금 어느 상태에 있는가를 가리키는 말. 봄·여름·가을·겨울처럼 몇 개로 나누고, 한번 들어가면 여러 달에서 몇 해까지 이어진다고 본다. 오르내림 하나하나가 아니라 그 오르내림이 놓인 자리를 가리킨다.</dd><dt>추세</dt><dd>가격이 한 방향으로 꾸준히 가는 것. 오르내림이 있어도 전체로 보면 위를 향하면 상승 추세다. 보통 이동평균선이 오르는지 내리는지로 판단한다.</dd><dt>수급</dt><dd>누가 사고 누가 파는가. 개인·외국인·기관 셋으로 나눠 본다. 같은 가격이라도 누가 샀느냐에 따라 다음이 달라진다고 보는 관점이다.</dd><dt>순매수</dt><dd>산 금액에서 판 금액을 뺀 것. 플러스면 그날 그 집단이 사들인 쪽이고 순매수라고 부른다. 반대면 순매도다.</dd><dt>이동평균</dt><dd>최근 며칠의 종가를 평균한 값. 날마다 다시 계산해 선으로 잇는다. 하루하루 오르내림을 지워 방향만 남기려고 쓴다. 20일선은 최근 20일 평균이다.</dd><dt>중앙값</dt><dd>값을 크기 순으로 늘어놓았을 때 한가운데 오는 값. 평균과 달리 아주 크거나 작은 값 몇 개에 끌려가지 않아서, 「보통은 어느 정도인가」를 볼 때 쓴다.</dd><dt>표본</dt><dd>실제로 확인한 사례의 묶음. 표본이 적으면 우연히 그렇게 보였을 가능성을 지우기 어렵다. 그래서 이 사이트는 사례가 몇 번인지를 늘 함께 적는다.</dd><dt>스프레드</dt><dd>두 금리의 차이. 예를 들어 회사채 금리에서 국채 금리를 빼면, 그 기업이 나라보다 얼마나 더 이자를 물어야 하는지가 나온다. 벌어지면 시장이 위험을 크게 본다는 뜻이다.</dd><dt>유동성</dt><dd>시장에 돌아다니는 돈. 중앙은행이 금리를 내리거나 돈을 풀면 늘어난다. 늘면 자산 가격이 오르기 쉽다고 본다.</dd><dt>기준금리</dt><dd>중앙은행이 정하는 초단기 금리. 연준의 연방기금금리가 세계 돈값의 기준이 된다.</dd><dt>base rate</dt><dd>기저율(base rate). 아무 조건 없이 모든 날을 놓고 계산한 보통의 성적이다. 어떤 신호 뒤의 성적이 이 값보다 나아야 그 신호에 뜻이 있다. 과거에 그 일이 얼마나 자주 있었는지의 비율이기도 하다. '이번엔 다르다'로 가기 전에 '원래 이런 일이 몇 번이나 있었나'를 먼저 계산하는 것이고, 표본이 적으면 base rate 자체가 못 미더워진다는 점까지 같이 봐야 한다.</dd><dt>신용스프레드</dt><dd>회사채 금리에서 국고채 금리를 뺀 값. 기업이 국가보다 더 부담하는 금리이고, 시장이 매긴 부도 위험의 값이다.</dd><dt>신용융자</dt><dd>증권사에서 돈을 빌려 주식을 사는 것. 잔고가 늘면 시장에 레버리지가 쌓인다는 뜻이다.</dd><dt>이격도</dt><dd>주가가 이동평균선에서 얼마나 떨어져 있는지의 백분율. 100이면 이동평균과 같은 자리, 90 아래는 과매도·110 위는 과열로 읽는다.</dd><dt>이동평균선</dt><dd>일정 기간 종가의 평균을 이은 선. 20일선은 단기, 20주선(=100거래일 근사)은 이야기꾼의 '생명선', 200일선은 장기 추세 기준이다.</dd><dt>RS</dt><dd>Relative Strength(상대강도). 시장 전체 대비 그 종목이 얼마나 더 올랐는지를 백분위로 매긴 값. RS 90이면 "시장의 90%보다 더 올랐다"는 뜻이다. 미너비니는 RS 상위 종목만 후보로 둔다.</dd><dt>스테이지</dt><dd>와인스타인의 4국면: 1 바닥, 2 상승, 3 천장, 4 하락. 이동평균의 기울기와 가격 위치로 판정한다.</dd><dt>제오지산수</dt><dd>이야기꾼의 다섯 경기지표: 제(ISM 제조업지수)·오(OECD 경기선행지수)·지(GDP)·산(산업생산)·수(한국 수출).</dd><dt>셀링 클라이맥스</dt><dd>공포가 절정에 달해 대량 거래와 함께 쏟아지는 마지막 투매. 팔 사람이 소진되는 자리라 역사적 바닥이 이 '근처'에서 나왔다.</dd><dt>수급 사분면</dt><dd>X=등락률, Y=개인 순매수로 하루를 점 하나로 찍은 그림. 개인의 습관은 2사분면(떨어지면 산다)이고, 3사분면(떨어지는데 판다)이 투항이다.</dd><dt>거래대금</dt><dd>주식 수가 아니라 돈으로 나타낸 하루 거래 규모. 이 사이트의 버블 차트에서 점 크기가 이것이다.</dd></dl><p style="font-size:.8rem;color:var(--text-secondary,#777);margin-top:12px">이 글에 나온 용어만 실었다. 정의는 <code>scripts/glossary.py</code> 에서 한곳으로 관리한다.</p></div><!--GLOSSARY:END--></div>
-<div class="wrap"><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="deleveraging.html">강제청산은 어떻게 끝나는가</a> 같은 질문을 다른 자로 묻는다. 그쪽은 신용융자 변화율로 「깊게 빠진 날이 바닥인가」를 묻고 여기는 개인 순매도 금액으로 묻는다.</p><p><a href="bottom-top.html">바닥·천장 추적</a> 이 글이 쓰는 바닥 7단계 판정기가 매일 돌아가는 화면이다. 개인 대량 순매도가 대부분 0단계라는 것을 거기서 확인할 수 있다.</p><p><a href="flow-crashes.html">수급이 만든 폭락의 역사</a> 7월 31일 개인 순매도 1위는 강제청산 종료일이다. 그 사건의 구조는 그쪽 글에 있다.</p><p><a href="supply.html">투자자 수급</a> 오늘 종목별로 누가 사고 팔았는지는 그쪽이 본다. 여기는 시장 전체 집계값으로 6년을 집계한다.</p></div><!--RELATED:END--></div>
+<div class="wrap"><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="deleveraging.html">강제청산은 어떻게 끝나는가</a> 같은 질문을 다른 자로 묻는다. 그쪽은 신용융자 변화율로 「깊게 빠진 날이 바닥인가」를 묻고 여기는 개인 순매도 금액으로 묻는다.</p><p><a href="bottom-top.html">바닥·천장 추적</a> 이 글이 쓰는 바닥 7단계 판정기가 매일 돌아가는 화면이다. 개인 대량 순매도가 대부분 0단계라는 것을 거기서 확인할 수 있다.</p><p><a href="flow-crashes.html">수급이 만든 폭락의 역사</a> 7월 31일 개인 순매도 1위는 강제청산 종료일이다. 그 사건의 구조는 그쪽 글에 있다.</p><p><a href="supply.html">투자자 수급</a> 오늘 종목별로 누가 사고 팔았는지는 그쪽이 본다. 여기는 시장 전체 집계값으로 6년을 집계한다.</p></div><!--RELATED:END--><!--GLOSSARY:BEGIN--><style id="glocss">.glo{margin:34px 0 8px}.glo h3{font-size:1.02rem;margin:0 0 12px}.glo dl{margin:0;font-size:.9rem;line-height:1.62}.glo dt{font-weight:800;margin-top:10px}.glo dd{margin:2px 0 0 0;color:var(--text-secondary,#555)}</style><div class="glo"><h3>용어 설명</h3><dl><dt>국면</dt><dd>시장이 지금 어느 상태에 있는가를 가리키는 말. 봄·여름·가을·겨울처럼 몇 개로 나누고, 한번 들어가면 여러 달에서 몇 해까지 이어진다고 본다. 오르내림 하나하나가 아니라 그 오르내림이 놓인 자리를 가리킨다.</dd><dt>추세</dt><dd>가격이 한 방향으로 꾸준히 가는 것. 오르내림이 있어도 전체로 보면 위를 향하면 상승 추세다. 보통 이동평균선이 오르는지 내리는지로 판단한다.</dd><dt>수급</dt><dd>누가 사고 누가 파는가. 개인·외국인·기관 셋으로 나눠 본다. 같은 가격이라도 누가 샀느냐에 따라 다음이 달라진다고 보는 관점이다.</dd><dt>순매수</dt><dd>산 금액에서 판 금액을 뺀 것. 플러스면 그날 그 집단이 사들인 쪽이고 순매수라고 부른다. 반대면 순매도다.</dd><dt>이동평균</dt><dd>최근 며칠의 종가를 평균한 값. 날마다 다시 계산해 선으로 잇는다. 하루하루 오르내림을 지워 방향만 남기려고 쓴다. 20일선은 최근 20일 평균이다.</dd><dt>중앙값</dt><dd>값을 크기 순으로 늘어놓았을 때 한가운데 오는 값. 평균과 달리 아주 크거나 작은 값 몇 개에 끌려가지 않아서, 「보통은 어느 정도인가」를 볼 때 쓴다.</dd><dt>표본</dt><dd>실제로 확인한 사례의 묶음. 표본이 적으면 우연히 그렇게 보였을 가능성을 지우기 어렵다. 그래서 이 사이트는 사례가 몇 번인지를 늘 함께 적는다.</dd><dt>스프레드</dt><dd>두 금리의 차이. 예를 들어 회사채 금리에서 국채 금리를 빼면, 그 기업이 나라보다 얼마나 더 이자를 물어야 하는지가 나온다. 벌어지면 시장이 위험을 크게 본다는 뜻이다.</dd><dt>유동성</dt><dd>시장에 돌아다니는 돈. 중앙은행이 금리를 내리거나 돈을 풀면 늘어난다. 늘면 자산 가격이 오르기 쉽다고 본다.</dd><dt>기준금리</dt><dd>중앙은행이 정하는 초단기 금리. 연준의 연방기금금리가 세계 돈값의 기준이 된다.</dd><dt>base rate</dt><dd>기저율(base rate). 아무 조건 없이 모든 날을 놓고 계산한 보통의 성적이다. 어떤 신호 뒤의 성적이 이 값보다 나아야 그 신호에 뜻이 있다. 과거에 그 일이 얼마나 자주 있었는지의 비율이기도 하다. '이번엔 다르다'로 가기 전에 '원래 이런 일이 몇 번이나 있었나'를 먼저 계산하는 것이고, 표본이 적으면 base rate 자체가 못 미더워진다는 점까지 같이 봐야 한다.</dd><dt>신용스프레드</dt><dd>회사채 금리에서 국고채 금리를 뺀 값. 기업이 국가보다 더 부담하는 금리이고, 시장이 매긴 부도 위험의 값이다.</dd><dt>신용융자</dt><dd>증권사에서 돈을 빌려 주식을 사는 것. 잔고가 늘면 시장에 레버리지가 쌓인다는 뜻이다.</dd><dt>이격도</dt><dd>주가가 이동평균선에서 얼마나 떨어져 있는지의 백분율. 100이면 이동평균과 같은 자리, 90 아래는 과매도·110 위는 과열로 읽는다.</dd><dt>이동평균선</dt><dd>일정 기간 종가의 평균을 이은 선. 20일선은 단기, 20주선(=100거래일 근사)은 이야기꾼의 '생명선', 200일선은 장기 추세 기준이다.</dd><dt>RS</dt><dd>Relative Strength(상대강도). 시장 전체 대비 그 종목이 얼마나 더 올랐는지를 백분위로 매긴 값. RS 90이면 "시장의 90%보다 더 올랐다"는 뜻이다. 미너비니는 RS 상위 종목만 후보로 둔다.</dd><dt>스테이지</dt><dd>와인스타인의 4국면: 1 바닥, 2 상승, 3 천장, 4 하락. 이동평균의 기울기와 가격 위치로 판정한다.</dd><dt>제오지산수</dt><dd>이야기꾼의 다섯 경기지표: 제(ISM 제조업지수)·오(OECD 경기선행지수)·지(GDP)·산(산업생산)·수(한국 수출).</dd><dt>셀링 클라이맥스</dt><dd>공포가 절정에 달해 대량 거래와 함께 쏟아지는 마지막 투매. 팔 사람이 소진되는 자리라 역사적 바닥이 이 '근처'에서 나왔다.</dd><dt>수급 사분면</dt><dd>X=등락률, Y=개인 순매수로 하루를 점 하나로 찍은 그림. 개인의 습관은 2사분면(떨어지면 산다)이고, 3사분면(떨어지는데 판다)이 투항이다.</dd><dt>거래대금</dt><dd>주식 수가 아니라 돈으로 나타낸 하루 거래 규모. 이 사이트의 버블 차트에서 점 크기가 이것이다.</dd></dl><p style="font-size:.8rem;color:var(--text-secondary,#777);margin-top:12px">이 글에 나온 용어만 실었다. 정의는 <code>scripts/glossary.py</code> 에서 한곳으로 관리한다.</p></div><!--GLOSSARY:END--></div>
 <footer>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.
     · 근거: 이야기꾼 주간 시투 보고서(W31·2026-08-01) 및 자체 실측.</footer>
 </div>

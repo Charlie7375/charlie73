@@ -128,7 +128,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
    생성기 SHELL 들이 `.toggle{position:fixed;top:18px;…}` 를 따로 갖고 있는데(45장),
    이 규칙은 뒤에 와서 z-index 만 이기고 **위치는 top:18px 가 남았다.**
    그 자리는 sticky 상단바(.site-bar, z-index 90)가 덮는 자리라
-   **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 세 번째 원인이다.
+   **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 3번째 원인이다.
    → top 을 명시적으로 풀고(z-index 도 상단바 위로) 우하단으로 되돌린다. */
 .toggle{position:fixed;right:18px;bottom:18px;top:auto;z-index:130;width:42px;height:42px;
   border-radius:50%;border:1px solid var(--border);background:var(--surface);
@@ -145,13 +145,13 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── ① 데이터층은 전폭 ── */
 /* 폭은 apply_paper.py 가 정한다. 여기서 !important 로 잡으면 그쪽이 못 이긴다.
-   두 곳에서 폭을 정하면 반드시 한쪽이 조용히 진다. */
+   2곳에서 폭을 정하면 반드시 한쪽이 조용히 진다. */
 .wrap{padding-left:32px!important;padding-right:32px!important}
 
 /* ── ② 해설층은 좁은 단 + 세리프 ──
    숫자·표·라벨은 산세리프로 남는다. 서체가 바뀌는 지점이 곧 층이 바뀌는 지점이다. */
 .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{
-  /* ⚠ 가운데 정렬하면 제목은 왼쪽 끝, 본문은 화면 한가운데가 되어 **둘이 따로 논다.**
+  /* ⚠ 가운데 정렬하면 제목은 왼쪽 끝, 본문은 화면 한가운데가 되어 **2가지가 따로 논다.**
        2026-08-02에 2600px 화면에서 그게 드러났다. 제목과 왼쪽을 맞춘다. */
   max-width:var(--w-prose);margin-left:0!important;margin-right:auto!important;
   font-size:16.5px;line-height:1.85;letter-spacing:-.004em}
@@ -170,7 +170,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── 폰트 통일 — 나눔고딕 ──
    본문·제목·표·차트 라벨까지 한 벌로 간다. 예전엔 해설층만 세리프를 썼는데,
-   서체가 둘이면 같은 페이지 안에서 글자 크기와 행간이 미묘하게 어긋난다. */
+   서체가 2가지면 같은 페이지 안에서 글자 크기와 행간이 미묘하게 어긋난다. */
 html body,html body h1,html body h2,html body h3,html body h4,
 html body table,html body button,html body input,html body .site-brand,
 html body .eyebrow,html body .sub,html body .card,html body .st-v,html body .st-l{
@@ -220,8 +220,8 @@ html.theme-dark .card:hover{box-shadow:none!important}
    ⚠ 선택자를 `a.card` 로 좁힌 것은 일부러다. bottom-top·disparity-3 의 `div.card` 는
      차트 상자라 같은 이름을 쓰지만 다른 것이다. 거기까지 번지면 안 된다. */
 :root{--w-sec:1080px}   /* 상태판(build_status.py 의 .status max-width)과 **같은 값**이다.
-     달랐던 탓에 스트립은 L205, 카드는 L245 에서 시작해 첫 화면에 왼쪽 끝이 둘이었다.
-     ⚠ build_status.py 에서 1080 을 바꾸면 여기도 같이 바꾼다. 두 곳이 한 줄을 그린다. */
+     달랐던 탓에 스트립은 L205, 카드는 L245 에서 시작해 첫 화면에 왼쪽 끝이 2개였다.
+     ⚠ build_status.py 에서 1080 을 바꾸면 여기도 같이 바꾼다. 2곳이 한 줄을 그린다. */
 .sec{max-width:var(--w-sec)!important}
 
 /* 리드 한 줄 — 푸터에 있던 첫 문장을 올린 것이다. 히어로 블록이 아니다 */
@@ -376,7 +376,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
    ⚠ 처음엔 <figure> 통째로 넓혔다가 2026-08-02에 문제가 드러났다.
      figure 안의 **캡션까지 같이 넓어져서** 캡션 왼쪽 선이 본문보다 46px 왼쪽에 섰다.
-     한 화면에 왼쪽 선이 두 개 생기니 글이 들쭉날쭉해 보인다.
+     한 화면에 왼쪽 선이 2개 생기니 글이 들쭉날쭉해 보인다.
      → figure 자체는 본문 폭에 두고, 안의 svg·차트·표만 넓힌다.
        캡션은 자연히 본문과 같은 선에서 시작한다. */
 .paper figure{width:auto;margin-left:0;margin-right:0}
@@ -624,7 +624,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 </div></div>
 <div class="wrap paper">
 <div class="site-crumb"><a href="index.html">홈</a><span class="sep">›</span><span>오늘의 시장</span><span class="sep">›</span><span class="cur">오디션 피라미딩</span></div>
-<div class="phead"><div class="eyebrow">찰리 오늘의 시장 · Audition Pyramiding</div>
+<div class="phead"><div class="eyebrow">찰리 기술적 분석 · Audition Pyramiding</div>
 <h1>오디션 피라미딩</h1>
 <p class="sub">시나리오투자법의 종목 선정법이다. 뽑는 게 아니라 떨어뜨린다. 시총 1조 이상에서 기준일 대비 상승률로 줄을 세우고, 시간이 갈수록 누가 살아남는지를 본다. 살아남은 소수가 다음 국면의 주도주 후보가 된다.</p>
 <p class="pauth">기준일 2026-09-09 · KRX 전종목 캐시 · 매일 갱신</p></div>
@@ -947,7 +947,7 @@ new Chart(document.getElementById('wc'),{type:'line',
 <!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>오디션은 뽑는 방식이 아니라 떨어뜨리는 방식이다. 기준일 대비 상승률로 줄을 세우고 시간이 갈수록 누가 살아남는지를 본다. 살아남은 소수가 다음 국면의 주도주 후보가 된다. 후보의 수 자체가 국면을 말한다.</p></div><!--PCLAIM:END--><h2 class="sec">왜 이렇게 하는가?</h2>
 <div class="explain">
 <p>1. 상승률이 가장 정직한 신호이기 때문이다. 시투는 주도주를 가격·실적·수급으로 판별하는데, 그중 가장 신뢰도가 높은 것을 가격으로 본다. 실적은 늦게 나오고 수급은 왜곡될 수 있지만, 구간 상승률은 이미 벌어진 사실이다. 그래서 1차 관문을 가격으로 둔다.</p>
-<p>2. 시총 1조 컷은 "탐색 가능성"의 문제이다. 중형주 이하는 이 방식으로 걸러지지 않고, 반대로 수십조 대형주는 상승률이 작아 순위에 오르지 못한다. 그래서 강의는 <span class="f">OP(오디션 피라미딩)</span> · <span class="f">시총 1위 전략</span> · <span class="f">신기술 성장주</span> 셋을 병행한다. 이 덱은 그중 첫 번째이다.</p>
+<p>2. 시총 1조 컷은 "탐색 가능성"의 문제이다. 중형주 이하는 이 방식으로 걸러지지 않고, 반대로 수십조 대형주는 상승률이 작아 순위에 오르지 못한다. 그래서 강의는 <span class="f">OP(오디션 피라미딩)</span> · <span class="f">시총 1위 전략</span> · <span class="f">신기술 성장주</span> 3가지를 병행한다. 이 덱은 그중 첫 번째이다.</p>
 <p>3. 피라미딩은 "확인 후 증액"이다. 3MC가 확인되면 분할매수로 시작해 추세를 따라 늘려간다. 물타기가 아니라 이기고 있는 포지션에 더하는 방식이고, 조정 시 추격은 자제한다. 미너비니의 scale-in과 같은 사고이다.</p>
 <p>4. 시간이 검증한다. 강의는 구간을 3개월 → 6개월 → 9개월로 늘리며 계속 상위에 남는지를 재확인한다. 한 번 1등은 우연일 수 있지만, 구간을 늘려도 남아 있으면 추세가 실재한다는 뜻이다. 위 생존 곡선이 그 과정을 매일 기록한다.</p>
 </div>
@@ -956,7 +956,7 @@ new Chart(document.getElementById('wc'),{type:'line',
 <div class="explain" style="border-left-color:#f59e0b">
 <p>3MC 중 수급 크로스가 없다. 외국인·대주주 지분 변화는 지분 공시 데이터가 필요한데 파이프라인에 없다. 재무는 2026-09-07부터 사업보고서 3년치를 받아 연간 등급·3년 지속·ROE 방향·매출 방향까지 본다. 다만 재무 크로스의 짝인 PER 하락은 아직 열로 세우지 않았다.</p>
 <p>주도업종 필터가 없다. 강의는 1차 스크리닝 결과를 주도업종으로 2차 필터링하는데, 업종 분류 데이터가 캐시에 없어 생략했다. 목록을 보실 때 같은 업종이 몰려 나오는지를 직접 확인하시면 그 역할을 대신할 수 있다.</p>
-<p>하락장 편향에 주의하세요. 지금처럼 대다수가 빠지는 국면에서는 덜 빠진 종목·방어주가 상위에 올라온다. 진짜 주도주라면 상승률과 함께 240일선 위, 고점 대비 0%에 근접, 거래량비 1 이상이 같이 나와야 한다. 셋이 안 맞으면 주도주가 아니라 피난처일 가능성이 크다.</p>
+<p>하락장 편향에 주의하세요. 지금처럼 대다수가 빠지는 국면에서는 덜 빠진 종목·방어주가 상위에 올라온다. 진짜 주도주라면 상승률과 함께 240일선 위, 고점 대비 0%에 근접, 거래량비 1 이상이 같이 나와야 한다. 3가지가 안 맞으면 주도주가 아니라 피난처일 가능성이 크다.</p>
 </div>
 
 <div class="wrap"><!--TOPICNEWS:BEGIN--><style id="tnewscss">.tnews{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 10px;margin:34px 0 10px}.tnews h3{margin:0 0 10px;font-size:1.02rem}.tnews table{width:100%;border-collapse:collapse;font-size:.9rem}.tnews td{padding:5px 8px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}.tnews td.d{white-space:nowrap;color:var(--text-secondary)}.tnews p.cap{margin:10px 0 8px;font-size:.8rem;color:var(--text-secondary);line-height:1.6}</style><div class="tnews"><h3>관련 뉴스</h3><p class="cap">제목에 그 낱말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.</p><p class="cap">국내: 「코스피 주도주」 로 찾았다.</p><div class="tblwrap"><table><tbody><tr><td class="d">Tue, 08 Sep</td><td class="d">아시아경제</td><td><a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE9mMHlhSFBPeFFpYkZFbWFXNGhkY29tMjdweWdqWnFUWkRvVVdscURDMmxrX1o2OUZjc3ZrS0FTcHBMRHFLdVVJNS1zWnRXVzUzMnBYVGNpZ3NQendHQlBxdw?oc=5" target="_blank" rel="noopener nofollow">오픈AI발 훈풍에 코스피 6,900선 회복…김호영 대표가 주목한 ‘다음 주도주’는?</a></td></tr><tr><td class="d">Thu, 28 May</td><td class="d">중앙일보</td><td><a href="https://news.google.com/rss/articles/CBMiVkFVX3lxTE1neGVfdGptdGdUdGlySk1mREFLNUdVbXgyUzlZZW9WejE2SnhPbjBld2dlSzd2TXl2RTVsclFObW9nVlRYN0lfdi10TUp0MzhOT040alRn?oc=5" target="_blank" rel="noopener nofollow">“코스피 8000, 더 올라간다” 美 BofA가 꽂힌 새 주도주</a></td></tr><tr><td class="d">Fri, 29 May</td><td class="d">v.daum.net</td><td><a href="https://news.google.com/rss/articles/CBMiRkFVX3lxTE9HakRkMlRxZ3BXNDhUT1duOHMwNjJvNDZheGJ1a0YzNWRhMHdnZklGYjl3ZTBZcWdyVmxDVWFUWkFfT19UT3c?oc=5" target="_blank" rel="noopener nofollow">"코스피, 주도주 쏠림은 자연스러운 현상…해소 시 버블 붕괴 전조"</a></td></tr><tr><td class="d">Tue, 01 Sep</td><td class="d">뉴스핌</td><td><a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTE5NY1oyQzRrVnZ6bTl2RmVNdUppTlhEOHFXbWQ2dU92d29XdXpoWjFNa3NQdENwVTBDYk84Qkw4REt4cEZkcUx1TDA2UDF4Qk9KS29rZ3I0NVg0aGFI?oc=5" target="_blank" rel="noopener nofollow">8월 증시 주도주 이동, 2차전지·전력·바이오 '상승세'</a></td></tr><tr><td class="d">Thu, 16 Jul</td><td class="d">YTN</td><td><a href="https://news.google.com/rss/articles/CBMiXkFVX3lxTE95b3k5aWVZdUZ2djJORGk1eThLREQ1R1lnTERuNEwzSHVpck80NlBpRmFVY2JmSFlPdkYwTHpjazBRdVk2SmJqbTdWR0RkTEFjWmVmZlhwdmpwc3did1E?oc=5" target="_blank" rel="noopener nofollow">뉴욕증시 주도주 반도체서 ○○으로? 코스피엔 "찝찝한 신호"</a></td></tr><tr><td class="d">Mon, 20 Apr</td><td class="d">조선일보</td><td><a href="https://news.google.com/rss/articles/CBMigAFBVV95cUxQS25kLUlMeHJ4U2tNRkF0MVczUXN3d1ZUVkVBVUtqOWZPd185cXlmQlMycnBpdlJGc1pmWDVPVFQzX0tadWhYYWxHakRFVnVhZnpEMjlyUGRUaTdFU0lTYWs4WW82ZGQ4Y19ITlhZeUtTTXB1cTNRRXYxM1JtOE5hQg?oc=5" target="_blank" rel="noopener nofollow">동학 개미 스승 박세익 “코스피 주도주, 반도체에서 ‘이것’으로 바뀐다”</a></td></tr></tbody></table></div><p class="cap">출처 구글 뉴스 · 2026-09-10 기준. 뉴스는 이 글의 분석과 무관하며 서로 어긋날 수 있다.</p></div><!--TOPICNEWS:END--><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="methodology.html">이야기꾼의 방법론</a> 이 화면이 실행하는 절차의 원문이다. 왜 후보를 좁히고 왜 계단식으로 비중을 올리는지가 거기에 있다.</p><p><a href="breadth-rs.html">52주 신고가·상대강도</a> 오디션 후보를 매일 거르는 1차 필터가 그 페이지이다.</p><p><a href="breadth-concentration.html">신고가 쏠림배수</a> 후보 폭이 '몇 개 남았나'를 집계하면, 쏠림배수는 '남은 것이 얼마나 큰 종목인가'를 측정한다. 같은 압축을 두 각도에서 본다.</p><p><a href="audition-history.html">오디션 히스토리 2025~2026</a> 지금 순위표를 읽는 법의 교본: 지난 랠리에서 주도주가 어떻게 교체되고 어떻게 끝났는지의 복기이다.</p></div><!--RELATED:END--></div>

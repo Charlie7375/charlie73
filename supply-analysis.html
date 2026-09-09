@@ -130,7 +130,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
    생성기 SHELL 들이 `.toggle{position:fixed;top:18px;…}` 를 따로 갖고 있는데(45장),
    이 규칙은 뒤에 와서 z-index 만 이기고 **위치는 top:18px 가 남았다.**
    그 자리는 sticky 상단바(.site-bar, z-index 90)가 덮는 자리라
-   **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 세 번째 원인이다.
+   **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 3번째 원인이다.
    → top 을 명시적으로 풀고(z-index 도 상단바 위로) 우하단으로 되돌린다. */
 .toggle{position:fixed;right:18px;bottom:18px;top:auto;z-index:130;width:42px;height:42px;
   border-radius:50%;border:1px solid var(--border);background:var(--surface);
@@ -147,13 +147,13 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── ① 데이터층은 전폭 ── */
 /* 폭은 apply_paper.py 가 정한다. 여기서 !important 로 잡으면 그쪽이 못 이긴다.
-   두 곳에서 폭을 정하면 반드시 한쪽이 조용히 진다. */
+   2곳에서 폭을 정하면 반드시 한쪽이 조용히 진다. */
 .wrap{padding-left:32px!important;padding-right:32px!important}
 
 /* ── ② 해설층은 좁은 단 + 세리프 ──
    숫자·표·라벨은 산세리프로 남는다. 서체가 바뀌는 지점이 곧 층이 바뀌는 지점이다. */
 .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{
-  /* ⚠ 가운데 정렬하면 제목은 왼쪽 끝, 본문은 화면 한가운데가 되어 **둘이 따로 논다.**
+  /* ⚠ 가운데 정렬하면 제목은 왼쪽 끝, 본문은 화면 한가운데가 되어 **2가지가 따로 논다.**
        2026-08-02에 2600px 화면에서 그게 드러났다. 제목과 왼쪽을 맞춘다. */
   max-width:var(--w-prose);margin-left:0!important;margin-right:auto!important;
   font-size:16.5px;line-height:1.85;letter-spacing:-.004em}
@@ -172,7 +172,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── 폰트 통일 — 나눔고딕 ──
    본문·제목·표·차트 라벨까지 한 벌로 간다. 예전엔 해설층만 세리프를 썼는데,
-   서체가 둘이면 같은 페이지 안에서 글자 크기와 행간이 미묘하게 어긋난다. */
+   서체가 2가지면 같은 페이지 안에서 글자 크기와 행간이 미묘하게 어긋난다. */
 html body,html body h1,html body h2,html body h3,html body h4,
 html body table,html body button,html body input,html body .site-brand,
 html body .eyebrow,html body .sub,html body .card,html body .st-v,html body .st-l{
@@ -222,8 +222,8 @@ html.theme-dark .card:hover{box-shadow:none!important}
    ⚠ 선택자를 `a.card` 로 좁힌 것은 일부러다. bottom-top·disparity-3 의 `div.card` 는
      차트 상자라 같은 이름을 쓰지만 다른 것이다. 거기까지 번지면 안 된다. */
 :root{--w-sec:1080px}   /* 상태판(build_status.py 의 .status max-width)과 **같은 값**이다.
-     달랐던 탓에 스트립은 L205, 카드는 L245 에서 시작해 첫 화면에 왼쪽 끝이 둘이었다.
-     ⚠ build_status.py 에서 1080 을 바꾸면 여기도 같이 바꾼다. 두 곳이 한 줄을 그린다. */
+     달랐던 탓에 스트립은 L205, 카드는 L245 에서 시작해 첫 화면에 왼쪽 끝이 2개였다.
+     ⚠ build_status.py 에서 1080 을 바꾸면 여기도 같이 바꾼다. 2곳이 한 줄을 그린다. */
 .sec{max-width:var(--w-sec)!important}
 
 /* 리드 한 줄 — 푸터에 있던 첫 문장을 올린 것이다. 히어로 블록이 아니다 */
@@ -305,6 +305,30 @@ a.card:focus-visible,.lst-i:focus-visible{
 .site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
   background:color-mix(in srgb,var(--text) 6%,transparent)}
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+/* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END */
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 
 .dim{color:var(--mut,#94a3b8)}
 .b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
@@ -360,30 +384,6 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .hchg .ar{white-space:nowrap}
 .to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
 @media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
-/* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END */
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 
 .flowt td.n,.flowt th.n,.statt td.n,.statt th.n{text-align:right;font-variant-numeric:tabular-nums}
 .cap-s{font-size:11.5px;color:var(--text2,#6e6e73);font-weight:400}
@@ -452,7 +452,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
    ⚠ 처음엔 <figure> 통째로 넓혔다가 2026-08-02에 문제가 드러났다.
      figure 안의 **캡션까지 같이 넓어져서** 캡션 왼쪽 선이 본문보다 46px 왼쪽에 섰다.
-     한 화면에 왼쪽 선이 두 개 생기니 글이 들쭉날쭉해 보인다.
+     한 화면에 왼쪽 선이 2개 생기니 글이 들쭉날쭉해 보인다.
      → figure 자체는 본문 폭에 두고, 안의 svg·차트·표만 넓힌다.
        캡션은 자연히 본문과 같은 선에서 시작한다. */
 .paper figure{width:auto;margin-left:0;margin-right:0}
@@ -704,14 +704,14 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <div class="phead"><div class="eyebrow">판단 · Supply Regime</div>
 <h1>수급 심층 분석</h1>
 <p class="pauth">기준일 2026-09-09 · KIS 투자자매매동향 · 2025-04~ · 주 1회 갱신</p></div>
-<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>시장을 끈 주체는 2026년에 바뀌었다. 외국인이 사 모으며 오르던 장이 외국인이 파는데도 오르는 장으로 바뀌었다. 다만 따라 매수했을 때의 성과는 두 시기 모두 플러스였다. 누가 끌었나와 따라 사면 돈이 됐나는 서로 다른 질문이다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#누적-곡선-읽는-법">누적 곡선 읽는 법</a></li><li><a href="#시장-전체-코스피-vs-코스닥">시장 전체: 코스피 vs 코스닥</a></li><li><a href="#주요-종목-시총-상위-12">주요 종목: 시총 상위 12</a></li><li><a href="#2026년-1월을-기점으로-시장이-뒤집혔습니다">2026년 1월을 기점으로 시장이 뒤집혔다</a></li><li><a href="#외국인을-따라가도-되는-기간은-20일까지입니다">외국인을 따라가도 되는 기간은 20일까지이다</a></li><li><a href="#7월-31일-하루가-말해주는-것">7월 31일 하루가 말해주는 것</a></li><li><a href="#따라-샀으면-돈이-됐나-두-시기를-따로-재봤습니다">따라 샀으면 돈이 됐나? 두 시기를 따로 재봤다</a></li><li><a href="#그래서-실제로-어떻게-쓰나">그래서 실제로 어떻게 쓰나?</a></li></ol></div><!--TOC:END--><div class="sub">"외국인을 따라 사면 된다"는 흔한 말이 <b>정말 맞는지 실제 데이터로 확인</b>했습니다.
+<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>시장을 끈 주체는 2026년에 바뀌었다. 외국인이 사 모으며 오르던 장이 외국인이 파는데도 오르는 장으로 바뀌었다. 다만 따라 매수했을 때의 성과는 2개 시기 모두 플러스였다. 누가 끌었나와 따라 사면 돈이 됐나는 서로 다른 질문이다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#누적-곡선-읽는-법">누적 곡선 읽는 법</a></li><li><a href="#시장-전체-코스피-vs-코스닥">시장 전체: 코스피 vs 코스닥</a></li><li><a href="#주요-종목-시총-상위-12">주요 종목: 시총 상위 12</a></li><li><a href="#2026년-1월을-기점으로-시장이-뒤집혔습니다">2026년 1월을 기점으로 시장이 뒤집혔다</a></li><li><a href="#외국인을-따라가도-되는-기간은-20일까지입니다">외국인을 따라가도 되는 기간은 20일까지이다</a></li><li><a href="#7월-31일-하루가-말해주는-것">7월 31일 하루가 말해주는 것</a></li><li><a href="#따라-샀으면-돈이-됐나-두-시기를-따로-재봤습니다">따라 샀으면 돈이 됐나? 두 시기를 따로 재봤다</a></li><li><a href="#그래서-실제로-어떻게-쓰나">그래서 실제로 어떻게 쓰나?</a></li></ol></div><!--TOC:END--><div class="sub">"외국인을 따라 사면 된다"는 흔한 말이 <b>정말 맞는지 실제 데이터로 확인</b>했습니다.
 결론부터 말씀드리면 — <b>시장을 끈 주체는 2026년에 바뀌었지만, 따라 매수했을 때의 성과는
-그만큼 바뀌지 않았습니다.</b> 이 둘은 다른 질문이라 갈라서 봅니다.
+그만큼 바뀌지 않았습니다.</b> 이 2가지는 다른 질문이라 갈라서 봅니다.
 Ⅱ절에서 <b>누가 사면서 올랐는지</b>를 보고, Ⅴ절에서 <b>따라 샀으면 돈이 됐는지</b>를 봅니다.
 
 <span style="display:block;margin-top:10px;font-size:.94em;opacity:.82">
 ※ 2026-08-26에 이 문단을 고쳤습니다. 그 전에는 "2025년에는 맞았고 2026년에는 틀렸습니다"라고
-적혀 있었습니다. Ⅴ절의 검증에서 <b>두 시기 모두 따라 사는 쪽이 유리했던 것</b>으로 나와,
+적혀 있었습니다. Ⅴ절의 검증에서 <b>2개 시기 모두 따라 사는 쪽이 유리했던 것</b>으로 나와,
 "틀렸다"고 적을 근거가 없었습니다. 바뀐 자취를 지우지 않고 남깁니다.
 </span></div>
 
@@ -811,7 +811,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <th>20일 신호</th><th>60일 신호</th></tr></thead><tbody><tr><td><b>삼성전자</b></td><td>+358%</td><td class="neg">-7,251만주</td><td class="pos">+1,634만주</td><td class="pos">+4.7%p</td><td class="pos">+2.3%p</td></tr><tr><td><b>SK하이닉스</b></td><td>+842%</td><td class="neg">-8,948만주</td><td class="pos">+6,621만주</td><td class="pos">+7.0%p</td><td class="neg">-7.2%p</td></tr></tbody></table></div>
 <div class="explain">
 <p>표의 '20일 신호'가 무엇인지부터 설명드린다.
-외국인 매수일만 모아서 그 뒤 20일 동안의 수익률 평균을 구한다.
+외국인이 매수한 날들만 모아서 그 뒤 20일 동안의 수익률 평균을 구한다.
 외국인이 매도한 날들도 똑같이 구한다. 그리고 앞의 값에서 뒤의 값을 뺀다.</p>
 
 <p>이 값이 클수록 "외국인을 따라 매수했을 때 실제로 더 벌었다"는 뜻이다.
@@ -872,7 +872,7 @@ SK하이닉스: 개인이 515만 주를 팔았고, 외국인이 439만 주를 �
   text-align:left;color:var(--text,#0f172a)}
 .vbox th{font-weight:600;color:var(--text-secondary,#475569);font-size:12.5px}
 .vbox td.n{text-align:right;font-variant-numeric:tabular-nums}
-</style><div class="vbox"><h4>'따라 사면 되나'는 따로 재봤다</h4><p>먼저 2가지 질문을 갈라 놓겠다. 위 Ⅱ절이 보여준 것은 '누가 사면서 올랐나'이다. 2025년에는 외국인이 사 모으며 올랐고 2026년에는 외국인이 파는데도 올랐다. 이 관찰 자체는 누적 곡선에 그대로 찍혀 있는 사실이고, 아래 검증이 이것을 뒤집지 않는다.</p><p>그런데 이 페이지의 제목이 던진 질문은 그것과 조금 다르다. '외국인을 따라 사면 되나'는 따라 매수했을 때 실제로 돈이 됐나를 묻는다. 이것은 따로 재야 한다.</p><p>측정 방법은 이렇다. 외국인이 순매수한 날에 사서 20거래일 뒤 매도했을 때의 평균 수익률에서, 순매도한 날에 사서 똑같이 했을 때의 평균 수익률을 뺀다. 이 값이 플러스면 '따라가는 쪽이 유리했다'는 뜻이다. 두 시기를 따로 계산하고 각각 참값이 들어 있을 범위까지 구했다.</p><p><div class="tblwrap"><table><thead><tr><th>시기</th><th class="n">따라간 성과</th><th class="n">참값의 범위</th><th>판정</th></tr></thead><tbody><tr><td>2025년 4~12월</td><td class="n pos">+4.7%p</td><td class="n">-0.3 ~ +9.0</td><td>판정할 수 없다. 범위가 0을 걸친다</td></tr><tr class="cur"><td>2026년 1월 이후</td><td class="n pos">+6.5%p</td><td class="n">-0.9 ~ +15.6</td><td>판정할 수 없다. 범위가 0을 걸친다</td></tr></tbody></table></div></p><p>결과는 예상과 달랐다. 두 시기 모두 부호가 플러스이다. 따라 사서 손해였던 시기가 나오지 않았다. 두 범위가 서로 겹친다. 겹친다는 것은 '두 시기가 정말 달랐다'고 잘라 말할 수 없다는 뜻이다. 부호가 뒤집힌 것은 사실이지만, 그 차이가 우연히 생겼을 가능성을 아직 배제하지 못한다.</p><p>그래서 이렇게 정리한다. "2026년 상승은 외국인이 만든 것이 아니다"는 맞다. 누적 곡선이 그렇게 찍혀 있다. 다만 "그러니 2026년에는 외국인을 따라 사면 틀렸다"까지 나아가면 이 측정이 뒷받침하지 않는다. 누가 시장을 끌었나와, 그 사람을 따라 사면 돈이 됐나는 서로 다른 질문이다.</p><p class="vlim">⚠ 표본은 2025년 4~12월 368개 · 2026년 1월 이후 298개이다(삼성전자·SK하이닉스 합산). 20거래일 구간이 서로 겹치므로 완전히 독립된 표본이 아니고, 그래서 범위가 넓게 나온다. 또 '2026년 1월'이라는 경계를 사람이 미리 정해 놓고 갈랐다. 경계까지 자료가 스스로 찾게 하는 방법(국면전환모형)이 따로 있고 이 페이지는 아직 그것을 쓰지 않는다. 20거래일이 아닌 다른 기간으로 계산하면 결과가 달라질 수 있다. 이 페이지가 위에서 "60일로 늘리면 무의미하거나 역전된다"고 적어 둔 것이 그 사례이다.</p></div>
+</style><div class="vbox"><h4>'따라 사면 되나'는 따로 재봤다</h4><p>먼저 2가지 질문을 갈라 놓겠다. 위 Ⅱ절이 보여준 것은 '누가 사면서 올랐나'이다. 2025년에는 외국인이 사 모으며 올랐고 2026년에는 외국인이 파는데도 올랐다. 이 관찰 자체는 누적 곡선에 그대로 찍혀 있는 사실이고, 아래 검증이 이것을 뒤집지 않는다.</p><p>그런데 이 페이지의 제목이 던진 질문은 그것과 조금 다르다. '외국인을 따라 사면 되나'는 따라 매수했을 때 실제로 돈이 됐나를 묻는다. 이것은 따로 재야 한다.</p><p>측정 방법은 이렇다. 외국인이 순매수한 날에 사서 20거래일 뒤 매도했을 때의 평균 수익률에서, 순매도한 날에 사서 똑같이 했을 때의 평균 수익률을 뺀다. 이 값이 플러스면 '따라가는 쪽이 유리했다'는 뜻이다. 2개 시기를 따로 계산하고 각각 참값이 들어 있을 범위까지 구했다.</p><p><div class="tblwrap"><table><thead><tr><th>시기</th><th class="n">따라간 성과</th><th class="n">참값의 범위</th><th>판정</th></tr></thead><tbody><tr><td>2025년 4~12월</td><td class="n pos">+4.7%p</td><td class="n">-0.3 ~ +9.0</td><td>판정할 수 없다. 범위가 0을 걸친다</td></tr><tr class="cur"><td>2026년 1월 이후</td><td class="n pos">+6.5%p</td><td class="n">-0.9 ~ +15.6</td><td>판정할 수 없다. 범위가 0을 걸친다</td></tr></tbody></table></div></p><p>결과는 예상과 달랐다. 2개 시기 모두 부호가 플러스이다. 따라 사서 손해였던 시기가 나오지 않았다. 두 범위가 서로 겹친다. 겹친다는 것은 '2개 시기가 정말 달랐다'고 잘라 말할 수 없다는 뜻이다. 부호가 뒤집힌 것은 사실이지만, 그 차이가 우연히 생겼을 가능성을 아직 배제하지 못한다.</p><p>그래서 이렇게 정리한다. "2026년 상승은 외국인이 만든 것이 아니다"는 맞다. 누적 곡선이 그렇게 찍혀 있다. 다만 "그러니 2026년에는 외국인을 따라 사면 틀렸다"까지 나아가면 이 측정이 뒷받침하지 않는다. 누가 시장을 끌었나와, 그 사람을 따라 사면 돈이 됐나는 서로 다른 질문이다.</p><p class="vlim">⚠ 표본은 2025년 4~12월 368개 · 2026년 1월 이후 298개이다(삼성전자·SK하이닉스 합산). 20거래일 구간이 서로 겹치므로 완전히 독립된 표본이 아니고, 그래서 범위가 넓게 나온다. 또 '2026년 1월'이라는 경계를 사람이 미리 정해 놓고 갈랐다. 경계까지 자료가 스스로 찾게 하는 방법(국면전환모형)이 따로 있고 이 페이지는 아직 그것을 쓰지 않는다. 20거래일이 아닌 다른 기간으로 계산하면 결과가 달라질 수 있다. 이 페이지가 위에서 "60일로 늘리면 무의미하거나 역전된다"고 적어 둔 것이 그 사례이다.</p></div>
 
 <h2 id="그래서-실제로-어떻게-쓰나" style="margin-top:44px">그래서 실제로 어떻게 쓰나?</h2>
 <div class="tblwrap"><table><thead><tr><th style="width:150px">이럴 때</th><th>이렇게 본다</th></tr></thead><tbody>
@@ -888,7 +888,7 @@ SK하이닉스: 개인이 515만 주를 팔았고, 외국인이 439만 주를 �
 
 <div class="explain" style="border-top:1px solid var(--border);padding-top:16px">
 <p>이 분석의 한계를 밝혀 둔다.
-지금 자세히 따져본 종목은 삼성전자와 SK하이닉스 둘뿐이다.
+지금 자세히 따져본 종목은 삼성전자와 SK하이닉스 2개뿐이다.
 "외국인 수급은 주도주에서만 신호가 된다"는 것은 아직 가설이고,
 전 종목으로 넓혀 봐야 확인된다.</p>
 <p>또 수익률을 계산한 구간들이 서로 겹친다.

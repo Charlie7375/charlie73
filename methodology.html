@@ -130,7 +130,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
    생성기 SHELL 들이 `.toggle{position:fixed;top:18px;…}` 를 따로 갖고 있는데(45장),
    이 규칙은 뒤에 와서 z-index 만 이기고 **위치는 top:18px 가 남았다.**
    그 자리는 sticky 상단바(.site-bar, z-index 90)가 덮는 자리라
-   **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 세 번째 원인이다.
+   **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 3번째 원인이다.
    → top 을 명시적으로 풀고(z-index 도 상단바 위로) 우하단으로 되돌린다. */
 .toggle{position:fixed;right:18px;bottom:18px;top:auto;z-index:130;width:42px;height:42px;
   border-radius:50%;border:1px solid var(--border);background:var(--surface);
@@ -147,13 +147,13 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── ① 데이터층은 전폭 ── */
 /* 폭은 apply_paper.py 가 정한다. 여기서 !important 로 잡으면 그쪽이 못 이긴다.
-   두 곳에서 폭을 정하면 반드시 한쪽이 조용히 진다. */
+   2곳에서 폭을 정하면 반드시 한쪽이 조용히 진다. */
 .wrap{padding-left:32px!important;padding-right:32px!important}
 
 /* ── ② 해설층은 좁은 단 + 세리프 ──
    숫자·표·라벨은 산세리프로 남는다. 서체가 바뀌는 지점이 곧 층이 바뀌는 지점이다. */
 .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{
-  /* ⚠ 가운데 정렬하면 제목은 왼쪽 끝, 본문은 화면 한가운데가 되어 **둘이 따로 논다.**
+  /* ⚠ 가운데 정렬하면 제목은 왼쪽 끝, 본문은 화면 한가운데가 되어 **2가지가 따로 논다.**
        2026-08-02에 2600px 화면에서 그게 드러났다. 제목과 왼쪽을 맞춘다. */
   max-width:var(--w-prose);margin-left:0!important;margin-right:auto!important;
   font-size:16.5px;line-height:1.85;letter-spacing:-.004em}
@@ -172,7 +172,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── 폰트 통일 — 나눔고딕 ──
    본문·제목·표·차트 라벨까지 한 벌로 간다. 예전엔 해설층만 세리프를 썼는데,
-   서체가 둘이면 같은 페이지 안에서 글자 크기와 행간이 미묘하게 어긋난다. */
+   서체가 2가지면 같은 페이지 안에서 글자 크기와 행간이 미묘하게 어긋난다. */
 html body,html body h1,html body h2,html body h3,html body h4,
 html body table,html body button,html body input,html body .site-brand,
 html body .eyebrow,html body .sub,html body .card,html body .st-v,html body .st-l{
@@ -222,8 +222,8 @@ html.theme-dark .card:hover{box-shadow:none!important}
    ⚠ 선택자를 `a.card` 로 좁힌 것은 일부러다. bottom-top·disparity-3 의 `div.card` 는
      차트 상자라 같은 이름을 쓰지만 다른 것이다. 거기까지 번지면 안 된다. */
 :root{--w-sec:1080px}   /* 상태판(build_status.py 의 .status max-width)과 **같은 값**이다.
-     달랐던 탓에 스트립은 L205, 카드는 L245 에서 시작해 첫 화면에 왼쪽 끝이 둘이었다.
-     ⚠ build_status.py 에서 1080 을 바꾸면 여기도 같이 바꾼다. 두 곳이 한 줄을 그린다. */
+     달랐던 탓에 스트립은 L205, 카드는 L245 에서 시작해 첫 화면에 왼쪽 끝이 2개였다.
+     ⚠ build_status.py 에서 1080 을 바꾸면 여기도 같이 바꾼다. 2곳이 한 줄을 그린다. */
 .sec{max-width:var(--w-sec)!important}
 
 /* 리드 한 줄 — 푸터에 있던 첫 문장을 올린 것이다. 히어로 블록이 아니다 */
@@ -400,7 +400,7 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 /* ── 이 페이지만의 규칙 ──
    두 폭 체계(데이터 1440 / 산문 660)는 **표와 차트가 데이터일 때** 성립한다.
    방법론은 표조차 개념 정리라서 데이터층이 없다. 전폭으로 두면
-   제목은 왼쪽 끝, 본문은 화면 한가운데가 되어 **같은 문단이 둘로 갈라져 보인다.**
+   제목은 왼쪽 끝, 본문은 화면 한가운데가 되어 **같은 문단이 2개로 갈라져 보인다.**
    그래서 여기는 한 단짜리 문서로 잡는다. */
 html body .wrap{max-width:min(58em,100%)!important;padding-left:24px!important;padding-right:24px!important}
 html body .explain{max-width:none!important;margin-left:0!important;margin-right:0!important}
@@ -458,7 +458,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
    ⚠ 처음엔 <figure> 통째로 넓혔다가 2026-08-02에 문제가 드러났다.
      figure 안의 **캡션까지 같이 넓어져서** 캡션 왼쪽 선이 본문보다 46px 왼쪽에 섰다.
-     한 화면에 왼쪽 선이 두 개 생기니 글이 들쭉날쭉해 보인다.
+     한 화면에 왼쪽 선이 2개 생기니 글이 들쭉날쭉해 보인다.
      → figure 자체는 본문 폭에 두고, 안의 svg·차트·표만 넓힌다.
        캡션은 자연히 본문과 같은 선에서 시작한다. */
 .paper figure{width:auto;margin-left:0;margin-right:0}
@@ -710,11 +710,11 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <div class="phead"><div class="eyebrow">방법론 · Methodology</div>
 <h1>방법론</h1>
 <p class="pauth">기술분석 1·2탄 강의(2024) · 고정 자료 · 시장 데이터로 갱신되지 않는다</p></div>
-<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>이 사이트의 모든 숫자는 이 규칙을 확인하려고 본다. 순서가 있다. 지금 어디인지를 먼저 보고 무엇을 살지, 언제 사고 팔지 순이다. 규칙을 먼저 알고 지표를 보는 것과 그 반대는 전혀 다르다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#ⅰ-국면-모델-지금-어디인지부터-안다">국면 모델: 지금 어디인지부터 안다</a></li><li><a href="#ⅱ-이야기꾼의-오디션-피라미딩-무엇을-살지">이야기꾼의 오디션 피라미딩: 무엇을 살지</a></li><li><a href="#ⅲ-이야기꾼의-매매-5원칙-언제-사고-팔지">이야기꾼의 매매 5원칙: 언제 사고 팔지</a></li></ol></div><!--TOC:END--><div class="sub">이 사이트의 모든 숫자는 <b>이 규칙을 확인하려고</b> 본다.
+<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>이 사이트의 모든 숫자는 이 규칙을 확인하려고 본다. 순서가 있다. 지금 어디인지를 먼저 보고 무엇을 살지, 언제 사고 팔지 순이다. 규칙을 먼저 알고 지표를 보는 것과 그 반대는 전혀 다르다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#국면-모델-지금-어디인지부터-안다">국면 모델: 지금 어디인지부터 안다</a></li><li><a href="#이야기꾼의-오디션-피라미딩-무엇을-살지">이야기꾼의 오디션 피라미딩: 무엇을 살지</a></li><li><a href="#이야기꾼의-매매-5원칙-언제-사고-팔지">이야기꾼의 매매 5원칙: 언제 사고 팔지</a></li></ol></div><!--TOC:END--><div class="sub">이 사이트의 모든 숫자는 <b>이 규칙을 확인하려고</b> 본다.
 순서가 있다. <b>지금 어디인지</b>(국면 모델)를 먼저 보고, <b>무엇을 살지</b>(오디션 피라미딩),
 <b>언제 사고 팔지</b>(매매 5원칙) 순이다. 규칙을 먼저 알고 지표를 보는 것과 그 반대는 전혀 다르다.</div>
 
-<h2 id="ⅰ-국면-모델-지금-어디인지부터-안다" style="margin-top:34px">국면 모델: 지금 어디인지부터 안다</h2>
+<h2 id="국면-모델-지금-어디인지부터-안다" style="margin-top:34px">국면 모델: 지금 어디인지부터 안다</h2>
 <div class="explain" style="border-left-color:var(--risk,#b45309)">
 <b>이 절은 2026-08-24 에 더했다.</b> 아래 2장이 「무엇을 살지」와 「언제 사고 팔지」인데,
 그 앞에 <b>「지금 어디인지」</b>가 빠져 있었다. 시나리오투자법의 순서는 국면이 먼저다.
@@ -738,7 +738,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <h3>강의 이후 달라진 것: 주간 리포트 195편에서 확인한 갱신</h3>
 <div class="explain">
 <b>이 모델은 2020~21년 강의에서 정립됐지만 그 뒤로 멈춰 있지 않다.</b>
-주간 리포트 195편(2021~2026)을 훑어 확인한 갱신은 세 가지다.
+주간 리포트 195편(2021~2026)을 훑어 확인한 갱신은 3가지다.
 </div>
 <div class="tblwrap"><table><thead><tr><th style="width:104px">무엇</th><th style="width:86px">출처</th><th>내용</th></tr></thead><tbody>
 <tr><td><b>용어가 바뀌었다</b></td><td>2021 이후</td>
@@ -793,7 +793,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <a href="inflation-playbook.html">물가가 오르는 시대에도 주식은 올랐을까</a>에 있다.
 </div>
 
-<h2 id="ⅱ-이야기꾼의-오디션-피라미딩-무엇을-살지" style="margin-top:34px">이야기꾼의 오디션 피라미딩: 무엇을 살지</h2>
+<h2 id="이야기꾼의-오디션-피라미딩-무엇을-살지" style="margin-top:34px">이야기꾼의 오디션 피라미딩: 무엇을 살지</h2>
 <div class="explain" style="border-left-color:var(--risk,#b45309)">
 <b>고안·정립: 이야기꾼</b> — 아래 절차는 이야기꾼이 시나리오투자법에서 정립한 종목 선정법이며,
 이 사이트는 그 절차를 실데이터로 매일 돌려 결과를 기록하는 곳이다.
@@ -822,7 +822,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 현재 진행 중인 오디션은 <a href="audition.html">오디션 피라미딩</a>에서 매일 갱신된다.
 </div>
 
-<h2 id="ⅲ-이야기꾼의-매매-5원칙-언제-사고-팔지" style="margin-top:44px">이야기꾼의 매매 5원칙: 언제 사고 팔지</h2>
+<h2 id="이야기꾼의-매매-5원칙-언제-사고-팔지" style="margin-top:44px">이야기꾼의 매매 5원칙: 언제 사고 팔지</h2>
 
 <div class="explain">
 <b>근거가 바뀌었다.</b> 이 페이지의 이전 판은 회원방 어록에서 역산한 <b>추론</b>이었다.
@@ -919,13 +919,13 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 </tbody></table></div>
 
 <div class="explain">
-보수적으로 간다면 7단계에서 50%만 채우고 <b>두 번째 베이스</b>에서 나머지 50%를 넣는다.
+보수적으로 간다면 7단계에서 50%만 채우고 <b>2번째 베이스</b>에서 나머지 50%를 넣는다.
 <br><br>
 3단계는 실패(페일)할 수 있다. 그 확률을 낮추는 장치가 1번 원칙이다 —
 <b>"거시경제가 기술적 분석보다 먼저다."</b>
 <br><br>
-<b>첫 베이스냐 두 번째 베이스냐가 결정적 차이다.</b>
-리버모어도 미너비니도 첫 베이스에서는 사지 않고 두 번째 베이스부터 들어간다.
+<b>첫 베이스냐 2번째 베이스냐가 결정적 차이다.</b>
+리버모어도 미너비니도 첫 베이스에서는 사지 않고 2번째 베이스부터 들어간다.
 차트만 보는 사람은 첫 베이스를 믿을 수 없기 때문이다.
 거시경제를 아는 쪽만 한 박자 먼저 들어갈 수 있고, 본인 추정으로 그 차이는 <b>10% 정도</b>다.
 </div>
@@ -1002,7 +1002,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 </div>
 
 </div>
-<div class="wrap"><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="jeonjo.html">중공황 전조현상</a> 강의가 압축한 전조 10가지가 지금 28종의 어디로 갔는지 대조한 페이지다. 10가지 중 둘은 아직 칸이 없다.</p><p><a href="fed-kospi.html">연준 기준금리와 증시</a> 이 방법론의 금리 3가설을 실측으로 가른 페이지다. 「뜬금없는 선제적 인하」만 강하게 지지되고 「세 번째 인상」은 기각에 가깝다.</p><p><a href="inflation-playbook.html">물가가 오르는 시대에도 주식은 올랐을까</a> ⚠ 이 강의가 디플레이션 시대의 산물이라는 단서의 근거다. 시대가 바뀌면 무엇이 통했는지가 자산별로 갈린다.</p><p><a href="jeoji-kospi.html">제오지산수와 코스피</a> 전조 Top 10 의 7번을 코스피 시계열로 검증한 페이지다. 강의가 이름 붙인 개념 가운데 실측이 가장 두껍다.</p><p><a href="audition.html">오디션 피라미딩</a> 방법론 Ⅱ장의 매매 절차가 매일 돌아가는 화면이다. 후보 선정부터 비중 조절까지가 여기서 자동으로 집계된다.</p><p><a href="bottom-top.html">바닥·천장 추적 분석</a> 국면 판단을 날짜 단위로 좁히는 페이지다. 방법론이 「어디인지」를 말한다면 그 페이지는 「지금 그 판단이 맞는지」를 매일 검산한다.</p></div><!--RELATED:END--></div>
+<div class="wrap"><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="jeonjo.html">중공황 전조현상</a> 강의가 압축한 전조 10가지가 지금 28종의 어디로 갔는지 대조한 페이지다. 10가지 중 2가지는 아직 칸이 없다.</p><p><a href="fed-kospi.html">연준 기준금리와 증시</a> 이 방법론의 금리 3가설을 실측으로 가른 페이지다. 「뜬금없는 선제적 인하」만 강하게 지지되고 「세 번째 인상」은 기각에 가깝다.</p><p><a href="inflation-playbook.html">물가가 오르는 시대에도 주식은 올랐을까</a> ⚠ 이 강의가 디플레이션 시대의 산물이라는 단서의 근거다. 시대가 바뀌면 무엇이 통했는지가 자산별로 갈린다.</p><p><a href="jeoji-kospi.html">제오지산수와 코스피</a> 전조 Top 10 의 7번을 코스피 시계열로 검증한 페이지다. 강의가 이름 붙인 개념 가운데 실측이 가장 두껍다.</p><p><a href="audition.html">오디션 피라미딩</a> 방법론 Ⅱ장의 매매 절차가 매일 돌아가는 화면이다. 후보 선정부터 비중 조절까지가 여기서 자동으로 집계된다.</p><p><a href="bottom-top.html">바닥·천장 추적 분석</a> 국면 판단을 날짜 단위로 좁히는 페이지다. 방법론이 「어디인지」를 말한다면 그 페이지는 「지금 그 판단이 맞는지」를 매일 검산한다.</p></div><!--RELATED:END--></div>
 <footer>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.
     · 근거: 이야기꾼 주간 시투 보고서(W36·2026-09-05) 및 자체 실측.</footer>
 </div>

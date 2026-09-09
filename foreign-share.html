@@ -130,7 +130,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
    생성기 SHELL 들이 `.toggle{position:fixed;top:18px;…}` 를 따로 갖고 있는데(45장),
    이 규칙은 뒤에 와서 z-index 만 이기고 **위치는 top:18px 가 남았다.**
    그 자리는 sticky 상단바(.site-bar, z-index 90)가 덮는 자리라
-   **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 세 번째 원인이다.
+   **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 3번째 원인이다.
    → top 을 명시적으로 풀고(z-index 도 상단바 위로) 우하단으로 되돌린다. */
 .toggle{position:fixed;right:18px;bottom:18px;top:auto;z-index:130;width:42px;height:42px;
   border-radius:50%;border:1px solid var(--border);background:var(--surface);
@@ -147,13 +147,13 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── ① 데이터층은 전폭 ── */
 /* 폭은 apply_paper.py 가 정한다. 여기서 !important 로 잡으면 그쪽이 못 이긴다.
-   두 곳에서 폭을 정하면 반드시 한쪽이 조용히 진다. */
+   2곳에서 폭을 정하면 반드시 한쪽이 조용히 진다. */
 .wrap{padding-left:32px!important;padding-right:32px!important}
 
 /* ── ② 해설층은 좁은 단 + 세리프 ──
    숫자·표·라벨은 산세리프로 남는다. 서체가 바뀌는 지점이 곧 층이 바뀌는 지점이다. */
 .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{
-  /* ⚠ 가운데 정렬하면 제목은 왼쪽 끝, 본문은 화면 한가운데가 되어 **둘이 따로 논다.**
+  /* ⚠ 가운데 정렬하면 제목은 왼쪽 끝, 본문은 화면 한가운데가 되어 **2가지가 따로 논다.**
        2026-08-02에 2600px 화면에서 그게 드러났다. 제목과 왼쪽을 맞춘다. */
   max-width:var(--w-prose);margin-left:0!important;margin-right:auto!important;
   font-size:16.5px;line-height:1.85;letter-spacing:-.004em}
@@ -172,7 +172,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── 폰트 통일 — 나눔고딕 ──
    본문·제목·표·차트 라벨까지 한 벌로 간다. 예전엔 해설층만 세리프를 썼는데,
-   서체가 둘이면 같은 페이지 안에서 글자 크기와 행간이 미묘하게 어긋난다. */
+   서체가 2가지면 같은 페이지 안에서 글자 크기와 행간이 미묘하게 어긋난다. */
 html body,html body h1,html body h2,html body h3,html body h4,
 html body table,html body button,html body input,html body .site-brand,
 html body .eyebrow,html body .sub,html body .card,html body .st-v,html body .st-l{
@@ -222,8 +222,8 @@ html.theme-dark .card:hover{box-shadow:none!important}
    ⚠ 선택자를 `a.card` 로 좁힌 것은 일부러다. bottom-top·disparity-3 의 `div.card` 는
      차트 상자라 같은 이름을 쓰지만 다른 것이다. 거기까지 번지면 안 된다. */
 :root{--w-sec:1080px}   /* 상태판(build_status.py 의 .status max-width)과 **같은 값**이다.
-     달랐던 탓에 스트립은 L205, 카드는 L245 에서 시작해 첫 화면에 왼쪽 끝이 둘이었다.
-     ⚠ build_status.py 에서 1080 을 바꾸면 여기도 같이 바꾼다. 두 곳이 한 줄을 그린다. */
+     달랐던 탓에 스트립은 L205, 카드는 L245 에서 시작해 첫 화면에 왼쪽 끝이 2개였다.
+     ⚠ build_status.py 에서 1080 을 바꾸면 여기도 같이 바꾼다. 2곳이 한 줄을 그린다. */
 .sec{max-width:var(--w-sec)!important}
 
 /* 리드 한 줄 — 푸터에 있던 첫 문장을 올린 것이다. 히어로 블록이 아니다 */
@@ -305,6 +305,30 @@ a.card:focus-visible,.lst-i:focus-visible{
 .site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
   background:color-mix(in srgb,var(--text) 6%,transparent)}
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+/* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END */
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 
 .dim{color:var(--mut,#94a3b8)}
 .b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
@@ -360,30 +384,6 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .hchg .ar{white-space:nowrap}
 .to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
 @media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
-/* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END */
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 /*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
@@ -439,7 +439,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
    ⚠ 처음엔 <figure> 통째로 넓혔다가 2026-08-02에 문제가 드러났다.
      figure 안의 **캡션까지 같이 넓어져서** 캡션 왼쪽 선이 본문보다 46px 왼쪽에 섰다.
-     한 화면에 왼쪽 선이 두 개 생기니 글이 들쭉날쭉해 보인다.
+     한 화면에 왼쪽 선이 2개 생기니 글이 들쭉날쭉해 보인다.
      → figure 자체는 본문 폭에 두고, 안의 svg·차트·표만 넓힌다.
        캡션은 자연히 본문과 같은 선에서 시작한다. */
 .paper figure{width:auto;margin-left:0;margin-right:0}
@@ -809,7 +809,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <div class="disclaimer">
 <p>그래서 이 지표를 읽을 때 조심할 것이 생긴다. 앞으로 외국인 비중이 떨어질 때
 그것이 '외국인 이탈'인지 '반도체 조정'인지 구분되지 않는다.
-둘이 이만큼 붙어 있으면 지표 하나가 2가지를 동시에 알려 준다.
+2가지가 이만큼 붙어 있으면 지표 하나가 2가지를 동시에 알려 준다.
 원인을 나누려면 반드시 두 선을 같이 봐야 한다. 그래서 이 차트를 여기 둔다.</p>
 <p>자료의 한계. 이 절만 2022-01-03 ~ 2026-09-08(1143거래일)이다.
 개별 종목 시가총액은 '주가 × 상장주식수'인데 상장주식수 이력이 없어 그 이전은 계산할 수 없다.
@@ -843,7 +843,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 저는 투자 전문가가 아니며, 투자의 최종 판단과 책임은 투자자 본인에게 있다.</p>
 </div>
 </div>
-<div class="wrap"><!--TOPICNEWS:BEGIN--><style id="tnewscss">.tnews{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 10px;margin:34px 0 10px}.tnews h3{margin:0 0 10px;font-size:1.02rem}.tnews table{width:100%;border-collapse:collapse;font-size:.9rem}.tnews td{padding:5px 8px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}.tnews td.d{white-space:nowrap;color:var(--text-secondary)}.tnews p.cap{margin:10px 0 8px;font-size:.8rem;color:var(--text-secondary);line-height:1.6}</style><div class="tnews"><h3>관련 뉴스</h3><p class="cap">제목에 그 낱말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.</p><p class="cap">국내: 「외국인 보유 비중 코스피」 로 찾았다.</p><div class="tblwrap"><table><tbody><tr><td class="d">Wed, 20 May</td><td class="d">yna.co.kr</td><td><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE1ETlU0N3NDVTVSM0l0d0NYSWdQM0lUNTM0cFJzRkoxLXlhRnEzblg0ckFIWHJIWHZmazBacnAwTThpMC1RajA5QXZQRGNHajRnUlVSNkVicDltdUXSAWBBVV95cUxOMFFZV2E1M3NtdTlDUmVOQWplVF8xdlBYR3hFVldZUTZVT3pVcHNiX21EWGthUXlKbE0tRHlOZmtiNFpoTm5tUlRnWFhTVklDbjJBU2JlbGVQSTByanItNG0?oc=5" target="_blank" rel="noopener nofollow">외국인 올해 韓주식 91조원 팔았는데…지분율은 상승 '기현상'</a></td></tr><tr><td class="d">Fri, 05 Jun</td><td class="d">연합인포맥스</td><td><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTFBGM05aUTZNak53WkJLaXktdVZ6ZzFSUnI3OUdSNS1NQ0tDY254YloyVjdWdU1NNFlybmZhRUdKM2dEN0RqQnR2WktDSjBHdU5fVVJFMGcyYWxnanp5SG01SVlzekRMOXZqWXlTMTd5WUQ?oc=5" target="_blank" rel="noopener nofollow">[1,540원 돌파] 아직 외국인 주식비중 20여년만 최고…리밸런싱 압력 여전</a></td></tr><tr><td class="d">Sun, 06 Sep</td><td class="d">이투데이</td><td><a href="https://news.google.com/rss/articles/CBMiVEFVX3lxTE81ZGY5RzAwNEM1ZUlieUxhU1dJRVAxblFSc240RlRnTHl4SVc3OWRGaHRmVkZaYm9JMmJMeHk3X2g3NGRQX1gwRXR1QV9kVW1kMHFpUQ?oc=5" target="_blank" rel="noopener nofollow">170조 팔아도 외국인 비중은 상승…‘셀 코리아’보다 금리·리밸런싱 문제</a></td></tr><tr><td class="d">Sun, 19 Jul</td><td class="d">글로벌이코노믹</td><td><a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxQeWxxQVMtZWZ1RW9iWU1vVm5laFo1UEktSG13NE5XZ3lkSDVicG92dTFKeUxiMEpUY1Q4RkFVcUFoQzhJeFhTeWQ3VXZVdWx2WW5zU293a3czZ3VrSHBLdnUzNm9qV0d1U2Z4ejVwTG96alhKNE1UbFF2YmlMTk5teEpNZk0zRW5E?oc=5" target="_blank" rel="noopener nofollow">외국인 코스피 순매도에도 보유 비중은 연초 대비 크게 상승</a></td></tr><tr><td class="d">Fri, 03 Jul</td><td class="d">KB Think</td><td><a href="https://news.google.com/rss/articles/CBMickFVX3lxTE0yRDdrT3NyOGJWaEhYOFdtemJNX3FibUkyeFpNdW51Y05uaktQSUxCN09KWGJDOUExZmpnLTUtaGppV0lhWXYxdExSTEVvM29qMDh4T0NadmxoS2dzMkIyOG5lU0w4czdMVWtOZ0tsSFdOZw?oc=5" target="_blank" rel="noopener nofollow">"끝나지 않는 外人 코스피 리밸런싱"…이달에만 7조 더 팔았다</a></td></tr><tr><td class="d">Fri, 26 Jun</td><td class="d">연합뉴스TV</td><td><a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9uZGtCbHFVVGVmTFFVSk9OcVg3MzVFLUttVFVoMXVUd3pnY0dvZ2xBTDBSbVo4UU55ZW9SZFRtLTRsaV84YXU1ZHdpU2YwbGdIeENtNWRBV3ZyUlZxV3dWbFpZbkRCcGs?oc=5" target="_blank" rel="noopener nofollow">외국인, 지난달 국내주식 47조원 순매도…보유 비중 ’역대 최고’</a></td></tr></tbody></table></div><p class="cap">출처 구글 뉴스 · 2026-09-10 기준. 뉴스는 이 글의 분석과 무관하며 서로 어긋날 수 있다.</p></div><!--TOPICNEWS:END--><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="supply.html">투자자 수급</a> 비중이 '누적 결과'라면 그 페이지의 사분면은 '하루하루의 선택'이다. 외국인이 판 것이 비중 축소인지 차익 실현인지가 둘을 겹쳐야 보인다.</p></div><!--RELATED:END--></div>
+<div class="wrap"><!--TOPICNEWS:BEGIN--><style id="tnewscss">.tnews{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 10px;margin:34px 0 10px}.tnews h3{margin:0 0 10px;font-size:1.02rem}.tnews table{width:100%;border-collapse:collapse;font-size:.9rem}.tnews td{padding:5px 8px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}.tnews td.d{white-space:nowrap;color:var(--text-secondary)}.tnews p.cap{margin:10px 0 8px;font-size:.8rem;color:var(--text-secondary);line-height:1.6}</style><div class="tnews"><h3>관련 뉴스</h3><p class="cap">제목에 그 낱말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.</p><p class="cap">국내: 「외국인 보유 비중 코스피」 로 찾았다.</p><div class="tblwrap"><table><tbody><tr><td class="d">Wed, 20 May</td><td class="d">yna.co.kr</td><td><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE1ETlU0N3NDVTVSM0l0d0NYSWdQM0lUNTM0cFJzRkoxLXlhRnEzblg0ckFIWHJIWHZmazBacnAwTThpMC1RajA5QXZQRGNHajRnUlVSNkVicDltdUXSAWBBVV95cUxOMFFZV2E1M3NtdTlDUmVOQWplVF8xdlBYR3hFVldZUTZVT3pVcHNiX21EWGthUXlKbE0tRHlOZmtiNFpoTm5tUlRnWFhTVklDbjJBU2JlbGVQSTByanItNG0?oc=5" target="_blank" rel="noopener nofollow">외국인 올해 韓주식 91조원 팔았는데…지분율은 상승 '기현상'</a></td></tr><tr><td class="d">Fri, 05 Jun</td><td class="d">연합인포맥스</td><td><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTFBGM05aUTZNak53WkJLaXktdVZ6ZzFSUnI3OUdSNS1NQ0tDY254YloyVjdWdU1NNFlybmZhRUdKM2dEN0RqQnR2WktDSjBHdU5fVVJFMGcyYWxnanp5SG01SVlzekRMOXZqWXlTMTd5WUQ?oc=5" target="_blank" rel="noopener nofollow">[1,540원 돌파] 아직 외국인 주식비중 20여년만 최고…리밸런싱 압력 여전</a></td></tr><tr><td class="d">Sun, 06 Sep</td><td class="d">이투데이</td><td><a href="https://news.google.com/rss/articles/CBMiVEFVX3lxTE81ZGY5RzAwNEM1ZUlieUxhU1dJRVAxblFSc240RlRnTHl4SVc3OWRGaHRmVkZaYm9JMmJMeHk3X2g3NGRQX1gwRXR1QV9kVW1kMHFpUQ?oc=5" target="_blank" rel="noopener nofollow">170조 팔아도 외국인 비중은 상승…‘셀 코리아’보다 금리·리밸런싱 문제</a></td></tr><tr><td class="d">Sun, 19 Jul</td><td class="d">글로벌이코노믹</td><td><a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxQeWxxQVMtZWZ1RW9iWU1vVm5laFo1UEktSG13NE5XZ3lkSDVicG92dTFKeUxiMEpUY1Q4RkFVcUFoQzhJeFhTeWQ3VXZVdWx2WW5zU293a3czZ3VrSHBLdnUzNm9qV0d1U2Z4ejVwTG96alhKNE1UbFF2YmlMTk5teEpNZk0zRW5E?oc=5" target="_blank" rel="noopener nofollow">외국인 코스피 순매도에도 보유 비중은 연초 대비 크게 상승</a></td></tr><tr><td class="d">Fri, 03 Jul</td><td class="d">KB Think</td><td><a href="https://news.google.com/rss/articles/CBMickFVX3lxTE0yRDdrT3NyOGJWaEhYOFdtemJNX3FibUkyeFpNdW51Y05uaktQSUxCN09KWGJDOUExZmpnLTUtaGppV0lhWXYxdExSTEVvM29qMDh4T0NadmxoS2dzMkIyOG5lU0w4czdMVWtOZ0tsSFdOZw?oc=5" target="_blank" rel="noopener nofollow">"끝나지 않는 外人 코스피 리밸런싱"…이달에만 7조 더 팔았다</a></td></tr><tr><td class="d">Fri, 26 Jun</td><td class="d">연합뉴스TV</td><td><a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9uZGtCbHFVVGVmTFFVSk9OcVg3MzVFLUttVFVoMXVUd3pnY0dvZ2xBTDBSbVo4UU55ZW9SZFRtLTRsaV84YXU1ZHdpU2YwbGdIeENtNWRBV3ZyUlZxV3dWbFpZbkRCcGs?oc=5" target="_blank" rel="noopener nofollow">외국인, 지난달 국내주식 47조원 순매도…보유 비중 ’역대 최고’</a></td></tr></tbody></table></div><p class="cap">출처 구글 뉴스 · 2026-09-10 기준. 뉴스는 이 글의 분석과 무관하며 서로 어긋날 수 있다.</p></div><!--TOPICNEWS:END--><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="supply.html">투자자 수급</a> 비중이 '누적 결과'라면 그 페이지의 사분면은 '하루하루의 선택'이다. 외국인이 판 것이 비중 축소인지 차익 실현인지가 2가지를 겹쳐야 보인다.</p></div><!--RELATED:END--></div>
 <footer>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.
     · 근거: 이야기꾼 주간 시투 보고서(W36·2026-09-05) 및 자체 실측.</footer>
 </div>
