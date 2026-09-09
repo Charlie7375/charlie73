@@ -204,7 +204,7 @@ _C.register({
       if ((ch.config.type || 'line') !== 'line') return;
       var cx = ch.ctx, area = ch.chartArea, put = [];
       (ch.data.datasets || []).forEach(function(d, i){
-        if (!ch.isDatasetVisible(i) || isBase(d)) return;
+        if (!ch.isDatasetVisible(i) || isBase(d) || d.showLine === false) return;   /* 점 계열엔 끝값을 안 찍는다 (2026-09-09) */
         var meta = ch.getDatasetMeta(i);
         if (!meta || !meta.data || !meta.data.length) return;
         /* ⚠ meta.data[j] 는 **값이 null 이어도 좌표가 유한하다.** 그래서 예전 코드는
