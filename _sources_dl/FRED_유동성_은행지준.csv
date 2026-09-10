@@ -1,4 +1,4 @@
-# 은행 지급준비금 (백만$, 주간) | FRED WRESBAL | 수집기 scripts/fred_liquidity.py
+# 은행 지급준비금 (백만$, 주간 평균) | FRED WRESBAL | 수집기 scripts/fred_liquidity.py
 date,value
 2002-12-18,9028.0
 2002-12-25,11876.0
