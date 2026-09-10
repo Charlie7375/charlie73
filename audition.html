@@ -106,7 +106,10 @@ td.nm{font-weight:600} td.pos{color:#059669} td.neg{color:#e11d48}
 .mcrow.mcq{background:transparent;border:0;padding:2px 2px;color:var(--text-secondary);font-size:.86rem}
 .mcn{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;
   border-radius:8px;background:var(--accent);color:#fff;font-weight:800;font-size:.82rem;margin-right:5px}
-.mcw{font-size:.76rem;color:var(--text-secondary);margin-left:4px;margin-right:9px}
+.mcw{font-size:.72rem;color:var(--text-secondary);margin-left:5px}
+.mcchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.mcchip{display:inline-flex;align-items:baseline;gap:0;background:var(--bg);
+  border:1px solid var(--border);border-radius:999px;padding:3px 11px;font-size:.86rem}
 .mcdl dt{font-weight:700;margin-top:11px;font-size:.92rem}
 .mcdl dd{font-size:.88rem;color:var(--text-secondary);line-height:1.75;margin-top:3px}
 .mcdl dd b{color:var(--text)}
@@ -1229,16 +1232,22 @@ new Chart(document.getElementById('wc'),{type:'line',
     });
     var lab={P:'가격',D:'수급',V:'재무'};
     function names(a){
-      return a.map(function(o){
+      // 이름과 «채운 것»이 붙어 읽히지 않도록 알약 하나에 담는다
+      return '<span class="mcchips">'+a.map(function(o){
         var got=['P','D','V'].filter(function(k){return o[k]==='1'}).map(function(k){return lab[k]});
-        return '<b>'+o.nm+'</b>'+(got.length?'<span class="mcw">'+got.join('·')+'</span>':'');
-      }).join(' ');
+        return '<span class="mcchip"><b>'+o.nm+'</b>'
+             + (got.length?'<span class="mcw">'+got.join('·')+'</span>':'')+'</span>';
+      }).join('')+'</span>';
     }
     var n3=byHit[3].length, n2=byHit[2].length;
-    var h='<div class="mcrow"><span class="mcn">'+n3+'</span> 종목이 <b>3개를 다 채웁니다</b>'
-        + (n3?' — '+names(byHit[3]):'.')+'</div>'
-        + '<div class="mcrow"><span class="mcn">'+n2+'</span> 종목이 <b>2개를 채웁니다</b>'
-        + (n2?' — '+names(byHit[2]):'.')+'</div>'
+    var h='<div class="mcrow">'
+        + (n3?'<span class="mcn">'+n3+'</span> 종목이 <b>3개를 다 채웁니다.</b>'+names(byHit[3])
+            :'<b>3개를 다 채운 종목은 없습니다.</b> 강의의 숏리스트가 지금은 비어 있다는 뜻입니다.')
+        + '</div>'
+        + '<div class="mcrow">'
+        + (n2?'<span class="mcn">'+n2+'</span> 종목이 <b>2개를 채웁니다.</b>'+names(byHit[2])
+            :'<b>2개를 채운 종목도 없습니다.</b>')
+        + '</div>'
         + '<div class="mcrow mcq"><span class="mcn">'+byHit[1].length+'</span> 종목이 1개, '
         + '<span class="mcn">'+byHit[0].length+'</span> 종목이 하나도 채우지 못했습니다. '
         + '이 구간에 살아남은 '+live.length+'종목 가운데입니다.</div>';
