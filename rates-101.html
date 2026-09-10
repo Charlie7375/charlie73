@@ -305,30 +305,6 @@ a.card:focus-visible,.lst-i:focus-visible{
 .site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
   background:color-mix(in srgb,var(--text) 6%,transparent)}
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END */
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 
 .dim{color:var(--mut,#94a3b8)}
 .b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
@@ -384,6 +360,30 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .hchg .ar{white-space:nowrap}
 .to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
 @media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
+/* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END */
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 /*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
@@ -691,7 +691,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <p class="pauth">2026-08-05 정리 · 원자료 유튜브 지식인초대석 EP.38·39 (전사본 보관) · 고정 자료</p>
 </div>
 
-<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>금리가 먼저가 아니라 성장에 대한 믿음이 먼저다. 공장만 지어도 돈을 벌던 시절에는 돈 수요가 폭발해 고성장 고금리가 됐고 외환위기 뒤에는 빚내기를 두려워하게 되어 저성장 저금리가 됐다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#금리-돈의-가격">금리: 돈의 가격</a></li><li><a href="#채권-중도해지가-안-되는-정기예금">채권: 중도해지가 안 되는 정기예금</a></li><li><a href="#미-장기금리를-움직이는-3개의-층">★ 미 장기금리를 움직이는 3개의 층</a></li><li><a href="#환율-나라-밖에서-본-돈의-가격">환율: 나라 밖에서 본 돈의 가격</a></li><li><a href="#투자-족대가-아니라-어항">투자: 족대가 아니라 어항</a></li><li><a href="#이-사이트와-잇기">이 사이트와 잇기</a></li></ol></div><!--TOC:END--><h2 id="금리-돈의-가격">금리: 돈의 가격</h2>
+<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>금리가 먼저가 아니라 성장에 대한 믿음이 먼저다. 공장만 지어도 돈을 벌던 시절에는 돈 수요가 폭발해 고성장 고금리가 됐고 외환위기 뒤에는 빚내기를 두려워하게 되어 저성장 저금리가 됐다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#금리는-무엇으로-정해지나">금리는 무엇으로 정해지나?</a></li><li><a href="#금리가-오르면-왜-채권값이-내리나">금리가 오르면 왜 채권값이 내리나?</a></li><li><a href="#미-장기금리는-무엇으로-쪼개지나">미 장기금리는 무엇으로 쪼개지나?</a></li><li><a href="#금리가-역전되면-돈이-빠져나가나">금리가 역전되면 돈이 빠져나가나?</a></li><li><a href="#그래서-어떻게-투자하나">그래서 어떻게 투자하나?</a></li><li><a href="#이-사이트와-잇기">이 사이트와 잇기</a></li></ol></div><!--TOC:END--><h2 id="금리는-무엇으로-정해지나">금리는 무엇으로 정해지나?</h2>
 <p>오건영의 첫 문장이 이 글 전체의 뼈대이다. 금리는 돈의 가격이고, 가격은 수요와 공급으로
 정해진다. 사업의 원가를 모르면 마진을 계산할 수 없듯이, 돈으로 투자하면서 돈의 가격을
 모르면 아무것도 계산할 수 없다.</p>
@@ -703,7 +703,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 한순간에 숨어 버렸고, 한국의 1년 정기예금 금리가 7%를 넘었다.
 같은 '금리 급등'이라도 원인이 성장인지 불신인지에 따라 뜻이 정반대이다. 이 구분이 아래 3장의 핵심이기도 한다.</p></div>
 
-<h2 id="채권-중도해지가-안-되는-정기예금">채권: 중도해지가 안 되는 정기예금</h2>
+<h2 id="금리가-오르면-왜-채권값이-내리나">금리가 오르면 왜 채권값이 내리나?</h2>
 <p>오건영의 비유가 가장 정확하다.
 채권은 중도해지가 안 되는 정기예금이다. 10년 만기 3% 예금에 가입한 다음 날
 신규 금리가 5%로 오르면, 해지가 안 되므로 남에게 넘길 때
@@ -713,7 +713,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 이 시소는 규칙이 아니라 산수이다. 그리고 거꾸로 읽으면 이 사이트에서 매일 보는 문장이 된다. 채권을 팔려는 사람이 많으면(가격↓) 금리가 오르고, 사려는 사람이 많으면(가격↑) 금리가
 내린다. 미 10년 국채 금리는 누가 '정하는' 것이 아니라 이렇게 거래로 결정되는 값이다.</p>
 
-<h2 id="미-장기금리를-움직이는-3개의-층">★ 미 장기금리를 움직이는 3개의 층</h2>
+<h2 id="미-장기금리는-무엇으로-쪼개지나">미 장기금리는 무엇으로 쪼개지나?</h2>
 <p>그렇다면 그 거래에서 사람들은 무엇을 계산하고 있는가. 10년 금리는 대략 세 층의 합으로
 쪼갤 수 있다.</p>
 <figure class="fig"><div class="tblwrap"><table class="tw">
@@ -822,7 +822,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 이은택의 표현대로 「자산시장의 중력」이 된다. 반증조건 ②의 임계선(직전 고점 돌파)을 감시할 때
 '얼마나 올랐나'와 함께 '무엇이 올렸나'를 같이 봐야 하는 이유이다.</p></div>
 
-<h2 id="환율-나라-밖에서-본-돈의-가격">환율: 나라 밖에서 본 돈의 가격</h2>
+<h2 id="금리가-역전되면-돈이-빠져나가나">금리가 역전되면 돈이 빠져나가나?</h2>
 <p>금리가 대내적인 돈의 가격이라면, 환율은 다른 나라가 우리 원화를 보는 가격이다.
 오건영이 짚은 대목 중 실전에 바로 쓰이는 것 셋만 남긴다.</p>
 <p>금리가 역전돼도 자금이 전부 빠져나가지는 않는다. 이유는 3가지이다.
@@ -838,7 +838,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 신뢰를 얻으려면 흑자여야 한다. 서로 모순인 이 2가지를 미국이 해냈고,
 세계의 공장 노릇을 하는 중국은 구조적으로 반대편에 있다. 위안화 대체론이 반복해서 나오고 반복해서 무산되는 이유이다.</p>
 
-<h2 id="투자-족대가-아니라-어항">투자: 족대가 아니라 어항</h2>
+<h2 id="그래서-어떻게-투자하나">그래서 어떻게 투자하나?</h2>
 <p>2부의 핵심은 비유 하나이다. 물고기는 사람보다 빠르다. 쫓아가면 못 잡는다.
 어항을 놓고 기다려야 한다. 뉴스를 보고 '달러가 좋대' 하고 쫓아가는 매매는 족대를 들고
 물고기를 쫓는 것과 같고, 지금 시장은 20년 전보다 3~4배 빠르다.</p>
@@ -862,6 +862,8 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 </tbody></table></div>
 <figcaption>오건영 2부의 요지. 이야기꾼의 '시나리오 투자',
 미너비니의 '시장이 스스로 증명하게 하라'와 같은 곳을 가리킨다.</figcaption></figure>
+
+<div class="note"><p>이렇게 읽으면 안 된다. 이 글은 개념을 익히는 곳이다. 여기 적힌 비유는 방향을 잡는 데 쓰고, 매매 판단은 실측을 붙인 아래 글들에서 확인한다.</p></div>
 
 <h2 id="이-사이트와-잇기">이 사이트와 잇기</h2>
 <p>이 학습이 실전 페이지들과 만나는 대목을 적어 둔다.
