@@ -305,30 +305,6 @@ a.card:focus-visible,.lst-i:focus-visible{
 .site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
   background:color-mix(in srgb,var(--text) 6%,transparent)}
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END */
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 
 .dim{color:var(--mut,#94a3b8)}
 .b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
@@ -384,6 +360,30 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .hchg .ar{white-space:nowrap}
 .to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
 @media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
+/* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END */
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 /*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
@@ -891,7 +891,7 @@ window.__qbRegister=function(){echarts.registerTheme('charlie', {"color": ["#d21
 </style><div class="vbox"><h4>개인은 정말 '떨어지면 사는가'</h4><p>위 사분면은 '한국 개인은 떨어지면 산다'를 전제로 읽는다. 그 전제가 이 종목에서도 맞는지 직접 계산했다.</p><p>하루 등락률과 그날 개인 순매수가 반대로 움직이는 정도를 계산하면 -0.51이다. 이 값이 0보다 작으면 '떨어지는 날에 개인이 샀다'는 뜻이고, 0보다 크면 그 반대이다.</p><p>같은 자료에서 연속 구간을 다시 뽑아 800번 계산해 보니 참값이 들어 있을 범위는 -0.62 ~ -0.44였다. 두산에너빌리티에서도 그 습관이 확인된다. 범위가 전부 0보다 작으므로 '떨어지면 산다'는 방향은 우연으로 보기 어렵다.</p><p class="vlim">⚠ 관측치 374일로 계산했다. 개인 순매수 금액은 '순매수 주수 × 종가' 환산 근사이다. 방향이 맞다는 것과 그것이 수익으로 이어진다는 것은 다른 문제이다.</p></div><div class="vbox"><h4>큰 등락은 생각보다 자주 온다</h4><p>이 페이지의 이격도(주가가 이동평균선에서 얼마나 벌어졌는지 백분율로 나타낸 값)·추세템플릿은 '평소 범위'를 정해 놓고 그 밖을 이상하다고 판정한다. 그 '평소 범위'를 정규분포로 잡으면 위험을 작게 본다.</p><p>두산에너빌리티의 하루 등락을 모아 보면 첨도가 6.0이다. 정규분포라면 3이다. 이 값이 클수록 '유난히 큰 하루'가 교과서 예상보다 자주 온다는 뜻이다.</p><p>실제로 평균에서 3표준편차 넘게 벗어난 날이 1146거래일 중 17일 있었다. 정규분포라면 3.1일이어야 한다. 5배이다.</p><p class="vlim">⚠ 그래서 '몇 표준편차'만으로 위험을 판단하지 않는다. 드물다고 계산된 일이 실제로는 드물지 않는다.</p></div><div class="vbox"><h4>여럿을 한꺼번에 볼 때의 함정</h4><p>이 사이트는 매일 21개 종목을 같은 방식으로 훑는다. 대상이 많아지면 아무 일이 없어도 그중 몇 개는 우연히 신호처럼 보인다. 주사위를 한 번 굴리면 6이 잘 안 나오지만 15번 굴리면 대개 한 번은 나온다.</p><p>두산에너빌리티에서 '떨어지는데 개인도 파는 날'(3사분면)은 전체의 7.5%였다. 이 비율이라면 어느 날이든 21종목 중 평균 1.6개는 우연히 신호가 뜬다.</p><p>한 종목에 신호가 떴다는 사실만으로는 부족하다. 그날 몇 종목이 함께 걸렸는지를 같이 보아야 우연과 구별된다.</p><p class="vlim">⚠ 종목들은 서로 붙어 움직이므로 실제 '우연 개수'는 이보다 적다. 이 값은 넘지 않아야 할 상한으로 읽는다.</p></div>
 
 <h2 id="관련-기사">관련 기사</h2>
-<div class="tblwrap"><table><thead><tr><th>날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Wed, 09 Sep</td><td>머니투데이</td><td><a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTE0wLW9nSjYwSG1vZ3lsd2VSQkp4ZXRWLVUyeTI3c1hxNjNGQ05sWXlIWTVvdS1oUmNrc2h5ZWdGbHRZLVZhdFB3ZWUwWS1QaG9IMk9hUUNWbGJwUmZOZkxwc3RSaWJ0WE950gFuQVVfeXFMTk0zX2M2eHRORmQ4aGJsV3pCWlFkR1Nia2ZZNE0tMXBhLWN5TG93TGp0b2VCNWJPTVNEc0lBYUZpQ200Y3F0RV9tazlKdVZMM0pySlpLd3lqeUpuOUtzYXAzbGN6dDZYdFpKSmIzb3c?oc=5" target="_blank" rel="noopener nofollow">원자력주, 대미 투자 기대감에 연일 상승…두산에너빌리티 5%↑ - 머니투데이</a></td></tr><tr><td class="n">Wed, 09 Sep</td><td>Investing.com 한국어</td><td><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTFBkelZIUFVNdW5aUGdSejJvSG5oQVhfd3h1LXBMNU8yLWNMdjhIMEEzUUZOT0dIR1FDbFdFX2FSMGRoMzI5Q2N4bnlVVnI4LUZsNlp4RXkxTU9scU9MczdtMGoxRWFVWGh3NXpyY3RYU1o?oc=5" target="_blank" rel="noopener nofollow">두산에너빌리티, 오늘 주가 왜 오르나</a></td></tr><tr><td class="n">Sun, 06 Sep</td><td>메트로신문</td><td><a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE9lelRjanByMFB0UmptQTRSa0RETlB6aktoTEZpVHpEc1d5RGxjMFdYWU5Kd3JERk1LX1NLT2JYRWZ3NGtjcDdYMmcySEZFX3hZbzBzOVM5bUl6aTloOTJZUQ?oc=5" target="_blank" rel="noopener nofollow">SMR 상용화 속도…두산에너빌리티 후속 수주 기대</a></td></tr><tr><td class="n">Thu, 10 Sep</td><td>CBC뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTE8yOW9HSERHbEoxT1JHZi1PTW1OWDlzUW42VXRMaVZnMkhvVEpqLU5Ka2FDd29uUlVKdlFSbElKQ1JNSUU4dnNXcDRELXFEMlc2b01yV050WWFLNzgxQUgzNl9Rb1hUeXhB?oc=5" target="_blank" rel="noopener nofollow">두산에너빌리티, 6660억원 하동복합발전 수주 재조명…주가는 장중 3%대 약세</a></td></tr><tr><td class="n">Mon, 31 Aug</td><td>채널A</td><td><a href="https://news.google.com/rss/articles/CBMiXkFVX3lxTE9PdlY2QjZ1TldJVlUtZFBQRmRmN2o3cDAxcnZfemlnRV9VYUtEc3d6d0FNX3pNcjZyOTBURnNUZG9nSWpSQkNmSjdGM0FkR2xwNDdFb01UaFZReWwtOUHSAWNBVV95cUxOaVJPTE9UQzBtQnVrYnQ0TDF1dkZ2b3dfT1FkcUdFOUtFRTlYZ0xJQWNOLWtkRk15b0dPZXhFWmJReVFsTTlPTl82alpLUkRUZ3lVdDl3bEd6TVlKd2NMSUx1Tjg?oc=5" target="_blank" rel="noopener nofollow">네팔 대홍수 현장에서 구출된 두산에너빌리티 현장소장 인터뷰 [현장영상]</a></td></tr><tr><td class="n">Mon, 31 Aug</td><td>Chosunbiz</td><td><a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxPZm5UVklvMElPLUxwempMeUg2ZzczUGdQUXN3Rlc2YjF0djlJTE05TWdfS19tTjdWNjBSX1hGOC1uX3pIQ18xdWhfdkYzc3lNWktTaDJ4eTE4RUZXZlF0T0ZqYU9GS2Rhemx5LWpBa0lYcy1QRXg1QnVCVkhRWmNTemNHY2nSAZgBQVVfeXFMT2xrM01EVUFfRk9CRXZoOVJvZVAwcnJ1eWdmYVNHRVMtcGVIMkpIVzVMTFh2N0xDemE0WVV2bVpWN1ZseWhwYUE2UHd2WHNfMHVmNElOOWV1NmNQZ3ZGc0RHc0ZJb09RT2h6bVlZQTcwc1Z4Z0NoUmN6bTJEOFZPdjFuUGVOdTZBenlIQ0dzOENDTHZBamlNM0I?oc=5" target="_blank" rel="noopener nofollow">두산에너빌리티 네팔 구조 근로자 9명 귀국… 현장소장은 잔류 - 조선비즈</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-09-10 기준. 「두산에너빌리티」 로 찾았고 제목에 그 말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 무관하며 서로 어긋날 수 있다.</p>
+<div class="tblwrap"><table><thead><tr><th>날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Wed, 09 Sep</td><td>머니투데이</td><td><a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTE0wLW9nSjYwSG1vZ3lsd2VSQkp4ZXRWLVUyeTI3c1hxNjNGQ05sWXlIWTVvdS1oUmNrc2h5ZWdGbHRZLVZhdFB3ZWUwWS1QaG9IMk9hUUNWbGJwUmZOZkxwc3RSaWJ0WE950gFuQVVfeXFMTk0zX2M2eHRORmQ4aGJsV3pCWlFkR1Nia2ZZNE0tMXBhLWN5TG93TGp0b2VCNWJPTVNEc0lBYUZpQ200Y3F0RV9tazlKdVZMM0pySlpLd3lqeUpuOUtzYXAzbGN6dDZYdFpKSmIzb3c?oc=5" target="_blank" rel="noopener nofollow">원자력주, 대미 투자 기대감에 연일 상승…두산에너빌리티 5%↑ - 머니투데이</a></td></tr><tr><td class="n">Thu, 10 Sep</td><td>빅데이터뉴스</td><td><a href="https://news.google.com/rss/articles/CBMifEFVX3lxTE1IZ19wYTNxalNfXzNDU3hnTXRtbE9OVnlZcWc2WjZOR2xENGdJcEt5Z1FsWkZYeG8zbm5nNFVhaVZGblJ3cXBWSUJvR2o3T1lBR1RleFlsNFNGLUpTc0xVbVZ6N2w4djU2NFU0QkpySHN4X29DbmFXRENCYlo?oc=5" target="_blank" rel="noopener nofollow">HD현대重, SMR 주기기 제작 사업 본격화…두산에너빌리티와 원전 시장 경쟁</a></td></tr><tr><td class="n">Fri, 04 Sep</td><td>v.daum.net</td><td><a href="https://news.google.com/rss/articles/CBMiT0FVX3lxTE5mSEM2UmJHNk1ONWpHRHZ0Y0xjd3NXc1ZIbjNjbkhnN2dQdHZJblNLcXZIRGxjWl9pa0lLc3JHM1RIR2ZOWjNXX2piVmM2cWM?oc=5" target="_blank" rel="noopener nofollow">두산에너빌리티 주가 둘러싼 &#x27;세가지 변수&#x27; [B급기자의 B급리포트]</a></td></tr><tr><td class="n">Fri, 28 Aug</td><td>비즈니스포스트</td><td><a href="https://news.google.com/rss/articles/CBMic0FVX3lxTE93YTFCLWhRN0RBZE1xdTg1bjMzTkFvblA5ZnozMG0tVm9XX0NITlNfWFVmQ0VXOFctTlM2aFFhcUJjeVc1aFFwSzRLTWgyRlppMnl5bWh2em9kbHg1eE11T3pEclFzdVoxbGNGSXU2aWEzYTQ?oc=5" target="_blank" rel="noopener nofollow">네팔 수력발전소 임시 대피소에 고립됐던 두산에너빌리티 근로자 10명 구조</a></td></tr><tr><td class="n">Mon, 31 Aug</td><td>채널A</td><td><a href="https://news.google.com/rss/articles/CBMiXkFVX3lxTE9PdlY2QjZ1TldJVlUtZFBQRmRmN2o3cDAxcnZfemlnRV9VYUtEc3d6d0FNX3pNcjZyOTBURnNUZG9nSWpSQkNmSjdGM0FkR2xwNDdFb01UaFZReWwtOUHSAWNBVV95cUxOaVJPTE9UQzBtQnVrYnQ0TDF1dkZ2b3dfT1FkcUdFOUtFRTlYZ0xJQWNOLWtkRk15b0dPZXhFWmJReVFsTTlPTl82alpLUkRUZ3lVdDl3bEd6TVlKd2NMSUx1Tjg?oc=5" target="_blank" rel="noopener nofollow">네팔 대홍수 현장에서 구출된 두산에너빌리티 현장소장 인터뷰 [현장영상]</a></td></tr><tr><td class="n">Wed, 09 Sep</td><td>kr.investing.com</td><td><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTFBkelZIUFVNdW5aUGdSejJvSG5oQVhfd3h1LXBMNU8yLWNMdjhIMEEzUUZOT0dIR1FDbFdFX2FSMGRoMzI5Q2N4bnlVVnI4LUZsNlp4RXkxTU9scU9MczdtMGoxRWFVWGh3NXpyY3RYU1o?oc=5" target="_blank" rel="noopener nofollow">두산에너빌리티, 오늘 주가 왜 오르나</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-09-10 기준. 「두산에너빌리티」 로 찾았고 제목에 그 말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 무관하며 서로 어긋날 수 있다.</p>
 
 <h2 id="실적-dart">실적 (DART)</h2>
 

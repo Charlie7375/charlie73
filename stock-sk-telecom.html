@@ -305,30 +305,6 @@ a.card:focus-visible,.lst-i:focus-visible{
 .site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
   background:color-mix(in srgb,var(--text) 6%,transparent)}
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END */
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 
 .dim{color:var(--mut,#94a3b8)}
 .b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
@@ -384,6 +360,30 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .hchg .ar{white-space:nowrap}
 .to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
 @media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
+/* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END */
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 /*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
@@ -891,7 +891,7 @@ window.__qbRegister=function(){echarts.registerTheme('charlie', {"color": ["#d21
 </style><div class="vbox"><h4>개인은 정말 '떨어지면 사는가'</h4><p>위 사분면은 '한국 개인은 떨어지면 산다'를 전제로 읽는다. 그 전제가 이 종목에서도 맞는지 직접 계산했다.</p><p>하루 등락률과 그날 개인 순매수가 반대로 움직이는 정도를 계산하면 -0.19이다. 이 값이 0보다 작으면 '떨어지는 날에 개인이 샀다'는 뜻이고, 0보다 크면 그 반대이다.</p><p>같은 자료에서 연속 구간을 다시 뽑아 800번 계산해 보니 참값이 들어 있을 범위는 -0.49 ~ +0.10였다. SK텔레콤에서는 방향을 단정할 수 없다. 범위가 0을 걸치고 있다. 이 종목의 개인은 '떨어지면 산다'고 잘라 말하기 어렵다.</p><p class="vlim">⚠ 관측치 374일로 계산했다. 개인 순매수 금액은 '순매수 주수 × 종가' 환산 근사이다. 방향이 맞다는 것과 그것이 수익으로 이어진다는 것은 다른 문제이다.</p></div><div class="vbox"><h4>큰 등락은 생각보다 자주 온다</h4><p>이 페이지의 이격도(주가가 이동평균선에서 얼마나 벌어졌는지 백분율로 나타낸 값)·추세템플릿은 '평소 범위'를 정해 놓고 그 밖을 이상하다고 판정한다. 그 '평소 범위'를 정규분포로 잡으면 위험을 작게 본다.</p><p>SK텔레콤의 하루 등락을 모아 보면 첨도가 18.6이다. 정규분포라면 3이다. 이 값이 클수록 '유난히 큰 하루'가 교과서 예상보다 자주 온다는 뜻이다.</p><p>실제로 평균에서 3표준편차 넘게 벗어난 날이 1146거래일 중 20일 있었다. 정규분포라면 3.1일이어야 한다. 6배이다.</p><p class="vlim">⚠ 그래서 '몇 표준편차'만으로 위험을 판단하지 않는다. 드물다고 계산된 일이 실제로는 드물지 않는다.</p></div><div class="vbox"><h4>여럿을 한꺼번에 볼 때의 함정</h4><p>이 사이트는 매일 21개 종목을 같은 방식으로 훑는다. 대상이 많아지면 아무 일이 없어도 그중 몇 개는 우연히 신호처럼 보인다. 주사위를 한 번 굴리면 6이 잘 안 나오지만 15번 굴리면 대개 한 번은 나온다.</p><p>SK텔레콤에서 '떨어지는데 개인도 파는 날'(3사분면)은 전체의 11.8%였다. 이 비율이라면 어느 날이든 21종목 중 평균 2.5개는 우연히 신호가 뜬다.</p><p>한 종목에 신호가 떴다는 사실만으로는 부족하다. 그날 몇 종목이 함께 걸렸는지를 같이 보아야 우연과 구별된다.</p><p class="vlim">⚠ 종목들은 서로 붙어 움직이므로 실제 '우연 개수'는 이보다 적다. 이 값은 넘지 않아야 할 상한으로 읽는다.</p></div>
 
 <h2 id="관련-기사">관련 기사</h2>
-<div class="tblwrap"><table><thead><tr><th>날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Thu, 10 Sep</td><td>연합인포맥스</td><td><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTE8teDRKemxraWNSSm83ZmEzX2JfY1VfdGdJQUdJaF9kQnc5aTU5RlVIQ1R6ZXBCdjdQdjJXZlh2bkNjanM0WmVnX2xXYkhDRk9pT2M1WU1NSk1aRm9QNWdfSzltT3RBXzV3anhqd2hwSDc?oc=5" target="_blank" rel="noopener nofollow">신한·하나카드, &#x27;모두의 AI&#x27; SK텔레콤 컨소시엄 참여</a></td></tr><tr><td class="n">Wed, 09 Sep</td><td>미주중앙일보</td><td><a href="https://news.google.com/rss/articles/CBMiYkFVX3lxTE05RExpRXBHQjd0T2M0WjduUmswS3plQUlLLVZnNGhFV01YTFdNNXNJUjFpZUpGdnpwZDJtbkZDWldkUEQ5X29qRzhfMFVQcmc1VHVmZzNzb2p0N1pqalRONm53?oc=5" target="_blank" rel="noopener nofollow">[더버터] SK텔레콤 ‘스케치 콘서트’ 21일 개최사회적가치페스타서 사회문제 해법 공유</a></td></tr><tr><td class="n">Tue, 08 Sep</td><td>빅데이터뉴스</td><td><a href="https://news.google.com/rss/articles/CBMifEFVX3lxTFBiNUZVTmFVS1BPQ1lDelNhdWpYU0R2MVlhamZVc1pqeVcxZDNwZXo1WnJXQm93SlFWdHZNdkJGWWtJX2tTVy1TODBpNk5IMWZqYWtVeF9sQU1hNGhPNDVSYlNMLTM2S0hubGxWSUxzRVNrNlFYbUNDY2wzcW8?oc=5" target="_blank" rel="noopener nofollow">KT, 통신 상장기업 브랜드평판 9월 빅데이터 1위...SK텔레콤·LGU+ 순</a></td></tr><tr><td class="n">Wed, 09 Sep</td><td>에너지신문</td><td><a href="https://news.google.com/rss/articles/CBMickFVX3lxTE5BVWVwU21fTEhvZGhqUU1HMzJiM2JUYjdTVkR2UW9LNUN1bkcxNFJQU2tRZml6UkVXVmpuQ0FJOEdFclk3bHpMcU5HZk50dzZXMF9wOFBJc3JLT3VzYWRIOFBaUXFLOFpOc3FVMDhzM1pkQQ?oc=5" target="_blank" rel="noopener nofollow">통신 상장기업 2026년 9월 브랜드평판... KT, SK텔레콤, LG유플러스 順</a></td></tr><tr><td class="n">Wed, 09 Sep</td><td>뉴스핌</td><td><a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTE5YbzJjaWM0VWVpNVlOMU9ra00wUkk0SmpJQXhOWW5Nb0h4NmJkYUp1MG1kNTNhWGdSMXhOUVg4ckIxMWh5TnJNSld6aDZRNEhGaVdlc192d2psQ2V0?oc=5" target="_blank" rel="noopener nofollow">[모닝 리포트] &quot;SK텔레콤, 데이터센터 확대…배당 재원 확대 기대&quot;</a></td></tr><tr><td class="n">Tue, 08 Sep</td><td>한국경제</td><td><a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE5vRDdkX3Ftano1TlJlT0pYS1I0MmlYdXBWSnhOcnE1TnhZUHVHZTZpeW9WcUNRcjFqalZKNXp4X25ONU15RFhzOThPbW5YcWNGeUpKR3J0SmRwdw?oc=5" target="_blank" rel="noopener nofollow">&quot;SK텔레콤, 2032년 데이터센터 이익 1조 전망&quot;-하나</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-09-10 기준. 「SK텔레콤」 로 찾았고 제목에 그 말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 무관하며 서로 어긋날 수 있다.</p>
+<div class="tblwrap"><table><thead><tr><th>날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Wed, 09 Sep</td><td>미주중앙일보</td><td><a href="https://news.google.com/rss/articles/CBMiYkFVX3lxTE05RExpRXBHQjd0T2M0WjduUmswS3plQUlLLVZnNGhFV01YTFdNNXNJUjFpZUpGdnpwZDJtbkZDWldkUEQ5X29qRzhfMFVQcmc1VHVmZzNzb2p0N1pqalRONm53?oc=5" target="_blank" rel="noopener nofollow">[더버터] SK텔레콤 ‘스케치 콘서트’ 21일 개최사회적가치페스타서 사회문제 해법 공유</a></td></tr><tr><td class="n">Thu, 10 Sep</td><td>메트로신문</td><td><a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE9ZaEJEOWlrLWstcWo5UnEtRTZUd2RoenA5NmdpSjAwOVR0aWF4ZHRpQmw4VmVNZUVuVDkwbWFXUVRsU2lRTzdiblBHX1NIdUl1cFdUeGUzaEhFRU9UcTJxXw?oc=5" target="_blank" rel="noopener nofollow">[메트로 창간 24주년 기획_리부트코리아] &#x27;통신 강자&#x27; SK텔레콤, AI 기업으로 재탄생</a></td></tr><tr><td class="n">Tue, 08 Sep</td><td>한국경제</td><td><a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE5vRDdkX3Ftano1TlJlT0pYS1I0MmlYdXBWSnhOcnE1TnhZUHVHZTZpeW9WcUNRcjFqalZKNXp4X25ONU15RFhzOThPbW5YcWNGeUpKR3J0SmRwdw?oc=5" target="_blank" rel="noopener nofollow">&quot;SK텔레콤, 2032년 데이터센터 이익 1조 전망&quot;-하나</a></td></tr><tr><td class="n">Wed, 09 Sep</td><td>에너지신문</td><td><a href="https://news.google.com/rss/articles/CBMickFVX3lxTE5BVWVwU21fTEhvZGhqUU1HMzJiM2JUYjdTVkR2UW9LNUN1bkcxNFJQU2tRZml6UkVXVmpuQ0FJOEdFclk3bHpMcU5HZk50dzZXMF9wOFBJc3JLT3VzYWRIOFBaUXFLOFpOc3FVMDhzM1pkQQ?oc=5" target="_blank" rel="noopener nofollow">통신 상장기업 2026년 9월 브랜드평판... KT, SK텔레콤, LG유플러스 順</a></td></tr><tr><td class="n">Thu, 10 Sep</td><td>연합인포맥스</td><td><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTE8teDRKemxraWNSSm83ZmEzX2JfY1VfdGdJQUdJaF9kQnc5aTU5RlVIQ1R6ZXBCdjdQdjJXZlh2bkNjanM0WmVnX2xXYkhDRk9pT2M1WU1NSk1aRm9QNWdfSzltT3RBXzV3anhqd2hwSDc?oc=5" target="_blank" rel="noopener nofollow">신한·하나카드, &#x27;모두의 AI&#x27; SK텔레콤 컨소시엄 참여</a></td></tr><tr><td class="n">Thu, 10 Sep</td><td>백세시대</td><td><a href="https://news.google.com/rss/articles/CBMia0FVX3lxTE1KXy1fZ29hQWEzeUR1ZWR1cWlfT0k4Q2ZGcUxucGQ2Y3JhMmpDNEtLTF9pRWN5MmRsLVZJeG1vcFR3cTFFSnh6VHdBUktqTkY3ODRKcWpMcnVTS1pzWHdoUFpQVFFvMTR6ZEZZ?oc=5" target="_blank" rel="noopener nofollow">신한카드, SK텔레콤과 AI 결제 표준 구축…‘에이전트 페이’ 개발</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-09-10 기준. 「SK텔레콤」 로 찾았고 제목에 그 말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 무관하며 서로 어긋날 수 있다.</p>
 
 <h2 id="실적-dart">실적 (DART)</h2>
 

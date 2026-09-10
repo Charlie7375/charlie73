@@ -305,30 +305,6 @@ a.card:focus-visible,.lst-i:focus-visible{
 .site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
   background:color-mix(in srgb,var(--text) 6%,transparent)}
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END */
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 
 .dim{color:var(--mut,#94a3b8)}
 .b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
@@ -384,6 +360,30 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .hchg .ar{white-space:nowrap}
 .to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
 @media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
+/* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END */
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 /*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
@@ -891,7 +891,7 @@ window.__qbRegister=function(){echarts.registerTheme('charlie', {"color": ["#d21
 </style><div class="vbox"><h4>개인은 정말 '떨어지면 사는가'</h4><p>위 사분면은 '한국 개인은 떨어지면 산다'를 전제로 읽는다. 그 전제가 이 종목에서도 맞는지 직접 계산했다.</p><p>하루 등락률과 그날 개인 순매수가 반대로 움직이는 정도를 계산하면 -0.43이다. 이 값이 0보다 작으면 '떨어지는 날에 개인이 샀다'는 뜻이고, 0보다 크면 그 반대이다.</p><p>같은 자료에서 연속 구간을 다시 뽑아 800번 계산해 보니 참값이 들어 있을 범위는 -0.61 ~ -0.33였다. 원익IPS에서도 그 습관이 확인된다. 범위가 전부 0보다 작으므로 '떨어지면 산다'는 방향은 우연으로 보기 어렵다.</p><p class="vlim">⚠ 관측치 374일로 계산했다. 개인 순매수 금액은 '순매수 주수 × 종가' 환산 근사이다. 방향이 맞다는 것과 그것이 수익으로 이어진다는 것은 다른 문제이다.</p></div><div class="vbox"><h4>큰 등락은 생각보다 자주 온다</h4><p>이 페이지의 이격도(주가가 이동평균선에서 얼마나 벌어졌는지 백분율로 나타낸 값)·추세템플릿은 '평소 범위'를 정해 놓고 그 밖을 이상하다고 판정한다. 그 '평소 범위'를 정규분포로 잡으면 위험을 작게 본다.</p><p>원익IPS의 하루 등락을 모아 보면 첨도가 14.4이다. 정규분포라면 3이다. 이 값이 클수록 '유난히 큰 하루'가 교과서 예상보다 자주 온다는 뜻이다.</p><p>실제로 평균에서 3표준편차 넘게 벗어난 날이 1144거래일 중 24일 있었다. 정규분포라면 3.1일이어야 한다. 8배이다.</p><p class="vlim">⚠ 그래서 '몇 표준편차'만으로 위험을 판단하지 않는다. 드물다고 계산된 일이 실제로는 드물지 않는다.</p></div><div class="vbox"><h4>여럿을 한꺼번에 볼 때의 함정</h4><p>이 사이트는 매일 21개 종목을 같은 방식으로 훑는다. 대상이 많아지면 아무 일이 없어도 그중 몇 개는 우연히 신호처럼 보인다. 주사위를 한 번 굴리면 6이 잘 안 나오지만 15번 굴리면 대개 한 번은 나온다.</p><p>원익IPS에서 '떨어지는데 개인도 파는 날'(3사분면)은 전체의 18.4%였다. 이 비율이라면 어느 날이든 21종목 중 평균 3.9개는 우연히 신호가 뜬다.</p><p>한 종목에 신호가 떴다는 사실만으로는 부족하다. 그날 몇 종목이 함께 걸렸는지를 같이 보아야 우연과 구별된다.</p><p class="vlim">⚠ 종목들은 서로 붙어 움직이므로 실제 '우연 개수'는 이보다 적다. 이 값은 넘지 않아야 할 상한으로 읽는다.</p></div>
 
 <h2 id="관련-기사">관련 기사</h2>
-<div class="tblwrap"><table><thead><tr><th>날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Thu, 10 Sep</td><td>아시아뉴스통신</td><td><a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTE5sTjdKdmhCdUYxeFFWSEtUNW9SMDgtRi1tWHRSNmtTUk5pZWZOZXM0UU1JLUNHS2xES2R6TEZnOHVkT1R2S0JSM0t5RWdWQjFYbUkyaDQ0clczVHV3?oc=5" target="_blank" rel="noopener nofollow">원익ips 주가 하락 중</a></td></tr><tr><td class="n">Tue, 08 Sep</td><td>씽크풀 AI</td><td><a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTE8yUE00bXh2QmM4Y3l4RVJCbTQwclV1WmxKOHd3Y1ZBaGJ3eXRFQ3QxRDhoeGtoZjY2Y2ZJMlZIQnhzQWN3QV94ZmJqU1JSUXpiQnJ3eTFuekllZENvMXFQNTJfbGJqR3U0?oc=5" target="_blank" rel="noopener nofollow">14일, 기관 코스닥에서 원익IPS(+1.84%), 브이엠(+18.98%) 등 순매수</a></td></tr><tr><td class="n">Fri, 04 Sep</td><td>머니투데이</td><td><a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTE5vbml4VXdIcDBoQk9KQWxOdUE2WDR6MjVJUC16c2lVb0pjN2Y3MjNmemNSdE56cWFoWkFxVzZhejdCWkR3SWJNdnM3d0F2b0V3UWFUN2pmOWtCbGRnRW5DRk9SNDBXOXh60gFuQVVfeXFMUDdFZnMwMERYX1BkMG9mQ01NdmV2Y2tab0padEFQU1hIa00yUGQ2RU1FNXlaS2VqWFlSOFBia3FSbjBLWUhvWFh0NzRaUE0tN3VaVUdsX3ZUNm5obDJxOWdDWkZFbmVtdXk4d0lzSUE?oc=5" target="_blank" rel="noopener nofollow">[고래사냥] &#x27;원익IPS·한미반도체·애경케미칼! 내일장 고래 종목은?! - 머니투데이</a></td></tr><tr><td class="n">Fri, 04 Sep</td><td>v.daum.net</td><td><a href="https://news.google.com/rss/articles/CBMiRkFVX3lxTE1qV1BvZDBnRDM3UWF5WU1qWXl4ZzB1X2lhSDFQNzVuR3dTZk5LWm5YUWF4NDB4X003YkhHb1JORlQtVEJKb2c?oc=5" target="_blank" rel="noopener nofollow">[고래사냥] &#x27;원익IPS·한미반도체·애경케미칼! 내일장 고래 종목은?!</a></td></tr><tr><td class="n">Tue, 08 Sep</td><td>톱스타뉴스</td><td><a href="https://news.google.com/rss/articles/CBMickFVX3lxTE1rT1ZUWlhuRHJQaW1SNGptQnVLMHhrQVNmZGtfdHZZUFlXcXVpeENPQjdFVDBhT3YxbGJXV2l5bzlkMnBzZWFyQlpmWWV6OXA4bVNpMGJEUUswblcxckRDT1dWWTFuV3NiemttSk52THQ5dw?oc=5" target="_blank" rel="noopener nofollow">원익IPS 주가, 9월 8일 115,800원 1.53% 하락 마감</a></td></tr><tr><td class="n">Fri, 04 Sep</td><td>MTN 머니투데이방송</td><td><a href="https://news.google.com/rss/articles/CBMiZEFVX3lxTFB6Z1lhZWlFdndlWFRwend6YmpSbTBRQzF6eDFTM2xRQzZNWE5JLWVaN3h3eVR6OFI4THNJX256dVBYVWx2XzYyeW1yZk1iWWJhOXJOWUpZUTJSWFMyUjBWTkJHNHE?oc=5" target="_blank" rel="noopener nofollow">[고래사냥] &#x27;원익IPS·한미반도체·애경케미칼! 내일장 고래 종목은?!</a></td></tr><tr><td class="n">Fri, 28 Nov</td><td>디일렉</td><td><a href="https://news.google.com/rss/articles/CBMiZkFVX3lxTE0xNzlHTEN0bTd0aEhmTUtmLXZCcVJkbVlhaWlBRm5JLXE5N3JjNVM1ZDFCcG5TeFBrZ2g2a0pReVplV1JwU1FQYmZwOEQ1aHhfd1U3QkM3R0ZNWDU1RTJpNXhlMVlxdw?oc=5" target="_blank" rel="noopener nofollow">&quot;2026년 AI 칩 트렌드 TPU·AMD·중국&quot;...트렌드포스</a></td></tr><tr><td class="n">Mon, 08 Dec</td><td>디일렉</td><td><a href="https://news.google.com/rss/articles/CBMiZkFVX3lxTFBoX2ZsNlFURklxekNWbkNIbE9OQU1WVWoxektVSFdUT19jTWhkQ3Y1YXp4ZzBydXBVd3FlajNmN1J0T1oyemJyZHBBWk9WRkNvNnZaOUVLMVlsdEt3LTU3dkdmWDVqQQ?oc=5" target="_blank" rel="noopener nofollow">트렌드포스 &quot;4분기 eSSD 시장 매출, 역대 최대 가능성&quot;</a></td></tr><tr><td class="n">Fri, 25 Jul</td><td>디일렉</td><td><a href="https://news.google.com/rss/articles/CBMiZkFVX3lxTE94UUFXQjVYbzhFY1Fac3ZmSVp6TWZacGhLRWszS3BqV1BXXzYtYkFGaVY3Skc0UXQxNHpCNlJWZWk5VUdvcDZNUm9KRzlFbXFtcGxCUnBDS0ljWGVMazFleGpMbzl0QQ?oc=5" target="_blank" rel="noopener nofollow">트렌드포스 &quot;올해 엔비디아 고급 GPU 80% 이상 블랙웰&quot;</a></td></tr><tr><td class="n">Sun, 07 Jul</td><td>전자신문</td><td><a href="https://news.google.com/rss/articles/CBMiTkFVX3lxTFA3RVN4ZlZUV2RsazZ2aWVaWnlmYWc2d2MwOE05cGN5M2VraWhSQVRTang5Z0t6NTVqZ2VnN09VbEVHdC0yX2RjN3p4TjdxZw?oc=5" target="_blank" rel="noopener nofollow">“&#x27;FO-PLP&#x27; 적용 AI 반도체 칩, 2027~2028년 대량 양산”…트렌드포스 전망</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-09-10 기준. 「원익IPS」 로 찾았고 제목에 그 말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 무관하며 서로 어긋날 수 있다.</p>
+<div class="tblwrap"><table><thead><tr><th>날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Thu, 10 Sep</td><td>topstarnews.net</td><td><a href="https://news.google.com/rss/articles/CBMickFVX3lxTE8wSlhJa3V5SmFQSm55Vlo4S1l4aXNzM1dqa1NRZU5KY3lTaG5DeFdOdDVscWkzWEJ1cVVrYWsxOU1Ebmt6UGZfMnFSRHRneHpwMnNfb2ZfcEp5azVPd2hLbmtudHN1djgxbFJIbVY1c1dkUQ?oc=5" target="_blank" rel="noopener nofollow">원익IPS 주가, 9월 10일 118,800원 1.08% 하락 마감</a></td></tr><tr><td class="n">Thu, 10 Sep</td><td>핀포인트뉴스</td><td><a href="https://news.google.com/rss/articles/CBMic0FVX3lxTE95cWNWQzkxaHd1TXAxcm9QX3piUVRtUWdaYUhXcnJraV9fdWd0dG9rcmVtVldkNGpRXzVvYW54UktGY21lYVJ2Wi14cFJUZi1OSDdVSVQ0eEg2bzhValRNdFhFREFuR05udFpDUG9rS2UxWk3SAXdBVV95cUxQbUdicVd4Nm1fVWZUVUhSc0VTMWlIcXRiRXBBMl85V3N2M0tYcFM5cldIYlNxanh2bGI5blJKSEFaRlVHbWVMc05WTHRlTUg0MmV2ZnhaeEUzYzZjVko0Mk5rMWEwa1FxM0ota1JuQ2syNlRDSGJHSQ?oc=5" target="_blank" rel="noopener nofollow">[코스닥 기관] 반도체주 쓸어 담았다…주성엔지니어링·테스·원익IPS 집중 매수</a></td></tr><tr><td class="n">Thu, 10 Sep</td><td>anewsa.com</td><td><a href="https://news.google.com/rss/articles/CBMidEFVX3lxTE16VjhwbWhiaXZWX1h4cms4WW9vbFlFNEljTHRFREJycURaeVlmZ3p3OU5Wa2tvODZrb0hNT29KeS1IU3dTZEdzNjBLZVhNUWZHSkpUQWlmQzRGcU9BYk1VNmVZTU1TTGtpMDNKMGNwOF9ibkhq?oc=5" target="_blank" rel="noopener nofollow">원익ips 주가 하락 중</a></td></tr><tr><td class="n">Tue, 08 Sep</td><td>씽크풀 AI</td><td><a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTE8yUE00bXh2QmM4Y3l4RVJCbTQwclV1WmxKOHd3Y1ZBaGJ3eXRFQ3QxRDhoeGtoZjY2Y2ZJMlZIQnhzQWN3QV94ZmJqU1JSUXpiQnJ3eTFuekllZENvMXFQNTJfbGJqR3U0?oc=5" target="_blank" rel="noopener nofollow">14일, 기관 코스닥에서 원익IPS(+1.84%), 브이엠(+18.98%) 등 순매수</a></td></tr><tr><td class="n">Fri, 04 Sep</td><td>머니투데이</td><td><a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTE5vbml4VXdIcDBoQk9KQWxOdUE2WDR6MjVJUC16c2lVb0pjN2Y3MjNmemNSdE56cWFoWkFxVzZhejdCWkR3SWJNdnM3d0F2b0V3UWFUN2pmOWtCbGRnRW5DRk9SNDBXOXh60gFuQVVfeXFMUDdFZnMwMERYX1BkMG9mQ01NdmV2Y2tab0padEFQU1hIa00yUGQ2RU1FNXlaS2VqWFlSOFBia3FSbjBLWUhvWFh0NzRaUE0tN3VaVUdsX3ZUNm5obDJxOWdDWkZFbmVtdXk4d0lzSUE?oc=5" target="_blank" rel="noopener nofollow">[고래사냥] &#x27;원익IPS·한미반도체·애경케미칼! 내일장 고래 종목은?! - 머니투데이</a></td></tr><tr><td class="n">Fri, 04 Sep</td><td>v.daum.net</td><td><a href="https://news.google.com/rss/articles/CBMiRkFVX3lxTE1qV1BvZDBnRDM3UWF5WU1qWXl4ZzB1X2lhSDFQNzVuR3dTZk5LWm5YUWF4NDB4X003YkhHb1JORlQtVEJKb2c?oc=5" target="_blank" rel="noopener nofollow">[고래사냥] &#x27;원익IPS·한미반도체·애경케미칼! 내일장 고래 종목은?!</a></td></tr><tr><td class="n">Fri, 28 Nov</td><td>디일렉</td><td><a href="https://news.google.com/rss/articles/CBMiZkFVX3lxTE0xNzlHTEN0bTd0aEhmTUtmLXZCcVJkbVlhaWlBRm5JLXE5N3JjNVM1ZDFCcG5TeFBrZ2g2a0pReVplV1JwU1FQYmZwOEQ1aHhfd1U3QkM3R0ZNWDU1RTJpNXhlMVlxdw?oc=5" target="_blank" rel="noopener nofollow">&quot;2026년 AI 칩 트렌드 TPU·AMD·중국&quot;...트렌드포스</a></td></tr><tr><td class="n">Mon, 08 Dec</td><td>디일렉</td><td><a href="https://news.google.com/rss/articles/CBMiZkFVX3lxTFBoX2ZsNlFURklxekNWbkNIbE9OQU1WVWoxektVSFdUT19jTWhkQ3Y1YXp4ZzBydXBVd3FlajNmN1J0T1oyemJyZHBBWk9WRkNvNnZaOUVLMVlsdEt3LTU3dkdmWDVqQQ?oc=5" target="_blank" rel="noopener nofollow">트렌드포스 &quot;4분기 eSSD 시장 매출, 역대 최대 가능성&quot;</a></td></tr><tr><td class="n">Fri, 25 Jul</td><td>디일렉</td><td><a href="https://news.google.com/rss/articles/CBMiZkFVX3lxTE94UUFXQjVYbzhFY1Fac3ZmSVp6TWZacGhLRWszS3BqV1BXXzYtYkFGaVY3Skc0UXQxNHpCNlJWZWk5VUdvcDZNUm9KRzlFbXFtcGxCUnBDS0ljWGVMazFleGpMbzl0QQ?oc=5" target="_blank" rel="noopener nofollow">트렌드포스 &quot;올해 엔비디아 고급 GPU 80% 이상 블랙웰&quot;</a></td></tr><tr><td class="n">Sun, 07 Jul</td><td>전자신문</td><td><a href="https://news.google.com/rss/articles/CBMiTkFVX3lxTFA3RVN4ZlZUV2RsazZ2aWVaWnlmYWc2d2MwOE05cGN5M2VraWhSQVRTang5Z0t6NTVqZ2VnN09VbEVHdC0yX2RjN3p4TjdxZw?oc=5" target="_blank" rel="noopener nofollow">“&#x27;FO-PLP&#x27; 적용 AI 반도체 칩, 2027~2028년 대량 양산”…트렌드포스 전망</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-09-10 기준. 「원익IPS」 로 찾았고 제목에 그 말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 무관하며 서로 어긋날 수 있다.</p>
 
 <h2 id="실적-dart">실적 (DART)</h2>
 

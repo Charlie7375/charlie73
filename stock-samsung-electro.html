@@ -305,30 +305,6 @@ a.card:focus-visible,.lst-i:focus-visible{
 .site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
   background:color-mix(in srgb,var(--text) 6%,transparent)}
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END */
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 
 .dim{color:var(--mut,#94a3b8)}
 .b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
@@ -384,6 +360,30 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .hchg .ar{white-space:nowrap}
 .to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
 @media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
+/* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END */
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 /*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
@@ -891,7 +891,7 @@ window.__qbRegister=function(){echarts.registerTheme('charlie', {"color": ["#d21
 </style><div class="vbox"><h4>개인은 정말 '떨어지면 사는가'</h4><p>위 사분면은 '한국 개인은 떨어지면 산다'를 전제로 읽는다. 그 전제가 이 종목에서도 맞는지 직접 계산했다.</p><p>하루 등락률과 그날 개인 순매수가 반대로 움직이는 정도를 계산하면 -0.42이다. 이 값이 0보다 작으면 '떨어지는 날에 개인이 샀다'는 뜻이고, 0보다 크면 그 반대이다.</p><p>같은 자료에서 연속 구간을 다시 뽑아 800번 계산해 보니 참값이 들어 있을 범위는 -0.53 ~ -0.28였다. 삼성전기에서도 그 습관이 확인된다. 범위가 전부 0보다 작으므로 '떨어지면 산다'는 방향은 우연으로 보기 어렵다.</p><p class="vlim">⚠ 관측치 374일로 계산했다. 개인 순매수 금액은 '순매수 주수 × 종가' 환산 근사이다. 방향이 맞다는 것과 그것이 수익으로 이어진다는 것은 다른 문제이다.</p></div><div class="vbox"><h4>큰 등락은 생각보다 자주 온다</h4><p>이 페이지의 이격도(주가가 이동평균선에서 얼마나 벌어졌는지 백분율로 나타낸 값)·추세템플릿은 '평소 범위'를 정해 놓고 그 밖을 이상하다고 판정한다. 그 '평소 범위'를 정규분포로 잡으면 위험을 작게 본다.</p><p>삼성전기의 하루 등락을 모아 보면 첨도가 13.6이다. 정규분포라면 3이다. 이 값이 클수록 '유난히 큰 하루'가 교과서 예상보다 자주 온다는 뜻이다.</p><p>실제로 평균에서 3표준편차 넘게 벗어난 날이 1146거래일 중 25일 있었다. 정규분포라면 3.1일이어야 한다. 8배이다.</p><p class="vlim">⚠ 그래서 '몇 표준편차'만으로 위험을 판단하지 않는다. 드물다고 계산된 일이 실제로는 드물지 않는다.</p></div><div class="vbox"><h4>여럿을 한꺼번에 볼 때의 함정</h4><p>이 사이트는 매일 21개 종목을 같은 방식으로 훑는다. 대상이 많아지면 아무 일이 없어도 그중 몇 개는 우연히 신호처럼 보인다. 주사위를 한 번 굴리면 6이 잘 안 나오지만 15번 굴리면 대개 한 번은 나온다.</p><p>삼성전기에서 '떨어지는데 개인도 파는 날'(3사분면)은 전체의 11.8%였다. 이 비율이라면 어느 날이든 21종목 중 평균 2.5개는 우연히 신호가 뜬다.</p><p>한 종목에 신호가 떴다는 사실만으로는 부족하다. 그날 몇 종목이 함께 걸렸는지를 같이 보아야 우연과 구별된다.</p><p class="vlim">⚠ 종목들은 서로 붙어 움직이므로 실제 '우연 개수'는 이보다 적다. 이 값은 넘지 않아야 할 상한으로 읽는다.</p></div>
 
 <h2 id="관련-기사">관련 기사</h2>
-<div class="tblwrap"><table><thead><tr><th>날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Wed, 09 Sep</td><td>경기일보</td><td><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTFBUVTNuMHIyQUY2SS1lelBBV25teE1NZV9rVlphREpBSktITG5rVlNEbFhZVk0tRzd2bFhPWDVTVjBNYUpiYy1FazlfNmM2Mi1vTk52TTFRYWN2bU0?oc=5" target="_blank" rel="noopener nofollow">삼성전기, ‘KPCA Show 2026’ 참가…차세대 패키지기판 기술 소개</a></td></tr><tr><td class="n">Wed, 09 Sep</td><td>v.daum.net</td><td><a href="https://news.google.com/rss/articles/CBMiT0FVX3lxTE9ybmYzNC1vbUNCemNocUhkYS1MRUU1WlFabHM5T25jM3RpRERIYndjcE9UZWVlamhzUFRobldYN19KWVlFWmtyN2U4T0I1NkE?oc=5" target="_blank" rel="noopener nofollow">코스피, 7000선 재탈환…두산에너빌·삼성전기↑</a></td></tr><tr><td class="n">Thu, 10 Sep</td><td>ebn.co.kr</td><td><a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTFBHbFBxUy1JR3VKTG1jT19pLUJYNlp3empOeEhma00zNTdneFlEajBSOEI1Tng1WTZBQmdGS1lKRzN6Yk1qM2tKXzZEeWpSQ3NzUFRtNG9mdzJhUkp3RkxXakpaeVUyNGto?oc=5" target="_blank" rel="noopener nofollow">[1% 초고수의 개장 선택] &#x27;TPC로보틱스&#x27; 사고 &#x27;삼성전기&#x27; 줄였다</a></td></tr><tr><td class="n">Mon, 07 Sep</td><td>뉴스핌</td><td><a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTE9qWWd0dnBiRGktWHEwM0dpVmY0TnhYNDktVkVZVXpDLTRWbmdBVHpvUHNGSEtPbTRjSVhDT0JpWDlnbXpDaVNyTm1CU0l2dFprd25OaGpMQjhnNUYt?oc=5" target="_blank" rel="noopener nofollow">유리기판 2028년으로 밀린 삼성전기…FC-BGA는 풀가동·증설</a></td></tr><tr><td class="n">Sun, 06 Sep</td><td>딜사이트</td><td><a href="https://news.google.com/rss/articles/CBMiT0FVX3lxTE43OTJIS0FpZkpTZHl1ajNES09zNjkwcU03XzRNRlppVExTNU9LMXd0a09XVHpDXzlUZEFSbEtzaHE0V1lmbUhlVUtIa1hhVFk?oc=5" target="_blank" rel="noopener nofollow">[삼성 유리기판 승부수] 삼성전기, &#x27;글라셈&#x27;으로 유리기판 양산 공급망 선점</a></td></tr><tr><td class="n">Thu, 10 Sep</td><td>더밸류뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiU0FVX3lxTE1iS3IzUWdjeUhiVGZYRzlUUXo4QVhUOFRoVmstalpLUHJ4NWZJM0V5bXRmak1NVFlPT3pJcHZqTnMzU3FNMU1mRVNXOGQ2UXpYMDc4?oc=5" target="_blank" rel="noopener nofollow">[반도체 레이더] 삼성전기·LG이노텍, &#x27;KPCA Show&#x27;서 AI 가속기·유리기판 신기술 전면 배치</a></td></tr><tr><td class="n">Wed, 05 Aug</td><td>아주경제</td><td><a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE9SQ1RJNW52a2Qzdkh4QWo2SlZGcHF4dXVsdHYwOGpRU0h2eXMyWEoydzdrOWkxdFlwcEQ0SW5DekU3WjZPdWpXR3BVM2h2aWduR3JDTFVjenpmd9IBWEFVX3lxTE1FdnlHUFVDNGRMU2JLdnk2RGJDS0JkbHhxSGZGMF9xcW1hUnNmV0NjVmlsd1BQYXZ5SERTOW9aMVdRM1Rfd1drQUd4clVERWg1LUJsajF3bGQ?oc=5" target="_blank" rel="noopener nofollow">[NNA] 트렌드포스, 전세계 AI 서버 출하량 증가율 상향 조정</a></td></tr><tr><td class="n">Sun, 31 May</td><td>테크M</td><td><a href="https://news.google.com/rss/articles/CBMiZkFVX3lxTE9vQlN0SDVlQVBqUnR0RXZ6Vm8tOVVxN2NWeFBjenlDYmc0LXlveHU3cUFnMVNLRHh4MklDNVlLS3hhT3lyRllJUXdDdVVDMENjZW16NWY5ZU90RTkzTnhMSEF0dW1pQdIBakFVX3lxTFBWVlhiVmZFV1JCa25nSXlvNVhlTTRLOE9VRGhsdzVVSkVUUWhXbDFicHQyNWNaZjBfTHhrUy10clduc0p4TUIwcTNWWW1Nc3ExQjl2YkVCc0E5a1pXMEtZdi1EaHhLdEdzOVE?oc=5" target="_blank" rel="noopener nofollow">D램·낸드, 5월 가격 강세 &#x27;여전&#x27;...트렌드포스 &#x27;공급사가 가격 결정&#x27;</a></td></tr><tr><td class="n">Sun, 26 Jul</td><td>ER 이코노믹리뷰</td><td><a href="https://news.google.com/rss/articles/CBMibEFVX3lxTFBMN3o4WFNCeEVHQXhIbHExVUJRRjZZaHoteHhiTmw1Z3JMV29nRVlISUt2VU9jSEN4NjN1SVBGU0hoOFZBWmNTY3AyX3VMT0xmTGc4dHI1VzE1U3NCY3p2eHpKQm5Bd1dMS3FiNg?oc=5" target="_blank" rel="noopener nofollow">낸드 품귀 2027년 풀릴 듯…트렌드포스 &quot;메모리 중 유일하게 안정화&quot;</a></td></tr><tr><td class="n">Fri, 03 Jul</td><td>아주경제</td><td><a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE9rM24yd0RGWVBJYjk3QzJ1aDlUS3diUVp1WFpIb1lzaFlnTTRDWXprX0dnTWNySTBwY3NqbTRVSnZOZ0U2NzVBZWFraW1TQ1dNcE9TYzZHay1VQdIBWEFVX3lxTE9qVWpQaFlHclh3OXJwb0dCSXVJVWVPeVB4VThGSUc1OXNGeWJHb1BsMWl4bGFZUEtWc3dxdUdXZWxIUkpDWU5SR0duNTFPci1QWkxTYXdMLXg?oc=5" target="_blank" rel="noopener nofollow">[NNA] 트렌드포스, 반도체 성숙 제품도 27년까지 가격 상승</a></td></tr><tr><td class="n">Mon, 06 Jul</td><td>허프포스트코리아</td><td><a href="https://news.google.com/rss/articles/CBMiV0FVX3lxTE5KWFlUUTdhUHc3dG8wUC0yOTFjZFdnYkZCUC12MUdBYVNCTFIwQTVzUjU1eEo5bmdKdUxFSm5kN2QtZWpxTWlaS0sxdFdFTUxuWlBPa085NA?oc=5" target="_blank" rel="noopener nofollow">메모리 가격 급등세 한풀 꺾일까, 시장조사기관 트렌드포스가 3분기 D램·낸드 가격 상승률 10%대로 전망</a></td></tr><tr><td class="n">Tue, 31 Mar</td><td>테크M</td><td><a href="https://news.google.com/rss/articles/CBMiZkFVX3lxTFBBeDV2YWVrbl92U0N1ak44cHVSbWJJR2hCX3ZUX1lkckJOM3djalVUTXpjM0NMZGFEckFDMWlPSGUwZGY4Y3ZlaERqbm9XdHNIbGJ1RWJ4MV85Nkk4cldiNGNIaXRnZ9IBakFVX3lxTE83TG03NWpZNTVwVWNoaXlJNXExdGhWMy1DTGpkSEVOams3MHpkSUQ1RzJRYVFJT2JlcUtqREQxNzloOFNqRG5RSC1BWUFLTzRfR25XTFFkS1o2dWV6U2F2Nm1sSjRpQVJYdXc?oc=5" target="_blank" rel="noopener nofollow">3월 메모리 가격 강세 지속...트렌드포스 &#x27;2분기도 상승&#x27;</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-09-10 기준. 「삼성전기」 로 찾았고 제목에 그 말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 무관하며 서로 어긋날 수 있다.</p>
+<div class="tblwrap"><table><thead><tr><th>날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Wed, 09 Sep</td><td>경기일보</td><td><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTFBUVTNuMHIyQUY2SS1lelBBV25teE1NZV9rVlphREpBSktITG5rVlNEbFhZVk0tRzd2bFhPWDVTVjBNYUpiYy1FazlfNmM2Mi1vTk52TTFRYWN2bU0?oc=5" target="_blank" rel="noopener nofollow">삼성전기, ‘KPCA Show 2026’ 참가…차세대 패키지기판 기술 소개</a></td></tr><tr><td class="n">Thu, 10 Sep</td><td>지디넷코리아</td><td><a href="https://news.google.com/rss/articles/CBMiVkFVX3lxTFBQT2FCVVNUZDVmU1F4T0NzWllORF9UNnBKS1lpMldwNXdPbkczZFpBS3ByX1NacU4xTURIcE11OGhmTWVUTUtUa0hIdlQ1emJiUDZDWWNn?oc=5" target="_blank" rel="noopener nofollow">삼성SDI도 성과급 &#x27;영업익 10%&#x27;로…삼성전자·삼성전기 후속</a></td></tr><tr><td class="n">Thu, 10 Sep</td><td>팝콘뉴스</td><td><a href="https://news.google.com/rss/articles/CBMibkFVX3lxTFBxci1TR2tneG5wRVQ5N042NWJwbnpsSU44Vnk1cFYxZC1ZaVR6UXQ3TmtBNDc0OXFsLVJZcWNVLUgycU1ZTnhLaDZrUG5BalN1dDRDSlRhM3FSZnBwUUhKcUpjUTZXMlNQcTFYTml3?oc=5" target="_blank" rel="noopener nofollow">&quot;삼성 반도체만 좋은거 아니다&quot;...삼성전기, MLCC로 내년 매출 8조 넘본다</a></td></tr><tr><td class="n">Sun, 06 Sep</td><td>dealsite.co.kr</td><td><a href="https://news.google.com/rss/articles/CBMiT0FVX3lxTE43OTJIS0FpZkpTZHl1ajNES09zNjkwcU03XzRNRlppVExTNU9LMXd0a09XVHpDXzlUZEFSbEtzaHE0V1lmbUhlVUtIa1hhVFk?oc=5" target="_blank" rel="noopener nofollow">[삼성 유리기판 승부수] 삼성전기, &#x27;글라셈&#x27;으로 유리기판 양산 공급망 선점</a></td></tr><tr><td class="n">Thu, 10 Sep</td><td>ebn.co.kr</td><td><a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTFBHbFBxUy1JR3VKTG1jT19pLUJYNlp3empOeEhma00zNTdneFlEajBSOEI1Tng1WTZBQmdGS1lKRzN6Yk1qM2tKXzZEeWpSQ3NzUFRtNG9mdzJhUkp3RkxXakpaeVUyNGto?oc=5" target="_blank" rel="noopener nofollow">[1% 초고수의 개장 선택] &#x27;TPC로보틱스&#x27; 사고 &#x27;삼성전기&#x27; 줄였다</a></td></tr><tr><td class="n">Thu, 10 Sep</td><td>대전인터넷신문</td><td><a href="https://news.google.com/rss/articles/CBMiTkFVX3lxTE5ETy0tSHcwdTJibEtyd2ZFV3BkallEbnRHUXVQOXgzc19oSzhCZFRTbDhDLVV2MWlUUGRIWjNYVDNKNkN2SnRpamQwaEJFQQ?oc=5" target="_blank" rel="noopener nofollow">충청권 392조 투자 인허가 속도…삼성전기 세종 8조 지원</a></td></tr><tr><td class="n">Tue, 13 Jan</td><td>연합뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE5NNkpkMmpub05zUzM4RC1DeTRKTWlzTWx4XzRSbUUxdVlXTzVYTG5UMzZyZjA5U1VBNzVVcGt6YXRDMmstRHNNRm13dkM4blJPX0tQLXBvSnhwVTjSAWBBVV95cUxPdklyZXhUVnU1bGFHQmltM0NmWXhlclZsem9JdXdJeENhbWNkQjg4emhtbG9EcHVBRHc3R2M4SVh5d0hPZ2VIYXBRcmxJOENWRGRlUTNVOWgtTTk5RmJ1dDc?oc=5" target="_blank" rel="noopener nofollow">트렌드포스 &quot;AI 수요에 8인치 파운드리 가격 5∼20%↑ 가능성&quot;</a></td></tr><tr><td class="n">Wed, 05 Aug</td><td>아주경제</td><td><a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE9SQ1RJNW52a2Qzdkh4QWo2SlZGcHF4dXVsdHYwOGpRU0h2eXMyWEoydzdrOWkxdFlwcEQ0SW5DekU3WjZPdWpXR3BVM2h2aWduR3JDTFVjenpmd9IBWEFVX3lxTE1FdnlHUFVDNGRMU2JLdnk2RGJDS0JkbHhxSGZGMF9xcW1hUnNmV0NjVmlsd1BQYXZ5SERTOW9aMVdRM1Rfd1drQUd4clVERWg1LUJsajF3bGQ?oc=5" target="_blank" rel="noopener nofollow">[NNA] 트렌드포스, 전세계 AI 서버 출하량 증가율 상향 조정</a></td></tr><tr><td class="n">Sun, 31 May</td><td>테크M</td><td><a href="https://news.google.com/rss/articles/CBMiZkFVX3lxTE9vQlN0SDVlQVBqUnR0RXZ6Vm8tOVVxN2NWeFBjenlDYmc0LXlveHU3cUFnMVNLRHh4MklDNVlLS3hhT3lyRllJUXdDdVVDMENjZW16NWY5ZU90RTkzTnhMSEF0dW1pQdIBakFVX3lxTFBWVlhiVmZFV1JCa25nSXlvNVhlTTRLOE9VRGhsdzVVSkVUUWhXbDFicHQyNWNaZjBfTHhrUy10clduc0p4TUIwcTNWWW1Nc3ExQjl2YkVCc0E5a1pXMEtZdi1EaHhLdEdzOVE?oc=5" target="_blank" rel="noopener nofollow">D램·낸드, 5월 가격 강세 &#x27;여전&#x27;...트렌드포스 &#x27;공급사가 가격 결정&#x27;</a></td></tr><tr><td class="n">Fri, 03 Jul</td><td>아주경제</td><td><a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE9rM24yd0RGWVBJYjk3QzJ1aDlUS3diUVp1WFpIb1lzaFlnTTRDWXprX0dnTWNySTBwY3NqbTRVSnZOZ0U2NzVBZWFraW1TQ1dNcE9TYzZHay1VQdIBWEFVX3lxTE9qVWpQaFlHclh3OXJwb0dCSXVJVWVPeVB4VThGSUc1OXNGeWJHb1BsMWl4bGFZUEtWc3dxdUdXZWxIUkpDWU5SR0duNTFPci1QWkxTYXdMLXg?oc=5" target="_blank" rel="noopener nofollow">[NNA] 트렌드포스, 반도체 성숙 제품도 27년까지 가격 상승</a></td></tr><tr><td class="n">Fri, 28 Nov</td><td>디일렉</td><td><a href="https://news.google.com/rss/articles/CBMiZkFVX3lxTE0xNzlHTEN0bTd0aEhmTUtmLXZCcVJkbVlhaWlBRm5JLXE5N3JjNVM1ZDFCcG5TeFBrZ2g2a0pReVplV1JwU1FQYmZwOEQ1aHhfd1U3QkM3R0ZNWDU1RTJpNXhlMVlxdw?oc=5" target="_blank" rel="noopener nofollow">&quot;2026년 AI 칩 트렌드 TPU·AMD·중국&quot;...트렌드포스</a></td></tr><tr><td class="n">Mon, 08 Dec</td><td>디일렉</td><td><a href="https://news.google.com/rss/articles/CBMiZkFVX3lxTFBoX2ZsNlFURklxekNWbkNIbE9OQU1WVWoxektVSFdUT19jTWhkQ3Y1YXp4ZzBydXBVd3FlajNmN1J0T1oyemJyZHBBWk9WRkNvNnZaOUVLMVlsdEt3LTU3dkdmWDVqQQ?oc=5" target="_blank" rel="noopener nofollow">트렌드포스 &quot;4분기 eSSD 시장 매출, 역대 최대 가능성&quot;</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-09-10 기준. 「삼성전기」 로 찾았고 제목에 그 말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 무관하며 서로 어긋날 수 있다.</p>
 
 <h2 id="실적-dart">실적 (DART)</h2>
 

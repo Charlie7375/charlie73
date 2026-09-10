@@ -305,30 +305,6 @@ a.card:focus-visible,.lst-i:focus-visible{
 .site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
   background:color-mix(in srgb,var(--text) 6%,transparent)}
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END */
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 
 .dim{color:var(--mut,#94a3b8)}
 .b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
@@ -384,6 +360,30 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .hchg .ar{white-space:nowrap}
 .to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
 @media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
+/* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END */
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 /*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
@@ -891,7 +891,7 @@ window.__qbRegister=function(){echarts.registerTheme('charlie', {"color": ["#d21
 </style><div class="vbox"><h4>개인은 정말 '떨어지면 사는가'</h4><p>위 사분면은 '한국 개인은 떨어지면 산다'를 전제로 읽는다. 그 전제가 이 종목에서도 맞는지 직접 계산했다.</p><p>하루 등락률과 그날 개인 순매수가 반대로 움직이는 정도를 계산하면 -0.27이다. 이 값이 0보다 작으면 '떨어지는 날에 개인이 샀다'는 뜻이고, 0보다 크면 그 반대이다.</p><p>같은 자료에서 연속 구간을 다시 뽑아 800번 계산해 보니 참값이 들어 있을 범위는 -0.38 ~ -0.07였다. NHN에서도 그 습관이 확인된다. 범위가 전부 0보다 작으므로 '떨어지면 산다'는 방향은 우연으로 보기 어렵다.</p><p class="vlim">⚠ 관측치 373일로 계산했다. 개인 순매수 금액은 '순매수 주수 × 종가' 환산 근사이다. 방향이 맞다는 것과 그것이 수익으로 이어진다는 것은 다른 문제이다.</p></div><div class="vbox"><h4>큰 등락은 생각보다 자주 온다</h4><p>이 페이지의 이격도(주가가 이동평균선에서 얼마나 벌어졌는지 백분율로 나타낸 값)·추세템플릿은 '평소 범위'를 정해 놓고 그 밖을 이상하다고 판정한다. 그 '평소 범위'를 정규분포로 잡으면 위험을 작게 본다.</p><p>NHN의 하루 등락을 모아 보면 첨도가 13.6이다. 정규분포라면 3이다. 이 값이 클수록 '유난히 큰 하루'가 교과서 예상보다 자주 온다는 뜻이다.</p><p>실제로 평균에서 3표준편차 넘게 벗어난 날이 1146거래일 중 21일 있었다. 정규분포라면 3.1일이어야 한다. 7배이다.</p><p class="vlim">⚠ 그래서 '몇 표준편차'만으로 위험을 판단하지 않는다. 드물다고 계산된 일이 실제로는 드물지 않는다.</p></div><div class="vbox"><h4>여럿을 한꺼번에 볼 때의 함정</h4><p>이 사이트는 매일 21개 종목을 같은 방식으로 훑는다. 대상이 많아지면 아무 일이 없어도 그중 몇 개는 우연히 신호처럼 보인다. 주사위를 한 번 굴리면 6이 잘 안 나오지만 15번 굴리면 대개 한 번은 나온다.</p><p>NHN에서 '떨어지는데 개인도 파는 날'(3사분면)은 전체의 18.8%였다. 이 비율이라면 어느 날이든 21종목 중 평균 3.9개는 우연히 신호가 뜬다.</p><p>한 종목에 신호가 떴다는 사실만으로는 부족하다. 그날 몇 종목이 함께 걸렸는지를 같이 보아야 우연과 구별된다.</p><p class="vlim">⚠ 종목들은 서로 붙어 움직이므로 실제 '우연 개수'는 이보다 적다. 이 값은 넘지 않아야 할 상한으로 읽는다.</p></div>
 
 <h2 id="관련-기사">관련 기사</h2>
-<div class="tblwrap"><table><thead><tr><th>날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Tue, 08 Sep</td><td>v.daum.net</td><td><a href="https://news.google.com/rss/articles/CBMiT0FVX3lxTFBTTkpTUm94TjFQanFGek1vUFBPMzJzcXZYekhiSzhua0h2M3hlbG9CZ1lSTWt4eTZqZzNwVWYybzk4NVZhczBPc3BENldWZWs?oc=5" target="_blank" rel="noopener nofollow">증권가도 &quot;이유를 모르겠다&quot;…악재 없이 15% 내린 NHN</a></td></tr><tr><td class="n">Tue, 08 Sep</td><td>문화일보</td><td><a href="https://news.google.com/rss/articles/CBMiUEFVX3lxTFBBNmY2WlkyTWhEUG90REdjRy1hWmdzeTNFUWNEdzI1TWhua1MzN3kzSzVVZS1TblNwbkhYci01YTNxVXpOVk5ZeVh0RXV6bGNw?oc=5" target="_blank" rel="noopener nofollow">NHN, 59 대 1 본선 경쟁 넘어 ‘NAN 2026’… ‘뜨거운 열기’</a></td></tr><tr><td class="n">Sun, 06 Sep</td><td>한국경제</td><td><a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE0wbzVhdjEySHktMktqWTFlaXFQTkdfRXVPT0hHZ1Bkd0J3cjEzanZjeFBHYmZaSGZKQW9vT3RheXNEazgzNW16TVJpNUZqNlU2VXJTMHJycjJuUQ?oc=5" target="_blank" rel="noopener nofollow">&quot;NHN, AI 데이터센터 성장에 목표가↑&quot;-한국</a></td></tr><tr><td class="n">Tue, 08 Sep</td><td>디스이즈게임</td><td><a href="https://news.google.com/rss/articles/CBMiVEFVX3lxTE9CZm5DdXBYVUtFTTVlVndwWGE2Z2VydmltVThZTng4ZE5lSnNqd0NreWFGV0cyOGxqc3RLaUYydy1LWVk0cG1BdWpTMFBnX3JDM29HYw?oc=5" target="_blank" rel="noopener nofollow">NHN, 게임·AI 채용 연계형 해커톤 &#x27;NAN 2026&#x27; 성황리 종료</a></td></tr><tr><td class="n">Tue, 08 Sep</td><td>v.daum.net</td><td><a href="https://news.google.com/rss/articles/CBMiT0FVX3lxTE5kdW9ENGhfeU0wVjJyMGZrN1E2YjRsb0ZtLXRtdHpnVjZCMGxXTEgyS0hDZDh1cDZ0Yms2T1JFTHNvTWJMd242RHZfY3NOaXM?oc=5" target="_blank" rel="noopener nofollow">[르포] NHN해커톤 대상팀 &quot;게임 개발에 AI 95% 활용...결국은 &#x27;창의성&#x27;에 방점&quot;</a></td></tr><tr><td class="n">Tue, 08 Sep</td><td>v.daum.net</td><td><a href="https://news.google.com/rss/articles/CBMiT0FVX3lxTE5DWnJta0tLLXMtN0ZxTXY1Z21rYVNfZXo4a1JOQlp4MEd2QUJmM0NmcXVjNTRJb1RMbmR1WDNjWVJqaHpDQUdYdDlGU0EzVmc?oc=5" target="_blank" rel="noopener nofollow">AI 프롬프트와 사투 벌인 48시간…판교 달군 NHN &#x27;게임·AI 해커톤&#x27; 가보니</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-09-10 기준. 「NHN」 로 찾았고 제목에 그 말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 무관하며 서로 어긋날 수 있다.</p>
+<div class="tblwrap"><table><thead><tr><th>날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Tue, 08 Sep</td><td>v.daum.net</td><td><a href="https://news.google.com/rss/articles/CBMiT0FVX3lxTFBTTkpTUm94TjFQanFGek1vUFBPMzJzcXZYekhiSzhua0h2M3hlbG9CZ1lSTWt4eTZqZzNwVWYybzk4NVZhczBPc3BENldWZWs?oc=5" target="_blank" rel="noopener nofollow">증권가도 &quot;이유를 모르겠다&quot;…악재 없이 15% 내린 NHN</a></td></tr><tr><td class="n">Tue, 08 Sep</td><td>디스이즈게임</td><td><a href="https://news.google.com/rss/articles/CBMiVEFVX3lxTE9CZm5DdXBYVUtFTTVlVndwWGE2Z2VydmltVThZTng4ZE5lSnNqd0NreWFGV0cyOGxqc3RLaUYydy1LWVk0cG1BdWpTMFBnX3JDM29HYw?oc=5" target="_blank" rel="noopener nofollow">NHN, 게임·AI 채용 연계형 해커톤 &#x27;NAN 2026&#x27; 성황리 종료</a></td></tr><tr><td class="n">Tue, 08 Sep</td><td>글로벌E</td><td><a href="https://news.google.com/rss/articles/CBMia0FVX3lxTFB1OHlDbFFnSUZFZFRzRWVNMjZiendjY1MwQWljVFFrXzVzakpsNWZFMWpfTTFuemtYYkhuNXI3Wk1aakdZSWplVlJSaGN5aWxPRWVmNlFMdmVXWE5WYk5IX19hY0JtTGxQU0dV0gFvQVVfeXFMUG9FWVJGamlGSnNqbmRSMUF5SVBEeFVpeTAwZldPWDhnaGY0dGpJUmhkd1dRRlFKTkV1NUdKcmZ0cGQ3cEdTcWsyZXBqeFprZHVCSmdiMXlWUlFmbnVYMlQ0NjZWcW9tV1JvdDJVbWhn?oc=5" target="_blank" rel="noopener nofollow">최애의 아이부터 도검난무까지, NHN 日 공략 &#x27;압도적 긍정적&#x27;</a></td></tr><tr><td class="n">Tue, 08 Sep</td><td>v.daum.net</td><td><a href="https://news.google.com/rss/articles/CBMiT0FVX3lxTE5kdW9ENGhfeU0wVjJyMGZrN1E2YjRsb0ZtLXRtdHpnVjZCMGxXTEgyS0hDZDh1cDZ0Yms2T1JFTHNvTWJMd242RHZfY3NOaXM?oc=5" target="_blank" rel="noopener nofollow">[르포] NHN해커톤 대상팀 &quot;게임 개발에 AI 95% 활용...결국은 &#x27;창의성&#x27;에 방점&quot;</a></td></tr><tr><td class="n">Tue, 08 Sep</td><td>v.daum.net</td><td><a href="https://news.google.com/rss/articles/CBMiT0FVX3lxTE5DWnJta0tLLXMtN0ZxTXY1Z21rYVNfZXo4a1JOQlp4MEd2QUJmM0NmcXVjNTRJb1RMbmR1WDNjWVJqaHpDQUdYdDlGU0EzVmc?oc=5" target="_blank" rel="noopener nofollow">AI 프롬프트와 사투 벌인 48시간…판교 달군 NHN &#x27;게임·AI 해커톤&#x27; 가보니</a></td></tr><tr><td class="n">Tue, 08 Sep</td><td>v.daum.net</td><td><a href="https://news.google.com/rss/articles/CBMiT0FVX3lxTE9WN1JaVnhGNGl6VXFuMnJQel9vbmhUUzJwVjZDdlFmOXlsZWJMOHpSc19UX01ielBLbFh0ejRVUFBPOFcyV3dILWZ6VXM1eEE?oc=5" target="_blank" rel="noopener nofollow">NHN, 채용 연계형 해커톤 개최…AI 인재 확보 속도전</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-09-10 기준. 「NHN」 로 찾았고 제목에 그 말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 무관하며 서로 어긋날 수 있다.</p>
 
 <h2 id="실적-dart">실적 (DART)</h2>
 
