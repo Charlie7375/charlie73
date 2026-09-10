@@ -1744,7 +1744,20 @@ html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;-
 .reveal.visible{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 @media(max-width:720px){.panel{padding:22px 16px 18px}.panel .cbox{min-height:320px}}
-/* PAPER:BEGIN */
+/*NAVCSS:BEGIN*/
+/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
+.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
+  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
+/* 아카이브 중메뉴 소제목 — 주기 라벨과 같은 .nav-h 를 쓰되 묶음 사이를 실선으로 끊는다 */
+.site-dd .nav-h.sub,.md .nav-h.sub{margin-top:6px;padding-top:9px;
+  border-top:1px solid var(--border,rgba(0,0,0,.1))}
+.site-dd .nav-h+.nav-h.sub,.md .nav-h+.nav-h.sub{margin-top:0;padding-top:4px;border-top:0}
+.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
+  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
+  background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+/*NAVCSS:END*//* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -2014,20 +2027,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END *//*NAVCSS:BEGIN*/
-/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
-.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
-  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
-/* 아카이브 중메뉴 소제목 — 주기 라벨과 같은 .nav-h 를 쓰되 묶음 사이를 실선으로 끊는다 */
-.site-dd .nav-h.sub,.md .nav-h.sub{margin-top:6px;padding-top:9px;
-  border-top:1px solid var(--border,rgba(0,0,0,.1))}
-.site-dd .nav-h+.nav-h.sub,.md .nav-h+.nav-h.sub{margin-top:0;padding-top:4px;border-top:0}
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/*NAVCSS:END*/</style>
+/* PAPER:END */</style>
 <link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><link rel="stylesheet" href="vendor/fonts.css"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
@@ -2789,6 +2789,7 @@ setTimeout(fxBuild,400);
  d.plugins.legend.labels.usePointStyle=true;
 }go();})();
 </script>
+<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 <!--TOCJS:BEGIN--><script>
 /* 목차 클릭 보정 — 2026-08-24
    ⚠ 해시가 이미 그 값이면 브라우저가 클릭을 무시한다. 스크롤을 내린 뒤
@@ -2816,5 +2817,4 @@ setTimeout(fxBuild,400);
     }
   });
 })();
-</script><!--TOCJS:END--><button class="toggle" onclick="__toggleTheme()">&#9728;</button>
-</body></html>
+</script><!--TOCJS:END--></body></html>
