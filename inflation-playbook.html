@@ -1740,6 +1740,86 @@ html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;-
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 @media(max-width:720px){.panel{padding:22px 16px 18px}.panel .cbox{min-height:320px}}
 
+/* ── 닷컴 대시보드 형식 (scripts/dotcom_panel.py) ── */
+/* 값은 kospi-dotcom-1998-2000.html 에서 그대로 옮겼다 — 눈맛의 정본이다 */
+html.theme-light{--chart-accent:#B7791F;--chart-pos:#0F8A53;--chart-neg:#D62839;--chart-mute:#8a8f98;
+  --chart-grid:rgba(0,0,0,0.06);--chart-band:rgba(183,121,31,0.07)}
+html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;--chart-mute:#9aa3ad;
+  --chart-grid:rgba(255,255,255,0.05);--chart-band:rgba(240,180,41,0.055)}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:20px;
+  padding:30px 32px 26px;margin:22px 0}
+.panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap}
+.panel-head h3{font-size:1.08rem;font-weight:700;letter-spacing:-.02em;margin:0}
+.panel figure{margin:14px 0 0}
+.panel .cbox{position:relative;height:min(60vh,540px);min-height:420px}
+.panel-head p{color:var(--text-secondary);font-size:.95rem;margin:6px 0 0;max-width:640px}
+.rng{display:inline-flex;gap:6px;flex-shrink:0}
+.rng button{font:600 12px/1 'Noto Sans KR',sans-serif;padding:8px 12px;border-radius:9px;
+  background:transparent;border:1px solid var(--border);color:var(--text-secondary);cursor:pointer;
+  transition:background .18s,color .18s,border-color .18s}
+.rng button:hover{background:var(--surface2,var(--bg));color:var(--text)}
+.rng button.on{background:var(--chart-accent);border-color:var(--chart-accent);color:#fff}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:12px;margin:16px 0 4px}
+.kpi{background:var(--bg);border:1px solid var(--border);border-radius:13px;padding:15px 16px;
+  transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s,border-color .25s}
+.kpi:hover{transform:translateY(-5px);box-shadow:0 14px 30px rgba(0,0,0,.12);
+  border-color:color-mix(in srgb,var(--chart-accent) 40%,var(--border))}
+.kpi .k{font-size:11.5px;font-weight:700;letter-spacing:.05em;color:var(--text-secondary)}
+.kpi .v{font-size:1.45rem;font-weight:800;letter-spacing:-.03em;margin-top:5px}
+.kpi .s{font-size:11.5px;color:var(--text-secondary);margin-top:3px;line-height:1.5}
+.kpi.hl .v{color:var(--chart-accent)}
+.kpi .v.neg{color:var(--chart-neg)}
+.srcline{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:baseline;margin-top:14px;
+  padding-top:12px;border-top:1px solid var(--border);font-size:12px;
+  color:var(--text-secondary);line-height:1.6}
+.srcline .lbl{font-weight:800;letter-spacing:.06em;color:var(--chart-accent);flex-shrink:0}
+.srcline a{color:var(--chart-accent);font-weight:700;text-decoration:none}
+.srcline a:hover{text-decoration:underline}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+@media(max-width:720px){.panel{padding:22px 16px 18px}.panel .cbox{min-height:320px}}
+
+/* ── 닷컴 대시보드 형식 (scripts/dotcom_panel.py) ── */
+/* 값은 kospi-dotcom-1998-2000.html 에서 그대로 옮겼다 — 눈맛의 정본이다 */
+html.theme-light{--chart-accent:#B7791F;--chart-pos:#0F8A53;--chart-neg:#D62839;--chart-mute:#8a8f98;
+  --chart-grid:rgba(0,0,0,0.06);--chart-band:rgba(183,121,31,0.07)}
+html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;--chart-mute:#9aa3ad;
+  --chart-grid:rgba(255,255,255,0.05);--chart-band:rgba(240,180,41,0.055)}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:20px;
+  padding:30px 32px 26px;margin:22px 0}
+.panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap}
+.panel-head h3{font-size:1.08rem;font-weight:700;letter-spacing:-.02em;margin:0}
+.panel figure{margin:14px 0 0}
+.panel .cbox{position:relative;height:min(60vh,540px);min-height:420px}
+.panel-head p{color:var(--text-secondary);font-size:.95rem;margin:6px 0 0;max-width:640px}
+.rng{display:inline-flex;gap:6px;flex-shrink:0}
+.rng button{font:600 12px/1 'Noto Sans KR',sans-serif;padding:8px 12px;border-radius:9px;
+  background:transparent;border:1px solid var(--border);color:var(--text-secondary);cursor:pointer;
+  transition:background .18s,color .18s,border-color .18s}
+.rng button:hover{background:var(--surface2,var(--bg));color:var(--text)}
+.rng button.on{background:var(--chart-accent);border-color:var(--chart-accent);color:#fff}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:12px;margin:16px 0 4px}
+.kpi{background:var(--bg);border:1px solid var(--border);border-radius:13px;padding:15px 16px;
+  transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s,border-color .25s}
+.kpi:hover{transform:translateY(-5px);box-shadow:0 14px 30px rgba(0,0,0,.12);
+  border-color:color-mix(in srgb,var(--chart-accent) 40%,var(--border))}
+.kpi .k{font-size:11.5px;font-weight:700;letter-spacing:.05em;color:var(--text-secondary)}
+.kpi .v{font-size:1.45rem;font-weight:800;letter-spacing:-.03em;margin-top:5px}
+.kpi .s{font-size:11.5px;color:var(--text-secondary);margin-top:3px;line-height:1.5}
+.kpi.hl .v{color:var(--chart-accent)}
+.kpi .v.neg{color:var(--chart-neg)}
+.srcline{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:baseline;margin-top:14px;
+  padding-top:12px;border-top:1px solid var(--border);font-size:12px;
+  color:var(--text-secondary);line-height:1.6}
+.srcline .lbl{font-weight:800;letter-spacing:.06em;color:var(--chart-accent);flex-shrink:0}
+.srcline a{color:var(--chart-accent);font-weight:700;text-decoration:none}
+.srcline a:hover{text-decoration:underline}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+@media(max-width:720px){.panel{padding:22px 16px 18px}.panel .cbox{min-height:320px}}
+
 .evtbl td.n,.evtbl th.n{white-space:nowrap}
 .evtbl td:nth-child(1){word-break:keep-all;min-width:8em}
 </style>
@@ -2027,7 +2107,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <p class="pauth">자료 기준 2026-07 · 주식 1927~ · 금 1833~ · 금리 1925~ · 생산성 1947~</p>
 </div>
 
-<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>인플레 시대 40년의 3분의 2는 주식에 좋았다. 전기와 중기는 실질 수익률이 플러스였고 나빴던 것은 후기 13년뿐이다. 인플레 시대라는 이름만으로 주식을 피하면 27년을 잃는다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#논점-①-인플레-시대에-주식은-나빴는가">논점 ① 인플레 시대에 주식은 나빴는가?</a></li><li><a href="#논점-②-갈림길은-어디였는가">논점 ② 갈림길은 어디였는가?</a></li><li><a href="#논점-③-신호는-수준인가-방향인가">논점 ③ 신호는 수준인가 방향인가</a></li><li><a href="#논점-④-4가지-자산-중에-무엇을-소유할-것인가">논점 ④ 4가지 자산 중에 무엇을 소유할 것인가?</a></li><li><a href="#논점-⑤-레버리지가-한-일">논점 ⑤ 레버리지가 한 일</a></li><li><a href="#논점-⑥-금은-인플레-헤지였는가">논점 ⑥ 금은 인플레 헤지였는가?</a></li><li><a href="#논점-⑦-채권은-어땠는가">논점 ⑦ 채권은 어땠는가?</a></li><li><a href="#논점-⑧-지금은-어느-시기인가">논점 ⑧ 지금은 어느 시기인가</a></li><li><a href="#자료와-계산-방법">자료와 계산 방법</a></li><li><a href="#이-글이-틀렸다고-인정해야-할-때">이 글이 틀렸다고 인정해야 할 때</a></li></ol></div><!--TOC:END--><h2 id="논점-①-인플레-시대에-주식은-나빴는가">논점 ① 인플레 시대에 주식은 나빴는가?</h2><div class="plain"><span class="pl-lb">한 줄로 말하면</span><p>★ 물가가 오르는 시대라고 주식이 나빴던 것이 아니다.</p><p>40년을 3등분하면 앞의 3분의 2는 주식이 좋았다. 나빴던 것은 마지막 13년뿐이다.</p></div><div class="claim"><p>3분의 2는 좋았다.
+<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>인플레 시대 40년의 3분의 2는 주식에 좋았다. 전기와 중기는 실질 수익률이 플러스였고 나빴던 것은 후기 13년뿐이다. 인플레 시대라는 이름만으로 주식을 피하면 27년을 잃는다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#논점-①-인플레-시대에-주식은-나빴는가">논점 ① 인플레 시대에 주식은 나빴는가?</a></li><li><a href="#논점-②-갈림길은-어디였는가">논점 ② 갈림길은 어디였는가?</a></li><li><a href="#논점-③-신호는-수준인가-방향인가">논점 ③ 신호는 수준인가 방향인가?</a></li><li><a href="#논점-④-4가지-자산-중에-무엇을-소유할-것인가">논점 ④ 4가지 자산 중에 무엇을 소유할 것인가?</a></li><li><a href="#논점-⑤-레버리지는-무엇을-했는가">논점 ⑤ 레버리지는 무엇을 했는가?</a></li><li><a href="#논점-⑥-금은-인플레-헤지였는가">논점 ⑥ 금은 인플레 헤지였는가?</a></li><li><a href="#논점-⑦-채권은-어땠는가">논점 ⑦ 채권은 어땠는가?</a></li><li><a href="#논점-⑧-지금은-어느-시기인가">논점 ⑧ 지금은 어느 시기인가?</a></li><li><a href="#자료와-계산-방법">자료와 계산 방법</a></li><li><a href="#이-글이-틀렸다고-인정해야-할-때">이 글이 틀렸다고 인정해야 할 때</a></li></ol></div><!--TOC:END--><h2 id="논점-①-인플레-시대에-주식은-나빴는가">논점 ① 인플레 시대에 주식은 나빴는가?</h2><div class="plain"><span class="pl-lb">한 줄로 말하면</span><p>★ 물가가 오르는 시대라고 주식이 나빴던 것이 아니다.</p><p>40년을 3등분하면 앞의 3분의 2는 주식이 좋았다. 나빴던 것은 마지막 13년뿐이다.</p></div><div class="claim"><p>3분의 2는 좋았다.
 40년을 13.3년씩 기계로 3등분하면 전기의 주식 실질 수익률(물가 상승분을 뺀 수익률)이 연 +4.54%이고 중기가 연 +6.12%다.
 나빴던 것은 후기 13.3년으로 연 -5.51%다.
 인플레 시대라는 이름만으로 주식을 피할 근거는 이 자료에 없다.</p></div>
@@ -2091,7 +2171,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <figcaption>인플레 시대 40.2년 가운데 26.9년이 갈림길 이전이다.
 3구간 중 2구간이 주식의 시간이었다는 뜻이다.</figcaption></figure>
 
-<h2 id="논점-③-신호는-수준인가-방향인가">논점 ③ 신호는 수준인가 방향인가</h2><div class="plain"><span class="pl-lb">한 줄로 말하면</span><p>물가가 높기만 해서는 나쁘지 않다. 높으면서 더 오르는 중일 때가 나쁘다.</p><p>물가가 4%를 넘어도 잦아드는 중이면 오히려 좋았다.</p></div><div class="claim"><p>둘 다 있어야 한다.
+<h2 id="논점-③-신호는-수준인가-방향인가">논점 ③ 신호는 수준인가 방향인가?</h2><div class="plain"><span class="pl-lb">한 줄로 말하면</span><p>물가가 높기만 해서는 나쁘지 않다. 높으면서 더 오르는 중일 때가 나쁘다.</p><p>물가가 4%를 넘어도 잦아드는 중이면 오히려 좋았다.</p></div><div class="claim"><p>둘 다 있어야 한다.
 1928년부터의 전 구간을 물가 수준과 방향으로 나눠 보면
 가장 나쁜 칸은 물가가 4%를 넘으면서 가속하는 때다.
 36개월 실질 중앙값이 연 +1.63%이고
@@ -2130,7 +2210,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 표의 숫자는 현물 가격이라 실제로 손에 남는 몫보다 크다.
 금 역시 앞의 27년은 값이 법으로 묶여 있었으므로 시장 성과가 아니다.</p>
 
-<h2 id="논점-⑤-레버리지가-한-일">논점 ⑤ 레버리지가 한 일</h2><div class="plain"><span class="pl-lb">한 줄로 말하면</span><p>★ 부동산이 물가를 이긴 힘은 집값이 아니라 빚에서 나왔다.</p><p>고정금리로 빌린 돈은 물가가 오르는 동안 저절로 가벼워진다.</p></div><div class="claim"><p>부동산의 인플레 방어력은 집값이 아니라 부채에서 나왔다.
+<h2 id="논점-⑤-레버리지는-무엇을-했는가">논점 ⑤ 레버리지는 무엇을 했는가?</h2><div class="plain"><span class="pl-lb">한 줄로 말하면</span><p>★ 부동산이 물가를 이긴 힘은 집값이 아니라 빚에서 나왔다.</p><p>고정금리로 빌린 돈은 물가가 오르는 동안 저절로 가벼워진다.</p></div><div class="claim"><p>부동산의 인플레 방어력은 집값이 아니라 부채에서 나왔다.
 1941-07에 1.98%로 빌렸다면 40년 뒤 그 원금의 실질 가치는 16%다.
 집값 100을 자기자본 20과 고정금리 대출 80으로 놓고 이자만 낸다고 가정하면
 40년 뒤 자기자본이 물가를 빼고도 7.6배가 된다.
@@ -2194,7 +2274,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <p>인플레 시대에 관한 결론 가운데 가장 단순한 것이 이것이다.
 주식은 시기에 따라 갈렸고 금은 제도에 따라 갈렸는데 채권은 3개 시기 중 2개에서 물가를 넘지 못했다.</p>
 
-<h2 id="논점-⑧-지금은-어느-시기인가">논점 ⑧ 지금은 어느 시기인가</h2><div class="plain"><span class="pl-lb">한 줄로 말하면</span><p>지금은 생산성으로 보면 좋은 쪽이고 물가로 보면 문턱 언저리다.</p><p>2026년 7월 전년비 물가가 3.4%로, 1968년에 찾은 4% 문턱 아래에서 오르는 중이다.</p></div><div class="claim"><p>생산성으로는 전후 호황에 가깝고 물가로는 문턱 언저리다.
+<h2 id="논점-⑧-지금은-어느-시기인가">논점 ⑧ 지금은 어느 시기인가?</h2><div class="plain"><span class="pl-lb">한 줄로 말하면</span><p>지금은 생산성으로 보면 좋은 쪽이고 물가로 보면 문턱 언저리다.</p><p>2026년 7월 전년비 물가가 3.4%로, 1968년에 찾은 4% 문턱 아래에서 오르는 중이다.</p></div><div class="claim"><p>생산성으로는 전후 호황에 가깝고 물가로는 문턱 언저리다.
 노동생산성이 2010년대 연 +1.11%에서 2020년 이후 연 +2.21%로 올라왔다.
 전후 호황의 연 +2.97%에 접근한다.
 물가는 2026-07 전년비 3.36%다. 논점 ③의 문턱은 전년비로 정한 것이므로 같은 잣대로 놓으면 「4% 이하 · 가속」 칸이고,
@@ -2223,6 +2303,8 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 그 시기에 쌓인 항공과 전자와 대량생산 기술이 전시에 규모를 얻고
 전후에 민간으로 퍼졌다는 해석과 자료가 어긋나지 않는다.
 다만 어긋나지 않는다는 것이 증명한다는 뜻은 아니다.</p>
+
+<div class="note"><p>이렇게 읽으면 안 된다. 이 글의 3등분과 갈림길은 40년이 끝난 뒤에 그은 선이다. 그때 알 수 있던 신호가 아니다. 등분을 바꾸면 「앞 27년은 주식의 시간」도 성립하지 않는다.</p></div>
 
 <h2 id="자료와-계산-방법">자료와 계산 방법</h2>
 
