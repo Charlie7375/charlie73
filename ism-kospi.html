@@ -2163,6 +2163,26 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 .paper figure svg,.paper .cchart svg{width:100%;height:auto;display:block}
 /* 좁은 화면에서 표가 넘치면 잘리지 말고 가로로 밀리게 한다 */
 .paper .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+/* ── 접이식 상세(.apx) ──
+   2026-09-12 상수님 «아래 작은 표와 제목 텍스트 간격이 타이트하게 붙어 있네».
+   .gloss 에는 규칙이 있었는데 .apx 는 브라우저 기본값이라 요약 줄과 내용이 붙었다.
+   ⚠ 원문 상세표는 목차의 **맨 마지막**이고 결론 뒤에 온다. 그래서 펼쳐 둬도
+     본문을 읽는 흐름을 막지 않는다(open 은 open_apx.py 가 붙인다). */
+.paper details.apx{margin:22px 0;border:1px solid var(--border);border-radius:8px;
+  padding:2px 16px 4px;background:transparent}
+.paper details.apx>summary{cursor:pointer;list-style:none;padding:12px 0;
+  font-size:.92rem;font-weight:700;color:var(--accent)}
+.paper details.apx>summary::-webkit-details-marker{display:none}
+.paper details.apx>summary::before{content:'▸';font-size:.78rem;margin-right:7px;
+  display:inline-block;transition:transform .18s}
+.paper details.apx[open]>summary::before{transform:rotate(90deg)}
+.paper details.apx>summary:hover{opacity:.8}
+/* ★ 요약 줄과 내용 사이. 이것이 없어서 표가 제목에 붙어 있었다. */
+.paper details.apx[open]>summary{border-bottom:1px solid var(--border);margin-bottom:16px}
+.paper details.apx>*+*{margin-top:14px}
+.paper details.apx>.tblwrap:last-child,
+.paper details.apx>p:last-child{margin-bottom:14px}
 /* ★ 2026-08-13 상수님 «ROE 가 짤려 보이네» — 정렬 가능한 큰 표(오디션·상대강도)는
    열이 15개까지 간다. min-width 가 없으면 표가 «압축»되어 마지막 열이 잘린 것처럼 보인다.
    최소 폭을 박아 두면 좁은 화면에서 **가로로 밀려** 전부 읽힌다.
@@ -2603,7 +2623,7 @@ ISM 은 앞을 보는 창이 아니라 지금 어느 국면인지 알려 주는 
 
 <h2 id="이야기꾼의-강의와는-하나만-맞고-하나는-사후-표에서만-선다">이야기꾼의 강의와는 하나만 맞고 하나는 사후 표에서만 선다</h2>
 <p>강의에서 ISM 이 나오는 3곳을 실측과 대조했다. 수준 감각은 확인되고, 천정이 전조라는 것은 사후 표에서만 성립한다.</p>
-<details class="apx"><summary>강의의 3곳을 하나씩: 자세히</summary>
+<details class="apx" open><summary>강의의 3곳을 하나씩: 자세히</summary>
 
 <div class="claim"><p>3가지 다 실측과 어긋나지 않는다.
 수준 감각(47 언저리가 바닥)은 수준별 표가 확인한다. 천정이 전조라는 것은 「꺾인 뒤」 절의 사후 표에서만 확인되고,
@@ -2970,34 +2990,34 @@ setTimeout(imBuild,400);
 
 <p>본문에서 요약한 표의 원본이다. 지우지 않고 여기에 둔다. 제목을 누르면 펼쳐진다.</p>
 
-<details class="apx"><summary>네 국면의 월평균과 연율</summary>
+<details class="apx" open><summary>네 국면의 월평균과 연율</summary>
 <div class="tblwrap"><table class="tw">
 <thead><tr><th>국면</th><th class="n">개월</th><th class="n">월평균</th>
 <th class="n">연율</th><th class="n">오른 달</th></tr></thead>
 <tbody><tr class="cur"><td><b>상승</b> · 50 위</td><td class="n">172</td><td class="n">+1.68%</td><td class="n good"><b>+22.1%</b></td><td class="n">63%</td></tr><tr><td><b>상승</b> · 50 아래</td><td class="n">40</td><td class="n">+0.26%</td><td class="n good"><b>+3.1%</b></td><td class="n">48%</td></tr><tr><td><b>하락</b> · 50 아래</td><td class="n">92</td><td class="n">+0.67%</td><td class="n good"><b>+8.4%</b></td><td class="n">55%</td></tr><tr><td><b>하락</b> · 50 위</td><td class="n">133</td><td class="n">-0.51%</td><td class="n bad"><b>-5.9%</b></td><td class="n">47%</td></tr></tbody></table></div>
 </details>
 
-<details class="apx"><summary>기업경기실사지수 상승 국면 (1981~89)</summary>
+<details class="apx" open><summary>기업경기실사지수 상승 국면 (1981~89)</summary>
 <div class="tblwrap"><table class="tw">
 <thead><tr><th>기업경기실사지수 상승 국면 (1981~89)</th><th class="n">코스피 최대 하락폭</th></tr></thead>
 <tbody><tr><td>1982-05 ~ 1983-11</td><td class="n">-7.7%</td></tr><tr><td>1985-05 ~ 1985-11</td><td class="n">-1.2%</td></tr><tr><td>1986-07 ~ 1987-10</td><td class="n">-9.2%</td></tr></tbody></table></div>
 </details>
 
-<details class="apx"><summary>전환점 뒤 3·6·12·24개월</summary>
+<details class="apx" open><summary>전환점 뒤 3·6·12·24개월</summary>
 <div class="tblwrap"><table class="tw">
 <thead><tr><th>기준</th><th class="n">+3개월</th><th class="n">+6개월</th>
 <th class="n">+12개월</th><th class="n">+24개월</th></tr></thead>
 <tbody><tr><td>ISM 저점에서 매수했다면</td><td class="n good">+4.0%<span class="dim"> · 14/19</span></td><td class="n good">+10.0%<span class="dim"> · 14/19</span></td><td class="n good">+14.3%<span class="dim"> · 14/18</span></td><td class="n good">+16.3%<span class="dim"> · 14/17</span></td></tr><tr><td>ISM 천정에서 들고 있었다면</td><td class="n bad">-4.3%<span class="dim"> · 6/18</span></td><td class="n bad">-2.8%<span class="dim"> · 7/18</span></td><td class="n bad">-3.5%<span class="dim"> · 6/18</span></td><td class="n good">+1.2%<span class="dim"> · 9/17</span></td></tr></tbody></table></div>
 </details>
 
-<details class="apx"><summary>ISM 하락 국면: 전체 목록</summary>
+<details class="apx" open><summary>ISM 하락 국면: 전체 목록</summary>
 <div class="tblwrap"><table class="tw">
 <thead><tr><th>천정 → 저점</th><th class="n">개월</th><th class="n">ISM 천정 → 저점</th>
 <th class="n">코스피 낙폭</th><th>그때 무슨 일</th></tr></thead>
 <tbody><tr><td>1999-11 ~ 2001-10</td><td class="n">23</td><td class="n">58.1 → 40.8</td><td class="n bad">-55.7%</td><td>닷컴 붕괴</td></tr><tr><td>2005-10 ~ 2008-12</td><td class="n">38</td><td class="n">57.2 → 33.1</td><td class="n bad">-54.5%</td><td>리먼</td></tr><tr><td>1997-07 ~ 1998-12</td><td class="n">17</td><td class="n">57.7 → 46.8</td><td class="n bad">-51.2%</td><td>외환위기</td></tr><tr><td>2018-08 ~ 2020-04</td><td class="n">20</td><td class="n">61.3 → 41.5</td><td class="n bad">-38.1%</td><td>코로나</td></tr><tr><td>2002-06 ~ 2003-04</td><td class="n">10</td><td class="n">53.6 → 46.1</td><td class="n bad">-37.4%</td><td>카드사태</td></tr><tr><td>2021-03 ~ 2023-06</td><td class="n">27</td><td class="n">64.7 → 46.0</td><td class="n bad">-34.8%</td><td>긴축 전환</td></tr></tbody></table></div>
 </details>
 
-<details class="apx"><summary>자료와 계산 방법: 자세히</summary>
+<details class="apx" open><summary>자료와 계산 방법: 자세히</summary>
 <p>ISM 제조업지수는 발표 당시 값 440개월(1990-01~2026-08)이다.
 코스피는 1981년부터 1997년까지 OECD 한국 주가지수 월평균, 1998년부터 금융투자협회 유가증권시장 일별 종가다.
 국면은 앞뒤 6개월 안에서 가장 낮거나 높은 달을 전환점으로 잡았다.

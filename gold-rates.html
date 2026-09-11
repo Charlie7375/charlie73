@@ -473,6 +473,26 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 .paper figure svg,.paper .cchart svg{width:100%;height:auto;display:block}
 /* 좁은 화면에서 표가 넘치면 잘리지 말고 가로로 밀리게 한다 */
 .paper .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+/* ── 접이식 상세(.apx) ──
+   2026-09-12 상수님 «아래 작은 표와 제목 텍스트 간격이 타이트하게 붙어 있네».
+   .gloss 에는 규칙이 있었는데 .apx 는 브라우저 기본값이라 요약 줄과 내용이 붙었다.
+   ⚠ 원문 상세표는 목차의 **맨 마지막**이고 결론 뒤에 온다. 그래서 펼쳐 둬도
+     본문을 읽는 흐름을 막지 않는다(open 은 open_apx.py 가 붙인다). */
+.paper details.apx{margin:22px 0;border:1px solid var(--border);border-radius:8px;
+  padding:2px 16px 4px;background:transparent}
+.paper details.apx>summary{cursor:pointer;list-style:none;padding:12px 0;
+  font-size:.92rem;font-weight:700;color:var(--accent)}
+.paper details.apx>summary::-webkit-details-marker{display:none}
+.paper details.apx>summary::before{content:'▸';font-size:.78rem;margin-right:7px;
+  display:inline-block;transition:transform .18s}
+.paper details.apx[open]>summary::before{transform:rotate(90deg)}
+.paper details.apx>summary:hover{opacity:.8}
+/* ★ 요약 줄과 내용 사이. 이것이 없어서 표가 제목에 붙어 있었다. */
+.paper details.apx[open]>summary{border-bottom:1px solid var(--border);margin-bottom:16px}
+.paper details.apx>*+*{margin-top:14px}
+.paper details.apx>.tblwrap:last-child,
+.paper details.apx>p:last-child{margin-bottom:14px}
 /* ★ 2026-08-13 상수님 «ROE 가 짤려 보이네» — 정렬 가능한 큰 표(오디션·상대강도)는
    열이 15개까지 간다. min-width 가 없으면 표가 «압축»되어 마지막 열이 잘린 것처럼 보인다.
    최소 폭을 박아 두면 좁은 화면에서 **가로로 밀려** 전부 읽힌다.
@@ -832,7 +852,7 @@ tr.gr-now td{background:rgba(10,125,63,.075);font-weight:600}
 
 <h3>이 상관은 진짜인가</h3>
 <p>이 상관이 계산 방식이 만든 것인지 확인했다. 기간을 잘라도, 다른 금리로 바꿔도, 실질 금값으로 봐도 수준 상관의 부호는 유지된다.</p>
-<details class="apx"><summary>상관을 검증한 방법: 자세히</summary>
+<details class="apx" open><summary>상관을 검증한 방법: 자세히</summary>
 
 <div class="claim"><p>수준 상관은 대부분 가짜다.
 추세를 걷어내면 인플레이션 시대의 관계가 사라진다.
@@ -856,7 +876,7 @@ tr.gr-now td{background:rgba(10,125,63,.075);font-weight:600}
 
 <h3>다른 글과 어긋나지 않는가?</h3>
 <p>이 사이트의 다른 글과 시대 구분을 같은 기준으로 쓰는지 대조했다.</p>
-<details class="apx"><summary>다른 글과의 대조: 자세히</summary>
+<details class="apx" open><summary>다른 글과의 대조: 자세히</summary>
 
 <div class="claim"><p>어긋나지 않는다.
 「물가가 오르는 시대에도 주식은 올랐을까」가 나눈 전기·중기·후기로 금을 다시 계산하면
@@ -877,7 +897,7 @@ tr.gr-now td{background:rgba(10,125,63,.075);font-weight:600}
 
 <h3>시대 안에서도 국면이 갈리는가?</h3>
 <p>한 시대 안에서도 국면마다 부호가 달라지는지 확인했다.</p>
-<details class="apx"><summary>시대 안의 국면: 자세히</summary>
+<details class="apx" open><summary>시대 안의 국면: 자세히</summary>
 
 <div class="claim"><p>갈린다. 금은 물가가 가장 높을 때 가장 나빴고
 물가가 잦아든 뒤에 크게 올랐다.
@@ -897,7 +917,7 @@ tr.gr-now td{background:rgba(10,125,63,.075);font-weight:600}
 
 <h3>시대는 얼마나 자주 바뀌는가?</h3>
 <p>시대가 바뀌는 빈도를 계산했다. 100년에 몇 번뿐이다.</p>
-<details class="apx"><summary>시대의 길이: 자세히</summary>
+<details class="apx" open><summary>시대의 길이: 자세히</summary>
 
 <div class="claim"><p>대략 40년씩 번갈아 온다.
 1941년 이전은 디플레이션이었다. 물가가 내린 달이 10개월 중 4개월꼴이었다.
@@ -919,7 +939,7 @@ tr.gr-now td{background:rgba(10,125,63,.075);font-weight:600}
 
 <h3>시대를 무엇으로 가르는가?</h3>
 <p>시대 경계를 어떤 계열의 어떤 자리로 정했는지 적어 둔다.</p>
-<details class="apx"><summary>시대를 가르는 기준: 자세히</summary>
+<details class="apx" open><summary>시대를 가르는 기준: 자세히</summary>
 
 <div class="claim"><p>이 글은 장기금리로 가른다.
 10년물 사상 최고와 그 뒤 사상 최저를 경계로 쓴다.
@@ -944,7 +964,7 @@ tr.gr-now td{background:rgba(10,125,63,.075);font-weight:600}
 
 <h3>금은 무엇에 반응하는가?</h3>
 <p>금이 물가·금리·달러 가운데 무엇에 더 반응하는지 나눠 계산했다.</p>
-<details class="apx"><summary>금이 반응하는 것: 자세히</summary>
+<details class="apx" open><summary>금이 반응하는 것: 자세히</summary>
 
 <div class="claim"><p>물가와 실질금리를 갈라 보면 시대마다 답이 다르다.
 인플레이션 시대의 금은 물가에 반응했고 실질금리에 강하게 눌렸다.
@@ -1018,7 +1038,7 @@ tr.gr-now td{background:rgba(10,125,63,.075);font-weight:600}
 
 <p>이 글의 핵심은 "금과 금리는 수준으로는 같이 가고 변화로는 갈린다"다. 수준 상관의 부호가 시대 안에서 뒤집히거나, 시대를 가르는 기준을 바꿔도 같은 그림이 나오지 않으면 틀린 것이다. 조건을 하나씩 적어 둔다.</p>
 
-<details class="apx"><summary>조건을 하나씩: 자세히</summary>
+<details class="apx" open><summary>조건을 하나씩: 자세히</summary>
 
 <p>지금 시대의 부호가 음수로 내려앉고 그 상태가 2년 넘게 이어지면
 시대가 부호를 정한다는 이 글의 주장이 흔들린다.
@@ -1047,7 +1067,7 @@ tr.gr-now td{background:rgba(10,125,63,.075);font-weight:600}
 
 <p>이 글이 한 일은 같은 기간의 관계를 계산한 것이다. 예측력을 확인한 것이 아니다.</p>
 
-<details class="apx"><summary>자료와 계산 방법: 자세히</summary>
+<details class="apx" open><summary>자료와 계산 방법: 자세히</summary>
 <p>금은 datahub 의 국제 금 월별 시세다. 1833년부터 있고 단위는 온스당 달러다.
 금리는 FRED 의 미 10년 국채와 30년 국채와 무디스 Aaa 회사채 월평균이다.
 물가는 미 소비자물가 비계절조정이고 실질금리는 10년물에서 그 전년비를 뺀 값이다.</p>

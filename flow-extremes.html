@@ -1883,6 +1883,26 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 .paper figure svg,.paper .cchart svg{width:100%;height:auto;display:block}
 /* 좁은 화면에서 표가 넘치면 잘리지 말고 가로로 밀리게 한다 */
 .paper .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+/* ── 접이식 상세(.apx) ──
+   2026-09-12 상수님 «아래 작은 표와 제목 텍스트 간격이 타이트하게 붙어 있네».
+   .gloss 에는 규칙이 있었는데 .apx 는 브라우저 기본값이라 요약 줄과 내용이 붙었다.
+   ⚠ 원문 상세표는 목차의 **맨 마지막**이고 결론 뒤에 온다. 그래서 펼쳐 둬도
+     본문을 읽는 흐름을 막지 않는다(open 은 open_apx.py 가 붙인다). */
+.paper details.apx{margin:22px 0;border:1px solid var(--border);border-radius:8px;
+  padding:2px 16px 4px;background:transparent}
+.paper details.apx>summary{cursor:pointer;list-style:none;padding:12px 0;
+  font-size:.92rem;font-weight:700;color:var(--accent)}
+.paper details.apx>summary::-webkit-details-marker{display:none}
+.paper details.apx>summary::before{content:'▸';font-size:.78rem;margin-right:7px;
+  display:inline-block;transition:transform .18s}
+.paper details.apx[open]>summary::before{transform:rotate(90deg)}
+.paper details.apx>summary:hover{opacity:.8}
+/* ★ 요약 줄과 내용 사이. 이것이 없어서 표가 제목에 붙어 있었다. */
+.paper details.apx[open]>summary{border-bottom:1px solid var(--border);margin-bottom:16px}
+.paper details.apx>*+*{margin-top:14px}
+.paper details.apx>.tblwrap:last-child,
+.paper details.apx>p:last-child{margin-bottom:14px}
 /* ★ 2026-08-13 상수님 «ROE 가 짤려 보이네» — 정렬 가능한 큰 표(오디션·상대강도)는
    열이 15개까지 간다. min-width 가 없으면 표가 «압축»되어 마지막 열이 잘린 것처럼 보인다.
    최소 폭을 박아 두면 좁은 화면에서 **가로로 밀려** 전부 읽힌다.
@@ -2463,7 +2483,7 @@ NBER Working Paper 34086, 2025.</p>
 표 제목을 누르면 펼쳐진다. 넓은 표는 좌우로 움직인다.
 고점과 바닥을 사후에 골라 만든 표, 수출 발표 시점을 근사한 표는 실시간 성과로 읽지 않는다.</p>
 
-<details class="apx"><summary>개인이 3.5조 넘게 순매도한 10일은 모두 상승일: 표만 보면 그 뒤 수익률이 좋아 보인다</summary>
+<details class="apx" open><summary>개인이 3.5조 넘게 순매도한 10일은 모두 상승일: 표만 보면 그 뒤 수익률이 좋아 보인다</summary>
 
 <div class="claim"><p>10일이 전부 2026년이고 10일이 코스피 상승일이다. 3개월 뒤 수익률은 대체로 플러스였고 12개월 칸은 아직 하나도 안 찼다.
 이그전도 「올해 증시가 전반적으로 상승했다는 점을 감안하라」고 적었다. 2026년은 코스피가 두 배가 된 해이지만 6월 12일처럼 1개월 뒤 −16.2%인 날도 있다.</p></div>
@@ -2474,7 +2494,7 @@ NBER Working Paper 34086, 2025.</p>
 「아직」은 그만큼 시간이 안 지났다는 뜻이다.</p>
 
 </details>
-<details class="apx"><summary>외국인이 3.5조 넘게 순매도한 23일은 대부분 하락일: 뒤 수익률이 시기에 따라 갈린다</summary>
+<details class="apx" open><summary>외국인이 3.5조 넘게 순매도한 23일은 대부분 하락일: 뒤 수익률이 시기에 따라 갈린다</summary>
 
 <div class="claim"><p>23일 중 15일이 코스피 하락일이다. 2~3월의 순매도 뒤 3개월 수익률은 크게 플러스였고 5~6월은 마이너스였다.
 같은 대량 순매도인데 코스피가 상승 추세였는지 하락 추세였는지가 갈랐다. 그래서 뒤에서 국면을 나눈다.</p></div>
@@ -2482,7 +2502,7 @@ NBER Working Paper 34086, 2025.</p>
 <div class="tblwrap"><table class="tw"><thead><tr><th>날짜</th><th class="n">외국인 순매도 금액</th><th class="n">그날 코스피</th><th class="n">1개월 뒤 코스피</th><th class="n">3개월 뒤</th><th class="n">6개월 뒤</th><th class="n">12개월 뒤</th></tr></thead><tbody><tr><td>2026년 2월 5일</td><td class="n bad">-5.01조</td><td class="n bad">-3.86%</td><td class="n good">+8.1%</td><td class="n good">+43.0%</td><td class="n good">+27.8%</td><td class="n dim">아직</td></tr><tr><td>2026년 2월 27일</td><td class="n bad">-7.05조</td><td class="n bad">-1.00%</td><td class="n bad">-12.9%</td><td class="n good">+31.8%</td><td class="n good">+10.7%</td><td class="n dim">아직</td></tr><tr><td>2026년 3월 3일</td><td class="n bad">-5.15조</td><td class="n bad">-7.24%</td><td class="n bad">-7.2%</td><td class="n good">+49.2%</td><td class="n good">+13.6%</td><td class="n dim">아직</td></tr><tr><td>2026년 3월 23일</td><td class="n bad">-3.68조</td><td class="n bad">-6.49%</td><td class="n good">+19.8%</td><td class="n good">+51.8%</td><td class="n dim">아직</td><td class="n dim">아직</td></tr><tr><td>2026년 3월 31일</td><td class="n bad">-3.84조</td><td class="n bad">-4.26%</td><td class="n good">+30.6%</td><td class="n good">+67.8%</td><td class="n dim">아직</td><td class="n dim">아직</td></tr><tr><td>2026년 5월 7일</td><td class="n bad">-6.70조</td><td class="n good">+1.43%</td><td class="n bad">-0.1%</td><td class="n bad">-16.4%</td><td class="n dim">아직</td><td class="n dim">아직</td></tr><tr><td>2026년 5월 8일</td><td class="n bad">-5.30조</td><td class="n good">+0.11%</td><td class="n bad">-0.2%</td><td class="n bad">-16.0%</td><td class="n dim">아직</td><td class="n dim">아직</td></tr><tr><td>2026년 5월 12일</td><td class="n bad">-5.61조</td><td class="n bad">-2.29%</td><td class="n good">+6.3%</td><td class="n bad">-13.9%</td><td class="n dim">아직</td><td class="n dim">아직</td></tr><tr><td>2026년 5월 13일</td><td class="n bad">-3.72조</td><td class="n good">+2.63%</td><td class="n good">+8.9%</td><td class="n bad">-13.1%</td><td class="n dim">아직</td><td class="n dim">아직</td></tr><tr><td>2026년 5월 15일</td><td class="n bad">-5.60조</td><td class="n bad">-6.12%</td><td class="n good">+14.1%</td><td class="n bad">-8.3%</td><td class="n dim">아직</td><td class="n dim">아직</td></tr><tr><td>2026년 5월 18일</td><td class="n bad">-3.65조</td><td class="n good">+0.31%</td><td class="n good">+20.6%</td><td class="n bad">-8.6%</td><td class="n dim">아직</td><td class="n dim">아직</td></tr><tr><td>2026년 5월 19일</td><td class="n bad">-5.72조</td><td class="n bad">-3.25%</td><td class="n good">+24.5%</td><td class="n bad">-11.0%</td><td class="n dim">아직</td><td class="n dim">아직</td></tr><tr><td>2026년 6월 2일</td><td class="n bad">-6.30조</td><td class="n good">+0.15%</td><td class="n bad">-13.1%</td><td class="n bad">-25.4%</td><td class="n dim">아직</td><td class="n dim">아직</td></tr><tr><td>2026년 6월 4일</td><td class="n bad">-6.67조</td><td class="n bad">-1.84%</td><td class="n bad">-6.8%</td><td class="n bad">-22.6%</td><td class="n dim">아직</td><td class="n dim">아직</td></tr><tr><td>2026년 6월 23일</td><td class="n bad">-4.20조</td><td class="n bad">-9.99%</td><td class="n bad">-13.5%</td><td class="n dim">아직</td><td class="n dim">아직</td><td class="n dim">아직</td></tr><tr><td>2026년 6월 24일</td><td class="n bad">-4.65조</td><td class="n good">+3.26%</td><td class="n bad">-21.0%</td><td class="n dim">아직</td><td class="n dim">아직</td><td class="n dim">아직</td></tr><tr><td>2026년 6월 26일</td><td class="n bad">-4.29조</td><td class="n bad">-5.81%</td><td class="n bad">-19.7%</td><td class="n dim">아직</td><td class="n dim">아직</td><td class="n dim">아직</td></tr><tr><td>2026년 6월 29일</td><td class="n bad">-7.73조</td><td class="n bad">-0.20%</td><td class="n bad">-32.5%</td><td class="n dim">아직</td><td class="n dim">아직</td><td class="n dim">아직</td></tr><tr><td>2026년 6월 30일</td><td class="n bad">-3.80조</td><td class="n good">+0.97%</td><td class="n bad">-34.0%</td><td class="n dim">아직</td><td class="n dim">아직</td><td class="n dim">아직</td></tr><tr><td>2026년 7월 2일</td><td class="n bad">-4.37조</td><td class="n bad">-7.89%</td><td class="n bad">-18.2%</td><td class="n dim">아직</td><td class="n dim">아직</td><td class="n dim">아직</td></tr><tr><td>2026년 7월 28일</td><td class="n bad">-4.50조</td><td class="n bad">-10.84%</td><td class="n good">+12.7%</td><td class="n dim">아직</td><td class="n dim">아직</td><td class="n dim">아직</td></tr><tr><td>2026년 8월 24일</td><td class="n bad">-3.67조</td><td class="n bad">-3.12%</td><td class="n dim">아직</td><td class="n dim">아직</td><td class="n dim">아직</td><td class="n dim">아직</td></tr><tr><td>2026년 8월 25일</td><td class="n bad">-3.81조</td><td class="n good">+0.68%</td><td class="n dim">아직</td><td class="n dim">아직</td><td class="n dim">아직</td><td class="n dim">아직</td></tr></tbody></table></div>
 
 </details>
-<details class="apx"><summary>기준을 금액에서 비율로: 2020년의 1.3조가 지금의 3.5조다</summary>
+<details class="apx" open><summary>기준을 금액에서 비율로: 2020년의 1.3조가 지금의 3.5조다</summary>
 
 <div class="claim"><p>3.5조는 2026년 하루 거래대금의 11.28%이고 2020년에는 30%다. 그래서 대량 순매도(그날 거래대금의 11.28% 넘게 순매도한 것)를 비율로 정하고 2020년까지 거슬러 올라간다. 대량 순매수도 같은 비율이다.
 이 11.28%는 2026년 9월 9일에 정해 고정한 값이다. 자료가 늘어도 다시 계산하지 않는다. 다시 계산하면 과거의 신호일이 바뀌기 때문이다. 오늘 기준으로 다시 계산하면 11.29%다.
@@ -2495,7 +2515,7 @@ NBER Working Paper 34086, 2025.</p>
 <p>개인과 외국인은 순매수 비율(순매수 ÷ 그날 거래대금)의 분포 꼬리가 거의 같아 같은 기준을 쓴다. 기관은 꼬리가 좁아 뒤에서 기준을 절반으로 낮춰 따로 본다. 분포는 자료 절에 있다.</p>
 
 </details>
-<details class="apx"><summary>개인 대량 순매도 40일은 전부 상승일: 기준을 바꿔도 그대로다</summary>
+<details class="apx" open><summary>개인 대량 순매도 40일은 전부 상승일: 기준을 바꿔도 그대로다</summary>
 
 <div class="claim"><p>40일 중 하락일은 없다. 기준을 8%로 낮추면 119일 중 117일, 15%로 올리면 14일 중 14일이 상승일이다. 이 글에서 가장 견고한 관찰이다. 코스피가 20주 이동평균선 위였던 날이 27일, 60일 고점의 95% 안이 26일이다.
 이야기꾼의 바닥 7단계로 나누면 0단계 29 · 1~3단계 7 (2022년 이후 36일)이다. 개인은 상승일에, 고점권에서 매도한다.</p></div>
@@ -2546,7 +2566,7 @@ NBER Working Paper 34086, 2025.</p>
 <div class="tblwrap"><table class="tw"><thead><tr><th>사건 첫날</th><th class="n">신호일 수</th><th>코스피 국면</th><th class="n">첫날 코스피 등락</th><th class="n">첫날 개인 순매수</th><th class="n">1개월 뒤 코스피</th><th class="n">3개월 뒤</th><th class="n">6개월 뒤</th><th class="n">12개월 뒤</th></tr></thead><tbody><tr><td>2020-11-05</td><td class="n">1</td><td>상승 추세</td><td class="n">+2.40%</td><td class="n">-1.62조</td><td class="n good">+13.7%</td><td class="n good">+29.3%</td><td class="n good">+31.7%</td><td class="n good">+23.0%</td></tr><tr><td>2021-08-04</td><td class="n">1</td><td>상승 추세</td><td class="n">+1.34%</td><td class="n">-1.78조</td><td class="n bad">-2.3%</td><td class="n bad">-9.1%</td><td class="n bad">-16.2%</td><td class="n bad">-24.6%</td></tr><tr><td>2021-12-24</td><td class="n">2</td><td>하락 추세</td><td class="n">+0.48%</td><td class="n">-1.13조</td><td class="n bad">-7.3%</td><td class="n bad">-9.4%</td><td class="n bad">-21.4%</td><td class="n bad">-23.1%</td></tr><tr><td>2022-09-13</td><td class="n">1</td><td>하락 추세</td><td class="n">+2.74%</td><td class="n">-1.10조</td><td class="n bad">-11.7%</td><td class="n bad">-3.1%</td><td class="n bad">-1.6%</td><td class="n good">+3.5%</td></tr><tr><td>2022-11-11</td><td class="n">1</td><td>하락 추세</td><td class="n">+3.37%</td><td class="n">-1.67조</td><td class="n bad">-4.4%</td><td class="n bad">-1.2%</td><td class="n good">+0.3%</td><td class="n bad">-3.2%</td></tr><tr><td>2022-12-26</td><td class="n">6</td><td>하락 추세</td><td class="n">+0.15%</td><td class="n">-0.61조</td><td class="n good">+6.5%</td><td class="n good">+4.0%</td><td class="n good">+11.4%</td><td class="n good">+12.3%</td></tr><tr><td>2023-05-19</td><td class="n">1</td><td>상승 추세</td><td class="n">+0.89%</td><td class="n">-1.10조</td><td class="n good">+2.8%</td><td class="n bad">-1.1%</td><td class="n bad">-1.8%</td><td class="n good">+8.1%</td></tr><tr><td>2023-11-15</td><td class="n">1</td><td>혼조 추세</td><td class="n">+2.20%</td><td class="n">-1.62조</td><td class="n good">+3.1%</td><td class="n good">+5.1%</td><td class="n good">+10.7%</td><td class="n bad">-2.8%</td></tr><tr><td>2023-12-20</td><td class="n">2</td><td>상승 추세</td><td class="n">+1.78%</td><td class="n">-1.60조</td><td class="n bad">-5.7%</td><td class="n good">+2.9%</td><td class="n good">+7.4%</td><td class="n bad">-8.0%</td></tr><tr><td>2024-02-02</td><td class="n">1</td><td>상승 추세</td><td class="n">+2.87%</td><td class="n">-2.49조</td><td class="n good">+2.3%</td><td class="n good">+2.6%</td><td class="n good">+2.3%</td><td class="n bad">-6.2%</td></tr><tr><td>2024-03-21</td><td class="n">1</td><td>상승 추세</td><td class="n">+2.41%</td><td class="n">-2.91조</td><td class="n bad">-4.6%</td><td class="n good">+1.1%</td><td class="n bad">-5.5%</td><td class="n bad">-4.1%</td></tr><tr><td>2024-05-07</td><td class="n">1</td><td>상승 추세</td><td class="n">+2.16%</td><td class="n">-1.84조</td><td class="n bad">-0.4%</td><td class="n bad">-6.1%</td><td class="n bad">-6.2%</td><td class="n bad">-5.9%</td></tr><tr><td>2024-07-05</td><td class="n">1</td><td>상승 추세</td><td class="n">+1.32%</td><td class="n">-2.51조</td><td class="n bad">-14.7%</td><td class="n bad">-8.8%</td><td class="n bad">-13.1%</td><td class="n good">+6.9%</td></tr><tr><td>2024-08-16</td><td class="n">1</td><td>상승 추세</td><td class="n">+1.99%</td><td class="n">-1.47조</td><td class="n bad">-4.3%</td><td class="n bad">-8.5%</td><td class="n bad">-3.2%</td><td class="n good">+17.8%</td></tr><tr><td>2025-09-10</td><td class="n">3</td><td>상승 추세</td><td class="n">+1.67%</td><td class="n">-2.26조</td><td class="n good">+8.9%</td><td class="n good">+24.8%</td><td class="n good">+66.9%</td><td class="n good">+112.2%</td></tr><tr><td>2025-10-02</td><td class="n">1</td><td>상승 추세</td><td class="n">+2.70%</td><td class="n">-3.07조</td><td class="n good">+19.0%</td><td class="n good">+21.4%</td><td class="n good">+47.5%</td><td class="n dim"> </td></tr><tr><td>2025-11-26</td><td class="n">3</td><td>상승 추세</td><td class="n">+2.67%</td><td class="n">-1.80조</td><td class="n good">+4.3%</td><td class="n good">+59.2%</td><td class="n good">+103.2%</td><td class="n dim"> </td></tr><tr><td>2025-12-22</td><td class="n">2</td><td>상승 추세</td><td class="n">+2.12%</td><td class="n">-2.67조</td><td class="n good">+20.6%</td><td class="n good">+31.7%</td><td class="n good">+122.0%</td><td class="n dim"> </td></tr><tr><td>2026-02-09</td><td class="n">2</td><td>상승 추세</td><td class="n">+4.10%</td><td class="n">-3.29조</td><td class="n bad">-0.9%</td><td class="n good">+47.6%</td><td class="n good">+18.9%</td><td class="n dim"> </td></tr><tr><td>2026-03-18</td><td class="n">3</td><td>상승 추세</td><td class="n">+5.04%</td><td class="n">-3.87조</td><td class="n good">+5.0%</td><td class="n good">+53.0%</td><td class="n dim"> </td><td class="n dim"> </td></tr><tr><td>2026-07-31</td><td class="n">2</td><td>상승 추세</td><td class="n">+17.91%</td><td class="n">-8.28조</td><td class="n good">+3.4%</td><td class="n dim"> </td><td class="n dim"> </td><td class="n dim"> </td></tr><tr><td>2026-09-04</td><td class="n">3</td><td>상승 추세</td><td class="n">+1.64%</td><td class="n">-3.72조</td><td class="n dim"> </td><td class="n dim"> </td><td class="n dim"> </td><td class="n dim"> </td></tr></tbody></table></div>
 
 </details>
-<details class="apx"><summary>외국인 대량 순매도일에 사는 편이 나았다: 큰 하락일의 반등 효과와 구분되지 않았다</summary>
+<details class="apx" open><summary>외국인 대량 순매도일에 사는 편이 나았다: 큰 하락일의 반등 효과와 구분되지 않았다</summary>
 
 <div class="claim"><p>외국인 대량 순매도 14사건 뒤 코스피 수익률은 3개월 +16.0%, 6개월 +22.6%로 전체 거래일의 +2.8%·+4.8%보다 좋고, 개인 대량 순매도 22사건 뒤는 +2.8%·+2.3%로 전체 거래일과 같거나 못하다.
 매도 주체와 무관하게 코스피 −2% 이하 하락일 37사건 뒤도 3개월 +6.8%, 12개월 +20.8%로 좋다. 외국인 대량 순매도일은 30일 중 26일이 하락일이라, 외국인 매도의 효과와 큰 하락일의 반등 효과가 이 자료로는 갈리지 않는다. 하락률·국면·시기를 맞춘 비교가 있어야 가른다.</p></div>
@@ -2563,13 +2583,13 @@ NBER Working Paper 34086, 2025.</p>
 <div class="tblwrap"><table class="tw"><thead><tr><th>사건 첫날</th><th class="n">신호일 수</th><th>코스피 국면</th><th class="n">첫날 코스피 등락</th><th class="n">첫날 외국인 순매수</th><th class="n">1개월 뒤 코스피</th><th class="n">3개월 뒤</th><th class="n">6개월 뒤</th><th class="n">12개월 뒤</th></tr></thead><tbody><tr><td>2020-03-09</td><td class="n">1</td><td>하락 추세</td><td class="n">-4.19%</td><td class="n">-1.31조</td><td class="n bad">-6.1%</td><td class="n good">+12.0%</td><td class="n good">+21.5%</td><td class="n good">+52.2%</td></tr><tr><td>2020-11-30</td><td class="n">1</td><td>상승 추세</td><td class="n">-1.60%</td><td class="n">-2.43조</td><td class="n good">+10.9%</td><td class="n good">+17.5%</td><td class="n good">+23.6%</td><td class="n good">+9.6%</td></tr><tr><td>2021-02-26</td><td class="n">1</td><td>상승 추세</td><td class="n">-2.80%</td><td class="n">-2.82조</td><td class="n good">+0.9%</td><td class="n good">+5.2%</td><td class="n good">+3.8%</td><td class="n bad">-10.4%</td></tr><tr><td>2021-05-12</td><td class="n">1</td><td>상승 추세</td><td class="n">-1.49%</td><td class="n">-2.70조</td><td class="n good">+2.9%</td><td class="n good">+1.5%</td><td class="n bad">-6.1%</td><td class="n bad">-19.3%</td></tr><tr><td>2021-08-13</td><td class="n">1</td><td>상승 추세</td><td class="n">-1.16%</td><td class="n">-2.69조</td><td class="n bad">-1.4%</td><td class="n bad">-5.4%</td><td class="n bad">-14.7%</td><td class="n bad">-20.1%</td></tr><tr><td>2025-03-11</td><td class="n">1</td><td>하락 추세</td><td class="n">-1.28%</td><td class="n">-1.54조</td><td class="n bad">-4.1%</td><td class="n good">+14.6%</td><td class="n good">+31.8%</td><td class="n good">+121.1%</td></tr><tr><td>2025-03-31</td><td class="n">4</td><td>하락 추세</td><td class="n">-3.00%</td><td class="n">-1.58조</td><td class="n good">+3.0%</td><td class="n good">+23.8%</td><td class="n good">+38.0%</td><td class="n good">+103.6%</td></tr><tr><td>2025-11-14</td><td class="n">3</td><td>상승 추세</td><td class="n">-3.81%</td><td class="n">-2.36조</td><td class="n good">+2.0%</td><td class="n good">+41.5%</td><td class="n good">+99.0%</td><td class="n dim"> </td></tr><tr><td>2026-02-05</td><td class="n">1</td><td>상승 추세</td><td class="n">-3.86%</td><td class="n">-5.01조</td><td class="n good">+8.1%</td><td class="n good">+43.0%</td><td class="n good">+27.8%</td><td class="n dim"> </td></tr><tr><td>2026-02-27</td><td class="n">1</td><td>상승 추세</td><td class="n">-1.00%</td><td class="n">-7.05조</td><td class="n bad">-12.9%</td><td class="n good">+31.8%</td><td class="n good">+10.7%</td><td class="n dim"> </td></tr><tr><td>2026-03-23</td><td class="n">4</td><td>상승 추세</td><td class="n">-6.49%</td><td class="n">-3.68조</td><td class="n good">+19.8%</td><td class="n good">+51.8%</td><td class="n dim"> </td><td class="n dim"> </td></tr><tr><td>2026-05-07</td><td class="n">4</td><td>상승 추세</td><td class="n">+1.43%</td><td class="n">-6.70조</td><td class="n bad">-0.1%</td><td class="n bad">-16.4%</td><td class="n dim"> </td><td class="n dim"> </td></tr><tr><td>2026-06-29</td><td class="n">1</td><td>상승 추세</td><td class="n">-0.20%</td><td class="n">-7.73조</td><td class="n bad">-32.5%</td><td class="n dim"> </td><td class="n dim"> </td><td class="n dim"> </td></tr><tr><td>2026-07-27</td><td class="n">6</td><td>상승 추세</td><td class="n">+0.97%</td><td class="n">-2.88조</td><td class="n good">+2.3%</td><td class="n dim"> </td><td class="n dim"> </td><td class="n dim"> </td></tr></tbody></table></div>
 
 </details>
-<details class="apx"><summary>순매수 쪽도 봤다: 상승 추세의 개인 대량 순매수 뒤 12개월이 개인 쪽에서 가장 나쁘다</summary>
+<details class="apx" open><summary>순매수 쪽도 봤다: 상승 추세의 개인 대량 순매수 뒤 12개월이 개인 쪽에서 가장 나쁘다</summary>
 
 <div class="claim"><p>상승 추세에서 개인이 대량 순매수한 16사건의 12개월 뒤 수익률은 -10.4%에 상승 확률 36%로 기저율 +5.2%보다 훨씬 나쁘다.
 개인 대량 순매수 55일 중 53일이 하락일이다. 개인은 하락일에 매수하고 상승일에 매도한다. 개인 쪽에서 가장 나쁜 칸이고, 외국인 대량 순매도의 12개월 -14.9%는 이보다 낮지만 4사건이다.</p></div>
 
 </details>
-<details class="apx"><summary>개인 대량 순매도 뒤를 가르는 것은 외국인 수급과 수출이다: 순매도 자체는 신호가 아니다</summary>
+<details class="apx" open><summary>개인 대량 순매도 뒤를 가르는 것은 외국인 수급과 수출이다: 순매도 자체는 신호가 아니다</summary>
 
 <div class="claim"><p>개인 대량 순매도 뒤 20거래일 동안 외국인이 순매수로 돌아온 12사건은 3개월 뒤 수익률 +3.4%(상승 확률 75%), 6개월 뒤 +9.1%였고, 외국인이 계속 순매도한 10사건은 -3.6%(38%)·-3.2%였다.
 같은 달 수출 증감률이 상승 중이었던 10사건은 12개월 뒤 +8.1%, 하락 중이었던 10사건은 -5.0%에 상승 확률 25%였다.
@@ -2590,7 +2610,7 @@ NBER Working Paper 34086, 2025.</p>
 「개인 항복 뒤 외국인이 순매수로 돌아오면 바닥」(반대로 나왔고 계엄 사흘이 만든 숫자)이다. 200일선 위 30% 과열, 거래대금 급증은 해당 사건이 셋 이하라 판정하지 않았다.</p>
 
 </details>
-<details class="apx"><summary>확인일부터 다시 계산한 결합 관찰: 6사건뿐이라 규칙이 아니다</summary>
+<details class="apx" open><summary>확인일부터 다시 계산한 결합 관찰: 6사건뿐이라 규칙이 아니다</summary>
 
 <div class="claim"><p>개인 대량 순매도 사건의 마지막 신호일에서 20거래일 지난 날을 확인일로 두고, 그날 알 수 있는 2가지만 본다. 그 20일의 외국인 누적 순매수 부호와, 확인일에 이미 발표된 전달 수출 증감률의 방향이다. 수익률은 확인일 종가부터 계산한다.
 둘 다 맞은 6사건은 3개월 뒤 +16.1%(상승 확률 83%), 6개월 뒤 +25.7%(100%)였고, 둘 다 아닌 6사건은 6개월 +6.1%, 하나만 맞은 8사건은 6개월 -1.6%였다.
@@ -2605,7 +2625,7 @@ NBER Working Paper 34086, 2025.</p>
 판정 대기 사건은 2026년 7월 31일 · 2026년 9월 4일이다.</p>
 
 </details>
-<details class="apx"><summary>수출 증감률을 코스피와 한 그림에 놓으면: 개인은 수출 증감률이 높은 달에 매도한다</summary>
+<details class="apx" open><summary>수출 증감률을 코스피와 한 그림에 놓으면: 개인은 수출 증감률이 높은 달에 매도한다</summary>
 
 <div class="panel" data-reveal><div class="panel-head"><div><h3>한국 수출 증감률 · 코스피 · 개인 대량 순매도일: 한 그림에</h3></div><div class="rng" role="group" aria-label="기간 선택"><button class="on" onclick="fxRange(&#39;g7&#39;,0,this)">전체 2020~</button><button onclick="fxRange(&#39;g7&#39;,1,this)">최근 2년</button></div></div><div class="kpis"><div class="kpi"><div class="k">수출 자료</div><div class="v">2026년 6월까지</div><div class="s">OECD 경유 FRED · 월간 · 계절조정 YoY</div></div><div class="kpi hl"><div class="k">개인 대량 순매도 달의 수출 YoY 중앙</div><div class="v">+10.5%</div><div class="s">전체 거래일의 중앙 +5.6%</div></div><div class="kpi"><div class="k">개인 대량 순매도</div><div class="v">40일</div><div class="s">그림의 붉은 점</div></div></div><figure class="fig"><div class="cbox" style="height:420px"><canvas id="g7"></canvas></div><figcaption><span class="freq d">일간</span>회색이 코스피(왼쪽 로그축), 붉은 점이 개인 대량 순매도일, 황금 면이 한국 수출의 전년 같은 달 대비 증감률(오른쪽 축)이다. 수출은 월간 자료라 그 달의 값을 그 달 모든 거래일에 펴서 그렸고 마지막 달은 2026년 6월이다.</figcaption></figure><p class="panel-cap rngnote" style="margin-top:12px">수출 증감률이 오르는 달에 붉은 점이 몰리는지 본다.</p><div class="srcline"><span class="lbl">출처</span><span>OECD MEI 한국 수출 YoY(FRED XTEXVA01KRM659S) · KRX [12008] 투자자별 거래실적 · 금융투자협회 거래대금 · KRX 코스피 일별</span><a href="https://fred.stlouisfed.org/series/XTEXVA01KRM659S" target="_blank" rel="noopener">FRED &#8599;</a></div></div>
 
@@ -2613,7 +2633,7 @@ NBER Working Paper 34086, 2025.</p>
 개인 대량 순매도 달의 수출 증감률 중앙값은 +10.5%, 전체 거래일은 +5.6%다.</p>
 
 </details>
-<details class="apx"><summary>하락일에 개인이 대규모로 순매도한 18일: 이후 3~6개월 성적은 높았지만 표본이 작다</summary>
+<details class="apx" open><summary>하락일에 개인이 대규모로 순매도한 18일: 이후 3~6개월 성적은 높았지만 표본이 작다</summary>
 
 <div class="claim"><p>하락일에 개인이 순매도한 것은 96일이고, 그 96일 전체의 12개월 뒤는 +5.7%로 전체 거래일 +7.4%보다 오히려 낮다.
 좋았던 것은 그중 거래대금의 3% 넘게 순매도한 18일이고 3개월 +4.8%, 6개월 +12.7%, 12개월 +11.6%다. 대조군인 코스피 하락일 전체 725일의 +1.9%·+3.7%·+6.8%보다 높다.
@@ -2641,7 +2661,7 @@ NBER Working Paper 34086, 2025.</p>
 다음 검증은 순매도 뒤에도 계속 밀리는 경우와 저점을 지키는 경우를 나눠 보는 것이고, 가격을 확인했다면 수익률도 그 확인 이후부터 계산해야 한다.</p>
 
 </details>
-<details class="apx"><summary>등락률에 비해 얼마나 더 팔았나로 다시 보면: 9월 7일은 6년 8개월 중 가장 이례적인 개인 순매도였고 7월 31일은 아니었다</summary>
+<details class="apx" open><summary>등락률에 비해 얼마나 더 팔았나로 다시 보면: 9월 7일은 6년 8개월 중 가장 이례적인 개인 순매도였고 7월 31일은 아니었다</summary>
 
 <div class="claim"><p>개인 순매수 비율은 그날 등락률과 반대로 움직이므로, 이례적인 것은 금액이 아니라 「그 등락률에서 평소보다 얼마나 더 팔았나」다.
 과거 500거래일로만 회귀선을 긋고 그날의 차이를 그 창의 표준편차로 나눈 잔차 z로 보면, 9월 7일은 추세선이 -7.4%를 예측했는데 −31.4%를 팔아 z -4.8로 표본 중 1위다.
@@ -2659,13 +2679,13 @@ z가 −2.5 아래인 날은 24일 16사건이고 그중 상승일이 14일이�
 <div class="tblwrap"><table class="tw"><thead><tr><th>코스피 매수일</th><th class="n">1개월 뒤 코스피<br><span class="dim">중앙값 · 상승 확률 · 표본</span></th><th class="n">3개월 뒤<br><span class="dim">중앙값 · 상승 확률 · 표본</span></th><th class="n">6개월 뒤<br><span class="dim">중앙값 · 상승 확률 · 표본</span></th><th class="n">12개월 뒤<br><span class="dim">중앙값 · 상승 확률 · 표본</span></th></tr></thead><tbody><tr><td>전체 거래일 (회귀 창이 생긴 2022년 1월 21일부터 1129일)</td><td class="n good">+1.0%<span class="dim"> · 58% · 1110</span></td><td class="n good">+2.7%<span class="dim"> · 61% · 1068</span></td><td class="n good">+5.1%<span class="dim"> · 64% · 1006</span></td><td class="n good">+7.6%<span class="dim"> · 75% · 889</span></td></tr><tr><td>이례적 개인 순매도 (잔차 z ≤ −2.5) · 16사건</td><td class="n good">+3.1%<span class="dim"> · 60% · 15</span></td><td class="n good">+5.0%<span class="dim"> · 79% · 14</span></td><td class="n good">+8.5%<span class="dim"> · 77% · 13</span></td><td class="n good">+10.9%<span class="dim"> · 73% · 11</span></td></tr><tr><td>그중 상승일 · 8사건</td><td class="n bad">-3.3%<span class="dim"> · 43% · 7</span></td><td class="n good">+5.1%<span class="dim"> · 86% · 7</span></td><td class="n good">+7.3%<span class="dim"> · 71% · 7</span></td><td class="n bad">-1.1%<span class="dim"> · 50% · 6</span></td></tr><tr><td>그중 하락일 · 8사건</td><td class="n good">+4.4%<span class="dim"> · 75% · 8</span></td><td class="n good">+4.8%<span class="dim"> · 71% · 7</span></td><td class="n good">+9.8%<span class="dim"> · 83% · 6</span></td><td class="n good">+12.5%<span class="dim"> · 100% · 5</span></td></tr><tr><td>이례적 개인 순매수 (z ≥ +2.5) · 10사건</td><td class="n good">+1.1%<span class="dim"> · 60% · 10</span></td><td class="n good">+3.0%<span class="dim"> · 67% · 9</span></td><td class="n good">+9.3%<span class="dim"> · 86% · 7</span></td><td class="n good">+14.6%<span class="dim"> · 75% · 4</span></td></tr><tr><td>비교: 대량 순매도 기준 11.28% · 같은 창 19사건</td><td class="n good">+2.5%<span class="dim"> · 56% · 18</span></td><td class="n good">+2.9%<span class="dim"> · 65% · 17</span></td><td class="n good">+4.9%<span class="dim"> · 62% · 16</span></td><td class="n good">+0.3%<span class="dim"> · 50% · 12</span></td></tr></tbody></table></div>
 
 </details>
-<details class="apx"><summary>바닥 7단계로는 0단계: 하락일 매도는 외국인 쪽에 있다</summary>
+<details class="apx" open><summary>바닥 7단계로는 0단계: 하락일 매도는 외국인 쪽에 있다</summary>
 
 <div class="claim"><p>개인 대량 순매도일은 대부분 0단계다. 첫 칸인 공포의 삼각지, 즉 투매 2번이 안 켜져서다. 외국인 대량 순매도일은 1단계 이상이 더 많다.
 이야기꾼이 수급에서 개인의 항복이 아니라 외국인의 투매를 보는 이유가 여기 있다. 개인 대량 순매도는 20주선 위 고점권에서 나오고 개인 대량 순매수 뒤 12개월이 개인 쪽에서 가장 나쁘니, 상승 추세에서 개인 수급의 극단은 천장 쪽에 가깝다는 관찰이 남는다.</p></div>
 
 </details>
-<details class="apx"><summary>2025년 4월 바닥: AI 반도체 사이클의 출발점에서 외국인이 매도하고 개인이 매수했다</summary>
+<details class="apx" open><summary>2025년 4월 바닥: AI 반도체 사이클의 출발점에서 외국인이 매도하고 개인이 매수했다</summary>
 
 <div class="claim"><p>코스피는 2025년 4월 9일 2,294에서 바닥을 찍고 12개월 뒤 +151.9%, 2026년 9월 8일까지 3.0배가 됐다.
 바닥 앞 30거래일(당일 제외)에 외국인은 11.0조를 순매도했고 대량 순매도일이 5일이었다. 개인은 4.5조를 순매수했고 바닥 뒤 30거래일에 3.2조를 순매도했다. 출발점에 개인의 대량 순매도는 없었다.</p></div>
@@ -2678,7 +2698,7 @@ z가 −2.5 아래인 날은 24일 16사건이고 그중 상승일이 14일이�
 9월 7일은 개인이 순매도하고 외국인이 순매수한 날이라 4월 바닥과 수급 모양이 정반대다. 닮은 날을 찾는다면 개인이 하락일에 순매도한 7월 29~30일 쪽이다.</p>
 
 </details>
-<details class="apx"><summary>외국인 대량 순매도는 고점의 전조현상이 아니다: 2026년 2개 고점만 예외다</summary>
+<details class="apx" open><summary>외국인 대량 순매도는 고점의 전조현상이 아니다: 2026년 2개 고점만 예외다</summary>
 
 <div class="claim"><p>외국인 순매도는 고점을 만들지 않고 고점을 따라온다. 2020년부터 앞뒤 20거래일 최고이면서 그 뒤 60거래일 안에 8% 넘게 내린 고점이 14개다.
 고점 앞 20일에 외국인이 순매도였던 것은 8개로 전체 거래일의 59%와 같고, 그 순매도가 하위 10%에 드는 고점은 0개다.
@@ -2699,14 +2719,14 @@ z가 −2.5 아래인 날은 24일 16사건이고 그중 상승일이 14일이�
 공매도 체결액과 당일 등락의 상관만으로 매도의 원인을 가를 수는 없고, 되사는 것(환매수)은 따로 집계되지 않아 순공매도도 알 수 없다.</p>
 
 </details>
-<details class="apx"><summary>지금: 상승 추세, 마지막 대량 순매도는 개인 2026년 9월 8일·외국인 2026년 8월 25일</summary>
+<details class="apx" open><summary>지금: 상승 추세, 마지막 대량 순매도는 개인 2026년 9월 8일·외국인 2026년 8월 25일</summary>
 
 <div class="claim"><p>2026년 9월 8일 기준 코스피는 상승 추세다. 12개월이 안 온 사건이 23개이고 이 표는 수급 파일이 늘 때마다 다시 찍힌다.
 9월 7일과 7월 31일은 개인이 고점 대비 −25%와 −30% 아래, 20주선 아래에서 순매도한 예외이고 하필 금액 1위와 2위다.</p></div>
 
 </details>
 
-<details class="apx"><summary>자료와 계산 방법: 자세히</summary>
+<details class="apx" open><summary>자료와 계산 방법: 자세히</summary>
 
 <p>수급은 한국거래소 정보데이터시스템 [12008] 투자자별 거래실적의 코스피 시장 집계값이다. ETF·ETN·ELW를 뺀 원 단위이고 2020-01-03부터다. 공개 API에 없어 인증 화면에서 받는다.
 거래대금은 금융투자협회 유가증권시장 일별, 코스피 종가는 FinanceDataReader의 KS11 계열을 scripts/backfill_kospi_index.py 가 채운 일별 OHLC 파일이다. 두 지수 계열은 1,628일에서 0.2% 넘게 어긋난 날이 없다.

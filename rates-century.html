@@ -1972,6 +1972,26 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 .paper figure svg,.paper .cchart svg{width:100%;height:auto;display:block}
 /* 좁은 화면에서 표가 넘치면 잘리지 말고 가로로 밀리게 한다 */
 .paper .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+/* ── 접이식 상세(.apx) ──
+   2026-09-12 상수님 «아래 작은 표와 제목 텍스트 간격이 타이트하게 붙어 있네».
+   .gloss 에는 규칙이 있었는데 .apx 는 브라우저 기본값이라 요약 줄과 내용이 붙었다.
+   ⚠ 원문 상세표는 목차의 **맨 마지막**이고 결론 뒤에 온다. 그래서 펼쳐 둬도
+     본문을 읽는 흐름을 막지 않는다(open 은 open_apx.py 가 붙인다). */
+.paper details.apx{margin:22px 0;border:1px solid var(--border);border-radius:8px;
+  padding:2px 16px 4px;background:transparent}
+.paper details.apx>summary{cursor:pointer;list-style:none;padding:12px 0;
+  font-size:.92rem;font-weight:700;color:var(--accent)}
+.paper details.apx>summary::-webkit-details-marker{display:none}
+.paper details.apx>summary::before{content:'▸';font-size:.78rem;margin-right:7px;
+  display:inline-block;transition:transform .18s}
+.paper details.apx[open]>summary::before{transform:rotate(90deg)}
+.paper details.apx>summary:hover{opacity:.8}
+/* ★ 요약 줄과 내용 사이. 이것이 없어서 표가 제목에 붙어 있었다. */
+.paper details.apx[open]>summary{border-bottom:1px solid var(--border);margin-bottom:16px}
+.paper details.apx>*+*{margin-top:14px}
+.paper details.apx>.tblwrap:last-child,
+.paper details.apx>p:last-child{margin-bottom:14px}
 /* ★ 2026-08-13 상수님 «ROE 가 짤려 보이네» — 정렬 가능한 큰 표(오디션·상대강도)는
    열이 15개까지 간다. min-width 가 없으면 표가 «압축»되어 마지막 열이 잘린 것처럼 보인다.
    최소 폭을 박아 두면 좁은 화면에서 **가로로 밀려** 전부 읽힌다.
@@ -2436,7 +2456,7 @@ S&amp;P500 은 일별 종가의 월말 값이고 배당은 빠져 있다.
 <h2 id="이-글이-틀렸다고-인정해야-할-때">이 글이 틀렸다고 인정해야 할 때</h2>
 <p>이 글은 100년을 '금리가 오른 40년과 내린 39년'으로 갈랐다. 경계를 정한 계열을 바꾸면 그 길이가 바뀌고, 지금 시대의 표본은 아직 몇 년뿐이다. 조건을 하나씩 적어 둔다.</p>
 
-<details class="apx"><summary>조건을 하나씩: 자세히</summary>
+<details class="apx" open><summary>조건을 하나씩: 자세히</summary>
 
 <p>첫째, 1941년 7월 저점이 시장 금리가 아니라는 반론이다.
 그 무렵 금리는 전시 페그의 영향 아래 있었고 페그는 1942년에 공식화됐다.

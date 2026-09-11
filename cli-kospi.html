@@ -2163,6 +2163,26 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 .paper figure svg,.paper .cchart svg{width:100%;height:auto;display:block}
 /* 좁은 화면에서 표가 넘치면 잘리지 말고 가로로 밀리게 한다 */
 .paper .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+/* ── 접이식 상세(.apx) ──
+   2026-09-12 상수님 «아래 작은 표와 제목 텍스트 간격이 타이트하게 붙어 있네».
+   .gloss 에는 규칙이 있었는데 .apx 는 브라우저 기본값이라 요약 줄과 내용이 붙었다.
+   ⚠ 원문 상세표는 목차의 **맨 마지막**이고 결론 뒤에 온다. 그래서 펼쳐 둬도
+     본문을 읽는 흐름을 막지 않는다(open 은 open_apx.py 가 붙인다). */
+.paper details.apx{margin:22px 0;border:1px solid var(--border);border-radius:8px;
+  padding:2px 16px 4px;background:transparent}
+.paper details.apx>summary{cursor:pointer;list-style:none;padding:12px 0;
+  font-size:.92rem;font-weight:700;color:var(--accent)}
+.paper details.apx>summary::-webkit-details-marker{display:none}
+.paper details.apx>summary::before{content:'▸';font-size:.78rem;margin-right:7px;
+  display:inline-block;transition:transform .18s}
+.paper details.apx[open]>summary::before{transform:rotate(90deg)}
+.paper details.apx>summary:hover{opacity:.8}
+/* ★ 요약 줄과 내용 사이. 이것이 없어서 표가 제목에 붙어 있었다. */
+.paper details.apx[open]>summary{border-bottom:1px solid var(--border);margin-bottom:16px}
+.paper details.apx>*+*{margin-top:14px}
+.paper details.apx>.tblwrap:last-child,
+.paper details.apx>p:last-child{margin-bottom:14px}
 /* ★ 2026-08-13 상수님 «ROE 가 짤려 보이네» — 정렬 가능한 큰 표(오디션·상대강도)는
    열이 15개까지 간다. min-width 가 없으면 표가 «압축»되어 마지막 열이 잘린 것처럼 보인다.
    최소 폭을 박아 두면 좁은 화면에서 **가로로 밀려** 전부 읽힌다.
@@ -2632,33 +2652,33 @@ OECD 가 과거 값을 매월 개정하는 것도 감안해야 한다.</p>
 
 <p>본문에서 요약한 표의 원본이다. 지우지 않고 여기에 둔다. 제목을 누르면 펼쳐진다.</p>
 
-<details class="apx"><summary>102 이상이었던 국면: 전체 목록</summary>
+<details class="apx" open><summary>102 이상이었던 국면: 전체 목록</summary>
 <div class="tblwrap"><table class="tw">
 <thead><tr><th>102 이상 구간</th><th class="n">길이</th><th>무엇이었나</th><th>그 뒤</th></tr></thead>
 <tbody><tr><td>1999-03 ~ 2000-05</td><td class="n">15개월</td><td>닷컴 정점 직전</td><td>2000년 1월 코스피 정점, 이후 −50%</td></tr><tr><td>2009-10 ~ 2009-11</td><td class="n">2개월</td><td>리먼 회복 급반등</td><td>반례. 2010~11년 상승이 이어졌다</td></tr><tr><td>2021-03 ~ 2021-06</td><td class="n">4개월</td><td>코로나 유동성 정점</td><td>2021년 6월 정점, 2022년 −25%</td></tr><tr class="cur"><td>2026-06 ~ 2026-08</td><td class="n">3개월</td><td>지금</td><td>아직 결과가 없다</td></tr></tbody></table></div>
 </details>
 
-<details class="apx"><summary>경기선행지수 상승 국면: 전체 목록</summary>
+<details class="apx" open><summary>경기선행지수 상승 국면: 전체 목록</summary>
 <div class="tblwrap"><table class="tw">
 <thead><tr><th>상승 국면</th><th class="n">개월</th><th class="n">CLI 저점 → 천정</th>
 <th class="n">코스피 최대 하락폭</th><th>기준</th></tr></thead>
 <tbody><tr class="warn"><td>1992-03 ~ 1995-06</td><td class="n">39</td><td class="n">97.88 → 101.90</td><td class="n bad">-20.4%</td><td class="dim">월평균</td></tr><tr><td>1996-12 ~ 1997-06</td><td class="n">6</td><td class="n">98.30 → 98.98</td><td class="n ">-5.9%</td><td class="dim">월평균</td></tr><tr class="warn"><td>1998-03 ~ 1999-09</td><td class="n">18</td><td class="n">96.02 → 104.27</td><td class="n bad">-51.2%</td><td class="dim">일별</td></tr><tr class="warn"><td>2001-03 ~ 2002-05</td><td class="n">14</td><td class="n">97.82 → 101.75</td><td class="n bad">-25.8%</td><td class="dim">일별</td></tr><tr><td>2003-05 ~ 2004-04</td><td class="n">11</td><td class="n">98.69 → 100.19</td><td class="n ">-9.3%</td><td class="dim">일별</td></tr><tr><td>2005-01 ~ 2005-12</td><td class="n">11</td><td class="n">99.81 → 100.86</td><td class="n ">-10.9%</td><td class="dim">일별</td></tr><tr><td>2006-07 ~ 2007-08</td><td class="n">13</td><td class="n">100.15 → 101.02</td><td class="n ">-18.3%</td><td class="dim">일별</td></tr><tr class="warn"><td>2008-10 ~ 2009-11</td><td class="n">13</td><td class="n">97.49 → 102.05</td><td class="n bad">-34.8%</td><td class="dim">일별</td></tr><tr><td>2011-12 ~ 2013-06</td><td class="n">18</td><td class="n">98.82 → 99.85</td><td class="n ">-13.7%</td><td class="dim">일별</td></tr><tr><td>2014-06 ~ 2015-04</td><td class="n">10</td><td class="n">99.67 → 100.33</td><td class="n ">-9.6%</td><td class="dim">일별</td></tr><tr><td>2016-01 ~ 2017-04</td><td class="n">15</td><td class="n">100.20 → 101.29</td><td class="n ">-5.3%</td><td class="dim">일별</td></tr><tr class="warn"><td>2019-09 ~ 2021-05</td><td class="n">20</td><td class="n">99.20 → 102.22</td><td class="n bad">-35.7%</td><td class="dim">일별</td></tr><tr><td>2023-02 ~ 2024-05</td><td class="n">15</td><td class="n">98.17 → 99.70</td><td class="n ">-14.6%</td><td class="dim">일별</td></tr><tr class="cur"><td>2025-01 ~ 진행 중</td><td class="n">20</td><td class="n">99.34 → 102.21</td><td class="n bad">-38.6%</td><td class="dim">일별</td></tr></tbody></table></div>
 </details>
 
-<details class="apx"><summary>경기선행지수 하락 국면: 전체 목록</summary>
+<details class="apx" open><summary>경기선행지수 하락 국면: 전체 목록</summary>
 <div class="tblwrap"><table class="tw">
 <thead><tr><th>천정 → 저점</th><th class="n">개월</th><th class="n">CLI 천정 → 저점</th>
 <th class="n">코스피 낙폭</th></tr></thead>
 <tbody><tr><td>2007-08 ~ 2008-10</td><td class="n">14</td><td class="n">101.02 → 97.49</td><td class="n bad">-54.5%</td></tr><tr><td>1999-09 ~ 2001-03</td><td class="n">18</td><td class="n">104.27 → 97.82</td><td class="n bad">-52.7%</td></tr><tr><td>2002-05 ~ 2003-05</td><td class="n">12</td><td class="n">101.75 → 98.69</td><td class="n bad">-41.1%</td></tr><tr><td>2021-05 ~ 2023-02</td><td class="n">21</td><td class="n">102.22 → 98.17</td><td class="n bad">-34.8%</td></tr><tr><td>1995-06 ~ 1996-12</td><td class="n">18</td><td class="n">101.90 → 98.30</td><td class="n bad">-30.9%</td></tr><tr><td>2017-04 ~ 2019-09</td><td class="n">29</td><td class="n">101.29 → 99.20</td><td class="n bad">-26.5%</td></tr></tbody></table></div>
 </details>
 
-<details class="apx"><summary>다른 경기지표와의 대조</summary>
+<details class="apx" open><summary>다른 경기지표와의 대조</summary>
 <div class="tblwrap"><table class="tw">
 <thead><tr><th>지표</th><th class="n">코스피 전년비와의 상관계수</th><th class="n">최대 상관 시차</th></tr></thead>
 <tbody><tr class="cur"><td>OECD 경기선행지수 (한국)</td><td class="n">0.692</td><td class="n">-1개월</td></tr><tr><td>ISM 제조업지수 (미국)</td><td class="n">0.400</td><td class="n">-2개월</td></tr></tbody></table></div>
 </details>
 
-<details class="apx"><summary>자료와 계산 방법: 자세히</summary>
+<details class="apx" open><summary>자료와 계산 방법: 자세히</summary>
 <p>경기선행지수는 OECD Composite Leading Indicator의 한국, 정규화(Normalized) 계열이다.
 OECD SDMX 본가에서 데이터플로 4.1, 키 KOR.M.LI.IX._Z.NOR.IX._Z.H로 받는다.
 1990-01~2026-08 440개월이고 결측은 없다. scripts/oecd_kospi_monthly.py 가 매일 본가를 확인해
