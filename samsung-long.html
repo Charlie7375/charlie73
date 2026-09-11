@@ -364,6 +364,43 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .hchg .ar{white-space:nowrap}
 .to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
 @media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
+/* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+/* ⚠⚠ 2026-09-10 상수님 «작은 해상도에서는 제목을 누를 수 없네».
+   아카이브가 29장이 되면서 드롭다운이 1,254px 로 자랐다. 상단바는 sticky 라
+   드롭다운은 화면 위에서 72px 자리에 열리는데, 390px 화면의 보이는 높이가 915px 이니
+   **아래 411px 는 화면 밖이고 스크롤이 없어 닿을 방법이 아예 없었다.**
+   → 화면 높이만큼만 열고 넘치면 그 안에서 스크롤한다.
+   · dvh 를 뒤에 한 번 더 적는다 — 모바일 주소창이 접혔다 펴질 때 100vh 는 화면보다 크다.
+     dvh 를 모르는 브라우저는 앞줄(vh)만 읽고 지나간다.
+   · overscroll-behavior:contain — 목록 끝에서 계속 밀어도 뒤 본문이 따라 스크롤되지 않게.
+   · 120px 은 상단바(2줄, 96px)와 아래 여백 16px 이다. 아카이브·원자료는 메뉴 2번째 줄에
+     달려 있어 104px 자리에서 열린다 — 92px 로 뺐더니 12px 이 화면 밖으로 나갔다. */
+html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);
+  overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END */
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 
 /* ── 닷컴 대시보드 형식 (scripts/dotcom_panel.py) ── */
 /* 값은 kospi-dotcom-1998-2000.html 에서 그대로 옮겼다 — 눈맛의 정본이다 */
@@ -404,43 +441,6 @@ html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;-
 .reveal.visible{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 @media(max-width:720px){.panel{padding:22px 16px 18px}.panel .cbox{min-height:320px}}
-/* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-/* ⚠⚠ 2026-09-10 상수님 «작은 해상도에서는 제목을 누를 수 없네».
-   아카이브가 29장이 되면서 드롭다운이 1,254px 로 자랐다. 상단바는 sticky 라
-   드롭다운은 화면 위에서 72px 자리에 열리는데, 390px 화면의 보이는 높이가 915px 이니
-   **아래 411px 는 화면 밖이고 스크롤이 없어 닿을 방법이 아예 없었다.**
-   → 화면 높이만큼만 열고 넘치면 그 안에서 스크롤한다.
-   · dvh 를 뒤에 한 번 더 적는다 — 모바일 주소창이 접혔다 펴질 때 100vh 는 화면보다 크다.
-     dvh 를 모르는 브라우저는 앞줄(vh)만 읽고 지나간다.
-   · overscroll-behavior:contain — 목록 끝에서 계속 밀어도 뒤 본문이 따라 스크롤되지 않게.
-   · 120px 은 상단바(2줄, 96px)와 아래 여백 16px 이다. 아카이브·원자료는 메뉴 2번째 줄에
-     달려 있어 104px 자리에서 열린다 — 92px 로 뺐더니 12px 이 화면 밖으로 나갔다. */
-html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);
-  overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END */
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 /*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
@@ -461,7 +461,7 @@ h2[id],h3[id],[id]:target{scroll-margin-top:92px}
 .ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
 .ptoc a:hover{border-bottom-color:var(--text-secondary)}
 @media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*/</style><link rel="stylesheet" href="vendor/fonts.css"><style id="freqcss">
+/*TOCCSS:END*/</style><link rel="stylesheet" href="vendor/fonts.css"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><style id="freqcss">
 .freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
  padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
  border:1px solid currentColor;opacity:.85}
@@ -738,21 +738,21 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper p.note{padding-left:11px}
 }
 /* PAPER:END */</style>
-<!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
+</head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="macro-timeline.html">거시 이벤트 연대기</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-nhn.html">NHN</a><a href="stock-kolmar.html">한국콜마</a><a href="stock-cosmax.html">코스맥스</a><a href="stock-pharmaresearch.html">파마리서치</a><a href="stock-jyp.html">JYP Ent.</a><a href="stock-sm-ent.html">에스엠</a><a href="stock-yg-ent.html">와이지엔터테인먼트</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="here" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><span class="nav-h sub">수급과 폭락</span><a href="flow-extremes.html">개인은 오르는 날 팔고, 내리는 동안 산다</a><a href="flow-crashes.html">경제가 멀쩡해도 폭락은 온다</a><span class="nav-h sub">신용과 청산</span><a href="us-credit-spread.html">신용스프레드는 앞을 보는 창이 아니라 계기판이다</a><a href="deleveraging.html">강제청산은 어떻게 끝나는가</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="sentiment.html">빚과 현금과 강제청산</a><span class="nav-h sub">경기와 수출</span><a href="us-elections.html">미국 선거와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="jeoji-kospi.html">경기지표가 좋으면 코스피도 오를까</a><span class="nav-h sub">금리와 통화</span><a href="gold-rates.html">금리가 왜 오르는지를 보면 금이 어디로 갈지 알 수 있다</a><a href="treasury-trust.html">미국은 왜 국채를 되사면서 한도를 다 채우지 않을까</a><a href="inflation-playbook.html">물가가 오르는 시대에도 주식은 올랐을까</a><a href="rates-century.html">미국 금리 100년과 인플레 시대</a><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a><a href="fed-kospi.html">미국이 금리를 내리면 코스피에는 악재일까</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="dollar-kospi.html">달러가 약해지면 코스피는 오를까</a><span class="nav-h sub">개별 종목</span><a href="memory-price.html">D램 가격과 삼성전자 주가, 무엇이 먼저 움직일까</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a class="here" href="samsung-long.html">삼성전자 27년</a><span class="nav-h sub">시장 국면</span><a href="breadth-concentration.html">신고가 쏠림배수 2023~2026</a><a href="kospi-analog.html">지금과 닮은 과거 — 유사국면</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><div class="site-group"><button class="" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 83계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a href="data-kr-rates.html">한국 금리</a><a href="data-us-market.html">미국 시장</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a href="data-fx.html">환율·원자재·암호</a><a href="data-macro.html">재정·거시</a></div></div><!-- NAV:END --></nav>
 </div></div>
 <div class="wrap paper">
 <div class="phead">
-<div class="eyebrow">찰리 아카이브 · 삼성전자 27년</div>
+<div class="eyebrow">아카이브 · 삼성전자 27년</div>
 <h1>삼성전자 27년</h1>
 <p class="sub">스테이지 · 이격도(이동평균선에서 얼마나 벌어졌나) · 제오지산수 3가지 기준으로 2000년부터 지금까지를 봤다.
 셋 다 교과서와 다른 답이 나왔다.</p>
 <p class="pauth">기준일 2026-09-11 · 삼성전자 27년 장기 분석 · 월 1회 갱신</p>
 </div>
 
-<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>연준 편에서 세운 시대 구분을 삼성전자 27년에 그대로 대면 3가지 관찰이 다 살아남고 2개는 오히려 더 뚜렷해진다. 개별 종목의 궤적도 시대의 산물이라는 뜻이다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#27년-동안-어떤-모양이었나">27년 동안 어떤 모양이었나?</a></li><li><a href="#스테이지-규칙이-삼성전자에도-통하나">스테이지 규칙이 삼성전자에도 통하나?</a></li><li><a href="#이격도가-낮을-때-사면-되나">이격도가 낮을 때 사면 되나?</a></li><li><a href="#경기지표로-삼성전자를-설명할-수-있나">경기지표로 삼성전자를 설명할 수 있나?</a></li><li><a href="#시대로-갈라도-결론-3가지가-살아남는가">시대로 갈라도 결론 3가지가 살아남는가?</a></li><li><a href="#지금은-어디인가">지금은 어디인가?</a></li><li><a href="#이-분석이-틀릴-수-있는-지점">이 분석이 틀릴 수 있는 지점</a></li><li><a href="#출처">출처</a></li></ol></div><!--TOC:END--><div class="abstract">
+<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>연준 편에서 세운 시대 구분을 삼성전자 27년에 그대로 대면 3가지 관찰이 다 살아남고 2개는 오히려 더 뚜렷해진다. 개별 종목의 궤적도 시대의 산물이라는 뜻이다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#27년-동안-어떤-모양이었나">27년 동안 어떤 모양이었나?</a></li><li><a href="#①-스테이지-규칙이-삼성전자에도-통하나">스테이지 규칙이 삼성전자에도 통하나?</a></li><li><a href="#②-이격도가-낮을-때-사면-되나">이격도가 낮을 때 사면 되나?</a></li><li><a href="#③-경기지표로-삼성전자를-설명할-수-있나">경기지표로 삼성전자를 설명할 수 있나?</a></li><li><a href="#시대로-갈라도-결론-3가지가-살아남는가">시대로 갈라도 결론 3가지가 살아남는가?</a></li><li><a href="#지금은-어디인가">지금은 어디인가?</a></li><li><a href="#이-분석이-틀릴-수-있는-지점">이 분석이 틀릴 수 있는 지점</a></li><li><a href="#출처">출처</a></li></ol></div><!--TOC:END--><div class="abstract">
 <p>요약. 삼성전자는 27년 동안 43.0배가 됐다.
 그런데 와인스타인 규칙이 뒤집힌다. 2단계 상승에서 산 쪽이 12개월 뒤 +8.0%,
 4단계 하락에서 산 쪽이 +44.8%였다.
@@ -774,7 +774,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <tbody><tr><td class="n">-64.8%</td><td class="n">2000-07-14</td><td class="n">2000-10-18</td><td class="n">96일</td></tr><tr><td class="n">-47.4%</td><td class="n">2008-05-19</td><td class="n">2008-10-24</td><td class="n">158일</td></tr><tr><td class="n">-45.2%</td><td class="n">2021-01-13</td><td class="n">2024-11-14</td><td class="n">1401일</td></tr><tr><td class="n">-42.9%</td><td class="n">2026-06-19</td><td class="n">2026-07-30</td><td class="n">41일</td></tr><tr><td class="n">-37.6%</td><td class="n">2002-04-25</td><td class="n">2003-02-10</td><td class="n">291일</td></tr></tbody></table></div>
 <figcaption>27년 최대 낙폭 5번. 맨 아래 2026년 것은 41일밖에 안 걸렸다. 나머지가 96~1,401일인 것과 비교된다.</figcaption></figure>
 
-<h2 id="스테이지-규칙이-삼성전자에도-통하나">스테이지 규칙이 삼성전자에도 통하나?</h2>
+<h2 id="①-스테이지-규칙이-삼성전자에도-통하나">스테이지 규칙이 삼성전자에도 통하나?</h2>
 
 <p>200일선의 기울기와 가격 위치로 4개 국면을 나눴다.
 <a href="stage-analysis.html" style="color:var(--accent)">코스피로 한 것</a>과 같은 규칙이다.</p>
@@ -805,7 +805,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 와인스타인 규칙의 값어치는 수익률이 아니라 그 구간을 피하는 데 있다.</p>
 </div>
 
-<h2 id="이격도가-낮을-때-사면-되나">이격도가 낮을 때 사면 되나?</h2>
+<h2 id="②-이격도가-낮을-때-사면-되나">이격도가 낮을 때 사면 되나?</h2>
 
 <div class="panel" data-reveal><div class="panel-head"><div><h3>50일 이격도 27년: 과열과 과매도</h3></div><div class="rng" role="group" aria-label="기간 선택"><button class="on" onclick="ssRange(&#39;s3&#39;,0,this)">전체 27년</button><button onclick="ssRange(&#39;s3&#39;,1,this)">최근 10년</button></div></div><div class="kpis"><div class="kpi hl"><div class="k">지금 이격도</div><div class="v">87.6</div><div class="s">27년 중 하위 3.5%</div></div><div class="kpi hl"><div class="k">가장 낮은 구간 뒤 12개월</div><div class="v">+38.1%</div><div class="s">무조건 평균 +21.3%</div></div><div class="kpi"><div class="k">중앙값</div><div class="v">101.2</div><div class="s">1% 분위 81.1 · 99% 분위 129.7</div></div><div class="kpi"><div class="k">표본</div><div class="v">6,425일</div><div class="s">1999년부터 일별</div></div></div><figure class="fig"><div class="cbox"><canvas id="s3"></canvas></div><figcaption><span class="freq m">월간</span>굵은 황금색이 50일 이격도이다. 100이 50일선과 같은 값이고, 초록 점선 90 아래가 과매도, 붉은 점선 110 위가 과열이다.</figcaption></figure><p class="panel-cap rngnote" style="margin-top:12px">27년 전 구간이다. 90~110 밖으로 나가는 일이 드물다.</p><div class="srcline"><span class="lbl">출처</span><span>KRX 일별 종가로 직접 산출 · 이격도 = 종가 ÷ 50일 이동평균 × 100</span></div></div><script>(window.__SS=window.__SS||[]).push({"id": "s3", "t": "50일 이격도 27년 — 과열과 과매도", "l": ["2000-01", "2000-02", "2000-03", "2000-04", "2000-05", "2000-06", "2000-07", "2000-08", "2000-09", "2000-10", "2000-11", "2000-12", "2001-01", "2001-02", "2001-03", "2001-04", "2001-05", "2001-06", "2001-07", "2001-08", "2001-09", "2001-10", "2001-11", "2001-12", "2002-01", "2002-02", "2002-03", "2002-04", "2002-05", "2002-06", "2002-07", "2002-08", "2002-09", "2002-10", "2002-11", "2002-12", "2003-01", "2003-02", "2003-03", "2003-04", "2003-05", "2003-06", "2003-07", "2003-08", "2003-09", "2003-10", "2003-11", "2003-12", "2004-01", "2004-02", "2004-03", "2004-04", "2004-05", "2004-06", "2004-07", "2004-08", "2004-09", "2004-10", "2004-11", "2004-12", "2005-01", "2005-02", "2005-03", "2005-04", "2005-05", "2005-06", "2005-07", "2005-08", "2005-09", "2005-10", "2005-11", "2005-12", "2006-01", "2006-02", "2006-03", "2006-04", "2006-05", "2006-06", "2006-07", "2006-08", "2006-09", "2006-10", "2006-11", "2006-12", "2007-01", "2007-02", "2007-03", "2007-04", "2007-05", "2007-06", "2007-07", "2007-08", "2007-09", "2007-10", "2007-11", "2007-12", "2008-01", "2008-02", "2008-03", "2008-04", "2008-05", "2008-06", "2008-07", "2008-08", "2008-09", "2008-10", "2008-11", "2008-12", "2009-01", "2009-02", "2009-03", "2009-04", "2009-05", "2009-06", "2009-07", "2009-08", "2009-09", "2009-10", "2009-11", "2009-12", "2010-01", "2010-02", "2010-03", "2010-04", "2010-05", "2010-06", "2010-07", "2010-08", "2010-09", "2010-10", "2010-11", "2010-12", "2011-01", "2011-02", "2011-03", "2011-04", "2011-05", "2011-06", "2011-07", "2011-08", "2011-09", "2011-10", "2011-11", "2011-12", "2012-01", "2012-02", "2012-03", "2012-04", "2012-05", "2012-06", "2012-07", "2012-08", "2012-09", "2012-10", "2012-11", "2012-12", "2013-01", "2013-02", "2013-03", "2013-04", "2013-05", "2013-06", "2013-07", "2013-08", "2013-09", "2013-10", "2013-11", "2013-12", "2014-01", "2014-02", "2014-03", "2014-04", "2014-05", "2014-06", "2014-07", "2014-08", "2014-09", "2014-10", "2014-11", "2014-12", "2015-01", "2015-02", "2015-03", "2015-04", "2015-05", "2015-06", "2015-07", "2015-08", "2015-09", "2015-10", "2015-11", "2015-12", "2016-01", "2016-02", "2016-03", "2016-04", "2016-05", "2016-06", "2016-07", "2016-08", "2016-09", "2016-10", "2016-11", "2016-12", "2017-01", "2017-02", "2017-03", "2017-04", "2017-05", "2017-06", "2017-07", "2017-08", "2017-09", "2017-10", "2017-11", "2017-12", "2018-01", "2018-02", "2018-03", "2018-04", "2018-05", "2018-06", "2018-07", "2018-08", "2018-09", "2018-10", "2018-11", "2018-12", "2019-01", "2019-02", "2019-03", "2019-04", "2019-05", "2019-06", "2019-07", "2019-08", "2019-09", "2019-10", "2019-11", "2019-12", "2020-01", "2020-02", "2020-03", "2020-04", "2020-05", "2020-06", "2020-07", "2020-08", "2020-09", "2020-10", "2020-11", "2020-12", "2021-01", "2021-02", "2021-03", "2021-04", "2021-05", "2021-06", "2021-07", "2021-08", "2021-09", "2021-10", "2021-11", "2021-12", "2022-01", "2022-02", "2022-03", "2022-04", "2022-05", "2022-06", "2022-07", "2022-08", "2022-09", "2022-10", "2022-11", "2022-12", "2023-01", "2023-02", "2023-03", "2023-04", "2023-05", "2023-06", "2023-07", "2023-08", "2023-09", "2023-10", "2023-11", "2023-12", "2024-01", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07", "2024-08", "2024-09", "2024-10", "2024-11", "2024-12", "2025-01", "2025-02", "2025-03", "2025-04", "2025-05", "2025-06", "2025-07", "2025-08", "2025-09", "2025-10", "2025-11", "2025-12", "2026-01", "2026-02", "2026-03", "2026-04", "2026-05", "2026-06", "2026-07"], "yt": "이격도 (100 = 50일선)", "xt": 14, "rng": [{"i0": 0, "i1": 318, "note": "27년 전 구간입니다. 90~110 밖으로 나가는 일이 드뭅니다."}, {"i0": 199, "i1": 318, "note": "최근 10년만 확대했습니다."}], "d": [{"label": "과열 110", "data": [110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110], "c": "neg", "dash": [5, 4]}, {"label": "과매도 90", "data": [90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90], "c": "pos", "dash": [5, 4]}, {"label": "50일 이격도", "data": [null, null, 119.0, 99.8, 96.3, 112.7, 85.8, 82.3, 74.0, 67.7, 95.7, 96.2, 120.4, 95.7, 103.2, 114.4, 98.7, 89.0, 96.8, 101.7, 77.6, 103.0, 121.6, 123.9, 109.1, 110.3, 110.0, 104.2, 91.4, 91.0, 96.1, 99.1, 91.2, 107.4, 115.9, 87.9, 85.2, 90.6, 96.9, 103.7, 106.8, 109.0, 112.6, 106.9, 92.0, 107.4, 104.4, 98.7, 110.5, 107.3, 105.6, 97.9, 91.0, 94.6, 92.1, 103.8, 103.5, 96.7, 96.7, 103.1, 110.8, 109.6, 99.3, 90.2, 100.1, 102.2, 110.6, 100.3, 102.9, 96.0, 101.8, 108.2, 113.6, 100.8, 94.7, 99.3, 96.8, 97.6, 102.2, 106.7, 104.3, 94.5, 99.9, 97.8, 94.6, 95.9, 96.5, 98.5, 93.3, 99.1, 103.5, 97.8, 97.5, 98.8, 103.8, 100.2, 106.8, 99.5, 108.2, 115.4, 108.2, 89.3, 88.2, 88.4, 97.4, 100.4, 97.1, 96.6, 104.6, 98.7, 111.9, 107.8, 97.5, 103.5, 118.1, 112.5, 107.8, 93.9, 96.0, 106.5, 99.6, 94.3, 104.1, 104.7, 95.0, 96.6, 102.0, 95.2, 99.1, 97.3, 106.2, 112.3, 106.3, 97.4, 99.9, 98.5, 100.2, 94.2, 98.6, 92.5, 107.8, 118.5, 109.6, 105.6, 106.2, 110.7, 109.0, 110.7, 93.9, 95.2, 109.1, 101.1, 105.9, 101.3, 104.7, 109.0, 98.7, 103.7, 102.9, 100.7, 102.3, 92.2, 94.0, 106.1, 103.8, 105.4, 103.5, 94.9, 92.6, 102.2, 103.3, 100.4, 105.1, 95.2, 98.5, 94.8, 94.2, 105.9, 109.6, 106.9, 104.0, 100.8, 102.6, 98.1, 92.7, 95.2, 93.1, 90.6, 99.0, 116.7, 101.9, 97.1, 93.2, 99.1, 109.2, 99.3, 100.9, 107.0, 108.1, 106.0, 101.2, 102.1, 108.4, 106.9, 110.0, 102.2, 103.8, 108.6, 103.2, 105.0, 101.4, 96.4, 105.3, 109.4, 94.0, 95.4, 97.6, 95.9, 100.8, 107.0, 100.3, 93.0, 96.6, 104.9, 100.7, 94.2, 95.3, 92.4, 112.3, 105.9, 99.5, 100.7, 95.1, 106.3, 100.4, 97.4, 107.3, 105.6, 99.1, 106.3, 102.0, 92.9, 86.3, 98.1, 104.5, 103.6, 108.3, 97.6, 101.4, 97.0, 109.2, 120.8, 105.8, 99.9, 97.8, 98.4, 98.1, 99.4, 97.8, 97.5, 96.1, 94.7, 99.0, 105.6, 95.9, 94.6, 95.8, 96.8, 99.6, 88.3, 99.8, 100.1, 90.6, 104.3, 106.9, 92.4, 102.3, 99.8, 103.5, 104.5, 109.6, 105.3, 98.0, 95.8, 98.9, 97.6, 104.4, 109.5, 98.4, 98.7, 110.6, 100.2, 92.9, 104.3, 103.6, 92.1, 82.9, 89.7, 92.7, 95.8, 96.1, 99.3, 103.4, 98.1, 99.5, 105.0, 116.5, 104.8, 115.2, 129.9, 105.9, 115.2, 130.4, 144.7, 94.6, 110.9, 136.9, 114.7, 87.6], "c": "acc", "w": 3.0, "fill": true}]});</script>
 
@@ -834,7 +834,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 장기선 기준으로는 여전히 한참 위에 있다. 이 2가지가 갈라져 있다는 것이 지금의 특징이다.</p>
 </div>
 
-<h2 id="경기지표로-삼성전자를-설명할-수-있나">경기지표로 삼성전자를 설명할 수 있나?</h2>
+<h2 id="③-경기지표로-삼성전자를-설명할-수-있나">경기지표로 삼성전자를 설명할 수 있나?</h2>
 
 <p><a href="jeoji-kospi.html" style="color:var(--accent)">제오지산수 페이지</a>에서
 코스피로 계산한 것을 삼성전자에 그대로 적용했다.
