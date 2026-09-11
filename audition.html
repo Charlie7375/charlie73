@@ -1403,9 +1403,15 @@ new Chart(document.getElementById('wc'),{type:'line',
     var mx=0; a.forEach(function(r){ mx=Math.max(mx,Math.abs(r[1])); }); if(!mx)mx=1;
     var show=a, cut='';
     if(secMode==='thm'&&a.length>24){        // 테마는 300개가 넘는다. 위아래만 보인다.
-      show=a.slice(0,14).concat(a.slice(-6));
-      cut='<p class="note" style="margin-top:8px">위 14개와 아래 6개만 보입니다 — 이 구간에 '
-        + a.length+'개 테마를 셌습니다.</p>';
+      // ⚠ ✦·✎ 묶음은 **순위와 상관없이 늘 보인다.** 가운데로 밀려 안 보이면 만든 뜻이 없다.
+      var keep={}, out2=[];
+      a.slice(0,14).forEach(function(r){keep[r[0]]=1});
+      a.slice(-6).forEach(function(r){keep[r[0]]=1});
+      a.forEach(function(r){ if(/[✦✎]/.test(r[0]))keep[r[0]]=1; });
+      a.forEach(function(r){ if(keep[r[0]])out2.push(r); });
+      show=out2;
+      cut='<p class="note" style="margin-top:8px">위 14개와 아래 6개, 그리고 <b>✦·✎ 묶음은 순위와 '
+        + '상관없이</b> 보입니다 — 이 구간에 '+a.length+'개를 셌습니다.</p>';
     }
     box.innerHTML=show.map(function(r){
       var v=r[1], w=Math.abs(v)/mx*50, pos=v>=0;
