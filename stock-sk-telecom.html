@@ -296,8 +296,20 @@ a.card:focus-visible,.lst-i:focus-visible{
   .wrap{padding-left:18px!important;padding-right:18px!important}
   .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
 }
-/* LAYOUT:END */
-
+/* LAYOUT:END *//*NAVCSS:BEGIN*/
+/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
+.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
+  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
+/* 아카이브 중메뉴 소제목 — 주기 라벨과 같은 .nav-h 를 쓰되 묶음 사이를 실선으로 끊는다 */
+.site-dd .nav-h.sub,.md .nav-h.sub{margin-top:6px;padding-top:9px;
+  border-top:1px solid var(--border,rgba(0,0,0,.1))}
+.site-dd .nav-h+.nav-h.sub,.md .nav-h+.nav-h.sub{margin-top:0;padding-top:4px;border-top:0}
+.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
+  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
+  background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+/*NAVCSS:END*/
 .dim{color:var(--mut,#94a3b8)}
 .b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
   font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
@@ -389,20 +401,7 @@ html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px
 .pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
  color:var(--accent);margin-bottom:5px}
 .pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
-/*NAVCSS:BEGIN*/
-/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
-.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
-  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
-/* 아카이브 중메뉴 소제목 — 주기 라벨과 같은 .nav-h 를 쓰되 묶음 사이를 실선으로 끊는다 */
-.site-dd .nav-h.sub,.md .nav-h.sub{margin-top:6px;padding-top:9px;
-  border-top:1px solid var(--border,rgba(0,0,0,.1))}
-.site-dd .nav-h+.nav-h.sub,.md .nav-h+.nav-h.sub{margin-top:0;padding-top:4px;border-top:0}
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/*NAVCSS:END*//*TOCCSS:BEGIN*/
+/*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
 /* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
@@ -909,7 +908,7 @@ window.__qbRegister=function(){echarts.registerTheme('charlie', {"color": ["#d21
 </style><div class="vbox"><h4>개인은 정말 '떨어지면 사는가'</h4><p>위 사분면은 '한국 개인은 떨어지면 산다'를 전제로 읽는다. 그 전제가 이 종목에서도 맞는지 직접 계산했다.</p><p>하루 등락률과 그날 개인 순매수가 반대로 움직이는 정도를 계산하면 -0.20이다. 이 값이 0보다 작으면 '떨어지는 날에 개인이 샀다'는 뜻이고, 0보다 크면 그 반대이다.</p><p>같은 자료에서 연속 구간을 다시 뽑아 800번 계산해 보니 참값이 들어 있을 범위는 -0.47 ~ +0.08였다. SK텔레콤에서는 방향을 단정할 수 없다. 범위가 0을 걸치고 있다. 이 종목의 개인은 '떨어지면 산다'고 잘라 말하기 어렵다.</p><p class="vlim">⚠ 관측치 375일로 계산했다. 개인 순매수 금액은 '순매수 주수 × 종가' 환산 근사이다. 방향이 맞다는 것과 그것이 수익으로 이어진다는 것은 다른 문제이다.</p></div><div class="vbox"><h4>큰 등락은 생각보다 자주 온다</h4><p>이 페이지의 이격도(주가가 이동평균선에서 얼마나 벌어졌는지 백분율로 나타낸 값)·추세템플릿은 '평소 범위'를 정해 놓고 그 밖을 이상하다고 판정한다. 그 '평소 범위'를 정규분포로 잡으면 위험을 작게 본다.</p><p>SK텔레콤의 하루 등락을 모아 보면 첨도가 18.6이다. 정규분포라면 3이다. 이 값이 클수록 '유난히 큰 하루'가 교과서 예상보다 자주 온다는 뜻이다.</p><p>실제로 평균에서 3표준편차 넘게 벗어난 날이 1147거래일 중 20일 있었다. 정규분포라면 3.1일이어야 한다. 6배이다.</p><p class="vlim">⚠ 그래서 '몇 표준편차'만으로 위험을 판단하지 않는다. 드물다고 계산된 일이 실제로는 드물지 않는다.</p></div><div class="vbox"><h4>여럿을 한꺼번에 볼 때의 함정</h4><p>이 사이트는 매일 21개 종목을 같은 방식으로 훑는다. 대상이 많아지면 아무 일이 없어도 그중 몇 개는 우연히 신호처럼 보인다. 주사위를 한 번 굴리면 6이 잘 안 나오지만 15번 굴리면 대개 한 번은 나온다.</p><p>SK텔레콤에서 '떨어지는데 개인도 파는 날'(3사분면)은 전체의 11.7%였다. 이 비율이라면 어느 날이든 21종목 중 평균 2.5개는 우연히 신호가 뜬다.</p><p>한 종목에 신호가 떴다는 사실만으로는 부족하다. 그날 몇 종목이 함께 걸렸는지를 같이 보아야 우연과 구별된다.</p><p class="vlim">⚠ 종목들은 서로 붙어 움직이므로 실제 '우연 개수'는 이보다 적다. 이 값은 넘지 않아야 할 상한으로 읽는다.</p></div>
 
 <h2 id="관련-기사">관련 기사</h2>
-<div class="tblwrap"><table><thead><tr><th>날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Thu, 10 Sep</td><td>전자신문</td><td><a href="https://news.google.com/rss/articles/CBMiTkFVX3lxTE9sWFExQ3JVcTdSQ25XNkxRdlk1aVBqTTFEU201a1hsaVZsbHhnaEdNcXBSdHdOWE5jMTRPRGlRT2JqZTZ5ZnR3M1dUT0k4UQ?oc=5" target="_blank" rel="noopener nofollow">[단독] 라포랩스, SK스토아 인수 재시동…SK텔레콤과 SPA 체결</a></td></tr><tr><td class="n">Thu, 10 Sep</td><td>메트로신문</td><td><a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE9ZaEJEOWlrLWstcWo5UnEtRTZUd2RoenA5NmdpSjAwOVR0aWF4ZHRpQmw4VmVNZUVuVDkwbWFXUVRsU2lRTzdiblBHX1NIdUl1cFdUeGUzaEhFRU9UcTJxXw?oc=5" target="_blank" rel="noopener nofollow">[메트로 창간 24주년 기획_리부트코리아] &#x27;통신 강자&#x27; SK텔레콤, AI 기업으로 재탄생</a></td></tr><tr><td class="n">Thu, 10 Sep</td><td>연합인포맥스</td><td><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTE8teDRKemxraWNSSm83ZmEzX2JfY1VfdGdJQUdJaF9kQnc5aTU5RlVIQ1R6ZXBCdjdQdjJXZlh2bkNjanM0WmVnX2xXYkhDRk9pT2M1WU1NSk1aRm9QNWdfSzltT3RBXzV3anhqd2hwSDc?oc=5" target="_blank" rel="noopener nofollow">신한·하나카드, &#x27;모두의 AI&#x27; SK텔레콤 컨소시엄 참여</a></td></tr><tr><td class="n">Thu, 27 Aug</td><td>플래텀(Platum)</td><td><a href="https://news.google.com/rss/articles/CBMiSEFVX3lxTE1DNFgxamdhMzZ6d3gzX2FQWXFja0lGOHZJaWtBNWZyNlppdXdac1BRMjlHWGNadHc5LUJUNmJIUVN3aXJRVWw1TQ?oc=5" target="_blank" rel="noopener nofollow">‘독파모’ 2차 세부 점수 공개…종합 1위 SK텔레콤, 벤치마크 합산은 모티프</a></td></tr><tr><td class="n">Fri, 28 Aug</td><td>매일경제</td><td><a href="https://news.google.com/rss/articles/CBMiVkFVX3lxTE1qNnRTVTFHQjFkSnkxblBLX2VhUWQ2XzNRNkd2NHdDSnBBcEZ4c2NnOHBQNE0wdzRCdFkwcWVPd1Y5emNIaVBLUHAtSnJlMG1VY3hOMm9R?oc=5" target="_blank" rel="noopener nofollow">“SK텔레콤 15만원 간다고?”...인적분할로 몸값 뛴다 [오늘, 이 종목]</a></td></tr><tr><td class="n">Thu, 10 Sep</td><td>백세시대</td><td><a href="https://news.google.com/rss/articles/CBMia0FVX3lxTE1KXy1fZ29hQWEzeUR1ZWR1cWlfT0k4Q2ZGcUxucGQ2Y3JhMmpDNEtLTF9pRWN5MmRsLVZJeG1vcFR3cTFFSnh6VHdBUktqTkY3ODRKcWpMcnVTS1pzWHdoUFpQVFFvMTR6ZEZZ?oc=5" target="_blank" rel="noopener nofollow">신한카드, SK텔레콤과 AI 결제 표준 구축…‘에이전트 페이’ 개발</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-09-11 기준. 「SK텔레콤」 로 찾았고 제목에 그 말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 무관하며 서로 어긋날 수 있다.</p>
+<div class="tblwrap"><table><thead><tr><th>날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Thu, 10 Sep</td><td>전자신문</td><td><a href="https://news.google.com/rss/articles/CBMiTkFVX3lxTE9sWFExQ3JVcTdSQ25XNkxRdlk1aVBqTTFEU201a1hsaVZsbHhnaEdNcXBSdHdOWE5jMTRPRGlRT2JqZTZ5ZnR3M1dUT0k4UQ?oc=5" target="_blank" rel="noopener nofollow">[단독] 라포랩스, SK스토아 인수 재시동…SK텔레콤과 SPA 체결</a></td></tr><tr><td class="n">Fri, 11 Sep</td><td>SK텔레콤 뉴스룸</td><td><a href="https://news.google.com/rss/articles/CBMiSEFVX3lxTE0yZnVPWUhKRmNrM1dRZGlKMS1Fak53SzZOZkdGcVI5ZEJta0FpbmplcWUtMFFOckt0bFI0NXhvU0lIel9LQUxwcQ?oc=5" target="_blank" rel="noopener nofollow">SK텔레콤, iPhone Duo·iPhone 18 Pro·iPhone 18 Pro Max· Apple Watch Series 12·Apple Watch Ultra 4·AirPods 5 선보인다</a></td></tr><tr><td class="n">Fri, 11 Sep</td><td>로이슈</td><td><a href="https://news.google.com/rss/articles/CBMiekFVX3lxTE84ZzFwaVVTUllLSXg5bnJQbFhvRGFsZHEweTUyS1laZWd4UkZ1bDZBeXRqTHhFbHIzRmY1QVlzU3BPM21FWml6Z01SSnJ1cUFZNkFtNWI3UkxJV3B4Q2JXZ2hGNFhMdExpV3hsVDVIWVBlbWllOERXZDFn?oc=5" target="_blank" rel="noopener nofollow">SK텔레콤, 아이폰 18 프로 신규 고객 이용권 등 할인 혜택 제공</a></td></tr><tr><td class="n">Thu, 10 Sep</td><td>메트로신문</td><td><a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE9ZaEJEOWlrLWstcWo5UnEtRTZUd2RoenA5NmdpSjAwOVR0aWF4ZHRpQmw4VmVNZUVuVDkwbWFXUVRsU2lRTzdiblBHX1NIdUl1cFdUeGUzaEhFRU9UcTJxXw?oc=5" target="_blank" rel="noopener nofollow">[메트로 창간 24주년 기획_리부트코리아] &#x27;통신 강자&#x27; SK텔레콤, AI 기업으로 재탄생</a></td></tr><tr><td class="n">Fri, 11 Sep</td><td>뉴스퀘스트</td><td><a href="https://news.google.com/rss/articles/CBMib0FVX3lxTE5qbE82WV82amxFWHZHUGdrcjdvNFJORi1URkE2QjZzTWJYb01MQjhRak1oY0NtOFE3WVhLZTctZ19KcW1GX0czaGxWT1FJczVmV1JWMlJYYUtEMGhJY0dseFF1R3NsUEd3Z1JHemNKdw?oc=5" target="_blank" rel="noopener nofollow">SK텔레콤, 아이폰 18 프로 사전예약 12일 시작</a></td></tr><tr><td class="n">Fri, 11 Sep</td><td>뉴스후플러스</td><td><a href="https://news.google.com/rss/articles/CBMibkFVX3lxTFBvVnZuNzU5bkhUV0cxZkxJNGo2RUxnT2d0dHozYVp4c1NwQ2tRZTItS2JvSklvZ0c1QldiZl96LVRnei04ME1kREhTTlJ0OWpXbUZ5UmlJb09VMkpkZENiYkg0SVZYYTZZTVUwQnZR?oc=5" target="_blank" rel="noopener nofollow">SK텔레콤, 아이폰 18 구매 고객에 할인·AI 구독·이색 경품 혜택</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-09-11 기준. 「SK텔레콤」 로 찾았고 제목에 그 말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 무관하며 서로 어긋날 수 있다.</p>
 
 <h2 id="실적-dart">실적 (DART)</h2>
 

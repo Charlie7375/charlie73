@@ -296,8 +296,20 @@ a.card:focus-visible,.lst-i:focus-visible{
   .wrap{padding-left:18px!important;padding-right:18px!important}
   .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
 }
-/* LAYOUT:END */
-
+/* LAYOUT:END *//*NAVCSS:BEGIN*/
+/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
+.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
+  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
+/* 아카이브 중메뉴 소제목 — 주기 라벨과 같은 .nav-h 를 쓰되 묶음 사이를 실선으로 끊는다 */
+.site-dd .nav-h.sub,.md .nav-h.sub{margin-top:6px;padding-top:9px;
+  border-top:1px solid var(--border,rgba(0,0,0,.1))}
+.site-dd .nav-h+.nav-h.sub,.md .nav-h+.nav-h.sub{margin-top:0;padding-top:4px;border-top:0}
+.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
+  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
+  background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+/*NAVCSS:END*/
 .dim{color:var(--mut,#94a3b8)}
 .b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
   font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
@@ -389,20 +401,7 @@ html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px
 .pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
  color:var(--accent);margin-bottom:5px}
 .pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
-/*NAVCSS:BEGIN*/
-/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
-.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
-  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
-/* 아카이브 중메뉴 소제목 — 주기 라벨과 같은 .nav-h 를 쓰되 묶음 사이를 실선으로 끊는다 */
-.site-dd .nav-h.sub,.md .nav-h.sub{margin-top:6px;padding-top:9px;
-  border-top:1px solid var(--border,rgba(0,0,0,.1))}
-.site-dd .nav-h+.nav-h.sub,.md .nav-h+.nav-h.sub{margin-top:0;padding-top:4px;border-top:0}
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/*NAVCSS:END*//*TOCCSS:BEGIN*/
+/*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
 /* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
@@ -951,7 +950,7 @@ window.__qbRegister=function(){echarts.registerTheme('charlie', {"color": ["#d21
 투자 권유가 아니다. 저는 투자 전문가가 아니며, 투자의 최종 판단과 책임은 투자자 본인에게 있다.</p>
 </div>
 </div>
-<div class="wrap"><!--TOPICNEWS:BEGIN--><style id="tnewscss">.tnews{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 10px;margin:34px 0 10px}.tnews h3{margin:0 0 10px;font-size:1.02rem}.tnews table{width:100%;border-collapse:collapse;font-size:.9rem}.tnews td{padding:5px 8px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}.tnews td.d{white-space:nowrap;color:var(--text-secondary)}.tnews p.cap{margin:10px 0 8px;font-size:.8rem;color:var(--text-secondary);line-height:1.6}</style><div class="tnews"><h3>관련 뉴스</h3><p class="cap">제목에 그 낱말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.</p><p class="cap">국내: 「코스닥 지수」 로 찾았다.</p><div class="tblwrap"><table><tbody><tr><td class="d">Fri, 11 Sep</td><td class="d">v.daum.net</td><td><a href="https://news.google.com/rss/articles/CBMiT0FVX3lxTE14clZ3aER3Yl9Xazd5WmFzRTFrODN1RFBxMVhwZXloaThvekZCY2FWaDdvaEVncjlES1pIaU5mZXBsaWdkemhYNkhSbmlFcWc?oc=5" target="_blank" rel="noopener nofollow">코스피, 1.79% 하락해 7,000선 아래로…코스닥 1.95%↓</a></td></tr><tr><td class="d">Fri, 11 Sep</td><td class="d">서울파이낸스</td><td><a href="https://news.google.com/rss/articles/CBMiakFVX3lxTE10Z0cyY2haRGNDRTVRU3hLd3R0VzBQdG0xRlFsNUtMZnhRcno4M1dXN1JFdlhPRk1sckRpeXdhRFNxRFhGa0FGNzdTZXZwQWxISUt4T2hlQkFIU0xPZHJJZmVyTkRyUHNnSkE?oc=5" target="_blank" rel="noopener nofollow">[코스닥 마감] 16.28P(1.95%) 내린 820.64</a></td></tr><tr><td class="d">Fri, 11 Sep</td><td class="d">연합뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE9uR3BWeVpYUUhTcDBYT3FYeFpMWjZUX0lxSTRVLVZNenFkZmkxWmMyaU5YaW5lMlkyWmY5X2xHX0Jib2ltTVN3bDFxWGVqWnpaSnhFWHBRSGp6RHPSAWBBVV95cUxOWHlyQ19LcG16UnhPWk0zMXc3TnlnRk56SmlzbFBmUzQ1T2F5b0pxTG1xTDlmRE5QWGxTeXAyekFBMVA1aG9DamU1MkNjVEhOVEJyMDlCZWgzalVjWW10WkY?oc=5" target="_blank" rel="noopener nofollow">코스피, 1.7% 하락해 다시 7천피 밑으로…코스닥도 1.9%↓</a></td></tr><tr><td class="d">Fri, 11 Sep</td><td class="d">v.daum.net</td><td><a href="https://news.google.com/rss/articles/CBMiT0FVX3lxTE16N0dqWnhzNTVHeHVlcXdyV3ZQQ01FZUlPMVliNWZnbVgzSGRNWXEyQkNMNFdlWG5oR3IzNVhBOHNPUVItYXQtSC1OZUdQTWc?oc=5" target="_blank" rel="noopener nofollow">코스피, 1.7% 하락해 다시 7천피 밑으로…코스닥도 1.9%↓</a></td></tr><tr><td class="d">Fri, 11 Sep</td><td class="d">news.kbs.co.kr</td><td><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTFBkalZ6VHVLUTMxS2UtR3RSZ21RVGZudzExTkdxT2FQM2VzU3l4YVVBMGk1TUpDWUMyLU0xbGlfQUl5STNsSVdhSnJEbzduOERjR0ZkMEpFNXZtOGs?oc=5" target="_blank" rel="noopener nofollow">코스피 다시 7천 선 아래로…코스닥도 1.95% 내려</a></td></tr><tr><td class="d">Fri, 11 Sep</td><td class="d">매일경제 마켓</td><td><a href="https://news.google.com/rss/articles/CBMiUkFVX3lxTE1BXzdlcElMVjFrNGlNaVZHS2JiLWxrdi1fNTl3cUw2UmprNzE1bWd2VHRCTXVwcXZrNkoteFpNQjRHNWZfeFMyaWdfUlJLd0taQkE?oc=5" target="_blank" rel="noopener nofollow">코스닥 마감, 820.64P (-1.95%↓) 원익IPS, 에코프로비엠등 하락세</a></td></tr></tbody></table></div><p class="cap">출처 구글 뉴스 · 2026-09-11 기준. 뉴스는 이 글의 분석과 무관하며 서로 어긋날 수 있다.</p></div><!--TOPICNEWS:END--><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="sentiment.html">빚과 현금과 강제청산</a> 코스닥은 신용융자에 가장 민감한 시장이다. 빚 지표와 지수의 28년 관계가 그 페이지이다.</p><p><a href="breadth-rs.html">52주 신고가·상대강도</a> 코스닥이 상위권에 들어오기 시작하는지: 위험선호 회복의 첫 신호를 거기서 본다.</p></div><!--RELATED:END--></div>
+<div class="wrap"><!--TOPICNEWS:BEGIN--><style id="tnewscss">.tnews{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 10px;margin:34px 0 10px}.tnews h3{margin:0 0 10px;font-size:1.02rem}.tnews table{width:100%;border-collapse:collapse;font-size:.9rem}.tnews td{padding:5px 8px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}.tnews td.d{white-space:nowrap;color:var(--text-secondary)}.tnews p.cap{margin:10px 0 8px;font-size:.8rem;color:var(--text-secondary);line-height:1.6}</style><div class="tnews"><h3>관련 뉴스</h3><p class="cap">제목에 그 낱말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.</p><p class="cap">국내: 「코스닥 지수」 로 찾았다.</p><div class="tblwrap"><table><tbody><tr><td class="d">Fri, 11 Sep</td><td class="d">v.daum.net</td><td><a href="https://news.google.com/rss/articles/CBMiT0FVX3lxTE14clZ3aER3Yl9Xazd5WmFzRTFrODN1RFBxMVhwZXloaThvekZCY2FWaDdvaEVncjlES1pIaU5mZXBsaWdkemhYNkhSbmlFcWc?oc=5" target="_blank" rel="noopener nofollow">코스피, 1.79% 하락해 7,000선 아래로…코스닥 1.95%↓</a></td></tr><tr><td class="d">Fri, 11 Sep</td><td class="d">news.sbs.co.kr</td><td><a href="https://news.google.com/rss/articles/CBMiakFVX3lxTFBoeXY0Zl9yN2EyRHFVRGlabWx3RVpQWjlWa2kyaEdpOGZZQVNxQVhsUzczMFZfS2pRQ2sxNW9vbFR3WVVUb1BDRFRWd3hXdHgwLThIT2ZNZHhsX1lmdTU0SVBMS1lXZGtmT0E?oc=5" target="_blank" rel="noopener nofollow">코스피, 1.7% 하락해 다시 7천피 밑으로…코스닥도 1.9%↓</a></td></tr><tr><td class="d">Thu, 10 Sep</td><td class="d">news1.kr</td><td><a href="https://news.google.com/rss/articles/CBMiS0FVX3lxTE1MdWxWVExLTnZIWVB6dFBSUGU5MTBESHBDUFFrYXpqLWJvU0pyNVlnVnVmVjZHNVU1cFRoaENQRW1GblE4aS0xR2NFUQ?oc=5" target="_blank" rel="noopener nofollow">코스피 내리고 코스닥 오르고…엇갈린 마감</a></td></tr><tr><td class="d">Fri, 11 Sep</td><td class="d">네이트</td><td><a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE94bTE3cjljSFloaGZBVEh1SXRUN0NFeE9yOWVTalV1cTg5bFFEbHdHTzV0WnBieUNpUkxfSFNYcGhYNC1YRTlGVE5MMTdESGxfWktWaXhiSzlEdFcxN1EzMw?oc=5" target="_blank" rel="noopener nofollow">하락 출발한 코스피-코스닥</a></td></tr><tr><td class="d">Fri, 11 Sep</td><td class="d">서울파이낸스</td><td><a href="https://news.google.com/rss/articles/CBMiakFVX3lxTE10Z0cyY2haRGNDRTVRU3hLd3R0VzBQdG0xRlFsNUtMZnhRcno4M1dXN1JFdlhPRk1sckRpeXdhRFNxRFhGa0FGNzdTZXZwQWxISUt4T2hlQkFIU0xPZHJJZmVyTkRyUHNnSkE?oc=5" target="_blank" rel="noopener nofollow">[코스닥 마감] 16.28P(1.95%) 내린 820.64</a></td></tr><tr><td class="d">Fri, 11 Sep</td><td class="d">v.daum.net</td><td><a href="https://news.google.com/rss/articles/CBMiT0FVX3lxTE5XWGZBajVSRFdBQXluSG9HWGxJLWdYblRmbUJrSE9Xc2lYQW1yVVZPeVQwZnhsblNJUU4ySkFFZXg4R0J5UHNiQm85d0lqVUE?oc=5" target="_blank" rel="noopener nofollow">코스피·코스닥 장 초반 동반 하락…외인·기관 '팔자'</a></td></tr></tbody></table></div><p class="cap">출처 구글 뉴스 · 2026-09-11 기준. 뉴스는 이 글의 분석과 무관하며 서로 어긋날 수 있다.</p></div><!--TOPICNEWS:END--><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="sentiment.html">빚과 현금과 강제청산</a> 코스닥은 신용융자에 가장 민감한 시장이다. 빚 지표와 지수의 28년 관계가 그 페이지이다.</p><p><a href="breadth-rs.html">52주 신고가·상대강도</a> 코스닥이 상위권에 들어오기 시작하는지: 위험선호 회복의 첫 신호를 거기서 본다.</p></div><!--RELATED:END--></div>
 <footer>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.
     · 근거: 이야기꾼 주간 시투 보고서(W36·2026-09-05) 및 자체 실측.</footer>
 </div>

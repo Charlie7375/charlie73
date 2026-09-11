@@ -296,8 +296,20 @@ a.card:focus-visible,.lst-i:focus-visible{
   .wrap{padding-left:18px!important;padding-right:18px!important}
   .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
 }
-/* LAYOUT:END */
-
+/* LAYOUT:END *//*NAVCSS:BEGIN*/
+/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
+.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
+  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
+/* 아카이브 중메뉴 소제목 — 주기 라벨과 같은 .nav-h 를 쓰되 묶음 사이를 실선으로 끊는다 */
+.site-dd .nav-h.sub,.md .nav-h.sub{margin-top:6px;padding-top:9px;
+  border-top:1px solid var(--border,rgba(0,0,0,.1))}
+.site-dd .nav-h+.nav-h.sub,.md .nav-h+.nav-h.sub{margin-top:0;padding-top:4px;border-top:0}
+.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
+  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
+  background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+/*NAVCSS:END*/
 .dim{color:var(--mut,#94a3b8)}
 .b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
   font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
@@ -389,20 +401,7 @@ html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px
 .pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
  color:var(--accent);margin-bottom:5px}
 .pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
-/*NAVCSS:BEGIN*/
-/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
-.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
-  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
-/* 아카이브 중메뉴 소제목 — 주기 라벨과 같은 .nav-h 를 쓰되 묶음 사이를 실선으로 끊는다 */
-.site-dd .nav-h.sub,.md .nav-h.sub{margin-top:6px;padding-top:9px;
-  border-top:1px solid var(--border,rgba(0,0,0,.1))}
-.site-dd .nav-h+.nav-h.sub,.md .nav-h+.nav-h.sub{margin-top:0;padding-top:4px;border-top:0}
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/*NAVCSS:END*//*TOCCSS:BEGIN*/
+/*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
 /* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
@@ -861,7 +860,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 저는 투자 전문가가 아니며, 투자의 최종 판단과 책임은 투자자 본인에게 있다.</p>
 </div>
 </div>
-<div class="wrap"><!--TOPICNEWS:BEGIN--><style id="tnewscss">.tnews{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 10px;margin:34px 0 10px}.tnews h3{margin:0 0 10px;font-size:1.02rem}.tnews table{width:100%;border-collapse:collapse;font-size:.9rem}.tnews td{padding:5px 8px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}.tnews td.d{white-space:nowrap;color:var(--text-secondary)}.tnews p.cap{margin:10px 0 8px;font-size:.8rem;color:var(--text-secondary);line-height:1.6}</style><div class="tnews"><h3>관련 뉴스</h3><p class="cap">제목에 그 낱말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.</p><p class="cap">국내: 「외국인 보유 비중 코스피」 로 찾았다.</p><div class="tblwrap"><table><tbody><tr><td class="d">Wed, 20 May</td><td class="d">연합뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE1ETlU0N3NDVTVSM0l0d0NYSWdQM0lUNTM0cFJzRkoxLXlhRnEzblg0ckFIWHJIWHZmazBacnAwTThpMC1RajA5QXZQRGNHajRnUlVSNkVicDltdUXSAWBBVV95cUxOMFFZV2E1M3NtdTlDUmVOQWplVF8xdlBYR3hFVldZUTZVT3pVcHNiX21EWGthUXlKbE0tRHlOZmtiNFpoTm5tUlRnWFhTVklDbjJBU2JlbGVQSTByanItNG0?oc=5" target="_blank" rel="noopener nofollow">외국인 올해 韓주식 91조원 팔았는데…지분율은 상승 '기현상'</a></td></tr><tr><td class="d">Fri, 05 Jun</td><td class="d">연합인포맥스</td><td><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTFBGM05aUTZNak53WkJLaXktdVZ6ZzFSUnI3OUdSNS1NQ0tDY254YloyVjdWdU1NNFlybmZhRUdKM2dEN0RqQnR2WktDSjBHdU5fVVJFMGcyYWxnanp5SG01SVlzekRMOXZqWXlTMTd5WUQ?oc=5" target="_blank" rel="noopener nofollow">[1,540원 돌파] 아직 외국인 주식비중 20여년만 최고…리밸런싱 압력 여전</a></td></tr><tr><td class="d">Sun, 06 Sep</td><td class="d">이투데이</td><td><a href="https://news.google.com/rss/articles/CBMiVEFVX3lxTE81ZGY5RzAwNEM1ZUlieUxhU1dJRVAxblFSc240RlRnTHl4SVc3OWRGaHRmVkZaYm9JMmJMeHk3X2g3NGRQX1gwRXR1QV9kVW1kMHFpUQ?oc=5" target="_blank" rel="noopener nofollow">170조 팔아도 외국인 비중은 상승…‘셀 코리아’보다 금리·리밸런싱 문제</a></td></tr><tr><td class="d">Sun, 19 Jul</td><td class="d">글로벌이코노믹</td><td><a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxQeWxxQVMtZWZ1RW9iWU1vVm5laFo1UEktSG13NE5XZ3lkSDVicG92dTFKeUxiMEpUY1Q4RkFVcUFoQzhJeFhTeWQ3VXZVdWx2WW5zU293a3czZ3VrSHBLdnUzNm9qV0d1U2Z4ejVwTG96alhKNE1UbFF2YmlMTk5teEpNZk0zRW5E?oc=5" target="_blank" rel="noopener nofollow">외국인 코스피 순매도에도 보유 비중은 연초 대비 크게 상승</a></td></tr><tr><td class="d">Fri, 03 Jul</td><td class="d">KB Think</td><td><a href="https://news.google.com/rss/articles/CBMickFVX3lxTE0yRDdrT3NyOGJWaEhYOFdtemJNX3FibUkyeFpNdW51Y05uaktQSUxCN09KWGJDOUExZmpnLTUtaGppV0lhWXYxdExSTEVvM29qMDh4T0NadmxoS2dzMkIyOG5lU0w4czdMVWtOZ0tsSFdOZw?oc=5" target="_blank" rel="noopener nofollow">"끝나지 않는 外人 코스피 리밸런싱"…이달에만 7조 더 팔았다</a></td></tr><tr><td class="d">Fri, 26 Jun</td><td class="d">연합뉴스TV</td><td><a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9uZGtCbHFVVGVmTFFVSk9OcVg3MzVFLUttVFVoMXVUd3pnY0dvZ2xBTDBSbVo4UU55ZW9SZFRtLTRsaV84YXU1ZHdpU2YwbGdIeENtNWRBV3ZyUlZxV3dWbFpZbkRCcGs?oc=5" target="_blank" rel="noopener nofollow">외국인, 지난달 국내주식 47조원 순매도…보유 비중 ’역대 최고’</a></td></tr></tbody></table></div><p class="cap">출처 구글 뉴스 · 2026-09-11 기준. 뉴스는 이 글의 분석과 무관하며 서로 어긋날 수 있다.</p></div><!--TOPICNEWS:END--><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="supply.html">투자자 수급</a> 비중이 '누적 결과'라면 그 페이지의 사분면은 '하루하루의 선택'이다. 외국인이 판 것이 비중 축소인지 차익 실현인지가 2가지를 겹쳐야 보인다.</p></div><!--RELATED:END--></div>
+<div class="wrap"><!--TOPICNEWS:BEGIN--><style id="tnewscss">.tnews{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 10px;margin:34px 0 10px}.tnews h3{margin:0 0 10px;font-size:1.02rem}.tnews table{width:100%;border-collapse:collapse;font-size:.9rem}.tnews td{padding:5px 8px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}.tnews td.d{white-space:nowrap;color:var(--text-secondary)}.tnews p.cap{margin:10px 0 8px;font-size:.8rem;color:var(--text-secondary);line-height:1.6}</style><div class="tnews"><h3>관련 뉴스</h3><p class="cap">제목에 그 낱말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.</p><p class="cap">국내: 「외국인 보유 비중 코스피」 로 찾았다.</p><div class="tblwrap"><table><tbody><tr><td class="d">Wed, 20 May</td><td class="d">연합뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE1ETlU0N3NDVTVSM0l0d0NYSWdQM0lUNTM0cFJzRkoxLXlhRnEzblg0ckFIWHJIWHZmazBacnAwTThpMC1RajA5QXZQRGNHajRnUlVSNkVicDltdUXSAWBBVV95cUxOMFFZV2E1M3NtdTlDUmVOQWplVF8xdlBYR3hFVldZUTZVT3pVcHNiX21EWGthUXlKbE0tRHlOZmtiNFpoTm5tUlRnWFhTVklDbjJBU2JlbGVQSTByanItNG0?oc=5" target="_blank" rel="noopener nofollow">외국인 올해 韓주식 91조원 팔았는데…지분율은 상승 '기현상'</a></td></tr><tr><td class="d">Fri, 05 Jun</td><td class="d">연합인포맥스</td><td><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTFBGM05aUTZNak53WkJLaXktdVZ6ZzFSUnI3OUdSNS1NQ0tDY254YloyVjdWdU1NNFlybmZhRUdKM2dEN0RqQnR2WktDSjBHdU5fVVJFMGcyYWxnanp5SG01SVlzekRMOXZqWXlTMTd5WUQ?oc=5" target="_blank" rel="noopener nofollow">[1,540원 돌파] 아직 외국인 주식비중 20여년만 최고…리밸런싱 압력 여전</a></td></tr><tr><td class="d">Sun, 06 Sep</td><td class="d">etoday.co.kr</td><td><a href="https://news.google.com/rss/articles/CBMiVEFVX3lxTE81ZGY5RzAwNEM1ZUlieUxhU1dJRVAxblFSc240RlRnTHl4SVc3OWRGaHRmVkZaYm9JMmJMeHk3X2g3NGRQX1gwRXR1QV9kVW1kMHFpUQ?oc=5" target="_blank" rel="noopener nofollow">170조 팔아도 외국인 비중은 상승…‘셀 코리아’보다 금리·리밸런싱 문제</a></td></tr><tr><td class="d">Sun, 19 Jul</td><td class="d">글로벌이코노믹</td><td><a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxQeWxxQVMtZWZ1RW9iWU1vVm5laFo1UEktSG13NE5XZ3lkSDVicG92dTFKeUxiMEpUY1Q4RkFVcUFoQzhJeFhTeWQ3VXZVdWx2WW5zU293a3czZ3VrSHBLdnUzNm9qV0d1U2Z4ejVwTG96alhKNE1UbFF2YmlMTk5teEpNZk0zRW5E?oc=5" target="_blank" rel="noopener nofollow">외국인 코스피 순매도에도 보유 비중은 연초 대비 크게 상승</a></td></tr><tr><td class="d">Fri, 03 Jul</td><td class="d">KB Think</td><td><a href="https://news.google.com/rss/articles/CBMickFVX3lxTE0yRDdrT3NyOGJWaEhYOFdtemJNX3FibUkyeFpNdW51Y05uaktQSUxCN09KWGJDOUExZmpnLTUtaGppV0lhWXYxdExSTEVvM29qMDh4T0NadmxoS2dzMkIyOG5lU0w4czdMVWtOZ0tsSFdOZw?oc=5" target="_blank" rel="noopener nofollow">"끝나지 않는 外人 코스피 리밸런싱"…이달에만 7조 더 팔았다</a></td></tr><tr><td class="d">Fri, 26 Jun</td><td class="d">yonhapnewstv.co.kr</td><td><a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9uZGtCbHFVVGVmTFFVSk9OcVg3MzVFLUttVFVoMXVUd3pnY0dvZ2xBTDBSbVo4UU55ZW9SZFRtLTRsaV84YXU1ZHdpU2YwbGdIeENtNWRBV3ZyUlZxV3dWbFpZbkRCcGs?oc=5" target="_blank" rel="noopener nofollow">외국인, 지난달 국내주식 47조원 순매도…보유 비중 ’역대 최고’</a></td></tr></tbody></table></div><p class="cap">출처 구글 뉴스 · 2026-09-11 기준. 뉴스는 이 글의 분석과 무관하며 서로 어긋날 수 있다.</p></div><!--TOPICNEWS:END--><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="supply.html">투자자 수급</a> 비중이 '누적 결과'라면 그 페이지의 사분면은 '하루하루의 선택'이다. 외국인이 판 것이 비중 축소인지 차익 실현인지가 2가지를 겹쳐야 보인다.</p></div><!--RELATED:END--></div>
 <footer>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.
     · 근거: 이야기꾼 주간 시투 보고서(W36·2026-09-05) 및 자체 실측.</footer>
 </div>

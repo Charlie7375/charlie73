@@ -296,8 +296,20 @@ a.card:focus-visible,.lst-i:focus-visible{
   .wrap{padding-left:18px!important;padding-right:18px!important}
   .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
 }
-/* LAYOUT:END */
-
+/* LAYOUT:END *//*NAVCSS:BEGIN*/
+/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
+.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
+  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
+/* 아카이브 중메뉴 소제목 — 주기 라벨과 같은 .nav-h 를 쓰되 묶음 사이를 실선으로 끊는다 */
+.site-dd .nav-h.sub,.md .nav-h.sub{margin-top:6px;padding-top:9px;
+  border-top:1px solid var(--border,rgba(0,0,0,.1))}
+.site-dd .nav-h+.nav-h.sub,.md .nav-h+.nav-h.sub{margin-top:0;padding-top:4px;border-top:0}
+.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
+  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
+  background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+/*NAVCSS:END*/
 .dim{color:var(--mut,#94a3b8)}
 .b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
   font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
@@ -389,20 +401,7 @@ html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px
 .pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
  color:var(--accent);margin-bottom:5px}
 .pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
-/*NAVCSS:BEGIN*/
-/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
-.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
-  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
-/* 아카이브 중메뉴 소제목 — 주기 라벨과 같은 .nav-h 를 쓰되 묶음 사이를 실선으로 끊는다 */
-.site-dd .nav-h.sub,.md .nav-h.sub{margin-top:6px;padding-top:9px;
-  border-top:1px solid var(--border,rgba(0,0,0,.1))}
-.site-dd .nav-h+.nav-h.sub,.md .nav-h+.nav-h.sub{margin-top:0;padding-top:4px;border-top:0}
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/*NAVCSS:END*//*TOCCSS:BEGIN*/
+/*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
 /* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
@@ -909,7 +908,7 @@ window.__qbRegister=function(){echarts.registerTheme('charlie', {"color": ["#d21
 </style><div class="vbox"><h4>개인은 정말 '떨어지면 사는가'</h4><p>위 사분면은 '한국 개인은 떨어지면 산다'를 전제로 읽는다. 그 전제가 이 종목에서도 맞는지 직접 계산했다.</p><p>하루 등락률과 그날 개인 순매수가 반대로 움직이는 정도를 계산하면 -0.13이다. 이 값이 0보다 작으면 '떨어지는 날에 개인이 샀다'는 뜻이고, 0보다 크면 그 반대이다.</p><p>같은 자료에서 연속 구간을 다시 뽑아 800번 계산해 보니 참값이 들어 있을 범위는 -0.64 ~ +0.02였다. 한국콜마에서는 방향을 단정할 수 없다. 범위가 0을 걸치고 있다. 이 종목의 개인은 '떨어지면 산다'고 잘라 말하기 어렵다.</p><p class="vlim">⚠ 관측치 375일로 계산했다. 개인 순매수 금액은 '순매수 주수 × 종가' 환산 근사이다. 방향이 맞다는 것과 그것이 수익으로 이어진다는 것은 다른 문제이다.</p></div><div class="vbox"><h4>큰 등락은 생각보다 자주 온다</h4><p>이 페이지의 이격도(주가가 이동평균선에서 얼마나 벌어졌는지 백분율로 나타낸 값)·추세템플릿은 '평소 범위'를 정해 놓고 그 밖을 이상하다고 판정한다. 그 '평소 범위'를 정규분포로 잡으면 위험을 작게 본다.</p><p>한국콜마의 하루 등락을 모아 보면 첨도가 8.8이다. 정규분포라면 3이다. 이 값이 클수록 '유난히 큰 하루'가 교과서 예상보다 자주 온다는 뜻이다.</p><p>실제로 평균에서 3표준편차 넘게 벗어난 날이 1147거래일 중 19일 있었다. 정규분포라면 3.1일이어야 한다. 6배이다.</p><p class="vlim">⚠ 그래서 '몇 표준편차'만으로 위험을 판단하지 않는다. 드물다고 계산된 일이 실제로는 드물지 않는다.</p></div><div class="vbox"><h4>여럿을 한꺼번에 볼 때의 함정</h4><p>이 사이트는 매일 21개 종목을 같은 방식으로 훑는다. 대상이 많아지면 아무 일이 없어도 그중 몇 개는 우연히 신호처럼 보인다. 주사위를 한 번 굴리면 6이 잘 안 나오지만 15번 굴리면 대개 한 번은 나온다.</p><p>한국콜마에서 '떨어지는데 개인도 파는 날'(3사분면)은 전체의 15.5%였다. 이 비율이라면 어느 날이든 21종목 중 평균 3.2개는 우연히 신호가 뜬다.</p><p>한 종목에 신호가 떴다는 사실만으로는 부족하다. 그날 몇 종목이 함께 걸렸는지를 같이 보아야 우연과 구별된다.</p><p class="vlim">⚠ 종목들은 서로 붙어 움직이므로 실제 '우연 개수'는 이보다 적다. 이 값은 넘지 않아야 할 상한으로 읽는다.</p></div>
 
 <h2 id="관련-기사">관련 기사</h2>
-<div class="tblwrap"><table><thead><tr><th>날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Mon, 07 Sep</td><td>Investing.com 한국어</td><td><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTE5XZEk3bm15T0NsazNvWHlQc090UFAwVmo2RXNKT2JyT1IyZWdZT19aMGFNZFRIQndKS252bUVVR3diUTJBSWRiTFQ4N1VYNXMxR2dfV2pjZHdJNlA2dE01SzluZ0hYVE15Q0xxb0hlRTU?oc=5" target="_blank" rel="noopener nofollow">한국콜마, 화장품 수출 호조에 글로벌 브랜드 수주 확대-SK By 인포스탁데일리</a></td></tr><tr><td class="n">Mon, 31 Aug</td><td>v.daum.net</td><td><a href="https://news.google.com/rss/articles/CBMiT0FVX3lxTFBnOUc0WGE5OHluVzJkSHZCWGVJZ2R6ekhLYXBZRGxSOFVxYjNudnlZTmNOUGdrZm9uUzkteElSQUZSYnVTVE9mTko5Nkw3ZmM?oc=5" target="_blank" rel="noopener nofollow">라인 다 깔았는데…한국콜마, 미국 주문량 감소에 골머리</a></td></tr><tr><td class="n">Sat, 29 Aug</td><td>서울경제</td><td><a href="https://news.google.com/rss/articles/CBMiUkFVX3lxTFBKSTJtZFRQaGlFRFdJU3FTOFFfMGN5dzVSTTlTSTFWNTAzb0p0ajU1WnpyT0JwVGlSTnd2WUpJZk1nNkhoOHlDOGg3NlluVUJBN1HSAVNBVV95cUxQY05MOGcxM3dUWEdlVHl5SHFPc2ZNc0RIV3NDQjIyR0RNWngtZWN5U2FSSXJWNzlEdHBzMS1CNExSY1MtcUdRQVB6M3BZa05HQmxGMA?oc=5" target="_blank" rel="noopener nofollow">PDRN 매출 32배 뛴 한국콜마…‘더마 소재’ 선점 나선다</a></td></tr><tr><td class="n">Tue, 08 Sep</td><td>더구루</td><td><a href="https://news.google.com/rss/articles/CBMiY0FVX3lxTE1sQ3Z5YTZNb2V0MDVzNF9aUng2ZU5tRGxadGp6cDFUcUkyOFA1ZVlmVTNURWJUd1JETWNQYk01TGdhVEN2dlp4TmhndXBKX05hVS1qMnZlTTJCU1JPMGw2Sm5NYw?oc=5" target="_blank" rel="noopener nofollow">한국콜마, 폭염 뚫을 &#x27;쿨링 선케어&#x27; 개발…K뷰티 초격차 확보</a></td></tr><tr><td class="n">Wed, 09 Sep</td><td>톱데일리</td><td><a href="https://news.google.com/rss/articles/CBMiUEFVX3lxTE9Xak9xZkNDZHEwX0tqay0zRUYtNzVRZDdNR3hmOTh5dzgyYjU0Mm5xSHZHU0JRMVFJOHNlOGFCQ3NXRzByM2ZQbkRZcGwwaHZl?oc=5" target="_blank" rel="noopener nofollow">기 못펴는 한국콜마 해외법인, 생산 효율도 국내와 &#x27;극과 극&#x27;</a></td></tr><tr><td class="n">Tue, 08 Sep</td><td>연합인포맥스</td><td><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTE5FbHBReVk0TDBwSXByNDRhX256UGVXemRaUlEzVzlfUUc2Q1FvWjdqWHpJMTJleU1SY0pSYUQxS0d2TDlVaGNDbDJjOU5kVUZNeGJUcnJqUWNGOG9OX0xkUURzRWJEUmRJancyOHA3d0s?oc=5" target="_blank" rel="noopener nofollow">[뷰티人] 한국콜마 이현숙 상무 &quot;헤어·바디 매출 매년 15% 이상 키운다&quot;</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-09-11 기준. 「한국콜마」 로 찾았고 제목에 그 말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 무관하며 서로 어긋날 수 있다.</p>
+<div class="tblwrap"><table><thead><tr><th>날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Fri, 11 Sep</td><td>Chosunbiz</td><td><a href="https://news.google.com/rss/articles/CBMiigFBVV95cUxPM1Znb3k2MDctallNOUhob1Z4UjVSd3dqdDJuQ3B6a1hGQ3hoaG0tWkZ6UWlkOFpCUFd0azdZX2VnUWpya2FEUmVJR1h4NkpZM1RTRWRjSDBlc2VvbnVMRzFYRTlRaUFtM3k1eXhLcUNONVdDd0RZX3Z1X2M1V3JHdFFNUllpR2NRaHfSAZ4BQVVfeXFMT042Z2lIV01hY3Yzd3Bxak5Xb2pCRGVPcE1SSGN1ZGJtM1V6YVJQcjloRmw2YXgwd2l4UEYydGgtVUJlNm1jTDRBN1E3Vl94X3RiTi1tNEk1bkxHQ1VONVZ5TGZ6V29TZWJIU3Y5NnhERU1GMU1nWGJQbEgzdFdnOTJ1emZJVm9JVUt4WHVQaF9qTmJWZHR1djNwZ0JfQUE?oc=5" target="_blank" rel="noopener nofollow">잘나가는 K뷰티까지… 한국콜마에 36년 만에 첫 노조 - 조선비즈</a></td></tr><tr><td class="n">Thu, 10 Sep</td><td>데일리안</td><td><a href="https://news.google.com/rss/articles/CBMimAJBVV95cUxNVHlGREkwYXFsVXI1em1ENkVlS2JNbzdBMWZ6QU1KQVB4aTVDUjE2d016QXQ1b2F4MktORnFHdGU2Qmx3RzRabUl4WDZGLWlyRzltWGlpckJTRVg2ZWRrRGJxNnFGc2hsX0lHajJVOEpTSnRXVmoydTRhYTVKVmxPTTdfaDlyLUI1QTItWWF5RlVIWFkwUy1wMmpjeWEwaUFaSEhyaFNRc0t4VkxmckVPQVR0VGNyUzlnbEZVUURvTFJBTExtNi1ZQ3lNMDVXbklJa01SelMwT2ZDRkdPTXlzTlRaTnBZMnhUbko4T1hZMm9qNGxoR0c5WHQ1bHZvam9kMWpWQkJOa2JlcG9hOFIxN1YzcjNTdW5y?oc=5" target="_blank" rel="noopener nofollow">샘표·한국콜마 등 5개사 대전서 채용상담…지역 청년 취업 지원</a></td></tr><tr><td class="n">Fri, 11 Sep</td><td>네이트</td><td><a href="https://news.google.com/rss/articles/CBMiU0FVX3lxTE5LYzdnMUkzcHc1QVhuQy1Kd3M3WjEwLXo5UTllbGVmc19nMzRiZnZmVUFqM0Jpa09zUURWQzV2V281SEFBNzUwYnZkTkVZdTBtdDZN?oc=5" target="_blank" rel="noopener nofollow">산호에 무해한 선크림 진짜일까…한국콜마, 검증 공백 메운다</a></td></tr><tr><td class="n">Fri, 11 Sep</td><td>톱스타뉴스</td><td><a href="https://news.google.com/rss/articles/CBMickFVX3lxTE43VUhxWngtTG5pcnAxU09qa010a0JsX0xrNzZkNFhKWkdCVUVDMGJvaUI1d2pQRWVxUzZEbzAtTlJZWnBZSF9IX0xLTnBTS3MtZ0xMZnpiNDA3bHRlZE5VeWlOX1c1SXFseFk5OC1odlRaUQ?oc=5" target="_blank" rel="noopener nofollow">한국콜마 주가, 9월 11일 141,300원 1.36% 상승 마감</a></td></tr><tr><td class="n">Tue, 08 Sep</td><td>v.daum.net</td><td><a href="https://news.google.com/rss/articles/CBMiT0FVX3lxTE1salZSdExhdXhuRTdOOVpiczR2SUwyUUw5bGxmdnJrR3VxcmZlTzRmQ2lZS1BXaG15TWRYNjhab0g3UldxZXVpdEtsWW56dUU?oc=5" target="_blank" rel="noopener nofollow">한 달 만에 73% 급등했는데 &quot;더 오른다&quot;…&#x27;역대급 실적&#x27; 한국콜마, 3분기도 &#x27;맑음&#x27;[이주의 관.종]</a></td></tr><tr><td class="n">Fri, 11 Sep</td><td>파이낸스투데이</td><td><a href="https://news.google.com/rss/articles/CBMibEFVX3lxTFBhdjJPQzFlc1I5U0RNc3Y3X0pLMm16ektyaFRyNTdKRF9VQ0lQS29PV0VybUxyUG5hbFk3ZWdFLTIwYXV5clNUVWVMQVNEXzQ2NGNsZi1NNXNhUTEzNWo3VW83SDRlT1pGUXB4Mg?oc=5" target="_blank" rel="noopener nofollow">한국콜마, K-뷰티 주문 증가에 증설 속도…글로벌 대응 강화</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-09-11 기준. 「한국콜마」 로 찾았고 제목에 그 말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 무관하며 서로 어긋날 수 있다.</p>
 
 <h2 id="실적-dart">실적 (DART)</h2>
 

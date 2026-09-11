@@ -296,8 +296,20 @@ a.card:focus-visible,.lst-i:focus-visible{
   .wrap{padding-left:18px!important;padding-right:18px!important}
   .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
 }
-/* LAYOUT:END */
-
+/* LAYOUT:END *//*NAVCSS:BEGIN*/
+/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
+.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
+  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
+/* 아카이브 중메뉴 소제목 — 주기 라벨과 같은 .nav-h 를 쓰되 묶음 사이를 실선으로 끊는다 */
+.site-dd .nav-h.sub,.md .nav-h.sub{margin-top:6px;padding-top:9px;
+  border-top:1px solid var(--border,rgba(0,0,0,.1))}
+.site-dd .nav-h+.nav-h.sub,.md .nav-h+.nav-h.sub{margin-top:0;padding-top:4px;border-top:0}
+.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
+  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
+  background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+/*NAVCSS:END*/
 .dim{color:var(--mut,#94a3b8)}
 .b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
   font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
@@ -389,20 +401,7 @@ html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px
 .pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
  color:var(--accent);margin-bottom:5px}
 .pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
-/*NAVCSS:BEGIN*/
-/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
-.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
-  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
-/* 아카이브 중메뉴 소제목 — 주기 라벨과 같은 .nav-h 를 쓰되 묶음 사이를 실선으로 끊는다 */
-.site-dd .nav-h.sub,.md .nav-h.sub{margin-top:6px;padding-top:9px;
-  border-top:1px solid var(--border,rgba(0,0,0,.1))}
-.site-dd .nav-h+.nav-h.sub,.md .nav-h+.nav-h.sub{margin-top:0;padding-top:4px;border-top:0}
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/*NAVCSS:END*//*TOCCSS:BEGIN*/
+/*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
 /* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
@@ -909,7 +908,7 @@ window.__qbRegister=function(){echarts.registerTheme('charlie', {"color": ["#d21
 </style><div class="vbox"><h4>개인은 정말 '떨어지면 사는가'</h4><p>위 사분면은 '한국 개인은 떨어지면 산다'를 전제로 읽는다. 그 전제가 이 종목에서도 맞는지 직접 계산했다.</p><p>하루 등락률과 그날 개인 순매수가 반대로 움직이는 정도를 계산하면 -0.53이다. 이 값이 0보다 작으면 '떨어지는 날에 개인이 샀다'는 뜻이고, 0보다 크면 그 반대이다.</p><p>같은 자료에서 연속 구간을 다시 뽑아 800번 계산해 보니 참값이 들어 있을 범위는 -0.63 ~ -0.41였다. 하이브에서도 그 습관이 확인된다. 범위가 전부 0보다 작으므로 '떨어지면 산다'는 방향은 우연으로 보기 어렵다.</p><p class="vlim">⚠ 관측치 375일로 계산했다. 개인 순매수 금액은 '순매수 주수 × 종가' 환산 근사이다. 방향이 맞다는 것과 그것이 수익으로 이어진다는 것은 다른 문제이다.</p></div><div class="vbox"><h4>큰 등락은 생각보다 자주 온다</h4><p>이 페이지의 이격도(주가가 이동평균선에서 얼마나 벌어졌는지 백분율로 나타낸 값)·추세템플릿은 '평소 범위'를 정해 놓고 그 밖을 이상하다고 판정한다. 그 '평소 범위'를 정규분포로 잡으면 위험을 작게 본다.</p><p>하이브의 하루 등락을 모아 보면 첨도가 8.6이다. 정규분포라면 3이다. 이 값이 클수록 '유난히 큰 하루'가 교과서 예상보다 자주 온다는 뜻이다.</p><p>실제로 평균에서 3표준편차 넘게 벗어난 날이 1147거래일 중 10일 있었다. 정규분포라면 3.1일이어야 한다. 3배이다.</p><p class="vlim">⚠ 그래서 '몇 표준편차'만으로 위험을 판단하지 않는다. 드물다고 계산된 일이 실제로는 드물지 않는다.</p></div><div class="vbox"><h4>여럿을 한꺼번에 볼 때의 함정</h4><p>이 사이트는 매일 21개 종목을 같은 방식으로 훑는다. 대상이 많아지면 아무 일이 없어도 그중 몇 개는 우연히 신호처럼 보인다. 주사위를 한 번 굴리면 6이 잘 안 나오지만 15번 굴리면 대개 한 번은 나온다.</p><p>하이브에서 '떨어지는데 개인도 파는 날'(3사분면)은 전체의 12.3%였다. 이 비율이라면 어느 날이든 21종목 중 평균 2.6개는 우연히 신호가 뜬다.</p><p>한 종목에 신호가 떴다는 사실만으로는 부족하다. 그날 몇 종목이 함께 걸렸는지를 같이 보아야 우연과 구별된다.</p><p class="vlim">⚠ 종목들은 서로 붙어 움직이므로 실제 '우연 개수'는 이보다 적다. 이 값은 넘지 않아야 할 상한으로 읽는다.</p></div>
 
 <h2 id="관련-기사">관련 기사</h2>
-<div class="tblwrap"><table><thead><tr><th>날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Wed, 09 Sep</td><td>v.daum.net</td><td><a href="https://news.google.com/rss/articles/CBMiT0FVX3lxTE5fem1YWlRvZ0ItTmhDWmRNQnJWSWdsb2MzZGpQVi1GdTlvU1NtUTJqT0o5Z3d2cThoVU95Q0FRb0EwTVNsVHRVU0ZPWkFwRU0?oc=5" target="_blank" rel="noopener nofollow">“BTS 다음은 &#x27;코르티스&#x27;…하이브, 저연차 폭풍 성장”[클릭e종목]</a></td></tr><tr><td class="n">Thu, 10 Sep</td><td>매일경제</td><td><a href="https://news.google.com/rss/articles/CBMiU0FVX3lxTE1HbHItOHV1aVZCZTRRcHlzWm1SbWRyUG4xdXBZRFF2RW9HWk5JWkNNSS1JbzZ6dEs1SVdLQ05mWWpyNHo1bUxCYUQ5VkNwUEVrbUZV?oc=5" target="_blank" rel="noopener nofollow">[인터뷰] “하이브라서 부담보단..” A&amp;R이 밝힌 튜이드와 ABD의 길</a></td></tr><tr><td class="n">Wed, 09 Sep</td><td>v.daum.net</td><td><a href="https://news.google.com/rss/articles/CBMiT0FVX3lxTE05ZEljcEJrS004azBBMzFqMHl6WDljUWd3SmNhSlRRUU1KbmhERF9QN1o4VzNsS3ZvN3BJeHFaMHQwam9XSFZKeU1YNy15YUU?oc=5" target="_blank" rel="noopener nofollow">걸그룹이 아웃도어룩이라니..&#x27;하이브 신인&#x27; 튜이드, 이래서 새롭다</a></td></tr><tr><td class="n">Thu, 10 Sep</td><td>v.daum.net</td><td><a href="https://news.google.com/rss/articles/CBMiT0FVX3lxTE1hNlY4ZlljaU1FbHE0T3l0Z0JBN3ZnWksyamcxX2Z4aEtYcjJNM0trZDh5RXVKeHQ1MXphWkRxSTVIbkNNWlJGNlpsVnl4X0U?oc=5" target="_blank" rel="noopener nofollow">&#x27;하이브 신인&#x27; 튜이드, 100초에 녹여낸 감탄연발 퍼포먼스..전곡 안무 하이라이트</a></td></tr><tr><td class="n">Thu, 10 Sep</td><td>edaily.co.kr</td><td><a href="https://news.google.com/rss/articles/CBMigAFBVV95cUxQeFB0MHhJb3FpSUJoVTBITDFNWkZVcHRQa25zWGgzeUlfYVdyRG9jT3V3SzZ2Z095LXhMOFhYYzB4dlRSUkY0cTEzNlZKOXpiZDJOUTZJZ3JmdGl5SUtTZzNaSGlBeV8zd0ZOajNuQzliT1ItWnJWR296d0EwNXpHeg?oc=5" target="_blank" rel="noopener nofollow">&quot;따로 또 같이&quot;… 하이브 남매들 잘 나가네</a></td></tr><tr><td class="n">Tue, 08 Sep</td><td>비즈니스포스트</td><td><a href="https://news.google.com/rss/articles/CBMic0FVX3lxTFBINWVNbWVfRi1GYzlNTDRpOWFMN0dUNlNtZ2FHLVAzblBiTGFNQ2dnQmFWNEZjRXhQbXVUWGpEYmtLV0ZYdFNDYi1LbDZQbGdUaElBSExaRDhFYm9wRlpETWdkRG9oWFhsZjdOeTZVZktLMDA?oc=5" target="_blank" rel="noopener nofollow">넷마블 &#x27;하이브 주가 급락&#x27;에 지분가치 줄어, 김병규 투자금 조달 위해 비핵심 자산 매각 속도 내나</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-09-11 기준. 「하이브」 로 찾았고 제목에 그 말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 무관하며 서로 어긋날 수 있다.</p>
+<div class="tblwrap"><table><thead><tr><th>날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Fri, 11 Sep</td><td>ZUM 뉴스</td><td><a href="https://news.google.com/rss/articles/CBMigwFBVV95cUxOZGpid0ZOVmpfUDFpQVpNTng5eHd5WXpEbktjdlpVVkV0OEJ2OC1JZ2tjeWRCbDE5ckQ3bHNucmtzQVhQQVg0QVVRXzlwbk50Wm8yVjY1NVBJNzA4WWx3N1NVMzAtOFpsLXpkd2VicWpwOC04RTlKVmlsX29KM0h4OUUzTQ?oc=5" target="_blank" rel="noopener nofollow">인&#x27;스타&#x27;그램 세상|하이브, &#x27;제2의 캣츠아이&#x27; 인도서 찾나…&#x27;5119만 팔로워&#x27; 라슈미카 만다나 만났다</a></td></tr><tr><td class="n">Fri, 11 Sep</td><td>로이슈</td><td><a href="https://news.google.com/rss/articles/CBMiekFVX3lxTE1SbjJDVHozNV9oTDlJQ21ZYlpLaWM4RXdkUkVnQTZTekVnM0J0a3phcTdnVFVEYVBkTGx3VTJ3dVVIRWZUUHhEY1ZGV0pNUW1seFRJRFNNNTZ3RVNWc21xcldoVTIwcjNDMjJ5OHYwdlV5OXl2X1dtWXh3?oc=5" target="_blank" rel="noopener nofollow">컴투스홀딩스, &#x27;AI 게임 빌더스&#x27; 주목 &#x27;하이브 액실&#x27; 영상 공개</a></td></tr><tr><td class="n">Fri, 11 Sep</td><td>데일리한국</td><td><a href="https://news.google.com/rss/articles/CBMib0FVX3lxTE0weWZiZ2l6LVRMSW1Jbm91RWxtU21BU2FNSGtZTGhJa0hKV0d2ei1qLTgzRXZSVVpwRHZFeVFDbHBXUl9QTS0wRU9MZzFtdGgwT3JHREZqaG5GQ2R3Z3djTmt3NEhZTzE4RndQZ1FMY9IBc0FVX3lxTE1TbWJoWnpTblltaUluM25mN2VIb0MwMGtlQl9CYy1meENZUHJCQ1d1NXlIVDV4WUJCYllvU05GS29jT3Q2cUQxbXo2Umc1Z21YeEtVRWJEcEx1NWxqTG90VHFvam1HQkVFcFpLTURwZE8teDg?oc=5" target="_blank" rel="noopener nofollow">컴투스홀딩스 &#x27;하이브 액실&#x27;, &#x27;오픈AI 게임 빌더스 서울&#x27; 영상 콘텐츠 공개</a></td></tr><tr><td class="n">Fri, 11 Sep</td><td>네이트</td><td><a href="https://news.google.com/rss/articles/CBMiU0FVX3lxTE9KUXhwNE02V3JFSFBHc09FSzFhTjd6M0IxSmRmWDh4QUFlaTRzYjlVcjV5U0NjWmlaREUyNnhWcnFYOEtmbFNJdVE0NGNrMEMwaEpV?oc=5" target="_blank" rel="noopener nofollow">컴투스홀딩스, &#x27;하이브 액실&#x27; 소개 영상 공개</a></td></tr><tr><td class="n">Wed, 09 Sep</td><td>아시아경제</td><td><a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE9QS0hDUXk2VmNZMXFUNlZtZGNNZjhKQmJvS0R3REIxS2w1WDkyWTJ2MEpzZWZCTGZlV2drcFJJUzFpaTltZFNRVkVIeE04eGJkUldlckVsWV9hNlFpRnlPeQ?oc=5" target="_blank" rel="noopener nofollow">&quot;BTS 없으면 위기라더니…&quot; 하이브서 뭉칫돈 쓸어 담는 &#x27;이 그룹&#x27;[클릭e종목]</a></td></tr><tr><td class="n">Thu, 10 Sep</td><td>매일경제</td><td><a href="https://news.google.com/rss/articles/CBMiU0FVX3lxTE1HbHItOHV1aVZCZTRRcHlzWm1SbWRyUG4xdXBZRFF2RW9HWk5JWkNNSS1JbzZ6dEs1SVdLQ05mWWpyNHo1bUxCYUQ5VkNwUEVrbUZV?oc=5" target="_blank" rel="noopener nofollow">[인터뷰] “하이브라서 부담보단..” A&amp;R이 밝힌 튜이드와 ABD의 길</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-09-11 기준. 「하이브」 로 찾았고 제목에 그 말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 무관하며 서로 어긋날 수 있다.</p>
 
 <h2 id="실적-dart">실적 (DART)</h2>
 
