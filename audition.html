@@ -703,34 +703,6 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   <div class="stat"><div class="l">기준일 (그라운드 제로)</div><div class="v" style="font-size:1.5rem">7/29</div><div class="s">2026-07-29 · 항복 거래량일</div></div>
 </div>
 <div class="verdict">2026-07-29 종가를 <b>그라운드 제로</b>로 두고 2026-09-10까지 31거래일을 추적했습니다. 기준일 대비 플러스가 <b>262종목(87%)</b>입니다 — 절반 이상이 버티고 있어 아직 <b>오디션이 압축되지 않은</b> 국면입니다.</div>
-
-<div class="panel"><h3>오디션 생존 곡선 <span class="sub2">기준일 대비 플러스를 유지한 종목 수</span></h3>
-  <div class="chart"><canvas id="ac"></canvas></div>
-  <p class="note">떨어뜨리는 과정이 눈에 보이는 그래프이다. 선이 내려갈수록 탈락이 진행된 것이고, 바닥을 찍고 올라오면 주도주가 재편되는 신호이다.</p></div>
-
-<div class="panel"><h3>후보 폭 <span class="sub2">시총 2조 이상 중 최근 60거래일 수익률이 코스피를 이긴 종목 비율</span></h3>
-  <div class="stats" style="margin:0 0 14px">
-    <div class="stat"><div class="l">지금 후보 폭</div>
-      <div class="v" style="color:#059669">59.9%</div>
-      <div class="s">09/10 기준 · <b>넓다</b></div></div>
-    <div class="stat"><div class="l">평상 범위</div><div class="v" style="font-size:1.5rem">49%</div>
-      <div class="s">2022년 이후 1087거래일 중앙값</div></div>
-    <div class="stat"><div class="l">좁다 문턱</div><div class="v" style="font-size:1.5rem;color:#f59e0b">42%</div>
-      <div class="s">하위 25% 경계</div></div>
-    <div class="stat"><div class="l">극단 문턱</div><div class="v" style="font-size:1.5rem;color:#dc2626">31%</div>
-      <div class="s">하위 10% 경계</div></div>
-  </div>
-  <div class="chart"><canvas id="wc"></canvas></div>
-  <p class="note">이길 종목이 고르게 많다. 아직 소수로 압축되지 않았다.
-  생존 곡선은 기준일 대비라 기준일이 바뀌면 끊기지만, 후보 폭은 롤링 60거래일이라
-  기준일과 무관하게 이어진다. 그래서 '지금 후보가 좁아지는 중인가'를 매일 같은 기준으로 볼 수 있다.</p>
-  <p class="note" style="background:color-mix(in srgb,#dc2626 8%,transparent);border-left:3px solid #dc2626;border-radius:8px;padding:10px 13px">
-  ⚠ 이것은 매도 신호가 아니다. 2025년 10월에 이미 29.1%로 좁았는데
-  코스피는 그 뒤로 4,108에서 8,476까지 2배 더 올랐다. 폭만 보고 팔면 8개월을 놓친다.
-  압축 국면에서 상위 1~2위를 계속 들고 있는 것이 옳았는지도 해마다 뒤집힌다. 60일 뒤 초과수익 중앙값이 2023년 +50.6%인데 2026년은 −52.3%였다.
-  표본이 압축 국면 35개(실질 독립 10개 미만)뿐이라 규칙이라 부를 수 없다.<br>
-  이 지표는 지금이 좁은 장세인지를 알려 준다.
-  어느 종목을 언제 덜어낼지는 종목별 이동평균선 이탈로 판정한다.</p></div>
 <div class="panel"><h3>생존자 랭킹 <span class="sub2" id="tbl-sub">기준일 대비 상승률 순 · 시총 2조 이상</span></h3>
   <div class="wins" id="winbar"><span class="wins-l">저점 기준</span><button class="on" id="btn-g">26/7/29</button><span class="wins-gap"></span><span class="wins-l">기간 검색</span><input type="date" id="d1" min="2025-04-01" max="2026-09-10" value="2025-04-01"><span class="wins-t">~</span><input type="date" id="d2" min="2025-04-01" max="2026-09-10" value="2026-09-10"><button id="dgo" class="go">보기</button><span class="wins-gap"></span><span class="wins-l">빠른 선택</span><button data-q="21">1개월</button><button data-q="63">3개월</button><button data-q="126">6개월</button><button data-q="252">1년</button><button data-q="all">25/4/1부터</button><button data-s="20250409" title="아카이브 「오디션 히스토리」가 쓴 기준일">25/4/9 저점부터</button><span class="wins-gap"></span><span class="wins-l" title="시작일을 25/4/1 에 묶어 두고 끝만 옮긴다">기준일 고정</span><button data-e="20250630">25/06말</button><button data-e="20250930">25/09말</button><button data-e="20251230">25/12말</button><button data-e="20260331">26/03말</button><button data-e="20260630">26/06말</button><button data-e="20260910">26/09말</button><span class="filt-note" id="win-note">그라운드 제로(2026-07-29) 종가부터 2026-09-10까지 · 31거래일</span></div>
   <div class="filt" data-topn="30"><button class="on" data-mkt="전체">전체 <span>124</span></button><button data-mkt="코스피">코스피 <span>103</span></button><button data-mkt="코스닥">코스닥 <span>21</span></button><span class="filt-note">시장별로 상위 30종목까지 표시</span></div>
@@ -978,7 +950,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   <p class="note">이렇게 읽으면 안 된다. 1등 업종을 사라는 뜻이 아니다.
   구간을 바꿔 보면 주도가 언제 바뀌었는지가 보인다. 짧은 구간에서 1등이던 업종이
   긴 구간에서도 1등이면 아직 주도가 이어지는 것이고, 짧은 구간에서 뒤로 밀렸으면 교체가
-  시작된 것이다. ⚠ 마스터 파일은 2026-08-10 에 받아 둔 사진이다. 매일 갱신되지 않는다.
+  시작된 것이다. ⚠ 마스터 파일은 2026-09-11 에 받아 둔 사진이다. 매일 갱신되지 않는다.
   그 뒤에 상장·변경된 종목은 업종이 '-' 로 비어 있다.</p>
   <p class="note">KRX 분류를 그대로 쓴다. 그래서 사업 내용과 어긋나 보이는 자리가 있다. 지주회사는 금융으로 간다(한미사이언스가 제약이 아니라 금융인 이유이다).
   타이어와 화장품은 화학이고, 반도체 장비는 기계·장비와 전기·전자로 갈린다.
@@ -1095,6 +1067,38 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <tr data-mkt="코스피" data-c="271560" data-nm="오리온" data-capt="4.7조" data-w1="-7.1152" data-above="0" data-hi="-18.7415" data-vr="0.9200" data-grade="2등급" data-persist="" data-opm="16.3400" data-debt="18.9000" data-p="0" data-vc="0" data-vct="ROE 감소 · PER 증가 (2024→2025)" data-vcw="ROE 와 PER 이 함께 좋아지지 않았다"><td class="c rk" data-v="0"></td><td class="c" data-v="271560">271560</td><td class="nm" data-v="오리온">오리온</td><td class="c" data-v="코스피"><span class="mktb mk1">코스피</span></td><td class="sec" data-v="음식료·담배">음식료·담배</td><td class="n" data-v="120100.0">120,100</td><td class="n" data-v="4747400000000.0">4.7조</td><td class="n pos" data-v="0.08">+0.1%</td><td class="n r-cell neg" data-v="-11.037037037037035"><b>-11.0%</b></td><td class="n neg" data-v="-7.1152358855375075">-7.1%</td><td class="c d-cell" data-v="1" title="외국인 +153억 · 기관 -307억"><span class="half">◐</span></td><td class="c mc" data-v="0" title="가격 미달 · 수급 미달 · 재무 미달"><span class="no">P</span><span class="no">D</span><span class="no">V</span></td><td class="c" data-v="0"><span class="no">○</span></td><td class="n" data-v="-18.74154262516915">-18.7%</td><td class="n" data-v="0.92">0.92</td><td class="n" data-v="16.34">+16.3%</td><td class="n" data-v="10.21">+10.2%</td><td class="n" data-v="1.25">1.25</td><td class="c" data-v="1"><span class="grd g2" title="연간 기준 · ROE ↓ · 매출 ↑">2등급</span></td><td class="n" data-v="18.9">19%</td></tr></tbody></table></div>
   <p class="note">탈락 목록을 함께 두는 이유는 무엇이 떨어져 나갔는지가 곧 국면 정보이기 때문이다. 어떤 업종이 통째로 밀렸는지 보면 주도업종 교체가 읽힌다.</p></div>
 
+<!-- ★ 2026-09-11 상수님 «해당 페이지 상단 차트를 맨 아래로 내려줘».
+     이 덱에서 먼저 봐야 하는 것은 **명단**이다. 곡선 2개가 위에 있으면 표까지 스크롤이 길다.
+     ⚠ 두 그림은 그라운드 제로에 묶여 있어 기간 검색을 따라가지 않는다. 그래서 더욱 아래가 맞다. -->
+
+<div class="panel"><h3>오디션 생존 곡선 <span class="sub2">기준일 대비 플러스를 유지한 종목 수</span></h3>
+  <div class="chart"><canvas id="ac"></canvas></div>
+  <p class="note">떨어뜨리는 과정이 눈에 보이는 그래프이다. 선이 내려갈수록 탈락이 진행된 것이고, 바닥을 찍고 올라오면 주도주가 재편되는 신호이다.</p></div>
+
+<div class="panel"><h3>후보 폭 <span class="sub2">시총 2조 이상 중 최근 60거래일 수익률이 코스피를 이긴 종목 비율</span></h3>
+  <div class="stats" style="margin:0 0 14px">
+    <div class="stat"><div class="l">지금 후보 폭</div>
+      <div class="v" style="color:#059669">59.9%</div>
+      <div class="s">09/10 기준 · <b>넓다</b></div></div>
+    <div class="stat"><div class="l">평상 범위</div><div class="v" style="font-size:1.5rem">49%</div>
+      <div class="s">2022년 이후 1087거래일 중앙값</div></div>
+    <div class="stat"><div class="l">좁다 문턱</div><div class="v" style="font-size:1.5rem;color:#f59e0b">42%</div>
+      <div class="s">하위 25% 경계</div></div>
+    <div class="stat"><div class="l">극단 문턱</div><div class="v" style="font-size:1.5rem;color:#dc2626">31%</div>
+      <div class="s">하위 10% 경계</div></div>
+  </div>
+  <div class="chart"><canvas id="wc"></canvas></div>
+  <p class="note">이길 종목이 고르게 많다. 아직 소수로 압축되지 않았다.
+  생존 곡선은 기준일 대비라 기준일이 바뀌면 끊기지만, 후보 폭은 롤링 60거래일이라
+  기준일과 무관하게 이어진다. 그래서 '지금 후보가 좁아지는 중인가'를 매일 같은 기준으로 볼 수 있다.</p>
+  <p class="note" style="background:color-mix(in srgb,#dc2626 8%,transparent);border-left:3px solid #dc2626;border-radius:8px;padding:10px 13px">
+  ⚠ 이것은 매도 신호가 아니다. 2025년 10월에 이미 29.1%로 좁았는데
+  코스피는 그 뒤로 4,108에서 8,476까지 2배 더 올랐다. 폭만 보고 팔면 8개월을 놓친다.
+  압축 국면에서 상위 1~2위를 계속 들고 있는 것이 옳았는지도 해마다 뒤집힌다. 60일 뒤 초과수익 중앙값이 2023년 +50.6%인데 2026년은 −52.3%였다.
+  표본이 압축 국면 35개(실질 독립 10개 미만)뿐이라 규칙이라 부를 수 없다.<br>
+  이 지표는 지금이 좁은 장세인지를 알려 준다.
+  어느 종목을 언제 덜어낼지는 종목별 이동평균선 이탈로 판정한다.</p></div>
+
 <script src="vendor/chart-4.4.7.umd.min.js"></script>
 <!-- CHARTTHEME:BEGIN -->
 <script src="chart-theme.js?v=370178c8"></script>
@@ -1137,7 +1141,7 @@ new Chart(document.getElementById('wc'),{type:'line',
 </div>
 
 <div class="wrap"><!--TOPICNEWS:BEGIN--><style id="tnewscss">.tnews{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 10px;margin:34px 0 10px}.tnews h3{margin:0 0 10px;font-size:1.02rem}.tnews table{width:100%;border-collapse:collapse;font-size:.9rem}.tnews td{padding:5px 8px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}.tnews td.d{white-space:nowrap;color:var(--text-secondary)}.tnews p.cap{margin:10px 0 8px;font-size:.8rem;color:var(--text-secondary);line-height:1.6}</style><div class="tnews"><h3>관련 뉴스</h3><p class="cap">제목에 그 낱말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.</p><p class="cap">국내: 「코스피 주도주」 로 찾았다.</p><div class="tblwrap"><table><tbody><tr><td class="d">Fri, 11 Sep</td><td class="d">아시아경제</td><td><a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE93c0VsVmVjNHdWRm9yazFoeWlZZVNQLWRBeWUwOEpHVzNxN3pzYzdDREpfODY5NEh4VXZxLWhocHdEYXBUQVFWWVdURzJHcURveDBoRUJtOWxITGIyS1kzQg?oc=5" target="_blank" rel="noopener nofollow">7천선 되찾은 코스피, 반도체 다음 주도주는? 김진 대표의 시장 분석</a></td></tr><tr><td class="d">Fri, 11 Sep</td><td class="d">와이드경제</td><td><a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE1ybFdIUjhocUlqc1JEUHJFVTdKWlUwVlZWLTk0MnV4SUNnbTh0SmpnMTZrR3Jia0VRY3pGcHI1dFFwY0N0RGJsZVhLMXBIOGo3X3RYMkcyNV96Y0lWdWY1bFd5VUlScGducWtQdg?oc=5" target="_blank" rel="noopener nofollow">'마의 7000선' 안착 시험대 오른 코스피…외국인 귀환·주도주 확산 쏠린 눈</a></td></tr><tr><td class="d">Fri, 29 May</td><td class="d">v.daum.net</td><td><a href="https://news.google.com/rss/articles/CBMiRkFVX3lxTE9HakRkMlRxZ3BXNDhUT1duOHMwNjJvNDZheGJ1a0YzNWRhMHdnZklGYjl3ZTBZcWdyVmxDVWFUWkFfT19UT3c?oc=5" target="_blank" rel="noopener nofollow">"코스피, 주도주 쏠림은 자연스러운 현상…해소 시 버블 붕괴 전조"</a></td></tr><tr><td class="d">Thu, 28 May</td><td class="d">중앙일보</td><td><a href="https://news.google.com/rss/articles/CBMiVkFVX3lxTE1neGVfdGptdGdUdGlySk1mREFLNUdVbXgyUzlZZW9WejE2SnhPbjBld2dlSzd2TXl2RTVsclFObW9nVlRYN0lfdi10TUp0MzhOT040alRn?oc=5" target="_blank" rel="noopener nofollow">“코스피 8000, 더 올라간다” 美 BofA가 꽂힌 새 주도주</a></td></tr><tr><td class="d">Tue, 01 Sep</td><td class="d">뉴스핌</td><td><a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTE5NY1oyQzRrVnZ6bTl2RmVNdUppTlhEOHFXbWQ2dU92d29XdXpoWjFNa3NQdENwVTBDYk84Qkw4REt4cEZkcUx1TDA2UDF4Qk9KS29rZ3I0NVg0aGFI?oc=5" target="_blank" rel="noopener nofollow">8월 증시 주도주 이동, 2차전지·전력·바이오 '상승세'</a></td></tr><tr><td class="d">Thu, 16 Jul</td><td class="d">YTN</td><td><a href="https://news.google.com/rss/articles/CBMiXkFVX3lxTE95b3k5aWVZdUZ2djJORGk1eThLREQ1R1lnTERuNEwzSHVpck80NlBpRmFVY2JmSFlPdkYwTHpjazBRdVk2SmJqbTdWR0RkTEFjWmVmZlhwdmpwc3did1E?oc=5" target="_blank" rel="noopener nofollow">뉴욕증시 주도주 반도체서 ○○으로? 코스피엔 "찝찝한 신호"</a></td></tr></tbody></table></div><p class="cap">출처 구글 뉴스 · 2026-09-11 기준. 뉴스는 이 글의 분석과 무관하며 서로 어긋날 수 있다.</p></div><!--TOPICNEWS:END--><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="methodology.html">이야기꾼의 방법론</a> 이 화면이 실행하는 절차의 원문이다. 왜 후보를 좁히고 왜 계단식으로 비중을 올리는지가 거기에 있다.</p><p><a href="breadth-rs.html">52주 신고가·상대강도</a> 오디션 후보를 매일 거르는 1차 필터가 그 페이지이다.</p><p><a href="breadth-concentration.html">신고가 쏠림배수</a> 후보 폭이 '몇 개 남았나'를 집계하면, 쏠림배수는 '남은 것이 얼마나 큰 종목인가'를 측정한다. 같은 압축을 두 각도에서 본다.</p><p><a href="audition-history.html">오디션 히스토리 2025~2026</a> 지금 순위표를 읽는 법의 교본: 지난 랠리에서 주도주가 어떻게 교체되고 어떻게 끝났는지의 복기이다.</p></div><!--RELATED:END--></div>
-<footer><p>본 자료는 정보 제공·교육 목적이며 투자 권유가 아니다. 투자의 최종 판단과 책임은 투자자 본인에게 있다. · 방법론: 이야기꾼 시나리오투자법(3MC 오디션 피라미딩) · 데이터: KRX Open API 코스피·코스닥 전종목 일별매매정보(이력) · 한국투자증권 Open API(당일 확정 종가 · PBR · 투자자별 매매동향 · 종목 마스터의 지수업종) · DART Open API 재무지표. 기준일이 휴장이면 직전 거래일로 자동 보정된다. 종목 마스터는 2026-08-10 판이고 자동 갱신되지 않는다.</p></footer>
+<footer><p>본 자료는 정보 제공·교육 목적이며 투자 권유가 아니다. 투자의 최종 판단과 책임은 투자자 본인에게 있다. · 방법론: 이야기꾼 시나리오투자법(3MC 오디션 피라미딩) · 데이터: KRX Open API 코스피·코스닥 전종목 일별매매정보(이력) · 한국투자증권 Open API(당일 확정 종가 · PBR · 투자자별 매매동향 · 종목 마스터의 지수업종) · DART Open API 재무지표. 기준일이 휴장이면 직전 거래일로 자동 보정된다. 종목 마스터는 2026-09-11 판이고 자동 갱신되지 않는다.</p></footer>
 </div>
 <script>
 (function(){
