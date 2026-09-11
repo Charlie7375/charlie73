@@ -296,8 +296,20 @@ a.card:focus-visible,.lst-i:focus-visible{
   .wrap{padding-left:18px!important;padding-right:18px!important}
   .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
 }
-/* LAYOUT:END */
-
+/* LAYOUT:END *//*NAVCSS:BEGIN*/
+/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
+.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
+  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
+/* 아카이브 중메뉴 소제목 — 주기 라벨과 같은 .nav-h 를 쓰되 묶음 사이를 실선으로 끊는다 */
+.site-dd .nav-h.sub,.md .nav-h.sub{margin-top:6px;padding-top:9px;
+  border-top:1px solid var(--border,rgba(0,0,0,.1))}
+.site-dd .nav-h+.nav-h.sub,.md .nav-h+.nav-h.sub{margin-top:0;padding-top:4px;border-top:0}
+.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
+  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
+  background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+/*NAVCSS:END*/
 .dim{color:var(--mut,#94a3b8)}
 .b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
   font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
@@ -382,14 +394,7 @@ html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px
   html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
   html body .site-bar-in{padding:9px 14px 7px}
 }
-/* BAR:END */
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
-/*TOCCSS:BEGIN*/
+/* BAR:END *//*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
 /* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
@@ -409,26 +414,7 @@ h2[id],h3[id],[id]:target{scroll-margin-top:92px}
 .ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
 .ptoc a:hover{border-bottom-color:var(--text-secondary)}
 @media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*/</style><link rel="stylesheet" href="vendor/fonts.css"><style id="freqcss">
-.freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
- padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
- border:1px solid currentColor;opacity:.85}
-.freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
-.freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
-/*NAVCSS:BEGIN*/
-/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
-.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
-  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
-/* 아카이브 중메뉴 소제목 — 주기 라벨과 같은 .nav-h 를 쓰되 묶음 사이를 실선으로 끊는다 */
-.site-dd .nav-h.sub,.md .nav-h.sub{margin-top:6px;padding-top:9px;
-  border-top:1px solid var(--border,rgba(0,0,0,.1))}
-.site-dd .nav-h+.nav-h.sub,.md .nav-h+.nav-h.sub{margin-top:0;padding-top:4px;border-top:0}
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/*NAVCSS:END*//* PAPER:BEGIN */
+/*TOCCSS:END*//* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -698,8 +684,14 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style>
-<!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
+/* PAPER:END */</style><link rel="stylesheet" href="vendor/fonts.css"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><style id="freqcss">
+.freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
+ padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
+ border:1px solid currentColor;opacity:.85}
+.freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
+.freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
+</style>
+</head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="macro-timeline.html">거시 이벤트 연대기</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-nhn.html">NHN</a><a href="stock-kolmar.html">한국콜마</a><a href="stock-cosmax.html">코스맥스</a><a href="stock-pharmaresearch.html">파마리서치</a><a href="stock-jyp.html">JYP Ent.</a><a href="stock-sm-ent.html">에스엠</a><a href="stock-yg-ent.html">와이지엔터테인먼트</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="here" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><span class="nav-h sub">수급과 폭락</span><a href="flow-extremes.html">개인이 많이 팔면 코스피는 오를까</a><a href="flow-crashes.html">수급이 만든 폭락의 역사</a><span class="nav-h sub">신용과 청산</span><a class="here" href="us-credit-spread.html">신용스프레드가 벌어지면 주가는 떨어질까</a><a href="deleveraging.html">강제청산은 어떻게 끝나는가</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="sentiment.html">빚과 현금과 강제청산</a><span class="nav-h sub">경기와 수출</span><a href="us-elections.html">미국 선거와 증시</a><a href="export-kospi.html">한국 수출과 코스피</a><a href="cli-kospi.html">OECD 경기선행지수와 코스피</a><a href="ism-kospi.html">미국 제조업지수와 코스피</a><a href="jeoji-kospi.html">경기지표가 좋으면 코스피도 오를까</a><span class="nav-h sub">금리와 통화</span><a href="gold-rates.html">금리가 오르면 금값은 떨어질까</a><a href="treasury-trust.html">미국은 왜 국채를 되사면서 한도를 다 채우지 않을까</a><a href="inflation-playbook.html">물가가 오르는 시대에도 주식은 올랐을까</a><a href="rates-century.html">미국 금리 100년과 인플레 시대</a><a href="liquidity.html">미국 정부와 연준의 유동성 관리</a><a href="fed-kospi.html">미국이 금리를 내리면 코스피에는 악재일까</a><a href="rates-101.html">금리는 돈의 가격이다</a><a href="rates-crashes.html">금리 5%는 공황선인가</a><a href="dollar-kospi.html">달러가 약해지면 코스피는 오를까</a><span class="nav-h sub">개별 종목</span><a href="memory-price.html">D램 가격과 삼성전자 주가, 무엇이 먼저 움직일까</a><a href="leadlag.html">하이닉스는 따라가기만 하지 않는다</a><a href="samsung-long.html">삼성전자 27년</a><span class="nav-h sub">시장 국면</span><a href="breadth-concentration.html">신고가 쏠림배수 2023~2026</a><a href="kospi-analog.html">지금과 닮은 과거 — 유사국면</a><a href="audition-history.html">오디션 히스토리 2025~2026</a><a href="disparity-archive.html">두 버블의 50일 이격도</a><a href="stage-analysis.html">200일선과 와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리 1998~2000</a></div></div><div class="site-group"><button class="" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 80계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a href="data-kr-rates.html">한국 금리</a><a href="data-us-market.html">미국 시장</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a href="data-fx.html">환율·원자재·암호</a><a href="data-macro.html">재정·거시</a></div></div><!-- NAV:END --></nav>
@@ -854,7 +846,7 @@ Aaa는 가장 높은 신용등급이고 Baa는 투자적격 가운데 가장 낮
 <div class="tblwrap"><table class="tw">
 <thead><tr><th>신호를 고른 방법</th><th class="n">횟수</th>
 <th class="n">이후 3개월</th><th class="n">6개월</th><th class="n">12개월</th></tr></thead>
-<tbody><tr><td>사후에 확인한 확대 구간</td><td>13회</td><td>-6.4%</td><td>-4.8%</td><td>+3.6%</td></tr><tr class="cs-now"><td>그날 알 수 있었던 확대 신호</td><td>20회</td><td>+2.9%</td><td>+6.9%</td><td>+12.6%</td></tr><tr><td>모든 거래일</td><td>10196일</td><td>+3.2%</td><td>+5.9%</td><td>+12.0%</td></tr></tbody></table></div>
+<tbody><tr><td>사후에 확인한 확대 구간</td><td>13회</td><td>-6.4%</td><td>-4.8%</td><td>+3.6%</td></tr><tr class="cs-now"><td>그날 알 수 있었던 확대 신호</td><td>20회</td><td>+2.9%</td><td>+6.9%</td><td>+12.6%</td></tr><tr><td>모든 거래일</td><td>10197일</td><td>+3.2%</td><td>+5.9%</td><td>+12.0%</td></tr></tbody></table></div>
 
 <div class="note"><p>이렇게 읽으면 안 된다.
 성적이 모든 거래일과 사실상 같다.
@@ -1074,7 +1066,7 @@ Aaa는 무디스가 매긴 최고 등급 회사채의 평균 수익률이고, Ba
 신용스프레드가 최근 120거래일 최저보다 0.25%포인트 확대된 날을 신호로 본다.
 같은 국면을 여러 번 세지 않도록 한 번 울리면 1년은 쉰다. 1986년부터 20번 울렸다.</p>
 <div class="tblwrap"><table><thead><tr><th>신호를 고른 방법</th><th>횟수</th><th>이후 3개월</th><th>6개월</th><th>12개월</th></tr></thead>
-<tbody><tr><td>사후에 확인한 확대 구간</td><td>13회</td><td>-6.4%</td><td>-4.8%</td><td>+3.6%</td></tr><tr class="cs-now"><td>그날 알 수 있었던 확대 신호</td><td>20회</td><td>+2.9%</td><td>+6.9%</td><td>+12.6%</td></tr><tr><td>모든 거래일</td><td>10196일</td><td>+3.2%</td><td>+5.9%</td><td>+12.0%</td></tr></tbody></table></div>
+<tbody><tr><td>사후에 확인한 확대 구간</td><td>13회</td><td>-6.4%</td><td>-4.8%</td><td>+3.6%</td></tr><tr class="cs-now"><td>그날 알 수 있었던 확대 신호</td><td>20회</td><td>+2.9%</td><td>+6.9%</td><td>+12.6%</td></tr><tr><td>모든 거래일</td><td>10197일</td><td>+3.2%</td><td>+5.9%</td><td>+12.0%</td></tr></tbody></table></div>
 <p>성적이 모든 거래일의 평균과 사실상 같다.
 그렇다면 1년 뒤 수익률이 아니라 중간에 얼마나 아팠는지는 어떤가. 하락을 계산하는 기준이 2가지라 함께 적는다.</p>
 
@@ -1101,7 +1093,7 @@ Aaa는 무디스가 매긴 최고 등급 회사채의 평균 수익률이고, Ba
 하락 기준도 이 표는 신호일 종가 기준이고, 대조군 21%도 같은 기준이다.</p>
 <div class="tblwrap"><table><thead><tr><th>되올라온 폭</th><th>신호 횟수</th><th>1년 안 15% 하락</th><th>저점에서 신호까지</th><th>신호일 주가 낙폭</th></tr></thead>
 <tbody><tr><td>0.03%p</td><td>31회</td><td>19%</td><td>5일</td><td>-1.9%</td></tr><tr><td>0.05%p</td><td>29회</td><td>21%</td><td>14일</td><td>-1.7%</td></tr><tr><td>0.10%p</td><td>23회</td><td>30%</td><td>25일</td><td>-3.6%</td></tr><tr><td>0.15%p</td><td>18회</td><td>39%</td><td>25일</td><td>-5.9%</td></tr><tr class="cs-now"><td>0.25%p</td><td>9회</td><td>33%</td><td>23일</td><td>-10.1%</td></tr></tbody></table></div>
-<p>1986년부터 2026년까지 9824거래일이 대상이고,
+<p>1986년부터 2026년까지 9825거래일이 대상이고,
 아무 날이나 매수했을 때 1년 안에 15% 이상 하락한 비율은 21%다.</p>
 <p>예민하게 당길수록 시점은 좋아진다.
 가장 예민한 0.03%포인트 문턱은 주가가 고점에서 -1.9%밖에 내려오지 않은 자리에서 울린다.
@@ -1323,8 +1315,7 @@ GZ 와의 비교가 불가능하다는 뜻이 아니라 이 글이 쓰는 월평
         return (x.dataset.label?x.dataset.label+'  ':'')+n+(x.dataset.u||'');}}}},
     scales:c.s}});
 });
-</script><div class="wrap"><!--GLOSSARY:BEGIN--><style id="glocss">.glo{margin:34px 0 8px}.glo h3{font-size:1.02rem;margin:0 0 12px}.glo dl{margin:0;font-size:.9rem;line-height:1.62}.glo dt{font-weight:800;margin-top:10px}.glo dd{margin:2px 0 0 0;color:var(--text-secondary,#555)}</style><div class="glo"><h3>용어 설명</h3><dl><dt>국면</dt><dd>시장이 지금 어느 상태에 있는가를 가리키는 말. 봄·여름·가을·겨울처럼 몇 개로 나누고, 한번 들어가면 여러 달에서 몇 해까지 이어진다고 본다. 오르내림 하나하나가 아니라 그 오르내림이 놓인 자리를 가리킨다.</dd><dt>추세</dt><dd>가격이 한 방향으로 꾸준히 가는 것. 오르내림이 있어도 전체로 보면 위를 향하면 상승 추세다. 보통 이동평균선이 오르는지 내리는지로 판단한다.</dd><dt>수급</dt><dd>누가 사고 누가 파는가. 개인·외국인·기관 셋으로 나눠 본다. 같은 가격이라도 누가 샀느냐에 따라 다음이 달라진다고 보는 관점이다.</dd><dt>이동평균</dt><dd>최근 며칠의 종가를 평균한 값. 날마다 다시 계산해 선으로 잇는다. 하루하루 오르내림을 지워 방향만 남기려고 쓴다. 20일선은 최근 20일 평균이다.</dd><dt>중앙값</dt><dd>값을 크기 순으로 늘어놓았을 때 한가운데 오는 값. 평균과 달리 아주 크거나 작은 값 몇 개에 끌려가지 않아서, 「보통은 어느 정도인가」를 볼 때 쓴다.</dd><dt>표본</dt><dd>실제로 확인한 사례의 묶음. 표본이 적으면 우연히 그렇게 보였을 가능성을 지우기 어렵다. 그래서 이 사이트는 사례가 몇 번인지를 늘 함께 적는다.</dd><dt>스프레드</dt><dd>두 금리의 차이. 예를 들어 회사채 금리에서 국채 금리를 빼면, 그 기업이 나라보다 얼마나 더 이자를 물어야 하는지가 나온다. 벌어지면 시장이 위험을 크게 본다는 뜻이다.</dd><dt>유동성</dt><dd>시장에 돌아다니는 돈. 중앙은행이 금리를 내리거나 돈을 풀면 늘어난다. 늘면 자산 가격이 오르기 쉽다고 본다.</dd><dt>회사채</dt><dd>기업이 돈을 빌리려고 발행한 채권. 나라보다 떼일 위험이 커서 국채보다 이자를 더 준다. Aaa 는 신용평가사 무디스가 매기는 가장 높은 등급이다.</dd><dt>신용스프레드</dt><dd>회사채 금리에서 국고채 금리를 뺀 값. 기업이 국가보다 더 부담하는 금리이고, 시장이 매긴 부도 위험의 값이다.</dd><dt>이격도</dt><dd>주가가 이동평균선에서 얼마나 떨어져 있는지의 백분율. 100이면 이동평균과 같은 자리, 90 아래는 과매도·110 위는 과열로 읽는다.</dd><dt>이동평균선</dt><dd>일정 기간 종가의 평균을 이은 선. 20일선은 단기, 20주선(=100거래일 근사)은 이야기꾼의 '생명선', 200일선은 장기 추세 기준이다.</dd><dt>RS</dt><dd>Relative Strength(상대강도). 시장 전체 대비 그 종목이 얼마나 더 올랐는지를 백분위로 매긴 값. RS 90이면 "시장의 90%보다 더 올랐다"는 뜻이다. 미너비니는 RS 상위 종목만 후보로 둔다.</dd><dt>스테이지</dt><dd>와인스타인의 4국면: 1 바닥, 2 상승, 3 천장, 4 하락. 이동평균의 기울기와 가격 위치로 판정한다.</dd><dt>10년물 국채금리</dt><dd>시장이 정하는 장기 돈값. 이 사이트의 시대 구분(인플레·디플레이션)은 이 금리의 사상 최고(1981-09)와 사상 최저(2020-07)로 가른다.</dd><dt>디플레이션</dt><dd>이 사이트가 1981-09~2020-06 의 약 40년을 부르는 이름이다. 이야기꾼의 용어를 따른다. ⚠ 엄밀히는 물가가 내린 것이 아니라 물가 상승률이 낮아진 구간이라 학술 용어로는 디스인플레이션에 가깝다. 그래도 이야기꾼 강의와 같은 말을 쓰기 위해 이 이름을 쓴다. 코스피 역사의 85%가 이 안에 있어 '과거 패턴'이 대부분 이 시대의 산물이다.</dd></dl><p style="font-size:.8rem;color:var(--text-secondary,#777);margin-top:12px">이 글에 나온 용어만 실었다. 정의는 <code>scripts/glossary.py</code> 에서 한곳으로 관리한다.</p></div><!--GLOSSARY:END--></div>
-<div class="wrap"><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="credit-spread.html">신용스프레드와 코스피</a> 같은 이름이지만 측정 대상이 다르다. 그쪽은 한국 회사채와 국고채의 차이이고 여기는 미국 회사채 등급 사이의 차이다.</p><p><a href="rates-century.html">미국 금리 100년과 인플레 시대</a> 스프레드가 좁은 것과 금리 수준이 높은 것은 다른 이야기다. 지금 Aaa 가 어느 수준인지는 그 페이지가 계산한다.</p><p><a href="deleveraging.html">강제청산은 어떻게 끝나는가</a> 신용이 실제로 상했을 때 무엇이 먼저 부러지는지의 사례다. 스프레드가 벌어지는 국면에서 같이 볼 글이다.</p><p><a href="rates-101.html">금리는 돈의 가격이다</a> ⚠ 먼저 읽을 것. 등급 사이의 값과 금리 수준이 왜 다른 이야기인지가 거기에 있다.</p></div><!--RELATED:END--></div>
+</script><div class="wrap"><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="credit-spread.html">신용스프레드와 코스피</a> 같은 이름이지만 측정 대상이 다르다. 그쪽은 한국 회사채와 국고채의 차이이고 여기는 미국 회사채 등급 사이의 차이다.</p><p><a href="rates-century.html">미국 금리 100년과 인플레 시대</a> 스프레드가 좁은 것과 금리 수준이 높은 것은 다른 이야기다. 지금 Aaa 가 어느 수준인지는 그 페이지가 계산한다.</p><p><a href="deleveraging.html">강제청산은 어떻게 끝나는가</a> 신용이 실제로 상했을 때 무엇이 먼저 부러지는지의 사례다. 스프레드가 벌어지는 국면에서 같이 볼 글이다.</p><p><a href="rates-101.html">금리는 돈의 가격이다</a> ⚠ 먼저 읽을 것. 등급 사이의 값과 금리 수준이 왜 다른 이야기인지가 거기에 있다.</p></div><!--RELATED:END--><!--GLOSSARY:BEGIN--><style id="glocss">.glo{margin:34px 0 8px}.glo h3{font-size:1.02rem;margin:0 0 12px}.glo dl{margin:0;font-size:.9rem;line-height:1.62}.glo dt{font-weight:800;margin-top:10px}.glo dd{margin:2px 0 0 0;color:var(--text-secondary,#555)}</style><div class="glo"><h3>용어 설명</h3><dl><dt>국면</dt><dd>시장이 지금 어느 상태에 있는가를 가리키는 말. 봄·여름·가을·겨울처럼 몇 개로 나누고, 한번 들어가면 여러 달에서 몇 해까지 이어진다고 본다. 오르내림 하나하나가 아니라 그 오르내림이 놓인 자리를 가리킨다.</dd><dt>추세</dt><dd>가격이 한 방향으로 꾸준히 가는 것. 오르내림이 있어도 전체로 보면 위를 향하면 상승 추세다. 보통 이동평균선이 오르는지 내리는지로 판단한다.</dd><dt>수급</dt><dd>누가 사고 누가 파는가. 개인·외국인·기관 셋으로 나눠 본다. 같은 가격이라도 누가 샀느냐에 따라 다음이 달라진다고 보는 관점이다.</dd><dt>이동평균</dt><dd>최근 며칠의 종가를 평균한 값. 날마다 다시 계산해 선으로 잇는다. 하루하루 오르내림을 지워 방향만 남기려고 쓴다. 20일선은 최근 20일 평균이다.</dd><dt>중앙값</dt><dd>값을 크기 순으로 늘어놓았을 때 한가운데 오는 값. 평균과 달리 아주 크거나 작은 값 몇 개에 끌려가지 않아서, 「보통은 어느 정도인가」를 볼 때 쓴다.</dd><dt>표본</dt><dd>실제로 확인한 사례의 묶음. 표본이 적으면 우연히 그렇게 보였을 가능성을 지우기 어렵다. 그래서 이 사이트는 사례가 몇 번인지를 늘 함께 적는다.</dd><dt>스프레드</dt><dd>두 금리의 차이. 예를 들어 회사채 금리에서 국채 금리를 빼면, 그 기업이 나라보다 얼마나 더 이자를 물어야 하는지가 나온다. 벌어지면 시장이 위험을 크게 본다는 뜻이다.</dd><dt>유동성</dt><dd>시장에 돌아다니는 돈. 중앙은행이 금리를 내리거나 돈을 풀면 늘어난다. 늘면 자산 가격이 오르기 쉽다고 본다.</dd><dt>회사채</dt><dd>기업이 돈을 빌리려고 발행한 채권. 나라보다 떼일 위험이 커서 국채보다 이자를 더 준다. Aaa 는 신용평가사 무디스가 매기는 가장 높은 등급이다.</dd><dt>신용스프레드</dt><dd>회사채 금리에서 국고채 금리를 뺀 값. 기업이 국가보다 더 부담하는 금리이고, 시장이 매긴 부도 위험의 값이다.</dd><dt>이격도</dt><dd>주가가 이동평균선에서 얼마나 떨어져 있는지의 백분율. 100이면 이동평균과 같은 자리, 90 아래는 과매도·110 위는 과열로 읽는다.</dd><dt>이동평균선</dt><dd>일정 기간 종가의 평균을 이은 선. 20일선은 단기, 20주선(=100거래일 근사)은 이야기꾼의 '생명선', 200일선은 장기 추세 기준이다.</dd><dt>RS</dt><dd>Relative Strength(상대강도). 시장 전체 대비 그 종목이 얼마나 더 올랐는지를 백분위로 매긴 값. RS 90이면 "시장의 90%보다 더 올랐다"는 뜻이다. 미너비니는 RS 상위 종목만 후보로 둔다.</dd><dt>스테이지</dt><dd>와인스타인의 4국면: 1 바닥, 2 상승, 3 천장, 4 하락. 이동평균의 기울기와 가격 위치로 판정한다.</dd><dt>10년물 국채금리</dt><dd>시장이 정하는 장기 돈값. 이 사이트의 시대 구분(인플레·디플레이션)은 이 금리의 사상 최고(1981-09)와 사상 최저(2020-07)로 가른다.</dd><dt>디플레이션</dt><dd>이 사이트가 1981-09~2020-06 의 약 40년을 부르는 이름이다. 이야기꾼의 용어를 따른다. ⚠ 엄밀히는 물가가 내린 것이 아니라 물가 상승률이 낮아진 구간이라 학술 용어로는 디스인플레이션에 가깝다. 그래도 이야기꾼 강의와 같은 말을 쓰기 위해 이 이름을 쓴다. 코스피 역사의 85%가 이 안에 있어 '과거 패턴'이 대부분 이 시대의 산물이다.</dd></dl><p style="font-size:.8rem;color:var(--text-secondary,#777);margin-top:12px">이 글에 나온 용어만 실었다. 정의는 <code>scripts/glossary.py</code> 에서 한곳으로 관리한다.</p></div><!--GLOSSARY:END--></div>
 <footer>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.
     · 근거: 이야기꾼 주간 시투 보고서(W36·2026-09-05) 및 자체 실측.</footer>
 </div>
