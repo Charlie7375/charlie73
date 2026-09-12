@@ -522,7 +522,21 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 .paper figure.fig>figcaption::before{content:"그림 " counter(fig) ".  ";
   font-weight:700;color:var(--text,#1d1d1f)}
 .paper figure.tw{counter-increment:tbl}
-.paper figure.tw>figcaption{margin:0 0 9px}
+.paper figure.tw>figcaption{margin:0 0 12px}
+
+/* ── 그림·표 설명은 각주가 아니라 «읽는 법»이다 ──
+   2026-09-12 상수님 «표나 그래프 아래에 작게 설명하는 문구가 도드라져야 하는 거 아닌가?»
+   맞다. 새 뼈대에서 이 한 줄이 표를 읽는 법을 알려 준다. 흐린 각주로 두면
+   독자가 그걸 건너뛰고 표만 보다가 반대로 읽는다 —
+   export-kospi 3절에서 실제로 그랬다(+40% 칸이 좋아 보이는데 그건 1980년대 착시였다).
+   ⚠ 굵은 글씨는 계속 막는다(유시민체). 도드라지게 하는 것은 **크기·색·왼쪽 표시**다. */
+.paper figure>figcaption,
+.paper .panel-cap{
+  font-size:14.5px;line-height:1.74;
+  color:var(--text,#1d1d1f);
+  border-left:2px solid rgba(128,128,128,.42);
+  padding-left:13px}
+.paper figure.tw>figcaption{padding-left:13px}
 .paper figure.tw>figcaption::before{content:"표 " counter(tbl) ".  ";
   font-weight:700;color:var(--text,#1d1d1f)}
 

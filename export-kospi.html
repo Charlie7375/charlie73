@@ -2299,7 +2299,21 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 .paper figure.fig>figcaption::before{content:"그림 " counter(fig) ".  ";
   font-weight:700;color:var(--text,#1d1d1f)}
 .paper figure.tw{counter-increment:tbl}
-.paper figure.tw>figcaption{margin:0 0 9px}
+.paper figure.tw>figcaption{margin:0 0 12px}
+
+/* ── 그림·표 설명은 각주가 아니라 «읽는 법»이다 ──
+   2026-09-12 상수님 «표나 그래프 아래에 작게 설명하는 문구가 도드라져야 하는 거 아닌가?»
+   맞다. 새 뼈대에서 이 한 줄이 표를 읽는 법을 알려 준다. 흐린 각주로 두면
+   독자가 그걸 건너뛰고 표만 보다가 반대로 읽는다 —
+   export-kospi 3절에서 실제로 그랬다(+40% 칸이 좋아 보이는데 그건 1980년대 착시였다).
+   ⚠ 굵은 글씨는 계속 막는다(유시민체). 도드라지게 하는 것은 **크기·색·왼쪽 표시**다. */
+.paper figure>figcaption,
+.paper .panel-cap{
+  font-size:14.5px;line-height:1.74;
+  color:var(--text,#1d1d1f);
+  border-left:2px solid rgba(128,128,128,.42);
+  padding-left:13px}
+.paper figure.tw>figcaption{padding-left:13px}
 .paper figure.tw>figcaption::before{content:"표 " counter(tbl) ".  ";
   font-weight:700;color:var(--text,#1d1d1f)}
 
@@ -2459,20 +2473,20 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <div class="eyebrow">아카이브 · Exports &amp; KOSPI</div>
 <h1>수출 바닥은 매수 신호였지만 천장은 매도 신호가 아니었다</h1>
 <p class="sub">수출은 코스피의 매출이다. 그 전년비 510개월(1984-01~2026-06)로
-이야기꾼이 말한 −20%와 +40% 두 선이 실제로 맞는지 확인했다.</p>
+이야기꾼이 그은 두 선: 바닥 −20%와 천장 +40%: 이 실제로 맞는지 확인했다.</p>
 <p class="pauth">2026-09-12 작성 · 수출 1984-01~2026-06 · 코스피 1981-01~2026-09-10 · 월 1회 갱신</p>
-<!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#42년을-한-화면에-놓으면-두-선이-어디쯤인지-보인다">42년을 한 화면에 놓으면 두 선이 어디쯤인지 보인다</a></li><li><a href="#두-선은-42년-분포의-양-끝에-거의-정확히-놓인다">두 선은 42년 분포의 양 끝에 거의 정확히 놓인다</a></li><li><a href="#20-와-40-는-짝처럼-보이지만-하는-일이-다르다">−20%와 +40%는 짝처럼 보이지만 하는 일이 다르다</a></li><li><a href="#수출이-20-아래였던-달은-예외가-없었다">수출이 −20% 아래였던 달은 예외가 없었다</a></li><li><a href="#천장-선은-경기의-끝이지-주가의-끝이-아니다">천장 선은 경기의 끝이지 주가의 끝이 아니다</a></li><li><a href="#국면으로-나누면-올라가는-동안이-덜-나빴다">국면으로 나누면 올라가는 동안이 덜 나빴다</a></li><li><a href="#꺾인-뒤에는-낙폭이-깊어진다">꺾인 뒤에는 낙폭이 깊어진다</a></li><li><a href="#그런데-수출은-코스피를-앞서지-않는다-오히려-반대다">그런데 수출은 코스피를 앞서지 않는다. 오히려 반대다</a></li><li><a href="#아직-불확실한-곳은-어디인가">아직 불확실한 곳은 어디인가</a></li><li><a href="#그래서-지금은-어디인가">그래서 지금은 어디인가</a></li><li><a href="#apx">원문 상세표</a></li></ol></div><!--TOC:END--></header>
+<!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#42년을-한-화면에-놓으면-바닥과-천장이-어디쯤인지-보인다">42년을 한 화면에 놓으면 바닥과 천장이 어디쯤인지 보인다</a></li><li><a href="#바닥과-천장은-42년-분포의-양-끝에-거의-정확히-놓인다">바닥과 천장은 42년 분포의 양 끝에 거의 정확히 놓인다</a></li><li><a href="#바닥과-천장은-짝처럼-보이지만-하는-일이-다르다">바닥과 천장은 짝처럼 보이지만 하는 일이 다르다</a></li><li><a href="#수출이-바닥에-닿았던-달은-예외가-없었다">수출이 바닥에 닿았던 달은 예외가 없었다</a></li><li><a href="#수출-천장은-경기의-끝이지-주가의-끝이-아니다">수출 천장은 경기의 끝이지 주가의 끝이 아니다</a></li><li><a href="#국면으로-나누면-올라가는-동안이-덜-나빴다">국면으로 나누면 올라가는 동안이 덜 나빴다</a></li><li><a href="#꺾인-뒤에는-낙폭이-깊어진다">꺾인 뒤에는 낙폭이 깊어진다</a></li><li><a href="#그런데-수출은-코스피를-앞서지-않는다-오히려-반대다">그런데 수출은 코스피를 앞서지 않는다. 오히려 반대다</a></li><li><a href="#아직-불확실한-곳은-어디인가">아직 불확실한 곳은 어디인가</a></li><li><a href="#그래서-지금은-어디인가">그래서 지금은 어디인가</a></li><li><a href="#apx">원문 상세표</a></li></ol></div><!--TOC:END--></header>
 <!-- ⚠ 위 넷은 한 세트다. header.phead + .eyebrow + h1 + p.pauth 를 check_header 가 매일 본다. -->
 
 <!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div>
-<p>두 선은 범위로서 맞았다. 42년 분포에서 2.5분위가 -19.6%이고 97.5분위가 +41.8%다.
-바닥 선은 매수 신호로도 들어맞아 −20% 이하였던 11개월은 12개월 뒤 11/11가 플러스였다.
-그러나 천장 선은 뜻이 다르다. 1980년대를 빼면 +40% 이상에서 12개월 뒤 중앙값이 -0.6%로 나빠진다.
-두 선 모두 범위를 말하는 것이지 시점을 말하는 것이 아니다.
+<p>바닥과 천장은 범위로서 맞았다. 42년 분포에서 2.5분위가 -19.6%이고 97.5분위가 +41.8%다.
+바닥은 매수 신호로도 들어맞아 −20% 이하였던 11개월은 12개월 뒤 11/11가 플러스였다.
+그러나 천장은 뜻이 다르다. 1980년대를 빼면 +40% 이상에서 12개월 뒤 중앙값이 -0.6%로 나빠진다.
+바닥과 천장 모두 범위를 말하는 것이지 시점을 말하는 것이 아니다.
 수출로 코스피를 예측할 수도 없어서, 시차를 밀어 계산하면 코스피가 4개월 앞선다.</p>
 </div><!--PCLAIM:END-->
 
-<h2 id="42년을-한-화면에-놓으면-두-선이-어디쯤인지-보인다">42년을 한 화면에 놓으면 두 선이 어디쯤인지 보인다</h2>
+<h2 id="42년을-한-화면에-놓으면-바닥과-천장이-어디쯤인지-보인다">42년을 한 화면에 놓으면 바닥과 천장이 어디쯤인지 보인다</h2>
 
 <div class="panel" data-reveal><div class="panel-head"><div><h3>한국 수출 전년비와 코스피 전년비: 1984~2026-06</h3></div><div class="rng" role="group" aria-label="기간 선택"><button class="on" onclick="exRange(&#39;g1&#39;,0,this)">전체 1984~</button><button onclick="exRange(&#39;g1&#39;,1,this)">최근 10년</button></div></div><div class="kpis"><div class="kpi hl"><div class="k">지금 수출</div><div class="v">+70.7%</div><div class="s">2026-06 · OECD 계절조정(차트 기준)</div></div><div class="kpi"><div class="k">관세청 최신</div><div class="v">+62.8%</div><div class="s">2026-07 원계열 · 계열이 달라 차트에는 없다</div></div><div class="kpi"><div class="k">코스피와 상관</div><div class="v">0.568</div><div class="s">시차 -4개월에서 가장 높음</div></div><div class="kpi hl"><div class="k">누가 먼저</div><div class="v">코스피가 4개월 앞선다</div><div class="s">수출은 선행 지표가 아닙니다</div></div></div><figure class="fig"><div class="cbox" style="height:400px"><canvas id="g1"></canvas></div><figcaption><span class="freq m">월간</span>굵은 황금색이 수출 전년비(우축), 회색이 코스피 전년비(좌축)이다. 회색이 황금색보다 반 박자 먼저 움직인다. 아래 시차표에서 확인한다.</figcaption></figure><p class="panel-cap rngnote" style="margin-top:12px">1984년부터 전 구간이다. 코스피가 수출보다 반 박자 먼저 움직인다.</p><div class="srcline"><span class="lbl">출처</span><span>관세청 수출입 통계 월별 전년동월비 · OECD 한국 주가지수 월별 원계열</span><a href="https://unipass.customs.go.kr" target="_blank" rel="noopener">관세청 UNI-PASS &#8599;</a></div></div>
 
@@ -2480,7 +2494,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 지금 수출은 계절조정 기준 2026-06의 +70.7%이고 관세청 원계열로는 2026-07의 +62.8%다.
 42년 분포의 맨 끝이다.</p>
 
-<h2 id="두-선은-42년-분포의-양-끝에-거의-정확히-놓인다">두 선은 42년 분포의 양 끝에 거의 정확히 놓인다</h2>
+<h2 id="바닥과-천장은-42년-분포의-양-끝에-거의-정확히-놓인다">바닥과 천장은 42년 분포의 양 끝에 거의 정확히 놓인다</h2>
 <div class="claim"><p>거의 그대로다. 42년 분포에서 2.5분위가 -19.6%이고 97.5분위가 +41.8%다.
 그가 말한 −20과 +40이 분포의 양 끝을 정확히 짚었다.</p></div>
 
@@ -2489,6 +2503,11 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <div class="q">한국 수출은 아무리 경기가 엉망이어도 전년대비 마이너스 20% 정도에서 대충 바닥을 만들어요.
 그다음에 경기가 아무리 좋아도 플러스 40% 정도면 대충 경기 확장이 끝납니다.
 — 시투특강 2023-03-09</div>
+
+<p>이 글은 그가 그은 두 선을 바닥(−20%)과 천장(+40%)이라고 부른다.
+아래에서 계속 이 두 낱말을 쓴다.
+⚠ 「천장」은 그의 말이 아니다. 그는 「경기 확장이 끝난다」고 했고 주가가 꺾인다고 하지 않았다.
+그 차이가 뒤에서 갈린다.</p>
 
 <p>이것은 수익률 예측이 아니라 범위 주장이다. 그래서 분포부터 봤다.</p>
 
@@ -2501,8 +2520,8 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <p>대충 바닥, 대충 끝이라는 말이 통계적으로는 2.5분위와 97.5분위였다.
 지표를 오래 본 사람의 눈이 분위수를 맞춘 셈이다.</p>
 
-<h2 id="20-와-40-는-짝처럼-보이지만-하는-일이-다르다">−20%와 +40%는 짝처럼 보이지만 하는 일이 다르다</h2>
-<div class="claim"><p>아래쪽 −20%는 그대로 매수 신호였다. 위쪽 +40%는 아니다.
+<h2 id="바닥과-천장은-짝처럼-보이지만-하는-일이-다르다">바닥과 천장은 짝처럼 보이지만 하는 일이 다르다</h2>
+<div class="claim"><p>바닥은 그대로 매수 신호였다. 천장은 매도 신호가 아니다.
 +40%가 좋아 보이는 것은 1980년대가 만든 착시이고, 그 5개를 빼면 12개월 뒤 중앙값이 -0.6%로 돌아선다.</p></div>
 
 <p>먼저 수출 전년비를 구간으로 나누고, 그 구간에 있던 달에 코스피를 샀다면 12개월 뒤 어땠는지를 집계했다.
@@ -2522,9 +2541,9 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 15개월 가운데 5개가 1984~1988년에 몰려 있고, 그때는 코스피가 4년에 5배 오르던 때라 무엇을 사도 올랐다.
 바로 다음 절에서 시대를 갈라 다시 센다.</p>
 
-<h2 id="수출이-20-아래였던-달은-예외가-없었다">수출이 −20% 아래였던 달은 예외가 없었다</h2>
+<h2 id="수출이-바닥에-닿았던-달은-예외가-없었다">수출이 바닥에 닿았던 달은 예외가 없었다</h2>
 
-<p>아래쪽 끝을 하나씩 편다. 42년 가운데 수출 전년비가 −20% 아래로 내려간 달은 11개월뿐이다.
+<p>바닥을 하나씩 편다. 42년 가운데 수출 전년비가 바닥(−20%) 아래로 내려간 달은 11개월뿐이다.
 그 달에 코스피를 샀다면 12개월 뒤 어땠는지를 한 줄씩 적었다.</p>
 
 <div class="tblwrap"><table class="tw">
@@ -2541,7 +2560,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <p>그래도 네 번이 모두 같은 모양이었다는 것은 남는다.
 수출이 −20% 아래로 갔다는 것은 나쁜 소식이 이미 다 나왔다는 뜻이었고, 그때가 매수 시점이었다.</p>
 
-<h2 id="천장-선은-경기의-끝이지-주가의-끝이-아니다">천장 선은 경기의 끝이지 주가의 끝이 아니다</h2>
+<h2 id="수출-천장은-경기의-끝이지-주가의-끝이-아니다">수출 천장은 경기의 끝이지 주가의 끝이 아니다</h2>
 
 <p class="dim">+40%를 넘었던 달을 하나씩 적은 표는 아래 <a href="#apx">원문 상세표</a>에 있다.</p>
 
