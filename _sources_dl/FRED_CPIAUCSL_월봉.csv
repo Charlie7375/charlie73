@@ -1,6 +1,6 @@
 # 미국 소비자물가지수 (1982-84=100, SA)
 # Series: CPIAUCSL | Source: FRED (fredgraph.csv)
-# Range: 1947-01 ~ 2026-07 (954개월) | scripts/fred_fed_us.py
+# Range: 1947-01 ~ 2026-08 (955개월) | scripts/fred_fed_us.py
 date,value
 1947-01,21.4800
 1947-02,21.6200
@@ -956,3 +956,4 @@ date,value
 2026-05,333.9790
 2026-06,332.5680
 2026-07,332.8130
+2026-08,334.1310
