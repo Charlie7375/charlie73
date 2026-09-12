@@ -309,7 +309,44 @@ a.card:focus-visible,.lst-i:focus-visible{
 .site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
   background:color-mix(in srgb,var(--text) 6%,transparent)}
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/*NAVCSS:END*/
+/*NAVCSS:END*//* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+/* ⚠⚠ 2026-09-10 상수님 «작은 해상도에서는 제목을 누를 수 없네».
+   아카이브가 29장이 되면서 드롭다운이 1,254px 로 자랐다. 상단바는 sticky 라
+   드롭다운은 화면 위에서 72px 자리에 열리는데, 390px 화면의 보이는 높이가 915px 이니
+   **아래 411px 는 화면 밖이고 스크롤이 없어 닿을 방법이 아예 없었다.**
+   → 화면 높이만큼만 열고 넘치면 그 안에서 스크롤한다.
+   · dvh 를 뒤에 한 번 더 적는다 — 모바일 주소창이 접혔다 펴질 때 100vh 는 화면보다 크다.
+     dvh 를 모르는 브라우저는 앞줄(vh)만 읽고 지나간다.
+   · overscroll-behavior:contain — 목록 끝에서 계속 밀어도 뒤 본문이 따라 스크롤되지 않게.
+   · 120px 은 상단바(2줄, 96px)와 아래 여백 16px 이다. 아카이브·원자료는 메뉴 2번째 줄에
+     달려 있어 104px 자리에서 열린다 — 92px 로 뺐더니 12px 이 화면 밖으로 나갔다. */
+html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);
+  overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END */
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
+
 .dim{color:var(--mut,#94a3b8)}
 .b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
   font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
@@ -364,43 +401,6 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .hchg .ar{white-space:nowrap}
 .to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
 @media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
-/* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-/* ⚠⚠ 2026-09-10 상수님 «작은 해상도에서는 제목을 누를 수 없네».
-   아카이브가 29장이 되면서 드롭다운이 1,254px 로 자랐다. 상단바는 sticky 라
-   드롭다운은 화면 위에서 72px 자리에 열리는데, 390px 화면의 보이는 높이가 915px 이니
-   **아래 411px 는 화면 밖이고 스크롤이 없어 닿을 방법이 아예 없었다.**
-   → 화면 높이만큼만 열고 넘치면 그 안에서 스크롤한다.
-   · dvh 를 뒤에 한 번 더 적는다 — 모바일 주소창이 접혔다 펴질 때 100vh 는 화면보다 크다.
-     dvh 를 모르는 브라우저는 앞줄(vh)만 읽고 지나간다.
-   · overscroll-behavior:contain — 목록 끝에서 계속 밀어도 뒤 본문이 따라 스크롤되지 않게.
-   · 120px 은 상단바(2줄, 96px)와 아래 여백 16px 이다. 아카이브·원자료는 메뉴 2번째 줄에
-     달려 있어 104px 자리에서 열린다 — 92px 로 뺐더니 12px 이 화면 밖으로 나갔다. */
-html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);
-  overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END */
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 /*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
@@ -465,13 +465,6 @@ html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;-
 .reveal.visible{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 @media(max-width:720px){.panel{padding:22px 16px 18px}.panel .cbox{min-height:320px}}
-</style>
-<style id="freqcss">
-.freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
- padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
- border:1px solid currentColor;opacity:.85}
-.freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
-.freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
 /* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
@@ -777,22 +770,25 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper p.note{padding-left:11px}
 }
 /* PAPER:END */</style>
-<!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
+<!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><style id="freqcss">
+.freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
+ padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
+ border:1px solid currentColor;opacity:.85}
+.freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
+.freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
+</style>
+</head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="macro-timeline.html">거시 이벤트 연대기</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-nhn.html">NHN</a><a href="stock-kolmar.html">한국콜마</a><a href="stock-cosmax.html">코스맥스</a><a href="stock-pharmaresearch.html">파마리서치</a><a href="stock-jyp.html">JYP Ent.</a><a href="stock-sm-ent.html">에스엠</a><a href="stock-yg-ent.html">와이지엔터테인먼트</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="here" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><span class="nav-h sub">수급과 폭락</span><a href="flow-extremes.html">개인과 외국인의 대량 매매</a><a href="flow-crashes.html">폭락의 구조</a><span class="nav-h sub">신용과 청산</span><a href="us-credit-spread.html">미국 신용스프레드</a><a href="deleveraging.html">강제청산</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="sentiment.html">빚과 현금</a><span class="nav-h sub">경기와 수출</span><a href="us-elections.html">미국 선거와 증시</a><a href="export-kospi.html">수출과 코스피</a><a href="cli-kospi.html">OECD CLI 와 코스피</a><a href="ism-kospi.html">ISM 과 코스피</a><a href="jeoji-kospi.html">제오지산수</a><span class="nav-h sub">금리와 통화</span><a href="gold-rates.html">금리와 금값</a><a href="treasury-trust.html">미국 국채 되사기</a><a href="inflation-playbook.html">인플레 시대의 자산</a><a href="rates-century.html">미국 금리 100년</a><a href="liquidity.html">미국 유동성</a><a href="fed-kospi.html">연준 기준금리와 코스피</a><a href="rates-101.html">금리 기초</a><a class="here" href="rates-crashes.html">금리 5%와 공황</a><a href="dollar-kospi.html">달러와 코스피</a><span class="nav-h sub">개별 종목</span><a href="memory-price.html">D램 가격과 삼성전자</a><a href="leadlag.html">하이닉스의 선행과 후행</a><a href="samsung-long.html">삼성전자 27년</a><span class="nav-h sub">시장 국면</span><a href="breadth-concentration.html">신고가 쏠림</a><a href="kospi-analog.html">닮은 과거</a><a href="audition-history.html">오디션 히스토리</a><a href="disparity-archive.html">두 버블의 이격도</a><a href="stage-analysis.html">와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리</a></div></div><div class="site-group"><button class="" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 85계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a href="data-kr-rates.html">한국 금리</a><a href="data-us-market.html">미국 시장</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a href="data-fx.html">환율·원자재·암호</a><a href="data-macro.html">재정·거시</a></div></div><!-- NAV:END --></nav>
 </div></div>
 <div class="wrap paper">
-<div class="phead">
+<header class="phead"><!--phead:unified-->
 <div class="eyebrow">아카이브 · 금리 5%와 공황</div>
 <h1>금리 5%는 공황선인가</h1>
-<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>5퍼센트는 절대 수준이라 시대를 가로지르면 뜻이 달라진다. 앞의 두 시대에서는 거의 정확히 중앙값이었고 지금 시대에서는 한 번도 닿은 적 없는 상단 밖이다. 금리 수준으로 공황을 가르려는 시도는 실패한다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#왜-10년-국채를-보는가">왜 10년 국채를 보는가?</a></li><li><a href="#금리-5-넘으면-공황-이-맞는가">「금리 5% 넘으면 공황」이 맞는가?</a></li><li><a href="#금리-급등이-약세장을-앞서는가">금리 급등이 약세장을 앞서는가?</a></li><li><a href="#그렇다면-무엇이-달라졌나">그렇다면 무엇이 달라졌나?</a></li><li><a href="#한국은-어떤-영향을-받는가">한국은 어떤 영향을 받는가?</a></li><li><a href="#시대로-갈라-보면-5-라는-숫자-자체가-흔들린다">★★ 시대로 갈라 보면: 「5%」라는 숫자 자체가 흔들린다</a></li><li><a href="#지금-어디에-있나">지금 어디에 있나?</a></li><li><a href="#apx">원문 상세표</a></li></ol></div><!--TOC:END--><p class="deck">저금리 18년 위에 지어진 구조는 5%를 스쳐 갔을 뿐 그 위에서 살아 본 적이 없다</p>
-<p class="sub">"미 장기금리가 5%를 넘으면 역대급 공황이 온다"는 말을
-미 10년 국채 64년치 일별 자료로 하루씩 집계해 봤다.
-결론부터 적으면, 숫자 5%에는 아무 힘이 없다.
-힘은 그 숫자를 만나는 쪽에 있다.</p>
-<p class="pauth">기준일 2026-09-12 · 미 10년 국채 일별 (FRED DGS10) · 매일 갱신</p>
-</div>
+<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>5퍼센트는 절대 수준이라 시대를 가로지르면 뜻이 달라진다. 앞의 두 시대에서는 거의 정확히 중앙값이었고 지금 시대에서는 한 번도 닿은 적 없는 상단 밖이다. 금리 수준으로 공황을 가르려는 시도는 실패한다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#왜-10년-국채를-보는가">왜 10년 국채를 보는가?</a></li><li><a href="#금리-5-넘으면-공황-이-맞는가">「금리 5% 넘으면 공황」이 맞는가</a></li><li><a href="#금리-급등이-약세장을-앞서는가">금리 급등이 약세장을 앞서는가?</a></li><li><a href="#그렇다면-무엇이-달라졌나">그렇다면 무엇이 달라졌나</a></li><li><a href="#한국은-어떤-영향을-받는가">한국은 어떤 영향을 받는가?</a></li><li><a href="#시대로-갈라-보면-5-라는-숫자-자체가-흔들린다">★★ 시대로 갈라 보면: 「5%」라는 숫자 자체가 흔들린다</a></li><li><a href="#지금-어디에-있나">지금 어디에 있나?</a></li><li><a href="#apx">원문 상세표</a></li></ol></div><!--TOC:END--><p class="deck">저금리 18년 위에 지어진 구조는 5%를 스쳐 갔을 뿐 그 위에서 살아 본 적이 없다</p>
+<p class="pauth">기준일 2026-09-13 · 미 10년 국채 일별 (FRED DGS10) · 매일 갱신</p>
+</header>
 
 <div class="abstract">
 <p>4줄 요약. ① 5%는 공황선이 아니라 '평상값'이었다. 64년 중
@@ -1120,6 +1116,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 <p class="dim">조건을 하나씩: 자세히: 아래 <a href="#apx">원문 상세</a>에 있다.</p>
 
+
 <script src="vendor/chart-4.4.1.umd.js"></script>
 <!-- CHARTTHEME:BEGIN -->
 <script src="chart-theme.js?v=370178c8"></script>
@@ -1315,12 +1312,11 @@ SP500 일별(라이선스상 최근 10년) · OECD 한국 주가지수 월봉.
 그 이전엔 '만기 10년 이상 장기채 평균'(20·30년물 혼재)밖에 없고 1970년 무렵 두 계열이
 0.93%p까지 벌어진다. 다른 자를 이어 붙여 100년을 만드느니
 같은 기준으로 73년을 계산하는 쪽을 택했다.</p>
-<p class="src-note">갱신 2026-09-12</p>
+<p class="src-note">갱신 2026-09-13</p>
 </div>
 </details>
 
 <!--TOPICNEWS:BEGIN--><style id="tnewscss">.tnews{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 10px;margin:34px 0 10px}.tnews h3{margin:0 0 10px;font-size:1.02rem}.tnews table{width:100%;border-collapse:collapse;font-size:.9rem}.tnews td{padding:5px 8px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}.tnews td.d{white-space:nowrap;color:var(--text-secondary)}.tnews p.cap{margin:10px 0 8px;font-size:.8rem;color:var(--text-secondary);line-height:1.6}</style><div class="tnews"><h3>관련 뉴스</h3><p class="cap">제목에 그 낱말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.</p><p class="cap">국내: 「미국 장기금리 증시」 로 찾았다.</p><div class="tblwrap"><table><tbody><tr><td class="d">Tue, 08 Sep</td><td class="d">인베스트조선</td><td><a href="https://news.google.com/rss/articles/CBMigwFBVV95cUxQaDEzenBhMXQ5bUlkX2FsaUI2TkNlV2VPZERIWmY3UHpUMjd1R1RXMW95RGNmNDlaWFY0anJ6MDIySF9uVHZIcnJ1Y1JBTi0tYlRodWpLNW9xMlRhSHMzZXV0UGc0enlLbnJicHFDSzhWNDZ2VzdlUXFzNjM1R0czalBtUQ?oc=5" target="_blank" rel="noopener nofollow">美 장기금리 밀어올린 하이퍼스케일러, 韓 주식·채권시장도 흔든다</a></td></tr><tr><td class="d">Thu, 10 Sep</td><td class="d">뉴시스</td><td><a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTFBjWjRQaldobmJEelo5a0JYenVkeWJTUlBnR2I3YzI5WUJvRENhSUFPY3E4MWtjUmJxb0RrUkRoOUxFLXZnbnFvbUJ0TEFFTDJlQmhFcUd6WEpobVVvMi1GMdIBeEFVX3lxTFBpNThyNnRiZW9BbmoxaTZtM3ZFc1dJbTMxMk1FelEzOTl3U0hMaEpPcHoyYnEteTF0eEhWYk1YaUN2ekV6N1JvbEU2YnpDc243Si1sQkhPbEhlMGswVnYtR21aWlRIUkVPWHdVUFdEMF80NUtlZ3QtZA?oc=5" target="_blank" rel="noopener nofollow">뉴욕 증시, 유가·국채금리 상승에 속락…S&P 500 1개월 만에 최저</a></td></tr><tr><td class="d">Mon, 24 Aug</td><td class="d">연합인포맥스</td><td><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTE1UZVdILVp2cm1QVnpKQVBRR2dDTmIxUk5BSk9yVlNDUEtNdGpDVFdNanJtcUlZNG5HN3NwZjd1NEdmbVhYc2hpaUNFS2xqV2V2Q05NU0JQUFRRMXc0MmxjQTlXMnJVc280SHhDaVF4clk?oc=5" target="_blank" rel="noopener nofollow">"美 장기금리 상승에 증시 20%까지 급락 가능성"</a></td></tr><tr><td class="d">Fri, 11 Sep</td><td class="d">톱스타뉴스</td><td><a href="https://news.google.com/rss/articles/CBMickFVX3lxTE1sdHZvVVRzU2NXY09wWENXMXI5alNyRnZuMjFwU0g2b0FWaVJPamZBN3FaZlRFUlBFY0w2emhIX2pWRWk5WUp3YXB6QjJxN1ZpRE81bTVZQUdCZTZsR1JGWUtpMFh2NUxwdktHeXdJdEFKUQ?oc=5" target="_blank" rel="noopener nofollow">미국증시, 유가 3% 급락에 반등…CPI 부담에도 엔비디아·반도체주 상승</a></td></tr><tr><td class="d">Thu, 10 Sep</td><td class="d">OBC 뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTFB6Z1lrTVMtMVlMZTVna2twQ3BsM3ptM0g5dk40Tk1EUTZoM0tibDRIY1p0RzRmUHNFT3QyVXVEZ1RUM2s2UjdPWWJCcjl0bnVOd2JuRlFGWmdWQ21uVkhBckFhei1kTU5Z?oc=5" target="_blank" rel="noopener nofollow">뉴욕증시 3대지수 하락…유가 100달러·美 장기금리 다시 급등</a></td></tr><tr><td class="d">Sun, 06 Sep</td><td class="d">머니투데이</td><td><a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTE1OaktIUWpqb3J0WWtXNUFTWVFhcXp6S3IweVNvNC14U2JoRUtOSXBPUGx1ZXNWVWxVV2h4Yl80TEdFOURiUkk3eFlFMXJ0aDhOREpSdVFNZk1RcTNFdHZIWWxzTl9aTDcx0gFuQVVfeXFMT0pJalJkdk1GUVZBaWF1blZVczZyTU1XQVFqbU0tNlFRYVJiMXlwVWVyN1ZoSUNCS0RMNjRRYldtTWVPYVZPcEJMc3ZseEN4U1gzcUVaSFVQNGxZc1lBZl9LQ005aHRiVjlVTGFWM3c?oc=5" target="_blank" rel="noopener nofollow">다음주 금리 인상 좌우할 CPI…장기 국채 입찰, 오라클 실적도 주목[이번주 美 증시는] - 머니투데이</a></td></tr></tbody></table></div><p class="cap">해외: 「rising bond yields stocks」 로 찾았다. 이 글의 소재가 외국이라 함께 본다.</p><div class="tblwrap"><table><tbody><tr><td class="d">Fri, 11 Sep</td><td class="d">MarketWatch</td><td><a href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxOUG9ZX0NqaWFEbHE1eFVMa1hQSW5QZTFTc1N0cnBNNGE5TmtPUWxnQjB4b1MxZGtVMFFjNzNVODNNMkxPT3hrZVVjdmMtc1lwaDBmNG1OUFZQcElMaE52UnlFNld3Y05WTVNYY3lpZ2JJRC1YX2N6T0FkRDBmY2lORjRQSzVHUWVkbERxWFVqY3hTUEd1SERwUTdsUHg2M2ZpTEM5X2s0RXluN2JlZnhONFFIeTl6dzUwNHNNYVdrSjZCaUk?oc=5" target="_blank" rel="noopener nofollow">How rising bond yields can wreck some portfolios while pumping up others with cash</a></td></tr><tr><td class="d">Fri, 11 Sep</td><td class="d">Yahoo Finance</td><td><a href="https://news.google.com/rss/articles/CBMimgFBVV95cUxQZ1dHemRKSmFIZzBtUldkOFozVDRYRW9zQjVqUkZ0Y0JkcVJzdzRTMTZLbEh5RkFIYnh5ZVo1YUNTWVVGbnJ5Z0N6UUNrc2k4YXRqSWNzeDhqVUJGWHBOVFhQMmFJbUZQbWFuUUdVNDRIM3RNM2l4YlRiZTlIYlQ3N2xZbGF5S1d1OHFLd3k3REN2MkIzYnNmZVRR?oc=5" target="_blank" rel="noopener nofollow">Rising Bond Yields Are Driving US Stocks Toward Correction Territory: Markets Pulse</a></td></tr><tr><td class="d">Thu, 10 Sep</td><td class="d">Morningstar</td><td><a href="https://news.google.com/rss/articles/CBMigAFBVV95cUxQVVpjOUdqelRkTm1QZ0dqMkFqRF9tMUl5dmxRbVZWeEZDX3d0OGV2bHNic01YSllrajRiTHBoQ3htdFZRVVF6aEhQbFhUU3VHU1dVV2Z1dllsc0xoV2tDaU1TQW4zZExka3BqZEtkUWQ2Qk5FaW45cEZUemRyOURKVg?oc=5" target="_blank" rel="noopener nofollow">Why Higher Bond Yields Can Be ‘a Great Thing’</a></td></tr><tr><td class="d">Wed, 09 Sep</td><td class="d">Fidelity Investments</td><td><a href="https://news.google.com/rss/articles/CBMiggFBVV95cUxPbWtQaVR4LUdVRTgxRV9vejN3NUEtYmFrVkFObndIUjFFY3RvQ0x3eENmcXYwbzAwb2JYRERKd3lIX1ItZ2Y5U2loLUtKZ1NMeVhmVFIwZ20ybXJXNnZCU2t6T1Z6YjJFV0RNYURfTmVNbGFEU01uTnBNWHVOdzdrN3Zn?oc=5" target="_blank" rel="noopener nofollow">Bond selloff: What has been causing it and what to know</a></td></tr><tr><td class="d">Thu, 10 Sep</td><td class="d">WSJ</td><td><a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxQbjJuQjZSbTBNcU50bHBRSDhRYW5fMnpjUnZyN3gwM0dpRy1OZTc1ekljY3JBVTd4SDNSbEZEelo3N3BDaFZzdUxrTEVYMlMwcEUwc2dwU3pvT3hiNUZvM2dYaDZ1aXZBMjdnc0VOR3hQdWJhTkFBNmlVbXRxaVhRUUU4QU5tYnpaX1gxQ2xzRDNXSmVkWlh3RFlsTDZrZzU3bmVrUjY0OWo3R3RGcGJKR2VScW1Jdw?oc=5" target="_blank" rel="noopener nofollow">The Unrelenting Bond Selloff Puts the 10-Year Yield on the Cusp of 5%</a></td></tr><tr><td class="d">Fri, 11 Sep</td><td class="d">Investopedia</td><td><a href="https://news.google.com/rss/articles/CBMinwFBVV95cUxPRXZtZ21EQTZFX2hEUk5fcTVYN0pUTmZlMXRnYkZuUTE4ck5NZ3p2MEZfeGtwMzk2UktSNmNfNExIbzdVbmtBeEFmUldUei1PUGRNb3VLa1V4M2dNTkYxY2NCbnVNdnFzeXN0ZU9QdUoxekF0c0pkOU9QdEYwaVFubl9tWTFTdC1hVUt2SmRsRWwtUlpOaEYtX0NPLWZxN2s?oc=5" target="_blank" rel="noopener nofollow">Why Rising Bond Yields Aren’t Throttling The Economy, For Now</a></td></tr></tbody></table></div><p class="cap">출처 구글 뉴스 · 2026-09-12 기준. 뉴스는 이 글의 분석과 무관하며 서로 어긋날 수 있다.</p></div><!--TOPICNEWS:END--><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="rates-century.html">미국 금리 100년</a> 금리 수준으로 공황을 가르지 못한다는 이 글의 결론을 100년으로 넓힌 페이지다. 갈린 것은 수준이 아니라 국면이었다.</p><p><a href="rates-101.html">금리 기초</a> 이 페이지의 '어떤 상승이냐가 중요하다'를 이해하려면 금리의 세 층 구분부터.</p><p><a href="credit-spread.html">신용스프레드와 코스피</a> 여기 나온 미국 Baa−Aaa 스프레드의 한국판이 그 페이지이다. 회사채 AA− − 국고채 3년, 26년 실측.</p></div><!--RELATED:END--><!--GLOSSARY:BEGIN--><style id="glocss">.glo{margin:34px 0 8px}.glo h3{font-size:1.02rem;margin:0 0 12px}.glo dl{margin:0;font-size:.9rem;line-height:1.62}.glo dt{font-weight:800;margin-top:10px}.glo dd{margin:2px 0 0 0;color:var(--text-secondary,#555)}</style><div class="glo"><h3>용어 설명</h3><dl><dt>국면</dt><dd>시장이 지금 어느 상태에 있는가를 가리키는 말. 봄·여름·가을·겨울처럼 몇 개로 나누고, 한번 들어가면 여러 달에서 몇 해까지 이어진다고 본다. 오르내림 하나하나가 아니라 그 오르내림이 놓인 자리를 가리킨다.</dd><dt>수급</dt><dd>누가 사고 누가 파는가. 개인·외국인·기관 셋으로 나눠 본다. 같은 가격이라도 누가 샀느냐에 따라 다음이 달라진다고 보는 관점이다.</dd><dt>중앙값</dt><dd>값을 크기 순으로 늘어놓았을 때 한가운데 오는 값. 평균과 달리 아주 크거나 작은 값 몇 개에 끌려가지 않아서, 「보통은 어느 정도인가」를 볼 때 쓴다.</dd><dt>표본</dt><dd>실제로 확인한 사례의 묶음. 표본이 적으면 우연히 그렇게 보였을 가능성을 지우기 어렵다. 그래서 이 사이트는 사례가 몇 번인지를 늘 함께 적는다.</dd><dt>스프레드</dt><dd>두 금리의 차이. 예를 들어 회사채 금리에서 국채 금리를 빼면, 그 기업이 나라보다 얼마나 더 이자를 물어야 하는지가 나온다. 벌어지면 시장이 위험을 크게 본다는 뜻이다.</dd><dt>유동성</dt><dd>시장에 돌아다니는 돈. 중앙은행이 금리를 내리거나 돈을 풀면 늘어난다. 늘면 자산 가격이 오르기 쉽다고 본다.</dd><dt>10년물</dt><dd>만기가 10년 남은 국채. 나라가 10년 뒤에 갚기로 하고 빌린 돈이고, 그 이자율이 '10년물 금리'다. 주택담보대출 같은 장기 금리의 기준이 되어 세계에서 가장 많이 인용된다.</dd><dt>30년물</dt><dd>만기가 30년 남은 국채. 10년물보다 기간이 길어 보통 이자를 더 준다. 미국은 2002년부터 2006년까지 이 채권을 발행하지 않은 적이 있다.</dd><dt>회사채</dt><dd>기업이 돈을 빌리려고 발행한 채권. 나라보다 떼일 위험이 커서 국채보다 이자를 더 준다. Aaa 는 신용평가사 무디스가 매기는 가장 높은 등급이다.</dd><dt>기준금리</dt><dd>중앙은행이 정하는 초단기 금리. 연준의 연방기금금리가 세계 돈값의 기준이 된다.</dd><dt>CPI</dt><dd>Consumer Price Index(소비자물가지수). 가계가 사는 물건과 서비스의 값을 묶어 나타낸 지수. 보통 '전년 같은 달보다 몇 % 올랐나'로 읽는다. 연준이 물가를 볼 때 쓰는 대표 지표다.</dd><dt>GDP</dt><dd>Gross Domestic Product(국내총생산). 한 나라가 일정 기간 새로 만들어 낸 부가가치의 합. 'qoq'는 직전 분기 대비, 'yoy'는 전년 같은 기간 대비 증가율이다.</dd><dt>신용스프레드</dt><dd>회사채 금리에서 국고채 금리를 뺀 값. 기업이 국가보다 더 부담하는 금리이고, 시장이 매긴 부도 위험의 값이다.</dd><dt>신용융자</dt><dd>증권사에서 돈을 빌려 주식을 사는 것. 잔고가 늘면 시장에 레버리지가 쌓인다는 뜻이다.</dd><dt>이격도</dt><dd>주가가 이동평균선에서 얼마나 떨어져 있는지의 백분율. 100이면 이동평균과 같은 자리, 90 아래는 과매도·110 위는 과열로 읽는다.</dd><dt>RS</dt><dd>Relative Strength(상대강도). 시장 전체 대비 그 종목이 얼마나 더 올랐는지를 백분위로 매긴 값. RS 90이면 "시장의 90%보다 더 올랐다"는 뜻이다. 미너비니는 RS 상위 종목만 후보로 둔다.</dd><dt>스테이지</dt><dd>와인스타인의 4국면: 1 바닥, 2 상승, 3 천장, 4 하락. 이동평균의 기울기와 가격 위치로 판정한다.</dd><dt>제오지산수</dt><dd>이야기꾼의 다섯 경기지표: 제(ISM 제조업지수)·오(OECD 경기선행지수)·지(GDP)·산(산업생산)·수(한국 수출).</dd><dt>CLI</dt><dd>Composite Leading Indicator(경기선행지수). OECD가 만드는 지수로 100이 장기 추세다. 102 위는 36년에 4번뿐인 과열권이고, 4번 모두 그 뒤에 하락이 왔다.</dd><dt>ISM</dt><dd>Institute for Supply Management(미국 공급관리자협회)의 제조업 구매관리자지수(PMI). 구매 담당자에게 '지난달보다 나아졌나'를 묻는 설문이라 50이 기준이고 위면 확장, 아래면 위축이다. 설문이라 주가가 섞이지 않고 사후 수정이 없어 선행지표로 쓴다.</dd><dt>10년물 국채금리</dt><dd>시장이 정하는 장기 돈값. 이 사이트의 시대 구분(인플레·디플레이션)은 이 금리의 사상 최고(1981-09)와 사상 최저(2020-07)로 가른다.</dd><dt>디플레이션</dt><dd>이 사이트가 1981-09~2020-06 의 약 40년을 부르는 이름이다. 이야기꾼의 용어를 따른다. ⚠ 엄밀히는 물가가 내린 것이 아니라 물가 상승률이 낮아진 구간이라 학술 용어로는 디스인플레이션에 가깝다. 그래도 이야기꾼 강의와 같은 말을 쓰기 위해 이 이름을 쓴다. 코스피 역사의 85%가 이 안에 있어 '과거 패턴'이 대부분 이 시대의 산물이다.</dd></dl><p style="font-size:.8rem;color:var(--text-secondary,#777);margin-top:12px">이 글에 나온 용어만 실었다. 정의는 <code>scripts/glossary.py</code> 에서 한곳으로 관리한다.</p></div><!--GLOSSARY:END--></div>
-
 <footer>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.
     · 근거: 이야기꾼 주간 시투 보고서(W36·2026-09-05) 및 자체 실측.</footer>
 </div>

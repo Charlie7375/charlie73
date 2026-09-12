@@ -309,7 +309,44 @@ a.card:focus-visible,.lst-i:focus-visible{
 .site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
   background:color-mix(in srgb,var(--text) 6%,transparent)}
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/*NAVCSS:END*/
+/*NAVCSS:END*//* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+/* ⚠⚠ 2026-09-10 상수님 «작은 해상도에서는 제목을 누를 수 없네».
+   아카이브가 29장이 되면서 드롭다운이 1,254px 로 자랐다. 상단바는 sticky 라
+   드롭다운은 화면 위에서 72px 자리에 열리는데, 390px 화면의 보이는 높이가 915px 이니
+   **아래 411px 는 화면 밖이고 스크롤이 없어 닿을 방법이 아예 없었다.**
+   → 화면 높이만큼만 열고 넘치면 그 안에서 스크롤한다.
+   · dvh 를 뒤에 한 번 더 적는다 — 모바일 주소창이 접혔다 펴질 때 100vh 는 화면보다 크다.
+     dvh 를 모르는 브라우저는 앞줄(vh)만 읽고 지나간다.
+   · overscroll-behavior:contain — 목록 끝에서 계속 밀어도 뒤 본문이 따라 스크롤되지 않게.
+   · 120px 은 상단바(2줄, 96px)와 아래 여백 16px 이다. 아카이브·원자료는 메뉴 2번째 줄에
+     달려 있어 104px 자리에서 열린다 — 92px 로 뺐더니 12px 이 화면 밖으로 나갔다. */
+html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);
+  overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END */
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
+
 .dim{color:var(--mut,#94a3b8)}
 .b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
   font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
@@ -404,43 +441,6 @@ html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;-
 .reveal.visible{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 @media(max-width:720px){.panel{padding:22px 16px 18px}.panel .cbox{min-height:320px}}
-/* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-/* ⚠⚠ 2026-09-10 상수님 «작은 해상도에서는 제목을 누를 수 없네».
-   아카이브가 29장이 되면서 드롭다운이 1,254px 로 자랐다. 상단바는 sticky 라
-   드롭다운은 화면 위에서 72px 자리에 열리는데, 390px 화면의 보이는 높이가 915px 이니
-   **아래 411px 는 화면 밖이고 스크롤이 없어 닿을 방법이 아예 없었다.**
-   → 화면 높이만큼만 열고 넘치면 그 안에서 스크롤한다.
-   · dvh 를 뒤에 한 번 더 적는다 — 모바일 주소창이 접혔다 펴질 때 100vh 는 화면보다 크다.
-     dvh 를 모르는 브라우저는 앞줄(vh)만 읽고 지나간다.
-   · overscroll-behavior:contain — 목록 끝에서 계속 밀어도 뒤 본문이 따라 스크롤되지 않게.
-   · 120px 은 상단바(2줄, 96px)와 아래 여백 16px 이다. 아카이브·원자료는 메뉴 2번째 줄에
-     달려 있어 104px 자리에서 열린다 — 92px 로 뺐더니 12px 이 화면 밖으로 나갔다. */
-html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);
-  overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END */
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 /*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
@@ -461,14 +461,7 @@ h2[id],h3[id],[id]:target{scroll-margin-top:92px}
 .ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
 .ptoc a:hover{border-bottom-color:var(--text-secondary)}
 @media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*/</style><link rel="stylesheet" href="vendor/fonts.css"><style id="freqcss">
-.freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
- padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
- border:1px solid currentColor;opacity:.85}
-.freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
-.freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
-</style>
-<style id="plainlead-css">.plain{margin:12px 0 22px;padding:18px 20px 16px;border-radius:5px;background:var(--surface,#f6f7f9);border-left:4px solid var(--accent,#1161c4);box-shadow:0 1px 2px rgba(0,0,0,.04)}.plain .pl-lb{display:block;font-size:11px;letter-spacing:.14em;font-weight:700;color:var(--accent,#1161c4);margin-bottom:9px;text-transform:none}.plain p:first-of-type{font-size:clamp(17px,2.1vw,19px);line-height:1.7;font-weight:600;letter-spacing:-.012em;color:var(--text,#1d1d1f);margin:0 0 9px}.plain p{margin:0 0 7px;font-size:clamp(15px,1.8vw,16px);line-height:1.75;color:var(--text2,var(--text-secondary,#4a5566))}.plain p:last-child{margin-bottom:0}@media(max-width:600px){.plain{padding:15px 16px 13px}}/* PAPER:BEGIN */
+/*TOCCSS:END*/</style><link rel="stylesheet" href="vendor/fonts.css"><style id="plainlead-css">.plain{margin:12px 0 22px;padding:18px 20px 16px;border-radius:5px;background:var(--surface,#f6f7f9);border-left:4px solid var(--accent,#1161c4);box-shadow:0 1px 2px rgba(0,0,0,.04)}.plain .pl-lb{display:block;font-size:11px;letter-spacing:.14em;font-weight:700;color:var(--accent,#1161c4);margin-bottom:9px;text-transform:none}.plain p:first-of-type{font-size:clamp(17px,2.1vw,19px);line-height:1.7;font-weight:600;letter-spacing:-.012em;color:var(--text,#1d1d1f);margin:0 0 9px}.plain p{margin:0 0 7px;font-size:clamp(15px,1.8vw,16px);line-height:1.75;color:var(--text2,var(--text-secondary,#4a5566))}.plain p:last-child{margin-bottom:0}@media(max-width:600px){.plain{padding:15px 16px 13px}}/* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -772,19 +765,23 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
+/* PAPER:END */</style><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><style id="freqcss">
+.freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
+ padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
+ border:1px solid currentColor;opacity:.85}
+.freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
+.freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
+</style>
+</head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="macro-timeline.html">거시 이벤트 연대기</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-nhn.html">NHN</a><a href="stock-kolmar.html">한국콜마</a><a href="stock-cosmax.html">코스맥스</a><a href="stock-pharmaresearch.html">파마리서치</a><a href="stock-jyp.html">JYP Ent.</a><a href="stock-sm-ent.html">에스엠</a><a href="stock-yg-ent.html">와이지엔터테인먼트</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="here" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><span class="nav-h sub">수급과 폭락</span><a href="flow-extremes.html">개인과 외국인의 대량 매매</a><a href="flow-crashes.html">폭락의 구조</a><span class="nav-h sub">신용과 청산</span><a href="us-credit-spread.html">미국 신용스프레드</a><a href="deleveraging.html">강제청산</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="sentiment.html">빚과 현금</a><span class="nav-h sub">경기와 수출</span><a href="us-elections.html">미국 선거와 증시</a><a href="export-kospi.html">수출과 코스피</a><a href="cli-kospi.html">OECD CLI 와 코스피</a><a href="ism-kospi.html">ISM 과 코스피</a><a href="jeoji-kospi.html">제오지산수</a><span class="nav-h sub">금리와 통화</span><a href="gold-rates.html">금리와 금값</a><a href="treasury-trust.html">미국 국채 되사기</a><a href="inflation-playbook.html">인플레 시대의 자산</a><a href="rates-century.html">미국 금리 100년</a><a href="liquidity.html">미국 유동성</a><a href="fed-kospi.html">연준 기준금리와 코스피</a><a href="rates-101.html">금리 기초</a><a href="rates-crashes.html">금리 5%와 공황</a><a href="dollar-kospi.html">달러와 코스피</a><span class="nav-h sub">개별 종목</span><a href="memory-price.html">D램 가격과 삼성전자</a><a href="leadlag.html">하이닉스의 선행과 후행</a><a href="samsung-long.html">삼성전자 27년</a><span class="nav-h sub">시장 국면</span><a href="breadth-concentration.html">신고가 쏠림</a><a class="here" href="kospi-analog.html">닮은 과거</a><a href="audition-history.html">오디션 히스토리</a><a href="disparity-archive.html">두 버블의 이격도</a><a href="stage-analysis.html">와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리</a></div></div><div class="site-group"><button class="" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 85계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a href="data-kr-rates.html">한국 금리</a><a href="data-us-market.html">미국 시장</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a href="data-fx.html">환율·원자재·암호</a><a href="data-macro.html">재정·거시</a></div></div><!-- NAV:END --></nav>
 </div></div>
 <div class="wrap paper">
-<div class="phead">
+<header class="phead"><!--phead:unified-->
 <div class="eyebrow">아카이브 · 닮은 과거</div>
 <h1>지금과 닮은 과거 — 2025-04 이후 코스피의 유사국면</h1>
-<p class="sub">2025년 4월 저점부터 지금까지 17개월을, 코스피 월봉 45년(548개월)에서
-같은 모양의 구간과 전부 대조했다. 누가 가장 닮았는지, 그 뒤에 무엇이 왔는지,
-지금이 그 각본의 어디쯤인지를 계산했다.</p>
-<p class="pauth">갱신 2026년 9월 12일 · 자료 '1981년 1월~2026년 8월' 기간 · OECD·FRED·관세청·KRX·금융투자협회</p></div>
+<p class="pauth">갱신 2026년 9월 13일 · 자료 '1981년 1월~2026년 8월' 기간 · OECD·FRED·관세청·KRX·금융투자협회</p></header>
 
 <!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>2025년 4월 이후 코스피와 가장 닮은 과거는 1998년 6월이다. 비교 기간을 바꿔도 순위가 흔들리지 않는다. 다만 유사 구간으로 뽑힌 3개가 전부 디플레이션 시대라는 것이 이 비교의 한계다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#논점-①-붕괴까지-넣어도-1998년인가">논점 ①: 붕괴까지 넣어도 1998년인가?</a></li><li><a href="#논점-②-이런-급등-뒤에-무엇이-왔나-base-rate">논점 ②: 이런 급등 뒤에 무엇이 왔나 (base rate)</a></li><li><a href="#논점-③-7월-급락-같은-과거-사례가-있나">논점 ③: 7월 급락 같은 과거 사례가 있나?</a></li><li><a href="#논점-④-거시-흐름도-1998년인가">논점 ④: 거시 흐름도 1998년인가?</a></li><li><a href="#3가지-방향과-전망">3가지 방향과 전망</a></li><li><a href="#이-분석이-틀릴-수-있는-곳">이 분석이 틀릴 수 있는 곳</a></li><li><a href="#자료와-계산-방법">자료와 계산 방법</a></li></ol></div><!--TOC:END--><div class="abstract">
 <p>붕괴 뒤까지 넣어 다시 계산해도 1998년 6월부터의 구간이 가장 닮았다.
@@ -804,7 +801,8 @@ IMF 저점에서 닷컴 직전까지다.
 둘 다 정책금리 인하 국면이었다. 1998과 1986을 가르는 것은 방향이 아니라 궤적과 크기다.</p>
 </div>
 
-<h2 id="논점-①-붕괴까지-넣어도-1998년인가">논점 ①: 붕괴까지 넣어도 1998년인가?</h2><div class="plain"><span class="pl-lb">한 줄로 말하면</span><p>7월 급락까지 넣어도 지금과 가장 닮은 과거는 1998년이다.</p><p>비교 기간을 늘리거나 줄여도 순위가 바뀌지 않는다.</p></div><div class="claim"><p>그렇다. 앞선 비교는 상승만 맞춘 15개월이었다.
+<h2 id="논점-①-붕괴까지-넣어도-1998년인가">논점 ①: 붕괴까지 넣어도 1998년인가?</h2><div class="plain"><span class="pl-lb">한 줄로 말하면</span><p>7월 급락까지 넣어도 지금과 가장 닮은 과거는 1998년이다.</p><p>비교 기간을 늘리거나 줄여도 순위가 바뀌지 않는다.</p></div>
+<div class="claim"><p>그렇다. 앞선 비교는 상승만 맞춘 15개월이었다.
 거기에 7월 급락과 그 뒤를 더해 17개월로 다시 계산했다.
 1998년 6월이 궤적 거리 0.103으로 1위다. 비교 기간을 13개월이나 18개월로 바꿔도 1위는 1998년 구간이다.
 다만 잣대를 상관계수로 바꾸면 1위가 1985년으로 바뀐다. 아래 표에 2가지를 나란히 뒀다.</p></div>
@@ -822,7 +820,8 @@ IMF 저점에서 닷컴 직전까지다.
 이 페이지는 궤적 거리를 본선으로 쓴다. 크기가 다르면 다음에 오는 것도 달라지기 때문이다.
 궤적 거리 기준으로는 세 창 모두 1998년 구간이 1위다.</p></div>
 
-<h2 id="논점-②-이런-급등-뒤에-무엇이-왔나-base-rate">논점 ②: 이런 급등 뒤에 무엇이 왔나 (base rate)</h2><div class="plain"><span class="pl-lb">한 줄로 말하면</span><p>★ 이렇게 급하게 오른 뒤에 무엇이 왔는지 전부 집계해 보면 3번뿐이고, 그중 2개가 하락이었다.</p><p>가장 닮은 하나에 기대지 않고 비슷한 국면을 모두 집계했다.</p></div><div class="claim"><p>과거 45년 동안 3번뿐이고 3개 중 2개가 하락했다.
+<h2 id="논점-②-이런-급등-뒤에-무엇이-왔나-base-rate">논점 ②: 이런 급등 뒤에 무엇이 왔나 (base rate)</h2><div class="plain"><span class="pl-lb">한 줄로 말하면</span><p>★ 이렇게 급하게 오른 뒤에 무엇이 왔는지 전부 집계해 보면 3번뿐이고, 그중 2개가 하락이었다.</p><p>가장 닮은 하나에 기대지 않고 비슷한 국면을 모두 집계했다.</p></div>
+<div class="claim"><p>과거 45년 동안 3번뿐이고 3개 중 2개가 하락했다.
 가장 닮은 구간 하나에 기대지 않고 15개월 동안 70% 넘게 오른 국면을 전부 집계했다. 3저·닷컴·코로나 3개다.
 정점 뒤 12개월 중앙값은 −17%, 36개월 MDD 중앙값은 −38%다.</p></div>
 <figure class="tw"><figcaption>'15개월 +70%' 국면 전부와 그 뒤. 붉은 줄이 가장 닮은 구간의 정점이다.</figcaption>
@@ -834,7 +833,8 @@ IMF 저점에서 닷컴 직전까지다.
 지금은 2020년 7월에 시작된 새 인플레 시대다. 이만한 급등의 과거 사례가 아직 없다.
 아래 전망에 확률을 붙이지 않고 3가지 시나리오로만 적은 이유가 이것이다.</p></div>
 
-<h2 id="논점-③-7월-급락-같은-과거-사례가-있나">논점 ③: 7월 급락 같은 과거 사례가 있나?</h2><div class="plain"><span class="pl-lb">한 줄로 말하면</span><p>2026년 7월 같은 급락은 과거 45년에 없었다.</p><p>가장 비슷한 1999년 10월도 지금보다 낙폭이 작았다.</p></div><div class="claim"><p>없다. '직전 12개월 +60% 이상 오른 뒤 월간 −8% 이상 하락'을 45년에서 찾으면
+<h2 id="논점-③-7월-급락-같은-과거-사례가-있나">논점 ③: 7월 급락 같은 과거 사례가 있나?</h2><div class="plain"><span class="pl-lb">한 줄로 말하면</span><p>2026년 7월 같은 급락은 과거 45년에 없었다.</p><p>가장 비슷한 1999년 10월도 지금보다 낙폭이 작았다.</p></div>
+<div class="claim"><p>없다. '직전 12개월 +60% 이상 오른 뒤 월간 −8% 이상 하락'을 45년에서 찾으면
 1999년 10월 한 번뿐이다. 그때가 −11%였다. 2026년 7월은 월평균 -17%다. 훨씬 크다.</p></div>
 <div class="note"><p>어느 기준으로 계산했는지가 중요하다. 이 페이지의 유사도는 월평균으로 계산한다.
 45년을 같은 기준으로 비교하려면 월평균밖에 없기 때문이다. 월평균으로는 7월이 -17.5%다.<br>
@@ -859,7 +859,8 @@ IMF 저점에서 닷컴 직전까지다.
 17개월 전체로는 0.58→0.70%p로 벌어졌다(2026년 8월 0.70%p).
 그 달만 조용했던 것이지 국면 전체가 조용한 것은 아니다.</p></div>
 
-<h2 id="논점-④-거시-흐름도-1998년인가">논점 ④: 거시 흐름도 1998년인가?</h2><div class="plain"><span class="pl-lb">한 줄로 말하면</span><p>거시 지표의 방향만 보면 1998년과 1986년이 갈리지 않는다.</p><p>가르는 것은 방향이 아니라 지나온 궤적이다.</p><p>다만 1998년과 어긋나는 지표가 셋 있다. 달러와 한국·미국의 신용 지표다.</p></div><div class="claim"><p>방향 대조로는 1998과 1986이 갈리지 않는다. 가르는 것은 궤적이다.
+<h2 id="논점-④-거시-흐름도-1998년인가">논점 ④: 거시 흐름도 1998년인가?</h2><div class="plain"><span class="pl-lb">한 줄로 말하면</span><p>거시 지표의 방향만 보면 1998년과 1986년이 갈리지 않는다.</p><p>가르는 것은 방향이 아니라 지나온 궤적이다.</p><p>다만 1998년과 어긋나는 지표가 셋 있다. 달러와 한국·미국의 신용 지표다.</p></div>
+<div class="claim"><p>방향 대조로는 1998과 1986이 갈리지 않는다. 가르는 것은 궤적이다.
 8개 지표가 움직인 방향에서 1998은 5/8, 1986은 3/5이 현재와 일치한다.
 둘 다 경기가 회복하고 정책금리가 내려가던 국면이었다.
 2004(2/8)와 2009(3/8)는 뚜렷이 다르다.</p>
