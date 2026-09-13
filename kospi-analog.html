@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko" class="theme-light"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>15개월에 70% 넘게 오른 국면은 45년에 3번뿐이고 그 뒤 1년은 3번 중 2번 내렸다 · 찰리의 시투 추종</title>
+<title>15개월에 70% 넘게 오른 국면은 45년 동안 3번 뿐 · 찰리의 시투 추종</title>
 
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -364,6 +364,43 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .hchg .ar{white-space:nowrap}
 .to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
 @media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
+/* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+/* ⚠⚠ 2026-09-10 상수님 «작은 해상도에서는 제목을 누를 수 없네».
+   아카이브가 29장이 되면서 드롭다운이 1,254px 로 자랐다. 상단바는 sticky 라
+   드롭다운은 화면 위에서 72px 자리에 열리는데, 390px 화면의 보이는 높이가 915px 이니
+   **아래 411px 는 화면 밖이고 스크롤이 없어 닿을 방법이 아예 없었다.**
+   → 화면 높이만큼만 열고 넘치면 그 안에서 스크롤한다.
+   · dvh 를 뒤에 한 번 더 적는다 — 모바일 주소창이 접혔다 펴질 때 100vh 는 화면보다 크다.
+     dvh 를 모르는 브라우저는 앞줄(vh)만 읽고 지나간다.
+   · overscroll-behavior:contain — 목록 끝에서 계속 밀어도 뒤 본문이 따라 스크롤되지 않게.
+   · 120px 은 상단바(2줄, 96px)와 아래 여백 16px 이다. 아카이브·원자료는 메뉴 2번째 줄에
+     달려 있어 104px 자리에서 열린다 — 92px 로 뺐더니 12px 이 화면 밖으로 나갔다. */
+html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);
+  overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END */
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 
 /* ── 닷컴 대시보드 형식 (scripts/dotcom_panel.py) ── */
 /* 값은 kospi-dotcom-1998-2000.html 에서 그대로 옮겼다 — 눈맛의 정본이다 */
@@ -404,37 +441,7 @@ html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;-
 .reveal.visible{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 @media(max-width:720px){.panel{padding:22px 16px 18px}.panel .cbox{min-height:320px}}
-/* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-/* ⚠⚠ 2026-09-10 상수님 «작은 해상도에서는 제목을 누를 수 없네».
-   아카이브가 29장이 되면서 드롭다운이 1,254px 로 자랐다. 상단바는 sticky 라
-   드롭다운은 화면 위에서 72px 자리에 열리는데, 390px 화면의 보이는 높이가 915px 이니
-   **아래 411px 는 화면 밖이고 스크롤이 없어 닿을 방법이 아예 없었다.**
-   → 화면 높이만큼만 열고 넘치면 그 안에서 스크롤한다.
-   · dvh 를 뒤에 한 번 더 적는다 — 모바일 주소창이 접혔다 펴질 때 100vh 는 화면보다 크다.
-     dvh 를 모르는 브라우저는 앞줄(vh)만 읽고 지나간다.
-   · overscroll-behavior:contain — 목록 끝에서 계속 밀어도 뒤 본문이 따라 스크롤되지 않게.
-   · 120px 은 상단바(2줄, 96px)와 아래 여백 16px 이다. 아카이브·원자료는 메뉴 2번째 줄에
-     달려 있어 104px 자리에서 열린다 — 92px 로 뺐더니 12px 이 화면 밖으로 나갔다. */
-html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);
-  overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END *//*TOCCSS:BEGIN*/
+/*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
 /* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
@@ -773,7 +780,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <div class="wrap paper">
 <header class="phead">
 <div class="eyebrow">아카이브 · 닮은 과거</div>
-<h1>15개월에 70% 넘게 오른 국면은 45년에 3번뿐이고 그 뒤 1년은 3번 중 2번 내렸다</h1>
+<h1>15개월에 70% 넘게 오른 국면은 45년 동안 3번 뿐</h1>
 <p class="pauth">갱신 2026년 9월 13일 · 코스피 월평균 '1981년 1월~2026년 8월' 기간 · OECD·FRED·관세청·KRX·한국은행</p>
 <!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#닮은-구간은-저점부터-지금까지-17개월의-궤적을-45년의-모든-구간과-견">닮은 구간은 저점부터 지금까지 17개월의 궤적을 45년의 모든 구간과 견줘 고른다</a></li><li><a href="#15개월에-70-넘게-오른-급등은-45년에-3번뿐이고-그-뒤-1년은-3번">15개월에 70% 넘게 오른 급등은 45년에 3번뿐이고 그 뒤 1년은 3번 중 2번 내렸다</a></li><li><a href="#붕괴까지-넣어도-가장-닮은-구간은-1998년-6월부터다-잣대를-바꾸면-1">붕괴까지 넣어도 가장 닮은 구간은 1998년 6월부터다. 잣대를 바꾸면 1985년이다</a></li><li><a href="#정점-직후-월평균-17-는-45년에-전례가-없다-가장-가까운-것이-199">정점 직후 월평균 -17%는 45년에 전례가 없다. 가장 가까운 것이 1999년 10월 -11%</a></li><li><a href="#정점-뒤-24개월-과거-3번의-길은-4개월째에-갈렸다-지금은-2개월째다">정점 뒤 24개월, 과거 3번의 길은 4개월째에 갈렸다. 지금은 2개월째다</a></li><li><a href="#거시-방향으로는-1998년과-1986년이-갈리지-않는다-다른-것은-달러와">거시 방향으로는 1998년과 1986년이 갈리지 않는다. 다른 것은 달러와 신용스프레드다</a></li><li><a href="#이야기꾼은-시대가-다르다고-본다-인플레-시대의-공황은-금리-인상-시점에-">이야기꾼은 시대가 다르다고 본다. 인플레 시대의 공황은 금리 인상 시점에 온다</a></li><li><a href="#아직-불확실한-곳은-어디인가">아직 불확실한 곳은 어디인가</a></li><li><a href="#그래서-닮은-과거는-다음-달이-아니라-갈림길을-알려-준다-지금은-정점-뒤">그래서 닮은 과거는 다음 달이 아니라 갈림길을 알려 준다. 지금은 정점 뒤 2개월째다</a></li><li><a href="#apx">원문 상세표</a></li></ol></div><!--TOC:END--></header>
 
