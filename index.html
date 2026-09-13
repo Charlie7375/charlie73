@@ -121,7 +121,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── 테마 토글 버튼 (전 페이지 공통) ── */
 /* ⚠⚠ `top:auto` 와 z-index 가 핵심이다 (2026-08-08).
-   생성기 SHELL 들이 `.toggle{position:fixed;top:18px;…}` 를 따로 갖고 있는데(45장),
+   생성기 SHELL 들이 `.toggle{top:62px;z-index:88;position:fixed;…}` 를 따로 갖고 있는데(45장),
    이 규칙은 뒤에 와서 z-index 만 이기고 **위치는 top:18px 가 남았다.**
    그 자리는 sticky 상단바(.site-bar, z-index 90)가 덮는 자리라
    **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 3번째 원인이다.
@@ -463,7 +463,7 @@ html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px
 
 <!-- STATUS:BEGIN -->
 <section class="status">
-  <div class="st-head">데이터 기준일 <b>2026-09-11</b><span class="st-gen">갱신 2026-09-12</span></div>
+  <div class="st-head">데이터 기준일 <b>2026-09-11</b><span class="st-gen">갱신 2026-09-13</span></div>
   <div class="st-grid"><div class="st-c dn"><div class="st-l">코스피</div><div class="st-v">6,910</div><div class="st-s">-1.76% · 이격도 101.6</div></div><div class="st-c dn"><div class="st-l">코스닥</div><div class="st-v">820.6</div><div class="st-s">-1.95% · 09/11</div></div><div class="st-c dn"><div class="st-l">수급 5일 · 외국인</div><div class="st-v">-2.0<span class="st-u">조</span></div><div class="st-s">개인 -10.0 · 기관 +3.5 (근사)</div></div><div class="st-c"><div class="st-l">외인·기관 쌍끌이</div><div class="st-v">0<span class="st-u">/21종목</span></div><div class="st-s">해당 없음 · <span class="nb">09-11</span></div></div><div class="st-c warn"><div class="st-l">코스피 바닥 7단계</div><div class="st-v">2<span class="st-u">/7단계</span></div><div class="st-s">투매 7회 확인</div></div><div class="st-c dn"><div class="st-l">신고가 − 신저가</div><div class="st-v">-65</div><div class="st-s">신고가 45 · 신저가 110</div></div><div class="st-c warn old"><div class="st-l">전조현상 점등</div><div class="st-v">11<span class="st-u">/28</span></div><div class="st-s"><span class="st-age">6일 전</span> 1급 7개 W36</div></div><div class="st-c"><div class="st-l">오디션 생존</div><div class="st-v">261<span class="st-u">/303</span></div><div class="st-s">86% · 기준일 07-29 대비</div></div></div>
 <div class="st-note">전조현상 점등 <b>09-05</b> — 나머지 칸보다 뒤처진 자료입니다</div></section>
 <!-- STATUS:END -->
@@ -477,7 +477,7 @@ html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px
 <section class="sec" id="today">
   <div class="sec-head">
     <h2>오늘의 시장</h2>
-    <p>매일 갱신됩니다. 장 마감 뒤 여기만 보면 오늘 무엇이 바뀌었는지 끝납니다.</p></div>
+    <p>매일 갱신된다. 장 마감 뒤 여기만 보면 오늘 무엇이 바뀌었는지 끝난다.</p></div>
   <div class="grid g-today">
   <a class="card " href="kospi-skhynix.html"><h3>코스피</h3><p>지수를 일반 종목처럼 분석한다. 이격도(이동평균선에서 얼마나 벌어졌나), 바닥 7단계, 시장 수급, 그리고 개인 수급 사분면. 매일 갱신.</p></a>
   <a class="card " href="kosdaq.html"><h3>코스닥</h3><p>코스닥 지수를 일반 종목처럼 분석한다. 이격도(이동평균선에서 얼마나 벌어졌나), 바닥 7단계, 시장 수급, 그리고 개인 수급 사분면. 매일 갱신.</p></a>
@@ -494,7 +494,7 @@ html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px
 <section class="sec" id="watch">
   <div class="sec-head">
     <h2>관심종목</h2>
-    <p>매일 갱신됩니다. 종목마다 <b>주가가 50일 평균에서 얼마나 떨어져 있는지</b>, 누가 사고팔았는지, 증권사 목표가, 실적을 한 장에 모았습니다. 종목은 계속 늘어납니다.</p></div>
+    <p>매일 갱신된다. 종목마다 주가가 50일 평균에서 얼마나 떨어져 있는지, 누가 사고팔았는지, 증권사 목표가, 실적을 한 장에 모았다. 종목은 계속 늘어난다.</p></div>
   <div class="grid g-watch">
   <a class="card " href="stock-hyundai-motor.html"><h3>현대차</h3><p>자동차. 환율·관세에 민감</p></a>
   <a class="card " href="stock-apr.html"><h3>에이피알</h3><p>뷰티 디바이스. 2025 매출 +111% 폭발 성장</p></a>
@@ -523,7 +523,7 @@ html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px
 <section class="sec" id="judge">
   <div class="sec-head">
     <h2>판단</h2>
-    <p>주 1회 갱신됩니다. 숫자에서 판단으로 — 결론보다 <b>근거</b>와 <b>틀릴 조건</b>을 남깁니다.</p></div>
+    <p>주 1회 갱신된다. 숫자에서 판단으로: 결론보다 근거와 틀릴 조건을 남긴다.</p></div>
   <div class="grid g-judge">
   <a class="card " href="jeonjo.html"><h3>중공황 전조현상 현황</h3><p>이야기꾼 주간 시투 보고서를 근거로 전조현상 28종을 매주 점검한다. 1급 전조가 겹칠수록 위험 신호이다.</p></a>
   <a class="card " href="peak-debate.html"><h3>반도체 정점 논쟁</h3><p>"반도체는 정점을 찍었는가." 리포트가 나올 때마다 판단을 갱신하고 틀렸던 부분까지 지우지 않고 누적한다. 이야기꾼과 이은택이 갈리는 지점, 그리고 내가 틀릴 조건을 함께 추적한다.</p></a>
@@ -538,7 +538,7 @@ html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px
 <section class="sec" id="method">
   <div class="sec-head">
     <h2>방법론</h2>
-    <p>갱신되지 않습니다. 위의 모든 숫자가 <b>무엇을 확인하려는 것인지</b>의 기준입니다. 두 방법론은 거의 같은 것을 다르게 부르지만, <b>거시경제를 보느냐</b>에서 갈립니다.</p></div>
+    <p>갱신되지 않는다. 위의 모든 숫자가 무엇을 확인하려는 것인지의 기준이다. 두 방법론은 거의 같은 것을 다르게 부르지만, 거시경제를 보느냐에서 갈린다.</p></div>
   <div class="lst lst-flat">
     <a class="lst-i" href="methodology.html"><span class="lst-t">이야기꾼 매매 5원칙</span><span class="lst-d">이 사이트의 모든 숫자가 <b>무엇을 확인하려는 것인지</b>. 매수 5원칙·매도 5원칙과 <b>바닥 7단계</b>, 그리고 천장은 그것을 뒤집은 것. 2024년 기술분석 1·2탄 강의가 근거입니다.</span></a>
     <a class="lst-i" href="minervini.html"><span class="lst-t">마크 미너비니의 방법론</span><span class="lst-d">미너비니의 매매 원칙 — 리스크 우선, 추세 템플릿 8조건, VCP와 피벗, 본전치기 이상. 이야기꾼과 <b>거의 같지만 한 곳</b>이 다릅니다.</span></a>
@@ -550,7 +550,7 @@ html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px
 <section class="sec" id="archive">
   <div class="sec-head">
     <h2>아카이브</h2>
-    <p>갱신되지 않습니다. 지나간 사이클에서 지표가 실제로 어떻게 움직였는지의 기록입니다.</p></div>
+    <p>갱신되지 않는다. 지나간 사이클에서 지표가 실제로 어떻게 움직였는지의 기록이다.</p></div>
   <div class="lst">
     <div class="lst-g">
       <h3 class="lst-h">금리와 유동성<span class="lst-n">7</span></h3>
@@ -588,7 +588,7 @@ html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px
     </div>
     <div class="lst-g">
       <h3 class="lst-h">지나간 국면<span class="lst-n">3</span></h3>
-      <a class="lst-i" href="kospi-analog.html"><span class="lst-t">지금과 닮은 과거 — 유사국면</span><span class="lst-d">2025년 4월 이후 코스피와 닮은 국면을 <b>과거 45년 전수</b>로 찾았습니다. 붕괴까지 포함한 16개월 창에서도 <b>1998년 6월이 1위</b>입니다. 다만 <b>정점 직후 월간 −17% 하락은 45년에 전례가 없습니다</b>. 낙폭은 측정 기준마다 다릅니다 — 장중 −43.9% · 일별 종가 −38.6% · 월평균 −17.3%.</span></a>
+      <a class="lst-i" href="kospi-analog.html"><span class="lst-t">15개월에 70% 넘게 오른 국면은 45년에 3번뿐이고 그 뒤 1년은 3번 중 2번 내렸다</span><span class="lst-d">2025년 4월 이후 코스피와 닮은 국면을 <b>과거 45년 전수</b>로 찾았습니다. 붕괴까지 넣어도 <b>1998년 6월이 1위</b>이고, 같은 급등의 전례 3번은 정점 뒤 몇 달 안에 길이 갈렸습니다. 낙폭은 측정 기준마다 다릅니다 — 장중 · 일별 종가 · 월평균이 다른 값을 냅니다.</span></a>
       <a class="lst-i" href="samsung-long.html"><span class="lst-t">삼성전자 27년</span><span class="lst-d">스테이지·이격도·제오지산수 세 잣대로 본 2000~2026. <b>와인스타인 규칙이 뒤집히고</b>, 거시지표는 삼성전자보다 <b>코스피를 더 잘 설명</b>합니다.</span></a>
       <a class="lst-i" href="kospi-dotcom-1998-2000.html"><span class="lst-t">코스피 닷컴 랠리 1998~2000</span><span class="lst-d">IMF 저점(313)에서 닷컴 정점(984)까지 18개월 <b>+214%</b>. 1999년 안에 이미 <b>이중 천장</b>, 2차 랠리는 정점의 <b>80.8%</b>에서 멈췄습니다. <b>2025.04 저점 기준 현재 코스피를 겹친 오버레이</b> 포함.</span></a>
     </div>
