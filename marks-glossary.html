@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko" class="theme-light"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>마크 미너비니의 매매 원칙 · 찰리의 시투 추종</title>
+<title>사이클 용어사전 · 찰리의 시투 추종</title>
 
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -296,8 +296,20 @@ a.card:focus-visible,.lst-i:focus-visible{
   .wrap{padding-left:18px!important;padding-right:18px!important}
   .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
 }
-/* LAYOUT:END */
-/* BAR:BEGIN */
+/* LAYOUT:END *//*NAVCSS:BEGIN*/
+/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
+.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
+  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
+/* 아카이브 중메뉴 소제목 — 주기 라벨과 같은 .nav-h 를 쓰되 묶음 사이를 실선으로 끊는다 */
+.site-dd .nav-h.sub,.md .nav-h.sub{margin-top:6px;padding-top:9px;
+  border-top:1px solid var(--border,rgba(0,0,0,.1))}
+.site-dd .nav-h+.nav-h.sub,.md .nav-h+.nav-h.sub{margin-top:0;padding-top:4px;border-top:0}
+.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
+  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
+  background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+/*NAVCSS:END*//* BAR:BEGIN */
 /* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
    flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
 html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
@@ -414,20 +426,7 @@ table{width:100%}
 h2{margin-top:52px;font-size:23px;letter-spacing:-.02em;padding-bottom:8px;border-bottom:2px solid var(--border)}
 h3{letter-spacing:-.015em}
 .sub{max-width:none}
-/*NAVCSS:BEGIN*/
-/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
-.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
-  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
-/* 아카이브 중메뉴 소제목 — 주기 라벨과 같은 .nav-h 를 쓰되 묶음 사이를 실선으로 끊는다 */
-.site-dd .nav-h.sub,.md .nav-h.sub{margin-top:6px;padding-top:9px;
-  border-top:1px solid var(--border,rgba(0,0,0,.1))}
-.site-dd .nav-h+.nav-h.sub,.md .nav-h+.nav-h.sub{margin-top:0;padding-top:4px;border-top:0}
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/*NAVCSS:END*//*TOCCSS:BEGIN*/
+/*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
 /* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
@@ -447,7 +446,13 @@ h2[id],h3[id],[id]:target{scroll-margin-top:92px}
 .ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
 .ptoc a:hover{border-bottom-color:var(--text-secondary)}
 @media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*//* PAPER:BEGIN */
+/*TOCCSS:END*/</style><link rel="stylesheet" href="vendor/fonts.css"><style>
+.paper table.gl td.dim,.paper .dim{color:var(--text-secondary,#6e6e73);font-size:.82em;font-weight:400}
+.paper table.gl tr.grp td{background:var(--surface);font-weight:800;font-size:1.05em;padding:10px 12px;border-top:2px solid var(--text)}
+.paper .letters{margin:14px 0 6px;font-weight:700;letter-spacing:.06em}
+.paper .letters a{margin-right:10px;text-decoration:none;border-bottom:1px dashed}
+.paper table.gl td{vertical-align:top}
+/* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -751,166 +756,45 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style><link rel="stylesheet" href="vendor/fonts.css"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
+/* PAPER:END */</style>
+<!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
-  <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="macro-timeline.html">거시 이벤트 연대기</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-nhn.html">NHN</a><a href="stock-kolmar.html">한국콜마</a><a href="stock-cosmax.html">코스맥스</a><a href="stock-pharmaresearch.html">파마리서치</a><a href="stock-jyp.html">JYP Ent.</a><a href="stock-sm-ent.html">에스엠</a><a href="stock-yg-ent.html">와이지엔터테인먼트</a></div></div><div class="site-group"><button class="here" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a class="here" href="minervini.html">마크 미너비니의 방법론</a><a href="marks.html">하워드 막스의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><span class="nav-h sub">수급과 폭락</span><a href="flow-extremes.html">개인과 외국인의 대량 매매</a><a href="flow-crashes.html">폭락의 구조</a><span class="nav-h sub">신용과 청산</span><a href="us-credit-spread.html">미국 신용스프레드</a><a href="deleveraging.html">강제청산</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="sentiment.html">빚과 현금</a><span class="nav-h sub">경기와 수출</span><a href="us-elections.html">미국 선거와 증시</a><a href="export-kospi.html">수출과 코스피</a><a href="cli-kospi.html">OECD CLI 와 코스피</a><a href="ism-kospi.html">ISM 과 코스피</a><a href="jeoji-kospi.html">제오지산수</a><span class="nav-h sub">금리와 통화</span><a href="gold-rates.html">금리와 금값</a><a href="treasury-trust.html">미국 국채 되사기</a><a href="inflation-playbook.html">인플레 시대의 자산</a><a href="rates-century.html">미국 금리 100년</a><a href="liquidity.html">미국 유동성</a><a href="fed-kospi.html">연준 기준금리와 코스피</a><a href="rates-101.html">금리 기초</a><a href="rates-crashes.html">금리 5%와 공황</a><a href="dollar-kospi.html">달러와 코스피</a><span class="nav-h sub">개별 종목</span><a href="memory-price.html">D램 가격과 삼성전자</a><a href="leadlag.html">하이닉스의 선행과 후행</a><a href="samsung-long.html">삼성전자 27년</a><span class="nav-h sub">시장 국면</span><a href="breadth-concentration.html">신고가 쏠림</a><a href="kospi-analog.html">닮은 과거</a><a href="audition-history.html">오디션 히스토리</a><a href="disparity-archive.html">두 버블의 이격도</a><a href="stage-analysis.html">와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리</a></div></div><div class="site-group"><button class="" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 85계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a href="data-kr-rates.html">한국 금리</a><a href="data-us-market.html">미국 시장</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a href="data-fx.html">환율·원자재·암호</a><a href="data-macro.html">재정·거시</a></div></div><!-- NAV:END --></nav>
+  <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="macro-timeline.html">거시 이벤트 연대기</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-nhn.html">NHN</a><a href="stock-kolmar.html">한국콜마</a><a href="stock-cosmax.html">코스맥스</a><a href="stock-pharmaresearch.html">파마리서치</a><a href="stock-jyp.html">JYP Ent.</a><a href="stock-sm-ent.html">에스엠</a><a href="stock-yg-ent.html">와이지엔터테인먼트</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a class="" href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="marks.html">하워드 막스의 방법론</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><span class="nav-h sub">수급과 폭락</span><a href="flow-extremes.html">개인과 외국인의 대량 매매</a><a href="flow-crashes.html">폭락의 구조</a><span class="nav-h sub">신용과 청산</span><a href="us-credit-spread.html">미국 신용스프레드</a><a href="deleveraging.html">강제청산</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="sentiment.html">빚과 현금</a><span class="nav-h sub">경기와 수출</span><a href="us-elections.html">미국 선거와 증시</a><a href="export-kospi.html">수출과 코스피</a><a href="cli-kospi.html">OECD CLI 와 코스피</a><a href="ism-kospi.html">ISM 과 코스피</a><a href="jeoji-kospi.html">제오지산수</a><span class="nav-h sub">금리와 통화</span><a href="gold-rates.html">금리와 금값</a><a href="treasury-trust.html">미국 국채 되사기</a><a href="inflation-playbook.html">인플레 시대의 자산</a><a href="rates-century.html">미국 금리 100년</a><a href="liquidity.html">미국 유동성</a><a href="fed-kospi.html">연준 기준금리와 코스피</a><a href="rates-101.html">금리 기초</a><a href="rates-crashes.html">금리 5%와 공황</a><a href="dollar-kospi.html">달러와 코스피</a><span class="nav-h sub">개별 종목</span><a href="memory-price.html">D램 가격과 삼성전자</a><a href="leadlag.html">하이닉스의 선행과 후행</a><a href="samsung-long.html">삼성전자 27년</a><span class="nav-h sub">시장 국면</span><a href="breadth-concentration.html">신고가 쏠림</a><a href="kospi-analog.html">닮은 과거</a><a href="audition-history.html">오디션 히스토리</a><a href="disparity-archive.html">두 버블의 이격도</a><a href="stage-analysis.html">와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리</a></div></div><div class="site-group"><button class="" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 85계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a href="data-kr-rates.html">한국 금리</a><a href="data-us-market.html">미국 시장</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a href="data-fx.html">환율·원자재·암호</a><a href="data-macro.html">재정·거시</a></div></div><!-- NAV:END --></nav>
 </div></div>
 <div class="wrap paper">
-<div class="site-crumb"><a href="index.html">홈</a><span class="sep">›</span><a href="methodology.html">방법론</a><span class="sep">›</span><span class="cur">마크 미너비니</span></div>
+<div class="site-crumb"><a href="index.html">홈</a><span class="sep">›</span><a href="methodology.html">방법론</a><span class="sep">›</span><span class="cur">사이클 용어사전</span></div>
 
-<header class="phead"><!--phead:unified--><div class="eyebrow">방법론 · Mark Minervini</div>
-<h1>마크 미너비니의 매매 원칙</h1>
-<p class="pauth">마크 미너비니 매매 원칙 · 고정 자료 · 시장 데이터로 갱신되지 않는다</p>
-<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>미너비니와 이야기꾼은 거의 같은 것을 다르게 부른다. 갈리는 곳은 한 곳이다. 이야기꾼은 거시경제를 5원칙의 1번에 두고 미너비니는 보지 않는다. 손실을 막는 방식도 다르다. 미너비니는 손절선을 올려서 지키고 이야기꾼은 비중을 줄여서 지킨다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#리스크-우선-출구를-먼저-정한다">리스크 우선: 출구를 먼저 정한다</a></li><li><a href="#무엇을-살지-2단계와-추세-템플릿">무엇을 살지: 2단계와 추세 템플릿</a></li><li><a href="#얼마나-살지-포지션-사이징">얼마나 살지: 포지션 사이징</a></li><li><a href="#언제-팔지">언제 팔지</a></li><li><a href="#이야기꾼과-갈리는-한-곳">이야기꾼과 갈리는 한 곳</a></li></ol></div><!--TOC:END--></header>
-<div class="sub">마크 미너비니가 공개적으로 밝혀온 매매 원칙을 <b>숫자가 있는 것 위주로</b> 정리했다.
-<a href="methodology.html">이야기꾼의 방법론</a>과 나란히 두는 이유는 2가지가 거의 같은 것을 다르게 부르기 때문이고,
-<b>다른 한 곳</b>이 결정적이기 때문이다.</div>
+<header class="phead"><!--phead:unified--><div class="eyebrow">방법론 · Glossary</div>
+<h1>사이클 용어사전</h1>
+<p class="pauth">하워드 막스 『투자와 마켓 사이클의 법칙』의 찾아보기에서 모은 개념어 94개 · 뜻은 이 사이트의 말 · 고정 자료</p></header>
+
+<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div>
+<p>막스의 책 맨 뒤 찾아보기에는 낱말 200여 개가 있다. 사람과 책과 회사를 빼면 개념어가 94개 남는다.
+그 94개를 가나다순으로 놓고 뜻을 이 사이트의 말로 풀었다. 책 문장을 옮긴 것이 아니라 이 사이트가 이해한 대로 쓴 것이고, 쪽수는 종이책 찾아보기의 자리다.
+39개에는 이 사이트에서 그 낱말을 실제로 계산하는 페이지를 붙였다. 나머지는 「없다」로 두었다. 사이클을 읽는 낱말의 정본이고, <a href="marks.html">막스의 사이클 방법론</a>과 짝이다.</p>
+</div><!--PCLAIM:END-->
 
 <div class="explain" style="border-left-color:var(--risk,#b45309)">
-<b>고안: 마크 미너비니</b> — 아래 원칙은 미너비니의 것이며, 이 페이지는 그것을 <b>요약·정리</b>한 것이다.
-수치와 표현은 이해를 돕기 위해 다시 쓴 것이라 원문과 다르다.
+읽는 법. 왼쪽이 낱말과 영어, 가운데가 뜻, 오른쪽이 종이책 쪽수와 이 사이트에서 그것을 계산하는 페이지다.
+막스가 따옴표를 쳐서 쓴 자기 표현(메모 제목·말버릇)은 아래 따로 두었다. 인명과 문헌은 싣지 않았다.
 </div>
 
-<h2 id="리스크-우선-출구를-먼저-정한다" style="margin-top:34px">리스크 우선: 출구를 먼저 정한다</h2>
-<div class="explain">
-전체를 관통하는 한 문장은 <b>"리스크 우선(risk-first)"</b>다.
-대부분의 투자자는 "얼마 벌까"부터 생각하는데, 미너비니는 <b>트레이드에 들어가기 전에 이탈 지점을 확정</b>한다.
-<br><br>
-<b>"스톱 없이 거래하는 사람은 결국 거래를 멈추게 된다."</b>
-그리고 <b>정신적 스톱은 스톱이 아니다</b> — 머릿속의 "X까지 빠지면 나온다"는 대부분 지켜지지 않는다.
-누구에게나 <b>감정적 스톱</b>이 있는데, 그 자리는 수학이 말하는 자리보다 훨씬 뒤에 있다.
-</div>
+<p class="letters"><a href="#grp-ㄱ">ㄱ</a> <a href="#grp-ㄴ">ㄴ</a> <a href="#grp-ㄷ">ㄷ</a> <a href="#grp-ㄹ">ㄹ</a> <a href="#grp-ㅁ">ㅁ</a> <a href="#grp-ㅂ">ㅂ</a> <a href="#grp-ㅅ">ㅅ</a> <a href="#grp-ㅇ">ㅇ</a> <a href="#grp-ㅈ">ㅈ</a> <a href="#grp-ㅊ">ㅊ</a> <a href="#grp-ㅌ">ㅌ</a> <a href="#grp-ㅍ">ㅍ</a> <a href="#grp-ㅎ">ㅎ</a></p>
 
-<h3 style="margin-top:34px;font-size:18px">손실이 커질수록 복구는 기하급수로 어려워진다</h3>
-<div class="tblwrap"><table><thead><tr><th style="width:150px">손실</th><th>본전까지 필요한 수익</th></tr></thead><tbody>
-<tr><td>−5%</td><td>+5.3%</td></tr>
-<tr><td>−10%</td><td>+11%</td></tr>
-<tr><td>−40%</td><td>+67%</td></tr>
-<tr><td><b>−50%</b></td><td><b>+100%</b></td></tr>
-</tbody></table></div>
-<div class="explain">
-그래서 <b>최대 허용 손실은 10%</b>이고, 실제 평균은 그보다 훨씬 작다 — 대체로 8% 이하다.
-<br><br>
-이야기꾼의 <a href="methodology.html">3개의 선</a>이 같은 일을 다른 방식으로 한다.
-미너비니는 <b>가격 %</b>로 자르고, 이야기꾼은 <b>이동평균선</b>으로 자른다.
-%는 종목마다 변동성이 달라도 같은 기준을 대는 것이고, 이동평균선은 종목의 성격에 따라 기준선 자체가 움직이다.
-</div>
-
-<div class="scn"><svg viewBox="0 0 1100 300" role="img" aria-label="손실률별 본전 복구에 필요한 수익률"><text class="ttl" x="0" y="16">손실이 커질수록 복구는 기하급수로 어려워진다</text><text class="cap" x="0" y="34">파랑 = 손실 · 빨강 = 본전까지 필요한 수익</text><g transform="translate(0,58)"><rect x="60" y="172" width="62" height="8" rx="4" fill="var(--dn,#1161c4)" opacity=".8"/><rect x="130" y="172" width="62" height="8" rx="4" fill="var(--up,#d21f3c)" opacity=".85"/><text class="cap" x="91.0" y="164" text-anchor="middle">−5%</text><text class="wt" x="161.0" y="164" text-anchor="middle" style="fill:var(--up,#d21f3c)">+5.3%</text><rect x="232" y="164" width="62" height="16" rx="4" fill="var(--dn,#1161c4)" opacity=".8"/><rect x="302" y="163" width="62" height="17" rx="4" fill="var(--up,#d21f3c)" opacity=".85"/><text class="cap" x="263.0" y="156" text-anchor="middle">−10%</text><text class="wt" x="333.0" y="155" text-anchor="middle" style="fill:var(--up,#d21f3c)">+11%</text><rect x="404" y="148" width="62" height="32" rx="4" fill="var(--dn,#1161c4)" opacity=".8"/><rect x="474" y="140" width="62" height="40" rx="4" fill="var(--up,#d21f3c)" opacity=".85"/><text class="cap" x="435.0" y="140" text-anchor="middle">−20%</text><text class="wt" x="505.0" y="132" text-anchor="middle" style="fill:var(--up,#d21f3c)">+25%</text><rect x="576" y="132" width="62" height="48" rx="4" fill="var(--dn,#1161c4)" opacity=".8"/><rect x="646" y="112" width="62" height="68" rx="4" fill="var(--up,#d21f3c)" opacity=".85"/><text class="cap" x="607.0" y="124" text-anchor="middle">−30%</text><text class="wt" x="677.0" y="104" text-anchor="middle" style="fill:var(--up,#d21f3c)">+43%</text><rect x="748" y="116" width="62" height="64" rx="4" fill="var(--dn,#1161c4)" opacity=".8"/><rect x="818" y="73" width="62" height="107" rx="4" fill="var(--up,#d21f3c)" opacity=".85"/><text class="cap" x="779.0" y="108" text-anchor="middle">−40%</text><text class="wt" x="849.0" y="65" text-anchor="middle" style="fill:var(--up,#d21f3c)">+67%</text><rect x="920" y="100" width="62" height="80" rx="4" fill="var(--dn,#1161c4)" opacity=".8"/><rect x="990" y="20" width="62" height="160" rx="4" fill="var(--up,#d21f3c)" opacity=".85"/><text class="cap" x="951.0" y="92" text-anchor="middle">−50%</text><text class="wt" x="1021.0" y="12" text-anchor="middle" style="fill:var(--up,#d21f3c)">+100%</text><line class="gl" x1="40" y1="180" x2="1070" y2="180"/><text class="cap" x="40" y="206">−10%까지는 대칭에 가깝다 · −50%부터는 2배를 벌어야 제자리 — 최대 허용 손실을 10%로 두는 이유</text></g></svg></div>
-
-<h3 style="margin-top:34px;font-size:18px">기대하는 수익보다 큰 리스크를 지지 않는다</h3>
-<div class="explain">
-승률이 <b>40%</b>일 때 <b>손익비 2:1</b>을 유지하려면 손실은 수익의 절반이어야 한다 —
-그 조건을 만족하는 조합이 <b>+20% / −10%</b>다.
-<br><br>
-이게 왜 중요하냐면, 손절폭을 정하는 순간 목표 수익도 같이 정해지기 때문이다.
-5% 벌자고 10% 리스크를 지는 건 산수가 안 맞다.
-</div>
-
-<h2 id="무엇을-살지-2단계와-추세-템플릿" style="margin-top:44px">무엇을 살지: 2단계와 추세 템플릿</h2>
-<div class="explain">
-<b>2단계 상승추세에 있는 것만 산다.</b> 크게 이긴 주식의 <b>95% 이상</b>이 2단계에 있었다.
-나머지 세 단계(1·3·4)에서는 돈을 잃거나 시간을 잃는다.
-<br><br>
-200일선은 절대 기준이다 — <b>"200일선 아래로 떨어지는 것은 무엇이든 상관없이 나온다."</b>
-</div>
-
-<h3 style="margin-top:34px;font-size:18px">추세 템플릿</h3>
-<div class="tblwrap"><table><thead><tr><th style="width:56px">#</th><th>조건</th></tr></thead><tbody>
-<tr><td>1</td><td>주가가 <b>150일선·200일선 위</b></td></tr>
-<tr><td>2</td><td>150일선이 200일선 <b>위</b></td></tr>
-<tr><td>3</td><td>200일선이 <b>1개월 이상 상승</b> 중</td></tr>
-<tr><td>4</td><td>50일선이 150일선·200일선 <b>위</b></td></tr>
-<tr><td>5</td><td>현재가가 <b>52주 저가보다 30% 이상</b> 위</td></tr>
-<tr><td>6</td><td>현재가가 <b>52주 고가의 25% 이내</b> 신고가에 가까울수록 좋다</td></tr>
-<tr><td>7</td><td><b>RS선</b>이 최소 5주, 가능하면 13주 이상 상승추세</td></tr>
-<tr><td>8</td><td>베이스를 벗어날 때 현재가가 <b>50일선 위</b></td></tr>
-</tbody></table></div>
-<div class="explain">
-<a href="bottom-top.html">바닥·천장 추적 분석</a>에서 이 8개 조건을 코스피·하이닉스·삼성전자에 매일 채점한다.
-7번 RS선은 <a href="breadth-rs.html">52주 신고가와 상대강도</a>에서 전종목으로 계산한다.
-</div>
-
-<h3 style="margin-top:34px;font-size:18px">VCP: 변동성 수축 패턴</h3>
-<div class="explain">
-상승 뒤의 <b>소화기간</b>에서, 조정의 폭이 <b>단계마다 줄어드는</b> 모양을 찾는다.
-파는 사람이 소진되고 있다는 뜻이다. 거래량도 함께 마른다.
-그 끝에서 평평해진 구간의 고점을 <b>피벗</b>이라 하고, 거기를 <b>거래량 급증과 함께</b> 넘어설 때 산다.
-거래량 급증은 <b>기관이 들어왔다는 표시</b>라 신뢰도를 결정한다.
-</div>
-
-<div class="scn"><svg viewBox="0 0 1100 330" role="img" aria-label="VCP 변동성 수축 패턴과 피벗 돌파"><text class="ttl" x="0" y="16">VCP — 조정의 폭이 단계마다 줄어든다</text><text class="cap" x="0" y="34">파는 사람이 소진되는 과정 · 마지막 평평한 구간의 고점이 피벗</text><g transform="translate(0,54)"><rect class="zn" x="110" y="20" width="130" height="180" fill="var(--up,#d21f3c)" opacity=".07"/><text class="cap" x="175.0" y="216" text-anchor="middle">1차 −34%</text><rect class="zn" x="240" y="20" width="120" height="180" fill="var(--up,#d21f3c)" opacity=".07"/><text class="cap" x="300.0" y="216" text-anchor="middle">2차 −24%</text><rect class="zn" x="360" y="20" width="100" height="180" fill="var(--up,#d21f3c)" opacity=".07"/><text class="cap" x="410.0" y="216" text-anchor="middle">3차 −16%</text><rect class="zn" x="460" y="20" width="120" height="180" fill="var(--up,#d21f3c)" opacity=".07"/><text class="cap" x="520.0" y="216" text-anchor="middle">4차 −9%</text><line class="gl" x1="545" y1="70" x2="1060" y2="70" opacity=".8" stroke-dasharray="4 4"/><text class="cap" x="1060" y="62" text-anchor="end">피벗 — 여기를 거래량 급증과 함께 넘을 때 매수</text><path class="px" d="M40,210 L110,90 L170,150 L240,86 L300,128 L360,80 L410,110 L460,74 L500,92 L545,70 L580,80 L610,72 L650,66 L700,40 L780,26 L870,18 L1060,14"/><circle cx="650" cy="66" r="11" fill="var(--up,#d21f3c)"/><text class="num" x="650" y="70" text-anchor="middle">B</text><g transform="translate(0,236)"><rect x="110" y="16" width="34" height="34" rx="2" fill="var(--text3,#86868b)" opacity=".55"/><rect x="190" y="24" width="34" height="26" rx="2" fill="var(--text3,#86868b)" opacity=".55"/><rect x="270" y="28" width="34" height="22" rx="2" fill="var(--text3,#86868b)" opacity=".55"/><rect x="350" y="32" width="34" height="18" rx="2" fill="var(--text3,#86868b)" opacity=".55"/><rect x="430" y="36" width="34" height="14" rx="2" fill="var(--text3,#86868b)" opacity=".55"/><rect x="500" y="39" width="34" height="11" rx="2" fill="var(--text3,#86868b)" opacity=".55"/><rect x="560" y="41" width="34" height="9" rx="2" fill="var(--text3,#86868b)" opacity=".55"/><rect x="620" y="42" width="34" height="8" rx="2" fill="var(--text3,#86868b)" opacity=".55"/><rect x="660" y="6" width="34" height="44" rx="2" fill="var(--up,#d21f3c)" opacity=".55"/><rect x="730" y="12" width="34" height="38" rx="2" fill="var(--up,#d21f3c)" opacity=".55"/><rect x="800" y="20" width="34" height="30" rx="2" fill="var(--up,#d21f3c)" opacity=".55"/><rect x="880" y="24" width="34" height="26" rx="2" fill="var(--up,#d21f3c)" opacity=".55"/><text class="cap" x="0" y="46">거래량</text><text class="cap" x="700" y="12" style="fill:var(--up,#d21f3c)">돌파 = 거래량 급증 (기관 진입)</text></g></g></svg></div>
-
-<div class="explain">
-이야기꾼의 <b>"물이 고인다"</b>가 바로 이것이다. 부르는 이름만 다르다 —
-<a href="methodology.html">대조표</a>에 정리해 뒀다.
-</div>
-
-<h2 id="얼마나-살지-포지션-사이징" style="margin-top:44px">얼마나 살지: 포지션 사이징</h2>
-<div class="explain">
-<b>집중할수록 단기 수익은 커지지만, 틀렸을 때도 같은 배율로 커진다.</b>
-"한 번의 대박"을 위해 전 자산을 거는 것은, 평생 수백~수천 번 매매한다는 사실을 잊은 계산이다.
-<b>불운은 필연</b>이므로, 한 번의 불운으로 게임이 끝나는 크기는 애초에 잡지 않는다.
-<br><br>
-반대로 <b>과도한 분산도 비생산적</b>다. 분산은 평균적인 기대값에 기대는 전술이라,
-평균이 목표가 아니면 답이 아니다.
-<br><br>
-기준은 <b>금액이 아니라 리스크</b>다 — 포지션 크기는
-<b>"이 자리에서 손절되면 총자산의 몇 %를 잃는가"</b>로 역산한다.
-</div>
-
-<h2 id="언제-팔지" style="margin-top:44px">언제 팔지</h2>
-<div class="explain">
-매도 시나리오는 둘이다.
-<br><br>
-<b>① 강세에서 판다.</b> 내 방향으로 움직여 매수자가 널려 있을 때 파는 것이다.
-큰 물량을 정리해야 할수록 이쪽이어야 한다 — 약세에서는 받아줄 사람이 없다.
-<br><br>
-<b>② 약세에서 판다.</b> 매도 위반 사항이 쌓이거나, 기관 매도의 물결이 시작될 때다.
-"기관 매도의 쓰나미와 싸울 수는 없다."
-</div>
-
-<h3 style="margin-top:34px;font-size:18px">본전치기 또는 그 이상 (Breakeven or Better)</h3>
-<div class="tblwrap"><table><thead><tr><th style="width:190px">장치</th><th>내용</th></tr></thead><tbody>
-<tr><td><b>추적손절 (trailing stop)</b></td><td>주가가 오르면 손절선도 따라 올린다</td></tr>
-<tr><td><b>고정손절 (back stop)</b></td><td>수익 구간에 진입하면 손절선을 <b>매수가 이상</b>으로 올려 고정한다</td></tr>
-</tbody></table></div>
-<div class="explain">
-핵심은 이익이 손실로 바뀌는 일을 구조적으로 막는 것이다.
-손절이 7%인데 20%까지 올랐던 포지션이 손실로 끝나는 일은 없어야 한다는 것이다.
-<br><br>
-이야기꾼의 <b>5일선 보험료</b>가 비슷한 역할을 한다. 다만 미너비니는 <b>손절선을 올려서</b> 지키고,
-이야기꾼은 <b>비중을 줄여서</b> 지킨다.
-</div>
-
-<h2 id="이야기꾼과-갈리는-한-곳" style="margin-top:44px">이야기꾼과 갈리는 한 곳</h2>
-<div class="tblwrap"><table><thead><tr><th style="width:150px"></th><th>이야기꾼</th><th>미너비니</th></tr></thead><tbody>
-<tr><td>거시경제</td><td><b>본다</b> 5원칙의 1번</td><td><b>안 본다</b></td></tr>
-<tr><td>진입 시점</td><td><b>1번째</b> 베이스부터</td><td><b>2번째</b> 베이스부터</td></tr>
-<tr><td>손절 기준</td><td>이동평균선(5일·20일·20주)</td><td>가격 %(최대 10%, 평균 8% 이하)</td></tr>
-<tr><td>비중 조절</td><td>선을 잃을 때마다 <b>계단식</b></td><td>손절선을 <b>올려서</b> 고정</td></tr>
-<tr><td>매도 규칙</td><td>5원칙으로 명시</td><td>지면을 거의 안 씀: 손절·리스크 관리로 대체</td></tr>
+<div class="tblwrap"><table class="gl"><thead><tr><th style="width:22%">낱말</th><th>뜻</th><th style="width:14%">종이책 쪽</th><th style="width:20%">이 사이트에서</th></tr></thead><tbody>
+<tr class="grp" id="grp-ㄱ"><td colspan="4">ㄱ</td></tr><tr id="g-가치-투자"><td><b>가치 투자</b><br><span class="dim">value investing</span></td><td>값(가격)과 값어치(가치)의 차이를 사는 일. 막스는 이것을 앞의 2가지(알기 쉬운 것을 더 알기, 그 값을 알기)로 두고, 3번째인 사이클 위치 조정을 이 책의 주제로 뒀다.</td><td class="n dim">29</td><td>없다</td></tr><tr id="g-감정"><td><b>감정</b><br><span class="dim">emotion</span></td><td>사이클을 기계가 아니라 사람의 일로 만드는 것. 도취와 침체가 가격을 펀더멘털보다 크게 흔든다.</td><td class="n dim">93, 127</td><td><a href="sentiment-daily.html">투자심리 3종</a></td></tr><tr id="g-강세장"><td><b>강세장</b><br><span class="dim">bull market</span></td><td>오르는 시장. 막스의 3단계(소수만 믿을 때 → 대부분이 깨달을 때 → 모두가 영원히 나아진다고 결론지을 때)로 읽는다.</td><td class="n dim">266</td><td><a href="stage-analysis.html">와인스타인 스테이지</a></td></tr><tr id="g-거시적-미래"><td><b>거시적 미래</b><br><span class="dim">macro future</span></td><td>경제·금리·환율 같은 큰 변수의 앞날. 막스는 알 수 없다고 못 박는다. 남보다 더 잘 아는 사람이 거의 없다는 뜻이다.</td><td class="n dim">28</td><td>없다</td></tr><tr id="g-거시적-예측"><td><b>거시적 예측</b><br><span class="dim">macro forecasting</span></td><td>거시적 미래를 맞히려는 일. 이 사이트는 전망을 쓰지 않고 조건이 붙은 예상만 쓴다.</td><td class="n dim">29</td><td>없다</td></tr><tr id="g-게이트"><td><b>게이트</b><br><span class="dim">gate</span></td><td>펀드가 환매를 막는 장치. 신용 창구가 닫히는 국면의 한 모습이다.</td><td class="n dim">218</td><td>없다</td></tr><tr id="g-경제-사이클"><td><b>경제 사이클</b><br><span class="dim">economic cycle</span></td><td>실물 경제가 장기 추세 둘레를 오르내리는 것. 사이클 가운데 가장 완만하다. 이익과 주가는 그보다 크게 움직인다.</td><td class="n dim">79</td><td><a href="cli-kospi.html">OECD CLI</a> · <a href="ism-kospi.html">ISM</a></td></tr><tr id="g-경향"><td><b>경향</b><br><span class="dim">tendency</span></td><td>일어날 일은 몰라도 일어날 가능성은 말할 수 있다는 뜻의 낱말. 병 속의 공 비유가 여기 있다.</td><td class="n dim">31, 344</td><td>없다</td></tr><tr id="g-고정비"><td><b>고정비</b><br><span class="dim">fixed cost</span></td><td>매출이 줄어도 그대로 나가는 비용. 영업 레버리지의 뿌리다.</td><td class="n dim">119</td><td>없다</td></tr><tr id="g-금융-기억의-극단적인-단기성"><td><b>금융 기억의 극단적인 단기성</b><br><span class="dim">extreme brevity of financial memory</span></td><td>갤브레이스의 말. 지난 위기를 20년도 못 가 잊는 성질. 「이번에는 다르다」가 자라는 흙이다.</td><td class="n dim">59</td><td><a href="kospi-analog.html">닮은 과거</a></td></tr><tr id="g-기어링"><td><b>기어링</b><br><span class="dim">gearing</span></td><td>레버리지의 영국식 이름. 매출 변화가 이익 변화로 확대되는 정도.</td><td class="n dim">119</td><td>없다</td></tr><tr id="g-기회-위험"><td><b>기회 위험</b><br><span class="dim">opportunity risk</span></td><td>잃을 위험만이 아니라 벌 기회를 놓칠 위험. 패닉 때 사람들은 시간을 100% 손실 회피에 쓴다.</td><td class="n dim">31</td><td>없다</td></tr><tr class="grp" id="grp-ㄴ"><td colspan="4">ㄴ</td></tr><tr id="g-눈먼-돈"><td><b>눈먼 돈</b><br><span class="dim">easy money</span></td><td>심사 없이 흘러드는 자금. 자본시장이 지나치게 관대할 때 생기고, 우둔한 금융으로 이어진다.</td><td class="n dim">174</td><td><a href="liquidity.html">미국 유동성</a></td></tr><tr id="g-니프티-피프티"><td><b>니프티 피프티</b><br><span class="dim">Nifty Fifty</span></td><td>1960~70년대 미국의 「가격은 중요하지 않다」 우량주 50개. 막스가 22살에 직접 겪은 첫 거품이다.</td><td class="n dim">272~274, 380, 398</td><td><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리</a></td></tr><tr class="grp" id="grp-ㄷ"><td colspan="4">ㄷ</td></tr><tr id="g-대물-채권"><td><b>대물 채권</b><br><span class="dim">payment-in-kind bond</span></td><td>이자를 돈이 아니라 채권으로 주는 채권. 신용 창구가 활짝 열렸을 때만 팔리는 상품이다.</td><td class="n dim">206</td><td>없다</td></tr><tr id="g-대안-투자"><td><b>대안 투자</b><br><span class="dim">alternative investment</span></td><td>주식·채권 밖의 투자. 막스가 일한 부실채권·하이일드가 여기 속한다.</td><td class="n dim">377</td><td>없다</td></tr><tr id="g-떨어지는-칼날"><td><b>떨어지는 칼날</b><br><span class="dim">falling knife</span></td><td>내리는 중인 자산을 사지 말라는 격언. 막스는 그 속마음을 「손실을 볼까 봐 무섭다」로 옮기고, 미끄러지는 동안만 대량으로 살 수 있다고 반박한다.</td><td class="n dim">21, 219, 232, 278, 319</td><td><a href="deleveraging.html">강제청산</a></td></tr><tr class="grp" id="grp-ㄹ"><td colspan="4">ㄹ</td></tr><tr id="g-레버리지"><td><b>레버리지</b><br><span class="dim">leverage</span></td><td>빌린 돈이나 고정비로 결과를 키우는 것. 오를 때 두 배, 내릴 때도 두 배다.</td><td class="n dim">119</td><td><a href="sentiment.html">빚과 현금</a></td></tr><tr id="g-롤오버"><td><b>롤오버</b><br><span class="dim">roll over</span></td><td>만기가 온 빚을 갚지 않고 새로 빌려 연장하는 것. 창구가 닫히면 롤오버가 안 되고, 그때 건실한 회사도 부도가 난다.</td><td class="n dim">198, 199</td><td>없다</td></tr><tr id="g-리드타임"><td><b>리드타임</b><br><span class="dim">lead time</span></td><td>결정에서 결과까지 걸리는 시간. 부동산은 착공에서 완공까지 몇 년이라 호황에 시작한 건물이 불황에 나온다. 반도체 공장도 같다.</td><td class="n dim">240, 244</td><td><a href="memory-price.html">D램 가격과 삼성전자</a></td></tr><tr id="g-리스크"><td><b>리스크</b><br><span class="dim">risk</span></td><td>자본을 영구히 잃을 가능성. 변동성이 아니다. 「일어날 일보다 더 많은 일이 일어날 수 있다」(딤슨).</td><td class="n dim">31, 151~155, 171, 191, 209, 307, 411~414</td><td>없다</td></tr><tr id="g-리스크-프리미엄"><td><b>리스크 프리미엄</b><br><span class="dim">risk premium</span></td><td>위험을 지는 대가로 요구하는 웃돈. 호황이면 요구가 줄고 바닥이면 커진다. 그 변화가 곧 리스크에 대한 태도다.</td><td class="n dim">160~164, 298, 412</td><td><a href="credit-spread.html">신용스프레드와 코스피</a></td></tr><tr id="g-리스크에-대한-태도"><td><b>리스크에 대한 태도</b><br><span class="dim">attitude toward risk</span></td><td>투자자들이 위험을 얼마나 편안하게 느끼는가. 막스가 이 책에서 가장 중요하다고 한 것. 위험은 낮다고 느낄 때 높다.</td><td class="n dim">165, 166</td><td><a href="credit-spread.html">신용스프레드와 코스피</a> · <a href="sentiment.html">빚과 현금</a></td></tr><tr class="grp" id="grp-ㅁ"><td colspan="4">ㅁ</td></tr><tr id="g-마지막-바보"><td><b>마지막 바보</b><br><span class="dim">the last fool</span></td><td>항복하고 무리에 합류한 마지막 사람. 그 뒤에는 동조할 사람이 없어 그가 고점(또는 바닥)을 만든다.</td><td class="n dim">384</td><td><a href="flow-extremes.html">개인과 외국인의 대량 매매</a></td></tr><tr id="g-마진콜"><td><b>마진콜</b><br><span class="dim">margin call</span></td><td>빌려서 산 자산이 내려 증거금을 더 넣으라는 요구. 못 넣으면 강제로 팔린다. 하락 구간을 견디지 못하게 하는 장치다.</td><td class="n dim">185</td><td><a href="deleveraging.html">강제청산</a></td></tr><tr id="g-매파"><td><b>매파</b><br><span class="dim">hawks</span></td><td>물가를 잡으려 금리를 올리자는 쪽. 비둘기파의 반대.</td><td class="n dim">107</td><td><a href="fed-kospi.html">연준 기준금리와 코스피</a></td></tr><tr id="g-멈추지-않는-영구-기관"><td><b>멈추지 않는 영구 기관</b><br><span class="dim">perpetual motion machine</span></td><td>「영원히 오른다」는 믿음의 별명. 거품의 필수 요소다.</td><td class="n dim">299</td><td>없다</td></tr><tr class="grp" id="grp-ㅂ"><td colspan="4">ㅂ</td></tr><tr id="g-바닥을-향한-경주"><td><b>바닥을 향한 경주</b><br><span class="dim">race to the bottom</span></td><td>자본을 대려는 쪽이 서로 경쟁해 조건을 낮추는 것. 시장은 경매장이라 가장 느슨한 조건을 받아들이는 쪽이 이기고, 그 승자가 실제로는 패자다.</td><td class="n dim">173~230</td><td><a href="liquidity.html">미국 유동성</a></td></tr><tr id="g-바이아웃-펀드"><td><b>바이아웃 펀드</b><br><span class="dim">buyout fund</span></td><td>빚을 내 회사를 통째로 사는 펀드. 신용 창구가 열릴 때 커지고 닫힐 때 무너진다.</td><td class="n dim">219, 289</td><td>없다</td></tr><tr id="g-밸류에이션"><td><b>밸류에이션</b><br><span class="dim">valuation</span></td><td>자산의 값어치를 매기는 것. 심리의 시계추와 함께 사이클의 위치를 말해 주는 둘 중 하나다.</td><td class="n dim">171, 288, 294~301, 310, 314, 376, 423, 424</td><td><a href="jeoji-kospi.html">제오지산수</a></td></tr><tr id="g-베타"><td><b>베타</b><br><span class="dim">beta</span></td><td>시장이 움직일 때 포트폴리오가 얼마나 따라 움직이는가. 사이클 포지셔닝은 이 값을 올리고 내리는 일이다.</td><td class="n dim">338, 341, 342</td><td>없다</td></tr><tr id="g-변동비"><td><b>변동비</b><br><span class="dim">variable cost</span></td><td>매출과 함께 움직이는 비용. 고정비와 짝을 이뤄 영업 레버리지를 정한다.</td><td class="n dim">119</td><td>없다</td></tr><tr id="g-부실채권-펀드"><td><b>부실채권 펀드</b><br><span class="dim">distressed debt fund</span></td><td>갚지 못하게 된 회사의 채권을 헐값에 사는 펀드. 막스의 본업이고, 「좋은 회사, 나쁜 대차대조표」를 찾는다.</td><td class="n dim">384</td><td>없다</td></tr><tr id="g-블루칩"><td><b>블루칩</b><br><span class="dim">blue chip</span></td><td>크고 오래된 우량주. 니프티 피프티가 보여 주듯 우량주도 값이 너무 비싸면 나쁜 투자가 된다.</td><td class="n dim">374, 390</td><td>없다</td></tr><tr id="g-비둘기파"><td><b>비둘기파</b><br><span class="dim">doves</span></td><td>경기를 살리려 금리를 내리자는 쪽. 매파의 반대.</td><td class="n dim">108, 308</td><td><a href="fed-kospi.html">연준 기준금리와 코스피</a></td></tr><tr id="g-비용-상승-인플레이션"><td><b>비용 상승 인플레이션</b><br><span class="dim">cost-push inflation</span></td><td>원자재·임금 같은 비용이 올라 물가가 오르는 것. 수요 견인의 반대.</td><td class="n dim">107</td><td>없다</td></tr><tr class="grp" id="grp-ㅅ"><td colspan="4">ㅅ</td></tr><tr id="g-사모펀드"><td><b>사모펀드</b><br><span class="dim">private equity fund</span></td><td>공개 시장 밖에서 돈을 모아 회사를 사는 펀드.</td><td class="n dim">203</td><td>없다</td></tr><tr id="g-사이클"><td><b>사이클</b><br><span class="dim">cycle</span></td><td>장기 추세 둘레를 오르내리는 움직임. 시작도 끝도 없고, 평균에서 멈추지 않으며, 사건이 다음 사건을 일으킨다.</td><td class="n dim">14~16, 46, 56, 234</td><td><a href="methodology.html">이야기꾼의 방법론</a></td></tr><tr id="g-사이클-포지셔닝"><td><b>사이클 포지셔닝</b><br><span class="dim">cycle positioning</span></td><td>사이클의 위치를 판단해 공격과 방어의 비중을 조정하는 것. 자산 선택과 함께 포트폴리오를 관리하는 두 수단 중 하나다.</td><td class="n dim">337~358, 425</td><td><a href="bottom-top.html">바닥·천장 추적 분석</a></td></tr><tr id="g-사이클의-본질"><td><b>사이클의 본질</b><br><span class="dim">nature of cycles</span></td><td>세부는 매번 다르지만 기저의 주제는 반복된다는 것. 과도한 낙관, 위험회피의 결여, 관대한 자본시장.</td><td class="n dim">58</td><td>없다</td></tr><tr id="g-사이클의-지나친-상승-및-하락"><td><b>사이클의 지나친 상승 및 하락</b><br><span class="dim">excesses of cycles</span></td><td>중간을 지나 반대 극단까지 가는 것. 멀리 갈수록 되돌림이 격렬하다.</td><td class="n dim">130</td><td><a href="kospi-analog.html">닮은 과거</a></td></tr><tr id="g-서브프라임-모기지"><td><b>서브프라임 모기지</b><br><span class="dim">subprime mortgages</span></td><td>갚을 능력이 낮은 사람에게 준 주택담보대출. 2008년 위기의 장작이었다.</td><td class="n dim">61, 182, 211~315</td><td>없다</td></tr><tr id="g-세테리스-파리부스"><td><b>세테리스 파리부스</b><br><span class="dim">ceteris paribus</span></td><td>「다른 조건이 같다면」. 같은 펀더멘털이라도 투자자가 두려워하면 전망은 좋아지고 도취하면 나빠진다는 문장에 쓴다.</td><td class="n dim">39</td><td>없다</td></tr><tr id="g-수요-견인-인플레이션"><td><b>수요 견인 인플레이션</b><br><span class="dim">demand-pull inflation</span></td><td>수요가 공급보다 많아 물가가 오르는 것.</td><td class="n dim">107</td><td>없다</td></tr><tr id="g-시가평가제"><td><b>시가평가제</b><br><span class="dim">mark-to-market</span></td><td>보유 자산을 장부값이 아니라 지금 시장값으로 적는 것. 하락기에 손실이 곧바로 드러나 항복을 부른다.</td><td class="n dim">323</td><td>없다</td></tr><tr id="g-시계추"><td><b>시계추</b><br><span class="dim">pendulum</span></td><td>심리가 한 극단에서 다른 극단으로 흔들리는 모습. 중간에 잠깐만 머문다. 옆으로 눕히면 사이클이 된다.</td><td class="n dim">46, 128, 130, 181, 191, 405, 409, 410</td><td><a href="sentiment-daily.html">투자심리 3종</a></td></tr><tr id="g-신용"><td><b>신용</b><br><span class="dim">credit</span></td><td>빌리고 빌려주는 것. 막스는 신용 가용성의 변화를 경제·기업·시장에 미치는 가장 기본적인 영향력으로 꼽는다.</td><td class="n dim">196</td><td><a href="liquidity.html">미국 유동성</a></td></tr><tr id="g-신용-가용성-사이클"><td><b>신용 가용성 사이클</b><br><span class="dim">credit availability cycle</span></td><td>돈을 빌릴 수 있는 정도가 오르내리는 것. 신용 사이클과 같은 말이다.</td><td class="n dim">56</td><td>없다</td></tr><tr id="g-신용-사이클"><td><b>신용 사이클</b><br><span class="dim">credit cycle</span></td><td>대출 창구가 열렸다 닫히는 순환. 호황 → 잘못된 대출 → 손실 → 대출 중단 → 회복. 창구는 순식간에 닫힌다.</td><td class="n dim">196</td><td><a href="credit-spread.html">신용스프레드와 코스피</a></td></tr><tr id="g-심리"><td><b>심리</b><br><span class="dim">psychology</span></td><td>투자자의 마음. 막스는 시장 움직임의 대부분을 여기서 찾는다.</td><td class="n dim">93, 127, 209</td><td><a href="psychology.html">투자심리</a></td></tr><tr id="g-심리-사이클"><td><b>심리 사이클</b><br><span class="dim">psychological cycle</span></td><td>심리가 낙관과 비관 사이를 오가는 순환. 시계추의 다른 이름이다.</td><td class="n dim">128</td><td>없다</td></tr><tr id="g-쌍둥이-위험"><td><b>쌍둥이 위험</b><br><span class="dim">twin risks</span></td><td>돈을 잃을 위험과 기회를 놓칠 위험. 둘 다 위험이고, 어느 쪽을 더 걱정할지가 곧 포지셔닝이다.</td><td class="n dim">327</td><td>없다</td></tr><tr id="g-썰물"><td><b>썰물</b><br><span class="dim">ebb tide</span></td><td>버핏의 말로 썰물이 돼야 누가 벌거벗고 헤엄쳤는지 안다. 신용이 빠질 때 드러나는 것.</td><td class="n dim">268</td><td><a href="deleveraging.html">강제청산</a></td></tr><tr class="grp" id="grp-ㅇ"><td colspan="4">ㅇ</td></tr><tr id="g-안전마진"><td><b>안전마진</b><br><span class="dim">margin of safety</span></td><td>틀려도 견딜 여유. 값이 값어치보다 충분히 쌀 때 생기고, 호황에는 아무도 요구하지 않는다.</td><td class="n dim">157</td><td>없다</td></tr><tr id="g-알파"><td><b>알파</b><br><span class="dim">alpha</span></td><td>시장이 준 것이 아니라 기술로 더한 수익. 사이클 포지셔닝에서는 위치를 옳게 판단한 것이 알파다.</td><td class="n dim">338, 342, 351, 425</td><td>없다</td></tr><tr id="g-약세장"><td><b>약세장</b><br><span class="dim">bear market</span></td><td>내리는 시장. 강세장의 거울이고, 마지막 낙관주의자가 패배를 인정할 때 바닥이 온다.</td><td class="n dim">266</td><td><a href="stage-analysis.html">와인스타인 스테이지</a></td></tr><tr id="g-업틱룰"><td><b>업틱룰</b><br><span class="dim">uptick rule</span></td><td>주가가 오른 뒤에만 공매도를 허용하던 규칙. 규제가 사이클을 만드는 예로 나온다.</td><td class="n dim">172</td><td>없다</td></tr><tr id="g-영업-레버리지"><td><b>영업 레버리지</b><br><span class="dim">operating leverage</span></td><td>고정비 때문에 매출 변화가 이익 변화로 확대되는 것. 반도체처럼 공장이 큰 산업에서 크다.</td><td class="n dim">119~121, 197</td><td><a href="memory-price.html">D램 가격과 삼성전자</a></td></tr><tr id="g-우선순위부채"><td><b>우선순위부채</b><br><span class="dim">senior debt</span></td><td>갚을 순서가 앞선 빚. 부실채권 투자가 가장 먼저 보는 자리다.</td><td class="n dim">330</td><td>없다</td></tr><tr id="g-위험수용도"><td><b>위험수용도</b><br><span class="dim">risk tolerance</span></td><td>위험을 얼마나 받아들이는가. 고점에서 한계가 없어 보이고 바닥에서 전혀 없다.</td><td class="n dim">164, 341</td><td>없다</td></tr><tr id="g-위험회피"><td><b>위험회피</b><br><span class="dim">risk aversion</span></td><td>위험을 피하려는 성향. 안전한 시장의 필수 요소이고, 호황에 사라지고 바닥에 극단으로 간다.</td><td class="n dim">165</td><td><a href="credit-spread.html">신용스프레드와 코스피</a></td></tr><tr id="g-은으로-만든-총알"><td><b>은으로 만든 총알</b><br><span class="dim">silver bullet</span></td><td>한 방에 모든 것을 해결해 준다는 상품이나 전략. 그런 것은 없다는 뜻으로 쓴다.</td><td class="n dim">309</td><td>없다</td></tr><tr id="g-의사결정-과정"><td><b>의사결정 과정</b><br><span class="dim">decision-making process</span></td><td>투자자가 결정을 내리는 길. 감정이 끼어들어 과학적이지 않다.</td><td class="n dim">93</td><td>없다</td></tr><tr id="g-인플레이션-관리"><td><b>인플레이션 관리</b><br><span class="dim">inflation management</span></td><td>중앙은행이 물가를 다루는 일. 금리와 유동성 사이클의 원인이다.</td><td class="n dim">106</td><td><a href="fed-kospi.html">연준 기준금리와 코스피</a></td></tr><tr class="grp" id="grp-ㅈ"><td colspan="4">ㅈ</td></tr><tr id="g-자본"><td><b>자본</b><br><span class="dim">capital</span></td><td>투자에 쓰이는 돈. 자본의 가용성이 곧 신용 사이클이다.</td><td class="n dim">196</td><td>없다</td></tr><tr id="g-자산-선택"><td><b>자산 선택</b><br><span class="dim">asset selection</span></td><td>어느 시장·업종·종목을 더 갖고 덜 가질지 정하는 것. 사이클 포지셔닝과 함께 포트폴리오 관리의 두 수단.</td><td class="n dim">21, 337~352, 425</td><td><a href="audition.html">오디션 피라미딩</a></td></tr><tr id="g-장기-추세"><td><b>장기 추세</b><br><span class="dim">secular trend</span></td><td>사이클이 둘레를 오르내리는 가운데 선. 경제는 이 선에서 몇 %p 벗어날 뿐이다.</td><td class="n dim">47~97</td><td>없다</td></tr><tr id="g-재귀-이론"><td><b>재귀 이론</b><br><span class="dim">theory of reflexivity</span></td><td>소로스의 말로 투자자의 믿음이 현실을 바꾸고 바뀐 현실이 다시 믿음을 키우는 것. 사건이 사건을 일으킨다는 막스의 말과 같은 자리다.</td><td class="n dim">312</td><td>없다</td></tr><tr id="g-재무-레버리지"><td><b>재무 레버리지</b><br><span class="dim">financial leverage</span></td><td>빚 때문에 영업이익 변화가 순이익 변화로 확대되는 것. 영업이익 −33%가 순이익 −67%가 된다.</td><td class="n dim">120, 121, 197</td><td><a href="sentiment.html">빚과 현금</a></td></tr><tr id="g-정크-본드"><td><b>정크 본드</b><br><span class="dim">junk bond</span></td><td>투자등급 아래 채권. 하이일드 채권의 옛 이름. 밀컨의 시장이었다.</td><td class="n dim">383</td><td>없다</td></tr><tr id="g-주식의-죽음"><td><b>주식의 죽음</b><br><span class="dim">the death of equities</span></td><td>1979년 『비즈니스 위크』 표지. 비관의 극단이 바닥이었다는 예.</td><td class="n dim">83</td><td>없다</td></tr><tr id="g-주택담보대출유동화증권"><td><b>주택담보대출유동화증권</b><br><span class="dim">mortgage-backed securities</span></td><td>주택담보대출을 묶어 만든 증권. 2008년 위기의 도구.</td><td class="n dim">182, 212, 305, 313</td><td>없다</td></tr><tr id="g-준고정비"><td><b>준고정비</b><br><span class="dim">semi-fixed cost</span></td><td>단기에는 고정이지만 시간이 지나면 줄일 수 있는 비용.</td><td class="n dim">119</td><td>없다</td></tr><tr id="g-중도"><td><b>중도</b><br><span class="dim">happy medium</span></td><td>사이클의 가운데. 옳고 건강한 자리지만 시장은 거기 오래 머물지 않는다.</td><td class="n dim">51, 129, 131, 133, 138, 168, 170, 208, 405, 410</td><td>없다</td></tr><tr class="grp" id="grp-ㅊ"><td colspan="4">ㅊ</td></tr><tr id="g-차익거래"><td><b>차익거래</b><br><span class="dim">arbitrage</span></td><td>같은 것의 값 차이를 이용하는 거래. 막스가 초기에 다룬 전환사채 차익거래.</td><td class="n dim">375</td><td>없다</td></tr><tr id="g-차입매수"><td><b>차입매수</b><br><span class="dim">leveraged buyout</span></td><td>빚을 내 회사를 사는 것. 창구가 열릴 때 늘고 닫힐 때 부도가 난다.</td><td class="n dim">325</td><td>없다</td></tr><tr id="g-채권"><td><b>채권</b><br><span class="dim">bond</span></td><td>정해진 이자를 받는 증권. 확정이자부 증권.</td><td class="n dim">121</td><td><a href="rates-101.html">금리 기초</a></td></tr><tr id="g-채권자의-권리"><td><b>채권자의 권리</b><br><span class="dim">creditor's claim</span></td><td>갚지 못하면 자산을 가져갈 권리. 부실채권 투자의 근거.</td><td class="n dim">228</td><td>없다</td></tr><tr id="g-채무불이행"><td><b>채무불이행</b><br><span class="dim">default</span></td><td>빚을 못 갚는 것. 발행 2년째 부도 규칙처럼 「규칙」이 사이클에 따라 생기고 사라진다.</td><td class="n dim">199</td><td><a href="credit-spread.html">신용스프레드와 코스피</a></td></tr><tr class="grp" id="grp-ㅌ"><td colspan="4">ㅌ</td></tr><tr id="g-타이밍"><td><b>타이밍</b><br><span class="dim">timing</span></td><td>언제 사고 파는가. 막스는 극단에서만 맞힐 수 있고 자주 맞히려는 것은 약삭빠른 행동이라 한다.</td><td class="n dim">337, 383</td><td>없다</td></tr><tr id="g-토글-채권"><td><b>토글 채권</b><br><span class="dim">toggle bond</span></td><td>이자를 현금이나 추가 채권 중에서 골라 줄 수 있는 채권. 창구가 활짝 열린 시기의 상품.</td><td class="n dim">206</td><td>없다</td></tr><tr id="g-투자"><td><b>투자</b><br><span class="dim">investing</span></td><td>미래에 대비해 지금 포트폴리오를 만드는 일.</td><td class="n dim">27, 151, 152</td><td>없다</td></tr><tr id="g-투자자-항복"><td><b>투자자 항복</b><br><span class="dim">investor capitulation</span></td><td>버티던 사람이 포기하고 무리에 합류하는 것. 마지막 항복자가 고점과 바닥을 만든다.</td><td class="n dim">60</td><td><a href="sentiment.html">빚과 현금</a></td></tr><tr id="g-투자환경"><td><b>투자환경</b><br><span class="dim">investment environment</span></td><td>투자자들이 리스크를 대하는 태도가 만든 지금의 조건. 그 상태가 그 시점의 대응을 정한다.</td><td class="n dim">152~158</td><td>없다</td></tr><tr id="g-트랑슈"><td><b>트랑슈</b><br><span class="dim">tranche</span></td><td>한 증권을 갚을 순서대로 자른 조각. 서브프라임 증권화의 부품.</td><td class="n dim">212</td><td>없다</td></tr><tr class="grp" id="grp-ㅍ"><td colspan="4">ㅍ</td></tr><tr id="g-패턴"><td><b>패턴</b><br><span class="dim">pattern</span></td><td>반복되는 모양. 세부는 다르고 흐름은 반복된다. 사이클을 듣는다는 것은 패턴을 알아보는 것이다.</td><td class="n dim">13~418</td><td><a href="kospi-analog.html">닮은 과거</a></td></tr><tr id="g-펀더멘털"><td><b>펀더멘털</b><br><span class="dim">fundamentals</span></td><td>경제·기업의 실제 상태. 가격은 이것보다 크게 움직이고, 그 차이가 심리다.</td><td class="n dim">29~422</td><td>없다</td></tr><tr id="g-평균을-향한-회귀"><td><b>평균을 향한 회귀</b><br><span class="dim">regression to the mean</span></td><td>극단에서 중간으로 돌아오는 힘. 강하지만 이야기의 절반이다. 시장은 중간을 지나 반대 극단으로 간다.</td><td class="n dim">51, 406</td><td><a href="jeoji-kospi.html">제오지산수</a></td></tr><tr id="g-포지션-조정"><td><b>포지션 조정</b><br><span class="dim">position adjustment</span></td><td>공격과 방어 사이에서 비중을 바꾸는 것. 이 책의 키워드 「조정」.</td><td class="n dim">30</td><td><a href="audition.html">오디션 피라미딩</a></td></tr><tr class="grp" id="grp-ㅎ"><td colspan="4">ㅎ</td></tr><tr id="g-하이일드-채권"><td><b>하이일드 채권</b><br><span class="dim">high-yield bond</span></td><td>이자가 높은 대신 부도 위험이 큰 채권. 그 수익률 스프레드가 리스크에 대한 태도의 온도계다.</td><td class="n dim">73, 74, 156, 219, 230, 325, 383</td><td><a href="us-credit-spread.html">미국 신용스프레드</a></td></tr><tr id="g-한계-소비-성향"><td><b>한계 소비 성향</b><br><span class="dim">marginal propensity to consume</span></td><td>소득이 늘 때 소비가 늘어나는 비율. 경제 사이클의 부품.</td><td class="n dim">94</td><td>없다</td></tr><tr id="g-확정이자부-증권"><td><b>확정이자부 증권</b><br><span class="dim">fixed income securities</span></td><td>채권처럼 이자가 정해진 증권. 채권자는 선순위라 결과가 고정되고 주주가 변동을 다 겪는다.</td><td class="n dim">121</td><td>없다</td></tr><tr id="g-확증-편향"><td><b>확증 편향</b><br><span class="dim">confirmation bias</span></td><td>믿는 것과 맞는 증거만 보는 성향. 고점에서 나쁜 소식을 간과하고 바닥에서 좋은 소식을 잊는다.</td><td class="n dim">264</td><td>없다</td></tr><tr id="g-활짝-열리고-쾅-닫힌다"><td><b>활짝 열리고 쾅 닫힌다</b><br><span class="dim">opens wide, slams shut</span></td><td>대출 창구의 성질. 경제는 조금 움직이고 이익은 꽤 움직이는데 창구는 이렇게 움직인다.</td><td class="n dim">196</td><td><a href="liquidity.html">미국 유동성</a></td></tr>
 </tbody></table></div>
 
-<div class="explain">
-<b>이건 옳고 그름의 문제가 아니라 정보량의 차이다.</b>
-미너비니는 국면을 모르는 상태로 들어가므로 <b>차트가 증명할 때까지</b> 기다리고, 대신 손절을 촘촘히 건다.
-이야기꾼은 거시경제로 국면을 먼저 잡으므로 <b>한 박자 먼저</b> 들어갈 수 있다.
-본인 추정으로 그 차이는 <b>10% 정도</b>다.
-<br><br>
-그래서 실전에서 갈리는 기준은 이렇다 —
-<b>내가 거시경제를 실제로 읽고 있는가.</b> 읽지 않으면서 첫 베이스부터 들어가는 것은
-이야기꾼의 방법이 아니라 <b>그냥 성급한 매수</b>다. 그 경우엔 미너비니 쪽이 맞다.
-</div>
+<h2 style="margin-top:44px">막스가 따옴표를 친 자기 표현</h2>
+<p>메모 제목과 말버릇이다. 찾아보기에 따옴표째 실려 있어 개념어와 따로 두었다.</p>
+<div class="tblwrap"><table class="gl"><thead><tr><th style="width:26%">표현</th><th>무엇인가</th><th style="width:14%">종이책 쪽</th></tr></thead><tbody>
+<tr><td><b>'또다시?'</b><br><span class="dim">There They Go Again... Again</span></td><td>2017년 9월 메모. 「싸게 샀을 때는 공격적으로, 비싸게 샀을 때는 후퇴」가 여기 나온다.</td><td class="n dim">30, 404</td></tr><tr><td><b>'예측할 수는 없지만 대비할 수는 있다'</b><br><span class="dim">You Can't Predict. You Can Prepare.</span></td><td>이 책의 태도 한 줄. 이 사이트의 「전망 대신 예상」 규칙과 같다.</td><td class="n dim">58, 197, 200, 203, 208</td></tr><tr><td><b>'소극적인 태도의 한계'</b><br><span class="dim">The Limits to Negativism</span></td><td>2008년 10월 메모. 상황이 더 나빠질 수 없다고 모두가 확신할 때가 매수의 자리라는 것.</td><td class="n dim">189, 316, 318</td></tr><tr><td><b>'이번엔 다를까?'</b><br><span class="dim">Will It Be Different This Time?</span></td><td>1996년 메모. 「이번에는 다르다」가 비즈니스에서 가장 위험한 문장이라는 것.</td><td class="n dim">389, 393</td></tr><tr><td><b>'이제 모두 나쁜가?'</b><br><span class="dim">Is It All Bad Now?</span></td><td>나쁜 소식이 쏟아질 때 좋은 것까지 나쁘게 읽지 말라는 메모.</td><td class="n dim">50</td></tr><tr><td><b>'지금은 다 나쁜가?'</b><br><span class="dim">It's All Bad Now?</span></td><td>위와 짝. 비관의 극단에서 던지는 질문.</td><td class="n dim">307</td></tr><tr><td><b>'만사형통'·'모두 알고 있다'·'이번엔 또 뭐지?'</b><br><span class="dim"></span></td><td>낙관의 극단에 나오는 말들. 시장이 「모두 알고 있다」고 할 때 가격에 낙관이 다 들어 있다.</td><td class="n dim">148</td></tr><tr><td><b>'문제가 없다'</b><br><span class="dim">no problem</span></td><td>고점의 말. 위험이 없다는 믿음이 위험의 가장 큰 원인이다.</td><td class="n dim">129</td></tr><tr><td><b>'리스크가 다시 찾아왔다'</b><br><span class="dim">The Return of Risk</span></td><td>위기 뒤 리스크 프리미엄이 돌아왔음을 적은 메모.</td><td class="n dim">32</td></tr><tr><td><b>'딱 들어맞는 사례'</b><br><span class="dim">the perfect example</span></td><td>사이클을 설명하는 실제 사례 하나를 고를 때 쓰는 말.</td><td class="n dim">375</td></tr><tr><td><b>'천재는 충분하지 않다'</b><br><span class="dim">Genius Isn't Enough</span></td><td>1998년 LTCM 메모. 똑똑함이 레버리지와 확신을 못 이긴다는 것.</td><td class="n dim">207</td></tr><tr><td><b>'상동'</b><br><span class="dim">Ditto</span></td><td>2013년 1월 메모. 부동산 개발 사이클이 매번 같은 순서로 되풀이된다는 것.</td><td class="n dim">241</td></tr>
+</tbody></table></div>
 
-<div class="explain" style="border-top:1px solid var(--border);padding-top:16px">
-이 페이지는 <b>마크 미너비니</b>의 매매 원칙을 요약한 것이다. 원문을 옮기지 않았고,
-수치와 설명은 이해를 돕기 위해 다시 썼다. 더 정확한 내용은 저자의 저작을 직접 참고하시기 바란다.
-<br><br>
-비교 대상인 이야기꾼 방법론의 근거는 <a href="methodology.html">방법론</a> 하단에 있다.
-</div>
-
+<h2 style="margin-top:44px">출처</h2>
+<p>하워드 막스, 『투자와 마켓 사이클의 법칙』(이주영 옮김, 홍춘욱 감수, 비즈니스북스, 2018) 찾아보기. 낱말과 쪽수만 옮겼고 뜻풀이는 이 사이트의 말이다.
+같은 책의 방법론은 <a href="marks.html">하워드 막스의 사이클 방법론</a>에, 이 사이트의 다른 용어는 각 페이지 아래 「용어 설명」에 있다.</p>
 </div>
 <footer>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.
     · 근거: 이야기꾼 주간 시투 보고서(W36·2026-09-05) 및 자체 실측.</footer>
