@@ -296,8 +296,20 @@ a.card:focus-visible,.lst-i:focus-visible{
   .wrap{padding-left:18px!important;padding-right:18px!important}
   .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
 }
-/* LAYOUT:END */
-/* BAR:BEGIN */
+/* LAYOUT:END *//*NAVCSS:BEGIN*/
+/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
+.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
+  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
+/* 아카이브 중메뉴 소제목 — 주기 라벨과 같은 .nav-h 를 쓰되 묶음 사이를 실선으로 끊는다 */
+.site-dd .nav-h.sub,.md .nav-h.sub{margin-top:6px;padding-top:9px;
+  border-top:1px solid var(--border,rgba(0,0,0,.1))}
+.site-dd .nav-h+.nav-h.sub,.md .nav-h+.nav-h.sub{margin-top:0;padding-top:4px;border-top:0}
+.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
+  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
+  background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+/*NAVCSS:END*//* BAR:BEGIN */
 /* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
    flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
 html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
@@ -414,20 +426,7 @@ table{width:100%}
 h2{margin-top:52px;font-size:23px;letter-spacing:-.02em;padding-bottom:8px;border-bottom:2px solid var(--border)}
 h3{letter-spacing:-.015em}
 .sub{max-width:none}
-/*NAVCSS:BEGIN*/
-/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
-.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
-  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
-/* 아카이브 중메뉴 소제목 — 주기 라벨과 같은 .nav-h 를 쓰되 묶음 사이를 실선으로 끊는다 */
-.site-dd .nav-h.sub,.md .nav-h.sub{margin-top:6px;padding-top:9px;
-  border-top:1px solid var(--border,rgba(0,0,0,.1))}
-.site-dd .nav-h+.nav-h.sub,.md .nav-h+.nav-h.sub{margin-top:0;padding-top:4px;border-top:0}
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/*NAVCSS:END*//*TOCCSS:BEGIN*/
+/*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
 /* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
@@ -761,8 +760,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 <header class="phead"><!--phead:unified--><div class="eyebrow">방법론 · Mark Minervini</div>
 <h1>마크 미너비니의 매매 원칙</h1>
-<p class="pauth">마크 미너비니 매매 원칙 · 고정 자료 · 시장 데이터로 갱신되지 않는다</p>
-<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>미너비니와 이야기꾼은 거의 같은 것을 다르게 부른다. 갈리는 곳은 한 곳이다. 이야기꾼은 거시경제를 5원칙의 1번에 두고 미너비니는 보지 않는다. 손실을 막는 방식도 다르다. 미너비니는 손절선을 올려서 지키고 이야기꾼은 비중을 줄여서 지킨다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#sepa의-다섯-요소">SEPA의 다섯 요소</a></li><li><a href="#리스크-우선-출구를-먼저-정한다">리스크 우선: 출구를 먼저 정한다</a></li><li><a href="#무엇을-살지-2단계와-추세-템플릿">무엇을 살지: 2단계와 추세 템플릿</a></li><li><a href="#펀더멘털-실적의-크기보다-가속">펀더멘털: 실적의 크기보다 가속</a></li><li><a href="#주도주와-산업군">주도주와 산업군</a></li><li><a href="#얼마나-살지-포지션-사이징">얼마나 살지: 포지션 사이징</a></li><li><a href="#언제-팔지">언제 팔지</a></li><li><a href="#이야기꾼과-갈리는-한-곳">이야기꾼과 갈리는 한 곳</a></li></ol></div><!--TOC:END--></header>
+<p class="pauth">마크 미너비니 매매 원칙 · 고정 자료 · 시장 데이터로 갱신되지 않는다</p><!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>미너비니와 이야기꾼은 거의 같은 것을 다르게 부른다. 갈리는 곳은 한 곳이다. 이야기꾼은 거시경제를 5원칙의 1번에 두고 미너비니는 보지 않는다. 손실을 막는 방식도 다르다. 미너비니는 손절선을 올려서 지키고 이야기꾼은 비중을 줄여서 지킨다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#sepa의-다섯-요소">SEPA의 다섯 요소</a></li><li><a href="#리스크-우선-출구를-먼저-정한다">리스크 우선: 출구를 먼저 정한다</a></li><li><a href="#무엇을-살지-2단계와-추세-템플릿">무엇을 살지: 2단계와 추세 템플릿</a></li><li><a href="#펀더멘털-실적의-크기보다-가속">펀더멘털: 실적의 크기보다 가속</a></li><li><a href="#주도주와-산업군">주도주와 산업군</a></li><li><a href="#얼마나-살지-포지션-사이징">얼마나 살지: 포지션 사이징</a></li><li><a href="#언제-팔지">언제 팔지</a></li><li><a href="#이야기꾼과-갈리는-한-곳">이야기꾼과 갈리는 한 곳</a></li></ol></div><!--TOC:END--></header>
 <div class="sub">『초수익 성장주 투자』의 SEPA를 종목 검색부터 매수·손절까지 한 흐름으로 정리했다.
 <a href="methodology.html">이야기꾼의 방법론</a>이 시장 국면을 고르는 앞단이라면, SEPA는 그 국면에서 가장 강한 성장주와 정확한 진입점을 고르는 뒷단이다.</div>
 
@@ -799,11 +797,11 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <tr><td><b>−50%</b></td><td><b>+100%</b></td></tr>
 </tbody></table></div>
 <div class="explain">
-그래서 한 종목의 손실은 대체로 <b>한 자릿수</b>에서 끊는다. 10%는 목표가 아니라 넘기지 말아야 할 바깥 경계다. 정확한 피벗에서 샀다면 보통 그보다 작은 손실로도 가설이 틀렸음을 알 수 있다.
+그래서 한 종목의 손실은 대체로 <b>한 자릿수</b>에서 끊는다. 10%는 목표가 아니라 넘기지 말아야 할 바깥 경계다. 정확한 피벗에서 샀다면 보통 그보다 작은 손실로도 가설이 틀렸음을 알 수 있다. 손절하고 나서 바로 반등하면 바보처럼 느껴지지만, 그 헛손절은 위험 관리의 비용이다. 손절하지 않아 큰 손실을 겪는 한 번이 작은 헛손절 여러 번보다 치명적이다(12장).
 <br><br>
 이야기꾼의 <a href="methodology.html">3개의 선</a>이 같은 일을 다른 방식으로 한다.
 미너비니는 <b>가격 %</b>로 자르고, 이야기꾼은 <b>이동평균선</b>으로 자른다.
-%는 종목마다 변동성이 달라도 같은 기준을 대는 것이고, 이동평균선은 종목의 성격에 따라 기준선 자체가 움직이다.
+%는 종목마다 변동성이 달라도 같은 기준을 대는 것이고, 이동평균선은 종목의 성격에 따라 기준선 자체가 움직인다.
 </div>
 
 <div class="scn"><svg viewBox="0 0 1100 300" role="img" aria-label="손실률별 본전 복구에 필요한 수익률"><text class="ttl" x="0" y="16">손실이 커질수록 복구는 기하급수로 어려워진다</text><text class="cap" x="0" y="34">파랑 = 손실 · 빨강 = 본전까지 필요한 수익</text><g transform="translate(0,58)"><rect x="60" y="172" width="62" height="8" rx="4" fill="var(--dn,#1161c4)" opacity=".8"/><rect x="130" y="172" width="62" height="8" rx="4" fill="var(--up,#d21f3c)" opacity=".85"/><text class="cap" x="91.0" y="164" text-anchor="middle">−5%</text><text class="wt" x="161.0" y="164" text-anchor="middle" style="fill:var(--up,#d21f3c)">+5.3%</text><rect x="232" y="164" width="62" height="16" rx="4" fill="var(--dn,#1161c4)" opacity=".8"/><rect x="302" y="163" width="62" height="17" rx="4" fill="var(--up,#d21f3c)" opacity=".85"/><text class="cap" x="263.0" y="156" text-anchor="middle">−10%</text><text class="wt" x="333.0" y="155" text-anchor="middle" style="fill:var(--up,#d21f3c)">+11%</text><rect x="404" y="148" width="62" height="32" rx="4" fill="var(--dn,#1161c4)" opacity=".8"/><rect x="474" y="140" width="62" height="40" rx="4" fill="var(--up,#d21f3c)" opacity=".85"/><text class="cap" x="435.0" y="140" text-anchor="middle">−20%</text><text class="wt" x="505.0" y="132" text-anchor="middle" style="fill:var(--up,#d21f3c)">+25%</text><rect x="576" y="132" width="62" height="48" rx="4" fill="var(--dn,#1161c4)" opacity=".8"/><rect x="646" y="112" width="62" height="68" rx="4" fill="var(--up,#d21f3c)" opacity=".85"/><text class="cap" x="607.0" y="124" text-anchor="middle">−30%</text><text class="wt" x="677.0" y="104" text-anchor="middle" style="fill:var(--up,#d21f3c)">+43%</text><rect x="748" y="116" width="62" height="64" rx="4" fill="var(--dn,#1161c4)" opacity=".8"/><rect x="818" y="73" width="62" height="107" rx="4" fill="var(--up,#d21f3c)" opacity=".85"/><text class="cap" x="779.0" y="108" text-anchor="middle">−40%</text><text class="wt" x="849.0" y="65" text-anchor="middle" style="fill:var(--up,#d21f3c)">+67%</text><rect x="920" y="100" width="62" height="80" rx="4" fill="var(--dn,#1161c4)" opacity=".8"/><rect x="990" y="20" width="62" height="160" rx="4" fill="var(--up,#d21f3c)" opacity=".85"/><text class="cap" x="951.0" y="92" text-anchor="middle">−50%</text><text class="wt" x="1021.0" y="12" text-anchor="middle" style="fill:var(--up,#d21f3c)">+100%</text><line class="gl" x1="40" y1="180" x2="1070" y2="180"/><text class="cap" x="40" y="206">−10%까지는 대칭에 가깝다 · −50%부터는 2배를 벌어야 제자리 — 최대 허용 손실을 10%로 두는 이유</text></g></svg></div>
@@ -819,7 +817,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 <h2 id="무엇을-살지-2단계와-추세-템플릿" style="margin-top:44px">무엇을 살지: 2단계와 추세 템플릿</h2>
 <div class="explain">
-<b>2단계 상승추세에 있는 것만 산다.</b> 초고수익 구간은 기관의 매집이 가격 상승으로 확인되는 2단계에서 나온다. 1단계는 자금이 묶이고, 3단계는 분산, 4단계는 투매 위험이 크다. 장기 이동평균선 아래의 싼 종목보다 신고가 부근에서 수요가 확인된 종목을 택한다.
+<b>2단계 상승추세에 있는 것만 산다.</b> 초고수익 구간은 기관의 매집이 가격 상승으로 확인되는 2단계에서 나온다. 1단계는 자금이 묶이고, 3단계는 분산, 4단계는 투매 위험이 크다. 장기 이동평균선 아래의 싼 종목보다 신고가 부근에서 수요가 확인된 종목을 택한다. 뉴스와 증권사 의견보다 가격을 믿는다. 좋은 뉴스에도 오르지 않거나 나쁜 뉴스에 무너지기 시작하면 수요와 공급에 변화가 생긴 것이다. 금융주는 경기와 신용 위험의 변화를 먼저 보이는 일이 있어 시장 경보로 살핀다(5장).
 </div>
 
 <h3 style="margin-top:34px;font-size:18px">추세 템플릿</h3>
@@ -911,7 +909,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 </tbody></table></div>
 
 <div class="explain">
-<b>이건 옳고 그름의 문제가 아니라 정보량의 차이다.</b>
+<b>이건 옳고 그름의 문제가 아니라 정보량의 차이다.</b> 미너비니는 시장 방향을 틀리게 말해도 손실을 작게 끊고 유리한 종목에서 크게 벌면 돈을 벌 수 있다고 본다. 예측을 맞히는 것과 돈을 버는 것은 다르다(2장).
 미너비니도 시장 방향을 무시하지 않는다. 다만 경기와 금리를 예측하기보다 지수, 금융주와 주도주의 실제 가격으로 환경을 확인한다. 이야기꾼은 거시경제로 국면을 먼저 잡으므로 <b>한 박자 먼저</b> 들어갈 수 있다. 그만큼 개별 종목의 가격 확인이 덜 끝난 상태에서 시작할 위험도 감수한다.
 <br><br>
 그래서 실전에서 갈리는 기준은 이렇다 —
@@ -927,7 +925,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 </div>
 <footer>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.
-    · 근거: 마크 미너비니, 『초수익 성장주 투자』 및 이야기꾼 주간 시투 보고서(W36·2026-09-05).</footer>
+    · 근거: 이야기꾼 주간 시투 보고서(W36·2026-09-05) 및 자체 실측.</footer>
 </div>
 
 <script>
