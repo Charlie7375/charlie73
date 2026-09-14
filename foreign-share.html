@@ -24,7 +24,8 @@ body{font-family:'Inter','Noto Sans KR',-apple-system,sans-serif;background:var(
 .site-group>button .cv{font-size:9px;opacity:.55;transition:transform .2s}
 .site-group.on>button .cv{transform:rotate(180deg)}
 .site-group>button.here{color:var(--accent, #0071e3)}
-.site-dd{position:absolute;top:calc(100% + 8px);right:0;min-width:248px;padding:8px;
+/* ★ 2026-09-14 — 펼침 메뉴 폭을 화면 안으로 묶는다(가로 넘침은 apply_layout 의 html,body{overflow-x:hidden} 이 자른다) */
+.site-dd{position:absolute;top:calc(100% + 8px);right:0;min-width:248px;max-width:calc(100vw - 24px);padding:8px;
   background:var(--surface, var(--bg));border:1px solid var(--border);border-radius:14px;
   box-shadow:0 18px 44px rgba(0,0,0,.16);opacity:0;visibility:hidden;transform:translateY(-6px);
   transition:opacity .18s,transform .18s,visibility .18s}
@@ -312,50 +313,7 @@ a.card:focus-visible,.lst-i:focus-visible{
 .site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
   background:color-mix(in srgb,var(--text) 6%,transparent)}
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/*NAVCSS:END*//* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-/* ⚠⚠ 2026-09-10 상수님 «작은 해상도에서는 제목을 누를 수 없네».
-   아카이브가 29장이 되면서 드롭다운이 1,254px 로 자랐다. 상단바는 sticky 라
-   드롭다운은 화면 위에서 72px 자리에 열리는데, 390px 화면의 보이는 높이가 915px 이니
-   **아래 411px 는 화면 밖이고 스크롤이 없어 닿을 방법이 아예 없었다.**
-   → 화면 높이만큼만 열고 넘치면 그 안에서 스크롤한다.
-   · dvh 를 뒤에 한 번 더 적는다 — 모바일 주소창이 접혔다 펴질 때 100vh 는 화면보다 크다.
-     dvh 를 모르는 브라우저는 앞줄(vh)만 읽고 지나간다.
-   · overscroll-behavior:contain — 목록 끝에서 계속 밀어도 뒤 본문이 따라 스크롤되지 않게.
-   · 120px 은 상단바(2줄, 96px)와 아래 여백 16px 이다. 아카이브·원자료는 메뉴 2번째 줄에
-     달려 있어 104px 자리에서 열린다 — 92px 로 뺐더니 12px 이 화면 밖으로 나갔다. */
-html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);
-  overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
-
-/* ★ 2026-09-14 상수님 «가로 CSS 가 째지지 않게». 숨은 펼침 메뉴(visibility:hidden)가 자리를 차지해 375px 화면에서
-   scrollWidth 427 로 가로 스크롤이 생겼다(전 페이지). 메뉴 폭을 화면 안에 묶고 문서의 가로 넘침을 자른다.
-   ⚠ 상단바 CSS 를 전 페이지에 미치게 하는 자리는 **여기(CENTER)뿐**이다. nav2.py 를 고쳐도 원자료 장에만 닿는다. */
-html body .site-dd{max-width:calc(100vw - 24px)}
-html,body{overflow-x:hidden}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END */
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
-
+/*NAVCSS:END*/
 .dim{color:var(--mut,#94a3b8)}
 .b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
   font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
@@ -410,6 +368,49 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .hchg .ar{white-space:nowrap}
 .to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
 @media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
+/* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+/* ⚠⚠ 2026-09-10 상수님 «작은 해상도에서는 제목을 누를 수 없네».
+   아카이브가 29장이 되면서 드롭다운이 1,254px 로 자랐다. 상단바는 sticky 라
+   드롭다운은 화면 위에서 72px 자리에 열리는데, 390px 화면의 보이는 높이가 915px 이니
+   **아래 411px 는 화면 밖이고 스크롤이 없어 닿을 방법이 아예 없었다.**
+   → 화면 높이만큼만 열고 넘치면 그 안에서 스크롤한다.
+   · dvh 를 뒤에 한 번 더 적는다 — 모바일 주소창이 접혔다 펴질 때 100vh 는 화면보다 크다.
+     dvh 를 모르는 브라우저는 앞줄(vh)만 읽고 지나간다.
+   · overscroll-behavior:contain — 목록 끝에서 계속 밀어도 뒤 본문이 따라 스크롤되지 않게.
+   · 120px 은 상단바(2줄, 96px)와 아래 여백 16px 이다. 아카이브·원자료는 메뉴 2번째 줄에
+     달려 있어 104px 자리에서 열린다 — 92px 로 뺐더니 12px 이 화면 밖으로 나갔다. */
+html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);
+  overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+
+/* ★ 2026-09-14 상수님 «가로 CSS 가 째지지 않게». 숨은 펼침 메뉴(visibility:hidden)가 자리를 차지해 375px 화면에서
+   scrollWidth 427 로 가로 스크롤이 생겼다(전 페이지). 메뉴 폭을 화면 안에 묶고 문서의 가로 넘침을 자른다.
+   ⚠ 상단바 CSS 를 전 페이지에 미치게 하는 자리는 **여기(CENTER)뿐**이다. nav2.py 를 고쳐도 원자료 장에만 닿는다. */
+html body .site-dd{max-width:calc(100vw - 24px)}
+html,body{overflow-x:hidden}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END */
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 /*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
@@ -903,7 +904,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 저는 투자 전문가가 아니며, 투자의 최종 판단과 책임은 투자자 본인에게 있다.</p>
 </div>
 </div>
-<div class="wrap"><!--TOPICNEWS:BEGIN--><style id="tnewscss">.tnews{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 10px;margin:34px 0 10px}.tnews h3{margin:0 0 10px;font-size:1.02rem}.tnews table{width:100%;border-collapse:collapse;font-size:.9rem}.tnews td{padding:5px 8px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}.tnews td.d{white-space:nowrap;color:var(--text-secondary)}.tnews p.cap{margin:10px 0 8px;font-size:.8rem;color:var(--text-secondary);line-height:1.6}</style><div class="tnews"><h3>관련 뉴스</h3><p class="cap">제목에 그 낱말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.</p><p class="cap">국내: 「외국인 보유 비중 코스피」 로 찾았다.</p><div class="tblwrap"><table><tbody><tr><td class="d">Wed, 20 May</td><td class="d">연합뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE1ETlU0N3NDVTVSM0l0d0NYSWdQM0lUNTM0cFJzRkoxLXlhRnEzblg0ckFIWHJIWHZmazBacnAwTThpMC1RajA5QXZQRGNHajRnUlVSNkVicDltdUXSAWBBVV95cUxOMFFZV2E1M3NtdTlDUmVOQWplVF8xdlBYR3hFVldZUTZVT3pVcHNiX21EWGthUXlKbE0tRHlOZmtiNFpoTm5tUlRnWFhTVklDbjJBU2JlbGVQSTByanItNG0?oc=5" target="_blank" rel="noopener nofollow">외국인 올해 韓주식 91조원 팔았는데…지분율은 상승 '기현상'</a></td></tr><tr><td class="d">Fri, 05 Jun</td><td class="d">연합인포맥스</td><td><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTFBGM05aUTZNak53WkJLaXktdVZ6ZzFSUnI3OUdSNS1NQ0tDY254YloyVjdWdU1NNFlybmZhRUdKM2dEN0RqQnR2WktDSjBHdU5fVVJFMGcyYWxnanp5SG01SVlzekRMOXZqWXlTMTd5WUQ?oc=5" target="_blank" rel="noopener nofollow">[1,540원 돌파] 아직 외국인 주식비중 20여년만 최고…리밸런싱 압력 여전</a></td></tr><tr><td class="d">Sun, 19 Jul</td><td class="d">글로벌이코노믹</td><td><a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxQeWxxQVMtZWZ1RW9iWU1vVm5laFo1UEktSG13NE5XZ3lkSDVicG92dTFKeUxiMEpUY1Q4RkFVcUFoQzhJeFhTeWQ3VXZVdWx2WW5zU293a3czZ3VrSHBLdnUzNm9qV0d1U2Z4ejVwTG96alhKNE1UbFF2YmlMTk5teEpNZk0zRW5E?oc=5" target="_blank" rel="noopener nofollow">외국인 코스피 순매도에도 보유 비중은 연초 대비 크게 상승</a></td></tr><tr><td class="d">Fri, 03 Jul</td><td class="d">KB Think</td><td><a href="https://news.google.com/rss/articles/CBMickFVX3lxTE0yRDdrT3NyOGJWaEhYOFdtemJNX3FibUkyeFpNdW51Y05uaktQSUxCN09KWGJDOUExZmpnLTUtaGppV0lhWXYxdExSTEVvM29qMDh4T0NadmxoS2dzMkIyOG5lU0w4czdMVWtOZ0tsSFdOZw?oc=5" target="_blank" rel="noopener nofollow">"끝나지 않는 外人 코스피 리밸런싱"…이달에만 7조 더 팔았다</a></td></tr><tr><td class="d">Fri, 26 Jun</td><td class="d">yonhapnewstv.co.kr</td><td><a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9uZGtCbHFVVGVmTFFVSk9OcVg3MzVFLUttVFVoMXVUd3pnY0dvZ2xBTDBSbVo4UU55ZW9SZFRtLTRsaV84YXU1ZHdpU2YwbGdIeENtNWRBV3ZyUlZxV3dWbFpZbkRCcGs?oc=5" target="_blank" rel="noopener nofollow">외국인, 지난달 국내주식 47조원 순매도…보유 비중 ’역대 최고’</a></td></tr><tr><td class="d">Thu, 21 May</td><td class="d">중앙일보</td><td><a href="https://news.google.com/rss/articles/CBMiVkFVX3lxTE9PQTJBS05USjVrSUpZUHFuN2NYMUpfSk9aTlZpeGJNcWRNOFhxY0pldTdhYm0yaHlGT1hWVl9Oakk3ZkVVdDJqay10VE9pbHdQYTUzZ3Vn?oc=5" target="_blank" rel="noopener nofollow">‘팔자’ 이어져도 외인 지분율 최고…삼전·하닉이 바꾼 코스피 수급 공식</a></td></tr></tbody></table></div><p class="cap">출처 구글 뉴스 · 2026-09-14 기준. 뉴스는 이 글의 분석과 무관하며 서로 어긋날 수 있다.</p></div><!--TOPICNEWS:END--><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="supply.html">투자자 수급</a> 비중이 '누적 결과'라면 그 페이지의 사분면은 '하루하루의 선택'이다. 외국인이 판 것이 비중 축소인지 차익 실현인지가 2가지를 겹쳐야 보인다.</p></div><!--RELATED:END--></div>
+<div class="wrap"><!--TOPICNEWS:BEGIN--><style id="tnewscss">.tnews{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 10px;margin:34px 0 10px}.tnews h3{margin:0 0 10px;font-size:1.02rem}.tnews table{width:100%;border-collapse:collapse;font-size:.9rem}.tnews td{padding:5px 8px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}.tnews td.d{white-space:nowrap;color:var(--text-secondary)}.tnews p.cap{margin:10px 0 8px;font-size:.8rem;color:var(--text-secondary);line-height:1.6}</style><div class="tnews"><h3>관련 뉴스</h3><p class="cap">제목에 그 낱말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.</p><p class="cap">국내: 「외국인 보유 비중 코스피」 로 찾았다.</p><div class="tblwrap"><table><tbody><tr><td class="d">Wed, 20 May</td><td class="d">연합뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE1ETlU0N3NDVTVSM0l0d0NYSWdQM0lUNTM0cFJzRkoxLXlhRnEzblg0ckFIWHJIWHZmazBacnAwTThpMC1RajA5QXZQRGNHajRnUlVSNkVicDltdUXSAWBBVV95cUxOMFFZV2E1M3NtdTlDUmVOQWplVF8xdlBYR3hFVldZUTZVT3pVcHNiX21EWGthUXlKbE0tRHlOZmtiNFpoTm5tUlRnWFhTVklDbjJBU2JlbGVQSTByanItNG0?oc=5" target="_blank" rel="noopener nofollow">외국인 올해 韓주식 91조원 팔았는데…지분율은 상승 '기현상'</a></td></tr><tr><td class="d">Fri, 05 Jun</td><td class="d">연합인포맥스</td><td><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTFBGM05aUTZNak53WkJLaXktdVZ6ZzFSUnI3OUdSNS1NQ0tDY254YloyVjdWdU1NNFlybmZhRUdKM2dEN0RqQnR2WktDSjBHdU5fVVJFMGcyYWxnanp5SG01SVlzekRMOXZqWXlTMTd5WUQ?oc=5" target="_blank" rel="noopener nofollow">[1,540원 돌파] 아직 외국인 주식비중 20여년만 최고…리밸런싱 압력 여전</a></td></tr><tr><td class="d">Sun, 19 Jul</td><td class="d">글로벌이코노믹</td><td><a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxQeWxxQVMtZWZ1RW9iWU1vVm5laFo1UEktSG13NE5XZ3lkSDVicG92dTFKeUxiMEpUY1Q4RkFVcUFoQzhJeFhTeWQ3VXZVdWx2WW5zU293a3czZ3VrSHBLdnUzNm9qV0d1U2Z4ejVwTG96alhKNE1UbFF2YmlMTk5teEpNZk0zRW5E?oc=5" target="_blank" rel="noopener nofollow">외국인 코스피 순매도에도 보유 비중은 연초 대비 크게 상승</a></td></tr><tr><td class="d">Fri, 03 Jul</td><td class="d">KB Think</td><td><a href="https://news.google.com/rss/articles/CBMickFVX3lxTE0yRDdrT3NyOGJWaEhYOFdtemJNX3FibUkyeFpNdW51Y05uaktQSUxCN09KWGJDOUExZmpnLTUtaGppV0lhWXYxdExSTEVvM29qMDh4T0NadmxoS2dzMkIyOG5lU0w4czdMVWtOZ0tsSFdOZw?oc=5" target="_blank" rel="noopener nofollow">"끝나지 않는 外人 코스피 리밸런싱"…이달에만 7조 더 팔았다</a></td></tr><tr><td class="d">Fri, 26 Jun</td><td class="d">연합뉴스TV</td><td><a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9uZGtCbHFVVGVmTFFVSk9OcVg3MzVFLUttVFVoMXVUd3pnY0dvZ2xBTDBSbVo4UU55ZW9SZFRtLTRsaV84YXU1ZHdpU2YwbGdIeENtNWRBV3ZyUlZxV3dWbFpZbkRCcGs?oc=5" target="_blank" rel="noopener nofollow">외국인, 지난달 국내주식 47조원 순매도…보유 비중 ’역대 최고’</a></td></tr><tr><td class="d">Thu, 21 May</td><td class="d">중앙일보</td><td><a href="https://news.google.com/rss/articles/CBMiVkFVX3lxTE9PQTJBS05USjVrSUpZUHFuN2NYMUpfSk9aTlZpeGJNcWRNOFhxY0pldTdhYm0yaHlGT1hWVl9Oakk3ZkVVdDJqay10VE9pbHdQYTUzZ3Vn?oc=5" target="_blank" rel="noopener nofollow">‘팔자’ 이어져도 외인 지분율 최고…삼전·하닉이 바꾼 코스피 수급 공식</a></td></tr></tbody></table></div><p class="cap">출처 구글 뉴스 · 2026-09-14 기준. 뉴스는 이 글의 분석과 무관하며 서로 어긋날 수 있다.</p></div><!--TOPICNEWS:END--><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="supply.html">투자자 수급</a> 비중이 '누적 결과'라면 그 페이지의 사분면은 '하루하루의 선택'이다. 외국인이 판 것이 비중 축소인지 차익 실현인지가 2가지를 겹쳐야 보인다.</p></div><!--RELATED:END--></div>
 <footer>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.
     · 근거: 이야기꾼 주간 시투 보고서(W37·2026-09-12) 및 자체 실측.</footer>
 </div>

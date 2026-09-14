@@ -24,7 +24,8 @@ body{font-family:'Inter','Noto Sans KR',-apple-system,sans-serif;background:var(
 .site-group>button .cv{font-size:9px;opacity:.55;transition:transform .2s}
 .site-group.on>button .cv{transform:rotate(180deg)}
 .site-group>button.here{color:var(--accent, #0071e3)}
-.site-dd{position:absolute;top:calc(100% + 8px);right:0;min-width:248px;padding:8px;
+/* ★ 2026-09-14 — 펼침 메뉴 폭을 화면 안으로 묶는다(가로 넘침은 apply_layout 의 html,body{overflow-x:hidden} 이 자른다) */
+.site-dd{position:absolute;top:calc(100% + 8px);right:0;min-width:248px;max-width:calc(100vw - 24px);padding:8px;
   background:var(--surface, var(--bg));border:1px solid var(--border);border-radius:14px;
   box-shadow:0 18px 44px rgba(0,0,0,.16);opacity:0;visibility:hidden;transform:translateY(-6px);
   transition:opacity .18s,transform .18s,visibility .18s}
@@ -343,14 +344,7 @@ html,body{overflow-x:hidden}
   html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
   html body .site-bar-in{padding:9px 14px 7px}
 }
-/* BAR:END */
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
-/*TOCCSS:BEGIN*/
+/* BAR:END *//*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
 /* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
@@ -370,7 +364,14 @@ h2[id],h3[id],[id]:target{scroll-margin-top:92px}
 .ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
 .ptoc a:hover{border-bottom-color:var(--text-secondary)}
 @media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*//* PAPER:BEGIN */
+/*TOCCSS:END*/
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
+/* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -682,8 +683,8 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <div class="wrap paper">
 <header class="phead"><!--phead:unified--><div class="eyebrow">아카이브 · 오디션 히스토리</div>
 <h1>오디션 피라미딩 히스토리<br>2025~2026</h1>
-<p class="pauth">2025-04 ~ 2026-06 체크포인트 · 고정 자료 · 시장 데이터로 갱신되지 않는다</p><!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>순위표의 교체가 곧 주도업종의 교체였고 교체가 멈춘 시점이 상승 사이클의 종료였다. 오디션이 맞았는지는 지난 후보를 지우지 않고 남겨 둔 이 기록으로만 확인된다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#깔때기-대상에서-숏리스트까지">깔때기: 대상에서 숏리스트까지</a></li><li><a href="#전체를-관통하는-것">전체를 관통하는 것</a></li><li><a href="#아직-불확실한-곳은-어디인가">아직 불확실한 곳은 어디인가</a></li></ol></div><!--TOC:END--></header>
-<div class="intro"><b>이 페이지를 읽는 법.</b> 각 블록은 <b>기준일에서 그 시점까지의 누적 상승률</b> 순위다.
+<p class="pauth">2025-04 ~ 2026-06 체크포인트 · 고정 자료 · 시장 데이터로 갱신되지 않는다</p></header>
+<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>순위표의 교체가 곧 주도업종의 교체였고 교체가 멈춘 시점이 상승 사이클의 종료였다. 오디션이 맞았는지는 지난 후보를 지우지 않고 남겨 둔 이 기록으로만 확인된다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#깔때기-대상에서-숏리스트까지">깔때기: 대상에서 숏리스트까지</a></li><li><a href="#전체를-관통하는-것">전체를 관통하는 것</a></li><li><a href="#아직-불확실한-곳은-어디인가">아직 불확실한 곳은 어디인가</a></li></ol></div><!--TOC:END--><div class="intro"><b>이 페이지를 읽는 법.</b> 각 블록은 <b>기준일에서 그 시점까지의 누적 상승률</b> 순위다.
 같은 기준일에서 계산하는 것이 핵심이다. 구간이 길어질수록 <b>우연히 한 번 오른 종목은 밀려나고,
 진짜 추세를 탄 종목만 남는다</b>. <span class="new">NEW</span>는 직전 체크포인트 TOP15에 없던 신규 진입,
 취소선은 상위에서 이탈한 종목이다.
@@ -835,7 +836,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 <h2 id="아직-불확실한-곳은-어디인가" class="sec">아직 불확실한 곳은 어디인가</h2>
 <div class="explain" style="border-left-color:#f59e0b">
-<p>업종은 지금 판의 분류다. 한투 종목 마스터(2026-09-12 판)는 그때의 사진이 아니라 지금의 사진이다. 그 시점에 업종이 달랐던 종목이 있을 수 있고, KRX 분류라 지주회사는 금융으로, 타이어와 화장품은 화학으로 간다.
+<p>업종은 지금 판의 분류다. 한투 종목 마스터(2026-09-14 판)는 그때의 사진이 아니라 지금의 사진이다. 그 시점에 업종이 달랐던 종목이 있을 수 있고, KRX 분류라 지주회사는 금융으로, 타이어와 화장품은 화학으로 간다.
 강의가 말하는 주도업종(방산·태양광·폐배터리 같은 테마)보다 굵다. 테마는 이 페이지에 얹지 않았다.</p>
 <p>3MC는 그 시점에 볼 수 있던 것만 썼지만 절반은 사후다. P 가격은 그날 240일선과 2022년 이후 고점으로, D 수급은 기준일 다음 날부터 그날까지의 외국인·기관 순매수 금액으로, V 재무는 Y년 결산을 Y+1년 4월부터만 써서 그 시점 기준을 지켰다.
 그러나 유니버스(시총 1조)는 그 시점 시총으로 걸렀고 재무 자료는 지금의 오디션 유니버스 314종목에만 있어 그 밖의 종목은 V를 「못 잼」으로 둔다. 품절주(대주주+외국인 90% 초과)는 지분 자료가 없어 판정하지 않는다.</p>
