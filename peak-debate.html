@@ -153,6 +153,9 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
   box-shadow:0 2px 14px rgba(0,0,0,.10);transition:transform .12s,box-shadow .12s}
 .toggle:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(0,0,0,.16)}
 /* DESIGN:END *//* LAYOUT:BEGIN */
+/* ★ 2026-09-14 — 숨은 펼침 메뉴(.site-dd, visibility:hidden)가 자리를 차지해 좁은 화면에서 가로 스크롤이 생겼다
+   (scrollWidth 427 > 375, 전 페이지). 문서 가로 넘침을 자른다. 넓은 표·차트는 저마다 overflow-x:auto 상자 안이라 영향이 없다. */
+html,body{overflow-x:hidden}
 :root{--w-data:1440px;--w-chart:1100px;
   /* 산문 폭은 **고정 px이 아니라 em**이다.
      ① px로 고정하면 글자를 키워도 한 줄에 담기는 글자 수가 늘어나 도로 길어진다.
@@ -341,6 +344,12 @@ html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
      달려 있어 104px 자리에서 열린다 — 92px 로 뺐더니 12px 이 화면 밖으로 나갔다. */
 html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);
   overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+
+/* ★ 2026-09-14 상수님 «가로 CSS 가 째지지 않게». 숨은 펼침 메뉴(visibility:hidden)가 자리를 차지해 375px 화면에서
+   scrollWidth 427 로 가로 스크롤이 생겼다(전 페이지). 메뉴 폭을 화면 안에 묶고 문서의 가로 넘침을 자른다.
+   ⚠ 상단바 CSS 를 전 페이지에 미치게 하는 자리는 **여기(CENTER)뿐**이다. nav2.py 를 고쳐도 원자료 장에만 닿는다. */
+html body .site-dd{max-width:calc(100vw - 24px)}
+html,body{overflow-x:hidden}
 
 @media(max-width:760px){
   html body .site-brand{font-size:14px}
@@ -758,7 +767,6 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
-<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 <!--TOCJS:BEGIN--><script>
 /* 목차 클릭 보정 — 2026-08-24
    ⚠ 해시가 이미 그 값이면 브라우저가 클릭을 무시한다. 스크롤을 내린 뒤
@@ -786,4 +794,5 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
     }
   });
 })();
-</script><!--TOCJS:END--></body></html>
+</script><!--TOCJS:END--><button class="toggle" onclick="__toggleTheme()">&#9728;</button>
+</body></html>
