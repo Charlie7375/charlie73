@@ -9,7 +9,7 @@ html.theme-light{--bg:#FFFFFF;--surface:#F6F7F9;--border:rgba(15,23,42,0.12);--t
 body{font-family:'Inter','Noto Sans KR',-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;letter-spacing:-0.01em}
 .wrap{max-width:1040px;margin:0 auto;padding:40px 28px 80px}
 .eyebrow{font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--accent);margin-bottom:6px}
-h1{font-size:26px;margin-bottom:6px}
+h1{margin-bottom:6px}
 p.sub{color:var(--text-secondary);font-size:14px;margin-bottom:18px}
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:18px 0 8px}
 .st{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 14px}
@@ -113,7 +113,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── 테마 토글 버튼 (전 페이지 공통) ── */
 /* ⚠⚠ `top:auto` 와 z-index 가 핵심이다 (2026-08-08).
-   생성기 SHELL 들이 `.toggle{position:fixed;top:18px;…}` 를 따로 갖고 있는데(45장),
+   생성기 SHELL 들이 `.toggle{top:62px;z-index:88;position:fixed;…}` 를 따로 갖고 있는데(45장),
    이 규칙은 뒤에 와서 z-index 만 이기고 **위치는 top:18px 가 남았다.**
    그 자리는 sticky 상단바(.site-bar, z-index 90)가 덮는 자리라
    **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 3번째 원인이다.
@@ -321,7 +321,14 @@ html,body{overflow-x:hidden}
   html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
   html body .site-bar-in{padding:9px 14px 7px}
 }
-/* BAR:END *//*TOCCSS:BEGIN*/
+/* BAR:END */
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
+/*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
 /* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
@@ -341,14 +348,7 @@ h2[id],h3[id],[id]:target{scroll-margin-top:92px}
 .ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
 .ptoc a:hover{border-bottom-color:var(--text-secondary)}
 @media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*/
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
-/* PAPER:BEGIN */
+/*TOCCSS:END*//* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -427,7 +427,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 /* 제목부 */
 .wrap .phead{margin:6px 0 26px;padding-bottom:20px;border-bottom:2px solid var(--text,#1d1d1f)}
-.wrap .phead h1{margin:6px 0 8px;letter-spacing:-.03em;line-height:1.22}
+.wrap .phead h1{margin:6px 0 8px;font-size:1.8rem;letter-spacing:-.03em;line-height:1.22}  /* 제목 크기의 정본 — 2026-09-14 상수님 «2/3 으로» (2.7rem→1.8rem). 다른 곳에 h1 크기를 적지 않는다 */
 .wrap .phead .pauth{margin:0;font-size:15px;color:var(--text2,#6e6e73);line-height:1.6}
 
 /* 요약(초록) */
@@ -647,6 +647,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper figure{margin-top:18px;margin-bottom:22px}
   .paper .abstract{padding:16px 15px}
   .wrap .phead{margin-bottom:20px;padding-bottom:16px}
+  .wrap .phead h1{font-size:1.37rem}   /* 2.05rem 의 2/3 */
 }
 @media(max-width:430px){
   .paper table{font-size:12.5px}

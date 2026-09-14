@@ -48,7 +48,7 @@ html.theme-dark .site-dd{box-shadow:0 18px 44px rgba(0,0,0,.55)}
 }
 
 .eyebrow{font-size:.82rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
-h1{font-weight:800;font-size:2.7rem;letter-spacing:-.035em;line-height:1.12}
+h1{font-weight:800;letter-spacing:-.035em;line-height:1.12}
 .sub{color:var(--text-secondary);font-size:1.05rem;margin-top:15px;max-width:760px} .sub b{color:var(--text)}
 .upd{margin-top:12px;font-size:.85rem;color:var(--text-secondary)} .upd b{color:var(--accent)}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:30px}
@@ -106,7 +106,7 @@ h2.sec{font-size:1.25rem;font-weight:700;margin-top:44px;letter-spacing:-.02em}
 .f{font-family:ui-monospace,Menlo,monospace;background:color-mix(in srgb,var(--accent) 10%,transparent);padding:2px 7px;border-radius:5px;font-size:.9em;color:var(--text)}
 footer{margin-top:48px;border-top:1px solid var(--border);padding-top:22px;color:var(--text-secondary);font-size:.82rem;line-height:1.7}
 .toggle{top:62px;z-index:88;position:fixed;right:18px;width:42px;height:42px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:18px}
-@media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}h1{font-size:2.05rem}}
+@media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}}
 /* DESIGN:BEGIN */
 /* ── 숫자는 항상 고정폭 — 매일 바뀌는 값에 칸이 흔들리지 않게 ── */
 body{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
@@ -534,7 +534,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 /* 제목부 */
 .wrap .phead{margin:6px 0 26px;padding-bottom:20px;border-bottom:2px solid var(--text,#1d1d1f)}
-.wrap .phead h1{margin:6px 0 8px;letter-spacing:-.03em;line-height:1.22}
+.wrap .phead h1{margin:6px 0 8px;font-size:1.8rem;letter-spacing:-.03em;line-height:1.22}  /* 제목 크기의 정본 — 2026-09-14 상수님 «2/3 으로» (2.7rem→1.8rem). 다른 곳에 h1 크기를 적지 않는다 */
 .wrap .phead .pauth{margin:0;font-size:15px;color:var(--text2,#6e6e73);line-height:1.6}
 
 /* 요약(초록) */
@@ -754,6 +754,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper figure{margin-top:18px;margin-bottom:22px}
   .paper .abstract{padding:16px 15px}
   .wrap .phead{margin-bottom:20px;padding-bottom:16px}
+  .wrap .phead h1{font-size:1.37rem}   /* 2.05rem 의 2/3 */
 }
 @media(max-width:430px){
   .paper table{font-size:12.5px}
@@ -981,6 +982,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
+<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 <!--TOCJS:BEGIN--><script>
 /* 목차 클릭 보정 — 2026-08-24
    ⚠ 해시가 이미 그 값이면 브라우저가 클릭을 무시한다. 스크롤을 내린 뒤
@@ -1008,5 +1010,4 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
     }
   });
 })();
-</script><!--TOCJS:END--><button class="toggle" onclick="__toggleTheme()">&#9728;</button>
-</body></html>
+</script><!--TOCJS:END--></body></html>

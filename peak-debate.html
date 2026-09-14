@@ -15,7 +15,7 @@ nav.tabs{display:flex;gap:8px;margin-bottom:34px;flex-wrap:wrap}
 .navtab:hover{color:var(--text)}
 .navtab.active{color:#fff;background:var(--accent);border-color:var(--accent)}
 .eyebrow{font-size:.82rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
-h1{font-weight:800;font-size:2.9rem;letter-spacing:-0.035em;line-height:1.1}
+h1{font-weight:800;letter-spacing:-0.035em;line-height:1.1}
 .sub{color:var(--text-secondary);font-size:1.1rem;margin-top:16px;max-width:730px}
 .sub b{color:var(--text)}
 .upd{margin-top:12px;font-size:.85rem;color:var(--text-secondary)}
@@ -71,7 +71,7 @@ ol.watch li::marker{color:var(--accent);font-weight:800}
 .delta{margin-top:12px;font-size:.84rem;font-weight:700;color:#b45309;background:color-mix(in srgb,#f59e0b 14%,transparent);padding:7px 12px;border-radius:8px;display:inline-block}
 footer{margin-top:52px;border-top:1px solid var(--border);padding-top:24px;color:var(--text-secondary);font-size:.82rem;line-height:1.7}
 .toggle{top:62px;z-index:88;position:fixed;right:18px;width:42px;height:42px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:18px}
-@media(max-width:720px){.camps{grid-template-columns:1fr}h1{font-size:2.1rem}.fal{flex-wrap:wrap}}
+@media(max-width:720px){.camps{grid-template-columns:1fr}.fal{flex-wrap:wrap}}
 
 /* ── 사이트 공통 상단바 v2 ── */
 .site-bar{position:sticky;top:0;z-index:90;backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);
@@ -351,7 +351,14 @@ html,body{overflow-x:hidden}
   html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
   html body .site-bar-in{padding:9px 14px 7px}
 }
-/* BAR:END *//*TOCCSS:BEGIN*/
+/* BAR:END */
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
+/*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
 /* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
@@ -371,14 +378,7 @@ h2[id],h3[id],[id]:target{scroll-margin-top:92px}
 .ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
 .ptoc a:hover{border-bottom-color:var(--text-secondary)}
 @media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*/
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
-/* PAPER:BEGIN */
+/*TOCCSS:END*//* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -457,7 +457,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 /* 제목부 */
 .wrap .phead{margin:6px 0 26px;padding-bottom:20px;border-bottom:2px solid var(--text,#1d1d1f)}
-.wrap .phead h1{margin:6px 0 8px;letter-spacing:-.03em;line-height:1.22}
+.wrap .phead h1{margin:6px 0 8px;font-size:1.8rem;letter-spacing:-.03em;line-height:1.22}  /* 제목 크기의 정본 — 2026-09-14 상수님 «2/3 으로» (2.7rem→1.8rem). 다른 곳에 h1 크기를 적지 않는다 */
 .wrap .phead .pauth{margin:0;font-size:15px;color:var(--text2,#6e6e73);line-height:1.6}
 
 /* 요약(초록) */
@@ -677,6 +677,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper figure{margin-top:18px;margin-bottom:22px}
   .paper .abstract{padding:16px 15px}
   .wrap .phead{margin-bottom:20px;padding-bottom:16px}
+  .wrap .phead h1{font-size:1.37rem}   /* 2.05rem 의 2/3 */
 }
 @media(max-width:430px){
   .paper table{font-size:12.5px}
@@ -768,6 +769,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
+<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 <!--TOCJS:BEGIN--><script>
 /* 목차 클릭 보정 — 2026-08-24
    ⚠ 해시가 이미 그 값이면 브라우저가 클릭을 무시한다. 스크롤을 내린 뒤
@@ -795,5 +797,4 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
     }
   });
 })();
-</script><!--TOCJS:END--><button class="toggle" onclick="__toggleTheme()">&#9728;</button>
-</body></html>
+</script><!--TOCJS:END--></body></html>

@@ -24,7 +24,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Inter','Pret
 /* ── 히어로 ── */
 .hero{text-align:center;padding:40px 22px 26px;max-width:900px;margin:0 auto}
 .hero .kicker{font-size:19px;font-weight:600;color:var(--accent2);letter-spacing:-.01em}
-.hero h1{margin-top:10px;font-size:clamp(30px,4.2vw,42px);font-weight:700;line-height:1.06;letter-spacing:-.035em}
+.hero h1{margin-top:10px;font-size:clamp(20px,2.8vw,28px);font-weight:700;line-height:1.06;letter-spacing:-.035em}
 .hero h1 .feat{display:block;font-size:.45em;font-weight:500;color:var(--text2);letter-spacing:-.02em;margin-top:16px}
 .hero p{margin:22px auto 0;max-width:600px;font-size:19px;line-height:1.55;color:var(--text2);letter-spacing:-.01em}
 .hero .meta{margin-top:26px;font-size:13px;color:var(--text3)}
@@ -121,7 +121,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── 테마 토글 버튼 (전 페이지 공통) ── */
 /* ⚠⚠ `top:auto` 와 z-index 가 핵심이다 (2026-08-08).
-   생성기 SHELL 들이 `.toggle{position:fixed;top:18px;…}` 를 따로 갖고 있는데(45장),
+   생성기 SHELL 들이 `.toggle{top:62px;z-index:88;position:fixed;…}` 를 따로 갖고 있는데(45장),
    이 규칙은 뒤에 와서 z-index 만 이기고 **위치는 top:18px 가 남았다.**
    그 자리는 sticky 상단바(.site-bar, z-index 90)가 덮는 자리라
    **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 3번째 원인이다.
