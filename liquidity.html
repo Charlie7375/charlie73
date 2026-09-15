@@ -2293,6 +2293,16 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 /* 좁은 화면에서 표가 넘치면 잘리지 말고 가로로 밀리게 한다 */
 .paper .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 
+/* ── 접힌 머리글(.lead) — 2026-09-15 상수님 «결론과 본문 사이 머리글 넷은 접었다 폈다».
+   fold_lead.py 가 감싼다. 결론 상자 바로 아래 한 줄, 기본은 닫힘. */
+.paper details.lead{margin:10px 0 22px;padding:0 0 0 12px;border-left:3px solid var(--border)}
+.paper details.lead>summary{cursor:pointer;list-style:none;padding:6px 0;font-size:.9rem;color:var(--muted,#6e6e73)}
+.paper details.lead>summary::-webkit-details-marker{display:none}
+.paper details.lead>summary::before{content:'▸';font-size:.78rem;margin-right:7px;display:inline-block;transition:transform .18s}
+.paper details.lead[open]>summary::before{transform:rotate(90deg)}
+.paper details.lead[open]>summary{margin-bottom:8px}
+.paper details.lead>p{margin:0 0 12px}
+
 /* ── 접이식 상세(.apx) ──
    2026-09-12 상수님 «아래 작은 표와 제목 텍스트 간격이 타이트하게 붙어 있네».
    .gloss 에는 규칙이 있었는데 .apx 는 브라우저 기본값이라 요약 줄과 내용이 붙었다.
@@ -2609,6 +2619,7 @@ a.gl:hover{background:color-mix(in srgb,#0f7b8a 12%,transparent)}
 2026-09-09 기준 순 유동성은 5,896십억 달러다.</p>
 </div><!--PCLAIM:END-->
 
+<!--LEAD:BEGIN--><details class="lead"><summary>펼치기 · 문제 · 왜 지금 · 반론 · 이 글의 자리</summary>
 <p>무엇이 문제인가. 「연준이 QT를 하니 긴축이다」, 「연준이 사니 완화다」는 읽기가 가장 흔하다.
 그런데 연준이 푼 돈은 연준의 부채 어딘가에 앉고, 그 자리가 정부의 지갑(<a class="gl" href="#g0">TGA</a>)이나 잠자는 돈(<a class="gl" href="#g1">역레포</a>)이면 시중에 닿지 않는다.
 연준 총자산 하나로 유동성을 읽으면 언제 틀리는지, 무엇을 대신 읽어야 하는지가 문제다.</p>
@@ -2624,7 +2635,7 @@ a.gl:hover{background:color-mix(in srgb,#0f7b8a 12%,transparent)}
 <p>이 글은 어디에 서나. 연준 총자산이 아니라 순 유동성, 즉 총자산에서 TGA와 역레포를 뺀 값을 매주 읽는다.
 그 근거로 4개 계정의 항등식이 349주에서 서는지, 국면마다 어느 계정이 움직였는지, 역레포가 사라진 뒤 무엇이 달라졌는지를 놓는다.
 아래에서 4개 계정과 항등식을 먼저 정한다. 그다음 국면표, 역레포의 소멸, 이야기꾼의 TGA 규칙, 달러와의 관계를 놓고, 지금 무엇을 볼지를 적는다.</p>
-
+</details><!--LEAD:END-->
 <h2 id="연준이-푼-돈은-4개-계정-어딘가에-앉고-순-유동성은-그중-시중에-닿는-">연준이 푼 돈은 4개 계정 어딘가에 앉고, 순 유동성은 그중 시중에 닿는 몫이다</h2>
 
 <p>연준 총자산은 연준이 <a class="gl" href="#g4">QE</a>로 넣고 <a class="gl" href="#g3">QT</a>로 뺀 돈의 총량이다. 그 돈은 연준의 부채 쪽에 앉는다.

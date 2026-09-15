@@ -2293,6 +2293,16 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 /* 좁은 화면에서 표가 넘치면 잘리지 말고 가로로 밀리게 한다 */
 .paper .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 
+/* ── 접힌 머리글(.lead) — 2026-09-15 상수님 «결론과 본문 사이 머리글 넷은 접었다 폈다».
+   fold_lead.py 가 감싼다. 결론 상자 바로 아래 한 줄, 기본은 닫힘. */
+.paper details.lead{margin:10px 0 22px;padding:0 0 0 12px;border-left:3px solid var(--border)}
+.paper details.lead>summary{cursor:pointer;list-style:none;padding:6px 0;font-size:.9rem;color:var(--muted,#6e6e73)}
+.paper details.lead>summary::-webkit-details-marker{display:none}
+.paper details.lead>summary::before{content:'▸';font-size:.78rem;margin-right:7px;display:inline-block;transition:transform .18s}
+.paper details.lead[open]>summary::before{transform:rotate(90deg)}
+.paper details.lead[open]>summary{margin-bottom:8px}
+.paper details.lead>p{margin:0 0 12px}
+
 /* ── 접이식 상세(.apx) ──
    2026-09-12 상수님 «아래 작은 표와 제목 텍스트 간격이 타이트하게 붙어 있네».
    .gloss 에는 규칙이 있었는데 .apx 는 브라우저 기본값이라 요약 줄과 내용이 붙었다.
@@ -2571,6 +2581,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 올해 2026년은 짝수 해이고 4~11월 구간이 진행 중이다. 3월 말 종가 5,052.46 대비 지금 +31.2%다. 그 사이 최저도 +3.6%로 기준 종가 아래로 내려간 적이 없다.</p>
 </div><!--PCLAIM:END-->
 
+<!--LEAD:BEGIN--><details class="lead"><summary>펼치기 · 문제 · 왜 지금 · 반론 · 이 글의 자리</summary>
 <p>무엇이 문제인가. <a href="kospi-seasonality.html">해와 달의 코스피</a>는 오른 쪽을 봤다. 홀수 해 1~5월이 30년 동안 15번 다 올랐다는 것이다.
 이 글은 같은 자료를 반대로 읽는다. 어느 해, 어느 달, 어느 구간에서 코스피가 내렸는가. 오른 쪽의 규칙이 내린 쪽에서도 거울처럼 서는지, 아니면 내린 쪽에는 다른 모양이 있는지를 횟수로 적는다. 이유는 만들지 않는다.</p>
 
@@ -2582,7 +2593,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <p>이 글은 어디에 서나. 288개 구간 가운데 다 내린 구간은 0개다. 내린 쪽에는 「모두」가 없다. 승률이 3분의 1 아래인 구간은 31개다. 그 가운데 30개가 짝수 해다. 가장 자주 내린 것이 짝수 해 4~11월이다.
 창을 조금만 옮겨도 8~12번 사이에서 움직인다. 1995년 앞의 짝수 해에서는 7번 중 2번이다.
 아래에서 구간의 정의를 먼저 정하고, 짝수 해 4~11월 15번, 2년을 4조각으로 나눈 표, 여름 속설, 288개 구간, 가장 크게 내린 구간 10개, 내린 해 10번, 누적, 시대, 달별의 순서로 적는다.</p>
-
+</details><!--LEAD:END-->
 <h2 id="구간-수익률은-시작-달-마지막-거래일-종가로-매수해-끝-달-마지막-거래일">구간 수익률은 시작 달 마지막 거래일 종가로 매수해 끝 달 마지막 거래일 종가로 매도한 값이고, 「내렸다」는 그 값이 0 아래인 것이다</h2>
 
 <p>짝수 해 4~11월은 그 해 3월 마지막 거래일 종가로 매수해 11월 마지막 거래일 종가로 매도한 8개월이다. 「구간 안 최저」는 그 사이 일별 종가가 기준 종가보다 가장 많이 내린 값이고, 「구간 안 최고」는 가장 많이 오른 값이다.

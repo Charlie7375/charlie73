@@ -2278,6 +2278,16 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 /* 좁은 화면에서 표가 넘치면 잘리지 말고 가로로 밀리게 한다 */
 .paper .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 
+/* ── 접힌 머리글(.lead) — 2026-09-15 상수님 «결론과 본문 사이 머리글 넷은 접었다 폈다».
+   fold_lead.py 가 감싼다. 결론 상자 바로 아래 한 줄, 기본은 닫힘. */
+.paper details.lead{margin:10px 0 22px;padding:0 0 0 12px;border-left:3px solid var(--border)}
+.paper details.lead>summary{cursor:pointer;list-style:none;padding:6px 0;font-size:.9rem;color:var(--muted,#6e6e73)}
+.paper details.lead>summary::-webkit-details-marker{display:none}
+.paper details.lead>summary::before{content:'▸';font-size:.78rem;margin-right:7px;display:inline-block;transition:transform .18s}
+.paper details.lead[open]>summary::before{transform:rotate(90deg)}
+.paper details.lead[open]>summary{margin-bottom:8px}
+.paper details.lead>p{margin:0 0 12px}
+
 /* ── 접이식 상세(.apx) ──
    2026-09-12 상수님 «아래 작은 표와 제목 텍스트 간격이 타이트하게 붙어 있네».
    .gloss 에는 규칙이 있었는데 .apx 는 브라우저 기본값이라 요약 줄과 내용이 붙었다.
@@ -2556,6 +2566,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 다음 기준선은 2026년 11월 3일 종가이고 49일 남았다. 표본 18은 규칙이 아니라 관측이다.</p>
 </div><!--PCLAIM:END-->
 
+<!--LEAD:BEGIN--><details class="lead"><summary>펼치기 · 문제 · 왜 지금 · 반론 · 이 글의 자리</summary>
 <p>무엇이 문제인가. 이야기꾼은 1954년 이래 중간선거 뒤 1년 동안 S&amp;P 500이 한 번도 내리지 않았다고 말했다.
 이 볼트의 규칙은 인용하지 않고 계산하는 것이다.
 선거 이력은 미국 정부 공식 창구에서 받고 지수는 볼트의 1927년 이후 일별 계열을 써서, 그 말이 자료에서 얼마나 서는지와 그 말이 무엇을 빠뜨렸는지를 본다.</p>
@@ -2572,7 +2583,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <p>이 글은 어디에 서나. 「하락 0회」는 맞다. 그러나 그 문장에는 그 사이의 낙폭이 없다.
 이 글은 12개월 뒤 등락 옆에 그 사이 최대 낙폭을 세우고, 반대편 3가지를 같은 잣대로 계산한다.
 아래에서 선거일과 창의 정의를 먼저 정한다. 그다음 중간선거 18번 표를 놓고 반대편 3가지를 대조한 뒤 다음 기준선을 적는다.</p>
-
+</details><!--LEAD:END-->
 <h2 id="선거일은-11월-첫-월요일의-다음-화요일이고-창은-그날-종가에서-이듬해-">선거일은 11월 첫 월요일의 다음 화요일이고, 창은 그날 종가에서 이듬해 같은 시점까지다</h2>
 
 <p>미국 연방 선거는 짝수 해 11월 첫 월요일의 다음 화요일에 열린다. 대선이 없는 짝수 해의 선거가 중간선거다.

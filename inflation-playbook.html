@@ -2296,6 +2296,16 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 /* 좁은 화면에서 표가 넘치면 잘리지 말고 가로로 밀리게 한다 */
 .paper .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 
+/* ── 접힌 머리글(.lead) — 2026-09-15 상수님 «결론과 본문 사이 머리글 넷은 접었다 폈다».
+   fold_lead.py 가 감싼다. 결론 상자 바로 아래 한 줄, 기본은 닫힘. */
+.paper details.lead{margin:10px 0 22px;padding:0 0 0 12px;border-left:3px solid var(--border)}
+.paper details.lead>summary{cursor:pointer;list-style:none;padding:6px 0;font-size:.9rem;color:var(--muted,#6e6e73)}
+.paper details.lead>summary::-webkit-details-marker{display:none}
+.paper details.lead>summary::before{content:'▸';font-size:.78rem;margin-right:7px;display:inline-block;transition:transform .18s}
+.paper details.lead[open]>summary::before{transform:rotate(90deg)}
+.paper details.lead[open]>summary{margin-bottom:8px}
+.paper details.lead>p{margin:0 0 12px}
+
 /* ── 접이식 상세(.apx) ──
    2026-09-12 상수님 «아래 작은 표와 제목 텍스트 간격이 타이트하게 붙어 있네».
    .gloss 에는 규칙이 있었는데 .apx 는 브라우저 기본값이라 요약 줄과 내용이 붙었다.
@@ -2576,6 +2586,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 인플레 시대라는 이름만으로 주식을 피하면 27년을 잃는다.</p>
 </div><!--PCLAIM:END-->
 
+<!--LEAD:BEGIN--><details class="lead"><summary>펼치기 · 문제 · 왜 지금 · 반론 · 이 글의 자리</summary>
 <p>무엇이 문제인가. "인플레 시대에는 주식이 나쁘다"는 말이 있다.
 1970년대의 기억이 그 말을 받친다.
 그런데 인플레 시대는 1970년대 10년이 아니라 1941-07부터 1981-08까지 40년이다.
@@ -2594,7 +2605,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 아래에서 40년을 나눠 주식의 성적을 세고, 갈림길을 찾고, 물가의 수준과 방향으로 국면을 가른 뒤,
 부동산·금·채권을 같은 잣대에 놓고, 지금이 어느 자리인지를 본다.
 계산 방법과 자료는 맨 아래 원문 상세표에 있다.</p>
-
+</details><!--LEAD:END-->
 <h2 id="인플레-시대-40년의-3분의-2는-주식에-좋았다">인플레 시대 40년의 3분의 2는 주식에 좋았다</h2>
 
 <div class="claim"><p>3분의 2는 좋았다.

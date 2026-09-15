@@ -2293,6 +2293,16 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 /* 좁은 화면에서 표가 넘치면 잘리지 말고 가로로 밀리게 한다 */
 .paper .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 
+/* ── 접힌 머리글(.lead) — 2026-09-15 상수님 «결론과 본문 사이 머리글 넷은 접었다 폈다».
+   fold_lead.py 가 감싼다. 결론 상자 바로 아래 한 줄, 기본은 닫힘. */
+.paper details.lead{margin:10px 0 22px;padding:0 0 0 12px;border-left:3px solid var(--border)}
+.paper details.lead>summary{cursor:pointer;list-style:none;padding:6px 0;font-size:.9rem;color:var(--muted,#6e6e73)}
+.paper details.lead>summary::-webkit-details-marker{display:none}
+.paper details.lead>summary::before{content:'▸';font-size:.78rem;margin-right:7px;display:inline-block;transition:transform .18s}
+.paper details.lead[open]>summary::before{transform:rotate(90deg)}
+.paper details.lead[open]>summary{margin-bottom:8px}
+.paper details.lead>p{margin:0 0 12px}
+
 /* ── 접이식 상세(.apx) ──
    2026-09-12 상수님 «아래 작은 표와 제목 텍스트 간격이 타이트하게 붙어 있네».
    .gloss 에는 규칙이 있었는데 .apx 는 브라우저 기본값이라 요약 줄과 내용이 붙었다.
@@ -2572,6 +2582,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 지금은 새 인플레 시대인데 코스피는 이 시대를 2022년 4월 한 번 겪었을 뿐이라, 이 규칙은 코스피에서 검증된 적이 없다.</p>
 </div><!--PCLAIM:END-->
 
+<!--LEAD:BEGIN--><details class="lead"><summary>펼치기 · 문제 · 왜 지금 · 반론 · 이 글의 자리</summary>
 <p>무엇이 문제인가. "금리를 올리면 주식에 나쁘고 내리면 좋다"는 통념이 있다.
 그런데 코스피가 겪은 40년은 금리가 내리막이던 시대 하나뿐이다.
 그 시대의 경험을 지금 시대에 그대로 대도 되는지가 문제다.</p>
@@ -2590,7 +2601,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 아래에서 시대를 가르는 법을 정하고, 시대별로 금리 방향과 전환점 뒤의 성적을 세고,
 2020년 강의의 규칙 셋과 2024년의 규칙을 같은 자료에 댄다.
 계산 기준과 자료는 맨 아래 원문 상세표에 있다.</p>
-
+</details><!--LEAD:END-->
 <h2 id="시대는-10년물-국채금리의-사상-최고와-최저가-가른다">시대는 10년물 국채금리의 사상 최고와 최저가 가른다</h2> <div class="claim"><p>10년물 국채금리가 1981년 9월에 사상 최고 15.32%를 찍고 38.8년이 지난
 2020년 7월에 사상 최저 0.62%를 찍었다. 그 뒤 6.1년째 오르는 중이다.
 전환점이 자료 안에 단 2개뿐이라 해석의 여지가 거의 없다.</p></div> <div class="panel" data-reveal><div class="panel-head"><div><h3>10년물 국채금리와 시대: 1957~2026-08</h3></div><div class="rng" role="group" aria-label="기간 선택"><button class="on" onclick="fdRange(&#39;g1&#39;,0,this)">전체 1957~</button><button onclick="fdRange(&#39;g1&#39;,1,this)">최근 10년</button></div></div><div class="kpis"><div class="kpi hl"><div class="k">지금 기준금리</div><div class="v">3.63%</div><div class="s">2026-08 기준</div></div><div class="kpi"><div class="k">지금 시대</div><div class="v">인플레 시대</div><div class="s">2020-07 이후 · 10년물 사상 최저에서 시작</div></div><div class="kpi hl"><div class="k">이번 국면 낙폭</div><div class="v">-38.6%</div><div class="s">2026-06-22 고점 → 2026-07-30 저점</div></div><div class="kpi"><div class="k">전환점 표본</div><div class="v">25건</div><div class="s">인상 시작 + 인하 시작</div></div></div><figure class="fig"><div class="cbox" style="height:420px"><canvas id="g1"></canvas></div><figcaption><span class="freq m">월간</span>굵은 황금색이 10년물 국채금리(좌축): 이 선의 봉우리와 골짜기가 시대를 가른다. 회색이 연방기금 금리와 미국 주가, 파랑이 한국 주가(둘 다 우축·로그)다. 배경의 붉은 띠가 「인플레 시대」, 푸른 띠가 「디플레 시대」다. 파랑(코스피)이 시작되는 시점과 푸른 띠가 시작되는 시점이 거의 같다. 코스피는 디플레 시대와 함께 태어났다.</figcaption></figure><p class="panel-cap rngnote" style="margin-top:12px">1957년부터 전 구간이다. 붉은 배경이 인플레 시대, 푸른 배경이 디플레 시대다.</p><div class="srcline"><span class="lbl">출처</span><span>FRED 연방기금 금리(FEDFUNDS)·10년물 국채(GS10)·S&P 500 · OECD 한국 주가지수</span><a href="https://fred.stlouisfed.org/series/FEDFUNDS" target="_blank" rel="noopener">FRED · FEDFUNDS &#8599;</a></div></div> <div class="tblwrap"><table class="tw">

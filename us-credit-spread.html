@@ -477,6 +477,16 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 /* 좁은 화면에서 표가 넘치면 잘리지 말고 가로로 밀리게 한다 */
 .paper .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 
+/* ── 접힌 머리글(.lead) — 2026-09-15 상수님 «결론과 본문 사이 머리글 넷은 접었다 폈다».
+   fold_lead.py 가 감싼다. 결론 상자 바로 아래 한 줄, 기본은 닫힘. */
+.paper details.lead{margin:10px 0 22px;padding:0 0 0 12px;border-left:3px solid var(--border)}
+.paper details.lead>summary{cursor:pointer;list-style:none;padding:6px 0;font-size:.9rem;color:var(--muted,#6e6e73)}
+.paper details.lead>summary::-webkit-details-marker{display:none}
+.paper details.lead>summary::before{content:'▸';font-size:.78rem;margin-right:7px;display:inline-block;transition:transform .18s}
+.paper details.lead[open]>summary::before{transform:rotate(90deg)}
+.paper details.lead[open]>summary{margin-bottom:8px}
+.paper details.lead>p{margin:0 0 12px}
+
 /* ── 접이식 상세(.apx) ──
    2026-09-12 상수님 «아래 작은 표와 제목 텍스트 간격이 타이트하게 붙어 있네».
    .gloss 에는 규칙이 있었는데 .apx 는 브라우저 기본값이라 요약 줄과 내용이 붙었다.
@@ -776,6 +786,7 @@ tr.cs-now td{background:rgba(43,108,176,.07)}
 <div><b>+1개월</b><span>스프레드 정점이 주가 바닥보다 늦은 개월 수 (중앙값)</span></div>
 </div>
 
+<!--LEAD:BEGIN--><details class="lead"><summary>펼치기 · 문제 · 왜 지금 · 반론 · 이 글의 자리</summary>
 <p>무엇이 문제인가. "신용스프레드가 벌어지면 주가가 떨어진다"는 말은 널리 쓰인다.
 차트를 겹쳐 놓으면 그렇게 보이기도 한다. 스프레드가 솟은 자리마다 주가가 무너져 있기 때문이다.
 그런데 겹쳐 보이는 것과 먼저 움직이는 것은 다르다.</p>
@@ -790,7 +801,7 @@ tr.cs-now td{background:rgba(43,108,176,.07)}
 
 <p>이 글은 어디에 서나. 107년치로 재면 이 지표는 주가를 앞서지 않았다.
 아래에서 그것을 4가지로 나누어 확인하고, 마지막에 연준이 더 잘 만든 지표로 한 번 더 검증한다.</p>
-
+</details><!--LEAD:END-->
 <h2 id="신용스프레드는-나쁜-회사가-좋은-회사보다-더-무는-이자다">신용스프레드는 나쁜 회사가 좋은 회사보다 더 무는 이자다</h2>
 
 <div class="claim"><p>신용도가 낮은 회사채의 금리에서 높은 회사채의 금리를 뺀 값이다.

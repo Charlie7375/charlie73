@@ -2293,6 +2293,16 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 /* 좁은 화면에서 표가 넘치면 잘리지 말고 가로로 밀리게 한다 */
 .paper .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 
+/* ── 접힌 머리글(.lead) — 2026-09-15 상수님 «결론과 본문 사이 머리글 넷은 접었다 폈다».
+   fold_lead.py 가 감싼다. 결론 상자 바로 아래 한 줄, 기본은 닫힘. */
+.paper details.lead{margin:10px 0 22px;padding:0 0 0 12px;border-left:3px solid var(--border)}
+.paper details.lead>summary{cursor:pointer;list-style:none;padding:6px 0;font-size:.9rem;color:var(--muted,#6e6e73)}
+.paper details.lead>summary::-webkit-details-marker{display:none}
+.paper details.lead>summary::before{content:'▸';font-size:.78rem;margin-right:7px;display:inline-block;transition:transform .18s}
+.paper details.lead[open]>summary::before{transform:rotate(90deg)}
+.paper details.lead[open]>summary{margin-bottom:8px}
+.paper details.lead>p{margin:0 0 12px}
+
 /* ── 접이식 상세(.apx) ──
    2026-09-12 상수님 «아래 작은 표와 제목 텍스트 간격이 타이트하게 붙어 있네».
    .gloss 에는 규칙이 있었는데 .apx 는 브라우저 기본값이라 요약 줄과 내용이 붙었다.
@@ -2572,6 +2582,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 수급 금액 하나로 바닥과 천장을 정할 수 없다.</p>
 </div><!--PCLAIM:END-->
 
+<!--LEAD:BEGIN--><details class="lead"><summary>펼치기 · 문제 · 왜 지금 · 반론 · 이 글의 자리</summary>
 <p>무엇이 문제인가. 수급 뉴스가 기대는 것은 금액 하나다.
 그런데 금액만으로는 왜 팔았는지 알 수 없다.
 이익을 실현했을 수도 있고 손실을 줄이려 했을 수도 있다.
@@ -2589,7 +2600,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 누가 팔았는지, 그날 주가가 올랐는지 내렸는지, 그 뒤 코스피가 어땠는지다.
 2020년부터 1629거래일을 그렇게 갈랐다.
 여기서 따지는 것은 위 결론에 어디까지 기댈 수 있는지다.</p>
-
+</details><!--LEAD:END-->
 <h2 id="순매도는-돈이-빠져나간-것이-아니다-누군가는-그만큼-샀다">순매도는 돈이 빠져나간 것이 아니다. 누군가는 그만큼 샀다</h2>
 
 <div class="claim"><p>산 금액보다 판 금액이 많았다는 뜻이다.

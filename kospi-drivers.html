@@ -2293,6 +2293,16 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 /* 좁은 화면에서 표가 넘치면 잘리지 말고 가로로 밀리게 한다 */
 .paper .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 
+/* ── 접힌 머리글(.lead) — 2026-09-15 상수님 «결론과 본문 사이 머리글 넷은 접었다 폈다».
+   fold_lead.py 가 감싼다. 결론 상자 바로 아래 한 줄, 기본은 닫힘. */
+.paper details.lead{margin:10px 0 22px;padding:0 0 0 12px;border-left:3px solid var(--border)}
+.paper details.lead>summary{cursor:pointer;list-style:none;padding:6px 0;font-size:.9rem;color:var(--muted,#6e6e73)}
+.paper details.lead>summary::-webkit-details-marker{display:none}
+.paper details.lead>summary::before{content:'▸';font-size:.78rem;margin-right:7px;display:inline-block;transition:transform .18s}
+.paper details.lead[open]>summary::before{transform:rotate(90deg)}
+.paper details.lead[open]>summary{margin-bottom:8px}
+.paper details.lead>p{margin:0 0 12px}
+
 /* ── 접이식 상세(.apx) ──
    2026-09-12 상수님 «아래 작은 표와 제목 텍스트 간격이 타이트하게 붙어 있네».
    .gloss 에는 규칙이 있었는데 .apx 는 브라우저 기본값이라 요약 줄과 내용이 붙었다.
@@ -2571,6 +2581,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 상위 5개의 진입 사건 33번 가운데 상관의 부호대로 간 것은 17번이다. 시대로 가르면 디플레 시대 1위는 유로존 무역수지, 인플레 시대 1위는 금이다. 지금 상위 5개 가운데 자기 문턱 위에 있는 것은 중국발 수입물가(2026년 7월 기준) · 브렌트 원유(2026년 9월 기준) · WTI 원유(2026년 9월 기준)다.</p>
 </div><!--PCLAIM:END-->
 
+<!--LEAD:BEGIN--><details class="lead"><summary>펼치기 · 문제 · 왜 지금 · 반론 · 이 글의 자리</summary>
 <p>무엇이 문제인가. 「무엇이 코스피를 움직이나」는 매일 다른 답이 나오는 질문이다. 금리라고 하는 날, 환율이라고 하는 날, 반도체라고 하는 날이 따로 있다.
 이 글은 볼트에 있는 원자료 등록부의 102개 전부를 같은 잣대로 코스피에 대고 순위를 낸다. 하나를 고르지 않고 전부를 대어 본 것이다.</p>
 
@@ -2581,7 +2592,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 <p>이 글은 어디에 서나. 중국발 수입물가와 브렌트 원유가 1년 앞에서 가장 강했다. 신용융자·예탁금은 동행이 가장 크지만 거울이라 앞서지 않았다.
 다만 겹치는 12개월 창이라 상관이 부풀고 62개를 다 돌리면 우연히 큰 값도 섞인다. 아래에서 잣대를 먼저 정하고, 순위표, 거울, 사건 검증, 부호가 뒤집히는 변수의 순서로 적는다.</p>
-
+</details><!--LEAD:END-->
 <h2 id="잣대는-하나다-변수의-12개월-변화와-코스피-이후-12개월-수익률의-상관">잣대는 하나다. 변수의 12개월 변화와 코스피 이후 12개월 수익률의 상관이고, 순위는 그 절댓값으로 매긴다</h2>
 
 <p>변수마다 달의 마지막 관측값을 쓰고 12개월 전과 견준다. 가격과 지수는 12개월 변화율, 금리와 스프레드처럼 %로 적히는 것은 12개월 차이, 수출 증감률처럼 이미 변화율인 것은 수준 그대로다.

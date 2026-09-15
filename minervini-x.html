@@ -2267,6 +2267,16 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 /* 좁은 화면에서 표가 넘치면 잘리지 말고 가로로 밀리게 한다 */
 .paper .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 
+/* ── 접힌 머리글(.lead) — 2026-09-15 상수님 «결론과 본문 사이 머리글 넷은 접었다 폈다».
+   fold_lead.py 가 감싼다. 결론 상자 바로 아래 한 줄, 기본은 닫힘. */
+.paper details.lead{margin:10px 0 22px;padding:0 0 0 12px;border-left:3px solid var(--border)}
+.paper details.lead>summary{cursor:pointer;list-style:none;padding:6px 0;font-size:.9rem;color:var(--muted,#6e6e73)}
+.paper details.lead>summary::-webkit-details-marker{display:none}
+.paper details.lead>summary::before{content:'▸';font-size:.78rem;margin-right:7px;display:inline-block;transition:transform .18s}
+.paper details.lead[open]>summary::before{transform:rotate(90deg)}
+.paper details.lead[open]>summary{margin-bottom:8px}
+.paper details.lead>p{margin:0 0 12px}
+
 /* ── 접이식 상세(.apx) ──
    2026-09-12 상수님 «아래 작은 표와 제목 텍스트 간격이 타이트하게 붙어 있네».
    .gloss 에는 규칙이 있었는데 .apx 는 브라우저 기본값이라 요약 줄과 내용이 붙었다.
@@ -2536,7 +2546,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <div class="eyebrow">판단 · 마크 미너비니 X 추적</div>
 <h1>마크 미너비니의 X</h1>
 <p class="pauth">기준일 2026-09-15 · X @markminervini · 캡처를 받아 번역 · 그 뒤 시장은 코스피 일별로 · 매일 갱신</p>
-<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>마크 미너비니가 X 에 쓴 시장 판단을 원문 그대로 가져와 번역한다. 게시일과 지금의 S&amp;P 500·코스피·금리·유가를 옆에 두어 시간이 지나면 그 말이 어떻게 됐는지 보이게 한다. 새 글은 매일 아침 그의 X 첫 화면에서 받고 올해 1월부터의 글은 검색으로 소급했다. 번역은 그의 말이지 볼트의 판단이 아니다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#m202609">2026년 9월 · 6건</a></li><li><a href="#m202608">2026년 8월 · 11건</a></li><li><a href="#m202607">2026년 7월 · 12건</a></li><li><a href="#m202606">2026년 6월 · 6건</a></li><li><a href="#m202605">2026년 5월 · 8건</a></li><li><a href="#m202604">2026년 4월 · 11건</a></li><li><a href="#m202603">2026년 3월 · 13건</a></li><li><a href="#m202602">2026년 2월 · 7건</a></li><li><a href="#m202601">2026년 1월 · 8건</a></li><li><a href="#about">이 페이지는 어떻게 만드나</a></li></ol></div><!--TOC:END--></header>
+<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>마크 미너비니가 X 에 쓴 시장 판단을 원문 그대로 가져와 번역한다. 게시일과 지금의 S&amp;P 500·코스피·금리·유가를 옆에 두어 시간이 지나면 그 말이 어떻게 됐는지 보이게 한다. 새 글은 매일 아침 그의 X 첫 화면에서 받고 올해 1월부터의 글은 검색으로 소급했다. 번역은 그의 말이지 볼트의 판단이 아니다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#m202609">2026년 9월 · 6건</a></li><li><a href="#m202608">2026년 8월 · 11건</a></li><li><a href="#m202607">2026년 7월 · 12건</a></li><li><a href="#m202606">2026년 6월 · 6건</a></li><li><a href="#m202605">2026년 5월 · 8건</a></li><li><a href="#m202604">2026년 4월 · 11건</a></li><li><a href="#m202603">2026년 3월 · 13건</a></li><li><a href="#m202602">2026년 2월 · 7건</a></li><li><a href="#m202601">2026년 1월 · 8건</a></li><li><a href="#about">이 페이지는 어떻게 만드나?</a></li></ol></div><!--TOC:END--></header>
 
 <h2 id="m202609">2026년 9월 · 6건</h2>
 <article class="xpost" id="p2099512619723870318">

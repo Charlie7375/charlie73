@@ -2293,6 +2293,16 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 /* 좁은 화면에서 표가 넘치면 잘리지 말고 가로로 밀리게 한다 */
 .paper .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 
+/* ── 접힌 머리글(.lead) — 2026-09-15 상수님 «결론과 본문 사이 머리글 넷은 접었다 폈다».
+   fold_lead.py 가 감싼다. 결론 상자 바로 아래 한 줄, 기본은 닫힘. */
+.paper details.lead{margin:10px 0 22px;padding:0 0 0 12px;border-left:3px solid var(--border)}
+.paper details.lead>summary{cursor:pointer;list-style:none;padding:6px 0;font-size:.9rem;color:var(--muted,#6e6e73)}
+.paper details.lead>summary::-webkit-details-marker{display:none}
+.paper details.lead>summary::before{content:'▸';font-size:.78rem;margin-right:7px;display:inline-block;transition:transform .18s}
+.paper details.lead[open]>summary::before{transform:rotate(90deg)}
+.paper details.lead[open]>summary{margin-bottom:8px}
+.paper details.lead>p{margin:0 0 12px}
+
 /* ── 접이식 상세(.apx) ──
    2026-09-12 상수님 «아래 작은 표와 제목 텍스트 간격이 타이트하게 붙어 있네».
    .gloss 에는 규칙이 있었는데 .apx 는 브라우저 기본값이라 요약 줄과 내용이 붙었다.
@@ -2586,6 +2596,7 @@ table.cs tr.cool td{background:rgba(17,97,196,.07)}
 2026년 급락에서 0.6%p 경고는 2026년 2월에 울렸고 코스피 고점은 그 4개월 뒤, 저점은 5개월 뒤였다. 천정 후보는 2026년 7월(0.71%p)인데 반년이 지나야 확정된다.</p>
 </div><!--PCLAIM:END-->
 
+<!--LEAD:BEGIN--><details class="lead"><summary>펼치기 · 문제 · 왜 지금 · 반론 · 이 글의 자리</summary>
 <p>무엇이 문제인가. 회사가 돈을 빌릴 때 나라보다 얼마나 더 무는지가 신용스프레드다.
 이 값이 벌어지면 "코스피 바닥이 가깝다"고도 하고, 오르기 시작하면 "팔아야 한다"고도 한다.
 같은 숫자를 한쪽은 살 때로, 한쪽은 팔 때로 읽는다. 26년 자료에서 어느 쪽이 맞는지가 문제다.</p>
@@ -2602,7 +2613,7 @@ table.cs tr.cool td{background:rgba(17,97,196,.07)}
 아래에서 26년을 한 장에 놓고, 어느 선을 처음 넘을 때 나빴는지를 세고, 천정에서 내려온 뒤를 세고,
 그다음에 수준별 성적과 코스피가 꺾인 날의 스프레드, 2021년과 2026년의 두 급락을 같은 잣대에 놓는다.
 자료와 계산 방법은 맨 아래 원문 상세표에 있다.</p>
-
+</details><!--LEAD:END-->
 <h2 id="26년의-대부분은-0-4-0-8-p이고-위기-수준은-2008년-한-번이었">26년의 대부분은 0.4~0.8%p이고 위기 수준은 2008년 한 번이었다</h2>
 <div class="claim"><p>신용스프레드는 회사채(무보증 3년, 신용등급 AA−) 금리에서 국고채 3년 금리를 뺀 값이다.
 벌어질수록 채권시장이 기업의 위험을 크게 본 것이다. 2000년 10월부터 312개월을 확인했다.
@@ -3116,7 +3127,6 @@ var LAB=["닷컴 붕괴", "카드사태", "금융위기", "유럽재정위기", 
 <div class="note"><p>이렇게 읽으면 안 된다. 이 글의 문턱(0.6·0.8·1.2%p)은 이 글이 정한 것이다. 경계를 조금만 옮기면 구간별 성적의 부호가 바뀐다. 지금 값이 어느 칸에 든다는 이유만으로 불리한 시점이라고 읽으면 안 된다.</p></div>
 
 <p class="dim">방향을 3개월 변화의 부호로 가르면 · 문턱을 처음 뚫고 내려온 달: 아래 <a href="#apx">원문 상세</a>에 있다.</p>
-
 
 <p class="dim">자료와 계산 방법: 아래 <a href="#apx">원문 상세</a>에 있다.</p>
 

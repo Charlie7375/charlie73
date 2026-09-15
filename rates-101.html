@@ -477,6 +477,16 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 /* 좁은 화면에서 표가 넘치면 잘리지 말고 가로로 밀리게 한다 */
 .paper .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 
+/* ── 접힌 머리글(.lead) — 2026-09-15 상수님 «결론과 본문 사이 머리글 넷은 접었다 폈다».
+   fold_lead.py 가 감싼다. 결론 상자 바로 아래 한 줄, 기본은 닫힘. */
+.paper details.lead{margin:10px 0 22px;padding:0 0 0 12px;border-left:3px solid var(--border)}
+.paper details.lead>summary{cursor:pointer;list-style:none;padding:6px 0;font-size:.9rem;color:var(--muted,#6e6e73)}
+.paper details.lead>summary::-webkit-details-marker{display:none}
+.paper details.lead>summary::before{content:'▸';font-size:.78rem;margin-right:7px;display:inline-block;transition:transform .18s}
+.paper details.lead[open]>summary::before{transform:rotate(90deg)}
+.paper details.lead[open]>summary{margin-bottom:8px}
+.paper details.lead>p{margin:0 0 12px}
+
 /* ── 접이식 상세(.apx) ──
    2026-09-12 상수님 «아래 작은 표와 제목 텍스트 간격이 타이트하게 붙어 있네».
    .gloss 에는 규칙이 있었는데 .apx 는 브라우저 기본값이라 요약 줄과 내용이 붙었다.
@@ -754,6 +764,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 그래서 금리는 「얼마나 올랐나」가 아니라 「무엇이 올렸나」로 읽는다. 2026년 8월 월평균은 4.68%이고 어느 층이 올렸는지는 이 글이 아니라 실측을 붙인 글들이 판정한다.</p>
 </div><!--PCLAIM:END-->
 
+<!--LEAD:BEGIN--><details class="lead"><summary>펼치기 · 문제 · 왜 지금 · 반론 · 이 글의 자리</summary>
 <p>무엇이 문제인가. 이 사이트는 매일 미 10년 국채 금리를 적는다. 그런데 금리가 무엇의 값인지, 오르면 왜 채권값이 내리는지, 같은 4%대가 왜 어떤 때는 주식에 좋고 어떤 때는 나쁜지를 정해 두지 않으면 매일의 숫자를 읽을 수 없다.
 오건영(신한 프리미어패스파인더 단장)의 강의 2편을 뼈대로 그 개념을 정하고, 미 장기금리를 움직이는 3개 층을 과거 사례로 익히는 것이 이 글이다.</p>
 
@@ -767,7 +778,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <p>이 글은 어디에 서나. 학습 자료다. 시황 판단을 하지 않고 개념과 과거 사례만 정한다.
 아래에서 금리의 정의와 채권값의 시소를 먼저 놓는다. 그다음 10년 금리의 3개 층을 정하고, GS10 실측으로 상승 4가지·하락 2가지를 가른 뒤, 실전에서 층을 가리는 요령과 환율의 대목을 적는다.
 매매 판단은 <a href="rates-crashes.html">금리 5%와 공황</a>·<a href="fed-kospi.html">연준 기준금리와 코스피</a>처럼 실측을 붙인 글에서 한다.</p>
-
+</details><!--LEAD:END-->
 <h2 id="금리는-돈의-가격이고-가격은-수요와-공급으로-정해진다-금리가-먼저가-아니">금리는 돈의 가격이고 가격은 수요와 공급으로 정해진다. 금리가 먼저가 아니라 성장에 대한 믿음이 먼저다</h2>
 
 <p>오건영의 첫 문장이 이 글 전체의 뼈대다. 금리는 돈의 가격이고 가격은 수요와 공급으로 정해진다.

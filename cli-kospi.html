@@ -2253,6 +2253,16 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 /* 좁은 화면에서 표가 넘치면 잘리지 말고 가로로 밀리게 한다 */
 .paper .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 
+/* ── 접힌 머리글(.lead) — 2026-09-15 상수님 «결론과 본문 사이 머리글 넷은 접었다 폈다».
+   fold_lead.py 가 감싼다. 결론 상자 바로 아래 한 줄, 기본은 닫힘. */
+.paper details.lead{margin:10px 0 22px;padding:0 0 0 12px;border-left:3px solid var(--border)}
+.paper details.lead>summary{cursor:pointer;list-style:none;padding:6px 0;font-size:.9rem;color:var(--muted,#6e6e73)}
+.paper details.lead>summary::-webkit-details-marker{display:none}
+.paper details.lead>summary::before{content:'▸';font-size:.78rem;margin-right:7px;display:inline-block;transition:transform .18s}
+.paper details.lead[open]>summary::before{transform:rotate(90deg)}
+.paper details.lead[open]>summary{margin-bottom:8px}
+.paper details.lead>p{margin:0 0 12px}
+
 /* ── 접이식 상세(.apx) ──
    2026-09-12 상수님 «아래 작은 표와 제목 텍스트 간격이 타이트하게 붙어 있네».
    .gloss 에는 규칙이 있었는데 .apx 는 브라우저 기본값이라 요약 줄과 내용이 붙었다.
@@ -2534,6 +2544,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 그러나 꺾인 뒤 공황까지 걸린 시간은 2개월에서 21개월까지 벌어져 있어 시점은 말해 주지 않는다.</p>
 </div><!--PCLAIM:END-->
 
+<!--LEAD:BEGIN--><details class="lead"><summary>펼치기 · 문제 · 왜 지금 · 반론 · 이 글의 자리</summary>
 <p>무엇이 문제인가. 이야기꾼은 경기선행지수를 1급 전조현상으로 꼽는다.
 이 지수의 상승세가 꺾이면 공황이 왔다는 것이다.
 그 말이 자료에서 얼마나 서는지, 그리고 "꺾이면"이 "언제"까지 말해 주는지가 문제다.</p>
@@ -2549,7 +2560,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 다만 꺾인 달에서 공황까지는 2개월에서 21개월까지 벌어져 시점은 말해 주지 않는다.
 아래에서 그 8번을 표로 확인하고, 102라는 선이 규칙이 되는지를 세고,
 이름대로 코스피를 앞서는지를 시차로 잰다.</p>
-
+</details><!--LEAD:END-->
 <h2 id="36년을-한-화면에-놓으면-두-선이-거의-겹친다">36년을 한 화면에 놓으면 두 선이 거의 겹친다</h2>
 
 <div class="panel" data-reveal><div class="panel-head"><div><h3>OECD 경기선행지수와 코스피 전년비: 1990~2026-08</h3></div><div class="rng" role="group" aria-label="기간 선택"><button class="on" onclick="ckRange(&#39;g1&#39;,0,this)">전체 1990~</button><button onclick="ckRange(&#39;g1&#39;,1,this)">최근 10년</button></div></div><div class="kpis"><div class="kpi hl"><div class="k">상관계수</div><div class="v">0.692</div><div class="s">월간 동행 · 거시지표로는 높은 축</div></div><div class="kpi"><div class="k">지금 지수</div><div class="v">102.21</div><div class="s">2026-08 · 440개월 중 상위 3.4%</div></div><div class="kpi hl"><div class="k">102 넘은 뒤 12개월</div><div class="v">-18.1%</div><div class="s">중앙값 · 표본 21개월</div></div><div class="kpi"><div class="k">정점 뒤 공황까지</div><div class="v">2~21개월</div><div class="s">이야기꾼 사례 7건 · 중앙값 10개월</div></div></div><figure class="fig"><div class="cbox" style="height:400px"><canvas id="g1"></canvas></div><figcaption><span class="freq m">월간</span>굵은 황금색이 경기선행지수(우축, 100이 장기추세), 회색이 코스피 전년비(좌축)다. 두 선이 거의 겹친다. 아래에서 상관계수 0.692로 확인한다.</figcaption></figure><p class="panel-cap rngnote" style="margin-top:12px">1990년부터 전 구간이다. 두 선이 거의 겹친다.</p><div class="srcline"><span class="lbl">출처</span><span>OECD Composite Leading Indicator (한국) · OECD 한국 주가지수 월별 원계열</span><a href="https://data-explorer.oecd.org/" target="_blank" rel="noopener">OECD Data Explorer · DSD_STES@DF_CLI 4.1 &#8599;</a></div></div>
