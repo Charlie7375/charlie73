@@ -1,4 +1,4 @@
-# S&P 케이스실러 미국 주택가격지수 (2000-01=100, NSA) · FRED CSUSHPINSA · 단위 2000-01=100 · 받은 날 2026-09-14 · scripts/precursor_sources.py
+# S&P 케이스실러 미국 주택가격지수 (2000-01=100, NSA) · FRED CSUSHPINSA · 단위 2000-01=100 · 받은 날 2026-09-15 · scripts/precursor_sources.py
 date,value
 1987-01,63.732
 1987-02,64.131
