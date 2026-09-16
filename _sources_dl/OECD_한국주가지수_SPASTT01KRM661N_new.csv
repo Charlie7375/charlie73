@@ -1,8 +1,6 @@
 # 한국 주가지수 (2015=100, 대조용)
-# Series: SPASTT01KRM661N | Source: OECD 본가 SDMX
-#   OECD.SDD.STES,DSD_STES@DF_FINMARK,4.0 / KOR.M.SHARE.IX._Z._Z._Z._Z.N
-# ⚠ 2026-09-12 부터 본가에서 받는다. FRED 미러가 2개월 늦었다.
-# Range: 1981-01 ~ 2026-08 (548개월) | scripts/oecd_kospi_monthly.py
+# Series: SPASTT01KRM661N | Source: FRED (fredgraph.csv)
+# Range: 1981-01 ~ 2026-08 (548개월) | scripts/fred_fed_us.py
 date,value
 1981-01,5.1263
 1981-02,5.1909
