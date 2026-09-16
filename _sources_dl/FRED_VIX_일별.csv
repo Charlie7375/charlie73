@@ -1,4 +1,4 @@
-# CBOE VIX 종가 · FRED VIXCLS · 단위 p · 받은 날 2026-09-16 · scripts/precursor_sources.py
+# CBOE VIX 종가 · FRED VIXCLS · 단위 p · 받은 날 2026-09-17 · scripts/precursor_sources.py
 date,value
 1990-01-02,17.24
 1990-01-03,18.19
@@ -9273,3 +9273,4 @@ date,value
 2026-09-10,17.84
 2026-09-11,15.84
 2026-09-14,17.10
+2026-09-15,17.20
