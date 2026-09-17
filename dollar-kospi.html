@@ -24,7 +24,8 @@ body{font-family:'Inter','Noto Sans KR',-apple-system,sans-serif;background:var(
 .site-group>button .cv{font-size:9px;opacity:.55;transition:transform .2s}
 .site-group.on>button .cv{transform:rotate(180deg)}
 .site-group>button.here{color:var(--accent, #0071e3)}
-.site-dd{position:absolute;top:calc(100% + 8px);right:0;min-width:248px;padding:8px;
+/* ★ 2026-09-14 — 펼침 메뉴 폭을 화면 안으로 묶는다(가로 넘침은 apply_layout 의 html,body{overflow-x:hidden} 이 자른다) */
+.site-dd{position:absolute;top:calc(100% + 8px);right:0;min-width:248px;max-width:calc(100vw - 24px);padding:8px;
   background:var(--surface, var(--bg));border:1px solid var(--border);border-radius:14px;
   box-shadow:0 18px 44px rgba(0,0,0,.16);opacity:0;visibility:hidden;transform:translateY(-6px);
   transition:opacity .18s,transform .18s,visibility .18s}
@@ -367,6 +368,49 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .hchg .ar{white-space:nowrap}
 .to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
 @media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
+/* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+/* ⚠⚠ 2026-09-10 상수님 «작은 해상도에서는 제목을 누를 수 없네».
+   아카이브가 29장이 되면서 드롭다운이 1,254px 로 자랐다. 상단바는 sticky 라
+   드롭다운은 화면 위에서 72px 자리에 열리는데, 390px 화면의 보이는 높이가 915px 이니
+   **아래 411px 는 화면 밖이고 스크롤이 없어 닿을 방법이 아예 없었다.**
+   → 화면 높이만큼만 열고 넘치면 그 안에서 스크롤한다.
+   · dvh 를 뒤에 한 번 더 적는다 — 모바일 주소창이 접혔다 펴질 때 100vh 는 화면보다 크다.
+     dvh 를 모르는 브라우저는 앞줄(vh)만 읽고 지나간다.
+   · overscroll-behavior:contain — 목록 끝에서 계속 밀어도 뒤 본문이 따라 스크롤되지 않게.
+   · 120px 은 상단바(2줄, 96px)와 아래 여백 16px 이다. 아카이브·원자료는 메뉴 2번째 줄에
+     달려 있어 104px 자리에서 열린다 — 92px 로 뺐더니 12px 이 화면 밖으로 나갔다. */
+html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);
+  overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+
+/* ★ 2026-09-14 상수님 «가로 CSS 가 째지지 않게». 숨은 펼침 메뉴(visibility:hidden)가 자리를 차지해 375px 화면에서
+   scrollWidth 427 로 가로 스크롤이 생겼다(전 페이지). 메뉴 폭을 화면 안에 묶고 문서의 가로 넘침을 자른다.
+   ⚠ 상단바 CSS 를 전 페이지에 미치게 하는 자리는 **여기(CENTER)뿐**이다. nav2.py 를 고쳐도 원자료 장에만 닿는다. */
+html body .site-dd{max-width:calc(100vw - 24px)}
+html,body{overflow-x:hidden}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END */
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 
 /* ── 닷컴 대시보드 형식 (scripts/dotcom_panel.py) ── */
 /* 값은 kospi-dotcom-1998-2000.html 에서 그대로 옮겼다 — 눈맛의 정본이다 */
@@ -407,43 +451,7 @@ html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;-
 .reveal.visible{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 @media(max-width:720px){.panel{padding:22px 16px 18px}.panel .cbox{min-height:320px}}
-/* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-/* ⚠⚠ 2026-09-10 상수님 «작은 해상도에서는 제목을 누를 수 없네».
-   아카이브가 29장이 되면서 드롭다운이 1,254px 로 자랐다. 상단바는 sticky 라
-   드롭다운은 화면 위에서 72px 자리에 열리는데, 390px 화면의 보이는 높이가 915px 이니
-   **아래 411px 는 화면 밖이고 스크롤이 없어 닿을 방법이 아예 없었다.**
-   → 화면 높이만큼만 열고 넘치면 그 안에서 스크롤한다.
-   · dvh 를 뒤에 한 번 더 적는다 — 모바일 주소창이 접혔다 펴질 때 100vh 는 화면보다 크다.
-     dvh 를 모르는 브라우저는 앞줄(vh)만 읽고 지나간다.
-   · overscroll-behavior:contain — 목록 끝에서 계속 밀어도 뒤 본문이 따라 스크롤되지 않게.
-   · 120px 은 상단바(2줄, 96px)와 아래 여백 16px 이다. 아카이브·원자료는 메뉴 2번째 줄에
-     달려 있어 104px 자리에서 열린다 — 92px 로 뺐더니 12px 이 화면 밖으로 나갔다. */
-html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);
-  overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
-
-/* ★ 2026-09-14 상수님 «가로 CSS 가 째지지 않게». 숨은 펼침 메뉴(visibility:hidden)가 자리를 차지해 375px 화면에서
-   scrollWidth 427 로 가로 스크롤이 생겼다(전 페이지). 메뉴 폭을 화면 안에 묶고 문서의 가로 넘침을 자른다.
-   ⚠ 상단바 CSS 를 전 페이지에 미치게 하는 자리는 **여기(CENTER)뿐**이다. nav2.py 를 고쳐도 원자료 장에만 닿는다. */
-html body .site-dd{max-width:calc(100vw - 24px)}
-html,body{overflow-x:hidden}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END *//*TOCCSS:BEGIN*/
+/*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
 /* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
@@ -463,13 +471,7 @@ h2[id],h3[id],[id]:target{scroll-margin-top:92px}
 .ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
 .ptoc a:hover{border-bottom-color:var(--text-secondary)}
 @media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*/</style><link rel="stylesheet" href="vendor/fonts.css"><style id="freqcss">
-.freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
- padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
- border:1px solid currentColor;opacity:.85}
-.freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
-.freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
-/* PAPER:BEGIN */
+/*TOCCSS:END*//* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -784,8 +786,14 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style>
-<!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
+/* PAPER:END */</style><link rel="stylesheet" href="vendor/fonts.css"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><style id="freqcss">
+.freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
+ padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
+ border:1px solid currentColor;opacity:.85}
+.freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
+.freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
+</style>
+</head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="macro-timeline.html">거시 이벤트 연대기</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="minervini-x.html">마크 미너비니 X 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-nhn.html">NHN</a><a href="stock-kolmar.html">한국콜마</a><a href="stock-cosmax.html">코스맥스</a><a href="stock-pharmaresearch.html">파마리서치</a><a href="stock-jyp.html">JYP Ent.</a><a href="stock-sm-ent.html">에스엠</a><a href="stock-yg-ent.html">와이지엔터테인먼트</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="marks.html">하워드 막스의 방법론</a><a href="marks-glossary.html">사이클 용어사전</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="here" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><span class="nav-h sub">시장 국면</span><a href="kospi-seasonality-down.html">해와 달의 코스피 · 역편</a><a href="kospi-drivers.html">코스피 선행 변수</a><a href="kospi-seasonality.html">해와 달의 코스피</a><a href="breadth-concentration.html">신고가 쏠림</a><a href="kospi-analog.html">닮은 과거</a><a href="audition-history.html">오디션 히스토리</a><a href="disparity-archive.html">두 버블의 이격도</a><a href="stage-analysis.html">와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리</a><span class="nav-h sub">수급과 폭락</span><a href="flow-extremes.html">개인과 외국인의 대량 매매</a><a href="flow-crashes.html">폭락의 구조</a><span class="nav-h sub">신용과 청산</span><a href="us-credit-spread.html">미국 신용스프레드</a><a href="deleveraging.html">강제청산</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="sentiment.html">빚과 현금</a><span class="nav-h sub">경기와 수출</span><a href="us-elections.html">미국 선거와 증시</a><a href="export-kospi.html">수출과 코스피</a><a href="cli-kospi.html">OECD CLI 와 코스피</a><a href="ism-kospi.html">ISM 과 코스피</a><a href="jeoji-kospi.html">제오지산수</a><span class="nav-h sub">금리와 통화</span><a href="gold-rates.html">금리와 금값</a><a href="treasury-trust.html">미국 국채 되사기</a><a href="inflation-playbook.html">인플레 시대의 자산</a><a href="rates-century.html">미국 금리 100년</a><a href="liquidity.html">미국 유동성</a><a href="fed-kospi.html">연준 기준금리와 코스피</a><a href="rates-101.html">금리 기초</a><a href="rates-crashes.html">금리 5%와 공황</a><a class="here" href="dollar-kospi.html">달러와 코스피</a><span class="nav-h sub">개별 종목</span><a href="memory-price.html">D램 가격과 삼성전자</a><a href="leadlag.html">하이닉스의 선행과 후행</a><a href="samsung-long.html">삼성전자 27년</a></div></div><div class="site-group"><button class="" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 102계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a href="data-kr-rates.html">한국 금리</a><a href="data-us-market.html">미국 시장</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a href="data-fx.html">환율·원자재·암호</a><a href="data-macro.html">재정·거시</a><a href="data-world.html">세계 증시</a></div></div><!-- NAV:END --></nav>
@@ -794,7 +802,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <header class="phead">
 <div class="eyebrow">아카이브 · 달러와 코스피</div>
 <h1>달러 약세 기간 26년 53배, 달러 강세 기간 19년 제자리</h1>
-<p class="pauth">기준일 2026-09-16 · 달러 인덱스 월별 · 코스피 · 주 1회 갱신</p>
+<p class="pauth">기준일 2026-09-12 · 달러 인덱스 월별 · 코스피 · 주 1회 갱신</p>
 <!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#달러-인덱스는-45년-동안-3번-내려가고-3번-올라갔다">달러 인덱스는 45년 동안 3번 내려가고 3번 올라갔다</a></li><li><a href="#달러-약세-국면-3번에-코스피는-53배가-됐고-강세-국면-3번은-제자리였">달러 약세 국면 3번에 코스피는 53배가 됐고 강세 국면 3번은 제자리였다</a></li><li><a href="#달러가-1년-동안-3-넘게-약해진-뒤의-1년은-40년-동안-좋았고-202">달러가 1년 동안 3% 넘게 약해진 뒤의 1년은 40년 동안 좋았고 2020년 뒤로는 아니었다</a></li><li><a href="#같은-해에는-지금도-반대로-움직인다-다만-그것은-다음-해를-말해-주지-않">같은 해에는 지금도 반대로 움직인다. 다만 그것은 다음 해를 말해 주지 않는다</a></li><li><a href="#이-관계는-원래-있던-것이-아니다-2000년대에-외국인-돈이-만들었다">이 관계는 원래 있던 것이 아니다. 2000년대에 외국인 돈이 만들었다</a></li><li><a href="#해외-운용사-5곳도-같은-말을-한다-다만-그들이-계산한-것은-신흥국-지수">해외 운용사 5곳도 같은 말을 한다. 다만 그들이 계산한 것은 신흥국 지수이고 이 글은 코스피다</a></li><li><a href="#아직-불확실한-곳은-어디인가">아직 불확실한 곳은 어디인가</a></li><li><a href="#그래서-달러는-국면으로-읽고-1년-변화로는-읽지-않는다-지금은-중립이다">그래서 달러는 국면으로 읽고 1년 변화로는 읽지 않는다. 지금은 중립이다</a></li><li><a href="#apx">원문 상세표</a></li></ol></div><!--TOC:END--></header>
 
 <!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div>
@@ -802,7 +810,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 이 지수가 여러 해 내려가는 국면이 3번 있었고 그 26년 동안 코스피는 53배가 됐다.
 올라가는 국면도 3번 있었고 그 19년 동안 코스피는 1.03배, 제자리였다.
 그러나 달러가 지난 1년 동안 얼마나 움직였는지로 코스피의 다음 1년을 가르는 규칙은 2020년 뒤로 흔들린다.
-달러는 국면으로 읽고, 1년 변화로는 읽지 않는다. 지금 달러는 12개월 전보다 +0.9%로 중립이고, 코스피에 대해 아무 말도 하지 않는다.</p>
+그래서 달러는 국면으로 읽고 1년 변화로는 읽지 않는다. 지금 달러는 12개월 전보다 +0.9%로 중립이라 코스피에 대해 아무 말도 하지 않는다.</p>
 </div><!--PCLAIM:END-->
 
 <!--LEAD:BEGIN--><details class="lead"><summary>펼치기 · 문제 · 왜 지금 · 반론 · 이 글의 자리</summary>
@@ -810,7 +818,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 달러 강세 7년, 약세 10년의 주기가 있고 약세 때 신흥국이 미국보다 더 오른다는 것이다.
 이 말이 45년 자료에서 서는지, 선다면 어느 시간 단위에서 서는지가 문제다. 국면 단위와 1년 단위는 다른 답을 낸다.</p>
 
-<p>왜 지금인가. 달러 인덱스는 2026-08 93.9로, 1985년 최고 143.9보다 -35% 낮은 자리다.
+<p>왜 지금인가. 달러 인덱스는 2026년 8월 93.9로, 1985년 최고 143.9보다 -35% 낮은 수준이다.
 이야기꾼의 주기로는 2020년 5월부터 약세 국면이고 6.3년째다. 그런데 지난 1년의 달러는 +0.9%로 약세도 강세도 아니다.
 약세 10년의 한가운데인지 이미 끝난 뒤인지가 지금 걸린 질문이다.</p>
 
@@ -867,9 +875,9 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 약세 뒤에 1년 뒤 플러스였던 달은 153개월 중 69%다.
 새 시대 3줄은 뒤엉킨다. 각 칸이 21개월 안팎이고 문턱을 ±2%나 ±4%로 바꾸면 순서가 달라진다. 그 표는 원문 상세표에 있다.</p>
 
-<p>왜 계단이 무너졌는지에 대해 이 글이 줄 수 있는 답은 이렇다. 달러 약세가 신흥국을 밀어 올리는 배관은 3개다.
-달러 부채의 이자 부담이 줄고, 현지 통화 자산의 달러 환산 수익이 커지고, 달러 약세가 대체로 세계 성장과 같이 온다.
-셋 다 달러가 안전자산이고 신흥국이 위험자산이라는 배치 위에서 돈다.
+<p>왜 계단이 무너졌는지에 대해 이 글이 줄 수 있는 답은 이렇다. 달러 약세가 신흥국을 밀어 올리는 경로는 3가지다.
+달러 빚의 이자 부담이 준다. 현지 통화로 된 자산을 달러로 바꾼 수익이 커진다. 그리고 달러 약세는 대체로 세계 성장과 같이 온다.
+3가지 다 달러가 안전자산이고 신흥국이 위험자산이라는 배치 위에서 돈다.
 인플레 시대에는 달러 자신이 물가에 깎이므로 그 배치가 흔들린다. 달러가 약해지는 이유가 위험선호가 아니라 미국 물가일 수 있다.
 같은 달러 약세가 다른 뜻이 된다. 이것은 설명이지 검증이 아니다.</p>
 
@@ -883,11 +891,11 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <tbody><tr><td>전체 1981-05~2026-08</td><td class="n">-0.39 <span class="dim">n=544</span></td><td class="n">-0.44 <span class="dim">n=532</span></td></tr><tr><td>디플레이션 시대 (~2020-06)</td><td class="n">-0.68 <span class="dim">n=470</span></td><td class="n">-0.43 <span class="dim">n=458</span></td></tr><tr><td>새 인플레 시대 (2020-07~)</td><td class="n">-0.15 <span class="dim">n=74</span></td><td class="n">-0.64 <span class="dim">n=74</span></td></tr></tbody></table></figure>
 
 <p>표의 마지막 줄을 보면 새 시대는 수준으로 계산하면 관계가 사라지는데 등락으로 계산하면 그대로 남는다.
-수준은 두 계열이 각자 추세를 갖고 있어 관계가 없는데 있는 것처럼도, 있는데 없는 것처럼도 나온다. 여기서는 뒤쪽이었다.</p>
+값끼리 견주면 두 계열이 각자 추세를 갖고 있어 관계가 잘못 보인다. 없는 관계가 있는 것처럼도 나오고, 있는 관계가 없는 것처럼도 나온다. 여기서는 뒤쪽이었다.</p>
 
 <div class="panel" data-reveal><div class="panel-head"><div><h3>36개월 롤링 상관: 달러 월간등락 vs 코스피 월간등락</h3></div></div><div class="kpis"><div class="kpi hl"><div class="k">가장 강한 역상관</div><div class="v">-0.57</div><div class="s">2009-05 기준 36개월</div></div><div class="kpi"><div class="k">현재</div><div class="v">-0.30</div><div class="s">2026-08 기준 36개월</div></div><div class="kpi hl"><div class="k">새 시대 상관</div><div class="v">-0.30</div><div class="s">2020.07~ 74개월</div></div><div class="kpi"><div class="k">전체 상관</div><div class="v">-0.16</div><div class="s">1981~ 546개월</div></div></div><figure class="fig"><div class="cbox"><canvas id="c2"></canvas></div><figcaption><span class="freq m">월간</span>두 지표의 최근 36개월 등락을 견준 상관계수이다. −1에 가까울수록 반대로 움직이고, 0이면 무관, 플러스면 같은 방향이다.</figcaption></figure><p class="panel-cap rngnote" style="margin-top:12px">2009-05 에 -0.57까지 내려갔다가 2026-08 기준 -0.30이다. 최근에도 음수이다.</p><div class="srcline"><span class="lbl">출처</span><span>위와 동일 · 36개월 창을 한 달씩 밀며 계산 · 그 달까지의 36개월</span><a href="https://kr.investing.com/indices/kospi-historical-data" target="_blank" rel="noopener">인베스팅닷컴 · 코스피 &#8599;</a></div></div><script>(window.__DK=window.__DK||[]).push({"id": "c2", "l": ["1981-05", "1981-06", "1981-07", "1981-08", "1981-09", "1981-10", "1981-11", "1981-12", "1982-01", "1982-02", "1982-03", "1982-04", "1982-05", "1982-06", "1982-07", "1982-08", "1982-09", "1982-10", "1982-11", "1982-12", "1983-01", "1983-02", "1983-03", "1983-04", "1983-05", "1983-06", "1983-07", "1983-08", "1983-09", "1983-10", "1983-11", "1983-12", "1984-01", "1984-02", "1984-03", "1984-04", "1984-05", "1984-06", "1984-07", "1984-08", "1984-09", "1984-10", "1984-11", "1984-12", "1985-01", "1985-02", "1985-03", "1985-04", "1985-05", "1985-06", "1985-07", "1985-08", "1985-09", "1985-10", "1985-11", "1985-12", "1986-01", "1986-02", "1986-03", "1986-04", "1986-05", "1986-06", "1986-07", "1986-08", "1986-09", "1986-10", "1986-11", "1986-12", "1987-01", "1987-02", "1987-03", "1987-04", "1987-05", "1987-06", "1987-07", "1987-08", "1987-09", "1987-10", "1987-11", "1987-12", "1988-01", "1988-02", "1988-03", "1988-04", "1988-05", "1988-06", "1988-07", "1988-08", "1988-09", "1988-10", "1988-11", "1988-12", "1989-01", "1989-02", "1989-03", "1989-04", "1989-05", "1989-06", "1989-07", "1989-08", "1989-09", "1989-10", "1989-11", "1989-12", "1990-01", "1990-02", "1990-03", "1990-04", "1990-05", "1990-06", "1990-07", "1990-08", "1990-09", "1990-10", "1990-11", "1990-12", "1991-01", "1991-02", "1991-03", "1991-04", "1991-05", "1991-06", "1991-07", "1991-08", "1991-09", "1991-10", "1991-11", "1991-12", "1992-01", "1992-02", "1992-03", "1992-04", "1992-05", "1992-06", "1992-07", "1992-08", "1992-09", "1992-10", "1992-11", "1992-12", "1993-01", "1993-02", "1993-03", "1993-04", "1993-05", "1993-06", "1993-07", "1993-08", "1993-09", "1993-10", "1993-11", "1993-12", "1994-01", "1994-02", "1994-03", "1994-04", "1994-05", "1994-06", "1994-07", "1994-08", "1994-09", "1994-10", "1994-11", "1994-12", "1995-01", "1995-02", "1995-03", "1995-04", "1995-05", "1995-06", "1995-07", "1995-08", "1995-09", "1995-10", "1995-11", "1995-12", "1996-01", "1996-02", "1996-03", "1996-04", "1996-05", "1996-06", "1996-07", "1996-08", "1996-09", "1996-10", "1996-11", "1996-12", "1997-01", "1997-02", "1997-03", "1997-04", "1997-05", "1997-06", "1997-07", "1997-08", "1997-09", "1997-10", "1997-11", "1997-12", "1998-01", "1998-02", "1998-03", "1998-04", "1998-05", "1998-06", "1998-07", "1998-08", "1998-09", "1998-10", "1998-11", "1998-12", "1999-01", "1999-02", "1999-03", "1999-04", "1999-05", "1999-06", "1999-07", "1999-08", "1999-09", "1999-10", "1999-11", "1999-12", "2000-01", "2000-02", "2000-03", "2000-04", "2000-05", "2000-06", "2000-07", "2000-08", "2000-09", "2000-10", "2000-11", "2000-12", "2001-01", "2001-02", "2001-03", "2001-04", "2001-05", "2001-06", "2001-07", "2001-08", "2001-09", "2001-10", "2001-11", "2001-12", "2002-01", "2002-02", "2002-03", "2002-04", "2002-05", "2002-06", "2002-07", "2002-08", "2002-09", "2002-10", "2002-11", "2002-12", "2003-01", "2003-02", "2003-03", "2003-04", "2003-05", "2003-06", "2003-07", "2003-08", "2003-09", "2003-10", "2003-11", "2003-12", "2004-01", "2004-02", "2004-03", "2004-04", "2004-05", "2004-06", "2004-07", "2004-08", "2004-09", "2004-10", "2004-11", "2004-12", "2005-01", "2005-02", "2005-03", "2005-04", "2005-05", "2005-06", "2005-07", "2005-08", "2005-09", "2005-10", "2005-11", "2005-12", "2006-01", "2006-02", "2006-03", "2006-04", "2006-05", "2006-06", "2006-07", "2006-08", "2006-09", "2006-10", "2006-11", "2006-12", "2007-01", "2007-02", "2007-03", "2007-04", "2007-05", "2007-06", "2007-07", "2007-08", "2007-09", "2007-10", "2007-11", "2007-12", "2008-01", "2008-02", "2008-03", "2008-04", "2008-05", "2008-06", "2008-07", "2008-08", "2008-09", "2008-10", "2008-11", "2008-12", "2009-01", "2009-02", "2009-03", "2009-04", "2009-05", "2009-06", "2009-07", "2009-08", "2009-09", "2009-10", "2009-11", "2009-12", "2010-01", "2010-02", "2010-03", "2010-04", "2010-05", "2010-06", "2010-07", "2010-08", "2010-09", "2010-10", "2010-11", "2010-12", "2011-01", "2011-02", "2011-03", "2011-04", "2011-05", "2011-06", "2011-07", "2011-08", "2011-09", "2011-10", "2011-11", "2011-12", "2012-01", "2012-02", "2012-03", "2012-04", "2012-05", "2012-06", "2012-07", "2012-08", "2012-09", "2012-10", "2012-11", "2012-12", "2013-01", "2013-02", "2013-03", "2013-04", "2013-05", "2013-06", "2013-07", "2013-08", "2013-09", "2013-10", "2013-11", "2013-12", "2014-01", "2014-02", "2014-03", "2014-04", "2014-05", "2014-06", "2014-07", "2014-08", "2014-09", "2014-10", "2014-11", "2014-12", "2015-01", "2015-02", "2015-03", "2015-04", "2015-05", "2015-06", "2015-07", "2015-08", "2015-09", "2015-10", "2015-11", "2015-12", "2016-01", "2016-02", "2016-03", "2016-04", "2016-05", "2016-06", "2016-07", "2016-08", "2016-09", "2016-10", "2016-11", "2016-12", "2017-01", "2017-02", "2017-03", "2017-04", "2017-05", "2017-06", "2017-07", "2017-08", "2017-09", "2017-10", "2017-11", "2017-12", "2018-01", "2018-02", "2018-03", "2018-04", "2018-05", "2018-06", "2018-07", "2018-08", "2018-09", "2018-10", "2018-11", "2018-12", "2019-01", "2019-02", "2019-03", "2019-04", "2019-05", "2019-06", "2019-07", "2019-08", "2019-09", "2019-10", "2019-11", "2019-12", "2020-01", "2020-02", "2020-03", "2020-04", "2020-05", "2020-06", "2020-07", "2020-08", "2020-09", "2020-10", "2020-11", "2020-12", "2021-01", "2021-02", "2021-03", "2021-04", "2021-05", "2021-06", "2021-07", "2021-08", "2021-09", "2021-10", "2021-11", "2021-12", "2022-01", "2022-02", "2022-03", "2022-04", "2022-05", "2022-06", "2022-07", "2022-08", "2022-09", "2022-10", "2022-11", "2022-12", "2023-01", "2023-02", "2023-03", "2023-04", "2023-05", "2023-06", "2023-07", "2023-08", "2023-09", "2023-10", "2023-11", "2023-12", "2024-01", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07", "2024-08", "2024-09", "2024-10", "2024-11", "2024-12", "2025-01", "2025-02", "2025-03", "2025-04", "2025-05", "2025-06", "2025-07", "2025-08", "2025-09", "2025-10", "2025-11", "2025-12", "2026-01", "2026-02", "2026-03", "2026-04", "2026-05", "2026-06", "2026-07", "2026-08"], "yt": "상관계수", "dp": 2, "mk": {"2009-05": {"t": "가장 강한 역상관 -0.57", "v": -0.57, "dy": 24, "c": "acc"}, "2026-08": {"t": "현재 -0.30", "v": -0.305, "dy": -14, "c": "acc"}}, "d": [{"label": "36개월 상관", "data": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0.136, 0.051, 0.098, 0.119, 0.041, 0.002, 0.054, 0.078, 0.079, 0.023, 0.026, 0.07, 0.013, -0.154, -0.151, -0.142, -0.134, -0.15, -0.186, -0.16, -0.222, -0.334, -0.362, -0.398, -0.443, -0.413, -0.449, -0.393, -0.389, -0.385, -0.299, -0.302, -0.37, -0.374, -0.347, -0.264, -0.23, -0.205, -0.132, -0.132, -0.098, -0.072, -0.002, -0.036, 0.043, 0.078, 0.089, 0.056, 0.092, 0.043, 0.0, -0.059, -0.055, -0.101, -0.127, -0.125, -0.168, -0.15, -0.108, -0.126, -0.125, -0.181, -0.151, -0.162, -0.18, -0.144, -0.173, -0.165, -0.1, -0.092, -0.089, -0.153, -0.174, -0.185, -0.219, -0.162, -0.156, -0.208, -0.277, -0.242, -0.263, -0.267, -0.251, -0.261, -0.279, -0.276, -0.286, -0.258, -0.264, -0.232, -0.151, -0.131, -0.115, -0.155, -0.186, -0.185, -0.179, -0.132, -0.075, -0.11, -0.12, -0.013, 0.051, 0.056, 0.052, 0.053, 0.053, 0.026, 0.061, 0.065, 0.033, -0.013, -0.027, 0.072, 0.087, 0.096, 0.093, 0.123, 0.193, 0.211, 0.22, 0.242, 0.27, 0.258, 0.228, 0.211, 0.169, 0.105, 0.118, 0.205, 0.178, 0.208, 0.184, 0.16, 0.112, 0.096, 0.15, 0.028, -0.091, -0.114, -0.11, -0.113, -0.103, -0.011, -0.022, -0.029, -0.012, -0.015, 0.001, -0.022, -0.048, -0.137, -0.112, -0.12, -0.132, -0.112, -0.145, -0.144, -0.157, -0.177, -0.098, 0.021, 0.011, -0.01, 0.067, 0.061, 0.116, 0.113, 0.117, 0.101, 0.105, 0.097, 0.039, -0.143, -0.129, -0.161, -0.164, -0.176, -0.122, -0.129, -0.127, -0.113, -0.115, -0.105, -0.077, -0.073, -0.064, -0.043, -0.045, -0.072, -0.07, -0.084, -0.067, -0.101, -0.108, -0.103, -0.126, -0.187, -0.186, -0.156, -0.284, -0.298, -0.319, -0.308, -0.32, -0.305, -0.311, -0.28, -0.304, -0.165, -0.141, -0.097, -0.084, -0.062, -0.138, -0.119, -0.077, -0.063, -0.05, -0.056, -0.087, -0.087, -0.153, -0.123, -0.098, -0.049, -0.044, -0.029, -0.078, -0.04, 0.015, 0.042, 0.108, 0.098, 0.106, 0.098, 0.119, 0.157, 0.223, 0.182, 0.132, 0.151, 0.178, 0.19, 0.204, 0.182, 0.075, 0.054, 0.031, 0.031, 0.036, -0.0, 0.001, -0.019, -0.008, -0.002, 0.025, -0.012, 0.059, 0.038, -0.004, -0.029, -0.044, -0.051, 0.084, 0.076, 0.045, 0.019, -0.025, 0.092, 0.081, 0.087, 0.061, 0.052, 0.063, 0.056, 0.104, 0.085, 0.007, -0.013, -0.021, -0.067, 0.043, 0.018, 0.038, 0.008, 0.012, 0.071, 0.044, -0.024, -0.062, -0.187, -0.202, -0.445, -0.519, -0.527, -0.518, -0.538, -0.493, -0.503, -0.57, -0.555, -0.55, -0.548, -0.554, -0.532, -0.528, -0.501, -0.495, -0.491, -0.489, -0.479, -0.493, -0.487, -0.478, -0.476, -0.477, -0.452, -0.495, -0.474, -0.525, -0.498, -0.529, -0.54, -0.54, -0.539, -0.552, -0.5, -0.515, -0.288, -0.273, -0.27, -0.265, -0.204, -0.26, -0.226, -0.268, -0.284, -0.274, -0.269, -0.273, -0.319, -0.322, -0.372, -0.367, -0.349, -0.351, -0.352, -0.28, -0.254, -0.212, -0.22, -0.192, -0.216, -0.214, -0.275, -0.287, -0.357, -0.294, -0.252, -0.258, -0.264, -0.265, -0.338, -0.275, -0.338, -0.306, -0.323, -0.253, -0.182, -0.122, -0.173, -0.113, -0.114, -0.139, -0.109, -0.018, -0.065, -0.103, -0.064, -0.074, -0.096, -0.149, -0.149, -0.156, -0.25, -0.249, -0.252, -0.237, -0.236, -0.252, -0.23, -0.241, -0.24, -0.235, -0.261, -0.293, -0.306, -0.286, -0.246, -0.218, -0.129, -0.137, -0.096, -0.194, -0.171, -0.233, -0.211, -0.295, -0.312, -0.289, -0.292, -0.292, -0.28, -0.239, -0.243, -0.251, -0.264, -0.242, -0.252, -0.248, -0.269, -0.287, -0.292, -0.276, -0.268, -0.262, -0.309, -0.304, -0.339, -0.391, -0.311, -0.296, -0.316, -0.363, -0.399, -0.398, -0.467, -0.472, -0.524, -0.533, -0.564, -0.555, -0.559, -0.546, -0.517, -0.522, -0.525, -0.528, -0.521, -0.56, -0.521, -0.444, -0.443, -0.41, -0.424, -0.414, -0.384, -0.326, -0.322, -0.425, -0.391, -0.427, -0.306, -0.335, -0.319, -0.298, -0.326, -0.318, -0.306, -0.291, -0.292, -0.304, -0.321, -0.337, -0.296, -0.282, -0.262, -0.272, -0.271, -0.259, -0.265, -0.253, -0.222, -0.207, -0.209, -0.216, -0.238, -0.258, -0.257, -0.247, -0.256, -0.267, -0.316, -0.364, -0.367, -0.251, -0.17, -0.146, -0.28, -0.234, -0.248, -0.317, -0.317, -0.296, -0.303, -0.318, -0.305], "c": "acc", "w": 3.0, "fill": true}]});</script>
 
-<p>36개월씩 밀며 계산한 월간 등락 상관은 2009-05에 -0.57까지 내려갔고 2026-08 기준 -0.30다.
+<p>36개월씩 밀며 계산한 월간 등락 상관은 2009년 5월에 -0.57까지 내려갔고 2026년 8월 기준 -0.30다.
 2020~2022년 -0.306, 2025~2026년 -0.257로 최근 구간도 음수다. 강도는 구간마다 다르지만 부호가 뒤집힌 적은 없다.
 최근 구간별 표는 원문 상세표에 있다.</p>
 
