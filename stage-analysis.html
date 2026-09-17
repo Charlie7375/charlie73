@@ -351,14 +351,7 @@ html,body{overflow-x:hidden}
   html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
   html body .site-bar-in{padding:9px 14px 7px}
 }
-/* BAR:END */
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
-/*TOCCSS:BEGIN*/
+/* BAR:END *//*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
 /* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
@@ -378,7 +371,14 @@ h2[id],h3[id],[id]:target{scroll-margin-top:92px}
 .ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
 .ptoc a:hover{border-bottom-color:var(--text-secondary)}
 @media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*//* PAPER:BEGIN */
+/*TOCCSS:END*/
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
+/* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -707,10 +707,10 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 /* ③ 기간 전환의 정의 — 인덱스는 seg 경계에서 뽑았다(1986~1989.10 = 2단계 전 구간,
    2009.04~ = 금융위기 4단계가 끝나고 1단계로 바뀐 자리). 하드코딩이지만 고정 자료다. */
 var RANGES={
- SJ:{all:{i0:0,i1:260,note:'1986년 1월부터 1990년 12월까지 전 구간입니다. 2단계 상승 · 3단계 천장 · 4단계 하락이 한 번씩만 나옵니다.'},
-     up:{i0:0,i1:196,note:'2단계 상승 구간만 확대했습니다(1986.01~1989.10). 조정이 올 때마다 200일선에서 멈추는 것이 보입니다 — 이 구간 197주 동안 종가가 200일선 아래로 내려간 주는 <b>한 주도 없습니다</b>.'}},
- BL:{all:{i0:0,i1:260,note:'2003년 1월부터 2012년 12월까지 전 구간입니다. 4개 국면이 번갈아 나오며 10년을 계단식으로 올랐습니다.'},
-     post:{i0:164,i1:260,note:'금융위기 4단계가 끝난 2009년 4월부터입니다. 1단계 바닥 3개월 뒤 2단계가 2년 넘게 이어졌고, 2011년 8월 유럽 위기에서 4단계로 꺾였습니다.'}}};
+ SJ:{all:{i0:0,i1:260,note:'1986년 1월부터 1990년 12월까지 전 구간이다. 2단계 상승 · 3단계 천장 · 4단계 하락이 한 번씩만 나온다.'},
+     up:{i0:0,i1:196,note:'2단계 상승 구간만 확대했다(1986.01~1989.10). 조정이 올 때마다 200일선에서 멈추는 것이 보인다. 이 구간 197주 동안 종가가 200일선 아래로 내려간 주는 <b>1주도 없다</b>.'}},
+ BL:{all:{i0:0,i1:260,note:'2003년 1월부터 2012년 12월까지 전 구간이다. 4개 국면이 번갈아 나오며 10년을 계단식으로 올랐다.'},
+     post:{i0:164,i1:260,note:'금융위기 4단계가 끝난 2009년 4월부터다. 1단계 바닥 3개월 뒤 2단계가 2년 넘게 이어졌고, 2011년 8월 유럽 위기에서 4단계로 꺾였다.'}}};
 </script>
 
 <section class="dashwrap" data-reveal>
@@ -724,7 +724,7 @@ var RANGES={
         <button onclick="setStageRange('SJ','up',this)">2단계 구간만</button>
       </div>
     </div>
-    <div class="panel-cap">저금리·저유가·저달러의 3저 호황. 4년 만에 <b>157 → 965(월평균 기준, +515%)</b>. 스테이지로 보면 단순합니다 — <b>2단계 상승이 1986.1부터 1989.10까지 거의 4년</b> 이어졌고, 200일선이 눕는 <b>3단계 천장은 1989년 4분기 단 2개월</b>, 이후 1990년 내내 <b>4단계 하락</b>에서 고점 대비 −40% 이상을 반납했습니다.</div>
+    <div class="panel-cap">저금리·저유가·저달러의 3저 호황. 4년 만에 <b>157 → 965(월평균 기준, +515%)</b>. 스테이지로 보면 단순하다. <b>2단계 상승이 1986.1부터 1989.10까지 거의 4년</b> 이어졌고, 200일선이 눕는 <b>3단계 천장은 1989년 4분기 단 2개월</b>, 이후 1990년 내내 <b>4단계 하락</b>에서 고점 대비 −40% 이상을 반납했다.</div>
     <div class="kpis">
       <div class="kpi hl"><div class="k">저점 → 고점</div><div class="v">+515%</div><div class="s">157(1986.01) → 965(1989.03)</div></div>
       <div class="kpi"><div class="k">2단계 지속</div><div class="v">75.5%</div><div class="s">261주 중 197주 · 약 3년 9개월</div></div>
@@ -750,7 +750,7 @@ var RANGES={
         <button onclick="setStageRange('BL','post',this)">금융위기 이후</button>
       </div>
     </div>
-    <div class="panel-cap">카드 사태 저점에서 차이나·조선 호황을 타고 <b>555 → 2,142(월평균 기준, 2011.4)</b>. 10년을 스테이지로 나누면 — <b>2단계 상승 구간이 5번</b>, 사이사이 200일선이 눕는 <b>3단계 조정</b>(2004 차이나쇼크 · 2006 긴축 · 2008 상반기)이 끼었지만, <b>4단계 하락은 2008 금융위기와 2011.8 유럽 위기가 중심</b>이었습니다.</div>
+    <div class="panel-cap">카드 사태 저점에서 차이나·조선 호황을 타고 <b>555 → 2,142(월평균 기준, 2011.4)</b>. 10년을 스테이지로 나누면 <b>2단계 상승 구간이 5번</b>이고, 사이사이 200일선이 눕는 <b>3단계 조정</b>(2004 차이나쇼크 · 2006 긴축 · 2008 상반기)이 끼었지만, <b>4단계 하락은 2008 금융위기와 2011.8 유럽 위기가 중심</b>이었다.</div>
     <div class="kpis">
       <div class="kpi hl"><div class="k">저점 → 고점</div><div class="v">+286%</div><div class="s">555(2003.03) → 2,142(2011.04)</div></div>
       <div class="kpi"><div class="k">2단계 지속</div><div class="v">55.2%</div><div class="s">261주 중 144주 · 구간 5회</div></div>
@@ -761,12 +761,12 @@ var RANGES={
     <p class="panel-cap rngnote" style="margin-top:12px"></p>
     <div class="srcline">
       <span class="lbl">출처</span>
-      <span>위와 동일 · 월봉 보간이라 일별 실측 대비 진폭이 축소됩니다</span>
+      <span>위와 동일 · 월봉 보간이라 일별 실측 대비 진폭이 축소된다</span>
       <a class="srclink" href="https://fred.stlouisfed.org/data/SPASTT01KRM661N" target="_blank" rel="noopener">FRED · SPASTT01KRM661N &#8599;</a>
     </div>
   </div>
 
-  <div class="verdict">2개 사례를 겹쳐 보면 — <b>"2단계에서만 사고 4단계를 피하라"</b>는 와인스타인 원칙이 두 시대 모두에서 작동했습니다. 3저 호황은 2단계가 4년 통으로 이어진 <b>한 번 오르고 한 번에 무너진</b> 사이클이었고, 2003~2012는 2단계와 3단계가 번갈아 나오며 <b>10년을 계단식으로 오른</b> 사이클이었습니다. 공통점은 <b>2단계 유지 중에는 급락도 200일선 부근에서 멈췄다</b>는 것입니다 — 200일선 아래로 내려간 주가 3저 호황은 0%, 2003~2012는 3%였습니다. 차이점은 3단계의 길이입니다 — 3단계가 짧으면 급락이, 길면 재상승이 뒤따랐습니다.</div>
+  <div class="verdict">2개 사례를 겹쳐 보면 <b>"2단계에서만 사고 4단계를 피하라"</b>는 와인스타인 원칙이 2개 시대 모두에서 작동했다. 3저 호황은 2단계가 4년 통으로 이어진 <b>한 번 오르고 한 번에 무너진</b> 사이클이었고, 2003~2012는 2단계와 3단계가 번갈아 나오며 <b>10년을 계단식으로 오른</b> 사이클이었다. 공통점은 <b>2단계 유지 중에는 급락도 200일선 부근에서 멈췄다</b>는 것이다. 200일선 아래로 내려간 주가 3저 호황은 0%, 2003~2012는 3%였다. 차이점은 3단계의 길이다. 3단계가 짧으면 급락이, 길면 재상승이 뒤따랐다.</div>
 </section>
 
 <script>
@@ -795,13 +795,13 @@ var RANGES={
 
 <!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>와인스타인의 네 단계는 200일선의 방향과 가격의 위치로 갈린다. 2단계에서만 사고 4단계에서는 쉰다는 것이 요지다. 단계를 집계 규칙이 사람마다 달라지면 그 순간 이 도구는 쓸모를 잃는다.</p></div><!--PCLAIM:END--><h2 class="sec">스테이지 분석이란 무엇인가?</h2>
 <div class="explain">
-<p>스탠 와인스타인(Stan Weinstein)은 모든 주식·지수가 4개의 국면(Stage)을 순환한다고 본다. 1단계 바닥(횡보·이동평균 평탄) → 2단계 상승(이동평균 우상향·가격이 그 위) → 3단계 천장(이동평균 평탄화·가격 등락) → 4단계 하락(이동평균 우하향·가격이 그 아래). 그의 규칙은 단순하다. 2단계에서만 매수하고, 3단계에서 줄이고, 4단계는 절대 건드리지 않는다.</p>
-<p>판정 기준은 이동평균의 기울기와 가격의 위치 2가지이다. 원전은 주봉 30주선(약 150일)을 쓰지만 이 페이지는 일봉 <span class="f">200일선</span>으로 통일했다.</p>
-<p>200일선이 상승 중이고 가격이 그 위면 2단계, 200일선이 하락 중이고 가격이 그 아래면 4단계이다. 나머지는 직전 국면에 따라 1·3단계로 분류한다.</p>
+<p>스탠 와인스타인(Stan Weinstein)은 모든 주식·지수가 4개의 국면(Stage)을 순환한다고 본다. 1단계 바닥은 횡보하며 이동평균이 평탄한 국면이다. 2단계 상승은 이동평균이 우상향하고 가격이 그 위에 있는 국면이다. 3단계 천장은 이동평균이 평탄해지고 가격이 등락하는 국면이다. 4단계 하락은 이동평균이 우하향하고 가격이 그 아래에 있는 국면이다. 그의 규칙은 단순하다. 2단계에서만 매수하고 3단계에서 줄인다. 4단계는 절대 건드리지 않는다.</p>
+<p>판정 기준은 이동평균의 기울기와 가격의 위치 2가지다. 원전은 주봉 30주선(약 150일)을 쓰지만 이 페이지는 일봉 <span class="f">200일선</span>으로 통일했다.</p>
+<p>200일선이 상승 중이고 가격이 그 위면 2단계다. 200일선이 하락 중이고 가격이 그 아래면 4단계다. 나머지는 직전 국면에 따라 1·3단계로 분류한다.</p>
 <p>이격도와의 차이가 핵심이다. 이격도는 "얼마나 뜨거운가"(위치)를, 스테이지는 "사이클의 어디인가"(국면)를 답한다. 10년 대세 상승에서 이격도는 105~110을 왕복할 뿐 아무 방향성도 주지 않지만, 스테이지는 2단계·3단계·4단계를 명확히 구분한다. 반대로 단기 과열·과매도 판단은 이격도가 훨씬 예민하다. <a href="disparity-archive.html" style="color:var(--accent)">이격도 아카이브</a>에서 2026 AI·1999 닷컴 사례를 다룬다.</p>
 </div>
 
-<div class="note"><p>이렇게 읽으면 안 된다. 스테이지는 지나고 나서야 이름이 붙는다. 2단계가 시작된 순간을 그날 알 수는 없고, 200일선이 돌아섰다는 것까지가 그날 확인할 수 있는 것이다.</p></div>
+<div class="note"><p>이렇게 읽으면 안 된다. 스테이지는 지나고 나서야 이름이 붙다. 2단계가 시작된 순간을 그날 알 수는 없고, 200일선이 돌아섰다는 것까지가 그날 확인할 수 있는 것이다.</p></div>
 
 <h2 class="sec">출처와 학술적 근거</h2>
 <div class="explain">
@@ -810,7 +810,7 @@ var RANGES={
 동료평가를 거친 연구로 이 방법론을 직접 시험한 사례를 찾지 못했다.</p>
 
 <p>다만 이 방법론이 딛고 선 2개의 기둥에는 학술 문헌이 두껍게 쌓여 있다.
-① 장기 이동평균으로 매매 시점을 가르는 것, ② 오르는 것을 사는 것(상대강도·모멘텀)이다.
+① 장기 이동평균으로 매매 시점을 가르는 것, ② 오르는 것을 사는 것(상대강도·모멘텀)다.
 아래는 그 문헌이고, 지지하는 쪽과 반박하는 쪽을 함께 실었다.</p>
 
 <h3 class="sub-h">원전</h3>
@@ -827,7 +827,7 @@ var RANGES={
 Simple Technical Trading Rules and the Stochastic Properties of Stock Returns.</a>
 <i>Journal of Finance</i> 47(5), 1731&ndash;1764.
 &mdash; 다우 1897~1986년 90년치로 이동평균 규칙을 검정. 매수 신호 뒤 수익률이 매도 신호 뒤보다
-유의하게 높았고, 랜덤워크·AR(1)·GARCH-M 등 네 모형으로 설명되지 않았다.
+유의하게 높았고, 랜덤워크·AR(1)·GARCH-M 등 4개 모형으로 설명되지 않았다.
 이 분야에서 가장 많이 인용되는 논문이다.
 (<a href="https://finance.martinsewell.com/stylized-facts/dependence/BrockLakonishokLeBaron1992.pdf" target="_blank" rel="noopener">PDF</a>)</li>
 
@@ -876,17 +876,17 @@ Returns to Buying Winners and Selling Losers: Implications for Stock Market Effi
 
 <h3 class="sub-h">이 문헌들을 어떻게 읽어야 하나?</h3>
 <p>"이동평균 규칙이 통한다"는 것은 대체로 확인됐지만, 얼마나 통하는지는 논쟁 중이다.
-Brock(1992)과 Faber(2007)가 든 근거는 강하고, Zakamulin(2018)의 반박도 강하다.
+Brock(1992)과 Faber(2007)가 든 근거는 강하다. Zakamulin(2018)의 반박도 강하다.
 어느 한쪽만 인용하면 틀린 그림을 갖게 된다.</p>
 <p>실무적으로 남는 것은 이것이다. 이 규칙의 값은 수익률을 높이는 데 있는 것이 아니라
 큰 손실을 피하는 데 있다. Faber의 결과가 정확히 그랬다 &mdash;
 수익률은 비슷한데 최대낙폭이 줄었다.
-와인스타인이 "4단계는 절대 건드리지 마라"고 한 것도 같은 이야기이다.</p>
-<p class="note">그리고 위 논문들은 대부분 미국 시장 데이터이다.
+와인스타인이 "4단계는 절대 건드리지 마라"고 한 것도 같은 이야기다.</p>
+<p class="note">그리고 위 논문들은 대부분 미국 시장 데이터다.
 이 페이지가 다루는 것은 한국이고, 한국 시장에서 같은 규칙이 같은 정도로 통하는지는
 따로 검정하지 않았다.</p>
 </div>
-<div class="wrap"><!--TOPICNEWS:BEGIN--><style id="tnewscss">.tnews{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 10px;margin:34px 0 10px}.tnews h3{margin:0 0 10px;font-size:1.02rem}.tnews table{width:100%;border-collapse:collapse;font-size:.9rem}.tnews td{padding:5px 8px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}.tnews td.d{white-space:nowrap;color:var(--text-secondary)}.tnews p.cap{margin:10px 0 8px;font-size:.8rem;color:var(--text-secondary);line-height:1.6}</style><div class="tnews"><h3>관련 뉴스</h3><p class="cap">제목에 그 낱말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.</p><p class="cap">국내: 「코스피 상승 국면」 로 찾았다.</p><div class="tblwrap"><table><tbody><tr><td class="d">Tue, 25 Aug</td><td class="d">chosun.com</td><td><a href="https://news.google.com/rss/articles/CBMigAFBVV95cUxPcHhqSFhIQ0kza2dHMnNrMEIzZ0t0SEM1QTZUX2dPNUNFY2NDOHA4OWppYkxJZmVjdC1SMEs5Tm9BZXFQdmRSQ0c0NzQwR2VGd195cUp4bkZVakRfYlhxcG9ITEtuZ1NMUUQyVkpMaU8wbjRFMTI3OVlLMFVKU013Vg?oc=5" target="_blank" rel="noopener nofollow">"코스피 상승 동력 잃고 하락 국면에 진입… 5000선 붕괴도 가능"</a></td></tr><tr><td class="d">Thu, 18 Jun</td><td class="d">yna.co.kr</td><td><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE5Na3NfLWdWWm9TbjZYVVBpNEl4djJkY1Y5WURjUmJDNjRYNmFDRkY1SmMxejNiMkJVRVZsLUJBTnFpRW1yNldfVTRfWmozdzZubzJWVUZSc0NjRk3SAWBBVV95cUxPUExURGRvVjY0RnRQQVgyQ0ZsaXF6WmhMRnVNMjlhNEpCaDVQZXZ4cm5XWGZra1VOUW5YQ1JjeXZjRUh1UngwZjFnRFdMMWVObzNMcEY0V2hhTHZ6SlpWQU8?oc=5" target="_blank" rel="noopener nofollow">[코스피 9,000] 리서치센터장들 "상승국면 안착…연내 1만피 가능"(종합)</a></td></tr><tr><td class="d">Tue, 16 Jun</td><td class="d">연합인포맥스</td><td><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTE5JVERPb3A5U0RwREJSOE9EYWlETG5XZWtHS2xkUTI3cm9vZDkwMlRtdi16MzY4Vl92bnlIVFNIVzI2dmFEcXFXQlRMbV9iRm01aHNTTmFwMGY0YlFNQ2FXM0RyNHpwb240M2pTX3lXWC0?oc=5" target="_blank" rel="noopener nofollow">[증시-마감] 외국인 1.5조 '사자'에 코스피 2% 상승…"매도세 진정 국면"</a></td></tr><tr><td class="d">Mon, 10 Aug</td><td class="d">매일경제 마켓</td><td><a href="https://news.google.com/rss/articles/CBMiUkFVX3lxTE82aU1BT2RDLUdMRERiZkcxOFpmSmRST21qbEVTdE44YnQwaDI4U3pvZFd0czdMYmwtYnQ2eDU5YmVXaTV3VDhZbEl6NW91Tnk4a1E?oc=5" target="_blank" rel="noopener nofollow">주가 크게 떨어진 삼전닉스…“반도체 사이클 상승 국면 종료는 아냐”</a></td></tr><tr><td class="d">Fri, 07 Aug</td><td class="d">뉴시스</td><td><a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTFBvNXkzWm5JSk15QzdmRzljcjZyckxrTkJsZ1M2UmFfU0VKazZVa0lhNVZWYXA2b0dBeHM0cTZCc0RiaHpKcTgwWUhoU2dXUXRqenJLdVRqNzZ3QjRhQ1BwdtIBeEFVX3lxTE5INm1wRjR2SXZTS0xIdXRnYS1KUWtVd0VCWEk5OHNyR2FDSjBmNDIzcFJmM09OU2VuamZBQ3ZoWjQwTHNHMlB3RmpNbXB4Q0Y2Vlh3MTZ5eW9xajA3RXAtTlkzRGR1V2xiakxhQXdjeUVHSXBUUlhtUQ?oc=5" target="_blank" rel="noopener nofollow">"8월 반등 속지 마라…코스피, 상승추세 아니라 '조정국면'"</a></td></tr><tr><td class="d">Sun, 21 Jun</td><td class="d">더구루</td><td><a href="https://news.google.com/rss/articles/CBMiY0FVX3lxTE1NRndlTXFxaW40VGs0R1VnNWtBSlZCNDllUXN5azZsRmE3dzNDemszbHg1eGZVTFV5dHlpcDBFRU0zMmJvbnlqNkN5RnAzTDlZay1aaTBHcjdaclRNZGdsQnkxRQ?oc=5" target="_blank" rel="noopener nofollow">1만피 임박한 코스피 "8월말~9월초 변곡점 올 수도"</a></td></tr></tbody></table></div><p class="cap">출처 구글 뉴스 · 2026-09-17 기준. 뉴스는 이 글의 분석과 무관하며 서로 어긋날 수 있다.</p></div><!--TOPICNEWS:END--><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="masters.html">대가의 투자법</a> 와인스타인 4단계의 원전과 계보: 미너비니 VCP 와의 관계까지.</p><p><a href="samsung-long.html">삼성전자 27년</a> 이 규칙이 개별 종목에서 거꾸로였던 사례다. 삼성전자는 200일선을 이탈한 첫날 뒤 1년이 14번 중 11번, 추세를 확인한 첫날 뒤는 16번 중 9번 올랐다.</p></div><!--RELATED:END--><!--GLOSSARY:BEGIN--><style id="glocss">.glo{margin:34px 0 8px}.glo h3{font-size:1.02rem;margin:0 0 12px}.glo dl{margin:0;font-size:.9rem;line-height:1.62}.glo dt{font-weight:800;margin-top:10px}.glo dd{margin:2px 0 0 0;color:var(--text-secondary,#555)}</style><div class="glo"><h3>용어 설명</h3><dl><dt>국면</dt><dd>시장이 지금 어느 상태에 있는가를 가리키는 말. 봄·여름·가을·겨울처럼 몇 개로 나누고, 한번 들어가면 여러 달에서 몇 해까지 이어진다고 본다. 오르내림 하나하나가 아니라 그 오르내림이 놓인 자리를 가리킨다.</dd><dt>추세</dt><dd>가격이 한 방향으로 꾸준히 가는 것. 오르내림이 있어도 전체로 보면 위를 향하면 상승 추세다. 보통 이동평균선이 오르는지 내리는지로 판단한다.</dd><dt>수급</dt><dd>누가 사고 누가 파는가. 개인·외국인·기관 셋으로 나눠 본다. 같은 가격이라도 누가 샀느냐에 따라 다음이 달라진다고 보는 관점이다.</dd><dt>이동평균</dt><dd>최근 며칠의 종가를 평균한 값. 날마다 다시 계산해 선으로 잇는다. 하루하루 오르내림을 지워 방향만 남기려고 쓴다. 20일선은 최근 20일 평균이다.</dd><dt>변동성</dt><dd>가격이 얼마나 크게 흔들리는가. 방향과는 상관이 없다. 많이 오른 달과 많이 내린 달은 방향이 반대지만 변동성은 똑같이 크다.</dd><dt>스프레드</dt><dd>두 금리의 차이. 예를 들어 회사채 금리에서 국채 금리를 빼면, 그 기업이 나라보다 얼마나 더 이자를 물어야 하는지가 나온다. 벌어지면 시장이 위험을 크게 본다는 뜻이다.</dd><dt>유동성</dt><dd>시장에 돌아다니는 돈. 중앙은행이 금리를 내리거나 돈을 풀면 늘어난다. 늘면 자산 가격이 오르기 쉽다고 본다.</dd><dt>기준금리</dt><dd>중앙은행이 정하는 초단기 금리. 연준의 연방기금금리가 세계 돈값의 기준이 된다.</dd><dt>신용스프레드</dt><dd>회사채 금리에서 국고채 금리를 뺀 값. 기업이 국가보다 더 부담하는 금리이고, 시장이 매긴 부도 위험의 값이다.</dd><dt>이격도</dt><dd>주가가 이동평균선에서 얼마나 떨어져 있는지의 백분율. 100이면 이동평균과 같은 자리, 90 아래는 과매도·110 위는 과열로 읽는다.</dd><dt>이동평균선</dt><dd>일정 기간 종가의 평균을 이은 선. 20일선은 단기, 20주선(=100거래일 근사)은 이야기꾼의 '생명선', 200일선은 장기 추세 기준이다.</dd><dt>RS</dt><dd>Relative Strength(상대강도). 시장 전체 대비 그 종목이 얼마나 더 올랐는지를 백분위로 매긴 값. RS 90이면 "시장의 90%보다 더 올랐다"는 뜻이다. 미너비니는 RS 상위 종목만 후보로 둔다.</dd><dt>스테이지</dt><dd>와인스타인의 4국면: 1 바닥, 2 상승, 3 천장, 4 하락. 이동평균의 기울기와 가격 위치로 판정한다.</dd><dt>제오지산수</dt><dd>이야기꾼의 다섯 경기지표: 제(ISM 제조업지수)·오(OECD 경기선행지수)·지(GDP)·산(산업생산)·수(한국 수출).</dd><dt>CLI</dt><dd>Composite Leading Indicator(경기선행지수). OECD가 만드는 지수로 100이 장기 추세다. 102 위는 36년에 4번뿐인 과열권이고, 4번 모두 그 뒤에 하락이 왔다.</dd><dt>ISM</dt><dd>Institute for Supply Management(미국 공급관리자협회)의 제조업 구매관리자지수(PMI). 구매 담당자에게 '지난달보다 나아졌나'를 묻는 설문이라 50이 기준이고 위면 확장, 아래면 위축이다. 설문이라 주가가 섞이지 않고 사후 수정이 없어 선행지표로 쓴다.</dd></dl><p style="font-size:.8rem;color:var(--text-secondary,#777);margin-top:12px">이 글에 나온 용어만 실었다. 정의는 <code>scripts/glossary.py</code> 에서 한곳으로 관리한다.</p></div><!--GLOSSARY:END--></div>
+<div class="wrap"><!--TOPICNEWS:BEGIN--><style id="tnewscss">.tnews{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 10px;margin:34px 0 10px}.tnews h3{margin:0 0 10px;font-size:1.02rem}.tnews table{width:100%;border-collapse:collapse;font-size:.9rem}.tnews td{padding:5px 8px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}.tnews td.d{white-space:nowrap;color:var(--text-secondary)}.tnews p.cap{margin:10px 0 8px;font-size:.8rem;color:var(--text-secondary);line-height:1.6}</style><div class="tnews"><h3>관련 뉴스</h3><p class="cap">제목에 그 낱말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.</p><p class="cap">국내: 「코스피 상승 국면」 로 찾았다.</p><div class="tblwrap"><table><tbody><tr><td class="d">Tue, 25 Aug</td><td class="d">조선일보</td><td><a href="https://news.google.com/rss/articles/CBMigAFBVV95cUxPcHhqSFhIQ0kza2dHMnNrMEIzZ0t0SEM1QTZUX2dPNUNFY2NDOHA4OWppYkxJZmVjdC1SMEs5Tm9BZXFQdmRSQ0c0NzQwR2VGd195cUp4bkZVakRfYlhxcG9ITEtuZ1NMUUQyVkpMaU8wbjRFMTI3OVlLMFVKU013Vg?oc=5" target="_blank" rel="noopener nofollow">"코스피 상승 동력 잃고 하락 국면에 진입… 5000선 붕괴도 가능"</a></td></tr><tr><td class="d">Thu, 18 Jun</td><td class="d">연합뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE5Na3NfLWdWWm9TbjZYVVBpNEl4djJkY1Y5WURjUmJDNjRYNmFDRkY1SmMxejNiMkJVRVZsLUJBTnFpRW1yNldfVTRfWmozdzZubzJWVUZSc0NjRk3SAWBBVV95cUxPUExURGRvVjY0RnRQQVgyQ0ZsaXF6WmhMRnVNMjlhNEpCaDVQZXZ4cm5XWGZra1VOUW5YQ1JjeXZjRUh1UngwZjFnRFdMMWVObzNMcEY0V2hhTHZ6SlpWQU8?oc=5" target="_blank" rel="noopener nofollow">[코스피 9,000] 리서치센터장들 "상승국면 안착…연내 1만피 가능"(종합)</a></td></tr><tr><td class="d">Tue, 16 Jun</td><td class="d">연합인포맥스</td><td><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTE5JVERPb3A5U0RwREJSOE9EYWlETG5XZWtHS2xkUTI3cm9vZDkwMlRtdi16MzY4Vl92bnlIVFNIVzI2dmFEcXFXQlRMbV9iRm01aHNTTmFwMGY0YlFNQ2FXM0RyNHpwb240M2pTX3lXWC0?oc=5" target="_blank" rel="noopener nofollow">[증시-마감] 외국인 1.5조 '사자'에 코스피 2% 상승…"매도세 진정 국면"</a></td></tr><tr><td class="d">Mon, 10 Aug</td><td class="d">매일경제 마켓</td><td><a href="https://news.google.com/rss/articles/CBMiUkFVX3lxTE82aU1BT2RDLUdMRERiZkcxOFpmSmRST21qbEVTdE44YnQwaDI4U3pvZFd0czdMYmwtYnQ2eDU5YmVXaTV3VDhZbEl6NW91Tnk4a1E?oc=5" target="_blank" rel="noopener nofollow">주가 크게 떨어진 삼전닉스…“반도체 사이클 상승 국면 종료는 아냐”</a></td></tr><tr><td class="d">Fri, 07 Aug</td><td class="d">뉴시스</td><td><a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTFBvNXkzWm5JSk15QzdmRzljcjZyckxrTkJsZ1M2UmFfU0VKazZVa0lhNVZWYXA2b0dBeHM0cTZCc0RiaHpKcTgwWUhoU2dXUXRqenJLdVRqNzZ3QjRhQ1BwdtIBeEFVX3lxTE5INm1wRjR2SXZTS0xIdXRnYS1KUWtVd0VCWEk5OHNyR2FDSjBmNDIzcFJmM09OU2VuamZBQ3ZoWjQwTHNHMlB3RmpNbXB4Q0Y2Vlh3MTZ5eW9xajA3RXAtTlkzRGR1V2xiakxhQXdjeUVHSXBUUlhtUQ?oc=5" target="_blank" rel="noopener nofollow">"8월 반등 속지 마라…코스피, 상승추세 아니라 '조정국면'"</a></td></tr><tr><td class="d">Sun, 21 Jun</td><td class="d">더구루</td><td><a href="https://news.google.com/rss/articles/CBMiY0FVX3lxTE1NRndlTXFxaW40VGs0R1VnNWtBSlZCNDllUXN5azZsRmE3dzNDemszbHg1eGZVTFV5dHlpcDBFRU0zMmJvbnlqNkN5RnAzTDlZay1aaTBHcjdaclRNZGdsQnkxRQ?oc=5" target="_blank" rel="noopener nofollow">1만피 임박한 코스피 "8월말~9월초 변곡점 올 수도"</a></td></tr></tbody></table></div><p class="cap">출처 구글 뉴스 · 2026-09-17 기준. 뉴스는 이 글의 분석과 무관하며 서로 어긋날 수 있다.</p></div><!--TOPICNEWS:END--><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="masters.html">대가의 투자법</a> 와인스타인 4단계의 원전과 계보: 미너비니 VCP 와의 관계까지.</p><p><a href="samsung-long.html">삼성전자 27년</a> 이 규칙이 개별 종목에서 거꾸로였던 사례다. 삼성전자는 200일선을 이탈한 첫날 뒤 1년이 14번 중 11번, 추세를 확인한 첫날 뒤는 16번 중 9번 올랐다.</p></div><!--RELATED:END--><!--GLOSSARY:BEGIN--><style id="glocss">.glo{margin:34px 0 8px}.glo h3{font-size:1.02rem;margin:0 0 12px}.glo dl{margin:0;font-size:.9rem;line-height:1.62}.glo dt{font-weight:800;margin-top:10px}.glo dd{margin:2px 0 0 0;color:var(--text-secondary,#555)}</style><div class="glo"><h3>용어 설명</h3><dl><dt>국면</dt><dd>시장이 지금 어느 상태에 있는가를 가리키는 말. 봄·여름·가을·겨울처럼 몇 개로 나누고, 한번 들어가면 여러 달에서 몇 해까지 이어진다고 본다. 오르내림 하나하나가 아니라 그 오르내림이 놓인 자리를 가리킨다.</dd><dt>추세</dt><dd>가격이 한 방향으로 꾸준히 가는 것. 오르내림이 있어도 전체로 보면 위를 향하면 상승 추세다. 보통 이동평균선이 오르는지 내리는지로 판단한다.</dd><dt>수급</dt><dd>누가 사고 누가 파는가. 개인·외국인·기관 셋으로 나눠 본다. 같은 가격이라도 누가 샀느냐에 따라 다음이 달라진다고 보는 관점이다.</dd><dt>이동평균</dt><dd>최근 며칠의 종가를 평균한 값. 날마다 다시 계산해 선으로 잇는다. 하루하루 오르내림을 지워 방향만 남기려고 쓴다. 20일선은 최근 20일 평균이다.</dd><dt>변동성</dt><dd>가격이 얼마나 크게 흔들리는가. 방향과는 상관이 없다. 많이 오른 달과 많이 내린 달은 방향이 반대지만 변동성은 똑같이 크다.</dd><dt>스프레드</dt><dd>두 금리의 차이. 예를 들어 회사채 금리에서 국채 금리를 빼면, 그 기업이 나라보다 얼마나 더 이자를 물어야 하는지가 나온다. 벌어지면 시장이 위험을 크게 본다는 뜻이다.</dd><dt>유동성</dt><dd>시장에 돌아다니는 돈. 중앙은행이 금리를 내리거나 돈을 풀면 늘어난다. 늘면 자산 가격이 오르기 쉽다고 본다.</dd><dt>기준금리</dt><dd>중앙은행이 정하는 초단기 금리. 연준의 연방기금금리가 세계 돈값의 기준이 된다.</dd><dt>신용스프레드</dt><dd>회사채 금리에서 국고채 금리를 뺀 값. 기업이 국가보다 더 부담하는 금리이고, 시장이 매긴 부도 위험의 값이다.</dd><dt>이격도</dt><dd>주가가 이동평균선에서 얼마나 떨어져 있는지의 백분율. 100이면 이동평균과 같은 자리, 90 아래는 과매도·110 위는 과열로 읽는다.</dd><dt>이동평균선</dt><dd>일정 기간 종가의 평균을 이은 선. 20일선은 단기, 20주선(=100거래일 근사)은 이야기꾼의 '생명선', 200일선은 장기 추세 기준이다.</dd><dt>RS</dt><dd>Relative Strength(상대강도). 시장 전체 대비 그 종목이 얼마나 더 올랐는지를 백분위로 매긴 값. RS 90이면 "시장의 90%보다 더 올랐다"는 뜻이다. 미너비니는 RS 상위 종목만 후보로 둔다.</dd><dt>스테이지</dt><dd>와인스타인의 4국면: 1 바닥, 2 상승, 3 천장, 4 하락. 이동평균의 기울기와 가격 위치로 판정한다.</dd><dt>제오지산수</dt><dd>이야기꾼의 다섯 경기지표: 제(ISM 제조업지수)·오(OECD 경기선행지수)·지(GDP)·산(산업생산)·수(한국 수출).</dd><dt>CLI</dt><dd>Composite Leading Indicator(경기선행지수). OECD가 만드는 지수로 100이 장기 추세다. 102 위는 36년에 4번뿐인 과열권이고, 4번 모두 그 뒤에 하락이 왔다.</dd><dt>ISM</dt><dd>Institute for Supply Management(미국 공급관리자협회)의 제조업 구매관리자지수(PMI). 구매 담당자에게 '지난달보다 나아졌나'를 묻는 설문이라 50이 기준이고 위면 확장, 아래면 위축이다. 설문이라 주가가 섞이지 않고 사후 수정이 없어 선행지표로 쓴다.</dd></dl><p style="font-size:.8rem;color:var(--text-secondary,#777);margin-top:12px">이 글에 나온 용어만 실었다. 정의는 <code>scripts/glossary.py</code> 에서 한곳으로 관리한다.</p></div><!--GLOSSARY:END--></div>
 <footer><p>본 자료는 정보 제공·교육 목적이며 투자 권유가 아니다. 투자의 최종 판단과 책임은 투자자 본인에게 있다. · 데이터: FRED 한국 주가지수 월봉 원계열(2015=100)을 코스피 포인트로 환산(×20.1 · 2015년 평균 ≈ 2,010) 후 일별 보간, 200일 이동평균과 그 기울기·가격 위치로 와인스타인 4단계를 기계적으로 분류한 근사치(원전은 30주선). 월봉 보간이라 일별 실측 대비 진폭이 축소된다.</p></footer>
 </div>
 <script>

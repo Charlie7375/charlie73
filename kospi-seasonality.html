@@ -2246,6 +2246,86 @@ html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;-
 .reveal.visible{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 @media(max-width:720px){.panel{padding:22px 16px 18px}.panel .cbox{min-height:320px}}
+
+/* ── 닷컴 대시보드 형식 (scripts/dotcom_panel.py) ── */
+/* 값은 kospi-dotcom-1998-2000.html 에서 그대로 옮겼다 — 눈맛의 정본이다 */
+html.theme-light{--chart-accent:#B7791F;--chart-pos:#0F8A53;--chart-neg:#D62839;--chart-mute:#8a8f98;
+  --chart-grid:rgba(0,0,0,0.06);--chart-band:rgba(183,121,31,0.07)}
+html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;--chart-mute:#9aa3ad;
+  --chart-grid:rgba(255,255,255,0.05);--chart-band:rgba(240,180,41,0.055)}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:20px;
+  padding:30px 32px 26px;margin:22px 0}
+.panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap}
+.panel-head h3{font-size:1.08rem;font-weight:700;letter-spacing:-.02em;margin:0}
+.panel figure{margin:14px 0 0}
+.panel .cbox{position:relative;height:min(60vh,540px);min-height:420px}
+.panel-head p{color:var(--text-secondary);font-size:.95rem;margin:6px 0 0;max-width:640px}
+.rng{display:inline-flex;gap:6px;flex-shrink:0}
+.rng button{font:600 12px/1 'Noto Sans KR',sans-serif;padding:8px 12px;border-radius:9px;
+  background:transparent;border:1px solid var(--border);color:var(--text-secondary);cursor:pointer;
+  transition:background .18s,color .18s,border-color .18s}
+.rng button:hover{background:var(--surface2,var(--bg));color:var(--text)}
+.rng button.on{background:var(--chart-accent);border-color:var(--chart-accent);color:#fff}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:12px;margin:16px 0 4px}
+.kpi{background:var(--bg);border:1px solid var(--border);border-radius:13px;padding:15px 16px;
+  transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s,border-color .25s}
+.kpi:hover{transform:translateY(-5px);box-shadow:0 14px 30px rgba(0,0,0,.12);
+  border-color:color-mix(in srgb,var(--chart-accent) 40%,var(--border))}
+.kpi .k{font-size:11.5px;font-weight:700;letter-spacing:.05em;color:var(--text-secondary)}
+.kpi .v{font-size:1.45rem;font-weight:800;letter-spacing:-.03em;margin-top:5px}
+.kpi .s{font-size:11.5px;color:var(--text-secondary);margin-top:3px;line-height:1.5}
+.kpi.hl .v{color:var(--chart-accent)}
+.kpi .v.neg{color:var(--chart-neg)}
+.srcline{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:baseline;margin-top:14px;
+  padding-top:12px;border-top:1px solid var(--border);font-size:12px;
+  color:var(--text-secondary);line-height:1.6}
+.srcline .lbl{font-weight:800;letter-spacing:.06em;color:var(--chart-accent);flex-shrink:0}
+.srcline a{color:var(--chart-accent);font-weight:700;text-decoration:none}
+.srcline a:hover{text-decoration:underline}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+@media(max-width:720px){.panel{padding:22px 16px 18px}.panel .cbox{min-height:320px}}
+
+/* ── 닷컴 대시보드 형식 (scripts/dotcom_panel.py) ── */
+/* 값은 kospi-dotcom-1998-2000.html 에서 그대로 옮겼다 — 눈맛의 정본이다 */
+html.theme-light{--chart-accent:#B7791F;--chart-pos:#0F8A53;--chart-neg:#D62839;--chart-mute:#8a8f98;
+  --chart-grid:rgba(0,0,0,0.06);--chart-band:rgba(183,121,31,0.07)}
+html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;--chart-mute:#9aa3ad;
+  --chart-grid:rgba(255,255,255,0.05);--chart-band:rgba(240,180,41,0.055)}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:20px;
+  padding:30px 32px 26px;margin:22px 0}
+.panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap}
+.panel-head h3{font-size:1.08rem;font-weight:700;letter-spacing:-.02em;margin:0}
+.panel figure{margin:14px 0 0}
+.panel .cbox{position:relative;height:min(60vh,540px);min-height:420px}
+.panel-head p{color:var(--text-secondary);font-size:.95rem;margin:6px 0 0;max-width:640px}
+.rng{display:inline-flex;gap:6px;flex-shrink:0}
+.rng button{font:600 12px/1 'Noto Sans KR',sans-serif;padding:8px 12px;border-radius:9px;
+  background:transparent;border:1px solid var(--border);color:var(--text-secondary);cursor:pointer;
+  transition:background .18s,color .18s,border-color .18s}
+.rng button:hover{background:var(--surface2,var(--bg));color:var(--text)}
+.rng button.on{background:var(--chart-accent);border-color:var(--chart-accent);color:#fff}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:12px;margin:16px 0 4px}
+.kpi{background:var(--bg);border:1px solid var(--border);border-radius:13px;padding:15px 16px;
+  transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s,border-color .25s}
+.kpi:hover{transform:translateY(-5px);box-shadow:0 14px 30px rgba(0,0,0,.12);
+  border-color:color-mix(in srgb,var(--chart-accent) 40%,var(--border))}
+.kpi .k{font-size:11.5px;font-weight:700;letter-spacing:.05em;color:var(--text-secondary)}
+.kpi .v{font-size:1.45rem;font-weight:800;letter-spacing:-.03em;margin-top:5px}
+.kpi .s{font-size:11.5px;color:var(--text-secondary);margin-top:3px;line-height:1.5}
+.kpi.hl .v{color:var(--chart-accent)}
+.kpi .v.neg{color:var(--chart-neg)}
+.srcline{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:baseline;margin-top:14px;
+  padding-top:12px;border-top:1px solid var(--border);font-size:12px;
+  color:var(--text-secondary);line-height:1.6}
+.srcline .lbl{font-weight:800;letter-spacing:.06em;color:var(--chart-accent);flex-shrink:0}
+.srcline a{color:var(--chart-accent);font-weight:700;text-decoration:none}
+.srcline a:hover{text-decoration:underline}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+@media(max-width:720px){.panel{padding:22px 16px 18px}.panel .cbox{min-height:320px}}
 /* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
@@ -2571,19 +2651,18 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <header class="phead">
 <div class="eyebrow">아카이브 · 해와 달의 코스피</div>
 <h1>홀수 해 1~5월은 30년 동안 15번 모두 상승, 다만 3번은 1% 안쪽</h1>
-<p class="pauth">기준일 2026-09-16 · 코스피 일별 종가(FDR KS11) · 매일 갱신</p>
-<!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#구간-수익률은-시작-달-마지막-거래일-종가로-매수해-끝-달-마지막-거래일">구간 수익률은 시작 달 마지막 거래일 종가로 매수해 끝 달 마지막 거래일 종가로 매도한 값이고, 홀짝은 서기 연도로 가른다</a></li><li><a href="#홀수-해-1-5월은-15번-중-15번-올랐고-중앙값은-12-4-다-다만-">홀수 해 1~5월은 15번 중 15번 올랐고 중앙값은 +12.4%다. 다만 3번은 1% 안쪽이었고 구간 안에서는 최대 −17.9%까지 내렸다</a></li><li><a href="#홀수-해-전체의-상승은-1-5월에-몰려-있다-2년을-4조각으로-나누면-짝">홀수 해 전체의 상승은 1~5월에 몰려 있다. 2년을 4조각으로 나누면 짝수 해 1~10월은 15번 중 6번뿐이다</a></li><li><a href="#11월에-매수하는-속설은-짝수-해에서-홀수-해로-건너갈-때만-통했다-반대">11월에 매수하는 속설은 짝수 해에서 홀수 해로 건너갈 때만 통했다. 반대 해는 15번 중 6번이다</a></li><li><a href="#288개-구간을-전부-계산하면-다-오른-구간은-1개다-홀수-해-1-5월은">288개 구간을 전부 계산하면 다 오른 구간은 1개다. 홀수 해 1~5월은 승률 1위, 중앙값으로는 22위다</a></li><li><a href="#해와-달을-특정하면-가장-크게-오른-구간은-2025년-6월-초-2026년">해와 달을 특정하면 가장 크게 오른 구간은 2025년 6월 초 → 2026년 5월 말의 +214.2%이고 2위는 1998년 9월 초 → 1999년 7월 말의 +212.7%다</a></li><li><a href="#연간으로-봐도-홀수-해는-15번-중-13번-짝수-해는-15번-중-7번-올">연간으로 봐도 홀수 해는 15번 중 13번, 짝수 해는 15번 중 7번 올랐다. 큰 낙폭이 짝수 해에 몰렸다</a></li><li><a href="#홀수-해-1-5월에만-투자한-100은-574가-됐다-홀수-해-전체는-1-">홀수 해 1~5월에만 투자한 100은 574가 됐다. 홀수 해 전체는 1,486, 내내 보유는 477이다</a></li><li><a href="#시대로-갈라도-홀수-해-1-5월은-두-시대-모두-다-올랐다-다만-인플레-">시대로 갈라도 홀수 해 1~5월은 두 시대 모두 다 올랐다. 다만 인플레 시대는 3번뿐이다</a></li><li><a href="#4월이-31번-중-20번-올라-가장-강했고-8월이-32번-중-13번으로-">4월이 31번 중 20번 올라 가장 강했고 8월이 32번 중 13번으로 가장 약했다. 1~5월 가운데 중앙값이 0 아래인 달은 0개다</a></li><li><a href="#s-amp-p-500-도-같은-15해에-홀수-해-1-5월이-15번-중-1">S&amp;P 500 도 같은 15해에 홀수 해 1~5월이 15번 중 13번 올랐다. 1928년부터 세도 짝수 해보다 자주 올랐다</a></li><li><a href="#아직-불확실한-곳은-어디인가">아직 불확실한 곳은 어디인가</a></li><li><a href="#그래서-홀수-해의-힘은-1-5월에-있었다-15번-다-올랐지만-3번은-1-">그래서 홀수 해의 힘은 1~5월에 있었다. 15번 다 올랐지만 3번은 1% 안쪽이고 표본은 15번이다</a></li><li><a href="#apx">원문 상세표</a></li></ol></div><!--TOC:END--></header>
+<p class="pauth">기준일 2026-09-17 · 코스피 일별 종가(FDR KS11) · 매일 갱신</p>
+<!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#구간-수익률은-시작-달-마지막-거래일-종가로-매수해-끝-달-마지막-거래일">구간 수익률은 시작 달 마지막 거래일 종가로 매수해 끝 달 마지막 거래일 종가로 매도한 값이고, 홀짝은 서기 연도로 가른다</a></li><li><a href="#홀수-해-1-5월은-15번-중-15번-올랐고-중앙값은-12-4-다-다만-">홀수 해 1~5월은 15번 중 15번 올랐고 중앙값은 +12.4%다. 다만 3번은 1% 안쪽이었고 구간 안에서는 최대 −17.9%까지 내렸다</a></li><li><a href="#홀수-해-전체의-상승은-1-5월에-몰려-있다-2년을-4조각으로-나누면-짝">홀수 해 전체의 상승은 1~5월에 몰려 있다. 2년을 4조각으로 나누면 짝수 해 1~10월은 15번 중 6번뿐이다</a></li><li><a href="#11월에-매수하는-속설은-짝수-해에서-홀수-해로-건너갈-때만-통했다-반대">11월에 매수하는 속설은 짝수 해에서 홀수 해로 건너갈 때만 통했다. 반대 해는 15번 중 6번이다</a></li><li><a href="#288개-구간을-전부-계산하면-다-오른-구간은-1개다-홀수-해-1-5월은">288개 구간을 전부 계산하면 다 오른 구간은 1개다. 홀수 해 1~5월은 승률 1위, 중앙값으로는 22위다</a></li><li><a href="#해와-달을-특정하면-가장-크게-오른-구간은-2025년-6월-초-2026년">해와 달을 특정하면 가장 크게 오른 구간은 2025년 6월 초 → 2026년 5월 말의 +214.2%이고 2위는 1998년 9월 초 → 1999년 7월 말의 +212.7%다</a></li><li><a href="#연간으로-봐도-홀수-해는-15번-중-13번-짝수-해는-15번-중-7번-올">연간으로 봐도 홀수 해는 15번 중 13번, 짝수 해는 15번 중 7번 올랐다. 큰 낙폭이 짝수 해에 몰렸다</a></li><li><a href="#홀수-해-1-5월에만-투자한-100은-574가-됐다-홀수-해-전체는-1-">홀수 해 1~5월에만 투자한 100은 574가 됐다. 홀수 해 전체는 1,486, 내내 보유는 477이다</a></li><li><a href="#시대로-갈라도-홀수-해-1-5월은-2개-시대-모두-다-올랐다-다만-인플레">시대로 갈라도 홀수 해 1~5월은 2개 시대 모두 다 올랐다. 다만 인플레 시대는 3번뿐이다</a></li><li><a href="#4월이-31번-중-20번-올라-가장-강했고-8월이-32번-중-13번으로-">4월이 31번 중 20번 올라 가장 강했고 8월이 32번 중 13번으로 가장 약했다. 1~5월 가운데 중앙값이 0 아래인 달은 0개다</a></li><li><a href="#s-amp-p-500-도-같은-15해에-홀수-해-1-5월이-15번-중-1">S&amp;P 500 도 같은 15해에 홀수 해 1~5월이 15번 중 13번 올랐다. 1928년부터 세도 짝수 해보다 자주 올랐다</a></li><li><a href="#아직-불확실한-곳은-어디인가">아직 불확실한 곳은 어디인가</a></li><li><a href="#그래서-홀수-해의-힘은-1-5월에-있었다-15번-다-올랐지만-3번은-1-">그래서 홀수 해의 힘은 1~5월에 있었다. 15번 다 올랐지만 3번은 1% 안쪽이고 표본은 15번이다</a></li><li><a href="#apx">원문 상세표</a></li></ol></div><!--TOC:END--></header>
 
 <!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div>
 <p>홀수 해 1월 초에 매수해 5월 말에 매도했으면 15번 중 15번 올랐다. 1996년부터 2025년까지 코스피 일별 종가로 집계한 결과이고 중앙값은 +12.4%다.
 다만 3번(2019년 +0.03% · 2013년 +0.20% · 2003년 +0.94%)은 1% 안쪽이라 「모두」는 그 3번을 같이 읽어야 한다. 같은 5개월을 짝수 해에 하면 15번 중 4번뿐이다.
-홀수 해 전체로도 15번 중 13번 올랐는데, 그 상승은 1~5월에 몰려 있고 6~12월은 15번 중 11번에 가장 나쁜 해 −50.3%가 들어 있다.
-다음 홀수 해 1~5월은 2027년이고 기준은 2026년 12월 말 종가다. 올해 2026년은 짝수 해이고 지금 연초 대비 +59.4%다.</p>
+홀수 해 전체로도 15번 중 13번 올랐는데, 그 상승은 1~5월에 몰려 있고 6~12월은 15번 중 11번에 가장 나쁜 해 −50.3%가 들어 있다.</p>
 </div><!--PCLAIM:END-->
 
 <!--LEAD:BEGIN--><details class="lead"><summary>펼치기 · 문제 · 왜 지금 · 반론 · 이 글의 자리</summary>
 <p>무엇이 문제인가. 「홀수 해가 좋다」는 오래된 속설이다. 속설은 몇 번의 기억으로 만들어지고 집계로 확인되는 일이 드물다. 확인하더라도 어느 달에 매수해 어느 달에 매도했을 때인지가 빠지면 쓸 수 없다.
-이 글은 코스피 일별 종가 7,906일을 해와 달로 잘라 그 속설이 어느 자리에서 서는지 확인한다. 이유를 만들지 않고 횟수를 적는다.</p>
+이 글은 코스피 일별 종가 7,907일을 해와 달로 잘라 그 속설이 어느 구간에서 서는지 확인한다. 이유를 만들지 않고 횟수를 적는다.</p>
 
 <p>왜 지금인가. 올해 2026년은 짝수 해다. 올해 10월 말 종가가 짝수 해 11월 매수 창의 기준이 되고, 12월 말 종가가 2027년 1~5월의 기준이 된다. 1~5월 구간 표의 다음 줄이 그때 쓰인다.</p>
 
@@ -2636,7 +2715,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <p>규칙이 창 하나에 기대고 있는지 보려고 시작 달 12가지와 길이 1~12개월, 시작 해의 홀짝을 조합한 288개 구간을 전부 같은 방식으로 집계했다. 아래 표는 중앙값이 높은 순서로 10개다.</p>
 <div class="tblwrap"><table class="tw"><thead><tr><th class="n">순위</th><th>구간</th><th class="n">길이</th><th class="n">오른 횟수</th><th class="n">중앙값</th><th class="n">가장 나빴던 해</th><th class="n">30년 누적</th></tr></thead><tbody><tr><td class="n">1</td><td>홀수 해 1월 초 → 11월 말</td><td class="n">11개월</td><td class="n">15번 중 12번</td><td class="n good">+22.2%</td><td class="n">−37.4%</td><td class="n">+951.0%</td></tr><tr><td class="n">2</td><td>홀수 해 1월 초 → 12월 말</td><td class="n">12개월</td><td class="n">15번 중 13번</td><td class="n good">+21.8%</td><td class="n">−42.2%</td><td class="n">+1386.4%</td></tr><tr><td class="n">3</td><td>홀수 해 2월 초 → 다음 해 1월 말</td><td class="n">12개월</td><td class="n">15번 중 9번</td><td class="n good">+19.4%</td><td class="n">−17.3%</td><td class="n">+1126.5%</td></tr><tr><td class="n">4</td><td>짝수 해 11월 초 → 다음 해 10월 말</td><td class="n">12개월</td><td class="n">15번 중 13번</td><td class="n good">+18.7%</td><td class="n">−37.9%</td><td class="n">+1325.0%</td></tr><tr><td class="n">5</td><td>홀수 해 3월 초 → 12월 말</td><td class="n">10개월</td><td class="n">15번 중 10번</td><td class="n good">+18.0%</td><td class="n">−44.4%</td><td class="n">+959.4%</td></tr><tr><td class="n">6</td><td>홀수 해 3월 초 → 다음 해 2월 말</td><td class="n">12개월</td><td class="n">15번 중 10번</td><td class="n good">+16.1%</td><td class="n">−17.4%</td><td class="n">+1665.8%</td></tr><tr><td class="n">7</td><td>짝수 해 11월 초 → 다음 해 6월 말</td><td class="n">8개월</td><td class="n">15번 중 13번</td><td class="n good">+15.7%</td><td class="n">−2.5%</td><td class="n">+1268.5%</td></tr><tr><td class="n">8</td><td>짝수 해 10월 초 → 다음 해 8월 말</td><td class="n">11개월</td><td class="n">15번 중 10번</td><td class="n good">+15.6%</td><td class="n">−16.0%</td><td class="n">+880.3%</td></tr><tr><td class="n">9</td><td>짝수 해 11월 초 → 다음 해 8월 말</td><td class="n">10개월</td><td class="n">15번 중 11번</td><td class="n good">+15.3%</td><td class="n">−8.2%</td><td class="n">+1376.1%</td></tr><tr><td class="n">10</td><td>짝수 해 12월 초 → 다음 해 6월 말</td><td class="n">7개월</td><td class="n">15번 중 13번</td><td class="n good">+14.8%</td><td class="n">−7.6%</td><td class="n">+780.4%</td></tr></tbody></table></div>
 <p class="note">「구간」은 시작 달 초에 매수해 끝 달 말에 매도한 것이다. 노란 줄이 홀수 해 1~5월이다.</p>
-<p>중앙값 1위 줄은 홀수 해 1월 초→11월 말 11개월로 15번 중 12번, 중앙값 +22.2%이고 가장 나쁜 해가 −37.4%다. 긴 구간일수록 중앙값이 크고 가장 나쁜 해도 깊다.
+<p>중앙값 1위 줄은 홀수 해 1월 초→11월 말 11개월로 15번 중 12번, 중앙값 +22.2%이고 가장 나쁜 해가 −37.4%다. 긴 구간일수록 중앙값이 크고 가장 나쁜 해의 낙폭도 크다.
 15번 다 오른 구간은 288개 가운데 1개다. 그것이 홀수 해 1~5월이다. 중앙값으로는 22위라 「가장 많이 오른 구간」이 아니라 「내리지 않은 구간」이다. 승률 순 10개는 원문 상세표에 있다.
 홀수 해 1월 초에 매수해 길이만 바꾸면 5개월에서 15번이고 6개월에서 14번, 12개월에서 13번이다.</p>
 <figure class="fig"><div class="cbox"><canvas id="w3"></canvas></div><figcaption><span class="freq y">연간</span>회색·금색 막대가 홀수 해 1월 초 매수 뒤 길이마다 오른 횟수(왼쪽 축), 초록 막대가 그 길이의 중앙값(오른쪽 축)이다. 금색이 다 오른 길이다.</figcaption></figure><script>(window.__KS=window.__KS||[]).push({"id": "w3", "t": "홀수 해 1월 초에 매수해 1~12개월 뒤 매도 · 오른 횟수와 중앙값", "k": "bar", "dp": 1, "l": ["1개월", "2개월", "3개월", "4개월", "5개월", "6개월", "7개월", "8개월", "9개월", "10개월", "11개월", "12개월"], "yt": "오른 횟수 (15번 가운데)", "y1t": "중앙값 (%)", "ymin": 0, "ymax": 15, "d": [{"label": "오른 횟수", "data": [12, 10, 14, 13, 15, 14, 13, 12, 11, 13, 12, 13], "c": ["mute", "mute", "mute", "mute", "acc", "mute", "mute", "mute", "mute", "mute", "mute", "mute"]}, {"label": "중앙값 (%)", "data": [3.3, 3.7, 4.9, 8.0, 12.4, 14.7, 13.7, 14.3, 10.2, 6.6, 22.2, 21.8], "c": "pos", "yAxisID": "y1"}]});</script>
@@ -2646,14 +2725,14 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <p>규칙이 아니라 실제로 있었던 구간이다. 1995년 5월부터 시작 달과 길이(1~12개월)를 다 조합한 4,434개 구간의 실제 수익률 가운데 높은 순서로 10개를 뽑았다. 같은 랠리가 창만 바뀌어 여러 번 들어오지 않게 날짜가 겹치는 구간은 뺐다.</p>
 <div class="tblwrap"><table class="tw"><thead><tr><th class="n">순위</th><th>구간</th><th>시작 해</th><th class="n">길이</th><th class="n">매수 종가</th><th class="n">매도 종가</th><th class="n">수익률</th><th class="n">구간 안 최저</th></tr></thead><tbody><tr><td class="n">1</td><td>2025년 6월 초 → 2026년 5월 말</td><td>홀수 해</td><td class="n">12개월</td><td class="n">2,697.67</td><td class="n">8,476.15</td><td class="n good">+214.2%</td><td class="n">+0.0%</td></tr><tr><td class="n">2</td><td>1998년 9월 초 → 1999년 7월 말</td><td>짝수 해</td><td class="n">11개월</td><td class="n">310.16</td><td class="n">969.72</td><td class="n good">+212.7%</td><td class="n">−5.9%</td></tr><tr><td class="n">3</td><td>2001년 10월 초 → 2002년 3월 말</td><td>홀수 해</td><td class="n">6개월</td><td class="n">479.68</td><td class="n">895.58</td><td class="n good">+86.7%</td><td class="n">+3.4%</td></tr><tr><td class="n">4</td><td>2020년 4월 초 → 2021년 3월 말</td><td>짝수 해</td><td class="n">12개월</td><td class="n">1,754.64</td><td class="n">3,061.42</td><td class="n good">+74.5%</td><td class="n">−3.9%</td></tr><tr><td class="n">5</td><td>2003년 4월 초 → 2004년 2월 말</td><td>홀수 해</td><td class="n">11개월</td><td class="n">535.7</td><td class="n">883.42</td><td class="n good">+64.9%</td><td class="n">+0.5%</td></tr><tr><td class="n">6</td><td>2009년 3월 초 → 2009년 12월 말</td><td>홀수 해</td><td class="n">10개월</td><td class="n">1,063.03</td><td class="n">1,682.77</td><td class="n good">+58.3%</td><td class="n">−4.2%</td></tr><tr><td class="n">7</td><td>2005년 5월 초 → 2006년 4월 말</td><td>홀수 해</td><td class="n">12개월</td><td class="n">911.3</td><td class="n">1,419.73</td><td class="n good">+55.8%</td><td class="n">+0.3%</td></tr><tr><td class="n">8</td><td>2007년 2월 초 → 2007년 10월 말</td><td>홀수 해</td><td class="n">9개월</td><td class="n">1,360.23</td><td class="n">2,064.85</td><td class="n good">+51.8%</td><td class="n">+1.2%</td></tr><tr><td class="n">9</td><td>1998년 1월 초 → 1998년 1월 말</td><td>짝수 해</td><td class="n">1개월</td><td class="n">376.31</td><td class="n">567.38</td><td class="n good">+50.8%</td><td class="n">+2.4%</td></tr><tr><td class="n">10</td><td>2004년 8월 초 → 2005년 2월 말</td><td>짝수 해</td><td class="n">7개월</td><td class="n">735.34</td><td class="n">1,011.36</td><td class="n good">+37.5%</td><td class="n">−2.1%</td></tr></tbody></table></div>
 <p class="note">「구간 안 최저」는 매수 종가 대비 그 사이 일별 종가의 최저다. 겹침을 허용한 10개와 5개월로 고정한 10개는 원문 상세표에 있다.</p>
-<p>1위 줄은 2025년 6월 초 → 2026년 5월 말 12개월 +214.2%이고 그 사이 최저는 +0.0%였다. 2위 1998년 9월 초 → 1999년 7월 말는 +212.7%다.
+<p>1위 줄은 2025년 6월 초 → 2026년 5월 말 12개월 +214.2%이고 그 사이 최저는 +0.0%였다. 2위인 1998년 9월 초 → 1999년 7월 말 구간은 +212.7%다.
 10개 가운데 시작 해가 홀수 해인 것이 6개, 짝수 해인 것이 4개다. 큰 랠리는 홀짝을 가리지 않았다. 홀수 해 1~5월의 힘은 크게 오르는 것이 아니라 내리지 않는 것이다.</p>
 <figure class="fig"><div class="cbox"><canvas id="w5"></canvas></div><figcaption><span class="freq y">연간</span>막대가 겹치지 않는 구간 10개의 수익률이다. 금색이 홀수 해에 시작한 구간, 회색이 짝수 해에 시작한 구간이다. 가로축은 시작 달과 끝 달이다.</figcaption></figure><script>(window.__KS=window.__KS||[]).push({"id": "w5", "t": "해와 달을 특정한 구간 수익률 · 겹치지 않는 10개", "k": "bar", "leg": false, "dp": 1, "u": "%", "l": ["2025.06→2026.05", "1998.09→1999.07", "2001.10→2002.03", "2020.04→2021.03", "2003.04→2004.02", "2009.03→2009.12", "2005.05→2006.04", "2007.02→2007.10", "1998.01→1998.01", "2004.08→2005.02"], "yt": "수익률 (%)", "xt": 10, "d": [{"label": "수익률", "data": [214.2, 212.7, 86.7, 74.5, 64.9, 58.3, 55.8, 51.8, 50.8, 37.5], "c": ["acc", "mute", "acc", "mute", "acc", "acc", "acc", "acc", "mute", "mute"]}]});</script>
 
 <h2 id="연간으로-봐도-홀수-해는-15번-중-13번-짝수-해는-15번-중-7번-올">연간으로 봐도 홀수 해는 15번 중 13번, 짝수 해는 15번 중 7번 올랐다. 큰 낙폭이 짝수 해에 몰렸다</h2>
 
 <p>구간이 아니라 해 전체로 집계한 표다. 연간 수익률과 그 해 안의 연초 대비 최저·최고를 적었다. 마지막 줄은 진행 중인 올해다.</p>
-<div class="tblwrap"><table class="tw"><thead><tr><th class="n">해</th><th>홀짝</th><th>시대</th><th class="n">연간 수익률</th><th class="n">연초 대비 최저</th><th class="n">연초 대비 최고</th></tr></thead><tbody><tr><td class="n">1996</td><td>짝수 해</td><td>디플레 시대</td><td class="n bad">−26.2%</td><td class="n">−26.2%</td><td class="n">+11.8%</td></tr><tr><td class="n">1997</td><td>홀수 해</td><td>디플레 시대</td><td class="n bad">−42.2%</td><td class="n">−46.2%</td><td class="n">+21.7%</td></tr><tr><td class="n">1998</td><td>짝수 해</td><td>디플레 시대</td><td class="n good">+49.5%</td><td class="n">−25.6%</td><td class="n">+54.1%</td></tr><tr><td class="n">1999</td><td>홀수 해</td><td>디플레 시대</td><td class="n good">+82.8%</td><td class="n">−11.4%</td><td class="n">+82.8%</td></tr><tr><td class="n">2000</td><td>짝수 해</td><td>디플레 시대</td><td class="n bad">−50.9%</td><td class="n">−51.3%</td><td class="n">+3.0%</td></tr><tr><td class="n">2001</td><td>홀수 해</td><td>디플레 시대</td><td class="n good">+37.5%</td><td class="n">−7.1%</td><td class="n">+39.6%</td></tr><tr><td class="n">2002</td><td>짝수 해</td><td>디플레 시대</td><td class="n bad">−9.5%</td><td class="n">−15.8%</td><td class="n">+35.2%</td></tr><tr><td class="n">2003</td><td>홀수 해</td><td>디플레 시대</td><td class="n good">+29.2%</td><td class="n">−17.9%</td><td class="n">+31.0%</td></tr><tr><td class="n">2004</td><td>짝수 해</td><td>디플레 시대</td><td class="n good">+10.5%</td><td class="n">−11.2%</td><td class="n">+15.5%</td></tr><tr><td class="n">2005</td><td>홀수 해</td><td>디플레 시대</td><td class="n good">+54.0%</td><td class="n">−2.8%</td><td class="n">+54.0%</td></tr><tr><td class="n">2006</td><td>짝수 해</td><td>디플레 시대</td><td class="n good">+4.0%</td><td class="n">−12.7%</td><td class="n">+6.2%</td></tr><tr><td class="n">2007</td><td>홀수 해</td><td>디플레 시대</td><td class="n good">+32.3%</td><td class="n">−5.5%</td><td class="n">+43.9%</td></tr><tr><td class="n">2008</td><td>짝수 해</td><td>디플레 시대</td><td class="n bad">−40.7%</td><td class="n">−50.5%</td><td class="n">−0.4%</td></tr><tr><td class="n">2009</td><td>홀수 해</td><td>디플레 시대</td><td class="n good">+49.7%</td><td class="n">−9.4%</td><td class="n">+52.9%</td></tr><tr><td class="n">2010</td><td>짝수 해</td><td>디플레 시대</td><td class="n good">+21.9%</td><td class="n">−7.7%</td><td class="n">+21.9%</td></tr><tr><td class="n">2011</td><td>홀수 해</td><td>디플레 시대</td><td class="n bad">−11.0%</td><td class="n">−19.4%</td><td class="n">+8.7%</td></tr><tr><td class="n">2012</td><td>짝수 해</td><td>디플레 시대</td><td class="n good">+9.4%</td><td class="n">−3.1%</td><td class="n">+12.2%</td></tr><tr><td class="n">2013</td><td>홀수 해</td><td>디플레 시대</td><td class="n good">+0.7%</td><td class="n">−10.8%</td><td class="n">+3.1%</td></tr><tr><td class="n">2014</td><td>짝수 해</td><td>디플레 시대</td><td class="n bad">−4.8%</td><td class="n">−6.2%</td><td class="n">+3.5%</td></tr><tr><td class="n">2015</td><td>홀수 해</td><td>디플레 시대</td><td class="n good">+2.4%</td><td class="n">−4.5%</td><td class="n">+13.5%</td></tr><tr><td class="n">2016</td><td>짝수 해</td><td>디플레 시대</td><td class="n good">+3.3%</td><td class="n">−6.4%</td><td class="n">+5.5%</td></tr><tr><td class="n">2017</td><td>홀수 해</td><td>디플레 시대</td><td class="n good">+21.8%</td><td class="n">−0.0%</td><td class="n">+26.2%</td></tr><tr><td class="n">2018</td><td>짝수 해</td><td>디플레 시대</td><td class="n bad">−17.3%</td><td class="n">−19.1%</td><td class="n">+5.3%</td></tr><tr><td class="n">2019</td><td>홀수 해</td><td>디플레 시대</td><td class="n good">+7.7%</td><td class="n">−6.4%</td><td class="n">+10.2%</td></tr><tr><td class="n">2020</td><td>짝수 해</td><td>인플레 시대</td><td class="n good">+30.8%</td><td class="n">−33.7%</td><td class="n">+30.8%</td></tr><tr><td class="n">2021</td><td>홀수 해</td><td>인플레 시대</td><td class="n good">+3.6%</td><td class="n">−1.2%</td><td class="n">+15.0%</td></tr><tr><td class="n">2022</td><td>짝수 해</td><td>인플레 시대</td><td class="n bad">−24.9%</td><td class="n">−27.6%</td><td class="n">+0.4%</td></tr><tr><td class="n">2023</td><td>홀수 해</td><td>인플레 시대</td><td class="n good">+18.7%</td><td class="n">−0.8%</td><td class="n">+19.3%</td></tr><tr><td class="n">2024</td><td>짝수 해</td><td>인플레 시대</td><td class="n bad">−9.6%</td><td class="n">−11.1%</td><td class="n">+8.9%</td></tr><tr><td class="n">2025</td><td>홀수 해</td><td>인플레 시대</td><td class="n good">+75.6%</td><td class="n">−4.4%</td><td class="n">+75.9%</td></tr><tr class="cur"><td class="n">2026</td><td>짝수 해</td><td>인플레 시대</td><td class="n">+59.4% (진행 중)</td><td class="n">+2.3%</td><td class="n">+116.3%</td></tr></tbody></table></div>
+<div class="tblwrap"><table class="tw"><thead><tr><th class="n">해</th><th>홀짝</th><th>시대</th><th class="n">연간 수익률</th><th class="n">연초 대비 최저</th><th class="n">연초 대비 최고</th></tr></thead><tbody><tr><td class="n">1996</td><td>짝수 해</td><td>디플레 시대</td><td class="n bad">−26.2%</td><td class="n">−26.2%</td><td class="n">+11.8%</td></tr><tr><td class="n">1997</td><td>홀수 해</td><td>디플레 시대</td><td class="n bad">−42.2%</td><td class="n">−46.2%</td><td class="n">+21.7%</td></tr><tr><td class="n">1998</td><td>짝수 해</td><td>디플레 시대</td><td class="n good">+49.5%</td><td class="n">−25.6%</td><td class="n">+54.1%</td></tr><tr><td class="n">1999</td><td>홀수 해</td><td>디플레 시대</td><td class="n good">+82.8%</td><td class="n">−11.4%</td><td class="n">+82.8%</td></tr><tr><td class="n">2000</td><td>짝수 해</td><td>디플레 시대</td><td class="n bad">−50.9%</td><td class="n">−51.3%</td><td class="n">+3.0%</td></tr><tr><td class="n">2001</td><td>홀수 해</td><td>디플레 시대</td><td class="n good">+37.5%</td><td class="n">−7.1%</td><td class="n">+39.6%</td></tr><tr><td class="n">2002</td><td>짝수 해</td><td>디플레 시대</td><td class="n bad">−9.5%</td><td class="n">−15.8%</td><td class="n">+35.2%</td></tr><tr><td class="n">2003</td><td>홀수 해</td><td>디플레 시대</td><td class="n good">+29.2%</td><td class="n">−17.9%</td><td class="n">+31.0%</td></tr><tr><td class="n">2004</td><td>짝수 해</td><td>디플레 시대</td><td class="n good">+10.5%</td><td class="n">−11.2%</td><td class="n">+15.5%</td></tr><tr><td class="n">2005</td><td>홀수 해</td><td>디플레 시대</td><td class="n good">+54.0%</td><td class="n">−2.8%</td><td class="n">+54.0%</td></tr><tr><td class="n">2006</td><td>짝수 해</td><td>디플레 시대</td><td class="n good">+4.0%</td><td class="n">−12.7%</td><td class="n">+6.2%</td></tr><tr><td class="n">2007</td><td>홀수 해</td><td>디플레 시대</td><td class="n good">+32.3%</td><td class="n">−5.5%</td><td class="n">+43.9%</td></tr><tr><td class="n">2008</td><td>짝수 해</td><td>디플레 시대</td><td class="n bad">−40.7%</td><td class="n">−50.5%</td><td class="n">−0.4%</td></tr><tr><td class="n">2009</td><td>홀수 해</td><td>디플레 시대</td><td class="n good">+49.7%</td><td class="n">−9.4%</td><td class="n">+52.9%</td></tr><tr><td class="n">2010</td><td>짝수 해</td><td>디플레 시대</td><td class="n good">+21.9%</td><td class="n">−7.7%</td><td class="n">+21.9%</td></tr><tr><td class="n">2011</td><td>홀수 해</td><td>디플레 시대</td><td class="n bad">−11.0%</td><td class="n">−19.4%</td><td class="n">+8.7%</td></tr><tr><td class="n">2012</td><td>짝수 해</td><td>디플레 시대</td><td class="n good">+9.4%</td><td class="n">−3.1%</td><td class="n">+12.2%</td></tr><tr><td class="n">2013</td><td>홀수 해</td><td>디플레 시대</td><td class="n good">+0.7%</td><td class="n">−10.8%</td><td class="n">+3.1%</td></tr><tr><td class="n">2014</td><td>짝수 해</td><td>디플레 시대</td><td class="n bad">−4.8%</td><td class="n">−6.2%</td><td class="n">+3.5%</td></tr><tr><td class="n">2015</td><td>홀수 해</td><td>디플레 시대</td><td class="n good">+2.4%</td><td class="n">−4.5%</td><td class="n">+13.5%</td></tr><tr><td class="n">2016</td><td>짝수 해</td><td>디플레 시대</td><td class="n good">+3.3%</td><td class="n">−6.4%</td><td class="n">+5.5%</td></tr><tr><td class="n">2017</td><td>홀수 해</td><td>디플레 시대</td><td class="n good">+21.8%</td><td class="n">−0.0%</td><td class="n">+26.2%</td></tr><tr><td class="n">2018</td><td>짝수 해</td><td>디플레 시대</td><td class="n bad">−17.3%</td><td class="n">−19.1%</td><td class="n">+5.3%</td></tr><tr><td class="n">2019</td><td>홀수 해</td><td>디플레 시대</td><td class="n good">+7.7%</td><td class="n">−6.4%</td><td class="n">+10.2%</td></tr><tr><td class="n">2020</td><td>짝수 해</td><td>인플레 시대</td><td class="n good">+30.8%</td><td class="n">−33.7%</td><td class="n">+30.8%</td></tr><tr><td class="n">2021</td><td>홀수 해</td><td>인플레 시대</td><td class="n good">+3.6%</td><td class="n">−1.2%</td><td class="n">+15.0%</td></tr><tr><td class="n">2022</td><td>짝수 해</td><td>인플레 시대</td><td class="n bad">−24.9%</td><td class="n">−27.6%</td><td class="n">+0.4%</td></tr><tr><td class="n">2023</td><td>홀수 해</td><td>인플레 시대</td><td class="n good">+18.7%</td><td class="n">−0.8%</td><td class="n">+19.3%</td></tr><tr><td class="n">2024</td><td>짝수 해</td><td>인플레 시대</td><td class="n bad">−9.6%</td><td class="n">−11.1%</td><td class="n">+8.9%</td></tr><tr><td class="n">2025</td><td>홀수 해</td><td>인플레 시대</td><td class="n good">+75.6%</td><td class="n">−4.4%</td><td class="n">+75.9%</td></tr><tr class="cur"><td class="n">2026</td><td>짝수 해</td><td>인플레 시대</td><td class="n">+59.6% (진행 중)</td><td class="n">+2.3%</td><td class="n">+116.3%</td></tr></tbody></table></div>
 <p class="note">색은 오른 해와 내린 해의 구분이다. 「연초 대비 최저」가 매수한 뒤 견딘 최대 손실이다.</p>
 <div class="tblwrap"><table class="tw"><thead><tr><th>구분</th><th class="n">오른 횟수</th><th class="n">중앙값</th><th class="n">평균</th><th class="n">가장 나빴던 해</th><th class="n">30년 누적</th></tr></thead><tbody><tr><td>홀수 해</td><td class="n">15번 중 13번</td><td class="n">+21.8%</td><td class="n">+24.2%</td><td class="n">−42.2% (1997년)</td><td class="n">+1386.4%</td></tr><tr><td>짝수 해</td><td class="n">15번 중 7번</td><td class="n">−4.8%</td><td class="n">−3.6%</td><td class="n">−50.9% (2000년)</td><td class="n">−67.9%</td></tr></tbody></table></div>
 <p>홀수 해 줄을 보면 15번 중 13번 올랐고 가장 나빴던 해가 1997년 −42.2%다. 짝수 해 줄은 15번 중 7번이고 가장 나빴던 해가 2000년 −50.9%다.
@@ -2667,13 +2746,13 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <p>홀수 해 1~5월만 든 100은 30년 동안 574가 됐다. 30년 가운데 시장에 든 기간은 75개월뿐이다. 그런데도 내내 보유한 477을 넘는다.
 홀수 해 전체를 든 1,486이 가장 크지만 그 안에는 1997년 −42.2%가 들어 있다. 이 그림은 규칙이 아니라 집계다. 거래 비용과 현금 이자는 넣지 않았다.</p>
 
-<h2 id="시대로-갈라도-홀수-해-1-5월은-두-시대-모두-다-올랐다-다만-인플레-">시대로 갈라도 홀수 해 1~5월은 두 시대 모두 다 올랐다. 다만 인플레 시대는 3번뿐이다</h2>
+<h2 id="시대로-갈라도-홀수-해-1-5월은-2개-시대-모두-다-올랐다-다만-인플레">시대로 갈라도 홀수 해 1~5월은 2개 시대 모두 다 올랐다. 다만 인플레 시대는 3번뿐이다</h2>
 
 <p>같은 15번을 디플레 시대와 인플레 시대로 갈라 다시 집계했다. 연간 홀짝도 옆에 두었다.</p>
 <div class="tblwrap"><table class="tw"><thead><tr><th>시대</th><th class="n">홀수 해 1~5월 오른 횟수</th><th class="n">중앙값</th><th class="n">홀수 해 연간</th><th class="n">짝수 해 연간</th></tr></thead><tbody><tr><td>디플레 시대 (1996~2019)</td><td class="n">12번 중 12번</td><td class="n">+13.1%</td><td class="n">12번 중 10번</td><td class="n">12번 중 6번</td></tr><tr><td>인플레 시대 (2020~2025)</td><td class="n">3번 중 3번</td><td class="n">+12.4%</td><td class="n">3번 중 3번</td><td class="n">3번 중 1번</td></tr></tbody></table></div>
 <p class="note">인플레 시대의 해 수가 적어 횟수는 방향만 보여 준다.</p>
 <p>디플레 시대 줄을 보면 홀수 해 1~5월이 12번 중 12번, 인플레 시대 줄은 3번 중 3번이다.
-연간 홀짝도 두 시대 모두 홀수 해가 짝수 해보다 자주 올랐다. 위 누적 그림의 「인플레 시대 시작」 표식이 그 경계다.</p>
+연간 홀짝도 2개 시대 모두 홀수 해가 짝수 해보다 자주 올랐다. 위 누적 그림의 「인플레 시대 시작」 표식이 그 경계다.</p>
 
 <h2 id="4월이-31번-중-20번-올라-가장-강했고-8월이-32번-중-13번으로-">4월이 31번 중 20번 올라 가장 강했고 8월이 32번 중 13번으로 가장 약했다. 1~5월 가운데 중앙값이 0 아래인 달은 0개다</h2>
 
@@ -2711,7 +2790,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <div class="claim"><p>홀수 해 1월 초에 매수해 5월 말에 매도했으면 15번 중 15번 올랐고 중앙값은 +12.4%, 구간 안 최저는 최대 −17.9%였다. 같은 5개월이 짝수 해에는 15번 중 4번이다.
 288개 구간 가운데 다 오른 것은 이것뿐이고 중앙값으로는 22위다. 홀수 해 6~12월은 15번 중 11번에 −50.3%가 들어 있다. S&amp;P 500 도 같은 15해에 15번 중 13번이었고 1995년 이전 코스피는 7번 중 3번이었다.</p></div>
 
-<p>예상은 조건으로 적는다. 다음 홀수 해 1~5월은 2027년이고 기준은 2026년 12월 말 종가다. 올해 2026년은 짝수 해이고 지금 연초 대비 +59.4%다. 그 5월 마지막 거래일 종가가 기준 종가보다 높으면 16번째 상승이고, 낮으면 「모두」는 그날 거둔다.
+<p>예상은 조건으로 적는다. 다음 홀수 해 1~5월은 2027년이고 기준은 2026년 12월 말 종가다. 올해 2026년은 짝수 해이고 지금 연초 대비 +59.6%다. 그 5월 마지막 거래일 종가가 기준 종가보다 높으면 16번째 상승이고, 낮으면 「모두」는 그날 거둔다.
 해와 달의 집계는 매수·매도의 근거 하나이지 전부가 아니다. 국면은 <a href="stage-analysis.html">와인스타인 스테이지</a>가, 바닥은 <a href="bottom-top.html">바닥·천장 추적</a>이 본다.</p>
 
 <h2 id="apx">원문 상세표</h2>
@@ -2751,7 +2830,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 <details class="apx" open><summary>자료와 계산 방법</summary>
 <ul>
-<li>코스피 일별 종가. FinanceDataReader KS11, 1995년 5월 2일~2026년 9월 16일, 7,906영업일. 볼트 _sources/datasets/KRX_코스피지수_OHLC_일별.csv, 매일 갱신.</li>
+<li>코스피 일별 종가. FinanceDataReader KS11, 1995년 5월 2일~2026년 9월 17일, 7,907영업일. 볼트 _sources/datasets/KRX_코스피지수_OHLC_일별.csv, 매일 갱신.</li>
 <li>구간 수익률. 시작 달 마지막 거래일 종가 대비 끝 달 마지막 거래일 종가. 홀수 해 1~5월은 앞 해 12월 말 → 그 해 5월 말. 구간 안 최저는 그 사이 일별 종가의 최저.</li>
 <li>4조각. 짝수 해 1~10월(12월 말→10월 말), 짝수 해 11~12월(10월 말→12월 말), 홀수 해 1~5월, 홀수 해 6~12월(5월 말→12월 말).</li>
 <li>창 9가지. 시작은 짝수 해 10·11·12월 말, 끝은 홀수 해 4·5·6월 말.</li>
@@ -2761,7 +2840,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <li>월간 수익률. 앞 달 마지막 거래일 종가 대비 그 달 마지막 거래일 종가. 1995년 6월부터 2026년 8월까지.</li>
 <li>시대. 미국 10년물 금리 사상 최저 2020-07 를 경계로, 해 단위에서는 2020년부터 인플레 시대. fed-kospi 편과 같다.</li>
 <li>누적. 해당 구간에만 수익률을 곱하고 나머지는 1을 곱한 값. 거래 비용과 현금 이자는 넣지 않았다.</li>
-<li>S&amp;P 500. FinanceDataReader ^GSPC, 1927-12-30~2026-09-15. 1957년 3월 이전은 전신 지수를 이은 것이다.</li>
+<li>S&amp;P 500. FinanceDataReader ^GSPC, 1927-12-30~2026-09-16. 1957년 3월 이전은 전신 지수를 이은 것이다.</li>
 <li>코스피 1982~1995년. 인베스팅닷컴 월별 자료의 월말 종가. 겹치는 30해 가운데 0.5%포인트 넘게 다른 해 0개.</li>
 <li>이 페이지의 모든 숫자는 원자료에서 다시 계산한 값이다. 생성기는 scripts/build_kospi_seasonality.py 다.</li>
 </ul>
