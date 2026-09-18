@@ -804,57 +804,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 더 내려가면 담보가 더 부족해진다. 그러면 또 팔아야 한다.
 내려갈수록 더 팔아야 하는 고리가 돌기 시작한다.</p>
 
-<figure class="fig"><svg viewBox="0 0 720 300" role="img"
- aria-label="보통의 하락과 강제청산 하락의 차이">
-<style>
- .fcs-t{font:600 14px 'Nanum Gothic',sans-serif;fill:var(--text,#1d1d1f)}
- .fcs-s{font:12.5px 'Nanum Gothic',sans-serif;fill:var(--text2,#6e6e73)}
- .fcs-b{font:700 13px 'Nanum Gothic',sans-serif;fill:#fff}
- .fcs-ar{stroke:var(--text2,#6e6e73);stroke-width:1.4;fill:none;marker-end:url(#fcah)}
- .fcs-ar2{stroke:#d21f3c;stroke-width:1.8;fill:none;marker-end:url(#fcah2)}
-</style>
-<defs>
- <marker id="fcah" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
-   <path d="M0,0 L9,4.5 L0,9 z" fill="var(--text2,#6e6e73)"/></marker>
- <marker id="fcah2" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
-   <path d="M0,0 L9,4.5 L0,9 z" fill="#d21f3c"/></marker>
-</defs>
-
-<text class="fcs-t" x="0" y="16">보통의 하락 — 스스로 멈춘다</text>
-<rect x="0" y="34" width="118" height="36" rx="7" fill="var(--mute,#5b6470)"/>
-<text class="fcs-b" x="59" y="57" text-anchor="middle">주가 하락</text>
-<path class="fcs-ar" d="M124,52 L180,52"/>
-<rect x="186" y="34" width="118" height="36" rx="7" fill="var(--mute,#5b6470)"/>
-<text class="fcs-b" x="245" y="57" text-anchor="middle">싸졌다</text>
-<path class="fcs-ar" d="M310,52 L366,52"/>
-<rect x="372" y="34" width="130" height="36" rx="7" fill="var(--dn,#1161c4)"/>
-<text class="fcs-b" x="437" y="57" text-anchor="middle">사는 사람 등장</text>
-<path class="fcs-ar" d="M508,52 L552,52"/>
-<rect x="558" y="34" width="118" height="36" rx="7" fill="var(--dn,#1161c4)"/>
-<text class="fcs-b" x="617" y="57" text-anchor="middle">하락 멈춤</text>
-<text class="fcs-s" x="0" y="94">싸지면 사려는 사람이 생기므로 하락에 브레이크가 걸린다.</text>
-
-<line x1="0" y1="120" x2="720" y2="120" stroke="var(--border,#e3e3e6)" stroke-width="1"/>
-
-<text class="fcs-t" x="0" y="150">강제청산 하락 — 스스로 커진다</text>
-<rect x="0" y="168" width="118" height="36" rx="7" fill="var(--mute,#5b6470)"/>
-<text class="fcs-b" x="59" y="191" text-anchor="middle">주가 하락</text>
-<path class="fcs-ar2" d="M124,186 L180,186"/>
-<rect x="186" y="168" width="118" height="36" rx="7" fill="var(--risk,#b45309)"/>
-<text class="fcs-b" x="245" y="191" text-anchor="middle">담보 부족</text>
-<path class="fcs-ar2" d="M310,186 L366,186"/>
-<rect x="372" y="168" width="130" height="36" rx="7" fill="var(--up,#d21f3c)"/>
-<text class="fcs-b" x="437" y="191" text-anchor="middle">강제로 팔림</text>
-<path class="fcs-ar2" d="M508,186 L552,186"/>
-<rect x="558" y="168" width="118" height="36" rx="7" fill="var(--up,#d21f3c)"/>
-<text class="fcs-b" x="617" y="191" text-anchor="middle">더 하락</text>
-<path class="fcs-ar2" d="M617,210 L617,236 L59,236 L59,212"/>
-<text class="fcs-s" x="338" y="256" text-anchor="middle">다시 처음으로 — 이 고리가 스스로 돈다</text>
-<text class="fcs-s" x="0" y="286">싸져도 살 수가 없다. 팔아야 할 사람이 계속 늘기 때문이다. 그래서 상식 밖의 낙폭이 나온다.</text>
-</svg>
-<figcaption>같은 "주가 하락"이라도 뒤에 무엇이 붙느냐가 완전히 다르다.
-아래 고리를 스스로 강해지는 되먹임이라고 부른다. 이 페이지의 사례는 전부 아래쪽이다.</figcaption>
-</figure>
+<figure class="fig dg"><iframe src="dg/flow-crashes-loop.html" title="강제청산의 되먹임 고리" loading="lazy" style="width:100%;height:760px;border:1px solid var(--border,#e3e3e6);border-radius:12px;background:#fff"></iframe><figcaption>같은 "주가 하락"이라도 뒤에 무엇이 붙느냐가 완전히 다르다. 위 칸이 보통의 하락, 가운데 칸이 강제청산의 스스로 강해지는 되먹임이다. 이 페이지의 사례는 전부 가운데 칸이다. 그림을 누르면 경로를 따라갈 수 있고 <a href="dg/flow-crashes-loop.html">따로 열기</a>도 된다.</figcaption></figure>
 
 <p>보통의 하락에서는 싸질수록 사는 사람이 늘어난다.
 강제청산에서는 싸질수록 파는 사람이 늘어난다. 방향이 정반대다.
@@ -1001,54 +951,7 @@ CFD라는 파생 계좌를 썼는데, 적은 돈으로 큰 금액을 굴릴 수 
 <p>지금까지의 사례는 전부 한 곳에서만 터졌다.
 2026년 7월은 3곳이 같은 달에 터졌다.</p>
 
-<figure class="fig"><svg viewBox="0 0 640 330" role="img"
- aria-label="2026년 7월 코스피 폭락의 3중 구조">
-<style>
- .fct-t{font:700 13.5px 'Nanum Gothic',sans-serif;fill:#fff}
- .fct-d{font:12px 'Nanum Gothic',sans-serif;fill:var(--text2,#6e6e73)}
- .fct-h{font:600 13px 'Nanum Gothic',sans-serif;fill:var(--text,#1d1d1f)}
- .fct-k{font:700 15px 'Nanum Gothic',sans-serif;fill:#fff}
-</style>
-<defs><marker id="fcth" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
-  <path d="M0,0 L9,4.5 L0,9 z" fill="var(--text2,#6e6e73)"/></marker></defs>
-
-<text class="fct-h" x="0" y="14">3개의 강제청산이 같은 달에 겹쳤다</text>
-
-<rect x="0" y="30" width="270" height="52" rx="8" fill="var(--up,#d21f3c)"/>
-<text class="fct-t" x="16" y="52">① SA펀드 (해외·반도체)</text>
-<text class="fct-t" x="16" y="70" style="font-weight:400;font-size:12px">4배 레버리지 → 마진콜 → 시타델 청산</text>
-<text class="fct-d" x="278" y="60">아케고스와 같은 형태</text>
-
-<rect x="0" y="94" width="270" height="52" rx="8" fill="var(--risk,#b45309)"/>
-<text class="fct-t" x="16" y="116">② 삼전닉스 레버리지 ETF (국내)</text>
-<text class="fct-t" x="16" y="134" style="font-weight:400;font-size:12px">개인 손실 56.3조 추정 · 구조가 매도를 낳음</text>
-<text class="fct-d" x="278" y="124">볼마겟돈과 같은 형태</text>
-
-<rect x="0" y="158" width="270" height="52" rx="8" fill="var(--mute,#5b6470)"/>
-<text class="fct-t" x="16" y="180">③ 신용융자 반대매매 (국내)</text>
-<text class="fct-t" x="16" y="198" style="font-weight:400;font-size:12px">32.5조로 축소 · 청산 65%만 진행</text>
-<text class="fct-d" x="278" y="188">영풍제지와 같은 형태 · <tspan style="font-weight:700">아직 진행 중</tspan></text>
-
-<path d="M275,56 C330,56 340,120 396,120" stroke="var(--text2,#6e6e73)" stroke-width="1.4"
-  fill="none" marker-end="url(#fcth)" opacity=".55"/>
-<path d="M275,120 L396,120" stroke="var(--text2,#6e6e73)" stroke-width="1.4"
-  fill="none" marker-end="url(#fcth)" opacity=".55"/>
-<path d="M275,184 C330,184 340,120 396,120" stroke="var(--text2,#6e6e73)" stroke-width="1.4"
-  fill="none" marker-end="url(#fcth)" opacity=".55"/>
-
-<rect x="402" y="92" width="200" height="58" rx="9" fill="var(--text,#1d1d1f)"/>
-<text class="fct-k" x="502" y="118" text-anchor="middle">코스피 −37.9%</text>
-<text class="fct-t" x="502" y="138" text-anchor="middle"
-  style="font-weight:400;font-size:11.5px">7월 한 달 · 월간 역대 최대</text>
-
-<text class="fct-h" x="0" y="248">왜 지수까지 갔나</text>
-<text class="fct-d" x="0" y="270">선례는 전부 한 곳에서만 터졌다. 이번엔 3곳이 같은 달에 터졌고,</text>
-<text class="fct-d" x="0" y="290">코스피 시가총액이 반도체에 쏠려 있어 국지적 사고가 지수 사고가 됐다.</text>
-<text class="fct-d" x="0" y="310">코스닥은 개인이 레버리지 ETF로 자금을 옮기느라 판 유탄을 맞았다.</text>
-</svg>
-<figcaption>2026년 7월이 선례와 다른 지점. 메커니즘 하나하나는 전에 본 것인데,
-3개가 겹친 것과 지수 전체가 무너진 것이 처음이다.</figcaption>
-</figure>
+<figure class="fig dg"><iframe src="dg/flow-crashes-july.html" title="2026년 7월 강제청산 3곳의 겹침" loading="lazy" style="width:100%;height:760px;border:1px solid var(--border,#e3e3e6);border-radius:12px;background:#fff"></iframe><figcaption>3개의 강제청산이 같은 달에 겹쳐 지수까지 갔다. 선례는 전부 한 곳에서만 터졌다. <a href="dg/flow-crashes-july.html">따로 열기</a>.</figcaption></figure>
 
 <p>그리고 아직 끝나지 않았다.
 씨티은행 추정으로 신용융자 청산은 65%만 진행됐다.
