@@ -1279,7 +1279,8 @@ function rtBuild(){
         g.fillStyle=dpA(dpColor(b.era==='inf'?'neg':'dn'), dark?0.13:0.08);
         g.fillRect(x1,a.top,x2-x1,a.bottom-a.top);
         g.fillStyle=tx; g.font='600 11px "Noto Sans KR",sans-serif'; g.textAlign='center';
-        if(x2-x1>90) g.fillText(b.label,(x1+x2)/2,a.top+13);
+        if(x2-x1>90){ g.fillText(b.label,(x1+x2)/2,a.top+13); }
+        else { g.save(); g.translate((x1+x2)/2, a.top+8); g.rotate(Math.PI/2); g.textAlign='left'; g.fillText(b.label,0,4); g.restore(); }   /* 2026-09-19 좁은 시대(새 인플레)는 세로로 */
       });
       g.restore();}};
     var ds=c.d.map(function(d){
