@@ -344,7 +344,14 @@ html,body{overflow-x:hidden}
   html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
   html body .site-bar-in{padding:9px 14px 7px}
 }
-/* BAR:END *//*TOCCSS:BEGIN*/
+/* BAR:END */
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
+/*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
 /* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
@@ -364,14 +371,7 @@ h2[id],h3[id],[id]:target{scroll-margin-top:92px}
 .ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
 .ptoc a:hover{border-bottom-color:var(--text-secondary)}
 @media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*/
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
-/* PAPER:BEGIN */
+/*TOCCSS:END*//* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -694,8 +694,8 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <div class="wrap paper">
 <header class="phead"><!--phead:unified--><div class="eyebrow">아카이브 · 오디션 히스토리</div>
 <h1>오디션 피라미딩 히스토리<br>2025~2026</h1>
-<p class="pauth">2025-04 ~ 2026-06 체크포인트 · 고정 자료 · 시장 데이터로 갱신되지 않는다</p></header>
-<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>순위표의 교체가 곧 주도업종의 교체였고 교체가 멈춘 시점이 상승 사이클의 종료였다. 오디션이 맞았는지는 지난 후보를 지우지 않고 남겨 둔 이 기록으로만 확인된다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#깔때기-대상에서-숏리스트까지">깔때기: 대상에서 숏리스트까지</a></li><li><a href="#전체를-관통하는-것">전체를 관통하는 것</a></li><li><a href="#아직-불확실한-곳은-어디인가">아직 불확실한 곳은 어디인가</a></li></ol></div><!--TOC:END--><div class="intro"><b>이 페이지를 읽는 법.</b> 각 블록은 <b>기준일에서 그 시점까지의 누적 상승률</b> 순위다.
+<p class="pauth">2025-04 ~ 2026-06 체크포인트 · 고정 자료 · 시장 데이터로 갱신되지 않는다</p><!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>순위표의 교체가 곧 주도업종의 교체였고 교체가 멈춘 시점이 상승 사이클의 종료였다. 오디션이 맞았는지는 지난 후보를 지우지 않고 남겨 둔 이 기록으로만 확인된다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#깔때기-대상에서-숏리스트까지">깔때기: 대상에서 숏리스트까지</a></li><li><a href="#전체를-관통하는-것">전체를 관통하는 것</a></li><li><a href="#아직-불확실한-곳은-어디인가">아직 불확실한 곳은 어디인가</a></li></ol></div><!--TOC:END--></header>
+<div class="intro"><b>이 페이지를 읽는 법.</b> 각 블록은 <b>기준일에서 그 시점까지의 누적 상승률</b> 순위다.
 같은 기준일에서 계산하는 것이 핵심이다. 구간이 길어질수록 <b>우연히 한 번 상승한 종목은 밀려나고,
 진짜 추세를 탄 종목만 남는다</b>. <span class="new">NEW</span>는 직전 체크포인트 TOP15에 없던 신규 진입,
 취소선은 상위에서 이탈한 종목이다.
