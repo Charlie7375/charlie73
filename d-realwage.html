@@ -129,76 +129,7 @@ html.theme-dark .site-dd{box-shadow:0 18px 44px rgba(0,0,0,.55)}
   .site-dd{right:auto;left:50%;transform:translate(-50%,-6px)}
   .site-group.on .site-dd{transform:translate(-50%,0)}
 }
-/*NAVCSS:BEGIN*/
-/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
-.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
-  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
-/* 아카이브 중메뉴 소제목 — 주기 라벨과 같은 .nav-h 를 쓰되 묶음 사이를 실선으로 끊는다 */
-.site-dd .nav-h.sub,.md .nav-h.sub{margin-top:6px;padding-top:9px;
-  border-top:1px solid var(--border,rgba(0,0,0,.1))}
-.site-dd .nav-h+.nav-h.sub,.md .nav-h+.nav-h.sub{margin-top:0;padding-top:4px;border-top:0}
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/*NAVCSS:END*//* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-/* ⚠⚠ 2026-09-10 상수님 «작은 해상도에서는 제목을 누를 수 없네».
-   아카이브가 29장이 되면서 드롭다운이 1,254px 로 자랐다. 상단바는 sticky 라
-   드롭다운은 화면 위에서 72px 자리에 열리는데, 390px 화면의 보이는 높이가 915px 이니
-   **아래 411px 는 화면 밖이고 스크롤이 없어 닿을 방법이 아예 없었다.**
-   → 화면 높이만큼만 열고 넘치면 그 안에서 스크롤한다.
-   · dvh 를 뒤에 한 번 더 적는다 — 모바일 주소창이 접혔다 펴질 때 100vh 는 화면보다 크다.
-     dvh 를 모르는 브라우저는 앞줄(vh)만 읽고 지나간다.
-   · overscroll-behavior:contain — 목록 끝에서 계속 밀어도 뒤 본문이 따라 스크롤되지 않게.
-   · 120px 은 상단바(2줄, 96px)와 아래 여백 16px 이다. 아카이브·원자료는 메뉴 2번째 줄에
-     달려 있어 104px 자리에서 열린다 — 92px 로 뺐더니 12px 이 화면 밖으로 나갔다. */
-html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);
-  overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
-
-/* ★ 2026-09-14 상수님 «가로 CSS 가 째지지 않게». 숨은 펼침 메뉴(visibility:hidden)가 자리를 차지해 375px 화면에서
-   scrollWidth 427 로 가로 스크롤이 생겼다(전 페이지). 메뉴 폭을 화면 안에 묶고 문서의 가로 넘침을 자른다.
-   ⚠ 상단바 CSS 를 전 페이지에 미치게 하는 자리는 **여기(CENTER)뿐**이다. nav2.py 를 고쳐도 원자료 장에만 닿는다. */
-html body .site-dd{max-width:calc(100vw - 24px)}
-html,body{overflow-x:hidden}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END *//*TOCCSS:BEGIN*/
-/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
-
-/* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
-   원인은 상단바다. .site-bar 가 position:sticky · 높이 78px 로 화면 맨 위를 덮는데
-   앵커로 이동하면 제목이 정확히 그 아래에 깔린다. 그래서 독자는 제목을 못 보고
-   그 다음 문단부터 보게 된다. 눌러 간 곳과 보이는 글이 어긋나는 것이 이 때문이다.
-   scroll-margin-top 이 0 이었다. 78 에 여백 14 를 더해 92 로 둔다.
-   ⚠ 상단바 높이를 바꾸면 이 값도 같이 바꾼다. 측정: .site-bar 의 getBoundingClientRect().height */
-h2[id],h3[id],[id]:target{scroll-margin-top:92px}
-@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
- margin:22px 0 24px;background:var(--surface);text-align:left}
-.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
- color:var(--text-secondary);margin-bottom:7px;text-align:left}
-.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
-.ptoc li{font-size:.9rem}
-.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
-.ptoc a:hover{border-bottom-color:var(--text-secondary)}
-@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*//* DESIGN:BEGIN */
+/* DESIGN:BEGIN */
 /* ── 숫자는 항상 고정폭 — 매일 바뀌는 값에 칸이 흔들리지 않게 ── */
 body{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
 table,.st-v,.kpi,.kpis,.pbadge b{font-variant-numeric:tabular-nums}
@@ -390,7 +321,76 @@ a.card:focus-visible,.lst-i:focus-visible{
   .wrap{padding-left:18px!important;padding-right:18px!important}
   .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
 }
-/* LAYOUT:END *//* PAPER:BEGIN */
+/* LAYOUT:END *//* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+/* ⚠⚠ 2026-09-10 상수님 «작은 해상도에서는 제목을 누를 수 없네».
+   아카이브가 29장이 되면서 드롭다운이 1,254px 로 자랐다. 상단바는 sticky 라
+   드롭다운은 화면 위에서 72px 자리에 열리는데, 390px 화면의 보이는 높이가 915px 이니
+   **아래 411px 는 화면 밖이고 스크롤이 없어 닿을 방법이 아예 없었다.**
+   → 화면 높이만큼만 열고 넘치면 그 안에서 스크롤한다.
+   · dvh 를 뒤에 한 번 더 적는다 — 모바일 주소창이 접혔다 펴질 때 100vh 는 화면보다 크다.
+     dvh 를 모르는 브라우저는 앞줄(vh)만 읽고 지나간다.
+   · overscroll-behavior:contain — 목록 끝에서 계속 밀어도 뒤 본문이 따라 스크롤되지 않게.
+   · 120px 은 상단바(2줄, 96px)와 아래 여백 16px 이다. 아카이브·원자료는 메뉴 2번째 줄에
+     달려 있어 104px 자리에서 열린다 — 92px 로 뺐더니 12px 이 화면 밖으로 나갔다. */
+html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);
+  overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+
+/* ★ 2026-09-14 상수님 «가로 CSS 가 째지지 않게». 숨은 펼침 메뉴(visibility:hidden)가 자리를 차지해 375px 화면에서
+   scrollWidth 427 로 가로 스크롤이 생겼다(전 페이지). 메뉴 폭을 화면 안에 묶고 문서의 가로 넘침을 자른다.
+   ⚠ 상단바 CSS 를 전 페이지에 미치게 하는 자리는 **여기(CENTER)뿐**이다. nav2.py 를 고쳐도 원자료 장에만 닿는다. */
+html body .site-dd{max-width:calc(100vw - 24px)}
+html,body{overflow-x:hidden}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END *//*NAVCSS:BEGIN*/
+/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
+.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
+  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
+/* 아카이브 중메뉴 소제목 — 주기 라벨과 같은 .nav-h 를 쓰되 묶음 사이를 실선으로 끊는다 */
+.site-dd .nav-h.sub,.md .nav-h.sub{margin-top:6px;padding-top:9px;
+  border-top:1px solid var(--border,rgba(0,0,0,.1))}
+.site-dd .nav-h+.nav-h.sub,.md .nav-h+.nav-h.sub{margin-top:0;padding-top:4px;border-top:0}
+.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
+  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
+  background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+/*NAVCSS:END*//*TOCCSS:BEGIN*/
+/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
+
+/* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
+   원인은 상단바다. .site-bar 가 position:sticky · 높이 78px 로 화면 맨 위를 덮는데
+   앵커로 이동하면 제목이 정확히 그 아래에 깔린다. 그래서 독자는 제목을 못 보고
+   그 다음 문단부터 보게 된다. 눌러 간 곳과 보이는 글이 어긋나는 것이 이 때문이다.
+   scroll-margin-top 이 0 이었다. 78 에 여백 14 를 더해 92 로 둔다.
+   ⚠ 상단바 높이를 바꾸면 이 값도 같이 바꾼다. 측정: .site-bar 의 getBoundingClientRect().height */
+h2[id],h3[id],[id]:target{scroll-margin-top:92px}
+@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
+ margin:22px 0 24px;background:var(--surface);text-align:left}
+.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
+ color:var(--text-secondary);margin-bottom:7px;text-align:left}
+.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
+.ptoc li{font-size:.9rem}
+.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
+.ptoc a:hover{border-bottom-color:var(--text-secondary)}
+@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
+/*TOCCSS:END*//* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -708,7 +708,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 /* PAPER:END */</style><link rel="stylesheet" href="vendor/fonts.css"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body><div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="macro-timeline.html">거시 이벤트 연대기</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="minervini-x.html">마크 미너비니 X 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-nhn.html">NHN</a><a href="stock-kolmar.html">한국콜마</a><a href="stock-cosmax.html">코스맥스</a><a href="stock-pharmaresearch.html">파마리서치</a><a href="stock-jyp.html">JYP Ent.</a><a href="stock-sm-ent.html">에스엠</a><a href="stock-yg-ent.html">와이지엔터테인먼트</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="marks.html">하워드 막스의 방법론</a><a href="marks-glossary.html">사이클 용어사전</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><span class="nav-h sub">시장 국면</span><a href="kospi-seasonality-down.html">해와 달의 코스피 · 역편</a><a href="kospi-drivers.html">코스피 선행 변수</a><a href="kospi-seasonality.html">해와 달의 코스피</a><a href="breadth-concentration.html">신고가 쏠림</a><a href="kospi-analog.html">닮은 과거</a><a href="audition-history.html">오디션 히스토리</a><a href="disparity-archive.html">두 버블의 이격도</a><a href="stage-analysis.html">와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리</a><span class="nav-h sub">수급과 폭락</span><a href="flow-extremes.html">개인과 외국인의 대량 매매</a><a href="flow-crashes.html">폭락의 구조</a><span class="nav-h sub">신용과 청산</span><a href="us-credit-spread.html">미국 신용스프레드</a><a href="deleveraging.html">강제청산</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="sentiment.html">빚과 현금</a><span class="nav-h sub">경기와 수출</span><a href="us-elections.html">미국 선거와 증시</a><a href="export-kospi.html">수출과 코스피</a><a href="cli-kospi.html">OECD CLI 와 코스피</a><a href="ism-kospi.html">ISM 과 코스피</a><a href="jeoji-kospi.html">제오지산수</a><span class="nav-h sub">금리와 통화</span><a href="gold-rates.html">금리와 금값</a><a href="treasury-trust.html">미국 국채 되사기</a><a href="inflation-playbook.html">인플레 시대의 자산</a><a href="rates-century.html">미국 금리 100년</a><a href="liquidity.html">미국 유동성</a><a href="fed-kospi.html">연준 기준금리와 코스피</a><a href="rates-101.html">금리 기초</a><a href="rates-crashes.html">금리 5%와 공황</a><a href="dollar-kospi.html">달러와 코스피</a><span class="nav-h sub">개별 종목</span><a href="memory-price.html">D램 가격과 삼성전자</a><a href="leadlag.html">하이닉스의 선행과 후행</a><a href="samsung-long.html">삼성전자 27년</a></div></div><div class="site-group"><button class="" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 102계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a href="data-kr-rates.html">한국 금리</a><a href="data-us-market.html">미국 시장</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a href="data-fx.html">환율·원자재·암호</a><a href="data-macro.html">재정·거시</a><a href="data-world.html">세계 증시</a></div></div><!-- NAV:END --></nav>
-</div></div><div class="wrap paper dwrap"><a class="dback" href="data-macro.html">← 재정·거시</a><header class="phead"><span class="eb">원자료 · 재정·거시</span><h1>미국 실질 주급 중앙값 (분기)</h1><p class="pauth">FRED LES1252881600Q · 1982-84 달러 · 분기</p><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#실질주급">실질주급</a></li><li><a href="#최근-30개">최근 30개</a></li><li><a href="#관련-뉴스">관련 뉴스</a></li></ol></div><!--TOC:END--></header><div class="dsum"><p class="w">미국 정규직 주급 중앙값을 물가로 나눈 값이다. 분기 자료다.</p><p class="u">전조현상 20번이다. 전년비가 마이너스면 실질소득 감소다.</p></div><dl class="dmeta"><dt>출처</dt><dd><a href="https://fred.stlouisfed.org/series/LES1252881600Q" target="_blank" rel="noopener">FRED LES1252881600Q ↗</a></dd><dt>파일</dt><dd><code>FRED_실질주급중앙값_분기.csv</code></dd><dt>단위</dt><dd>1982-84 달러</dd><dt>쓰는 글</dt><dd>아직 없다</dd><dt>내려받기</dt><dd><a href="_sources_dl/FRED_실질주급중앙값_분기.csv" download>FRED_실질주급중앙값_분기.csv 내려받기</a> <span style="color:var(--text-secondary)">(2 KB)</span></dd></dl><div class="dkpi"><div class="k"><div class="l">지금 값</div><div class="v">378</div><div class="s">2026-04-01 · 1982-84 달러</div></div><div class="k"><div class="l">자료 범위</div><div class="v" style="font-size:15px">1979-01-01<br>~ 2026-04-01</div><div class="s">189개</div></div><div class="k"><div class="l">갱신</div><div class="v" style="font-size:17px">분기</div><div class="s">자동</div></div></div><div class="panel dpanel"><div class="panel-head"><h2 id="실질주급" class="psub">실질주급</h2><div class="rng"><button type="button" data-y="1">1년</button><button type="button" data-y="3">3년</button><button type="button" data-y="5">5년</button><button type="button" data-y="10">10년</button><button type="button" data-y="25">25년</button><button type="button" data-y="0" class="on">전체</button></div></div><div class="cbox2"><canvas id="c"></canvas></div><div class="srcline"><span>FRED LES1252881600Q</span><span>1982-84 달러 · 분기</span></div></div><script>(window.__DATA=window.__DATA||[]).push({"id": "c", "lab": ["1979-01-01", "1979-04-01", "1979-07-01", "1979-10-01", "1980-01-01", "1980-04-01", "1980-07-01", "1980-10-01", "1981-01-01", "1981-04-01", "1981-07-01", "1981-10-01", "1982-01-01", "1982-04-01", "1982-07-01", "1982-10-01", "1983-01-01", "1983-04-01", "1983-07-01", "1983-10-01", "1984-01-01", "1984-04-01", "1984-07-01", "1984-10-01", "1985-01-01", "1985-04-01", "1985-07-01", "1985-10-01", "1986-01-01", "1986-04-01", "1986-07-01", "1986-10-01", "1987-01-01", "1987-04-01", "1987-07-01", "1987-10-01", "1988-01-01", "1988-04-01", "1988-07-01", "1988-10-01", "1989-01-01", "1989-04-01", "1989-07-01", "1989-10-01", "1990-01-01", "1990-04-01", "1990-07-01", "1990-10-01", "1991-01-01", "1991-04-01", "1991-07-01", "1991-10-01", "1992-01-01", "1992-04-01", "1992-07-01", "1992-10-01", "1993-01-01", "1993-04-01", "1993-07-01", "1993-10-01", "1994-01-01", "1994-04-01", "1994-07-01", "1994-10-01", "1995-01-01", "1995-04-01", "1995-07-01", "1995-10-01", "1996-01-01", "1996-04-01", "1996-07-01", "1996-10-01", "1997-01-01", "1997-04-01", "1997-07-01", "1997-10-01", "1998-01-01", "1998-04-01", "1998-07-01", "1998-10-01", "1999-01-01", "1999-04-01", "1999-07-01", "1999-10-01", "2000-01-01", "2000-04-01", "2000-07-01", "2000-10-01", "2001-01-01", "2001-04-01", "2001-07-01", "2001-10-01", "2002-01-01", "2002-04-01", "2002-07-01", "2002-10-01", "2003-01-01", "2003-04-01", "2003-07-01", "2003-10-01", "2004-01-01", "2004-04-01", "2004-07-01", "2004-10-01", "2005-01-01", "2005-04-01", "2005-07-01", "2005-10-01", "2006-01-01", "2006-04-01", "2006-07-01", "2006-10-01", "2007-01-01", "2007-04-01", "2007-07-01", "2007-10-01", "2008-01-01", "2008-04-01", "2008-07-01", "2008-10-01", "2009-01-01", "2009-04-01", "2009-07-01", "2009-10-01", "2010-01-01", "2010-04-01", "2010-07-01", "2010-10-01", "2011-01-01", "2011-04-01", "2011-07-01", "2011-10-01", "2012-01-01", "2012-04-01", "2012-07-01", "2012-10-01", "2013-01-01", "2013-04-01", "2013-07-01", "2013-10-01", "2014-01-01", "2014-04-01", "2014-07-01", "2014-10-01", "2015-01-01", "2015-04-01", "2015-07-01", "2015-10-01", "2016-01-01", "2016-04-01", "2016-07-01", "2016-10-01", "2017-01-01", "2017-04-01", "2017-07-01", "2017-10-01", "2018-01-01", "2018-04-01", "2018-07-01", "2018-10-01", "2019-01-01", "2019-04-01", "2019-07-01", "2019-10-01", "2020-01-01", "2020-04-01", "2020-07-01", "2020-10-01", "2021-01-01", "2021-04-01", "2021-07-01", "2021-10-01", "2022-01-01", "2022-04-01", "2022-07-01", "2022-10-01", "2023-01-01", "2023-04-01", "2023-07-01", "2023-10-01", "2024-01-01", "2024-04-01", "2024-07-01", "2024-10-01", "2025-01-01", "2025-04-01", "2025-07-01", "2026-01-01", "2026-04-01"], "ser": [{"name": "실질주급", "val": [335.0, 335.0, 330.0, 326.0, 321.0, 315.0, 319.0, 315.0, 314.0, 311.0, 309.0, 312.0, 312.0, 314.0, 311.0, 313.0, 315.0, 314.0, 315.0, 312.0, 313.0, 312.0, 313.0, 316.0, 314.0, 323.0, 320.0, 320.0, 321.0, 328.0, 328.0, 331.0, 328.0, 328.0, 330.0, 328.0, 329.0, 325.0, 325.0, 324.0, 323.0, 322.0, 322.0, 322.0, 319.0, 319.0, 313.0, 312.0, 316.0, 312.0, 312.0, 313.0, 315.0, 313.0, 314.0, 312.0, 315.0, 317.0, 319.0, 319.0, 316.0, 317.0, 314.0, 314.0, 313.0, 314.0, 317.0, 313.0, 312.0, 312.0, 314.0, 313.0, 313.0, 314.0, 314.0, 314.0, 319.0, 319.0, 321.0, 328.0, 324.0, 329.0, 330.0, 335.0, 334.0, 334.0, 335.0, 334.0, 333.0, 336.0, 338.0, 340.0, 341.0, 339.0, 337.0, 336.0, 335.0, 338.0, 337.0, 337.0, 337.0, 341.0, 335.0, 337.0, 336.0, 334.0, 331.0, 332.0, 332.0, 329.0, 334.0, 337.0, 336.0, 335.0, 336.0, 332.0, 335.0, 335.0, 331.0, 340.0, 345.0, 345.0, 345.0, 344.0, 344.0, 342.0, 342.0, 341.0, 338.0, 336.0, 336.0, 335.0, 335.0, 337.0, 333.0, 333.0, 331.0, 335.0, 334.0, 334.0, 335.0, 330.0, 336.0, 336.0, 341.0, 339.0, 340.0, 345.0, 346.0, 345.0, 347.0, 349.0, 352.0, 354.0, 352.0, 345.0, 351.0, 351.0, 354.0, 355.0, 355.0, 358.0, 360.0, 362.0, 367.0, 393.0, 384.0, 376.0, 373.0, 371.0, 367.0, 361.0, 363.0, 359.0, 362.0, 362.0, 364.0, 365.0, 366.0, 369.0, 365.0, 368.0, 371.0, 374.0, 373.0, 376.0, 376.0, 376.0, 378.0], "grp": 0}], "log": false});</script><h2 id="최근-30개" class="dsec">최근 30개</h2><p class="dsub">전체 189개 가운데 마지막 30개다.</p><div class="dtable"><div class="tblwrap"><table><thead><tr><th>날짜</th><th class="n">실질주급</th></tr></thead><tbody><tr><td>2026-04-01</td><td class="n">378</td></tr><tr><td>2026-01-01</td><td class="n">376</td></tr><tr><td>2025-07-01</td><td class="n">376</td></tr><tr><td>2025-04-01</td><td class="n">376</td></tr><tr><td>2025-01-01</td><td class="n">373</td></tr><tr><td>2024-10-01</td><td class="n">374</td></tr><tr><td>2024-07-01</td><td class="n">371</td></tr><tr><td>2024-04-01</td><td class="n">368</td></tr><tr><td>2024-01-01</td><td class="n">365</td></tr><tr><td>2023-10-01</td><td class="n">369</td></tr><tr><td>2023-07-01</td><td class="n">366</td></tr><tr><td>2023-04-01</td><td class="n">365</td></tr><tr><td>2023-01-01</td><td class="n">364</td></tr><tr><td>2022-10-01</td><td class="n">362</td></tr><tr><td>2022-07-01</td><td class="n">362</td></tr><tr><td>2022-04-01</td><td class="n">359</td></tr><tr><td>2022-01-01</td><td class="n">363</td></tr><tr><td>2021-10-01</td><td class="n">361</td></tr><tr><td>2021-07-01</td><td class="n">367</td></tr><tr><td>2021-04-01</td><td class="n">371</td></tr><tr><td>2021-01-01</td><td class="n">373</td></tr><tr><td>2020-10-01</td><td class="n">376</td></tr><tr><td>2020-07-01</td><td class="n">384</td></tr><tr><td>2020-04-01</td><td class="n">393</td></tr><tr><td>2020-01-01</td><td class="n">367</td></tr><tr><td>2019-10-01</td><td class="n">362</td></tr><tr><td>2019-07-01</td><td class="n">360</td></tr><tr><td>2019-04-01</td><td class="n">358</td></tr><tr><td>2019-01-01</td><td class="n">355</td></tr><tr><td>2018-10-01</td><td class="n">355</td></tr></tbody></table></div></div><h2 id="관련-뉴스" class="dsec">관련 뉴스</h2><p class="dsub">제목에 그 낱말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.</p><p class="dsub">국내: 「미국 실질임금」 로 찾았다.</p><div class="dtable"><div class="tblwrap"><table><tbody><tr><td class="d">Fri, 18 Sep</td><td class="d">토큰포스트</td><td><a href="https://news.google.com/rss/articles/CBMiV0FVX3lxTFA0U3JpenFaTWJ5R3I5N0FVMHo0OUhDc3hXN25TYUJQdk9DMmczZ09TX3haaUo4QkN5dW5pdEhvRHpsZXYwZ3NoRFJhVFhlT1p5bFBOYm9GUQ?oc=5" target="_blank" rel="noopener nofollow">미국 실질소득 13~63% 증가…2021~2023년 소비는 K자형</a></td></tr><tr><td class="d">Tue, 26 May</td><td class="d">KB Think</td><td><a href="https://news.google.com/rss/articles/CBMickFVX3lxTE5xN2FFZ1pxdHNFVlo5SThXQVBhLXZOaTJNalJuZ0ZKaGJia2QyTzhlbHctRFZ5Ymg4a2l4S0xPbzlJdnJPWFNyRjJxSHdhdE5Eck5PQ1E1c1A3bEp2YWVYQVZGQ3oxNWgyc1I0Nkt0SGdEZw?oc=5" target="_blank" rel="noopener nofollow">美英 실질임금 2년 만에 첫 감소…통화정책 딜레마</a></td></tr><tr><td class="d">Fri, 12 Jun</td><td class="d">연합뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE1qM0t3TkNFa2JRVDFFdG1pZ1hJMk1vcWFKMFp2UUFVcXR5cG1tam1tdmNwUzJYYk0wSXNkcG1UZUdqLUcwOTVlTlVBdFM3SVc4eG5JM2VPYVhOdFHSAWBBVV95cUxPNXFhTzBkWmpwQldTTWU3WU9aTFhGLVpWWlVuQ2YzWVZpbW9jVERrNHgwSENvRGRUVXBmOWJrcUl4WUEwaVduY0pteDR5M09zYUR6bFZnb3RaWDRxcXJ4cDA?oc=5" target="_blank" rel="noopener nofollow">미국, 이란전 탓 노동자들에 '임금삭감 효과' 후폭풍</a></td></tr><tr><td class="d">Wed, 27 May</td><td class="d">마켓인</td><td><a href="https://news.google.com/rss/articles/CBMic0FVX3lxTE12bW5KazUwOW5ma3NVbGl1dDc0Y21LRTJkblpLRHZ0Wk1wcFp4TEN1S01hSFlyakk0WUJPeXRKaTRJdHlHRWpLaDFGd0xUWmE5ZGFSbGlwVzF2S2pKQ3doLWdwejhrVTdRcGxhOHdUcXhoblE?oc=5" target="_blank" rel="noopener nofollow">"모처럼 월급 오르나 했더니"…이란전, 선진국 실질임금에 '찬물'</a></td></tr><tr><td class="d">Tue, 26 May</td><td class="d">뉴스핌</td><td><a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTE9takN6ZkloMThvZWlya3p3SllEM1RrcUljb3FMRm5WOTZOQ3BDaHpwOHJjVkpVNW15ZkRJbGVKMDJTeFVXek1TNEZLaTJJejZLbzJLbUl6VlB3QmNX?oc=5" target="_blank" rel="noopener nofollow">물가는 오르는데 월급은 제자리… 실질임금 하락세 나타나기 시작</a></td></tr><tr><td class="d">Sun, 08 Feb</td><td class="d">글로벌이코노믹</td><td><a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxPRE9TTDBhQ19KOU5SbHFzYy1QVFpGeUFjNzdsTHk3dHRuNEFNREc1NTgweV9DWDNzc2hubFUtMmlUbEJqV0hNU2hLNmpnaVNWOVJBa2VxRnFIVGVrd1RndnQ3c2RmV1NxdVB2SU10a2xMWUk5SXpINS1RQU01TlFQMFlsQ2JiaFo4?oc=5" target="_blank" rel="noopener nofollow">미국 근로자 실질임금, 19년간 13.8% 상승...물가 넘어선 임금 인상</a></td></tr></tbody></table></div></div><p class="dsub">해외: 「US real wages」 로 찾았다. 이 자료의 출처가 외국이라 함께 본다.</p><div class="dtable"><div class="tblwrap"><table><tbody><tr><td class="d">Wed, 16 Sep</td><td class="d">USAFacts</td><td><a href="https://news.google.com/rss/articles/CBMikAFBVV95cUxNRVNUZVlsckVsS2hNbnZOMWh1cEpUU3BGQVFuRXpWNVd0TFpidVhlQmxMcHVTdFBramtNM1VoZHVWVzdHaERMQjczMnhucFlmUk9wc0IyQTJxNGl1amdwTEl5Z3lHRVdaVnBXN0hTMzhiMjFubVpQbUVFQjNIbGd0SV8ydk1Pd1U0Vm8wM2tGSFc?oc=5" target="_blank" rel="noopener nofollow">Are wages keeping up with inflation?</a></td></tr><tr><td class="d">Wed, 12 Aug</td><td class="d">washingtonsun.com</td><td><a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxQMUNNUWxWbXBGQVdoeE9sTURVQUFZa2M1OXdWd1JjM050Q1dEYTdGc3BwaU8zU1lWejY4c0VoRWJuT3JiU09CcFlBenhldVQ2NFZtZFpWZWQxWmhwZVV2czM4QWxTLTFSa0F0WldTV0syem05Q25ESUZENTJpQV90NlpPY00?oc=5" target="_blank" rel="noopener nofollow">Workers’ Wage Gains Have Been Erased by Inflation - NOTUS: News of the United States</a></td></tr><tr><td class="d">Fri, 05 Jun</td><td class="d">The Real Economy Blog</td><td><a href="https://news.google.com/rss/articles/CBMikwFBVV95cUxNdmYtMUg1TmtwUlFHenp0TFloRnFiSUM2Y3o1T3JoS3BybHdIZnBjelZ6bkU4VUp5OTg1Q05velRucjgtNE9kc2pfUDVQZzFmbEctNVFlSzRvYU83TFJZbU1PS3ZXZVEycTdIaWZ2UTFsSkQ5RFNGdUtUeUhsNl8wNzc5ZEtpRFJKd3ZuVDcycFBwUHM?oc=5" target="_blank" rel="noopener nofollow">American rite of spring: Strong job gains and falling wages</a></td></tr><tr><td class="d">Tue, 18 Aug</td><td class="d">Newsroom | UCLA</td><td><a href="https://news.google.com/rss/articles/CBMiuAFBVV95cUxPU19yS216aThCemQxd1oyQ0lvU09oWWZqdkR4d0NiSnMtZC16eElUMGV1bjAzaWZtT0lDXzN2d3JiYVR2TXNwQUxFSnR5ZEpOd09VTWZ1ZXlBN250SlQ1bkhRYUNhVFZfZjJ4R0ZyN2IwQnBMMTN0NUtORlBDUEsxNWhLbzNBd1puSkxLNzJnZDRMTEE1S0Q0WnFfUDk2YjNOTGtqbE5keDJGQi01VFRGNFpqZndGVFNM?oc=5" target="_blank" rel="noopener nofollow">Real wage losses are at the root of low consumer sentiment: and other UCLA media</a></td></tr><tr><td class="d">Thu, 13 Aug</td><td class="d">Statista</td><td><a href="https://news.google.com/rss/articles/CBMijAFBVV95cUxPdmdSMmpvOUNUQi1MN0ZjTUktaFkwYU5MX2duN3Qzamw2QkVTVFUxdkNhYmRhME5hc3hNZWlZMERhMHlfVzNGYzdlT3QwSTN3T3FOTkZyMERyVnZyLWE3MTY3QWMwb0s5UjBBNmRRaU0zNkw5NmhpZHc5bkdNeUxsOVNrQkZ5SnY0SkVjQtIBkgFBVV95cUxOSWtLdERPWXp6WlZVNWk3bVBDVElEQ3dqWmJuLWhSbnp1OUhDSm4zNzI0WnVZZWRDUTZtRnFpMGlkU1RCYUhHanBNVXl1NFZEWnpKVHVJRWlkQ2Z4MW94bHFpRFdERGM2YmcybHZhcHdpczdONkxYenlzRlk3SXVqX0xJeWVPaFpLUWtMXy1WeTdJQQ?oc=5" target="_blank" rel="noopener nofollow">Iran War Is a Major Setback for Real Wages in the U.S.</a></td></tr><tr><td class="d">Tue, 15 Sep</td><td class="d">freebeacon.com</td><td><a href="https://news.google.com/rss/articles/CBMingFBVV95cUxQZUFwN05wYTIyX0Nqak5LNXdWWGQ2YVZUT2hIa2FJOUdjaTh6OWhvV3dPZEs5WWtVSDlBU3RsOWp1dFVWVjNhUWNiR1RSTzdOVG56VXlNSHUxd0Q4bWcwQ2ZKVHhqbTJpZ1doMm45aGk0cWVYQXhPTHcxVGZHOEJZMXVQVXd5VkhCSjd0RHROTHJUbnkyM0FZSXNuSm1zQQ?oc=5" target="_blank" rel="noopener nofollow">Income Hits a Record, Poverty Declines, Census Reports</a></td></tr></tbody></table></div></div><p class="dsub" style="margin-top:-14px">출처 구글 뉴스 · 2026-09-20 기준. 뉴스는 이 페이지의 분석과 무관하며 서로 어긋날 수 있다.</p></div>
+</div></div><div class="wrap paper dwrap"><a class="dback" href="data-macro.html">← 재정·거시</a><header class="phead"><span class="eb">원자료 · 재정·거시</span><h1>미국 실질 주급 중앙값 (분기)</h1><p class="pauth">FRED LES1252881600Q · 1982-84 달러 · 분기</p><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#실질주급">실질주급</a></li><li><a href="#최근-30개">최근 30개</a></li><li><a href="#관련-뉴스">관련 뉴스</a></li></ol></div><!--TOC:END--></header><div class="dsum"><p class="w">미국 정규직 주급 중앙값을 물가로 나눈 값이다. 분기 자료다.</p><p class="u">전조현상 20번이다. 전년비가 마이너스면 실질소득 감소다.</p></div><dl class="dmeta"><dt>출처</dt><dd><a href="https://fred.stlouisfed.org/series/LES1252881600Q" target="_blank" rel="noopener">FRED LES1252881600Q ↗</a></dd><dt>파일</dt><dd><code>FRED_실질주급중앙값_분기.csv</code></dd><dt>단위</dt><dd>1982-84 달러</dd><dt>쓰는 글</dt><dd>아직 없다</dd><dt>내려받기</dt><dd><a href="_sources_dl/FRED_실질주급중앙값_분기.csv" download>FRED_실질주급중앙값_분기.csv 내려받기</a> <span style="color:var(--text-secondary)">(2 KB)</span></dd></dl><div class="dkpi"><div class="k"><div class="l">지금 값</div><div class="v">378</div><div class="s">2026-04-01 · 1982-84 달러</div></div><div class="k"><div class="l">자료 범위</div><div class="v" style="font-size:15px">1979-01-01<br>~ 2026-04-01</div><div class="s">189개</div></div><div class="k"><div class="l">갱신</div><div class="v" style="font-size:17px">분기</div><div class="s">자동</div></div></div><div class="panel dpanel"><div class="panel-head"><h2 id="실질주급" class="psub">실질주급</h2><div class="rng"><button type="button" data-y="1">1년</button><button type="button" data-y="3">3년</button><button type="button" data-y="5">5년</button><button type="button" data-y="10">10년</button><button type="button" data-y="25">25년</button><button type="button" data-y="0" class="on">전체</button></div></div><div class="cbox2"><canvas id="c"></canvas></div><div class="srcline"><span>FRED LES1252881600Q</span><span>1982-84 달러 · 분기</span></div></div><script>(window.__DATA=window.__DATA||[]).push({"id": "c", "lab": ["1979-01-01", "1979-04-01", "1979-07-01", "1979-10-01", "1980-01-01", "1980-04-01", "1980-07-01", "1980-10-01", "1981-01-01", "1981-04-01", "1981-07-01", "1981-10-01", "1982-01-01", "1982-04-01", "1982-07-01", "1982-10-01", "1983-01-01", "1983-04-01", "1983-07-01", "1983-10-01", "1984-01-01", "1984-04-01", "1984-07-01", "1984-10-01", "1985-01-01", "1985-04-01", "1985-07-01", "1985-10-01", "1986-01-01", "1986-04-01", "1986-07-01", "1986-10-01", "1987-01-01", "1987-04-01", "1987-07-01", "1987-10-01", "1988-01-01", "1988-04-01", "1988-07-01", "1988-10-01", "1989-01-01", "1989-04-01", "1989-07-01", "1989-10-01", "1990-01-01", "1990-04-01", "1990-07-01", "1990-10-01", "1991-01-01", "1991-04-01", "1991-07-01", "1991-10-01", "1992-01-01", "1992-04-01", "1992-07-01", "1992-10-01", "1993-01-01", "1993-04-01", "1993-07-01", "1993-10-01", "1994-01-01", "1994-04-01", "1994-07-01", "1994-10-01", "1995-01-01", "1995-04-01", "1995-07-01", "1995-10-01", "1996-01-01", "1996-04-01", "1996-07-01", "1996-10-01", "1997-01-01", "1997-04-01", "1997-07-01", "1997-10-01", "1998-01-01", "1998-04-01", "1998-07-01", "1998-10-01", "1999-01-01", "1999-04-01", "1999-07-01", "1999-10-01", "2000-01-01", "2000-04-01", "2000-07-01", "2000-10-01", "2001-01-01", "2001-04-01", "2001-07-01", "2001-10-01", "2002-01-01", "2002-04-01", "2002-07-01", "2002-10-01", "2003-01-01", "2003-04-01", "2003-07-01", "2003-10-01", "2004-01-01", "2004-04-01", "2004-07-01", "2004-10-01", "2005-01-01", "2005-04-01", "2005-07-01", "2005-10-01", "2006-01-01", "2006-04-01", "2006-07-01", "2006-10-01", "2007-01-01", "2007-04-01", "2007-07-01", "2007-10-01", "2008-01-01", "2008-04-01", "2008-07-01", "2008-10-01", "2009-01-01", "2009-04-01", "2009-07-01", "2009-10-01", "2010-01-01", "2010-04-01", "2010-07-01", "2010-10-01", "2011-01-01", "2011-04-01", "2011-07-01", "2011-10-01", "2012-01-01", "2012-04-01", "2012-07-01", "2012-10-01", "2013-01-01", "2013-04-01", "2013-07-01", "2013-10-01", "2014-01-01", "2014-04-01", "2014-07-01", "2014-10-01", "2015-01-01", "2015-04-01", "2015-07-01", "2015-10-01", "2016-01-01", "2016-04-01", "2016-07-01", "2016-10-01", "2017-01-01", "2017-04-01", "2017-07-01", "2017-10-01", "2018-01-01", "2018-04-01", "2018-07-01", "2018-10-01", "2019-01-01", "2019-04-01", "2019-07-01", "2019-10-01", "2020-01-01", "2020-04-01", "2020-07-01", "2020-10-01", "2021-01-01", "2021-04-01", "2021-07-01", "2021-10-01", "2022-01-01", "2022-04-01", "2022-07-01", "2022-10-01", "2023-01-01", "2023-04-01", "2023-07-01", "2023-10-01", "2024-01-01", "2024-04-01", "2024-07-01", "2024-10-01", "2025-01-01", "2025-04-01", "2025-07-01", "2026-01-01", "2026-04-01"], "ser": [{"name": "실질주급", "val": [335.0, 335.0, 330.0, 326.0, 321.0, 315.0, 319.0, 315.0, 314.0, 311.0, 309.0, 312.0, 312.0, 314.0, 311.0, 313.0, 315.0, 314.0, 315.0, 312.0, 313.0, 312.0, 313.0, 316.0, 314.0, 323.0, 320.0, 320.0, 321.0, 328.0, 328.0, 331.0, 328.0, 328.0, 330.0, 328.0, 329.0, 325.0, 325.0, 324.0, 323.0, 322.0, 322.0, 322.0, 319.0, 319.0, 313.0, 312.0, 316.0, 312.0, 312.0, 313.0, 315.0, 313.0, 314.0, 312.0, 315.0, 317.0, 319.0, 319.0, 316.0, 317.0, 314.0, 314.0, 313.0, 314.0, 317.0, 313.0, 312.0, 312.0, 314.0, 313.0, 313.0, 314.0, 314.0, 314.0, 319.0, 319.0, 321.0, 328.0, 324.0, 329.0, 330.0, 335.0, 334.0, 334.0, 335.0, 334.0, 333.0, 336.0, 338.0, 340.0, 341.0, 339.0, 337.0, 336.0, 335.0, 338.0, 337.0, 337.0, 337.0, 341.0, 335.0, 337.0, 336.0, 334.0, 331.0, 332.0, 332.0, 329.0, 334.0, 337.0, 336.0, 335.0, 336.0, 332.0, 335.0, 335.0, 331.0, 340.0, 345.0, 345.0, 345.0, 344.0, 344.0, 342.0, 342.0, 341.0, 338.0, 336.0, 336.0, 335.0, 335.0, 337.0, 333.0, 333.0, 331.0, 335.0, 334.0, 334.0, 335.0, 330.0, 336.0, 336.0, 341.0, 339.0, 340.0, 345.0, 346.0, 345.0, 347.0, 349.0, 352.0, 354.0, 352.0, 345.0, 351.0, 351.0, 354.0, 355.0, 355.0, 358.0, 360.0, 362.0, 367.0, 393.0, 384.0, 376.0, 373.0, 371.0, 367.0, 361.0, 363.0, 359.0, 362.0, 362.0, 364.0, 365.0, 366.0, 369.0, 365.0, 368.0, 371.0, 374.0, 373.0, 376.0, 376.0, 376.0, 378.0], "grp": 0}], "log": false});</script><h2 id="최근-30개" class="dsec">최근 30개</h2><p class="dsub">전체 189개 가운데 마지막 30개다.</p><div class="dtable"><div class="tblwrap"><table><thead><tr><th>날짜</th><th class="n">실질주급</th></tr></thead><tbody><tr><td>2026-04-01</td><td class="n">378</td></tr><tr><td>2026-01-01</td><td class="n">376</td></tr><tr><td>2025-07-01</td><td class="n">376</td></tr><tr><td>2025-04-01</td><td class="n">376</td></tr><tr><td>2025-01-01</td><td class="n">373</td></tr><tr><td>2024-10-01</td><td class="n">374</td></tr><tr><td>2024-07-01</td><td class="n">371</td></tr><tr><td>2024-04-01</td><td class="n">368</td></tr><tr><td>2024-01-01</td><td class="n">365</td></tr><tr><td>2023-10-01</td><td class="n">369</td></tr><tr><td>2023-07-01</td><td class="n">366</td></tr><tr><td>2023-04-01</td><td class="n">365</td></tr><tr><td>2023-01-01</td><td class="n">364</td></tr><tr><td>2022-10-01</td><td class="n">362</td></tr><tr><td>2022-07-01</td><td class="n">362</td></tr><tr><td>2022-04-01</td><td class="n">359</td></tr><tr><td>2022-01-01</td><td class="n">363</td></tr><tr><td>2021-10-01</td><td class="n">361</td></tr><tr><td>2021-07-01</td><td class="n">367</td></tr><tr><td>2021-04-01</td><td class="n">371</td></tr><tr><td>2021-01-01</td><td class="n">373</td></tr><tr><td>2020-10-01</td><td class="n">376</td></tr><tr><td>2020-07-01</td><td class="n">384</td></tr><tr><td>2020-04-01</td><td class="n">393</td></tr><tr><td>2020-01-01</td><td class="n">367</td></tr><tr><td>2019-10-01</td><td class="n">362</td></tr><tr><td>2019-07-01</td><td class="n">360</td></tr><tr><td>2019-04-01</td><td class="n">358</td></tr><tr><td>2019-01-01</td><td class="n">355</td></tr><tr><td>2018-10-01</td><td class="n">355</td></tr></tbody></table></div></div><h2 id="관련-뉴스" class="dsec">관련 뉴스</h2><p class="dsub">제목에 그 낱말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.</p><p class="dsub">국내: 「미국 실질임금」 로 찾았다.</p><div class="dtable"><div class="tblwrap"><table><tbody><tr><td class="d">Fri, 18 Sep</td><td class="d">토큰포스트</td><td><a href="https://news.google.com/rss/articles/CBMiV0FVX3lxTFA0U3JpenFaTWJ5R3I5N0FVMHo0OUhDc3hXN25TYUJQdk9DMmczZ09TX3haaUo4QkN5dW5pdEhvRHpsZXYwZ3NoRFJhVFhlT1p5bFBOYm9GUQ?oc=5" target="_blank" rel="noopener nofollow">미국 실질소득 13~63% 증가…2021~2023년 소비는 K자형</a></td></tr><tr><td class="d">Tue, 26 May</td><td class="d">KB Think</td><td><a href="https://news.google.com/rss/articles/CBMickFVX3lxTE5xN2FFZ1pxdHNFVlo5SThXQVBhLXZOaTJNalJuZ0ZKaGJia2QyTzhlbHctRFZ5Ymg4a2l4S0xPbzlJdnJPWFNyRjJxSHdhdE5Eck5PQ1E1c1A3bEp2YWVYQVZGQ3oxNWgyc1I0Nkt0SGdEZw?oc=5" target="_blank" rel="noopener nofollow">美英 실질임금 2년 만에 첫 감소…통화정책 딜레마</a></td></tr><tr><td class="d">Fri, 12 Jun</td><td class="d">연합뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE1qM0t3TkNFa2JRVDFFdG1pZ1hJMk1vcWFKMFp2UUFVcXR5cG1tam1tdmNwUzJYYk0wSXNkcG1UZUdqLUcwOTVlTlVBdFM3SVc4eG5JM2VPYVhOdFHSAWBBVV95cUxPNXFhTzBkWmpwQldTTWU3WU9aTFhGLVpWWlVuQ2YzWVZpbW9jVERrNHgwSENvRGRUVXBmOWJrcUl4WUEwaVduY0pteDR5M09zYUR6bFZnb3RaWDRxcXJ4cDA?oc=5" target="_blank" rel="noopener nofollow">미국, 이란전 탓 노동자들에 '임금삭감 효과' 후폭풍</a></td></tr><tr><td class="d">Wed, 27 May</td><td class="d">마켓인</td><td><a href="https://news.google.com/rss/articles/CBMic0FVX3lxTE12bW5KazUwOW5ma3NVbGl1dDc0Y21LRTJkblpLRHZ0Wk1wcFp4TEN1S01hSFlyakk0WUJPeXRKaTRJdHlHRWpLaDFGd0xUWmE5ZGFSbGlwVzF2S2pKQ3doLWdwejhrVTdRcGxhOHdUcXhoblE?oc=5" target="_blank" rel="noopener nofollow">"모처럼 월급 오르나 했더니"…이란전, 선진국 실질임금에 '찬물'</a></td></tr><tr><td class="d">Tue, 26 May</td><td class="d">뉴스핌</td><td><a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTE9takN6ZkloMThvZWlya3p3SllEM1RrcUljb3FMRm5WOTZOQ3BDaHpwOHJjVkpVNW15ZkRJbGVKMDJTeFVXek1TNEZLaTJJejZLbzJLbUl6VlB3QmNX?oc=5" target="_blank" rel="noopener nofollow">물가는 오르는데 월급은 제자리… 실질임금 하락세 나타나기 시작</a></td></tr><tr><td class="d">Tue, 23 Jun</td><td class="d">글로벌이코노믹</td><td><a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxPSXhEWGtLb3A3ZFhPelBVaEhaR0pUeDVLRFhGenlOdUNoSkktMTItU0p1UEplbFJ6NF9hUEc4emhJM2plWVB2U2JpOXFzcmJxX2dEeEotdEhzVmVwcjBidFZibU80SlU3RzVzNzM3VWFhWHl5NXhoTnJMOTZEZkJ2blhFY3RqTkYz?oc=5" target="_blank" rel="noopener nofollow">유가가 아니라 '실질임금'이 진짜 트리거… '바이브 세션 2.0' 갇힌 미국 경제의 민낯</a></td></tr></tbody></table></div></div><p class="dsub">해외: 「US real wages」 로 찾았다. 이 자료의 출처가 외국이라 함께 본다.</p><div class="dtable"><div class="tblwrap"><table><tbody><tr><td class="d">Wed, 16 Sep</td><td class="d">usafacts.org</td><td><a href="https://news.google.com/rss/articles/CBMikAFBVV95cUxNRVNUZVlsckVsS2hNbnZOMWh1cEpUU3BGQVFuRXpWNVd0TFpidVhlQmxMcHVTdFBramtNM1VoZHVWVzdHaERMQjczMnhucFlmUk9wc0IyQTJxNGl1amdwTEl5Z3lHRVdaVnBXN0hTMzhiMjFubVpQbUVFQjNIbGd0SV8ydk1Pd1U0Vm8wM2tGSFc?oc=5" target="_blank" rel="noopener nofollow">Are wages keeping up with inflation?</a></td></tr><tr><td class="d">Thu, 13 Aug</td><td class="d">Statista</td><td><a href="https://news.google.com/rss/articles/CBMijAFBVV95cUxPdmdSMmpvOUNUQi1MN0ZjTUktaFkwYU5MX2duN3Qzamw2QkVTVFUxdkNhYmRhME5hc3hNZWlZMERhMHlfVzNGYzdlT3QwSTN3T3FOTkZyMERyVnZyLWE3MTY3QWMwb0s5UjBBNmRRaU0zNkw5NmhpZHc5bkdNeUxsOVNrQkZ5SnY0SkVjQtIBkgFBVV95cUxOSWtLdERPWXp6WlZVNWk3bVBDVElEQ3dqWmJuLWhSbnp1OUhDSm4zNzI0WnVZZWRDUTZtRnFpMGlkU1RCYUhHanBNVXl1NFZEWnpKVHVJRWlkQ2Z4MW94bHFpRFdERGM2YmcybHZhcHdpczdONkxYenlzRlk3SXVqX0xJeWVPaFpLUWtMXy1WeTdJQQ?oc=5" target="_blank" rel="noopener nofollow">Iran War Is a Major Setback for Real Wages in the U.S.</a></td></tr><tr><td class="d">Wed, 18 Feb</td><td class="d">clevelandfed.org</td><td><a href="https://news.google.com/rss/articles/CBMiyAFBVV95cUxNZFU4TFpMbXhycjVTNjNrUENKaHNTM3ZFWjU3Z2kzZkNVWGpvQlFBWXVncFJyV0l5WmNJSmdFUDlQYzFUX2cySjNZajUtakZPaFE5cG1vM2lnOFFKczNha1pBWVFGRUljWmVlVlFYSUxmWHJWRk9LNl9vZjZiMENNUUJrMjBiNk5FUmRtVGYzcHZzTmp2dnV4UmxlQlVkak1XSFpFUFMwTWIwV25PaVRxLWU0eGtDSGRwaXFENG96U21pOUc4aDctTg?oc=5" target="_blank" rel="noopener nofollow">Dollars and Cents: Real Hourly Wage Growth across the Lower Half of the Wage Distribution</a></td></tr><tr><td class="d">Thu, 02 Apr</td><td class="d">The Real Economy Blog</td><td><a href="https://news.google.com/rss/articles/CBMikwFBVV95cUxPcUZIZjV3ZTQ4MXNMWDhwSnZhN012dF80cFdXdHZKbWFBaXJkMmNJb2IwQTFWMndFVHFfTVZMa0RvWUd3aHZHUTRYejFVSC1PQXJtbDBDOGJwVEY0WFlwUXZuWjRaSXRXYk5yNHJfTzQ3WkJ2NjQ0eUhNTC1GaU5rT1E2M1VZMU5ubndlWXZUSE9NdTA?oc=5" target="_blank" rel="noopener nofollow">Market Minute: Americans set to see slower real wage growth</a></td></tr><tr><td class="d">Wed, 12 Aug</td><td class="d">washingtonsun.com</td><td><a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxQMUNNUWxWbXBGQVdoeE9sTURVQUFZa2M1OXdWd1JjM050Q1dEYTdGc3BwaU8zU1lWejY4c0VoRWJuT3JiU09CcFlBenhldVQ2NFZtZFpWZWQxWmhwZVV2czM4QWxTLTFSa0F0WldTV0syem05Q25ESUZENTJpQV90NlpPY00?oc=5" target="_blank" rel="noopener nofollow">Workers’ Wage Gains Have Been Erased by Inflation - NOTUS: News of the United States</a></td></tr><tr><td class="d">Tue, 18 Aug</td><td class="d">Newsroom | UCLA</td><td><a href="https://news.google.com/rss/articles/CBMiuAFBVV95cUxPU19yS216aThCemQxd1oyQ0lvU09oWWZqdkR4d0NiSnMtZC16eElUMGV1bjAzaWZtT0lDXzN2d3JiYVR2TXNwQUxFSnR5ZEpOd09VTWZ1ZXlBN250SlQ1bkhRYUNhVFZfZjJ4R0ZyN2IwQnBMMTN0NUtORlBDUEsxNWhLbzNBd1puSkxLNzJnZDRMTEE1S0Q0WnFfUDk2YjNOTGtqbE5keDJGQi01VFRGNFpqZndGVFNM?oc=5" target="_blank" rel="noopener nofollow">Real wage losses are at the root of low consumer sentiment: and other UCLA media</a></td></tr></tbody></table></div></div><p class="dsub" style="margin-top:-14px">출처 구글 뉴스 · 2026-09-20 기준. 뉴스는 이 페이지의 분석과 무관하며 서로 어긋날 수 있다.</p></div>
 <script>
 (function(){
   var gs=document.querySelectorAll('.site-group');
@@ -874,7 +874,31 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   setTimeout(function(){ try{ if(!Object.keys(CH).length) window.rebuild(); }catch(e){} },400);
 })();
 /* DCHART:END */
-</script><button class="toggle" onclick="__toggleTheme()">&#9728;</button>
+</script><script>/* THEME:BEGIN */
+(function(){
+  var h=document.documentElement;
+  try{var v=localStorage.getItem('charlie-theme'); if(v){h.className=v;}}catch(e){}
+  window.__toggleTheme=function(){
+    var n=h.className==='theme-light'?'theme-dark':'theme-light';
+    h.className=n; try{localStorage.setItem('charlie-theme',n);}catch(e){}
+    /* ★ 차트는 CSS 변수를 «그릴 때 한 번» 읽는다 — 테마만 바꾸면 색이 안 따라온다.
+       2026-08-08 에 stage-analysis 가 다크로 바꿔도 라이트 황금색(#B7791F)을 유지했다.
+       예전엔 생성기가 넣은 인라인 onclick 이 rebuild 를 불렀는데, 이 함수로 통일되면서
+       그 호출이 사라졌다. 여기서 부른다 — 없는 페이지는 그냥 넘어간다. */
+    try{ if(window.rebuild) window.rebuild(); }catch(e){}
+  };
+})();
+/* 보험 — 토글 말고 다른 경로로 테마가 바뀌어도 따라 그린다(첫 로드 시 1회는 건너뛴다) */
+(function(){
+  if(!window.MutationObserver) return;
+  var h=document.documentElement, last=h.className;
+  new MutationObserver(function(){
+    if(h.className===last) return; last=h.className;
+    try{ if(window.rebuild) window.rebuild(); }catch(e){}
+  }).observe(h,{attributes:true,attributeFilter:['class']});
+})();
+/* THEME:END */</script>
+<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 <!--TOCJS:BEGIN--><script>
 /* 목차 클릭 보정 — 2026-08-24
    ⚠ 해시가 이미 그 값이면 브라우저가 클릭을 무시한다. 스크롤을 내린 뒤
@@ -902,28 +926,4 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
     }
   });
 })();
-</script><!--TOCJS:END--><script>/* THEME:BEGIN */
-(function(){
-  var h=document.documentElement;
-  try{var v=localStorage.getItem('charlie-theme'); if(v){h.className=v;}}catch(e){}
-  window.__toggleTheme=function(){
-    var n=h.className==='theme-light'?'theme-dark':'theme-light';
-    h.className=n; try{localStorage.setItem('charlie-theme',n);}catch(e){}
-    /* ★ 차트는 CSS 변수를 «그릴 때 한 번» 읽는다 — 테마만 바꾸면 색이 안 따라온다.
-       2026-08-08 에 stage-analysis 가 다크로 바꿔도 라이트 황금색(#B7791F)을 유지했다.
-       예전엔 생성기가 넣은 인라인 onclick 이 rebuild 를 불렀는데, 이 함수로 통일되면서
-       그 호출이 사라졌다. 여기서 부른다 — 없는 페이지는 그냥 넘어간다. */
-    try{ if(window.rebuild) window.rebuild(); }catch(e){}
-  };
-})();
-/* 보험 — 토글 말고 다른 경로로 테마가 바뀌어도 따라 그린다(첫 로드 시 1회는 건너뛴다) */
-(function(){
-  if(!window.MutationObserver) return;
-  var h=document.documentElement, last=h.className;
-  new MutationObserver(function(){
-    if(h.className===last) return; last=h.className;
-    try{ if(window.rebuild) window.rebuild(); }catch(e){}
-  }).observe(h,{attributes:true,attributeFilter:['class']});
-})();
-/* THEME:END */</script>
-</body></html>
+</script><!--TOCJS:END--></body></html>
