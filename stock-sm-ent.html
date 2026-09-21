@@ -313,7 +313,50 @@ a.card:focus-visible,.lst-i:focus-visible{
 .site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
   background:color-mix(in srgb,var(--text) 6%,transparent)}
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/*NAVCSS:END*/
+/*NAVCSS:END*//* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+/* ⚠⚠ 2026-09-10 상수님 «작은 해상도에서는 제목을 누를 수 없네».
+   아카이브가 29장이 되면서 드롭다운이 1,254px 로 자랐다. 상단바는 sticky 라
+   드롭다운은 화면 위에서 72px 자리에 열리는데, 390px 화면의 보이는 높이가 915px 이니
+   **아래 411px 는 화면 밖이고 스크롤이 없어 닿을 방법이 아예 없었다.**
+   → 화면 높이만큼만 열고 넘치면 그 안에서 스크롤한다.
+   · dvh 를 뒤에 한 번 더 적는다 — 모바일 주소창이 접혔다 펴질 때 100vh 는 화면보다 크다.
+     dvh 를 모르는 브라우저는 앞줄(vh)만 읽고 지나간다.
+   · overscroll-behavior:contain — 목록 끝에서 계속 밀어도 뒤 본문이 따라 스크롤되지 않게.
+   · 120px 은 상단바(2줄, 96px)와 아래 여백 16px 이다. 아카이브·원자료는 메뉴 2번째 줄에
+     달려 있어 104px 자리에서 열린다 — 92px 로 뺐더니 12px 이 화면 밖으로 나갔다. */
+html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);
+  overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+
+/* ★ 2026-09-14 상수님 «가로 CSS 가 째지지 않게». 숨은 펼침 메뉴(visibility:hidden)가 자리를 차지해 375px 화면에서
+   scrollWidth 427 로 가로 스크롤이 생겼다(전 페이지). 메뉴 폭을 화면 안에 묶고 문서의 가로 넘침을 자른다.
+   ⚠ 상단바 CSS 를 전 페이지에 미치게 하는 자리는 **여기(CENTER)뿐**이다. nav2.py 를 고쳐도 원자료 장에만 닿는다. */
+html body .site-dd{max-width:calc(100vw - 24px)}
+html,body{overflow-x:hidden}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END */
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
+
 .dim{color:var(--mut,#94a3b8)}
 .b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
   font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
@@ -368,49 +411,6 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .hchg .ar{white-space:nowrap}
 .to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
 @media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
-/* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-/* ⚠⚠ 2026-09-10 상수님 «작은 해상도에서는 제목을 누를 수 없네».
-   아카이브가 29장이 되면서 드롭다운이 1,254px 로 자랐다. 상단바는 sticky 라
-   드롭다운은 화면 위에서 72px 자리에 열리는데, 390px 화면의 보이는 높이가 915px 이니
-   **아래 411px 는 화면 밖이고 스크롤이 없어 닿을 방법이 아예 없었다.**
-   → 화면 높이만큼만 열고 넘치면 그 안에서 스크롤한다.
-   · dvh 를 뒤에 한 번 더 적는다 — 모바일 주소창이 접혔다 펴질 때 100vh 는 화면보다 크다.
-     dvh 를 모르는 브라우저는 앞줄(vh)만 읽고 지나간다.
-   · overscroll-behavior:contain — 목록 끝에서 계속 밀어도 뒤 본문이 따라 스크롤되지 않게.
-   · 120px 은 상단바(2줄, 96px)와 아래 여백 16px 이다. 아카이브·원자료는 메뉴 2번째 줄에
-     달려 있어 104px 자리에서 열린다 — 92px 로 뺐더니 12px 이 화면 밖으로 나갔다. */
-html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);
-  overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
-
-/* ★ 2026-09-14 상수님 «가로 CSS 가 째지지 않게». 숨은 펼침 메뉴(visibility:hidden)가 자리를 차지해 375px 화면에서
-   scrollWidth 427 로 가로 스크롤이 생겼다(전 페이지). 메뉴 폭을 화면 안에 묶고 문서의 가로 넘침을 자른다.
-   ⚠ 상단바 CSS 를 전 페이지에 미치게 하는 자리는 **여기(CENTER)뿐**이다. nav2.py 를 고쳐도 원자료 장에만 닿는다. */
-html body .site-dd{max-width:calc(100vw - 24px)}
-html,body{overflow-x:hidden}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END */
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 /*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
@@ -763,7 +763,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <div class="eyebrow">관심종목 · 041510</div>
 <h1>에스엠</h1>
 <p class="sub">엔터. 코스닥 · 아티스트 매니지먼트와 음반·음원</p>
-<p class="pauth">기준일 2026-09-20 · 에스엠 일별시세·투자자 매매동향(한투 KIS) · 매일 갱신</p>
+<p class="pauth">기준일 2026-09-21 · 에스엠 일별시세·투자자 매매동향(한투 KIS) · 매일 갱신</p>
 <!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>엔터. 코스닥 · 아티스트 매니지먼트와 음반·음원. 이 페이지는 이 종목이 매수 5원칙에 맞는지 매일 다시 판정한다. 추세는 20주선과의 거리로, 수급은 투자자별 누적 순매수로 판정한다. 재무는 분기 실적으로, 시장의 기대는 증권사 목표가로 본다. 5원칙 가운데 3번과 4번과 5번을 여기서 답한다. 1번 국면과 2번 내러티브는 방법론과 전조현상에서 따로 답한다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#투자자-수급">투자자 수급</a></li><li><a href="#개인-수급-사분면-nbsp-9-18-2분면-하락-개인-순매수">개인 수급 사분면 &nbsp;· 9/18 2분면 (하락 + 개인 순매수)</a></li><li><a href="#이야기꾼-바닥-7단계-매수의-기술적-시나리오">이야기꾼 바닥 7단계: 매수의 기술적 시나리오</a></li><li><a href="#이야기꾼-매수-5원칙">이야기꾼 매수 5원칙</a></li><li><a href="#vcp와-미너비니-추세-템플릿">VCP와 미너비니 추세 템플릿</a></li><li><a href="#이-페이지의-전제를-검증합니다">이 페이지의 전제를 검증한다</a></li><li><a href="#관련-기사">관련 기사</a></li><li><a href="#실적-dart">실적 (DART)</a></li><li><a href="#증권사-목표가">증권사 목표가</a></li></ol></div><!--TOC:END--></header>
 
 <figure class="fig"><div class="tblwrap"><table class="tw">
@@ -963,7 +963,7 @@ window.__qbRegister=function(){echarts.registerTheme('charlie', {"color": ["#d21
 </style><div class="vbox"><h4>개인은 정말 '떨어지면 사는가'</h4><p>위 사분면은 '한국 개인은 떨어지면 산다'를 전제로 읽는다. 그 전제가 이 종목에서도 맞는지 직접 계산했다.</p><p>하루 등락률과 그날 개인 순매수가 반대로 움직이는 정도를 계산하면 -0.55이다. 이 값이 0보다 작으면 '떨어지는 날에 개인이 샀다'는 뜻이고, 0보다 크면 그 반대이다.</p><p>같은 자료에서 연속 구간을 다시 뽑아 800번 계산해 보니 참값이 들어 있을 범위는 -0.63 ~ -0.48였다. 에스엠에서도 그 습관이 확인된다. 범위가 전부 0보다 작으므로 '떨어지면 산다'는 방향은 우연으로 보기 어렵다.</p><p class="vlim">⚠ 관측치 380일로 계산했다. 개인 순매수 금액은 '순매수 주수 × 종가' 환산 근사이다. 방향이 맞다는 것과 그것이 수익으로 이어진다는 것은 다른 문제이다.</p></div><div class="vbox"><h4>큰 등락은 생각보다 자주 온다</h4><p>이 페이지의 이격도(주가가 이동평균선에서 얼마나 벌어졌는지 백분율로 나타낸 값)·추세템플릿은 '평소 범위'를 정해 놓고 그 밖을 이상하다고 판정한다. 그 '평소 범위'를 정규분포로 잡으면 위험을 작게 본다.</p><p>에스엠의 하루 등락을 모아 보면 첨도가 8.3이다. 정규분포라면 3이다. 이 값이 클수록 '유난히 큰 하루'가 교과서 예상보다 자주 온다는 뜻이다.</p><p>실제로 평균에서 3표준편차 넘게 벗어난 날이 1151거래일 중 12일 있었다. 정규분포라면 3.1일이어야 한다. 4배이다.</p><p class="vlim">⚠ 그래서 '몇 표준편차'만으로 위험을 판단하지 않는다. 드물다고 계산된 일이 실제로는 드물지 않는다.</p></div><div class="vbox"><h4>여럿을 한꺼번에 볼 때의 함정</h4><p>이 사이트는 매일 21개 종목을 같은 방식으로 훑는다. 대상이 많아지면 아무 일이 없어도 그중 몇 개는 우연히 신호처럼 보인다. 주사위를 한 번 굴리면 6이 잘 안 나오지만 15번 굴리면 대개 한 번은 나온다.</p><p>에스엠에서 '떨어지는데 개인도 파는 날'(3사분면)은 전체의 13.2%였다. 이 비율이라면 어느 날이든 21종목 중 평균 2.8개는 우연히 신호가 뜬다.</p><p>한 종목에 신호가 떴다는 사실만으로는 부족하다. 그날 몇 종목이 함께 걸렸는지를 같이 보아야 우연과 구별된다.</p><p class="vlim">⚠ 종목들은 서로 붙어 움직이므로 실제 '우연 개수'는 이보다 적다. 이 값은 넘지 않아야 할 상한으로 읽는다.</p></div>
 
 <h2 id="관련-기사">관련 기사</h2>
-<div class="tblwrap"><table><thead><tr><th>날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Fri, 18 Sep</td><td>해사신문</td><td><a href="https://news.google.com/rss/articles/CBMia0FVX3lxTE1oTF9Hc1VxWjJHcW5UTFY1MFRwdHd5dmpjS0J2Mng3UmgtajR4ejRveWM4Sm5ZT2R0Mll5Rlp2NWZnd0lOZXF5TGxUam5KX2tCT3hpeGhQWjZkUWZOakE2a0RMeUJoMzFkNlJ3?oc=5" target="_blank" rel="noopener nofollow">포스에스엠 김동균 대표 “미래 해기사, 1등항해사·기관사까지 승선경력 쌓아야”</a></td></tr><tr><td class="n">Thu, 17 Sep</td><td>MTN 머니투데이방송</td><td><a href="https://news.google.com/rss/articles/CBMiZEFVX3lxTFBzak1kOFZfck4wLXY4R05GVnFkNEtSVWItdDNFTHdsczNaZDFsSV9kSWFUN21rQkpnbVhnc0ZXWnpTMFIyVmd5Yy02VXNRZGt4aTZSbDhYMWhyZnBGODhiWjMzeTE?oc=5" target="_blank" rel="noopener nofollow">에스엠 하투하, 자동차 社 손잡고 신곡 낸 까닭 [엔터코노미]</a></td></tr><tr><td class="n">Wed, 16 Sep</td><td>mt.co.kr</td><td><a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTE42TlNsX0VYSW12b2I0ZVhZR0xRc0lxUGJfSmEzUmRLTWJiaWJWSzVoc01aS2lXSFZHT0tyeFB1YV9HZ3hWRmp1bW5mcGNoQ2dfd21RbW9PNTVLczRRc3l3eWNMa0h4SVpw0gFuQVVfeXFMUG5USWpwQl9QTDR2YkRSaFZmV1EyU0hzZ0R0QjF1akwzSzY2MWxzVGYxbWhOT2habkxDWnNQcHZfUG9xME1TX19lVEx1RS01dXJZb0tFMi11YnpGVm9XOWJ3elo0cmFYLVJ1d2V4blE?oc=5" target="_blank" rel="noopener nofollow">애플·삼성 폴더블 대전에 웃는 글로벌에스엠, 초정밀 부품 2년 새 &#x27;49% 껑충&#x27; - 머니투데이</a></td></tr><tr><td class="n">Fri, 18 Sep</td><td>v.daum.net</td><td><a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTFA5bHE0RWc4YkdzTmJoYkFkUGhzdS1vN1RaSGp1MTJyaHloZ1QyZWY5cmt1dXAwTFUwWEVKa21SNFIzMXZTN2R5cng0Y2lwYkdubEJWT0s5a0swNy1C?oc=5" target="_blank" rel="noopener nofollow">[단독]에스엠면세점 결국 &#x27;파산폐지&#x27;…하나투어 면세사업 10년 만에 마침표</a></td></tr><tr><td class="n">Tue, 15 Sep</td><td>데이터투자</td><td><a href="https://news.google.com/rss/articles/CBMic0FVX3lxTFAyRTFRa3pFTFp6cmZHaVB5RDhFdi1zNG90QjZObE96ZG5Yc0ZsVmNRU1A0U0diM3VhbHJuV2ppaE00RGZIWV9Zb1Vhckk5Ym1LdDFzakZsOUpnM1U4dDZjVWkzWkU0YVgyRkh0d1hBeWQ3bDA?oc=5" target="_blank" rel="noopener nofollow">에스엠벡셀, 자진상폐 수순 밟나…SM그룹 지분 89% 돌파·두 달째 장내매수</a></td></tr><tr><td class="n">Mon, 14 Sep</td><td>아시아경제</td><td><a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE9BbGZaQUF6N1RXZU92cUpjRkZNLW5zMEpCYmVzeDF0MU1SZWpQTDBZMDRmU0ZZMGhNd1hUbkNjWEl4QjlDWjZxLWE3YVhLQ3VEekM4NTV6V25RQkUyU2FIVA?oc=5" target="_blank" rel="noopener nofollow">[클릭 e종목]&quot;에스엠, 탄탄한 IP…북미서 성장 필요&quot;</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-09-20 기준. 「에스엠」 로 찾았고 제목에 그 말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 무관하며 서로 어긋날 수 있다.</p>
+<div class="tblwrap"><table><thead><tr><th>날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Sun, 20 Sep</td><td>technovalue.com</td><td><a href="https://news.google.com/rss/articles/CBMiV0FVX3lxTE5VYTVBUVhzZ3Nyc01rZjFPQWNDVmo3NEN1NUhpSDZzQUpuRGRmNmJ2Q3RhQkRyNHRBcmZrRHBrTXpHZVdWOFFZOWpIWlMwYWZndTEwb0hRUQ?oc=5" target="_blank" rel="noopener nofollow">[(주)케이에스엠컴포넌트] 반도체 핵심 부품 전문기업...&#x27;히든챔피언&#x27; 지위 구축</a></td></tr><tr><td class="n">Fri, 18 Sep</td><td>해사신문</td><td><a href="https://news.google.com/rss/articles/CBMia0FVX3lxTE1oTF9Hc1VxWjJHcW5UTFY1MFRwdHd5dmpjS0J2Mng3UmgtajR4ejRveWM4Sm5ZT2R0Mll5Rlp2NWZnd0lOZXF5TGxUam5KX2tCT3hpeGhQWjZkUWZOakE2a0RMeUJoMzFkNlJ3?oc=5" target="_blank" rel="noopener nofollow">포스에스엠 김동균 대표 “미래 해기사, 1등항해사·기관사까지 승선경력 쌓아야”</a></td></tr><tr><td class="n">Thu, 17 Sep</td><td>MTN 머니투데이방송</td><td><a href="https://news.google.com/rss/articles/CBMiZEFVX3lxTFBzak1kOFZfck4wLXY4R05GVnFkNEtSVWItdDNFTHdsczNaZDFsSV9kSWFUN21rQkpnbVhnc0ZXWnpTMFIyVmd5Yy02VXNRZGt4aTZSbDhYMWhyZnBGODhiWjMzeTE?oc=5" target="_blank" rel="noopener nofollow">에스엠 하투하, 자동차 社 손잡고 신곡 낸 까닭 [엔터코노미]</a></td></tr><tr><td class="n">Mon, 21 Sep</td><td>digitaltoday.co.kr</td><td><a href="https://news.google.com/rss/articles/CBMie0FVX3lxTE8zSUhJZmZHdVJDalFzdmJITkNDTEUyR2dCZkFrdWR3MENiV3RSZUJlMjA4OUpaOWphZnBEOGpJck13cDRwT0VyODdBREdxWnNSeFZ5a1VWVFJWRFh2VlRGMzk5UWM0R2thSWJkWEtHMmg1dXlRaU44Z2VvZw?oc=5" target="_blank" rel="noopener nofollow">삼라농원, 계열사 삼라로부터 에스엠스틸 주식 2만8564주 담보 수취</a></td></tr><tr><td class="n">Wed, 16 Sep</td><td>머니투데이</td><td><a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTE42TlNsX0VYSW12b2I0ZVhZR0xRc0lxUGJfSmEzUmRLTWJiaWJWSzVoc01aS2lXSFZHT0tyeFB1YV9HZ3hWRmp1bW5mcGNoQ2dfd21RbW9PNTVLczRRc3l3eWNMa0h4SVpw0gFuQVVfeXFMUG5USWpwQl9QTDR2YkRSaFZmV1EyU0hzZ0R0QjF1akwzSzY2MWxzVGYxbWhOT2habkxDWnNQcHZfUG9xME1TX19lVEx1RS01dXJZb0tFMi11YnpGVm9XOWJ3elo0cmFYLVJ1d2V4blE?oc=5" target="_blank" rel="noopener nofollow">애플·삼성 폴더블 대전에 웃는 글로벌에스엠, 초정밀 부품 2년 새 &#x27;49% 껑충&#x27; - 머니투데이</a></td></tr><tr><td class="n">Fri, 18 Sep</td><td>v.daum.net</td><td><a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTFA5bHE0RWc4YkdzTmJoYkFkUGhzdS1vN1RaSGp1MTJyaHloZ1QyZWY5cmt1dXAwTFUwWEVKa21SNFIzMXZTN2R5cng0Y2lwYkdubEJWT0s5a0swNy1C?oc=5" target="_blank" rel="noopener nofollow">[단독]에스엠면세점 결국 &#x27;파산폐지&#x27;…하나투어 면세사업 10년 만에 마침표</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-09-21 기준. 「에스엠」 로 찾았고 제목에 그 말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 무관하며 서로 어긋날 수 있다.</p>
 
 <h2 id="실적-dart">실적 (DART)</h2>
 
@@ -983,12 +983,12 @@ window.__qbRegister=function(){echarts.registerTheme('charlie', {"color": ["#d21
 <figure class="fig"><div class="tblwrap"><table class="tw">
 <thead><tr><th class="n">구분</th><th class="n">값</th><th class="n">현재가 대비</th></tr></thead>
 <tbody>
-<tr class="cur"><td><b>평균 목표가</b></td><td class="n"><b>121,714원</b></td><td class="n good"><b>+49%</b></td></tr>
+<tr class="cur"><td><b>평균 목표가</b></td><td class="n"><b>120,882원</b></td><td class="n good"><b>+48%</b></td></tr>
 <tr><td>중앙값</td><td class="n">120,000원</td><td class="n">+47%</td></tr>
-<tr><td>최고 / 최저</td><td class="n">150,000 / 100,000</td><td class="n">+84% / +23%</td></tr>
-<tr><td>매수 의견</td><td class="n">25 / 35건</td><td class="n">71%</td></tr>
+<tr><td>최고 / 최저</td><td class="n">140,000 / 100,000</td><td class="n">+72% / +23%</td></tr>
+<tr><td>매수 의견</td><td class="n">25 / 34건</td><td class="n">74%</td></tr>
 </tbody></table></div>
-<figcaption>최근 6개월 35개 리포트. 출처 KIS <code>invest-opbysec</code>(TR FHKST663400C0).</figcaption></figure>
+<figcaption>최근 6개월 34개 리포트. 출처 KIS <code>invest-opbysec</code>(TR FHKST663400C0).</figcaption></figure>
 
 <figure class="fig"><div class="tblwrap"><table class="tw">
 <thead><tr><th>증권사</th><th class="n">날짜</th><th class="n">의견</th><th class="n">목표가</th><th class="n">현재가 대비</th></tr></thead>

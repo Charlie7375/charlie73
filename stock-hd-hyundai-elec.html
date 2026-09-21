@@ -313,7 +313,50 @@ a.card:focus-visible,.lst-i:focus-visible{
 .site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
   background:color-mix(in srgb,var(--text) 6%,transparent)}
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/*NAVCSS:END*/
+/*NAVCSS:END*//* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+/* ⚠⚠ 2026-09-10 상수님 «작은 해상도에서는 제목을 누를 수 없네».
+   아카이브가 29장이 되면서 드롭다운이 1,254px 로 자랐다. 상단바는 sticky 라
+   드롭다운은 화면 위에서 72px 자리에 열리는데, 390px 화면의 보이는 높이가 915px 이니
+   **아래 411px 는 화면 밖이고 스크롤이 없어 닿을 방법이 아예 없었다.**
+   → 화면 높이만큼만 열고 넘치면 그 안에서 스크롤한다.
+   · dvh 를 뒤에 한 번 더 적는다 — 모바일 주소창이 접혔다 펴질 때 100vh 는 화면보다 크다.
+     dvh 를 모르는 브라우저는 앞줄(vh)만 읽고 지나간다.
+   · overscroll-behavior:contain — 목록 끝에서 계속 밀어도 뒤 본문이 따라 스크롤되지 않게.
+   · 120px 은 상단바(2줄, 96px)와 아래 여백 16px 이다. 아카이브·원자료는 메뉴 2번째 줄에
+     달려 있어 104px 자리에서 열린다 — 92px 로 뺐더니 12px 이 화면 밖으로 나갔다. */
+html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);
+  overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+
+/* ★ 2026-09-14 상수님 «가로 CSS 가 째지지 않게». 숨은 펼침 메뉴(visibility:hidden)가 자리를 차지해 375px 화면에서
+   scrollWidth 427 로 가로 스크롤이 생겼다(전 페이지). 메뉴 폭을 화면 안에 묶고 문서의 가로 넘침을 자른다.
+   ⚠ 상단바 CSS 를 전 페이지에 미치게 하는 자리는 **여기(CENTER)뿐**이다. nav2.py 를 고쳐도 원자료 장에만 닿는다. */
+html body .site-dd{max-width:calc(100vw - 24px)}
+html,body{overflow-x:hidden}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END */
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
+
 .dim{color:var(--mut,#94a3b8)}
 .b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
   font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
@@ -368,49 +411,6 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .hchg .ar{white-space:nowrap}
 .to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
 @media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
-/* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-/* ⚠⚠ 2026-09-10 상수님 «작은 해상도에서는 제목을 누를 수 없네».
-   아카이브가 29장이 되면서 드롭다운이 1,254px 로 자랐다. 상단바는 sticky 라
-   드롭다운은 화면 위에서 72px 자리에 열리는데, 390px 화면의 보이는 높이가 915px 이니
-   **아래 411px 는 화면 밖이고 스크롤이 없어 닿을 방법이 아예 없었다.**
-   → 화면 높이만큼만 열고 넘치면 그 안에서 스크롤한다.
-   · dvh 를 뒤에 한 번 더 적는다 — 모바일 주소창이 접혔다 펴질 때 100vh 는 화면보다 크다.
-     dvh 를 모르는 브라우저는 앞줄(vh)만 읽고 지나간다.
-   · overscroll-behavior:contain — 목록 끝에서 계속 밀어도 뒤 본문이 따라 스크롤되지 않게.
-   · 120px 은 상단바(2줄, 96px)와 아래 여백 16px 이다. 아카이브·원자료는 메뉴 2번째 줄에
-     달려 있어 104px 자리에서 열린다 — 92px 로 뺐더니 12px 이 화면 밖으로 나갔다. */
-html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);
-  overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
-
-/* ★ 2026-09-14 상수님 «가로 CSS 가 째지지 않게». 숨은 펼침 메뉴(visibility:hidden)가 자리를 차지해 375px 화면에서
-   scrollWidth 427 로 가로 스크롤이 생겼다(전 페이지). 메뉴 폭을 화면 안에 묶고 문서의 가로 넘침을 자른다.
-   ⚠ 상단바 CSS 를 전 페이지에 미치게 하는 자리는 **여기(CENTER)뿐**이다. nav2.py 를 고쳐도 원자료 장에만 닿는다. */
-html body .site-dd{max-width:calc(100vw - 24px)}
-html,body{overflow-x:hidden}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END */
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 /*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
@@ -763,7 +763,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <div class="eyebrow">관심종목 · 267260</div>
 <h1>HD현대일렉트릭</h1>
 <p class="sub">전력기기. 데이터센터 전력 수요</p>
-<p class="pauth">기준일 2026-09-20 · HD현대일렉트릭 일별시세·투자자 매매동향(한투 KIS) · 매일 갱신</p>
+<p class="pauth">기준일 2026-09-21 · HD현대일렉트릭 일별시세·투자자 매매동향(한투 KIS) · 매일 갱신</p>
 <!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>전력기기. 데이터센터 전력 수요. 이 페이지는 이 종목이 매수 5원칙에 맞는지 매일 다시 판정한다. 추세는 20주선과의 거리로, 수급은 투자자별 누적 순매수로 판정한다. 재무는 분기 실적으로, 시장의 기대는 증권사 목표가로 본다. 5원칙 가운데 3번과 4번과 5번을 여기서 답한다. 1번 국면과 2번 내러티브는 방법론과 전조현상에서 따로 답한다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#투자자-수급">투자자 수급</a></li><li><a href="#개인-수급-사분면-nbsp-9-18-4분면-상승-개인-순매도">개인 수급 사분면 &nbsp;· 9/18 4분면 (상승 + 개인 순매도)</a></li><li><a href="#이야기꾼-바닥-7단계-매수의-기술적-시나리오">이야기꾼 바닥 7단계: 매수의 기술적 시나리오</a></li><li><a href="#이야기꾼-매수-5원칙">이야기꾼 매수 5원칙</a></li><li><a href="#vcp와-미너비니-추세-템플릿">VCP와 미너비니 추세 템플릿</a></li><li><a href="#이-페이지의-전제를-검증합니다">이 페이지의 전제를 검증한다</a></li><li><a href="#관련-기사">관련 기사</a></li><li><a href="#실적-dart">실적 (DART)</a></li><li><a href="#증권사-목표가">증권사 목표가</a></li></ol></div><!--TOC:END--></header>
 
 <figure class="fig"><div class="tblwrap"><table class="tw">
@@ -963,7 +963,7 @@ window.__qbRegister=function(){echarts.registerTheme('charlie', {"color": ["#d21
 </style><div class="vbox"><h4>개인은 정말 '떨어지면 사는가'</h4><p>위 사분면은 '한국 개인은 떨어지면 산다'를 전제로 읽는다. 그 전제가 이 종목에서도 맞는지 직접 계산했다.</p><p>하루 등락률과 그날 개인 순매수가 반대로 움직이는 정도를 계산하면 -0.53이다. 이 값이 0보다 작으면 '떨어지는 날에 개인이 샀다'는 뜻이고, 0보다 크면 그 반대이다.</p><p>같은 자료에서 연속 구간을 다시 뽑아 800번 계산해 보니 참값이 들어 있을 범위는 -0.64 ~ -0.46였다. HD현대일렉트릭에서도 그 습관이 확인된다. 범위가 전부 0보다 작으므로 '떨어지면 산다'는 방향은 우연으로 보기 어렵다.</p><p class="vlim">⚠ 관측치 380일로 계산했다. 개인 순매수 금액은 '순매수 주수 × 종가' 환산 근사이다. 방향이 맞다는 것과 그것이 수익으로 이어진다는 것은 다른 문제이다.</p></div><div class="vbox"><h4>큰 등락은 생각보다 자주 온다</h4><p>이 페이지의 이격도(주가가 이동평균선에서 얼마나 벌어졌는지 백분율로 나타낸 값)·추세템플릿은 '평소 범위'를 정해 놓고 그 밖을 이상하다고 판정한다. 그 '평소 범위'를 정규분포로 잡으면 위험을 작게 본다.</p><p>HD현대일렉트릭의 하루 등락을 모아 보면 첨도가 4.8이다. 정규분포라면 3이다. 이 값이 클수록 '유난히 큰 하루'가 교과서 예상보다 자주 온다는 뜻이다.</p><p>실제로 평균에서 3표준편차 넘게 벗어난 날이 1153거래일 중 15일 있었다. 정규분포라면 3.1일이어야 한다. 5배이다.</p><p class="vlim">⚠ 그래서 '몇 표준편차'만으로 위험을 판단하지 않는다. 드물다고 계산된 일이 실제로는 드물지 않는다.</p></div><div class="vbox"><h4>여럿을 한꺼번에 볼 때의 함정</h4><p>이 사이트는 매일 21개 종목을 같은 방식으로 훑는다. 대상이 많아지면 아무 일이 없어도 그중 몇 개는 우연히 신호처럼 보인다. 주사위를 한 번 굴리면 6이 잘 안 나오지만 15번 굴리면 대개 한 번은 나온다.</p><p>HD현대일렉트릭에서 '떨어지는데 개인도 파는 날'(3사분면)은 전체의 8.4%였다. 이 비율이라면 어느 날이든 21종목 중 평균 1.8개는 우연히 신호가 뜬다.</p><p>한 종목에 신호가 떴다는 사실만으로는 부족하다. 그날 몇 종목이 함께 걸렸는지를 같이 보아야 우연과 구별된다.</p><p class="vlim">⚠ 종목들은 서로 붙어 움직이므로 실제 '우연 개수'는 이보다 적다. 이 값은 넘지 않아야 할 상한으로 읽는다.</p></div>
 
 <h2 id="관련-기사">관련 기사</h2>
-<div class="tblwrap"><table><thead><tr><th>날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Sun, 06 Sep</td><td>v.daum.net</td><td><a href="https://news.google.com/rss/articles/CBMiT0FVX3lxTE41dk5nLWpCZ0ZiM2FPblp5OXRnRl9KaGJaMzZjY2R1UXM0R1ptY19OTVZLTG9CenBNcXNOTk9WWE1UN1RYb3FnVVpyN3o2dU0?oc=5" target="_blank" rel="noopener nofollow">[특징주] HD현대일렉트릭(267260), 데이터센터 전력 수요 폭발…북미서 질주</a></td></tr><tr><td class="n">Fri, 04 Sep</td><td>매일경제</td><td><a href="https://news.google.com/rss/articles/CBMiVkFVX3lxTE1kRVVTSjFTSmUxNFFxYVpTUHlubExBT1lyWVVGbVRiTHR6dWRzbjRmRzh6MEY5OExKT2VDbTloaTk3aHVsYlJTd0NHbUFvZDZDVFBZWTlB?oc=5" target="_blank" rel="noopener nofollow">김영기 HD현대일렉트릭 사장 “어쩌다 슈퍼사이클 아닌 구조적 ‘스텝 업’” [인터뷰]</a></td></tr><tr><td class="n">Fri, 18 Sep</td><td>뉴시스</td><td><a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE8yTjF0eFhTSzZabHJMZERUNDc3Q0hjR21MaHBtaTk1b0FWcnlMMG42ZVNkdW9hRGFjZDh6ajA5VFFqVU9IVUg5d0NaSWZ3SkhNanVjaUc3LTNtTkdyT2VweNIBeEFVX3lxTE1fWFJSQ1Ficl9jVHNXNE1DamtiV2U3SXJkSlp2czZaV0E3d0dnTktWV2tNTzhSQlFUcWhYall3V3hQMXNhdkJNTXd1TzVBUkxKcEkzUGZ2TDcxOWhSRWNnNlNVeHV2aEswZm5kNC1LN0ViLXRzZmpSbg?oc=5" target="_blank" rel="noopener nofollow">&quot;변압기 호황&quot; HD현대일렉트릭, 유럽 해상풍력서도 기회 잡는다</a></td></tr><tr><td class="n">Fri, 18 Sep</td><td>sisajournal-e.com</td><td><a href="https://news.google.com/rss/articles/CBMickFVX3lxTE00QTRwbUsyQUpDUDNteGRrcWxRdW0teHo5UWR6M2NrQm1MODBfaUZCdWdudnRFSGY2RVhTZ0ZOdEpwaDQzWWR1UWE0VlN5aTc5VmF2aUhZZzNMdHExT3JXQVNCUmR6cGVLTkpRS0dFZHJNQdIBdkFVX3lxTE82WTJKdElIWVZHczRodGJ4a0NJWEhDbl8xdHpOR2tPNXByZms4RERzNkx1RDBPMjBpLWZNM0c0RUYzanFoNFNMaDF2QS1PbF9DS1U4dG1RcV9ndTZhWXNpTFNtWmpqLXhRUWpYXzQwS1VFWVUyUlE?oc=5" target="_blank" rel="noopener nofollow">HD현대일렉트릭 ‘한전 입찰제한’ 소송 장기화···담합 재판 결과 기다린다</a></td></tr><tr><td class="n">Fri, 18 Sep</td><td>ER 이코노믹리뷰</td><td><a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE9lR1RFWXVpRDY1QU1ab1hzVHl3U21tendoTzdlbk1xTkRVV3F1dGQtUzY5VUE2ZHQtZ3RpcVNXMDBIRzlZZ1BKXzhWVVBzdVlTRW9qemlrcmhrLThuT2hrc3JxZ0w2akJMNWw5cA?oc=5" target="_blank" rel="noopener nofollow">HD현대일렉트릭, 유럽 해상풍력 시장 첫발…변압기·리액터 발트해로 출항</a></td></tr><tr><td class="n">Tue, 15 Sep</td><td>허프포스트코리아</td><td><a href="https://news.google.com/rss/articles/CBMiV0FVX3lxTFB4bjliRF8wNWNxRDI3VVZ6b3hva2hCRjdKdHppVlVMa1ZlZTRSLUFCWXhJRmtyLUdTdEhNNEx2ZGxLUUZQWi1HUnFzVkZlVGFraS1pdU9Ycw?oc=5" target="_blank" rel="noopener nofollow">HD현대일렉트릭 김영기 &#x27;발전기&#x27;로 HD현대 그룹 엔진 사업 확대 한 축 맡는다 : HD현대중공업 &#x27;데이터센터 특수&#x27; 전력기기 사업까지 확산</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-09-20 기준. 「HD현대일렉트릭」 로 찾았고 제목에 그 말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 무관하며 서로 어긋날 수 있다.</p>
+<div class="tblwrap"><table><thead><tr><th>날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Sun, 20 Sep</td><td>메트로신문</td><td><a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE5WTUxGN2hNbFliWU9qVDltY1J6cUZlY2s1NkpLc1VseUF1QWM1ZWQzQUg1cVpqZjB4dzQxV2VQa1RfSkd6eFN0MEJ1MUQ5NUhJMEpmeTdOT3VfOTREcmxpTQ?oc=5" target="_blank" rel="noopener nofollow">HD현대일렉트릭, 북미 이어 유럽 해상풍력서 수주 기반 확대</a></td></tr><tr><td class="n">Sun, 06 Sep</td><td>v.daum.net</td><td><a href="https://news.google.com/rss/articles/CBMiT0FVX3lxTE41dk5nLWpCZ0ZiM2FPblp5OXRnRl9KaGJaMzZjY2R1UXM0R1ptY19OTVZLTG9CenBNcXNOTk9WWE1UN1RYb3FnVVpyN3o2dU0?oc=5" target="_blank" rel="noopener nofollow">[특징주] HD현대일렉트릭(267260), 데이터센터 전력 수요 폭발…북미서 질주</a></td></tr><tr><td class="n">Fri, 04 Sep</td><td>매일경제</td><td><a href="https://news.google.com/rss/articles/CBMiVkFVX3lxTE1kRVVTSjFTSmUxNFFxYVpTUHlubExBT1lyWVVGbVRiTHR6dWRzbjRmRzh6MEY5OExKT2VDbTloaTk3aHVsYlJTd0NHbUFvZDZDVFBZWTlB?oc=5" target="_blank" rel="noopener nofollow">김영기 HD현대일렉트릭 사장 “어쩌다 슈퍼사이클 아닌 구조적 ‘스텝 업’” [인터뷰]</a></td></tr><tr><td class="n">Fri, 18 Sep</td><td>ebn.co.kr</td><td><a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTE5VYkltWVk2Yy11Q01Yd0E0NFV4WlhVbjJVdjZBVU1aeHNrekRYc1loN3FZTkhjaVJ2NThTQXJzOTVVbENPM2hFeFFCZ3pnQzJWbWdERE05R1V2NldFNW1aV2ttTXQwb2tw?oc=5" target="_blank" rel="noopener nofollow">HD현대일렉트릭, 韓 최초 유럽 해상풍력 뚫었다…&#x27;발트해&#x27; 전력망 정조준</a></td></tr><tr><td class="n">Fri, 18 Sep</td><td>시사저널e</td><td><a href="https://news.google.com/rss/articles/CBMickFVX3lxTE00QTRwbUsyQUpDUDNteGRrcWxRdW0teHo5UWR6M2NrQm1MODBfaUZCdWdudnRFSGY2RVhTZ0ZOdEpwaDQzWWR1UWE0VlN5aTc5VmF2aUhZZzNMdHExT3JXQVNCUmR6cGVLTkpRS0dFZHJNQdIBdkFVX3lxTE82WTJKdElIWVZHczRodGJ4a0NJWEhDbl8xdHpOR2tPNXByZms4RERzNkx1RDBPMjBpLWZNM0c0RUYzanFoNFNMaDF2QS1PbF9DS1U4dG1RcV9ndTZhWXNpTFNtWmpqLXhRUWpYXzQwS1VFWVUyUlE?oc=5" target="_blank" rel="noopener nofollow">HD현대일렉트릭 ‘한전 입찰제한’ 소송 장기화···담합 재판 결과 기다린다</a></td></tr><tr><td class="n">Fri, 18 Sep</td><td>econovill.com</td><td><a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE9lR1RFWXVpRDY1QU1ab1hzVHl3U21tendoTzdlbk1xTkRVV3F1dGQtUzY5VUE2ZHQtZ3RpcVNXMDBIRzlZZ1BKXzhWVVBzdVlTRW9qemlrcmhrLThuT2hrc3JxZ0w2akJMNWw5cA?oc=5" target="_blank" rel="noopener nofollow">HD현대일렉트릭, 유럽 해상풍력 시장 첫발…변압기·리액터 발트해로 출항</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-09-21 기준. 「HD현대일렉트릭」 로 찾았고 제목에 그 말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 무관하며 서로 어긋날 수 있다.</p>
 
 <h2 id="실적-dart">실적 (DART)</h2>
 
