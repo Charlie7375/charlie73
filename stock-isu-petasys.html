@@ -313,50 +313,7 @@ a.card:focus-visible,.lst-i:focus-visible{
 .site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
   background:color-mix(in srgb,var(--text) 6%,transparent)}
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/*NAVCSS:END*//* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-/* ⚠⚠ 2026-09-10 상수님 «작은 해상도에서는 제목을 누를 수 없네».
-   아카이브가 29장이 되면서 드롭다운이 1,254px 로 자랐다. 상단바는 sticky 라
-   드롭다운은 화면 위에서 72px 자리에 열리는데, 390px 화면의 보이는 높이가 915px 이니
-   **아래 411px 는 화면 밖이고 스크롤이 없어 닿을 방법이 아예 없었다.**
-   → 화면 높이만큼만 열고 넘치면 그 안에서 스크롤한다.
-   · dvh 를 뒤에 한 번 더 적는다 — 모바일 주소창이 접혔다 펴질 때 100vh 는 화면보다 크다.
-     dvh 를 모르는 브라우저는 앞줄(vh)만 읽고 지나간다.
-   · overscroll-behavior:contain — 목록 끝에서 계속 밀어도 뒤 본문이 따라 스크롤되지 않게.
-   · 120px 은 상단바(2줄, 96px)와 아래 여백 16px 이다. 아카이브·원자료는 메뉴 2번째 줄에
-     달려 있어 104px 자리에서 열린다 — 92px 로 뺐더니 12px 이 화면 밖으로 나갔다. */
-html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);
-  overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
-
-/* ★ 2026-09-14 상수님 «가로 CSS 가 째지지 않게». 숨은 펼침 메뉴(visibility:hidden)가 자리를 차지해 375px 화면에서
-   scrollWidth 427 로 가로 스크롤이 생겼다(전 페이지). 메뉴 폭을 화면 안에 묶고 문서의 가로 넘침을 자른다.
-   ⚠ 상단바 CSS 를 전 페이지에 미치게 하는 자리는 **여기(CENTER)뿐**이다. nav2.py 를 고쳐도 원자료 장에만 닿는다. */
-html body .site-dd{max-width:calc(100vw - 24px)}
-html,body{overflow-x:hidden}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END */
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
-
+/*NAVCSS:END*/
 .dim{color:var(--mut,#94a3b8)}
 .b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
   font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
@@ -411,6 +368,49 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .hchg .ar{white-space:nowrap}
 .to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
 @media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
+/* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+/* ⚠⚠ 2026-09-10 상수님 «작은 해상도에서는 제목을 누를 수 없네».
+   아카이브가 29장이 되면서 드롭다운이 1,254px 로 자랐다. 상단바는 sticky 라
+   드롭다운은 화면 위에서 72px 자리에 열리는데, 390px 화면의 보이는 높이가 915px 이니
+   **아래 411px 는 화면 밖이고 스크롤이 없어 닿을 방법이 아예 없었다.**
+   → 화면 높이만큼만 열고 넘치면 그 안에서 스크롤한다.
+   · dvh 를 뒤에 한 번 더 적는다 — 모바일 주소창이 접혔다 펴질 때 100vh 는 화면보다 크다.
+     dvh 를 모르는 브라우저는 앞줄(vh)만 읽고 지나간다.
+   · overscroll-behavior:contain — 목록 끝에서 계속 밀어도 뒤 본문이 따라 스크롤되지 않게.
+   · 120px 은 상단바(2줄, 96px)와 아래 여백 16px 이다. 아카이브·원자료는 메뉴 2번째 줄에
+     달려 있어 104px 자리에서 열린다 — 92px 로 뺐더니 12px 이 화면 밖으로 나갔다. */
+html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);
+  overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+
+/* ★ 2026-09-14 상수님 «가로 CSS 가 째지지 않게». 숨은 펼침 메뉴(visibility:hidden)가 자리를 차지해 375px 화면에서
+   scrollWidth 427 로 가로 스크롤이 생겼다(전 페이지). 메뉴 폭을 화면 안에 묶고 문서의 가로 넘침을 자른다.
+   ⚠ 상단바 CSS 를 전 페이지에 미치게 하는 자리는 **여기(CENTER)뿐**이다. nav2.py 를 고쳐도 원자료 장에만 닿는다. */
+html body .site-dd{max-width:calc(100vw - 24px)}
+html,body{overflow-x:hidden}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END */
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 /*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
@@ -431,7 +431,13 @@ h2[id],h3[id],[id]:target{scroll-margin-top:92px}
 .ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
 .ptoc a:hover{border-bottom-color:var(--text-secondary)}
 @media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*//* PAPER:BEGIN */
+/*TOCCSS:END*/</style><link rel="stylesheet" href="vendor/fonts.css"><style id="freqcss">
+.freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
+ padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
+ border:1px solid currentColor;opacity:.85}
+.freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
+.freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
+/* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -746,14 +752,8 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style><link rel="stylesheet" href="vendor/fonts.css"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><style id="freqcss">
-.freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
- padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
- border:1px solid currentColor;opacity:.85}
-.freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
-.freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
-</style>
-</head><body>
+/* PAPER:END */</style>
+<!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="macro-timeline.html">거시 이벤트 연대기</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="minervini-x.html">마크 미너비니 X 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="here" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a class="here" href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-nhn.html">NHN</a><a href="stock-kolmar.html">한국콜마</a><a href="stock-cosmax.html">코스맥스</a><a href="stock-pharmaresearch.html">파마리서치</a><a href="stock-jyp.html">JYP Ent.</a><a href="stock-sm-ent.html">에스엠</a><a href="stock-yg-ent.html">와이지엔터테인먼트</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="marks.html">하워드 막스의 방법론</a><a href="marks-glossary.html">사이클 용어사전</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><span class="nav-h sub">시장 국면</span><a href="kospi-seasonality-down.html">해와 달의 코스피 · 역편</a><a href="kospi-drivers.html">코스피 선행 변수</a><a href="kospi-seasonality.html">해와 달의 코스피</a><a href="breadth-concentration.html">신고가 쏠림</a><a href="kospi-analog.html">닮은 과거</a><a href="audition-history.html">오디션 히스토리</a><a href="disparity-archive.html">두 버블의 이격도</a><a href="stage-analysis.html">와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리</a><span class="nav-h sub">수급과 폭락</span><a href="flow-extremes.html">개인과 외국인의 대량 매매</a><a href="flow-crashes.html">폭락의 구조</a><span class="nav-h sub">신용과 청산</span><a href="us-credit-spread.html">미국 신용스프레드</a><a href="deleveraging.html">강제청산</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="sentiment.html">빚과 현금</a><span class="nav-h sub">경기와 수출</span><a href="us-elections.html">미국 선거와 증시</a><a href="export-kospi.html">수출과 코스피</a><a href="cli-kospi.html">OECD CLI 와 코스피</a><a href="ism-kospi.html">ISM 과 코스피</a><a href="jeoji-kospi.html">제오지산수</a><span class="nav-h sub">금리와 통화</span><a href="gold-rates.html">금리와 금값</a><a href="treasury-trust.html">미국 국채 되사기</a><a href="inflation-playbook.html">인플레 시대의 자산</a><a href="rates-century.html">미국 금리 100년</a><a href="liquidity.html">미국 유동성</a><a href="fed-kospi.html">연준 기준금리와 코스피</a><a href="rates-101.html">금리 기초</a><a href="rates-crashes.html">금리 5%와 공황</a><a href="dollar-kospi.html">달러와 코스피</a><span class="nav-h sub">개별 종목</span><a href="memory-price.html">D램 가격과 삼성전자</a><a href="leadlag.html">하이닉스의 선행과 후행</a><a href="samsung-long.html">삼성전자 27년</a></div></div><div class="site-group"><button class="" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 102계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a href="data-kr-rates.html">한국 금리</a><a href="data-us-market.html">미국 시장</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a href="data-fx.html">환율·원자재·암호</a><a href="data-macro.html">재정·거시</a><a href="data-world.html">세계 증시</a></div></div><!-- NAV:END --></nav>
@@ -963,7 +963,7 @@ window.__qbRegister=function(){echarts.registerTheme('charlie', {"color": ["#d21
 </style><div class="vbox"><h4>개인은 정말 '떨어지면 사는가'</h4><p>위 사분면은 '한국 개인은 떨어지면 산다'를 전제로 읽는다. 그 전제가 이 종목에서도 맞는지 직접 계산했다.</p><p>하루 등락률과 그날 개인 순매수가 반대로 움직이는 정도를 계산하면 -0.41이다. 이 값이 0보다 작으면 '떨어지는 날에 개인이 샀다'는 뜻이고, 0보다 크면 그 반대이다.</p><p>같은 자료에서 연속 구간을 다시 뽑아 800번 계산해 보니 참값이 들어 있을 범위는 -0.64 ~ -0.35였다. 이수페타시스에서도 그 습관이 확인된다. 범위가 전부 0보다 작으므로 '떨어지면 산다'는 방향은 우연으로 보기 어렵다.</p><p class="vlim">⚠ 관측치 381일로 계산했다. 개인 순매수 금액은 '순매수 주수 × 종가' 환산 근사이다. 방향이 맞다는 것과 그것이 수익으로 이어진다는 것은 다른 문제이다.</p></div><div class="vbox"><h4>큰 등락은 생각보다 자주 온다</h4><p>이 페이지의 이격도(주가가 이동평균선에서 얼마나 벌어졌는지 백분율로 나타낸 값)·추세템플릿은 '평소 범위'를 정해 놓고 그 밖을 이상하다고 판정한다. 그 '평소 범위'를 정규분포로 잡으면 위험을 작게 본다.</p><p>이수페타시스의 하루 등락을 모아 보면 첨도가 6.9이다. 정규분포라면 3이다. 이 값이 클수록 '유난히 큰 하루'가 교과서 예상보다 자주 온다는 뜻이다.</p><p>실제로 평균에서 3표준편차 넘게 벗어난 날이 1153거래일 중 16일 있었다. 정규분포라면 3.1일이어야 한다. 5배이다.</p><p class="vlim">⚠ 그래서 '몇 표준편차'만으로 위험을 판단하지 않는다. 드물다고 계산된 일이 실제로는 드물지 않는다.</p></div><div class="vbox"><h4>여럿을 한꺼번에 볼 때의 함정</h4><p>이 사이트는 매일 21개 종목을 같은 방식으로 훑는다. 대상이 많아지면 아무 일이 없어도 그중 몇 개는 우연히 신호처럼 보인다. 주사위를 한 번 굴리면 6이 잘 안 나오지만 15번 굴리면 대개 한 번은 나온다.</p><p>이수페타시스에서 '떨어지는데 개인도 파는 날'(3사분면)은 전체의 9.7%였다. 이 비율이라면 어느 날이든 21종목 중 평균 2.0개는 우연히 신호가 뜬다.</p><p>한 종목에 신호가 떴다는 사실만으로는 부족하다. 그날 몇 종목이 함께 걸렸는지를 같이 보아야 우연과 구별된다.</p><p class="vlim">⚠ 종목들은 서로 붙어 움직이므로 실제 '우연 개수'는 이보다 적다. 이 값은 넘지 않아야 할 상한으로 읽는다.</p></div>
 
 <h2 id="관련-기사">관련 기사</h2>
-<div class="tblwrap"><table><thead><tr><th>날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Mon, 21 Sep</td><td>톱스타뉴스</td><td><a href="https://news.google.com/rss/articles/CBMickFVX3lxTE9TcTZhOUUtOE1SZUdPM1pudTExRjBUaDNJU0dyUHd0SHhNbW90UzN4UWpZOG43OEZKSS1OWG5lM2pGZDZ1MTM4RGRhYlVzU0VsbldxLXZFdUxUejMzSFd3aXNXWTFISzhHU0RHdWt1WDBidw?oc=5" target="_blank" rel="noopener nofollow">이수페타시스 주가, 9월 21일 장중 108,300원 4.44% 상승</a></td></tr><tr><td class="n">Mon, 21 Sep</td><td>이투데이</td><td><a href="https://news.google.com/rss/articles/CBMickFVX3lxTE5Ma1FaQUYwcnZrMlRsZ1dzd3V0MVBkV0xFS1dBREJnZmdFekhpOTJsVk5HNzUzNDF1YXZaUTdDUWdkUWVPMGhoOW9NVkYycXA4TzRBVUc3b1FYaTUtbG5fMFdMMUxYa2NLRElaN2hDYWNqZw?oc=5" target="_blank" rel="noopener nofollow">[특징주] 광전자·이수페타시스 등 반도체 관련주 급등</a></td></tr><tr><td class="n">Mon, 21 Sep</td><td>중앙이코노미뉴스</td><td><a href="https://news.google.com/rss/articles/CBMickFVX3lxTFBwY3NJSjhWTFhCcEhEVV9OMktVa2hOLUc3NU1TTktpNm43NGpqd21CWFlCcVZ1SGRDMm9MNFJ0UWw1QWZVOTRJNHlnbW9vQ1BERS1RczlLb0p0ZWhzRTM4MGFOQ1laazFSVjV6Q09SclMwQQ?oc=5" target="_blank" rel="noopener nofollow">이수페타시스 주가, 9월 21일 장중 110,000원 6.08% 상승</a></td></tr><tr><td class="n">Fri, 28 Aug</td><td>매일경제</td><td><a href="https://news.google.com/rss/articles/CBMiUkFVX3lxTFBMUi1HSWVBZFNjOVpwQTg2V3BTWHJ0MGVUSXhZaGlJZDRRT1ZCSndIdnp2cnMzVHYwdF9mbGdaTm1hUzhBN2NCdzJERWlyNHZ3b1E?oc=5" target="_blank" rel="noopener nofollow">[MK시그널] 이수페타시스, AI 서버 수요 기반 PQC 성장 사이클 진입 등에 주가 상승세... MK시그널 추천 후 상승률 17.07% 기록</a></td></tr><tr><td class="n">Thu, 17 Sep</td><td>뉴스핌</td><td><a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTE1VRmxuZVJtUHdLX1hPSVVEUW1xNmFmME1oeVB4VnVYZWFZLVd2Mk5QcjFuQ2V6cTYzX25LQ0U0UVFaeG12STl5R1U2Z3BvYWVJUEdsci13d2pJRzNX?oc=5" target="_blank" rel="noopener nofollow">[장중수급포착] 이수페타시스, 외국인 7일 연속 순매수행진... 주가 +4.65%</a></td></tr><tr><td class="n">Wed, 16 Sep</td><td>씽크풀 AI</td><td><a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTE1mM3RiNnFrQ0tZVHRnM2luSWh3TFFEQ25CYkY2U2RzZ0tuYW9Eek5uUGxpZUY5M0FhNFJGU3JlY2VyTUotcE9jRXFjRWlsc3pBeUtmd3hJbGFVZjdu?oc=5" target="_blank" rel="noopener nofollow">이수페타시스(007660)밀릴때마다 물량 모아둘 기회로 보이며 이후 전망 및 대응전략.</a></td></tr><tr><td class="n">Sat, 08 Aug</td><td>글로벌이코노믹</td><td><a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxNdlozcUpIRU1uXzBGNDF6cDNoSTk0TTZCM2NOdnJONXhETGQxTVpKTHVDMXRfOV9sYkdnSl9WOXpvS3E3REtSNFNSNG9TX1U0ZE5oOXJxWDRPeE1KdHozY1Q4WnAyNUktbV9lOEs3aDN5czN2XzFDTjVSRG5hS28xSmhkdFM?oc=5" target="_blank" rel="noopener nofollow">[김대호 진단] 반도체 열전 (32) 트렌드포스(集邦科技)... 메모리 풍향계 &quot;시세조사 1인자&quot;</a></td></tr><tr><td class="n">Fri, 03 Jul</td><td>아주경제</td><td><a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE9rM24yd0RGWVBJYjk3QzJ1aDlUS3diUVp1WFpIb1lzaFlnTTRDWXprX0dnTWNySTBwY3NqbTRVSnZOZ0U2NzVBZWFraW1TQ1dNcE9TYzZHay1VQdIBWEFVX3lxTE9qVWpQaFlHclh3OXJwb0dCSXVJVWVPeVB4VThGSUc1OXNGeWJHb1BsMWl4bGFZUEtWc3dxdUdXZWxIUkpDWU5SR0duNTFPci1QWkxTYXdMLXg?oc=5" target="_blank" rel="noopener nofollow">[NNA] 트렌드포스, 반도체 성숙 제품도 27년까지 가격 상승</a></td></tr><tr><td class="n">Tue, 13 Jan</td><td>연합뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE5NNkpkMmpub05zUzM4RC1DeTRKTWlzTWx4XzRSbUUxdVlXTzVYTG5UMzZyZjA5U1VBNzVVcGt6YXRDMmstRHNNRm13dkM4blJPX0tQLXBvSnhwVTjSAWBBVV95cUxPdklyZXhUVnU1bGFHQmltM0NmWXhlclZsem9JdXdJeENhbWNkQjg4emhtbG9EcHVBRHc3R2M4SVh5d0hPZ2VIYXBRcmxJOENWRGRlUTNVOWgtTTk5RmJ1dDc?oc=5" target="_blank" rel="noopener nofollow">트렌드포스 &quot;AI 수요에 8인치 파운드리 가격 5∼20%↑ 가능성&quot;</a></td></tr><tr><td class="n">Tue, 28 Apr</td><td>etnews.com</td><td><a href="https://news.google.com/rss/articles/CBMiTkFVX3lxTFBMRE1MUmVUTE1Fd3hudmFMNjBCOXJwdVdOa1J1d0N6aGk3Ulc5QzdLWE04TVFhLXpNOUVieC1Ka2lIUE5lYU1ma2Njd1ozZw?oc=5" target="_blank" rel="noopener nofollow">트렌드포스, “칩플레이션에도 애플·삼성 견조…수직계열화·규모의 경제 효과”</a></td></tr><tr><td class="n">Mon, 09 Feb</td><td>Chosunbiz</td><td><a href="https://news.google.com/rss/articles/CBMiggFBVV95cUxNN3A2dEFDWE84dXRTWklWMGJmczFvVjYzRzFTLU9kOGI3ek9TaEV0TFdmRWhPNFN2R3NaUnFTQWlWOEJEaG1RZmEwUnhCdUpMN0pVaC1laFhtX211YzdTWnNEZ0lQNF83WXpzSTdkZUc4YmFZUW8yWUIyd3NxY3pFRDl30gGWAUFVX3lxTFBsZTNWMFdSc0ZFUkhlTTFMUFYyelloQ01zMmdRNjAwd2hMbUJoUFdqd1RDMzhIaWU2RDQtRndhNnB1cUFITWg4TUFyZVpiV3NEMXhXMFpMcThPWmpGckRjcTMwUElCMzBUMmhOUVd5RnZaZnNNbDJhWFg4b3AtakZMTmlNUnAyU2diaFBkNVVvdHgwTUNkdw?oc=5" target="_blank" rel="noopener nofollow">트렌드포스 “올해 메모리 반도체 매출액 파운드리 2.5배 이상 전망” - 조선비즈</a></td></tr><tr><td class="n">Sun, 31 May</td><td>테크M</td><td><a href="https://news.google.com/rss/articles/CBMiZkFVX3lxTE9vQlN0SDVlQVBqUnR0RXZ6Vm8tOVVxN2NWeFBjenlDYmc0LXlveHU3cUFnMVNLRHh4MklDNVlLS3hhT3lyRllJUXdDdVVDMENjZW16NWY5ZU90RTkzTnhMSEF0dW1pQdIBakFVX3lxTFBWVlhiVmZFV1JCa25nSXlvNVhlTTRLOE9VRGhsdzVVSkVUUWhXbDFicHQyNWNaZjBfTHhrUy10clduc0p4TUIwcTNWWW1Nc3ExQjl2YkVCc0E5a1pXMEtZdi1EaHhLdEdzOVE?oc=5" target="_blank" rel="noopener nofollow">D램·낸드, 5월 가격 강세 &#x27;여전&#x27;...트렌드포스 &#x27;공급사가 가격 결정&#x27;</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-09-21 기준. 「이수페타시스」 로 찾았고 제목에 그 말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 무관하며 서로 어긋날 수 있다.</p>
+<div class="tblwrap"><table><thead><tr><th>날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Mon, 21 Sep</td><td>뉴스티앤티</td><td><a href="https://news.google.com/rss/articles/CBMiakFVX3lxTE1Rd2xXcGpWWDNJSkNHY1dJazZQYUpHbENqTnp5RDRKUW03cGFjeERYcmZWN25WY2E0RFRRRVkyVVMwSE9GMDV0VkJqX3BQNjQ4RGV4eXd0NTdQMkFnaGtoQ0RJQWhQbHZjdlE?oc=5" target="_blank" rel="noopener nofollow">[특징주] 외국인·기관, 삼성전자 순매수 1위…SK하이닉스·이수페타시스도 상위권</a></td></tr><tr><td class="n">Mon, 21 Sep</td><td>이투데이</td><td><a href="https://news.google.com/rss/articles/CBMickFVX3lxTE5Ma1FaQUYwcnZrMlRsZ1dzd3V0MVBkV0xFS1dBREJnZmdFekhpOTJsVk5HNzUzNDF1YXZaUTdDUWdkUWVPMGhoOW9NVkYycXA4TzRBVUc3b1FYaTUtbG5fMFdMMUxYa2NLRElaN2hDYWNqZw?oc=5" target="_blank" rel="noopener nofollow">[특징주] 광전자·이수페타시스 등 반도체 관련주 급등</a></td></tr><tr><td class="n">Mon, 21 Sep</td><td>잡포스트</td><td><a href="https://news.google.com/rss/articles/CBMibkFVX3lxTE1OVnItWWdwVnFFWGFxZ25tQTYtUXNGR0FxVXM0X2ZGRGF6Rnp5VFowb2VSc09NdmFOWWpwZHNUODdzSHNMUTczMERZTDdTSS0wQVBPVXVwaTl3VDNhZ2RCazFQVWdWYVFGNDNGLXln0gFyQVVfeXFMTTc2Nk5haDdhQWEtelp0WVVhWk42X1VaR04zVXJvLTlTTTg1allLdXg2RmNKby1xVFJFYU1GNVJkWnRNczROMVRKeHJtZDBYdkFBaHU3NHF6RWl0cXByeTFuWGhNOXNCQy1mTWdEZ09aUTJB?oc=5" target="_blank" rel="noopener nofollow">이수페타시스 5.98% 상승…AI용 고다층 PCB 실적 확대</a></td></tr><tr><td class="n">Mon, 21 Sep</td><td>재경일보</td><td><a href="https://news.google.com/rss/articles/CBMiSkFVX3lxTFBEVHg0OEdKaDVwN1ZYM0ZSQmdOd1NtSE9waDQ0dUk5R093dFdBRWZOLTNIT1ZZYUFCb2p6WjZpSkpXUkNoVkNreEt3?oc=5" target="_blank" rel="noopener nofollow">[특징주] 이수페타시스, 특별한 호재 없이 10만원대 유지하며 강세 : 기업주식정보</a></td></tr><tr><td class="n">Mon, 21 Sep</td><td>톱스타뉴스</td><td><a href="https://news.google.com/rss/articles/CBMickFVX3lxTE9TcTZhOUUtOE1SZUdPM1pudTExRjBUaDNJU0dyUHd0SHhNbW90UzN4UWpZOG43OEZKSS1OWG5lM2pGZDZ1MTM4RGRhYlVzU0VsbldxLXZFdUxUejMzSFd3aXNXWTFISzhHU0RHdWt1WDBidw?oc=5" target="_blank" rel="noopener nofollow">이수페타시스 주가, 9월 21일 장중 108,300원 4.44% 상승</a></td></tr><tr><td class="n">Mon, 21 Sep</td><td>중앙이코노미뉴스</td><td><a href="https://news.google.com/rss/articles/CBMickFVX3lxTFBwY3NJSjhWTFhCcEhEVV9OMktVa2hOLUc3NU1TTktpNm43NGpqd21CWFlCcVZ1SGRDMm9MNFJ0UWw1QWZVOTRJNHlnbW9vQ1BERS1RczlLb0p0ZWhzRTM4MGFOQ1laazFSVjV6Q09SclMwQQ?oc=5" target="_blank" rel="noopener nofollow">이수페타시스 주가, 9월 21일 장중 110,000원 6.08% 상승</a></td></tr><tr><td class="n">Sat, 08 Aug</td><td>글로벌이코노믹</td><td><a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxNdlozcUpIRU1uXzBGNDF6cDNoSTk0TTZCM2NOdnJONXhETGQxTVpKTHVDMXRfOV9sYkdnSl9WOXpvS3E3REtSNFNSNG9TX1U0ZE5oOXJxWDRPeE1KdHozY1Q4WnAyNUktbV9lOEs3aDN5czN2XzFDTjVSRG5hS28xSmhkdFM?oc=5" target="_blank" rel="noopener nofollow">[김대호 진단] 반도체 열전 (32) 트렌드포스(集邦科技)... 메모리 풍향계 &quot;시세조사 1인자&quot;</a></td></tr><tr><td class="n">Fri, 03 Jul</td><td>ajunews.com</td><td><a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE9rM24yd0RGWVBJYjk3QzJ1aDlUS3diUVp1WFpIb1lzaFlnTTRDWXprX0dnTWNySTBwY3NqbTRVSnZOZ0U2NzVBZWFraW1TQ1dNcE9TYzZHay1VQdIBWEFVX3lxTE9qVWpQaFlHclh3OXJwb0dCSXVJVWVPeVB4VThGSUc1OXNGeWJHb1BsMWl4bGFZUEtWc3dxdUdXZWxIUkpDWU5SR0duNTFPci1QWkxTYXdMLXg?oc=5" target="_blank" rel="noopener nofollow">[NNA] 트렌드포스, 반도체 성숙 제품도 27년까지 가격 상승</a></td></tr><tr><td class="n">Tue, 13 Jan</td><td>연합뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE5NNkpkMmpub05zUzM4RC1DeTRKTWlzTWx4XzRSbUUxdVlXTzVYTG5UMzZyZjA5U1VBNzVVcGt6YXRDMmstRHNNRm13dkM4blJPX0tQLXBvSnhwVTjSAWBBVV95cUxPdklyZXhUVnU1bGFHQmltM0NmWXhlclZsem9JdXdJeENhbWNkQjg4emhtbG9EcHVBRHc3R2M4SVh5d0hPZ2VIYXBRcmxJOENWRGRlUTNVOWgtTTk5RmJ1dDc?oc=5" target="_blank" rel="noopener nofollow">트렌드포스 &quot;AI 수요에 8인치 파운드리 가격 5∼20%↑ 가능성&quot;</a></td></tr><tr><td class="n">Mon, 09 Feb</td><td>biz.chosun.com</td><td><a href="https://news.google.com/rss/articles/CBMiggFBVV95cUxNN3A2dEFDWE84dXRTWklWMGJmczFvVjYzRzFTLU9kOGI3ek9TaEV0TFdmRWhPNFN2R3NaUnFTQWlWOEJEaG1RZmEwUnhCdUpMN0pVaC1laFhtX211YzdTWnNEZ0lQNF83WXpzSTdkZUc4YmFZUW8yWUIyd3NxY3pFRDl30gGWAUFVX3lxTFBsZTNWMFdSc0ZFUkhlTTFMUFYyelloQ01zMmdRNjAwd2hMbUJoUFdqd1RDMzhIaWU2RDQtRndhNnB1cUFITWg4TUFyZVpiV3NEMXhXMFpMcThPWmpGckRjcTMwUElCMzBUMmhOUVd5RnZaZnNNbDJhWFg4b3AtakZMTmlNUnAyU2diaFBkNVVvdHgwTUNkdw?oc=5" target="_blank" rel="noopener nofollow">트렌드포스 “올해 메모리 반도체 매출액 파운드리 2.5배 이상 전망” - 조선비즈</a></td></tr><tr><td class="n">Sun, 31 May</td><td>테크M</td><td><a href="https://news.google.com/rss/articles/CBMiZkFVX3lxTE9vQlN0SDVlQVBqUnR0RXZ6Vm8tOVVxN2NWeFBjenlDYmc0LXlveHU3cUFnMVNLRHh4MklDNVlLS3hhT3lyRllJUXdDdVVDMENjZW16NWY5ZU90RTkzTnhMSEF0dW1pQdIBakFVX3lxTFBWVlhiVmZFV1JCa25nSXlvNVhlTTRLOE9VRGhsdzVVSkVUUWhXbDFicHQyNWNaZjBfTHhrUy10clduc0p4TUIwcTNWWW1Nc3ExQjl2YkVCc0E5a1pXMEtZdi1EaHhLdEdzOVE?oc=5" target="_blank" rel="noopener nofollow">D램·낸드, 5월 가격 강세 &#x27;여전&#x27;...트렌드포스 &#x27;공급사가 가격 결정&#x27;</a></td></tr><tr><td class="n">Tue, 28 Apr</td><td>전자신문</td><td><a href="https://news.google.com/rss/articles/CBMiTkFVX3lxTFBMRE1MUmVUTE1Fd3hudmFMNjBCOXJwdVdOa1J1d0N6aGk3Ulc5QzdLWE04TVFhLXpNOUVieC1Ka2lIUE5lYU1ma2Njd1ozZw?oc=5" target="_blank" rel="noopener nofollow">트렌드포스, “칩플레이션에도 애플·삼성 견조…수직계열화·규모의 경제 효과”</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-09-21 기준. 「이수페타시스」 로 찾았고 제목에 그 말이 실제로 든 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 무관하며 서로 어긋날 수 있다.</p>
 
 <h2 id="실적-dart">실적 (DART)</h2>
 
