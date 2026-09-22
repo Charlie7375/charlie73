@@ -129,56 +129,7 @@ html.theme-dark .site-dd{box-shadow:0 18px 44px rgba(0,0,0,.55)}
   .site-dd{right:auto;left:50%;transform:translate(-50%,-6px)}
   .site-group.on .site-dd{transform:translate(-50%,0)}
 }
-/*NAVCSS:BEGIN*/
-/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
-.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
-  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
-/* 아카이브 중메뉴 소제목 — 주기 라벨과 같은 .nav-h 를 쓰되 묶음 사이를 실선으로 끊는다 */
-.site-dd .nav-h.sub,.md .nav-h.sub{margin-top:6px;padding-top:9px;
-  border-top:1px solid var(--border,rgba(0,0,0,.1))}
-.site-dd .nav-h+.nav-h.sub,.md .nav-h+.nav-h.sub{margin-top:0;padding-top:4px;border-top:0}
-.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
-  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
-.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
-  background:color-mix(in srgb,var(--text) 6%,transparent)}
-.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/*NAVCSS:END*//* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-/* ⚠⚠ 2026-09-10 상수님 «작은 해상도에서는 제목을 누를 수 없네».
-   아카이브가 29장이 되면서 드롭다운이 1,254px 로 자랐다. 상단바는 sticky 라
-   드롭다운은 화면 위에서 72px 자리에 열리는데, 390px 화면의 보이는 높이가 915px 이니
-   **아래 411px 는 화면 밖이고 스크롤이 없어 닿을 방법이 아예 없었다.**
-   → 화면 높이만큼만 열고 넘치면 그 안에서 스크롤한다.
-   · dvh 를 뒤에 한 번 더 적는다 — 모바일 주소창이 접혔다 펴질 때 100vh 는 화면보다 크다.
-     dvh 를 모르는 브라우저는 앞줄(vh)만 읽고 지나간다.
-   · overscroll-behavior:contain — 목록 끝에서 계속 밀어도 뒤 본문이 따라 스크롤되지 않게.
-   · 120px 은 상단바(2줄, 96px)와 아래 여백 16px 이다. 아카이브·원자료는 메뉴 2번째 줄에
-     달려 있어 104px 자리에서 열린다 — 92px 로 뺐더니 12px 이 화면 밖으로 나갔다. */
-html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);
-  overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
-
-/* ★ 2026-09-14 상수님 «가로 CSS 가 째지지 않게». 숨은 펼침 메뉴(visibility:hidden)가 자리를 차지해 375px 화면에서
-   scrollWidth 427 로 가로 스크롤이 생겼다(전 페이지). 메뉴 폭을 화면 안에 묶고 문서의 가로 넘침을 자른다.
-   ⚠ 상단바 CSS 를 전 페이지에 미치게 하는 자리는 **여기(CENTER)뿐**이다. nav2.py 를 고쳐도 원자료 장에만 닿는다. */
-html body .site-dd{max-width:calc(100vw - 24px)}
-html,body{overflow-x:hidden}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END *//* DESIGN:BEGIN */
+/* DESIGN:BEGIN */
 /* ── 숫자는 항상 고정폭 — 매일 바뀌는 값에 칸이 흔들리지 않게 ── */
 body{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
 table,.st-v,.kpi,.kpis,.pbadge b{font-variant-numeric:tabular-nums}
@@ -198,7 +149,7 @@ td.neg,.delta.down,.delta.dn,.dn-t{color:var(--dn)!important}
 
 /* ── 테마 토글 버튼 (전 페이지 공통) ── */
 /* ⚠⚠ `top:auto` 와 z-index 가 핵심이다 (2026-08-08).
-   생성기 SHELL 들이 `.toggle{position:fixed;top:18px;…}` 를 따로 갖고 있는데(45장),
+   생성기 SHELL 들이 `.toggle{top:62px;z-index:88;position:fixed;…}` 를 따로 갖고 있는데(45장),
    이 규칙은 뒤에 와서 z-index 만 이기고 **위치는 top:18px 가 남았다.**
    그 자리는 sticky 상단바(.site-bar, z-index 90)가 덮는 자리라
    **버튼은 보이는데 클릭이 상단바에 먹혔다.** 눌러도 아무 일이 없는 3번째 원인이다.
@@ -370,7 +321,56 @@ a.card:focus-visible,.lst-i:focus-visible{
   .wrap{padding-left:18px!important;padding-right:18px!important}
   .explain,.ebody,.hbody,.verdict,.callout,.lesson,.note,.disclaimer,.fdetail,.panel-cap{font-size:15.5px;line-height:1.8}
 }
-/* LAYOUT:END *//*TOCCSS:BEGIN*/
+/* LAYOUT:END *//* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+/* ⚠⚠ 2026-09-10 상수님 «작은 해상도에서는 제목을 누를 수 없네».
+   아카이브가 29장이 되면서 드롭다운이 1,254px 로 자랐다. 상단바는 sticky 라
+   드롭다운은 화면 위에서 72px 자리에 열리는데, 390px 화면의 보이는 높이가 915px 이니
+   **아래 411px 는 화면 밖이고 스크롤이 없어 닿을 방법이 아예 없었다.**
+   → 화면 높이만큼만 열고 넘치면 그 안에서 스크롤한다.
+   · dvh 를 뒤에 한 번 더 적는다 — 모바일 주소창이 접혔다 펴질 때 100vh 는 화면보다 크다.
+     dvh 를 모르는 브라우저는 앞줄(vh)만 읽고 지나간다.
+   · overscroll-behavior:contain — 목록 끝에서 계속 밀어도 뒤 본문이 따라 스크롤되지 않게.
+   · 120px 은 상단바(2줄, 96px)와 아래 여백 16px 이다. 아카이브·원자료는 메뉴 2번째 줄에
+     달려 있어 104px 자리에서 열린다 — 92px 로 뺐더니 12px 이 화면 밖으로 나갔다. */
+html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);
+  overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+
+/* ★ 2026-09-14 상수님 «가로 CSS 가 째지지 않게». 숨은 펼침 메뉴(visibility:hidden)가 자리를 차지해 375px 화면에서
+   scrollWidth 427 로 가로 스크롤이 생겼다(전 페이지). 메뉴 폭을 화면 안에 묶고 문서의 가로 넘침을 자른다.
+   ⚠ 상단바 CSS 를 전 페이지에 미치게 하는 자리는 **여기(CENTER)뿐**이다. nav2.py 를 고쳐도 원자료 장에만 닿는다. */
+html body .site-dd{max-width:calc(100vw - 24px)}
+html,body{overflow-x:hidden}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END *//*NAVCSS:BEGIN*/
+/* 갱신 주기 라벨 — 메뉴 이름만으로는 '매일'인지 '고정'인지 알 수 없다 */
+.site-dd .nav-h,.md .nav-h{display:block;padding:6px 12px 4px;font-size:10.5px;font-weight:700;
+  letter-spacing:.02em;color:var(--text3,#86868b);text-transform:none}
+/* 아카이브 중메뉴 소제목 — 주기 라벨과 같은 .nav-h 를 쓰되 묶음 사이를 실선으로 끊는다 */
+.site-dd .nav-h.sub,.md .nav-h.sub{margin-top:6px;padding-top:9px;
+  border-top:1px solid var(--border,rgba(0,0,0,.1))}
+.site-dd .nav-h+.nav-h.sub,.md .nav-h+.nav-h.sub{margin-top:0;padding-top:4px;border-top:0}
+.site-group>a.solo,.mg>a.solo{display:block;font-size:12.5px;color:var(--text2,#6e6e73);
+  text-decoration:none;padding:8px 12px;border-radius:9px;transition:.15s;white-space:nowrap}
+.site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
+  background:color-mix(in srgb,var(--text) 6%,transparent)}
+.site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
+/*NAVCSS:END*//*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
 /* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
@@ -708,7 +708,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 /* PAPER:END */</style><link rel="stylesheet" href="vendor/fonts.css"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body><div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="macro-timeline.html">거시 이벤트 연대기</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="minervini-x.html">마크 미너비니 X 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-nhn.html">NHN</a><a href="stock-kolmar.html">한국콜마</a><a href="stock-cosmax.html">코스맥스</a><a href="stock-pharmaresearch.html">파마리서치</a><a href="stock-jyp.html">JYP Ent.</a><a href="stock-sm-ent.html">에스엠</a><a href="stock-yg-ent.html">와이지엔터테인먼트</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="marks.html">하워드 막스의 방법론</a><a href="marks-glossary.html">사이클 용어사전</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><span class="nav-h sub">시장 국면</span><a href="kospi-seasonality-down.html">해와 달의 코스피 · 역편</a><a href="kospi-drivers.html">코스피 선행 변수</a><a href="kospi-seasonality.html">해와 달의 코스피</a><a href="breadth-concentration.html">신고가 쏠림</a><a href="kospi-analog.html">닮은 과거</a><a href="audition-history.html">오디션 히스토리</a><a href="disparity-archive.html">두 버블의 이격도</a><a href="stage-analysis.html">와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리</a><span class="nav-h sub">수급과 폭락</span><a href="flow-extremes.html">개인과 외국인의 대량 매매</a><a href="flow-crashes.html">폭락의 구조</a><span class="nav-h sub">신용과 청산</span><a href="us-credit-spread.html">미국 신용스프레드</a><a href="deleveraging.html">강제청산</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="sentiment.html">빚과 현금</a><span class="nav-h sub">경기와 수출</span><a href="us-elections.html">미국 선거와 증시</a><a href="export-kospi.html">수출과 코스피</a><a href="cli-kospi.html">OECD CLI 와 코스피</a><a href="ism-kospi.html">ISM 과 코스피</a><a href="jeoji-kospi.html">제오지산수</a><span class="nav-h sub">금리와 통화</span><a href="gold-rates.html">금리와 금값</a><a href="treasury-trust.html">미국 국채 되사기</a><a href="inflation-playbook.html">인플레 시대의 자산</a><a href="rates-century.html">미국 금리 100년</a><a href="liquidity.html">미국 유동성</a><a href="fed-kospi.html">연준 기준금리와 코스피</a><a href="rates-101.html">금리 기초</a><a href="rates-crashes.html">금리 5%와 공황</a><a href="dollar-kospi.html">달러와 코스피</a><span class="nav-h sub">개별 종목</span><a href="memory-price.html">D램 가격과 삼성전자</a><a href="leadlag.html">하이닉스의 선행과 후행</a><a href="samsung-long.html">삼성전자 27년</a></div></div><div class="site-group"><button class="here" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 102계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a href="data-kr-rates.html">한국 금리</a><a href="data-us-market.html">미국 시장</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a href="data-fx.html">환율·원자재·암호</a><a class="here" href="data-macro.html">재정·거시</a><a href="data-world.html">세계 증시</a></div></div><!-- NAV:END --></nav>
-</div></div><div class="wrap paper dwrap"><div class="site-crumb"><a href="index.html">홈</a><span class="sep">›</span><span>원자료</span><span class="sep">›</span><span class="cur">재정·거시</span></div><a class="dback" href="data.html">← 원자료</a><header class="phead"><span class="eb">원자료</span><h1>재정·거시</h1><p class="pauth">나라의 빚과 물가와 경기. 계열 29개.</p></header><div class="dgrid"><a class="dcard" href="d-debt.html"><div class="n">미국 국가부채</div><div class="m">1993-04-01 ~ 2026-09-17 · 8,395개<br>매일 · 달러</div><div class="now">40.09조</div></a><a class="dcard" href="d-interest.html"><div class="n">미국 이자지출</div><div class="m">2010-05-31 ~ 2026-08-31 · 5,841개<br>매월 · 달러</div><div class="now">400,597,338</div></a><a class="dcard" href="d-buyback.html"><div class="n">미국 국채 되사기</div><div class="m">2000-03-09 ~ 2026-09-17 · 223개<br>작전별 · 달러</div><div class="now">4,000,000,000</div></a><a class="dcard" href="d-cpi.html"><div class="n">미국 소비자물가</div><div class="m">1947-01 ~ 2026-08 · 955개<br>매월 · 1982-84=100</div><div class="now">334.131</div></a><a class="dcard" href="d-dram.html"><div class="n">메모리 수출물가</div><div class="m">1971-01 ~ 2026-08 · 668개<br>매월 · 2020=100</div><div class="now">282.77</div></a><a class="dcard" href="d-cli-kr.html"><div class="n">OECD 경기선행지수 (한국)</div><div class="m">1990-01 ~ 2026-08 · 440개<br>매월 · 100=추세</div><div class="now">102.2085</div></a><a class="dcard" href="d-bci-us.html"><div class="n">OECD 기업경기지수 (미국)</div><div class="m">1950-01 ~ 2026-08 · 920개<br>매월 · 100=추세</div><div class="now">100.4095</div></a><a class="dcard" href="d-kospi-oecd.html"><div class="n">OECD 한국 주가지수</div><div class="m">1981-01 ~ 2026-08 · 548개<br>매월 · 2015=100</div><div class="now">330.6228</div></a><a class="dcard" href="d-sp-oecd.html"><div class="n">OECD 미국 주가지수</div><div class="m">1957-01 ~ 2026-08 · 836개<br>매월 · 2015=100</div><div class="now">230.718</div></a><a class="dcard" href="d-cpi-century.html"><div class="n">미국 소비자물가 장기 (1913~)<span class="dtag man">손으로</span></div><div class="m">1913-01 ~ 2026-08 · 1,363개<br>손으로 · 1982-84=100</div><div class="now">334.98</div></a><a class="dcard" href="d-cpi-goods.html"><div class="n">근원 공산품 물가<span class="dtag man">손으로</span></div><div class="m">1957-01 ~ 2026-08 · 835개<br>손으로 · 1982-84=100</div><div class="now">167.939</div></a><a class="dcard" href="d-cpi-svc.html"><div class="n">근원 서비스 물가<span class="dtag man">손으로</span></div><div class="m">1967-01 ~ 2026-08 · 715개<br>손으로 · 1982-84=100</div><div class="now">447.075</div></a><a class="dcard" href="d-imp-china.html"><div class="n">중국발 수입물가<span class="dtag man">손으로</span></div><div class="m">2003-12 ~ 2026-07 · 271개<br>손으로 · 2003-12=100</div><div class="now">99.5</div></a><a class="dcard" href="d-us-imp.html"><div class="n">미국 수입액 (월별)</div><div class="m">1992-01-01 ~ 2026-07-01 · 415개<br>매월 · 백만달러</div><div class="now">399,299</div></a><a class="dcard" href="d-us-imp-q.html"><div class="n">미국 수입액 (분기 1947~)</div><div class="m">1947-01-01 ~ 2026-04-01 · 318개<br>분기 · 십억달러</div><div class="now">4628.087</div></a><a class="dcard" href="d-prod.html"><div class="n">비농업 노동생산성<span class="dtag man">손으로</span></div><div class="m">1947-01 ~ 2026-04 · 318개<br>손으로 · 2017=100</div><div class="now">120.017</div></a><a class="dcard" href="d-indpro.html"><div class="n">미국 산업생산<span class="dtag man">손으로</span></div><div class="m">1990-01 ~ 2026-08 · 440개<br>손으로 · 2017=100</div><div class="now">103.0682</div></a><a class="dcard" href="d-gdp-us.html"><div class="n">미국 GDP 성장률</div><div class="m">1947-04-01 ~ 2026-04-01 · 317개<br>분기 · %</div><div class="now">1.5</div></a><a class="dcard" href="d-gdp-us-a.html"><div class="n">미국 실질 GDP (연간, 1929~)</div><div class="m">1929-01-01 ~ 2025-01-01 · 97개<br>연간 · 십억 달러(2017년)</div><div class="now">23850.442</div></a><a class="dcard" href="d-kr-export.html"><div class="n">한국 수출 증감률</div><div class="m">1984-01 ~ 2026-06 · 510개<br>매월 · %</div><div class="now">70.6709</div></a><a class="dcard" href="d-ism.html"><div class="n">ISM 제조업 PMI (1990~)</div><div class="m">1990-01 ~ 2026-08 · 440개<br>매월 · 지수</div><div class="now">54.6</div></a><a class="dcard" href="d-ism-mix.html"><div class="n">ISM 제조업 PMI (취합본)</div><div class="m">2016-08 ~ 2026-08 · 121개<br>매월 · 지수</div><div class="now">54.6</div></a><a class="dcard" href="d-kospi-oecd-est.html"><div class="n">OECD 한국주가지수 (코스피 환산)<span class="dtag man">손으로</span></div><div class="m">1981-01 ~ 2026-08 · 548개<br>손으로 · 2015=100</div><div class="now">330.6228</div></a><a class="dcard" href="d-ez-trade.html"><div class="n">유로존 무역수지 (역외, 계절조정)</div><div class="m">2002-01 ~ 2026-07 · 295개<br>매월 · 백만유로</div><div class="now">5030.9</div></a><a class="dcard" href="d-jp-trade.html"><div class="n">일본 무역수지 (계절조정)</div><div class="m">1955-01 ~ 2026-06 · 858개<br>매월 · 엔</div><div class="now">-881,932,000,000</div></a><a class="dcard" href="d-wage.html"><div class="n">미국 시간당 임금</div><div class="m">2006-03 ~ 2026-08 · 246개<br>매월 · 달러</div><div class="now">37.75</div></a><a class="dcard" href="d-realwage.html"><div class="n">미국 실질 주급 중앙값 (분기)</div><div class="m">1979-01-01 ~ 2026-04-01 · 189개<br>분기 · 1982-84 달러</div><div class="now">378</div></a><a class="dcard" href="d-umcsent.html"><div class="n">미시간 소비자심리</div><div class="m">1952-11 ~ 2026-07 · 675개<br>매월 · 1966Q1=100</div><div class="now">55.2</div></a><a class="dcard" href="d-ez-cci.html"><div class="n">유로존 소비자신뢰</div><div class="m">1985-01 ~ 2026-08 · 500개<br>매월 · %</div><div class="now">-15.5</div></a></div></div>
+</div></div><div class="wrap paper dwrap"><div class="site-crumb"><a href="index.html">홈</a><span class="sep">›</span><span>원자료</span><span class="sep">›</span><span class="cur">재정·거시</span></div><a class="dback" href="data.html">← 원자료</a><header class="phead"><span class="eb">원자료</span><h1>재정·거시</h1><p class="pauth">나라의 빚과 물가와 경기. 계열 29개.</p></header><div class="dgrid"><a class="dcard" href="d-debt.html"><div class="n">미국 국가부채</div><div class="m">1993-04-01 ~ 2026-09-18 · 8,396개<br>매일 · 달러</div><div class="now">40.10조</div></a><a class="dcard" href="d-interest.html"><div class="n">미국 이자지출</div><div class="m">2010-05-31 ~ 2026-08-31 · 5,841개<br>매월 · 달러</div><div class="now">400,597,338</div></a><a class="dcard" href="d-buyback.html"><div class="n">미국 국채 되사기</div><div class="m">2000-03-09 ~ 2026-09-17 · 223개<br>작전별 · 달러</div><div class="now">4,000,000,000</div></a><a class="dcard" href="d-cpi.html"><div class="n">미국 소비자물가</div><div class="m">1947-01 ~ 2026-08 · 955개<br>매월 · 1982-84=100</div><div class="now">334.131</div></a><a class="dcard" href="d-dram.html"><div class="n">메모리 수출물가</div><div class="m">1971-01 ~ 2026-08 · 668개<br>매월 · 2020=100</div><div class="now">282.77</div></a><a class="dcard" href="d-cli-kr.html"><div class="n">OECD 경기선행지수 (한국)</div><div class="m">1990-01 ~ 2026-08 · 440개<br>매월 · 100=추세</div><div class="now">102.2085</div></a><a class="dcard" href="d-bci-us.html"><div class="n">OECD 기업경기지수 (미국)</div><div class="m">1950-01 ~ 2026-08 · 920개<br>매월 · 100=추세</div><div class="now">100.4095</div></a><a class="dcard" href="d-kospi-oecd.html"><div class="n">OECD 한국 주가지수</div><div class="m">1981-01 ~ 2026-08 · 548개<br>매월 · 2015=100</div><div class="now">330.6228</div></a><a class="dcard" href="d-sp-oecd.html"><div class="n">OECD 미국 주가지수</div><div class="m">1957-01 ~ 2026-08 · 836개<br>매월 · 2015=100</div><div class="now">230.718</div></a><a class="dcard" href="d-cpi-century.html"><div class="n">미국 소비자물가 장기 (1913~)<span class="dtag man">손으로</span></div><div class="m">1913-01 ~ 2026-08 · 1,363개<br>손으로 · 1982-84=100</div><div class="now">334.98</div></a><a class="dcard" href="d-cpi-goods.html"><div class="n">근원 공산품 물가<span class="dtag man">손으로</span></div><div class="m">1957-01 ~ 2026-08 · 835개<br>손으로 · 1982-84=100</div><div class="now">167.939</div></a><a class="dcard" href="d-cpi-svc.html"><div class="n">근원 서비스 물가<span class="dtag man">손으로</span></div><div class="m">1967-01 ~ 2026-08 · 715개<br>손으로 · 1982-84=100</div><div class="now">447.075</div></a><a class="dcard" href="d-imp-china.html"><div class="n">중국발 수입물가<span class="dtag man">손으로</span></div><div class="m">2003-12 ~ 2026-07 · 271개<br>손으로 · 2003-12=100</div><div class="now">99.5</div></a><a class="dcard" href="d-us-imp.html"><div class="n">미국 수입액 (월별)</div><div class="m">1992-01-01 ~ 2026-07-01 · 415개<br>매월 · 백만달러</div><div class="now">399,299</div></a><a class="dcard" href="d-us-imp-q.html"><div class="n">미국 수입액 (분기 1947~)</div><div class="m">1947-01-01 ~ 2026-04-01 · 318개<br>분기 · 십억달러</div><div class="now">4628.087</div></a><a class="dcard" href="d-prod.html"><div class="n">비농업 노동생산성<span class="dtag man">손으로</span></div><div class="m">1947-01 ~ 2026-04 · 318개<br>손으로 · 2017=100</div><div class="now">120.017</div></a><a class="dcard" href="d-indpro.html"><div class="n">미국 산업생산<span class="dtag man">손으로</span></div><div class="m">1990-01 ~ 2026-08 · 440개<br>손으로 · 2017=100</div><div class="now">103.0682</div></a><a class="dcard" href="d-gdp-us.html"><div class="n">미국 GDP 성장률</div><div class="m">1947-04-01 ~ 2026-04-01 · 317개<br>분기 · %</div><div class="now">1.5</div></a><a class="dcard" href="d-gdp-us-a.html"><div class="n">미국 실질 GDP (연간, 1929~)</div><div class="m">1929-01-01 ~ 2025-01-01 · 97개<br>연간 · 십억 달러(2017년)</div><div class="now">23850.442</div></a><a class="dcard" href="d-kr-export.html"><div class="n">한국 수출 증감률</div><div class="m">1984-01 ~ 2026-06 · 510개<br>매월 · %</div><div class="now">70.6709</div></a><a class="dcard" href="d-ism.html"><div class="n">ISM 제조업 PMI (1990~)</div><div class="m">1990-01 ~ 2026-08 · 440개<br>매월 · 지수</div><div class="now">54.6</div></a><a class="dcard" href="d-ism-mix.html"><div class="n">ISM 제조업 PMI (취합본)</div><div class="m">2016-08 ~ 2026-08 · 121개<br>매월 · 지수</div><div class="now">54.6</div></a><a class="dcard" href="d-kospi-oecd-est.html"><div class="n">OECD 한국주가지수 (코스피 환산)<span class="dtag man">손으로</span></div><div class="m">1981-01 ~ 2026-08 · 548개<br>손으로 · 2015=100</div><div class="now">330.6228</div></a><a class="dcard" href="d-ez-trade.html"><div class="n">유로존 무역수지 (역외, 계절조정)</div><div class="m">2002-01 ~ 2026-07 · 295개<br>매월 · 백만유로</div><div class="now">5030.9</div></a><a class="dcard" href="d-jp-trade.html"><div class="n">일본 무역수지 (계절조정)</div><div class="m">1955-01 ~ 2026-06 · 858개<br>매월 · 엔</div><div class="now">-881,932,000,000</div></a><a class="dcard" href="d-wage.html"><div class="n">미국 시간당 임금</div><div class="m">2006-03 ~ 2026-08 · 246개<br>매월 · 달러</div><div class="now">37.75</div></a><a class="dcard" href="d-realwage.html"><div class="n">미국 실질 주급 중앙값 (분기)</div><div class="m">1979-01-01 ~ 2026-04-01 · 189개<br>분기 · 1982-84 달러</div><div class="now">378</div></a><a class="dcard" href="d-umcsent.html"><div class="n">미시간 소비자심리</div><div class="m">1952-11 ~ 2026-07 · 675개<br>매월 · 1966Q1=100</div><div class="now">55.2</div></a><a class="dcard" href="d-ez-cci.html"><div class="n">유로존 소비자신뢰</div><div class="m">1985-01 ~ 2026-08 · 500개<br>매월 · %</div><div class="now">-15.5</div></a></div></div>
 <script>
 (function(){
   var gs=document.querySelectorAll('.site-group');
