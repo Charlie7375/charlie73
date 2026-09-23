@@ -500,7 +500,6 @@ html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;-
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
 /*NAVCSS:END*/
 
-
 /* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
@@ -979,7 +978,7 @@ if(typeof window.CSI!=='number') window.CSI=0;
         grid:{display:false}}}}});
 }]);})();
 </script><p class="panel-cap rngnote" style="margin-top:12px">2000년 10월부터 전 구간이다. 가로 점선 2개는 하락 예고선이 아니다. 1.2%p는 과거 매수 구간의 기준, 0.7%p는 첫 돌파 관찰선이다.</p><div class="srcline"><span class="lbl">출처</span><span>금융투자협회 채권시가평가기준수익률 · 회사채(무보증3년) AA− − 국고채 3년</span><a href="https://freesis.kofia.or.kr" target="_blank" rel="noopener">금융투자협회 FreeSIS &#8599;</a></div></div>
-<figcaption>빨강이 신용스프레드(좌축), 파랑이 코스피(우축·로그).
+<figcaption><span class="freq m">월간</span>빨강이 신용스프레드(좌축), 파랑이 코스피(우축·로그).
 회색 띠가 주요 하락 구간이다. 가로 점선 2개는 하락 예고선이 아니다.
 1.2%p는 「높을 때 산 것이 좋았다」 절의 기준(그 위에서 매수한 경우 12개월 중앙 +31.4%),
 0.7%p는 「하락을 시작하는 값은 없다」 절의 관찰선(장기간 아래 머물다 처음 넘은 사건이 4번)다.</figcaption></figure>
@@ -1115,7 +1114,7 @@ var LAB=["0.2~0.4", "0.4~0.6", "0.6~0.8", "0.8~1.2", "1.2 이상"], DS=[{"label"
                callback:function(v){return v+'%';}},grid:{color:P2.grid}}};})())}});
 }]);})();
 </script>
-<figcaption>스프레드 구간별로 그 뒤 코스피가 얼마나 올랐나(중앙값).
+<figcaption><span class="freq m">월간</span>스프레드 구간별로 그 뒤 코스피가 얼마나 올랐나(중앙값).
 막대가 왼쪽부터 차례로 높아진다.</figcaption></figure>
 
 <div class="tblwrap"><table class="cs"><thead><tr><th>스프레드 구간</th><th class="n">개월수</th>
@@ -1169,7 +1168,7 @@ var LAB=["닷컴 붕괴", "카드사태", "금융위기", "유럽재정위기", 
              ticks:{color:P2.tsec,font:{family:'Inter',size:12}},grid:{color:P2.grid}}};})())}});
 }]);})();
 </script>
-<figcaption>회색 막대 = 코스피가 고점을 찍은 달의 스프레드.
+<figcaption><span class="freq m">월간</span>회색 막대 = 코스피가 고점을 찍은 달의 스프레드.
 빨간 가로선이 평상시 중앙값이다. 막대가 선 위아래로 흩어져 있다.
 '이 값을 넘으면 떨어진다'가 없다는 뜻이다.</figcaption></figure>
 
@@ -1268,7 +1267,7 @@ var LAB=["2021-06", "2021-07", "2021-08", "2021-09", "2021-10", "2021-11", "2021
              ticks:{color:P2.tsec,font:{family:'Inter',size:12}},grid:{display:false}}};})())}});
 }]);})();
 </script>
-<figcaption>파랑·회색 막대 = 그 달에 매수했다면 1년·2년 뒤 코스피 성적.
+<figcaption><span class="freq m">월간</span>파랑·회색 막대 = 그 달에 매수했다면 1년·2년 뒤 코스피 성적.
 빨간 선 = 그때 신용스프레드(우축). 빨간 선이 0.8을 넘는 구간에서 막대의 부호가 바뀐다.</figcaption></figure>
 
 <div class="tblwrap"><table class="cs"><thead><tr><th>매수 시점</th><th class="n">스프레드</th>
@@ -1331,7 +1330,7 @@ var LAB=["닷컴 붕괴", "카드사태", "금융위기", "유럽재정위기", 
              ticks:{color:P2.tsec,font:{family:'Inter',size:12}},grid:{display:false}}};})())}});
 }]);})();
 </script>
-<figcaption>왼쪽 막대가 코스피 고점→저점 낙폭(좌축), 오른쪽 막대가 같은 창에서의 스프레드 확대폭(우축)다.</figcaption></figure>
+<figcaption><span class="freq m">월간</span>왼쪽 막대가 코스피 고점→저점 낙폭(좌축), 오른쪽 막대가 같은 창에서의 스프레드 확대폭(우축)다.</figcaption></figure>
 
 <div class="tblwrap"><table class="cs"><thead><tr><th>사건</th><th class="n">코스피 고점→저점</th>
 <th class="n">낙폭</th><th class="n">시작 때</th><th class="n">주가 저점까지</th>
@@ -1384,7 +1383,6 @@ var LAB=["닷컴 붕괴", "카드사태", "금융위기", "유럽재정위기", 
 <div class="note"><p>이렇게 읽으면 안 된다. 이 글의 문턱(0.6·0.8·1.2%p)은 이 글이 정한 것이다. 경계를 조금만 옮기면 구간별 성적의 부호가 바뀐다. 지금 값이 어느 칸에 든다는 이유만으로 불리한 시점이라고 읽으면 안 된다.</p></div>
 
 <p class="dim">방향을 3개월 변화의 부호로 구분하면 · 문턱을 처음 뚫고 하락한 달: 아래 <a href="#apx">원문 상세</a>에 있다.</p>
-
 
 <p class="dim">자료와 계산 방법: 아래 <a href="#apx">원문 상세</a>에 있다.</p>
 
