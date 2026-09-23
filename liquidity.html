@@ -500,6 +500,8 @@ html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;-
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
 /*NAVCSS:END*/
 
+
+
 /* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
@@ -862,196 +864,203 @@ a.gl:hover{background:color-mix(in srgb,#0f7b8a 12%,transparent)}
 <header class="phead">
 <div class="eyebrow">아카이브 · 미국 유동성</div>
 <h1>미국 정부와 연준의 유동성 관리</h1>
-<p class="pauth">갱신 2026년 9월 23일 · 주간 351주(2020-01-01~2026-09-16) · FRED 실측 · 매주 갱신 · 본문의 <a class="gl" href="#g0">점선 밑줄</a>을 누르면 원문 상세표의 용어 설명으로 간다</p>
-<!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#연준이-푼-돈은-4개-계정-어딘가에-앉고-순-유동성은-그중-시중에-닿는-">연준이 푼 돈은 4개 계정 어딘가에 앉고, 순 유동성은 그중 시중에 닿는 몫이다</a></li><li><a href="#이-식은-350주에서-상관-0-927으로-맞는다-연준이-가만히-있어도-t">이 식은 350주에서 상관 +0.927으로 맞는다. 연준이 가만히 있어도 TGA가 늘면 지준이 준다</a></li><li><a href="#국면-6개-중-3개에서-연준-총자산과-순-유동성이-반대로-갔다-역레포가-">국면 6개 중 3개에서 연준 총자산과 순 유동성이 반대로 갔다. 역레포가 1,799십억 달러를 움직인 국면이 그 하나다</a></li><li><a href="#역레포는-2-367십억-달러에서-5이-됐다-완충재가-있을-때와-없을-때는">역레포는 2,367십억 달러에서 5이 됐다. 완충재가 있을 때와 없을 때는 다른 시장이다</a></li><li><a href="#이야기꾼의-tga-규칙은-반만-선다-바닥-7번-뒤-6번-채워졌지만-순-유">이야기꾼의 TGA 규칙은 반만 선다. 바닥 7번 뒤 6번 채워졌지만 순 유동성이 함께 빠진 것은 3번이다</a></li><li><a href="#달러와는-1년-창에서만-반대로-움직인다-주간으로는-관계가-없다">달러와는 1년 창에서만 반대로 움직인다. 주간으로는 관계가 없다</a></li><li><a href="#이야기꾼은-역레포가-실질적-긴축을-대신했다고-2022년에-적었다-실측이-">이야기꾼은 역레포가 실질적 긴축을 대신했다고 2022년에 적었다. 실측이 그 말을 확인한다</a></li><li><a href="#아직-불확실한-곳은-어디인가">아직 불확실한 곳은 어디인가</a></li><li><a href="#그래서-연준-총자산이-아니라-순-유동성을-매주-읽는다-지금은-역레포가-5">그래서 연준 총자산이 아니라 순 유동성을 매주 읽는다. 지금은 역레포가 5이라 TGA 변화가 지준에 그대로 간다</a></li><li><a href="#apx">원문 상세표</a></li></ol></div><!--TOC:END--></header>
+<p class="pauth">갱신 2026년 9월 24일 · 주간 351주(2020년 1월 1일부터 2026년 9월 16일까지) · FRED 실측 · 매주 갱신 · 본문의 <a class="gl" href="#g0">점선 밑줄</a>을 누르면 원문 상세표의 용어 설명으로 간다</p>
+<!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#연준이-푼-돈은-4개-계정-가운데-하나에-남는다-순-유동성은-그중-시중에">연준이 푼 돈은 4개 계정 가운데 하나에 남는다. 순 유동성은 그중 시중에 닿는 몫이다</a></li><li><a href="#이-식은-350주에서-상관계수-0-927로-맞는다-연준-총자산이-그대로여">이 식은 350주에서 상관계수 0.927로 맞는다. 연준 총자산이 그대로여도 TGA가 늘면 지준이 줄어든다</a></li><li><a href="#국면-6개-중-3개에서-연준-총자산과-순-유동성이-반대-방향으로-움직였다">국면 6개 중 3개에서 연준 총자산과 순 유동성이 반대 방향으로 움직였다. 역레포가 1,799십억 달러 줄어든 국면이 그중 하나다</a></li><li><a href="#역레포는-2-367십억-달러에서-5십억-달러로-줄었다-완충재가-있을-때와">역레포는 2,367십억 달러에서 5십억 달러로 줄었다. 완충재가 있을 때와 없을 때 단기자금시장은 다르게 움직인다</a></li><li><a href="#이야기꾼의-tga-규칙에서-tga가-채워진다는-부분은-맞았다-바닥-7번-">이야기꾼의 TGA 규칙에서 TGA가 채워진다는 부분은 맞았다. 바닥 7번 뒤 6번 채워졌고, 순 유동성이 함께 감소한 것은 3번이다</a></li><li><a href="#순-유동성과-달러는-52주-변화에서-반대-방향으로-움직였다-13주-이하의">순 유동성과 달러는 52주 변화에서 반대 방향으로 움직였다. 13주 이하의 변화에서는 상관계수가 0에 가깝다</a></li><li><a href="#이야기꾼은-역레포가-실질적-긴축을-대신했다고-2022년에-적었다-실측이-">이야기꾼은 역레포가 실질적 긴축을 대신했다고 2022년에 적었다. 실측이 그 말을 확인한다</a></li><li><a href="#아직-불확실한-곳은-어디인가">아직 불확실한 곳은 어디인가</a></li><li><a href="#그래서-연준-총자산-대신-순-유동성을-매주-읽는다-지금은-역레포가-5십억">그래서 연준 총자산 대신 순 유동성을 매주 읽는다. 지금은 역레포가 5십억 달러라 TGA 변화가 지준에 그대로 간다</a></li><li><a href="#apx">원문 상세표</a></li></ol></div><!--TOC:END--></header>
 
 <!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div>
-<p>2020년 이후 미국의 유동성은 연준 혼자 정하지 않았다. 연준이 푼 돈이 정부의 지갑(TGA)과 잠자는 돈(역레포)에 얼마나 갇히느냐가 함께 정했다.
-국면 6개 가운데 3개에서 연준 총자산과 시중에 닿는 돈(순 유동성)이 반대로 움직였고, 연준 대차대조표만 보면 그 3개 국면을 거꾸로 읽는다.
-역레포는 2022년 9월 2.4조 달러까지 부풀었다가 지금 5이라, 완충재가 없으니 TGA가 움직이면 은행 지준이 그대로 받는다.
+<p>2020년 이후 미국의 유동성은 연준 혼자 정하지 않았다. 연준이 푼 돈 가운데 재무부 계좌(TGA)와 역레포에 묶인 몫이 함께 정했다.
+순 유동성은 연준 총자산에서 TGA와 역레포를 뺀 값이다. 시중에 닿는 돈이다.
+2020년 이후 국면 6개 가운데 3개에서 연준 총자산과 순 유동성이 반대 방향으로 움직였다. 연준 총자산만 보면 이 3개 국면에서 유동성의 방향을 거꾸로 읽는다.
+역레포는 2022년 9월 2.4조 달러까지 늘었다가 지금 5십억 달러로 줄었다. 완충재가 사라져, 지금은 TGA가 움직이면 은행 지준이 같은 만큼 움직인다.
 2026년 9월 16일 기준 순 유동성은 5.7조 달러다.</p>
 </div><!--PCLAIM:END-->
 
 <!--LEAD:BEGIN--><details class="lead"><summary>펼치기 · 문제 · 왜 지금 · 반론 · 이 글의 입장</summary>
-<p>무엇이 문제인가. 「연준이 QT를 하니 긴축이다」, 「연준이 사니 완화다」는 읽기가 가장 흔하다.
-그런데 연준이 푼 돈은 연준의 부채 어딘가에 앉고, 그곳이 정부의 지갑(<a class="gl" href="#g0">TGA</a>)이나 잠자는 돈(<a class="gl" href="#g1">역레포</a>)이면 시중에 닿지 않는다.
+<p>무엇이 문제인가. 「연준이 QT를 하니 긴축이다」, 「연준이 QE를 하니 완화다」는 읽기가 가장 흔하다.
+그런데 연준이 푼 돈은 연준 부채의 여러 계정 가운데 하나에 남는다. 그 계정이 재무부 계좌(<a class="gl" href="#g0">TGA</a>)나 <a class="gl" href="#g1">역레포</a>면 돈은 시중에 닿지 않는다.
 연준 총자산 하나로 유동성을 읽으면 언제 틀리는지, 무엇을 대신 읽어야 하는지가 문제다.</p>
 
-<p>왜 지금인가. 2026년 9월 16일 기준 연준 총자산 6,747, TGA 992, 역레포 5, 은행 지준 2,922, 순 유동성 5,749이다(십억 달러). SOFR는 3.62%다.
-역레포가 비어 있어 TGA가 늘면 지준이 같은 만큼 준다. 연준은 2025년 12월 3일 6.5조 달러를 바닥으로 41주 동안 총자산을 +211십억 달러 늘렸다.
-이야기꾼은 2026년 6월 6일에 「하반기 중간선거 전에 TGA를 하락시켜 유동성을 공급할 가능성」을 적었다. 그것이 맞는지는 매주 TGA 열에서 본다.</p>
+<p>왜 지금인가. 2026년 9월 16일 기준 잔고는 십억 달러 단위로 연준 총자산 6,747, TGA 992, 역레포 5, 은행 지준 2,922, 순 유동성 5,749다. SOFR는 3.62%다.
+역레포가 비어 있어, TGA가 늘면 지준이 같은 만큼 줄어든다. 연준 총자산은 2025년 12월 3일 6.5조 달러가 바닥이었다. 그 뒤 41주 동안 연준은 총자산을 211십억 달러 늘렸다.
+이야기꾼은 2026년 6월 6일에 「하반기 중간선거 전에 TGA를 하락시켜 유동성을 공급할 가능성」을 적었다. 그 가능성은 매주 TGA 열에서 확인한다.</p>
 
-<p>반론은 무엇인가. 연준 총자산을 곧 유동성으로 읽는 쪽이 있다. 이 글의 국면표는 그 읽기가 6개 중 3개 국면에서 부호를 틀렸다고 본다.
-반대로 「TGA가 채워지면 공황」이라는 규칙을 쓰는 쪽이 있다. 이야기꾼이 2025년 7월 12일 W28에 그렇게 적었다. 이 글은 TGA 바닥 7번 뒤를 실측해 그 규칙이 어디까지 서는지를 본다.
-「순 유동성」 자체가 표준 정의가 아니라는 반론도 있다. 맞다. 이 글은 그것을 참고 지표로만 쓴다.</p>
+<p>반론은 무엇인가. 연준 총자산을 곧 유동성으로 읽는 쪽이 있다. 이 글의 국면표에서 그 읽기는 6개 국면 중 3개에서 방향을 틀렸다.
+반대로 「TGA가 채워지면 공황」이라는 규칙을 쓰는 쪽이 있다. 이야기꾼이 2025년 7월 12일 W28에 그렇게 적었다. 이 글은 TGA 바닥 7번 뒤의 6개월을 실측해, 그 규칙이 어디까지 맞는지 확인한다.
+「순 유동성」이 표준 정의가 아니라는 반론도 있다. 맞는 지적이다. 이 글은 순 유동성을 참고 지표로 쓴다.</p>
 
-<p>이 글의 입장은 무엇인가. 연준 총자산이 아니라 순 유동성, 즉 총자산에서 TGA와 역레포를 뺀 값을 매주 읽는다.
-그 근거로 4개 계정의 더하기 빼기 식이 350주에서 맞는지, 국면마다 어느 계정이 움직였는지, 역레포가 사라진 뒤 무엇이 달라졌는지를 놓는다.
+<p>이 글의 입장은 무엇인가. 연준 총자산 대신 순 유동성을 매주 읽는다. 순 유동성은 총자산에서 TGA와 역레포를 뺀 값이다.
+근거는 3가지다. 4개 계정의 더하기 빼기 식이 350주에서 맞는지, 국면마다 어느 계정이 움직였는지, 역레포가 사라진 뒤 무엇이 달라졌는지다.
 순서는 이렇다. 4개 계정과 그 식을 먼저 정한다. 그다음 국면표, 역레포의 소멸, 이야기꾼의 TGA 규칙, 달러와의 관계를 놓는다. 마지막에 지금 무엇을 볼지를 적는다.</p>
 </details><!--LEAD:END-->
-<h2 id="연준이-푼-돈은-4개-계정-어딘가에-앉고-순-유동성은-그중-시중에-닿는-">연준이 푼 돈은 4개 계정 어딘가에 앉고, 순 유동성은 그중 시중에 닿는 몫이다</h2>
+<h2 id="연준이-푼-돈은-4개-계정-가운데-하나에-남는다-순-유동성은-그중-시중에">연준이 푼 돈은 4개 계정 가운데 하나에 남는다. 순 유동성은 그중 시중에 닿는 몫이다</h2>
 
-<p>연준 총자산은 연준이 <a class="gl" href="#g4">QE</a>로 넣고 <a class="gl" href="#g3">QT</a>로 뺀 돈의 총량이다. 그 돈은 연준의 부채 쪽에 앉는다.
-<a class="gl" href="#g0">TGA</a>는 재무부가 연준에 둔 정부의 예금계좌다. 국채를 팔거나 세금이 들어오면 늘고 정부가 쓰면 준다.
-<a class="gl" href="#g1">역레포</a>는 은행과 MMF가 남는 돈을 연준에 하룻밤 맡기는 창구다. <a class="gl" href="#g2">지준</a>은 은행이 연준에 맡겨 둔 돈이고 시중 유동성의 마지막 완충재다.
+<p>연준 총자산은 연준이 <a class="gl" href="#g4">QE</a>로 넣고 <a class="gl" href="#g3">QT</a>로 뺀 돈의 총량이다. 그 돈은 연준 대차대조표의 부채 쪽 계정에 남는다.
+<a class="gl" href="#g0">TGA</a>는 재무부가 연준에 둔 정부의 예금계좌다. 재무부가 국채를 발행하거나 세금이 들어오면 TGA가 늘어난다. 정부가 돈을 쓰면 TGA가 줄어든다.
+<a class="gl" href="#g1">역레포</a>는 은행과 MMF가 남는 돈을 연준에 하룻밤 맡기는 창구다. <a class="gl" href="#g2">지준</a>은 은행이 연준에 맡겨 둔 돈이다. 시중 유동성의 마지막 완충재다.
 나머지가 유통 현금과 그 밖의 항목이다.</p>
 
-<p>순 유동성은 연준 총자산에서 TGA와 역레포를 뺀 값이다. 정부 지갑과 잠자는 돈에 갇힌 몫을 뺀 것이다.
-시중의 돈을 직접 집계한 값이 아니라 연준 대차대조표에서 만든 참고 지표이고, 유통 현금 같은 다른 부채 항목은 빠져 있다.</p>
+<p>순 유동성은 연준 총자산에서 TGA와 역레포를 뺀 값이다. 재무부 계좌와 역레포에 묶여 시중에 닿지 않는 돈을 뺀 것이다.
+순 유동성은 연준 대차대조표에서 만든 참고 지표다. 시중의 돈을 직접 집계한 값은 아니다. 유통 현금 같은 다른 부채 항목은 계산에서 빠져 있다.</p>
 
-<figure class="fig dg" style="width:min(1400px,calc(100vw - 48px));max-width:none;margin-left:calc((100% - min(1400px,calc(100vw - 48px)))/2)"><iframe class="dgv" data-dg="dg/liquidity-plumbing.html" src="dg/liquidity-plumbing.html?embed=1&amp;theme=light" title="유동성 배관도" loading="lazy" style="display:block;width:100%;aspect-ratio:1146/696;border:1px solid var(--border,#e3e3e6);border-radius:12px;background:var(--surface,#fff)"></iframe><figcaption>읽는 법은 3개의 밸브다. ① 연준이 총량을 정하고 ② 재무부가 TGA 로 빼고 넣고 ③ 역레포가 남는 물을 받아 준다(2025년까지). 지금은 ③이 사라져 ②가 움직이면 지준이 곧바로 반응한다. 화살표를 따라가면 돈이 시중으로 가지 않고 빠지는 곳이 보인다. TGA와 역레포로 빠진 돈은 시중에 닿지 않는다. 다만 은행이 지준을 기업이나 가계에 빌려주는 것은 아니다. 은행이 대출을 하면 그 순간 예금이 생긴다. 지준은 은행끼리 결제할 때 쓰는 돈이고, 지준이 얇아지면 단기자금시장이 먼저 뻑뻑해진다. 2009년은 금융시장 쪽에만 넣었고 2020년은 재정정책을 병행해 실물에도 직접 넣었다. 그래서 물가가 왔다. <a href="dg/liquidity-plumbing.html">따로 열기</a>.</figcaption></figure><script>(function(){var h=document.documentElement;function fit(f){try{var s=f.contentDocument&&f.contentDocument.querySelector("svg");if(s){var b=s.getBoundingClientRect().bottom+10;if(b>120)f.style.height=Math.ceil(b)+"px";}}catch(e){}}function sync(){var t=h.classList.contains("theme-dark")?"dark":"light";document.querySelectorAll("iframe.dgv").forEach(function(f){var u=f.getAttribute("data-dg")+"?embed=1&theme="+t;if(f.getAttribute("src")!==u){f.style.height="";f.setAttribute("src",u);}});}document.querySelectorAll("iframe.dgv").forEach(function(f){f.addEventListener("load",function(){setTimeout(function(){fit(f)},50);});});window.addEventListener("resize",function(){document.querySelectorAll("iframe.dgv").forEach(fit);});sync();if(window.MutationObserver)new MutationObserver(sync).observe(h,{attributes:true,attributeFilter:["class"]});})();</script>
+<figure class="fig dg" style="width:min(1400px,calc(100vw - 48px));max-width:none;margin-left:calc((100% - min(1400px,calc(100vw - 48px)))/2)"><iframe class="dgv" data-dg="dg/liquidity-plumbing.html" src="dg/liquidity-plumbing.html?embed=1&amp;theme=light" title="유동성 배관도" loading="lazy" style="display:block;width:100%;aspect-ratio:1146/696;border:1px solid var(--border,#e3e3e6);border-radius:12px;background:var(--surface,#fff)"></iframe><figcaption>그림은 밸브 3개로 읽는다. ① 연준이 총량을 정한다. ② 재무부가 TGA로 돈을 빼고 넣는다. ③ 역레포가 남는 돈을 받아 준다(2025년까지). 지금은 역레포(③)가 사라져, TGA(②)가 움직이면 지준이 곧바로 반응한다. 화살표를 따라가면 돈이 시중 대신 TGA와 역레포로 가는 길이 보인다. TGA와 역레포에 들어간 돈은 시중에 닿지 않는다. 다만 은행이 지준을 기업이나 가계에 빌려주는 것은 아니다. 은행이 대출을 하면 그 순간 예금이 생긴다. 지준은 은행끼리 결제할 때 쓰는 돈이다. 지준이 줄어들면 단기자금시장의 금리가 먼저 상승한다. 2009년 QE는 돈을 금융시장 쪽에만 넣었다. 2020년 QE는 재정정책을 병행해 실물경제에도 직접 넣었다. 그래서 2020년 뒤에는 물가가 상승했다. <a href="dg/liquidity-plumbing.html">따로 열기</a>.</figcaption></figure><script>(function(){var h=document.documentElement;function fit(f){try{var s=f.contentDocument&&f.contentDocument.querySelector("svg");if(s){var b=s.getBoundingClientRect().bottom+10;if(b>120)f.style.height=Math.ceil(b)+"px";}}catch(e){}}function sync(){var t=h.classList.contains("theme-dark")?"dark":"light";document.querySelectorAll("iframe.dgv").forEach(function(f){var u=f.getAttribute("data-dg")+"?embed=1&theme="+t;if(f.getAttribute("src")!==u){f.style.height="";f.setAttribute("src",u);}});}document.querySelectorAll("iframe.dgv").forEach(function(f){f.addEventListener("load",function(){setTimeout(function(){fit(f)},50);});});window.addEventListener("resize",function(){document.querySelectorAll("iframe.dgv").forEach(fit);});sync();if(window.MutationObserver)new MutationObserver(sync).observe(h,{attributes:true,attributeFilter:["class"]});})();</script>
 
-<p>4개 계정의 관계는 잔액이 아니라 한 주 동안의 변화로 본다. 잔액으로 맞추면 기타가 총자산의 40%가 넘는데 그 대부분은 유통 현금(약 2.8조 달러)이다.
-현금은 액수는 크지만 주 단위로는 거의 안 움직여서 변화로 보면 상쇄된다.
-그래서 「이번 주에 돈이 어느 계정으로 갔나」는 「지준 변화 ≈ 총자산 변화 − TGA 변화 − 역레포 변화」로 놓고 본다.
-계열은 수요일 잔액(WDTGAL·WRBWFRBL)을 쓴다. 연준 총자산은 수요일 잔액인데 TGA와 지준을 주간 평균으로 쓰면 같은 날짜가 붙어도 같은 시점이 아니다. 옛 계열로 계산하면 상관 +0.714에 오차 73%다. 시점을 맞추면 상관 +0.927에 오차 23%로 좋아진다.</p>
+<p>4개 계정의 관계는 한 주 동안의 변화로 본다. 잔액으로 맞추면 기타 항목이 너무 크기 때문이다. 지금 기타 항목은 2.8조 달러로 총자산의 42%다. 그 대부분은 유통 현금이다.
+유통 현금은 액수는 크지만 주 단위로는 거의 움직이지 않는다. 그래서 변화로 보면 상쇄된다.
+「이번 주에 돈이 어느 계정으로 갔나」는 「지준 변화 ≈ 총자산 변화 − TGA 변화 − 역레포 변화」로 놓고 본다.
+TGA와 지준 계열은 수요일 잔액(WDTGAL·WRBWFRBL)을 쓴다. 연준 총자산이 수요일 잔액이기 때문이다. 주간 평균 계열을 쓰면 날짜가 같아도 시점이 다르다. 옛 주간 평균 계열로 계산하면 상관계수는 0.714, 오차는 73%다. 시점을 맞추면 상관계수는 0.927, 오차는 23%다.</p>
 
-<h2 id="이-식은-350주에서-상관-0-927으로-맞는다-연준이-가만히-있어도-t">이 식은 350주에서 상관 +0.927으로 맞는다. 연준이 가만히 있어도 TGA가 늘면 지준이 준다</h2>
+<h2 id="이-식은-350주에서-상관계수-0-927로-맞는다-연준-총자산이-그대로여">이 식은 350주에서 상관계수 0.927로 맞는다. 연준 총자산이 그대로여도 TGA가 늘면 지준이 줄어든다</h2>
 
-<p>총자산 변화에서 TGA 변화와 역레포 변화를 뺀 값을 예측값으로 놓고 실제 지준 변화와 350주를 대조했다.
-상관은 +0.927이고 오차 중앙값은 지준 변화폭의 23%다.
-그래서 연준이 가만히 있어도 TGA가 늘면 지준이 준다. 「<a class="gl" href="#g3">QT</a>를 안 했는데 긴축이었다」는 말이 여기서 나온다.</p>
+<p>총자산 변화에서 TGA 변화와 역레포 변화를 뺀 값을 예측값으로 놓았다. 이 예측값을 실제 지준 변화와 350주 동안 대조했다.
+상관계수는 0.927이다. 오차 중앙값은 지준 변화폭의 23%다.
+그래서 연준 총자산이 그대로여도 TGA가 늘면 지준이 줄어든다. 「<a class="gl" href="#g3">QT</a>를 안 했는데 긴축이었다」는 말이 여기서 나온다.</p>
 
 <figure class="wide"><div class="cbox"><canvas id="c4"></canvas></div>
-<figcaption><span class="freq w">주간</span>같은 자료를 겹쳐 그리지 않고 쌓았다. 아래부터 은행 지준(파랑) · TGA(앰버) · 역레포(초록) · 기타(회색, 대부분 유통 현금)이고 4개 층의 합이 곧 연준 총자산이다.
-2021~2023년에 역레포 층이 두껍게 부풀었다가 사라진 것과 그만큼 지준이 눌렸던 것이 한 그림에 있다. 총 높이는 별로 안 변했는데 안에서 자리만 바뀐 것이 이 시기의 정체다.</figcaption></figure>
+<figcaption><span class="freq w">주간</span>4개 계정을 아래부터 쌓아 그렸다. 아래부터 은행 지준(파랑), TGA(앰버), 역레포(초록), 기타(회색, 대부분 유통 현금)다. 4개 층의 합이 연준 총자산이다.
+역레포 층은 2021년부터 2023년까지 두꺼워졌다가 사라졌다. 역레포 층이 두꺼워진 만큼 지준 층이 얇아진 것도 같은 그림에 보인다. 연준 총자산의 크기가 같아도 계정 사이의 구성은 크게 바뀔 수 있다.</figcaption></figure>
 
 <figure class="wide"><div class="cbox"><canvas id="c1"></canvas></div>
-<figcaption><span class="freq w">주간</span>회색 점선이 연준 총자산, 굵은 황금색이 순 유동성(총자산−TGA−역레포)이다. 초록이 역레포, 앰버가 TGA, 파랑이 은행 지준이고 단위는 십억 달러다.
-회색과 황금색이 벌어진 폭이 시중에 닿지 못한 돈이다.</figcaption></figure>
+<figcaption><span class="freq w">주간</span>회색 점선이 연준 총자산, 굵은 황금색이 순 유동성(총자산−TGA−역레포)이다. 초록이 역레포, 앰버가 TGA, 파랑이 은행 지준이다. 단위는 십억 달러다.
+회색 점선과 황금색 선 사이의 폭이 TGA와 역레포에 묶여 시중에 닿지 못한 돈이다.</figcaption></figure>
 
-<h2 id="국면-6개-중-3개에서-연준-총자산과-순-유동성이-반대로-갔다-역레포가-">국면 6개 중 3개에서 연준 총자산과 순 유동성이 반대로 갔다. 역레포가 1,799십억 달러를 움직인 국면이 그 하나다</h2>
+<h2 id="국면-6개-중-3개에서-연준-총자산과-순-유동성이-반대-방향으로-움직였다">국면 6개 중 3개에서 연준 총자산과 순 유동성이 반대 방향으로 움직였다. 역레포가 1,799십억 달러 줄어든 국면이 그중 하나다</h2>
 
-<p>2020년 이후를 6개 국면으로 잘라 각 계정이 구간 시작 대비 끝에 얼마나 변했는지를 놓았다. 단위는 십억 달러다.
-TGA와 역레포는 늘면 흡수이므로 부호를 뒤집어 읽어야 하고, 순 유동성 열이 그 계산을 이미 마친 값이다. 마지막 열은 연준 총자산과 순 유동성의 부호가 같은지다.</p>
+<p>2020년 이후를 6개 국면으로 구분했다. 표의 각 칸은 국면 시작 대비 끝의 변화다. 단위는 십억 달러다.
+TGA와 역레포가 늘면 시중의 돈을 흡수한 것이다. 그래서 TGA와 역레포 열은 부호를 뒤집어 읽는다. 순 유동성 열은 그 계산을 마친 값이다.
+마지막 열은 연준 총자산과 순 유동성이 같은 방향으로 움직였는지를 적었다.</p>
 
 <div class="tblwrap"><table class="tw"><thead><tr><th>국면</th><th class="n">연준 총자산</th><th class="n">TGA</th>
-<th class="n">역레포</th><th class="n">은행 지준</th><th class="n">순 유동성</th><th>부호</th></tr></thead>
+<th class="n">역레포</th><th class="n">은행 지준</th><th class="n">순 유동성</th><th>방향</th></tr></thead>
 <tbody><tr><td>① 팬데믹 투여<br><span class="dim">2020-01~2021-03</span></td><td class="n">+3515</td><td class="n">+718</td><td class="n">+70</td><td class="n">+2124</td><td class="n good">+2727</td><td>같음</td></tr><tr class="cur"><td>② 역레포 흡수 시작<br><span class="dim">2021-04~2022-02</span></td><td class="n">+1219</td><td class="n">-280</td><td class="n">+1703</td><td class="n">-198</td><td class="n bad">-204</td><td>반대</td></tr><tr><td>③ QT·금리인상<br><span class="dim">2022-03~2023-04</span></td><td class="n">-342</td><td class="n">-389</td><td class="n">+753</td><td class="n">-787</td><td class="n bad">-706</td><td>같음</td></tr><tr class="cur"><td>④ 부채한도 후 역레포 방출<br><span class="dim">2023-05~2024-05</span></td><td class="n">-1220</td><td class="n">+528</td><td class="n">-1799</td><td class="n">+225</td><td class="n good">+52</td><td>반대</td></tr><tr><td>⑤ 역레포 고갈<br><span class="dim">2024-06~2025-06</span></td><td class="n">-593</td><td class="n">-369</td><td class="n">-161</td><td class="n">-110</td><td class="n bad">-64</td><td>같음</td></tr><tr class="cur"><td>⑥ 지준만 남다<br><span class="dim">2025-07~2026-09</span></td><td class="n">+87</td><td class="n">+619</td><td class="n">-232</td><td class="n">-335</td><td class="n bad">-301</td><td>반대</td></tr></tbody></table></div>
 
-<p>표에서 반대로 간 줄을 보자. 2021년 4월부터 2022년 2월까지 연준 총자산은 +1,219십억 달러인데 역레포가 +1,703십억 달러라 순 유동성은 -204십억 달러였다.
-연준은 아직 QE 중이었는데 시중은 마이너스였다. 테이퍼링 논쟁이 한창일 때 실제 긴축은 역레포가 하고 있었다.
-2번째 줄은 2023년 5월부터 2024년 5월까지다. 연준 총자산이 -1,220십억 달러로 QT가 한창이었는데 역레포가 -1,799십억 달러 방출돼 순 유동성은 +52십억 달러였다. 「QT 중이니 긴축」이라고 읽었다면 부호를 틀린 것이다.
-그 뒤로도 반대로 간 국면이 있다. 2025년 7월부터의 ⑥ 지준만 남다 국면은 총자산 +87십억 달러에 순 유동성 -301십억 달러였다. 역레포가 비어 가는 동안 TGA가 +619십억 달러 늘어 지준을 깎은 것이다.</p>
+<p>표에서 방향이 반대인 첫 줄은 2021년 4월부터 2022년 2월까지다. 이 국면에 연준 총자산은 1,219십억 달러 늘었다. 같은 기간 역레포는 1,703십억 달러 늘었다. 순 유동성은 204십억 달러 줄었다.
+연준은 아직 QE 중이었다. 그런데 시중에 닿는 돈은 줄었다. 테이퍼링 논쟁이 한창일 때 실제 긴축은 역레포가 하고 있었다.
+방향이 반대인 2번째 줄은 2023년 5월부터 2024년 5월까지다. QT가 한창이던 이 국면에 연준 총자산은 1,220십억 달러 줄었다. 같은 기간 역레포는 1,799십억 달러 줄었다. 순 유동성은 52십억 달러 늘었다.
+「QT 중이니 긴축」이라고 읽었다면 방향을 틀린 것이다.
+방향이 반대인 3번째 줄은 2025년 7월부터의 ⑥ 국면(지준만 남다)이다. 연준 총자산은 87십억 달러 늘었다. 순 유동성은 301십억 달러 줄었다.
+역레포가 비어 가는 동안 TGA가 619십억 달러 늘어 지준을 줄였다.</p>
 
-<figure class="wide"><svg viewBox="0 0 700 574" xmlns="http://www.w3.org/2000/svg" font-family="Nanum Gothic,sans-serif"><text x="315" y="16" font-size="11" fill="#6e6e73" text-anchor="end">← 줄어든 통 (물을 내놓음)</text><text x="331" y="16" font-size="11" fill="#6e6e73">늘어난 통 (물을 가둠) →</text><line x1="323" y1="22" x2="323" y2="556" stroke="#e5e5e7"/><text x="0" y="46" font-size="12" font-weight="700">① 팬데믹 투여</text><text x="0" y="60" font-size="9.5" fill="#6e6e73">20-01~21-03</text><rect x="323.0" y="36.0" width="227.0" height="11" rx="2" fill="#7c7a73" opacity=".82"/><text x="555.0" y="45.0" font-size="9" fill="#6e6e73" text-anchor="start">연준 +3,515</text><rect x="323.0" y="50.0" width="46.4" height="11" rx="2" fill="#b45309" opacity=".82"/><text x="374.4" y="59.0" font-size="9" fill="#6e6e73" text-anchor="start">TGA +718</text><rect x="323.0" y="64.0" width="4.5" height="11" rx="2" fill="#0f7b8a" opacity=".82"/><text x="332.5" y="73.0" font-size="9" fill="#6e6e73" text-anchor="start">역레포 +70</text><rect x="323.0" y="78.0" width="137.1" height="11" rx="2" fill="#1161c4" opacity=".82"/><text x="465.1" y="87.0" font-size="9" fill="#6e6e73" text-anchor="start">지준 +2,124</text><text x="568" y="68" font-size="11.5" font-weight="800" fill="#1161c4">순 유동성 +2,727</text><text x="568" y="82" font-size="9.5" fill="#6e6e73">공급</text><text x="0" y="132" font-size="12" font-weight="700">② 역레포 흡수 시작</text><text x="0" y="146" font-size="9.5" fill="#6e6e73">21-04~22-02</text><rect x="323.0" y="122.0" width="78.7" height="11" rx="2" fill="#7c7a73" opacity=".82"/><text x="406.7" y="131.0" font-size="9" fill="#6e6e73" text-anchor="start">연준 +1,219</text><rect x="304.9" y="136.0" width="18.1" height="11" rx="2" fill="#b45309" opacity=".82"/><text x="299.9" y="145.0" font-size="9" fill="#6e6e73" text-anchor="end">TGA -280</text><rect x="323.0" y="150.0" width="110.0" height="11" rx="2" fill="#0f7b8a" opacity=".82"/><text x="438.0" y="159.0" font-size="9" fill="#6e6e73" text-anchor="start">역레포 +1,703</text><rect x="310.2" y="164.0" width="12.8" height="11" rx="2" fill="#1161c4" opacity=".82"/><text x="305.2" y="173.0" font-size="9" fill="#6e6e73" text-anchor="end">지준 -198</text><text x="568" y="154" font-size="11.5" font-weight="800" fill="#d21f3c">순 유동성 -204</text><text x="568" y="168" font-size="9.5" fill="#6e6e73">흡수</text><text x="0" y="218" font-size="12" font-weight="700">③ QT·금리인상</text><text x="0" y="232" font-size="9.5" fill="#6e6e73">22-03~23-04</text><rect x="300.9" y="208.0" width="22.1" height="11" rx="2" fill="#7c7a73" opacity=".82"/><text x="295.9" y="217.0" font-size="9" fill="#6e6e73" text-anchor="end">연준 -342</text><rect x="297.9" y="222.0" width="25.1" height="11" rx="2" fill="#b45309" opacity=".82"/><text x="292.9" y="231.0" font-size="9" fill="#6e6e73" text-anchor="end">TGA -389</text><rect x="323.0" y="236.0" width="48.6" height="11" rx="2" fill="#0f7b8a" opacity=".82"/><text x="376.6" y="245.0" font-size="9" fill="#6e6e73" text-anchor="start">역레포 +753</text><rect x="272.2" y="250.0" width="50.8" height="11" rx="2" fill="#1161c4" opacity=".82"/><text x="267.2" y="259.0" font-size="9" fill="#6e6e73" text-anchor="end">지준 -787</text><text x="568" y="240" font-size="11.5" font-weight="800" fill="#d21f3c">순 유동성 -706</text><text x="568" y="254" font-size="9.5" fill="#6e6e73">흡수</text><text x="0" y="304" font-size="12" font-weight="700">④ 부채한도 후 역레포 방출</text><text x="0" y="318" font-size="9.5" fill="#6e6e73">23-05~24-05</text><rect x="244.2" y="294.0" width="78.8" height="11" rx="2" fill="#7c7a73" opacity=".82"/><text x="239.2" y="303.0" font-size="9" fill="#6e6e73" text-anchor="end">연준 -1,220</text><rect x="323.0" y="308.0" width="34.1" height="11" rx="2" fill="#b45309" opacity=".82"/><text x="362.1" y="317.0" font-size="9" fill="#6e6e73" text-anchor="start">TGA +528</text><rect x="206.8" y="322.0" width="116.2" height="11" rx="2" fill="#0f7b8a" opacity=".82"/><text x="201.8" y="331.0" font-size="9" fill="#6e6e73" text-anchor="end">역레포 -1,799</text><rect x="323.0" y="336.0" width="14.5" height="11" rx="2" fill="#1161c4" opacity=".82"/><text x="342.5" y="345.0" font-size="9" fill="#6e6e73" text-anchor="start">지준 +225</text><text x="568" y="326" font-size="11.5" font-weight="800" fill="#1161c4">순 유동성 +52</text><text x="568" y="340" font-size="9.5" fill="#6e6e73">공급</text><text x="0" y="390" font-size="12" font-weight="700">⑤ 역레포 고갈</text><text x="0" y="404" font-size="9.5" fill="#6e6e73">24-06~25-06</text><rect x="284.7" y="380.0" width="38.3" height="11" rx="2" fill="#7c7a73" opacity=".82"/><text x="279.7" y="389.0" font-size="9" fill="#6e6e73" text-anchor="end">연준 -593</text><rect x="299.2" y="394.0" width="23.8" height="11" rx="2" fill="#b45309" opacity=".82"/><text x="294.2" y="403.0" font-size="9" fill="#6e6e73" text-anchor="end">TGA -369</text><rect x="312.6" y="408.0" width="10.4" height="11" rx="2" fill="#0f7b8a" opacity=".82"/><text x="307.6" y="417.0" font-size="9" fill="#6e6e73" text-anchor="end">역레포 -161</text><rect x="315.9" y="422.0" width="7.1" height="11" rx="2" fill="#1161c4" opacity=".82"/><text x="310.9" y="431.0" font-size="9" fill="#6e6e73" text-anchor="end">지준 -110</text><text x="568" y="412" font-size="11.5" font-weight="800" fill="#d21f3c">순 유동성 -64</text><text x="568" y="426" font-size="9.5" fill="#6e6e73">흡수</text><text x="0" y="476" font-size="12" font-weight="700">⑥ 지준만 남다</text><text x="0" y="490" font-size="9.5" fill="#6e6e73">25-07~26-09</text><rect x="323.0" y="466.0" width="5.6" height="11" rx="2" fill="#7c7a73" opacity=".82"/><text x="333.6" y="475.0" font-size="9" fill="#6e6e73" text-anchor="start">연준 +87</text><rect x="323.0" y="480.0" width="40.0" height="11" rx="2" fill="#b45309" opacity=".82"/><text x="368.0" y="489.0" font-size="9" fill="#6e6e73" text-anchor="start">TGA +619</text><rect x="308.0" y="494.0" width="15.0" height="11" rx="2" fill="#0f7b8a" opacity=".82"/><text x="303.0" y="503.0" font-size="9" fill="#6e6e73" text-anchor="end">역레포 -232</text><rect x="301.4" y="508.0" width="21.6" height="11" rx="2" fill="#1161c4" opacity=".82"/><text x="296.4" y="517.0" font-size="9" fill="#6e6e73" text-anchor="end">지준 -335</text><text x="568" y="498" font-size="11.5" font-weight="800" fill="#d21f3c">순 유동성 -301</text><text x="568" y="512" font-size="9.5" fill="#6e6e73">흡수</text></svg>
-<figcaption>가로 막대 길이가 그 국면의 변화폭(십억 달러)이다. 가운데 세로선이 0이고 오른쪽은 잔고가 늘어 시중에서 돈을 흡수한 것, 왼쪽은 잔고가 줄어 시중으로 돈을 공급한 것이다. 맨 오른쪽 굵은 숫자가 그 국면의 순 유동성 결과다.</figcaption></figure>
+<figure class="wide"><svg viewBox="0 0 700 574" xmlns="http://www.w3.org/2000/svg" font-family="Nanum Gothic,sans-serif"><text x="315" y="16" font-size="11" fill="#6e6e73" text-anchor="end">← 잔고 감소</text><text x="331" y="16" font-size="11" fill="#6e6e73">잔고 증가 →</text><line x1="323" y1="22" x2="323" y2="556" stroke="#e5e5e7"/><text x="0" y="46" font-size="12" font-weight="700">① 팬데믹 투여</text><text x="0" y="60" font-size="9.5" fill="#6e6e73">20-01~21-03</text><rect x="323.0" y="36.0" width="227.0" height="11" rx="2" fill="#7c7a73" opacity=".82"/><text x="555.0" y="45.0" font-size="9" fill="#6e6e73" text-anchor="start">연준 +3,515</text><rect x="323.0" y="50.0" width="46.4" height="11" rx="2" fill="#b45309" opacity=".82"/><text x="374.4" y="59.0" font-size="9" fill="#6e6e73" text-anchor="start">TGA +718</text><rect x="323.0" y="64.0" width="4.5" height="11" rx="2" fill="#0f7b8a" opacity=".82"/><text x="332.5" y="73.0" font-size="9" fill="#6e6e73" text-anchor="start">역레포 +70</text><rect x="323.0" y="78.0" width="137.1" height="11" rx="2" fill="#1161c4" opacity=".82"/><text x="465.1" y="87.0" font-size="9" fill="#6e6e73" text-anchor="start">지준 +2,124</text><text x="568" y="68" font-size="11.5" font-weight="800" fill="#1161c4">순 유동성 +2,727</text><text x="568" y="82" font-size="9.5" fill="#6e6e73">공급</text><text x="0" y="132" font-size="12" font-weight="700">② 역레포 흡수 시작</text><text x="0" y="146" font-size="9.5" fill="#6e6e73">21-04~22-02</text><rect x="323.0" y="122.0" width="78.7" height="11" rx="2" fill="#7c7a73" opacity=".82"/><text x="406.7" y="131.0" font-size="9" fill="#6e6e73" text-anchor="start">연준 +1,219</text><rect x="304.9" y="136.0" width="18.1" height="11" rx="2" fill="#b45309" opacity=".82"/><text x="299.9" y="145.0" font-size="9" fill="#6e6e73" text-anchor="end">TGA -280</text><rect x="323.0" y="150.0" width="110.0" height="11" rx="2" fill="#0f7b8a" opacity=".82"/><text x="438.0" y="159.0" font-size="9" fill="#6e6e73" text-anchor="start">역레포 +1,703</text><rect x="310.2" y="164.0" width="12.8" height="11" rx="2" fill="#1161c4" opacity=".82"/><text x="305.2" y="173.0" font-size="9" fill="#6e6e73" text-anchor="end">지준 -198</text><text x="568" y="154" font-size="11.5" font-weight="800" fill="#d21f3c">순 유동성 -204</text><text x="568" y="168" font-size="9.5" fill="#6e6e73">흡수</text><text x="0" y="218" font-size="12" font-weight="700">③ QT·금리인상</text><text x="0" y="232" font-size="9.5" fill="#6e6e73">22-03~23-04</text><rect x="300.9" y="208.0" width="22.1" height="11" rx="2" fill="#7c7a73" opacity=".82"/><text x="295.9" y="217.0" font-size="9" fill="#6e6e73" text-anchor="end">연준 -342</text><rect x="297.9" y="222.0" width="25.1" height="11" rx="2" fill="#b45309" opacity=".82"/><text x="292.9" y="231.0" font-size="9" fill="#6e6e73" text-anchor="end">TGA -389</text><rect x="323.0" y="236.0" width="48.6" height="11" rx="2" fill="#0f7b8a" opacity=".82"/><text x="376.6" y="245.0" font-size="9" fill="#6e6e73" text-anchor="start">역레포 +753</text><rect x="272.2" y="250.0" width="50.8" height="11" rx="2" fill="#1161c4" opacity=".82"/><text x="267.2" y="259.0" font-size="9" fill="#6e6e73" text-anchor="end">지준 -787</text><text x="568" y="240" font-size="11.5" font-weight="800" fill="#d21f3c">순 유동성 -706</text><text x="568" y="254" font-size="9.5" fill="#6e6e73">흡수</text><text x="0" y="304" font-size="12" font-weight="700">④ 부채한도 후 역레포 방출</text><text x="0" y="318" font-size="9.5" fill="#6e6e73">23-05~24-05</text><rect x="244.2" y="294.0" width="78.8" height="11" rx="2" fill="#7c7a73" opacity=".82"/><text x="239.2" y="303.0" font-size="9" fill="#6e6e73" text-anchor="end">연준 -1,220</text><rect x="323.0" y="308.0" width="34.1" height="11" rx="2" fill="#b45309" opacity=".82"/><text x="362.1" y="317.0" font-size="9" fill="#6e6e73" text-anchor="start">TGA +528</text><rect x="206.8" y="322.0" width="116.2" height="11" rx="2" fill="#0f7b8a" opacity=".82"/><text x="201.8" y="331.0" font-size="9" fill="#6e6e73" text-anchor="end">역레포 -1,799</text><rect x="323.0" y="336.0" width="14.5" height="11" rx="2" fill="#1161c4" opacity=".82"/><text x="342.5" y="345.0" font-size="9" fill="#6e6e73" text-anchor="start">지준 +225</text><text x="568" y="326" font-size="11.5" font-weight="800" fill="#1161c4">순 유동성 +52</text><text x="568" y="340" font-size="9.5" fill="#6e6e73">공급</text><text x="0" y="390" font-size="12" font-weight="700">⑤ 역레포 고갈</text><text x="0" y="404" font-size="9.5" fill="#6e6e73">24-06~25-06</text><rect x="284.7" y="380.0" width="38.3" height="11" rx="2" fill="#7c7a73" opacity=".82"/><text x="279.7" y="389.0" font-size="9" fill="#6e6e73" text-anchor="end">연준 -593</text><rect x="299.2" y="394.0" width="23.8" height="11" rx="2" fill="#b45309" opacity=".82"/><text x="294.2" y="403.0" font-size="9" fill="#6e6e73" text-anchor="end">TGA -369</text><rect x="312.6" y="408.0" width="10.4" height="11" rx="2" fill="#0f7b8a" opacity=".82"/><text x="307.6" y="417.0" font-size="9" fill="#6e6e73" text-anchor="end">역레포 -161</text><rect x="315.9" y="422.0" width="7.1" height="11" rx="2" fill="#1161c4" opacity=".82"/><text x="310.9" y="431.0" font-size="9" fill="#6e6e73" text-anchor="end">지준 -110</text><text x="568" y="412" font-size="11.5" font-weight="800" fill="#d21f3c">순 유동성 -64</text><text x="568" y="426" font-size="9.5" fill="#6e6e73">흡수</text><text x="0" y="476" font-size="12" font-weight="700">⑥ 지준만 남다</text><text x="0" y="490" font-size="9.5" fill="#6e6e73">25-07~26-09</text><rect x="323.0" y="466.0" width="5.6" height="11" rx="2" fill="#7c7a73" opacity=".82"/><text x="333.6" y="475.0" font-size="9" fill="#6e6e73" text-anchor="start">연준 +87</text><rect x="323.0" y="480.0" width="40.0" height="11" rx="2" fill="#b45309" opacity=".82"/><text x="368.0" y="489.0" font-size="9" fill="#6e6e73" text-anchor="start">TGA +619</text><rect x="308.0" y="494.0" width="15.0" height="11" rx="2" fill="#0f7b8a" opacity=".82"/><text x="303.0" y="503.0" font-size="9" fill="#6e6e73" text-anchor="end">역레포 -232</text><rect x="301.4" y="508.0" width="21.6" height="11" rx="2" fill="#1161c4" opacity=".82"/><text x="296.4" y="517.0" font-size="9" fill="#6e6e73" text-anchor="end">지준 -335</text><text x="568" y="498" font-size="11.5" font-weight="800" fill="#d21f3c">순 유동성 -301</text><text x="568" y="512" font-size="9.5" fill="#6e6e73">흡수</text></svg>
+<figcaption>가로 막대 길이가 그 국면의 변화폭(십억 달러)이다. 가운데 세로선이 0이다. 오른쪽은 잔고가 늘어난 계정, 왼쪽은 잔고가 줄어든 계정이다.
+TGA와 역레포는 오른쪽이 시중의 돈을 흡수한 것이다. 맨 오른쪽 굵은 숫자가 그 국면의 순 유동성 결과다.</figcaption></figure>
 
-<p>같은 유동성 축소라도 돈을 흡수한 계정이 매번 달랐다. 2023년 5월부터 2024년 5월까지 연준 총자산이 -1.22조 달러 줄었는데도 은행 지준은 +0.22조 달러였다. 같은 기간 역레포가 -1.80조 달러 줄어 QT의 충격을 대신 받아 냈기 때문이다.
-여기서 얻을 결론은 「QT가 사실상 없었다」가 아니다. 같은 QT라도 어느 부채 항목이 줄어드느냐에 따라 단기자금시장이 받는 압력이 달라진다는 것이다.</p>
+<p>같은 QT라도 줄어든 부채 계정은 국면마다 달랐다. 2023년 5월부터 2024년 5월까지 연준 총자산은 1.22조 달러 줄었다. 그런데 은행 지준은 0.22조 달러 늘었다. 같은 기간 역레포가 1.80조 달러 줄어 QT의 충격을 대신 받았기 때문이다.
+여기서 얻을 결론은, 같은 QT라도 어느 부채 항목이 줄어드느냐에 따라 단기자금시장이 받는 압력이 달라진다는 것이다. 「QT가 사실상 없었다」는 뜻은 아니다.</p>
 
-<h2 id="역레포는-2-367십억-달러에서-5이-됐다-완충재가-있을-때와-없을-때는">역레포는 2,367십억 달러에서 5이 됐다. 완충재가 있을 때와 없을 때는 다른 시장이다</h2>
+<h2 id="역레포는-2-367십억-달러에서-5십억-달러로-줄었다-완충재가-있을-때와">역레포는 2,367십억 달러에서 5십억 달러로 줄었다. 완충재가 있을 때와 없을 때 단기자금시장은 다르게 움직인다</h2>
 
-<p><a class="gl" href="#g1">역레포</a>는 2022년 9월 28일에 2,367십억 달러까지 부풀었다가 지금 5십억 달러로 사실상 사라졌다.
-있을 때는 재무부가 국채를 대량 발행해도 그 돈이 역레포에서 나왔다. 은행 지준은 멀쩡했고 시중은 별 타격이 없었다. 2023년이 그랬다.
-없을 때는 같은 국채 발행이 곧바로 지준을 깎는다.</p>
+<p><a class="gl" href="#g1">역레포</a>는 2022년 9월 28일에 2,367십억 달러까지 늘었다가 지금 5십억 달러로 사실상 사라졌다.
+역레포 잔고가 있을 때는 재무부가 국채를 대량 발행해도 그 돈이 역레포에서 나왔다. 그래서 은행 지준이 유지됐다. 2023년이 그랬다.
+역레포가 비면 같은 국채 발행이 곧바로 지준을 줄인다.</p>
 
 <figure class="wide"><div class="cbox"><canvas id="c3"></canvas></div>
-<figcaption><span class="freq w">주간</span>황금색 면적이 역레포, 회색이 은행 지준이다. 2021~2023년에 역레포가 산처럼 부풀었다가 2025년에 사라진 것이 보인다. 역레포가 꺼지는 동안 지준이 버텨 준 것이 2023~2024년이고, 역레포가 없어진 지금은 지준이 혼자 다 받아낸다.</figcaption></figure>
+<figcaption><span class="freq w">주간</span>황금색 면적이 역레포, 회색 선이 은행 지준이다. 역레포는 2021년부터 2023년까지 크게 늘었다가 2025년에 사라졌다.
+2023년부터 2024년까지는 역레포가 줄어드는 동안 지준이 유지됐다. 역레포가 사라진 지금은 TGA 변화를 지준이 모두 받는다.</figcaption></figure>
 
-<p>2019년 9월과 같은 구조다. 그때도 지준이 얇아지며 레포 금리가 튀었다. 연준은 레포를 공급하고 국채를 사들여 지준을 다시 채웠다.
-QT는 그 발작 때문에 멈춘 것이 아니다. 7월 31일에 종료가 결정돼 8월 1일부터 시행된 뒤에 9월 발작이 왔다.
-다만 같은 구조가 같은 결과를 뜻하지는 않는다. 지금은 상설 레포 창구(SRF)가 있어 완충 장치가 하나 더 있고, 연준은 2025년 12월 1일에 QT를 끝내고 준비금 관리 매입을 시작했다.
-<a class="gl" href="#g7">SOFR</a>가 지준부리를 웃도는 일은 분기말에 흔하다. 격차의 크기와 지속성을 함께 봐야 초단기 자금시장이 뻑뻑해진 것인지 알 수 있다.</p>
+<p>지금은 2019년 9월과 같은 구조다. 2019년 9월에도 지준이 줄어들며 레포 금리가 급등했다. 연준은 레포를 공급하고 국채를 매입해 지준을 다시 채웠다.
+QT 종료는 그보다 앞선 2019년 7월 31일에 결정돼 8월 1일부터 시행됐다. 9월 발작은 QT가 멈춘 뒤에 왔다.
+다만 구조가 같아도 결과는 다를 수 있다. 지금은 상설 레포 창구(SRF)가 완충 장치로 하나 더 있다. 연준은 2025년 12월 1일에 QT를 끝내고 준비금 관리 매입을 시작했다.
+<a class="gl" href="#g7">SOFR</a>가 지준부리를 웃도는 일은 분기말에 흔하다. 초단기 자금시장의 자금 조달이 어려워졌는지는 격차의 크기와 지속 기간을 함께 보고 판단한다.</p>
 
-<h2 id="이야기꾼의-tga-규칙은-반만-선다-바닥-7번-뒤-6번-채워졌지만-순-유">이야기꾼의 TGA 규칙은 반만 선다. 바닥 7번 뒤 6번 채워졌지만 순 유동성이 함께 빠진 것은 3번이다</h2>
+<h2 id="이야기꾼의-tga-규칙에서-tga가-채워진다는-부분은-맞았다-바닥-7번-">이야기꾼의 TGA 규칙에서 TGA가 채워진다는 부분은 맞았다. 바닥 7번 뒤 6번 채워졌고, 순 유동성이 함께 감소한 것은 3번이다</h2>
 
 <p>이야기꾼은 2025년 7월 12일 W28에 이렇게 적었다.
 「TGA가 채워지면 공황 또는 연중 조정을 대비해야 한다. 더 보수적으로 접근한다면 TGA가 바닥에 근접해도 준비해야 한다. 어차피 미국 연방정부는 TGA가 바닥나기 전에 부채한도를 상향 조정할 것이고 결국 TGA는 채워지기 때문이다.」
-사후에 찾은 TGA 바닥 7번 뒤 6개월 동안 실제로 무슨 일이 있었는지를 놓았다.</p>
+아래 표는 사후에 찾은 TGA 바닥 7번과, 그 뒤 6개월 동안 TGA와 순 유동성의 변화다.</p>
 
 <div class="tblwrap"><table class="tw"><thead><tr><th>TGA 바닥</th><th class="n">그때 TGA</th>
 <th class="n">6개월 뒤 TGA 변화</th><th class="n">6개월 뒤 순 유동성 변화</th><th>판정</th></tr></thead>
 <tbody><tr><td>2020년 3월 11일</td><td class="n">372</td><td class="n">+1198</td><td class="n good">+1502</td><td>채워졌지만 공급</td></tr><tr><td>2021년 10월 13일</td><td class="n">72</td><td class="n">+471</td><td class="n bad">-437</td><td>채워지고 흡수</td></tr><tr><td>2022년 8월 24일</td><td class="n">530</td><td class="n">-79</td><td class="n bad">-267</td><td>안 채워짐</td></tr><tr><td>2023년 5월 31일</td><td class="n">49</td><td class="n">+705</td><td class="n good">+46</td><td>채워졌지만 공급</td></tr><tr><td>2024년 4월 10일</td><td class="n">673</td><td class="n">+115</td><td class="n bad">-404</td><td>채워지고 흡수</td></tr><tr><td>2025년 4월 2일</td><td class="n">302</td><td class="n">+518</td><td class="n bad">-431</td><td>채워지고 흡수</td></tr><tr><td>2026년 1월 14일</td><td class="n">777</td><td class="n">+19</td><td class="n good">+145</td><td>채워졌지만 공급</td></tr></tbody></table></div>
 
-<p>표의 첫 줄을 보자. 2020년 3월 11일 TGA는 372십억 달러였고 6개월 뒤 +1198 채워졌으며 순 유동성은 +1502이었다.
-바닥 7번 중 6번에서 6개월 뒤 잔고가 늘었다. 그러나 순 유동성 감소가 함께 온 것은 3번이다. 순 유동성이 줄어든 것 자체는 4번이다.
-채워지는 경향까지가 이 표가 보이는 것이고 「TGA 바닥은 유동성 흡수의 예고」로 읽기는 어렵다.</p>
+<p>표의 첫 줄을 보자. 2020년 3월 11일 TGA는 372십억 달러였다. 6개월 뒤 TGA는 1,198십억 달러 늘었다. 같은 6개월 동안 순 유동성은 1,502십억 달러 늘었다.
+TGA 잔고는 바닥 7번 중 6번에서 6개월 뒤 늘었다. 그러나 순 유동성 감소가 함께 온 것은 3번이다. 순 유동성이 줄어든 것만 따지면 4번이다.
+이 표가 보이는 것은 TGA가 바닥 뒤에 다시 채워지는 경향이다. 「TGA 바닥은 유동성 흡수의 예고」로 읽기는 어렵다.</p>
 
-<p>표의 바닥은 그날 알 수 없다. 앞뒤 8주에서 가장 낮은 주를 바닥으로 잡으므로 8주가 지나야 확정된다. 그때는 몰랐다.
-증시 하락까지 이 표가 증명하지도 않는다. 유동성이 빠진 것과 주가가 빠진 것은 다른 문제이고 그 연결은 계산하지 않았다.</p>
+<p>표의 바닥은 앞뒤 8주에서 가장 낮은 주다. 그래서 바닥은 8주가 지나야 확정된다. 바닥 당일에는 그 주가 바닥인지 알 수 없었다.
+이 표는 TGA와 순 유동성만 계산했다. 유동성 감소와 주가 하락은 다른 문제다. 이 글은 유동성과 주가의 연결을 계산하지 않았다.</p>
 
-<h2 id="달러와는-1년-창에서만-반대로-움직인다-주간으로는-관계가-없다">달러와는 1년 창에서만 반대로 움직인다. 주간으로는 관계가 없다</h2>
+<h2 id="순-유동성과-달러는-52주-변화에서-반대-방향으로-움직였다-13주-이하의">순 유동성과 달러는 52주 변화에서 반대 방향으로 움직였다. 13주 이하의 변화에서는 상관계수가 0에 가깝다</h2>
 
-<p>달러는 미국만의 돈이 아니다. 미국 밖에서 달러로 빌린 돈이 크기 때문에 달러값이 상승하면 전세계가 동시에 조여진다.
-순 유동성과 광의 달러지수를 같은 주간 격자에 놓고 창을 바꿔 가며 상관을 계산했다.</p>
+<p>달러는 미국 밖에서도 쓰인다. 미국 밖에서 달러로 조달한 자금이 크다. 그래서 달러가 강해지면 전세계의 달러 자금 조달이 동시에 어려워진다.
+순 유동성과 광의 달러지수를 같은 주간 격자에 놓았다. 그리고 변화 기간을 주간부터 52주까지 바꿔 가며 상관계수를 계산했다.</p>
 
-<div class="tblwrap"><table class="tw"><thead><tr><th>창</th><th class="n">순 유동성과 달러지수의 상관</th></tr></thead>
+<div class="tblwrap"><table class="tw"><thead><tr><th>변화 기간</th><th class="n">순 유동성과 달러지수의 상관</th></tr></thead>
 <tbody><tr><td>수준</td><td class="n">-0.165</td></tr><tr><td>주간 변화</td><td class="n">+0.050</td></tr><tr><td>4주</td><td class="n">+0.117</td></tr><tr><td>13주</td><td class="n">+0.115</td></tr><tr><td>26주</td><td class="n">-0.293</td></tr><tr><td>52주</td><td class="n">-0.514</td></tr></tbody></table></div>
 
-<p>표의 첫 줄을 보자. 수준에서 상관은 -0.165이다.
-주간 변화는 +0.050로 관계가 없고 52주 변화는 -0.514다. 창이 길어질수록 음수로 깊어진다. 음수는 유동성이 늘 때 달러가 약해졌다는 뜻이다.
-이것은 같은 기간에 함께 움직였다는 동행 관계다. 52주 변화끼리는 이웃한 관측치가 51주를 공유하므로 표본 수만큼 독립된 근거가 아니고, 앞으로의 달러 방향은 검증하지 않았다.</p>
+<p>표의 첫 줄을 보자. 수준끼리의 상관계수는 −0.165다. 주간·4주·13주 변화의 상관계수는 각각 0.050, 0.117, 0.115로 0에 가깝다. 26주 변화에서는 −0.293, 52주 변화에서는 −0.514다. 음수는 반대 방향이라는 뜻이다. 유동성이 늘 때 달러가 약해졌다.
+이 상관은 같은 기간에 함께 움직였다는 동행 관계다. 52주 변화끼리는 이웃한 관측치가 51주를 공유한다. 그래서 표본 수만큼 독립된 근거가 되지 못한다.
+앞으로의 달러 방향도 검증하지 않았다.</p>
 
 <figure class="wide"><div class="cbox"><canvas id="c2"></canvas></div>
-<figcaption><span class="freq w">주간</span>황금색이 순 유동성(좌축), 회색이 광의 달러지수(연준 무역가중, 2006-01=100)인데 우축을 뒤집어 그렸다. 겹쳐 보이면 유동성이 늘 때 달러가 약해진 것이다. 두 선은 주 단위로는 잘 겹치지 않는다.</figcaption></figure>
+<figcaption><span class="freq w">주간</span>황금색이 순 유동성(좌축), 회색이 광의 달러지수(연준 무역가중, 2006년 1월=100)다. 달러지수는 우축을 뒤집어 그렸다.
+2개 선이 겹쳐 보이면 유동성이 늘 때 달러가 약해진 것이다. 주 단위의 움직임은 자주 어긋난다.</figcaption></figure>
 
-<p>다른 중앙은행도 같이 놓는다. 자국 통화 기준 지수(2020년 1월=100)이고 달러로 환산하지 않았다. 환율로 곱하면 유동성이 변한 것과 환율이 변한 것이 섞이기 때문이다.</p>
+<p>다른 중앙은행의 자산도 함께 놓는다. 값은 자국 통화 기준 지수(2020년 1월=100)다. 달러로 환산하지 않았다. 환율로 곱하면 유동성의 변화와 환율의 변화가 섞이기 때문이다.</p>
 
 <div class="tblwrap"><table class="tw"><thead><tr><th>중앙은행</th><th class="n">지금 (2020-01=100)</th><th class="n">최고</th><th class="n">최고 시점</th></tr></thead>
 <tbody><tr><td>연준</td><td class="n">162</td><td class="n">215</td><td class="n">2022-04</td></tr><tr><td>ECB</td><td class="n">126</td><td class="n">189</td><td class="n">2022-06</td></tr><tr><td>일본은행</td><td class="n">111</td><td class="n">132</td><td class="n">2024-08</td></tr></tbody></table></div>
 
-<p>표의 첫 줄을 보자. 연준은 지금 162이고 최고는 2022년 4월의 215였다.
-연준이 줄이는 동안 다른 곳이 늘리면 전세계 유동성은 안 준다.</p>
+<p>표의 첫 줄을 보자. 연준 자산 지수는 지금 162다. 최고는 2022년 4월의 215였다.
+연준이 자산을 줄이는 동안 다른 중앙은행이 늘리면, 전세계 유동성은 유지될 수 있다.</p>
 
 <h2 id="이야기꾼은-역레포가-실질적-긴축을-대신했다고-2022년에-적었다-실측이-">이야기꾼은 역레포가 실질적 긴축을 대신했다고 2022년에 적었다. 실측이 그 말을 확인한다</h2>
 
-<p>이야기꾼은 2022년 9월 10일에 역레포가 실질적인 QT를 대신했다고 적었다. 국면표의 ② 역레포 흡수 시작 국면이 그 실측이다. 연준 총자산 +1,219십억 달러에 역레포 +1,703십억 달러라 순 유동성은 -204십억 달러였다.
-2025년 11월 1일에는 이렇게 적었다. 「과거엔 여유 자금이 남아돌아 연준에 돈을 빌려주고 이자를 받았는데, 지금은 돈이 부족해서 연준에 반대로 이자를 내고 돈을 빌리고 있다」. 역레포가 5이 된 지금의 구조다.</p>
+<p>이야기꾼은 2022년 9월 10일에 역레포가 실질적인 QT를 대신했다고 적었다. 국면표의 ② 국면(역레포 흡수 시작)이 그 말의 실측이다. 이 국면에 연준 총자산은 1,219십억 달러 늘었다. 같은 기간 역레포는 1,703십억 달러 늘었다. 순 유동성은 204십억 달러 줄었다.
+2025년 11월 1일에는 이렇게 적었다. 「과거엔 여유 자금이 남아돌아 연준에 돈을 빌려주고 이자를 받았는데, 지금은 돈이 부족해서 연준에 반대로 이자를 내고 돈을 빌리고 있다」. 역레포가 5십억 달러로 줄어든 지금의 구조다.</p>
 
-<p>전세계 쪽도 그렇다. 2023년 3월 11일에는 「미국과 유로존은 축소하는데 영국 일본 중국이 늘려 전체적으로는 작년 11월부터 증가」라고 적었다. 위 중앙은행 표가 그 구조다.
-2025년 11월 1일의 「달러 약세는 글로벌 유동성이 증가한다는 말과 같다. 유동성이 밀려 들어와 신흥국 증시가 초과 상승」은 1년 창의 음의 상관과 같은 방향이다.
-2025년 12월 13일에는 엔캐리를 이렇게 못 박았다. 「전 국민이 엔화 약세 때 엔캐리 청산이 일어난다고 오해하고 있다. (…) 달러 강세로 발생한 글로벌 공황 때문에 엔캐리를 청산하는 것이지, 엔화 약세라서 청산하는 게 아니다」. 그래서 이 글도 엔화가 아니라 달러를 조임쇠로 놓았다.</p>
+<p>전세계 유동성에 대해서도 적었다. 2023년 3월 11일에는 「미국과 유로존은 축소하는데 영국 일본 중국이 늘려 전체적으로는 작년 11월부터 증가」라고 적었다. 위 중앙은행 표가 그 구조를 보여 준다.
+2025년 11월 1일의 「달러 약세는 글로벌 유동성이 증가한다는 말과 같다. 유동성이 밀려 들어와 신흥국 증시가 초과 상승」은 52주 변화의 음의 상관과 같은 방향이다.
+2025년 12월 13일에는 엔캐리를 이렇게 설명했다. 「전 국민이 엔화 약세 때 엔캐리 청산이 일어난다고 오해하고 있다. (…) 달러 강세로 발생한 글로벌 공황 때문에 엔캐리를 청산하는 것이지, 엔화 약세라서 청산하는 게 아니다」. 그래서 이 글도 엔화 대신 달러를 전세계 유동성의 변수로 놓았다.</p>
 
 <h2 id="아직-불확실한-곳은-어디인가">아직 불확실한 곳은 어디인가</h2>
 
 <ul>
-<li>주간 계열과 일별 계열을 섞었다. 연준 총자산·TGA·지준은 수요일 기준 주간, 역레포는 일별이다. 주간 격자에 그 날짜 이하 마지막 값으로 붙였으므로 최대 며칠의 시차가 섞여 있다.</li>
-<li>순 유동성은 널리 쓰이지만 표준 정의가 아니다. 기타 항목(유통 현금·외국 기관 예금 등)을 뺀 근사이고 항등식 오차가 지준 변화폭의 23%다.</li>
-<li>유동성과 주가의 연결은 여기서 계산하지 않았다. 이 글은 유동성 자체의 회계만 본다.</li>
-<li>2020년 이전이 없다. 역레포가 의미를 갖는 것이 2021년부터라 2020년으로 잘랐다. 2019년 9월 레포 발작과의 비교는 맥락으로만 말한 것이지 같은 기준으로 잰 것이 아니다.</li>
-<li>국면 6개의 경계는 이 글이 정한 것이다. 경계를 옮기면 각 칸의 숫자가 달라진다. 다만 역레포가 흡수한 국면과 방출한 국면의 부호는 경계를 옮겨도 남는다.</li>
+<li>주간 계열과 일별 계열을 섞었다. 연준 총자산·TGA·지준은 수요일 기준 주간, 역레포는 일별이다. 역레포는 주간 격자의 날짜 이하 마지막 값을 붙였다. 그래서 최대 며칠의 시차가 섞여 있다.</li>
+<li>순 유동성은 널리 쓰이지만 표준 정의는 없다. 기타 항목(유통 현금·외국 기관 예금 등)을 뺀 근사다. 항등식 오차는 지준 변화폭의 23%다.</li>
+<li>이 글은 유동성 자체의 회계만 본다. 유동성과 주가의 연결은 계산하지 않았다.</li>
+<li>자료는 2020년부터다. 역레포가 의미를 갖는 것이 2021년부터라 2020년에서 잘랐다. 2019년 9월 레포 발작과의 비교는 맥락 설명이다. 같은 기준으로 계산하지 않았다.</li>
+<li>국면 6개의 경계는 이 글이 정한 것이다. 경계를 옮기면 각 칸의 숫자가 달라진다. 다만 역레포가 흡수한 국면과 방출한 국면의 방향은 경계를 옮겨도 그대로다.</li>
 <li>TGA 바닥은 8주가 지나야 확정된다. 지나고 나서 찾은 바닥을 그때부터 알 수 있던 선행 신호처럼 읽으면 안 된다.</li>
-<li>달러와의 관계는 동행이고 시차나 앞으로의 방향은 검증하지 않았다. 이 관찰을 접는 조건은 52주 변화 상관이 −0.2보다 얕아지는 것이다. 지금은 -0.514다.</li>
+<li>달러와의 관계는 동행 관계다. 시차와 앞으로의 방향은 검증하지 않았다. 52주 변화의 상관계수가 −0.2보다 0에 가까워지면 이 관찰을 접는다. 지금은 −0.514다.</li>
 </ul>
 
-<h2 id="그래서-연준-총자산이-아니라-순-유동성을-매주-읽는다-지금은-역레포가-5">그래서 연준 총자산이 아니라 순 유동성을 매주 읽는다. 지금은 역레포가 5이라 TGA 변화가 지준에 그대로 간다</h2>
+<h2 id="그래서-연준-총자산-대신-순-유동성을-매주-읽는다-지금은-역레포가-5십억">그래서 연준 총자산 대신 순 유동성을 매주 읽는다. 지금은 역레포가 5십억 달러라 TGA 변화가 지준에 그대로 간다</h2>
 
-<div class="claim"><p>연준 총자산 하나로 유동성을 읽으면 6개 국면 중 3개에서 부호를 틀렸다. 순 유동성, 즉 총자산에서 TGA와 역레포를 뺀 값이 시장이 실제로 느낀 것이다.
-지금은 역레포가 5이라 완충재가 없다. TGA가 늘면 지준이 같은 만큼 줄고, 연준의 준비금 관리 매입이 그것을 얼마나 상쇄하는지는 총자산 열에서 본다.</p></div>
+<div class="claim"><p>연준 총자산 하나로 유동성을 읽으면 6개 국면 중 3개에서 방향을 틀렸다. 시장이 실제로 느낀 유동성은 순 유동성, 곧 총자산에서 TGA와 역레포를 뺀 값이다.
+지금은 역레포가 5십억 달러로 줄어 완충재가 사라졌다. TGA가 늘면 지준이 같은 만큼 줄어든다. 연준의 준비금 관리 매입이 지준 감소를 얼마나 상쇄하는지는 총자산 열에서 확인한다.</p></div>
 
-<p>예상은 조건으로 적는다. TGA가 지금 1.0조 달러에서 하락하면 그만큼 순 유동성이 늘고, 이야기꾼이 적은 「중간선거 전 TGA 하락」이 그 조건이다.
-반대로 부채한도 타결이나 대규모 발행으로 TGA가 상승하면 그만큼 지준이 준다. 어느 쪽인지는 매주 목요일 H.4.1 발표의 TGA 열이 말해 주고 이 페이지가 매주 다시 계산한다.
-돈의 가격 쪽은 <a href="fed-kospi.html">연준 기준금리와 코스피</a>가 본다. 신용스프레드란 회사채와 국채의 금리 차이다. 유동성이 마를 때 먼저 벌어지는 그 값은 <a href="credit-spread.html">신용스프레드와 코스피</a>가 본다.</p>
+<p>예상은 조건으로 적는다. TGA가 지금 1.0조 달러에서 줄어들면 그만큼 순 유동성이 늘어난다. 이야기꾼이 적은 「중간선거 전 TGA 하락」이 이 조건이다.
+반대로 부채한도 타결이나 국채 대량 발행으로 TGA가 늘어나면 그만큼 지준이 줄어든다. 어느 쪽인지는 매주 목요일 H.4.1 발표의 TGA 열에서 확인한다. 이 페이지는 매주 다시 계산한다.
+돈의 가격은 <a href="fed-kospi.html">연준 기준금리와 코스피</a>에서 다룬다. 신용스프레드는 회사채와 국채의 금리 차이다. 유동성이 줄어들 때 먼저 벌어지는 이 금리 차이는 <a href="credit-spread.html">신용스프레드와 코스피</a>에서 다룬다.</p>
 
-<!--STORY:BEGIN--><style id="storycss">.story{margin:26px 0 8px;padding:16px 20px;border:1px solid var(--border,#d9d9de);border-left:4px solid var(--accent,#2563eb);border-radius:10px;background:var(--surface,#fafafa)}.story .h{font-weight:800;font-size:.95em;margin-bottom:6px}.story .h span{font-weight:400;color:var(--text-secondary,#6e6e73);margin-left:8px;font-size:.88em}.story p{margin:6px 0;line-height:1.75}.story .src{font-size:.82em;color:var(--text-secondary,#6e6e73);margin-top:8px}</style><div class="story"><div class="h">이야기꾼은 이렇게 읽는다<span>W38 · 2026-09-19</span></div><p>「달러, 단기채 금리, 모기지 금리, TGA 잔고, 모두 상승 중」이 이번 주 ①절의 제목이다. 유동성이 빠지는 쪽으로 4개가 같이 움직였다.</p><p>바깥에서 새 것이 나왔다. 「중국의 8월 신규 은행 대출은 600억 위안이었다. 문제는 지난 7월에 −3400억 위안 대출 감소가 발생했다는 점이다. 그동안 중국의 위안화 대출이 감소한 적이 없었으나, 작년 7월에 처음으로 감소했고, 올해 4월과 7월도 감소했다.」 「지금까지 중국의 대출이 줄어든 것을 이야기꾼은 본적이 없었다. … 이번이 첫 시험대가 될 듯 하다.」 「일본의 은행 대출 역시 증가세가 둔화되기 시작했다.」 ⚠ 볼트에 중국·일본 은행 대출 계열이 없어 그의 숫자로만 적는다.</p><p class="src">출처 이야기꾼 주간 시투 보고서 W38(2026-09-19). 「」 안은 그의 문장 그대로다. 전조현상 28종의 판정은 <a href="jeonjo.html">중공황 전조현상</a>에, 정점 논쟁은 <a href="peak-debate.html">반도체 정점 논쟁</a>에 있다.</p></div><!--STORY:END-->
+<!--STORY:BEGIN--><style id="storycss">.story{margin:26px 0 8px;padding:16px 20px;border:1px solid var(--border,#d9d9de);border-left:4px solid var(--accent,#2563eb);border-radius:10px;background:var(--surface,#fafafa)}.story .h{font-weight:800;font-size:.95em;margin-bottom:6px}.story .h span{font-weight:400;color:var(--text-secondary,#6e6e73);margin-left:8px;font-size:.88em}.story p{margin:6px 0;line-height:1.75}.story .src{font-size:.82em;color:var(--text-secondary,#6e6e73);margin-top:8px}</style><div class="story"><div class="h">이야기꾼은 이렇게 읽는다<span>W38 · 2026-09-19</span></div><p>「달러, 단기채 금리, 모기지 금리, TGA 잔고, 모두 상승 중」이 이번 주 ①절의 제목이다. 4개 지표가 모두 유동성이 줄어드는 방향으로 움직였다.</p><p>미국 밖에서도 새 신호가 나왔다. 「중국의 8월 신규 은행 대출은 600억 위안이었다. 문제는 지난 7월에 −3400억 위안 대출 감소가 발생했다는 점이다. 그동안 중국의 위안화 대출이 감소한 적이 없었으나, 작년 7월에 처음으로 감소했고, 올해 4월과 7월도 감소했다.」 「지금까지 중국의 대출이 줄어든 것을 이야기꾼은 본적이 없었다. … 이번이 첫 시험대가 될 듯 하다.」 「일본의 은행 대출 역시 증가세가 둔화되기 시작했다.」 ⚠ 볼트에 중국·일본 은행 대출 계열이 없어 그의 숫자로만 적는다.</p><p class="src">출처 이야기꾼 주간 시투 보고서 W38(2026-09-19). 「」 안은 그의 문장 그대로다. 전조현상 28종의 판정은 <a href="jeonjo.html">중공황 전조현상</a>에, 정점 논쟁은 <a href="peak-debate.html">반도체 정점 논쟁</a>에 있다.</p></div><!--STORY:END-->
 <h2 id="apx">원문 상세표</h2>
 <p>본문에서 요약한 표와 계산 과정의 원본, 그리고 용어 설명이다. 지우지 않고 여기에 둔다. 제목을 누르면 접었다 펼 수 있다.</p>
 
 <details class="apx" open><summary>용어 설명 · 본문의 점선 밑줄이 여기로 온다</summary>
-<div class="gloss"><div class="gitem" id="g0"><h4>TGA: 재무부 일반계정</h4><p>미국 재무부가 연준에 둔 정부의 예금계좌(Treasury General Account)이다. 세금이 들어오거나 국채를 팔면 이 계좌가 불어나고, 그 돈은 시중에서 빠져나간다. 정부가 돈을 쓰면 계좌가 줄고 그만큼 시중에 풀린다.<br>★ 정부의 지갑이 곧 시장의 수도꼭지이다. 재무부가 의도하지 않아도 그렇게 작동한다.</p><a class="back" href="#top">↩ 본문으로 돌아가기</a></div><div class="gitem" id="g1"><h4>역레포, 연준의 익일물 창구</h4><p>은행·MMF가 남는 돈을 연준에 하룻밤 맡기고 이자를 받는 창구이다(Reverse Repo). 여기 쌓인 돈은 시중에서 잠자는 돈이다. 2021~2023년에 크게 부풀어 QT를 대신했다. 2025년에 사실상 소진됐다. 정점과 지금 값은 본문 표에 있다.</p><a class="back" href="#top">↩ 본문으로 돌아가기</a></div><div class="gitem" id="g2"><h4>은행 지급준비금</h4><p>은행이 연준에 맡겨 둔 돈이다. 시중 유동성의 마지막 완충재이고, 이게 얇아지면 은행끼리 돈을 빌리는 값(레포 금리)이 튄다.<br>★ 2019년 9월 레포 발작이 그렇게 왔다. ⚠ 순서를 바로잡는다. QT 종료는 그 전인 7월 31일에 결정돼 8월 1일부터 시행됐다. 9월 발작 '때문에' 멈춘 것이 아니라 이미 멈춘 뒤에 발작이 왔고, 연준은 그때 레포 공급과 국채 매입으로 대응했다.</p><a class="back" href="#top">↩ 본문으로 돌아가기</a></div><div class="gitem" id="g3"><h4>QT: 양적긴축</h4><p>연준이 보유한 국채·MBS를 만기가 와도 재투자하지 않고 줄이는 것이다. QE(양적완화)의 반대이다.<br>★ 발표와 집행은 다르다. 2022년 계획의 월 475억 달러는 첫 3개월 한도였다. 그 뒤로는 국채 600억과 MBS 350억을 더한 월 950억 달러였고 실제 집행은 그보다 작았다.<br>★ 연준은 2025년 12월 1일에 QT를 끝냈다. 그 뒤로는 지준을 넉넉히 유지하려는 준비금 관리 매입을 한다. 경기를 밀려는 QE와 목적도 대상도 다르다.</p><a class="back" href="#top">↩ 본문으로 돌아가기</a></div><div class="gitem" id="g4"><h4>QE: 양적완화</h4><p>연준이 국채·MBS를 사들여 시중에 돈을 푸는 것이다. 2020년의 QE4는 재정정책과 병행해 실물에 직접 넣었다는 점에서 2009년(금융에만 제한적으로 주입)과 다르다. 그래서 물가가 왔다.</p><a class="back" href="#top">↩ 본문으로 돌아가기</a></div><div class="gitem" id="g5"><h4>순 유동성</h4><p>연준 총자산 − TGA − 역레포. 연준이 푼 돈에서 정부 지갑과 역레포에 갇힌 몫을 뺀 값이다.<br>⚠ 시중의 돈을 직접 측정한 값이 아니다. 연준 대차대조표에서 만든 참고 지표이고, 유통 현금 같은 다른 부채 항목은 빠져 있다.</p><a class="back" href="#top">↩ 본문으로 돌아가기</a></div><div class="gitem" id="g6"><h4>부채한도</h4><p>미국 연방정부가 빌릴 수 있는 법정 상한이다. 막히면 재무부는 국채를 못 팔아 TGA를 헐어 쓰고(→ 시중에 유동성 공급), 상향되면 국채를 대량 발행해 TGA를 다시 채운다(→ 유동성 흡수).<br>★ 그래서 부채한도 타결이 곧 유동성 흡수의 시작이다.</p><a class="back" href="#top">↩ 본문으로 돌아가기</a></div><div class="gitem" id="g7"><h4>SOFR: 담보부 익일물 조달금리</h4><p>은행이 국채를 담보로 하룻밤 돈을 빌리는 실거래 금리이다. 이 값이 지준부리(IORB)를 웃도는 일은 한 번 넘었다고 신용경색인 것은 아니다. 분기말에는 흔히 튄다. 격차가 얼마나 크고 얼마나 오래 가는지를 함께 봐야 한다.</p><a class="back" href="#top">↩ 본문으로 돌아가기</a></div><div class="gitem" id="g8"><h4>QRA: 분기 자금조달 계획</h4><p>재무부가 분기마다 내는 국채 발행 계획서(Quarterly Refunding Announcement)이다. TGA 목표 잔고와 발행 규모가 여기 적힌다.<br>★ 연준의 QT 규모와 서로 보고 조정하므로, 2가지를 따로 읽으면 이중 계산이 된다.</p><a class="back" href="#top">↩ 본문으로 돌아가기</a></div><div class="gitem" id="g9"><h4>BTFP: 은행기간대출</h4><p>2023년 SVB 파산 직후 연준이 만든 한시적 대출 창구이다. QT를 하면서 동시에 이걸로 1,650억 달러를 공급했다. 이야기꾼은 이를 'SQE4-1'이라 불렀다. ⚠ 신규 대출은 2024년 3월 11일에 끝났고 그날 기존 대출까지 회수된 것은 아니다(만기까지 남았다).</p><a class="back" href="#top">↩ 본문으로 돌아가기</a></div></div>
+<div class="gloss"><div class="gitem" id="g0"><h4>TGA: 재무부 일반계정</h4><p>미국 재무부가 연준에 둔 정부의 예금계좌(Treasury General Account)이다. 세금이 들어오거나 국채를 발행하면 이 계좌가 늘어난다. 그 돈은 시중에서 빠져나간다. 정부가 돈을 쓰면 계좌가 줄어든다. 그만큼 시중에 돈이 풀린다.<br>★ 그래서 TGA 잔고의 변화는 시중 유동성의 반대 방향 변화이다. 재무부가 의도하지 않아도 그렇게 작동한다.</p><a class="back" href="#top">↩ 본문으로 돌아가기</a></div><div class="gitem" id="g1"><h4>역레포, 연준의 익일물 창구</h4><p>은행·MMF가 남는 돈을 연준에 하룻밤 맡기고 이자를 받는 창구이다(Reverse Repo). 여기 쌓인 돈은 시중에서 쓰이지 않는 돈이다. 2021년부터 2023년까지 크게 늘어 QT를 대신했다. 2025년에 사실상 소진됐다. 정점과 지금 값은 본문 표에 있다.</p><a class="back" href="#top">↩ 본문으로 돌아가기</a></div><div class="gitem" id="g2"><h4>은행 지급준비금</h4><p>은행이 연준에 맡겨 둔 돈이다. 시중 유동성의 마지막 완충재이다. 지준이 줄어들면 은행끼리 돈을 빌리는 금리(레포 금리)가 급등한다.<br>★ 2019년 9월 레포 발작이 그렇게 왔다. ⚠ 순서를 바로잡는다. QT 종료는 그 전인 7월 31일에 결정돼 8월 1일부터 시행됐다. 9월 발작은 QT가 멈춘 뒤에 왔다. 연준은 그때 레포 공급과 국채 매입으로 대응했다.</p><a class="back" href="#top">↩ 본문으로 돌아가기</a></div><div class="gitem" id="g3"><h4>QT: 양적긴축</h4><p>연준이 보유한 국채·MBS를 만기가 와도 재투자하지 않고 줄이는 것이다. QE(양적완화)의 반대이다.<br>★ 발표와 집행은 다르다. 2022년 계획의 월 475억 달러는 첫 3개월 한도였다. 그 뒤로는 국채 600억과 MBS 350억을 더한 월 950억 달러였다. 실제 집행은 그보다 작았다.<br>★ 연준은 2025년 12월 1일에 QT를 끝냈다. 그 뒤로는 지준을 넉넉히 유지하려는 준비금 관리 매입을 한다. 경기를 부양하려는 QE와 목적도 대상도 다르다.</p><a class="back" href="#top">↩ 본문으로 돌아가기</a></div><div class="gitem" id="g4"><h4>QE: 양적완화</h4><p>연준이 국채·MBS를 매입해 시중에 돈을 푸는 것이다. 2020년의 QE4는 재정정책과 병행해 실물에 직접 넣었다는 점에서 2009년(금융에만 제한적으로 주입)과 다르다. 그래서 2020년 뒤에는 물가가 상승했다.</p><a class="back" href="#top">↩ 본문으로 돌아가기</a></div><div class="gitem" id="g5"><h4>순 유동성</h4><p>연준 총자산 − TGA − 역레포. 연준이 푼 돈에서 재무부 계좌(TGA)와 역레포에 묶인 몫을 뺀 값이다.<br>⚠ 시중의 돈을 직접 측정한 값이 아니다. 연준 대차대조표에서 만든 참고 지표이다. 유통 현금 같은 다른 부채 항목은 빠져 있다.</p><a class="back" href="#top">↩ 본문으로 돌아가기</a></div><div class="gitem" id="g6"><h4>부채한도</h4><p>미국 연방정부가 빌릴 수 있는 법정 상한이다. 한도에 막히면 재무부는 국채를 발행하지 못한다. 그래서 TGA 잔고를 꺼내 쓰고, 시중에 유동성이 공급된다. 한도가 상향되면 재무부는 국채를 대량 발행해 TGA를 다시 채운다. 이때 유동성이 흡수된다.<br>★ 그래서 부채한도 타결이 곧 유동성 흡수의 시작이다.</p><a class="back" href="#top">↩ 본문으로 돌아가기</a></div><div class="gitem" id="g7"><h4>SOFR: 담보부 익일물 조달금리</h4><p>은행이 국채를 담보로 하룻밤 돈을 빌리는 실거래 금리이다. SOFR가 지준부리(IORB)를 한 번 넘었다고 신용경색으로 볼 수는 없다. 분기말에는 흔히 급등한다. 격차가 얼마나 크고 얼마나 오래 가는지를 함께 봐야 한다.</p><a class="back" href="#top">↩ 본문으로 돌아가기</a></div><div class="gitem" id="g8"><h4>QRA: 분기 자금조달 계획</h4><p>재무부가 분기마다 내는 국채 발행 계획서(Quarterly Refunding Announcement)이다. TGA 목표 잔고와 발행 규모가 여기 적힌다.<br>★ 연준의 QT 규모와 서로 보고 조정하므로, 2가지를 따로 읽으면 이중 계산이 된다.</p><a class="back" href="#top">↩ 본문으로 돌아가기</a></div><div class="gitem" id="g9"><h4>BTFP: 은행기간대출</h4><p>2023년 SVB 파산 직후 연준이 만든 한시적 대출 창구이다. 연준은 QT를 하면서 동시에 BTFP로 1,650억 달러를 공급했다. 이야기꾼은 이를 'SQE4-1'이라 불렀다. ⚠ 신규 대출은 2024년 3월 11일에 끝났다. 기존 대출은 만기까지 남았다.</p><a class="back" href="#top">↩ 본문으로 돌아가기</a></div></div>
 </details>
 
 <details class="apx" open><summary>정정 이력 · 2026-09-10</summary>
 <ul>
-<li>「반드시 세 계정 중 하나에 있다」는 틀렸다. 연준 부채에는 유통 중인 현금과 다른 항목이 있고, 「기타」 칸이 그것이다.</li>
+<li>「반드시 세 계정 중 하나에 있다」는 틀렸다. 연준 부채에는 유통 중인 현금과 다른 항목이 있다. 그 항목들이 「기타」 칸이다.</li>
 <li>시점이 다른 계열을 섞고 있었다. 연준 총자산은 수요일 잔액인데 TGA와 지준은 주간 평균이었다. 지금은 수요일 잔액(WDTGAL·WRBWFRBL)을 쓴다.</li>
 <li>TGA 바닥 표의 「그때 TGA」가 백만 달러로 찍혀 변화량(십억 달러)과 1,000배 어긋나 있었다. 「거의 예외 없이 다시 채워지고 그만큼 순 유동성이 빠진다」도 틀렸다. 2가지가 함께 온 것은 3번이다.</li>
 <li>「시간 창을 바꾸면 배관의 속도가 보인다」·「올해 달러가 어느 쪽으로 기울 것인가에는 쓸 수 있다」는 이 계산이 뒷받침하지 않아 걷었다.</li>
 <li>「남은 수도꼭지는 TGA 하나」는 연준의 2025년 12월 1일 QT 종료와 준비금 관리 매입을 빠뜨린 문장이라 고쳤다.</li>
-<li>2026-09-13 8자리로 다시 짜며 손으로 박혀 있던 두 뒤집힘의 숫자(+1,219·+1,703·−172 / −1,220·−1,799·+144)를 국면표 계산값으로 바꿨다. 자료가 갱신돼 옛 숫자는 이미 어긋나 있었다.</li>
+<li>2026년 9월 13일에 8자리 뼈대로 다시 썼다. 방향이 반대인 2개 국면의 숫자(+1,219·+1,703·−172 / −1,220·−1,799·+144)는 손으로 적혀 있었다. 이 숫자를 국면표 계산값으로 바꿨다. 자료가 갱신돼 옛 숫자는 이미 어긋나 있었다.</li>
 </ul>
 </details>
 
 <details class="apx" open><summary>자료와 계산 방법</summary>
 <ul>
-<li>FRED WALCL(연준 총자산) · WDTGAL(TGA 수요일 잔액) · RRPONTSYD(역레포) · WRBWFRBL(은행 지준 수요일 잔액) · SOFR · 광의 달러지수 · ECB·BOJ 자산. 수집기는 scripts/fred_liquidity.py, 생성기는 scripts/build_liquidity.py 다.</li>
+<li>자료는 FRED 계열이다. WALCL(연준 총자산), WDTGAL(TGA 수요일 잔액), RRPONTSYD(역레포), WRBWFRBL(은행 지준 수요일 잔액), SOFR, 광의 달러지수, ECB·BOJ 자산을 쓴다. 수집기는 scripts/fred_liquidity.py, 생성기는 scripts/build_liquidity.py 다.</li>
 <li>주간 격자는 연준 총자산의 수요일이고 나머지는 그 날짜 이하의 마지막 값을 붙였다. 단위는 십억 달러다(FRED 원단위는 계열마다 달라 백만·십억을 맞췄다).</li>
 <li>항등식은 Δ지준 ≈ Δ연준 총자산 − ΔTGA − Δ역레포로 놓고 예측값과 실제 Δ지준의 상관과 오차 중앙값(지준 변화폭 대비)을 계산했다.</li>
-<li>국면은 2020-01 · 2021-04 · 2022-03 · 2023-05 · 2024-06 · 2025-07 에서 잘랐고 각 칸은 구간 시작 대비 끝의 변화다.</li>
+<li>국면 경계는 2020년 1월, 2021년 4월, 2022년 3월, 2023년 5월, 2024년 6월, 2025년 7월이다. 각 칸은 구간 시작 대비 끝의 변화다.</li>
 <li>TGA 바닥은 앞뒤 8주에서 가장 낮은 주이고 바닥끼리는 9개월 이상 떨어져 있어야 한다. 6개월 뒤는 26주 뒤다.</li>
 <li>달러와의 상관은 순 유동성과 광의 달러지수를 수준·주간·4주·13주·26주·52주 변화로 각각 계산했다.</li>
-<li>서술 근거는 이야기꾼 주간거시경제 리포트와 에버노트 시투스터디 2021이고, 정리 문서는 03_references/04_조사/미국_유동성_관리_2020-2026.md 다.</li>
+<li>서술 근거는 이야기꾼 주간거시경제 리포트와 에버노트 시투스터디 2021이다. 정리 문서는 03_references/04_조사/미국_유동성_관리_2020-2026.md 다.</li>
 </ul>
 </details>
 
