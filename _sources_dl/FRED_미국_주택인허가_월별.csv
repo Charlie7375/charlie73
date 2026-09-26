@@ -1,4 +1,4 @@
-# 미국 주택 인허가 (연환산 천 호, SA) · FRED PERMIT · 단위 천 호 · 받은 날 2026-09-24 · scripts/precursor_sources.py
+# 미국 주택 인허가 (연환산 천 호, SA) · FRED PERMIT · 단위 천 호 · 받은 날 2026-09-25 · scripts/precursor_sources.py
 date,value
 1960-01,1092
 1960-02,1088
@@ -799,4 +799,4 @@ date,value
 2026-05,1410
 2026-06,1374
 2026-07,1433
-2026-08,1394
+2026-08,1403
