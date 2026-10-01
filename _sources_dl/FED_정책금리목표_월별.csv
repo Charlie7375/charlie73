@@ -2,7 +2,7 @@
 # Source: 연준 openmarket.htm + openmarket_archive.htm · 변경 110건
 # 의장은 aboutthefed/bios/board/boardmembership.htm 에서 확인했다(2026-08-29).
 # 2008-12 이전은 단일 목표라 하단=상단이다. 그 뒤로 범위가 됐다.
-# Range: 1990-07 ~ 2026-09 | scripts/fed_official.py
+# Range: 1990-07 ~ 2026-10 | scripts/fed_official.py
 date,목표하단,목표상단,의장
 1990-07,8.00,8.00,앨런 그린스펀
 1990-08,8.00,8.00,앨런 그린스펀
@@ -439,3 +439,4 @@ date,목표하단,목표상단,의장
 2026-07,3.50,3.75,케빈 워시
 2026-08,3.50,3.75,케빈 워시
 2026-09,3.75,4.00,케빈 워시
+2026-10,3.75,4.00,케빈 워시
