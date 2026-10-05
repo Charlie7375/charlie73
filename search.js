@@ -80,6 +80,8 @@
     var t=e.target, typing=t&&(t.tagName==='INPUT'||t.tagName==='TEXTAREA'||t.isContentEditable);
     if(!typing&&(e.key==='/'||((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'))){e.preventDefault(); open();}
   });
-  document.querySelectorAll('.srch-btn').forEach(function(b){b.addEventListener('click',open);});
+  /* 우하단 돋보기와 상단 메뉴 «검색»(rebuild_nav 가 심는다) 둘 다 같은 창을 연다 */
+  document.querySelectorAll('.srch-btn, .srch-nav').forEach(function(b){b.addEventListener('click',function(e){e.preventDefault(); open();});});
+  if(location.hash==='#search'){ history.replaceState(null,'',location.pathname+location.search); open(); }
   inp.addEventListener('focus',function(){load();},{once:true});
 })();
