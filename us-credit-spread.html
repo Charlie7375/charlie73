@@ -404,32 +404,13 @@ html,body{overflow-x:hidden}
   html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
   html body .site-bar-in{padding:9px 14px 7px}
 }
-/* BAR:END *//*TOCCSS:BEGIN*/
-/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
-
-/* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
-   원인은 상단바다. .site-bar 가 position:sticky · 높이 78px 로 화면 맨 위를 덮는데
-   앵커로 이동하면 제목이 정확히 그 아래에 깔린다. 그래서 독자는 제목을 못 보고
-   그 다음 문단부터 보게 된다. 눌러 간 곳과 보이는 글이 어긋나는 것이 이 때문이다.
-   scroll-margin-top 이 0 이었다. 78 에 여백 14 를 더해 92 로 둔다.
-   ⚠ 상단바 높이를 바꾸면 이 값도 같이 바꾼다. 측정: .site-bar 의 getBoundingClientRect().height */
-h2[id],h3[id],[id]:target{scroll-margin-top:92px}
-@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
- margin:22px 0 24px;background:var(--surface);text-align:left}
-.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
- color:var(--text-secondary);margin-bottom:7px;text-align:left}
-.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
-.ptoc li{font-size:.9rem}
-.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
-.ptoc a:hover{border-bottom-color:var(--text-secondary)}
-@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*/</style><link rel="stylesheet" href="vendor/fonts.css"><style id="freqcss">
-.freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
- padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
- border:1px solid currentColor;opacity:.85}
-.freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
-.freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
+/* BAR:END */
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 /* SEARCH:BEGIN */
 .srch-btn{position:fixed;top:auto;bottom:18px;right:68px;z-index:130;width:42px;height:42px;border-radius:50%;
   background:var(--surface,#F6F7F9);border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text,#0f172a);
@@ -466,7 +447,27 @@ html body .site-group>a.srch-nav:hover{color:var(--text);background:color-mix(in
 @media(max-width:760px){.srch-box{top:12px} html body .site-group>a.srch-nav{padding:8px 8px;font-size:12px}}
 @media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
 /* SEARCH:END */
-/* PAPER:BEGIN */
+/*TOCCSS:BEGIN*/
+/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
+
+/* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
+   원인은 상단바다. .site-bar 가 position:sticky · 높이 78px 로 화면 맨 위를 덮는데
+   앵커로 이동하면 제목이 정확히 그 아래에 깔린다. 그래서 독자는 제목을 못 보고
+   그 다음 문단부터 보게 된다. 눌러 간 곳과 보이는 글이 어긋나는 것이 이 때문이다.
+   scroll-margin-top 이 0 이었다. 78 에 여백 14 를 더해 92 로 둔다.
+   ⚠ 상단바 높이를 바꾸면 이 값도 같이 바꾼다. 측정: .site-bar 의 getBoundingClientRect().height */
+h2[id],h3[id],[id]:target{scroll-margin-top:92px}
+@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
+ margin:22px 0 24px;background:var(--surface);text-align:left}
+.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
+ color:var(--text-secondary);margin-bottom:7px;text-align:left}
+.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
+.ptoc li{font-size:.9rem}
+.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
+.ptoc a:hover{border-bottom-color:var(--text-secondary)}
+@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
+/*TOCCSS:END*//* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -781,8 +782,14 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style>
-<!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
+/* PAPER:END */</style><link rel="stylesheet" href="vendor/fonts.css"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><style id="freqcss">
+.freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
+ padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
+ border:1px solid currentColor;opacity:.85}
+.freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
+.freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
+</style>
+</head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="macro-timeline.html">거시 이벤트 연대기</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="minervini-x.html">마크 미너비니 X 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-psk-holdings.html">피에스케이홀딩스</a><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-nhn.html">NHN</a><a href="stock-kolmar.html">한국콜마</a><a href="stock-cosmax.html">코스맥스</a><a href="stock-pharmaresearch.html">파마리서치</a><a href="stock-jyp.html">JYP Ent.</a><a href="stock-sm-ent.html">에스엠</a><a href="stock-yg-ent.html">와이지엔터테인먼트</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="marks.html">하워드 막스의 방법론</a><a href="marks-glossary.html">사이클 용어사전</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a></div></div><div class="site-group"><button class="here" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><span class="nav-h sub">시장 국면</span><a href="rally-angle.html">상승 각도</a><a href="kospi-seasonality-down.html">해와 달의 코스피 · 역편</a><a href="kospi-drivers.html">코스피 선행 변수</a><a href="kospi-seasonality.html">해와 달의 코스피</a><a href="breadth-concentration.html">신고가 쏠림</a><a href="kospi-analog.html">닮은 과거</a><a href="audition-history.html">오디션 히스토리</a><a href="disparity-archive.html">두 버블의 이격도</a><a href="stage-analysis.html">와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리</a><span class="nav-h sub">수급과 폭락</span><a href="flow-extremes.html">개인과 외국인의 대량 매매</a><a href="flow-crashes.html">폭락의 구조</a><span class="nav-h sub">신용과 청산</span><a class="here" href="us-credit-spread.html">미국 신용스프레드</a><a href="deleveraging.html">강제청산</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="sentiment.html">빚과 현금</a><span class="nav-h sub">경기와 수출</span><a href="us-elections.html">미국 선거와 증시</a><a href="export-kospi.html">수출과 코스피</a><a href="cli-kospi.html">OECD CLI 와 코스피</a><a href="ism-kospi.html">ISM 과 코스피</a><a href="jeoji-kospi.html">제오지산수</a><span class="nav-h sub">금리와 통화</span><a href="gold-rates.html">금리와 금값</a><a href="treasury-trust.html">미국 국채 바이백</a><a href="inflation-playbook.html">인플레 시대의 자산</a><a href="rates-century.html">미국 금리 100년</a><a href="liquidity.html">미국 유동성</a><a href="fed-kospi.html">연준 기준금리와 코스피</a><a href="rates-101.html">금리 기초</a><a href="rates-crashes.html">금리 5%와 공황</a><a href="dollar-kospi.html">달러와 코스피</a><span class="nav-h sub">개별 종목</span><a href="memory-price.html">D램 가격과 삼성전자</a><a href="leadlag.html">하이닉스의 선행과 후행</a><a href="samsung-long.html">삼성전자 27년</a></div></div><div class="site-group"><button class="" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 108계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a href="data-kr-rates.html">한국 금리</a><a href="data-us-market.html">미국 시장</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a href="data-fx.html">환율·원자재·암호</a><a href="data-macro.html">재정·거시</a><a href="data-world.html">세계 증시</a></div></div><div class="site-group"><a class="solo srch-nav" href="#search" role="button">검색</a></div><!-- NAV:END --></nav>
@@ -803,7 +810,7 @@ tr.cs-now td{background:rgba(43,108,176,.07)}
 <header class="phead">
 <div class="eyebrow">아카이브 · 미국 신용스프레드</div>
 <h1>신용스프레드는 예보가 아니라 계기판이다</h1>
-<p class="pauth">기준일 2026-10-05 · FRED BAA−AAA 월봉 · S&P 500 월별 · 주 1회 갱신</p>
+<p class="pauth">기준일 2026-10-01 · FRED BAA−AAA 월봉 · S&P 500 월별 · 주 1회 갱신</p>
 <!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#신용스프레드는-신용도가-낮은-회사가-높은-회사보다-더-내는-이자다">신용스프레드는 신용도가 낮은 회사가 높은 회사보다 더 내는 이자다</a></li><li><a href="#지금-값은-지난-107년-가운데-손꼽히게-낮다">지금 값은 지난 107년 가운데 손꼽히게 낮다</a></li><li><a href="#스프레드가-낮았던-달에-매수해도-1년-뒤-수익률은-다른-달과-비슷했다">스프레드가 낮았던 달에 매수해도 1년 뒤 수익률은 다른 달과 비슷했다</a></li><li><a href="#먼저-움직인-것은-주가였다-스프레드가-아니다">먼저 움직인 것은 주가였다. 스프레드가 아니다</a></li><li><a href="#차트에서-스프레드가-먼저-보이는-것은-국면이-끝난-뒤에-골랐기-때문이다">차트에서 스프레드가 먼저 보이는 것은 국면이 끝난 뒤에 골랐기 때문이다</a></li><li><a href="#연준이-더-잘-만든-스프레드로-다시-계산해도-결론은-같았다">연준이 더 잘 만든 스프레드로 다시 계산해도 결론은 같았다</a></li><li><a href="#이-믿음에는-선후관계의-오류-라는-이름이-붙어-있다">이 믿음에는 '선후관계의 오류'라는 이름이 붙어 있다</a></li><li><a href="#hy">하이일드 OAS는 앞선 2번의 전환보다 빨리 0.50%포인트 상승했다</a></li><li><a href="#아직-불확실한-곳은-어디인가">아직 불확실한 곳은 어디인가</a></li><li><a href="#그래서-예보가-아니라-계기판으로-쓴다">그래서 예보가 아니라 계기판으로 쓴다</a></li><li><a href="#apx">원문 상세표</a></li></ol></div><!--TOC:END--></header>
 <!-- ⚠ 위 넷은 한 세트다. header.phead + .eyebrow + h1 + p.pauth 를 check_header 가 매일 본다. -->
 
@@ -862,7 +869,7 @@ Aaa는 가장 높은 신용등급이고 Baa는 투자적격 가운데 가장 낮
 <div class="note"><p>이렇게 읽으면 안 된다.
 이 글의 Baa−Aaa는 투자적격 등급 사이의 차이다.
 이야기꾼이 말하는 신용금리스프레드는 하이일드 회사채와 국채의 차이라 같은 지표가 아니다.
-그 계열은 라이선스 때문에 최근 3년치만 공개돼 107년 계산에는 쓰지 못했다.
+그 계열은 1996년 말부터 있어 107년 계산에는 쓰지 못했다.
 그가 상승 전환이라 부른 최근 3번만 아래 <a href="#hy">하이일드 OAS 절</a>에서 따로 비교한다.</p></div>
 
 <h2 id="지금-값은-지난-107년-가운데-손꼽히게-낮다">지금 값은 지난 107년 가운데 손꼽히게 낮다</h2>
@@ -1039,8 +1046,8 @@ Baa 와 Aaa 는 만기 구성도 다르다. 금리 수준이 움직이면 2개 �
 <p>이야기꾼이 말하는 신용금리스프레드는 ICE BofA 미국 하이일드 OAS다.
 하이일드 회사채 금리에서 만기가 같은 국채 금리를 뺀 값이다.
 그가 W40에 적은 3.24%는 이 지표의 2026년 10월 1일 종가와 같다. W37에 적은 2.70%도 그 보고서 이틀 전 종가와 같다.
-FRED가 라이선스 때문에 최근 3년치만 주어 2023년 10월 3일부터 있다.
-그래서 107년 계산에는 쓰지 못하고, 그가 상승 전환이라 부른 3번을 비교하는 데만 쓴다.</p>
+FRED는 라이선스 때문에 최근 3년치만 준다. 그 이전은 FRED가 창을 줄이기 전에 웨이백 머신에 보관된 FRED 원본 파일에서 가져와 1996년 12월 31일부터 있다.
+107년 계산에는 짧아서, 이 절에서는 그가 상승 전환이라 부른 3번을 비교하는 데만 쓴다.</p>
 
 <p>그는 W40에서 앞선 2번을 직접 꼽았다.
 2025년 2월의 전환 뒤에는 2월부터 4월까지 소공황-FC가 왔다.
@@ -1077,7 +1084,7 @@ FRED가 라이선스 때문에 최근 3년치만 주어 2023년 10월 3일부터
 이번은 저점 뒤 23거래일째라 이 칸이 아직 비어 있다.</p>
 
 <div class="note"><p>이렇게 읽으면 안 된다.
-3년치 자료에 전환 3번이다. 그 안에 중공황은 1번도 없다.
+이 표가 비교한 것은 그가 상승 전환이라 부른 3번뿐이다. 그 3번 뒤에 중공황은 1번도 없었다.
 그래서 이번 상승이 빠르다는 사실이 중공황을 예고하는지는 이 표가 말하지 못한다.
 0.25%포인트와 0.50%포인트는 비교를 위한 눈금이지 신호의 문턱이 아니다.
 저점은 지나고 나서야 저점인 줄 안다. 표의 저점은 그가 전환이라 부른 뒤에 잡은 것이다.
@@ -1120,6 +1127,7 @@ ICE는 월말이 주말인 날과 미국 증시 휴장일에도 값을 낸다. �
 
 <p class="dim">자료와 계산 방법을 짧게: 아래 <a href="#apx">원문 상세</a>에 있다.</p>
 
+
 <!--STORY:BEGIN--><style id="storycss">.story{margin:26px 0 8px;padding:16px 20px;border:1px solid var(--border,#d9d9de);border-left:4px solid var(--accent,#2563eb);border-radius:10px;background:var(--surface,#fafafa)}.story .h{font-weight:800;font-size:.95em;margin-bottom:6px}.story .h span{font-weight:400;color:var(--text-secondary,#6e6e73);margin-left:8px;font-size:.88em}.story p{margin:6px 0;line-height:1.75}.story .src{font-size:.82em;color:var(--text-secondary,#6e6e73);margin-top:8px}</style><div class="story"><div class="h">이야기꾼은 이렇게 읽는다<span>W38 · 2026-09-19</span></div><p>연준이 인상한 주에 「신용 금리 스프레드 역시 이번주에 아무런 반응을 보이지 않고 있다.」 「채권 시장의 VIX인 MOVE는 이번주 80.64p로 마감했다. 바닥권에서 안전하게 횡보 중이다.」 그가 W36에 건 「내년 중공황의 필요충분조건: 신용 스프레드가 올해 안에 상승 전환」은 아직 미충족이다. 이 사이트의 GZ 스프레드는 2026년 7월 0.842%p로 백분위 4.5%다. </p><p>대신 다른 경로를 새로 들었다. 「이제 연준이 금리 인상을 시작했으니, 주식 시장은 더 강하게 상승하면서 신용 리스크 역시 동반해서 점점 커지게 된다. (아직 확인되지 않았다, 커져야 정상이다)」 「30년 모기지 금리는 이번주 6.97%로, 7%에 육박하고 있다. … 7개월 만에 거의 1% 상승하면서 신용 경색으로 발전될 위험이 점점 커지고 있다.」</p><p class="src">출처 이야기꾼 주간 시투 보고서 W38(2026-09-19). 「」 안은 그의 문장 그대로다. 전조현상 28종의 판정은 <a href="jeonjo.html">중공황 전조현상</a>에, 정점 논쟁은 <a href="peak-debate.html">반도체 정점 논쟁</a>에 있다.</p></div><!--STORY:END-->
 <h2 id="apx">원문 상세표</h2>
 <details class="apx" open><summary>자료와 계산 방법을 짧게</summary>
@@ -1127,7 +1135,7 @@ ICE는 월말이 주말인 날과 미국 증시 휴장일에도 값을 낸다. �
 <li>스프레드는 FRED의 BAA에서 AAA를 뺀 값이다. 2개 모두 월평균이다. 1919년 1월부터 2026년 9월까지 1,293개월이다.</li>
 <li>주가는 S&amp;P 500이다. 수익률과 최대 하락폭은 월말 종가에서 뽑았다. 선행·후행 상관은 월평균끼리 뽑았다.</li>
 <li>일별 계산은 DBAA와 DAAA를 쓰고 1986년부터 있다.</li>
-<li>⚠ 이야기꾼의 신용금리스프레드(하이일드−국채)는 ICE BofA 미국 하이일드 OAS다. FRED가 최근 3년치만 주어 107년 계산에는 쓰지 않았다.
+<li>⚠ 이야기꾼의 신용금리스프레드(하이일드−국채)는 ICE BofA 미국 하이일드 OAS다. 1996년 말부터 있어 107년 계산에는 쓰지 않았다.
 그가 상승 전환이라 부른 3번을 비교하는 절에만 썼다. 대용으로 Baa−Aaa를 쓰지 않았다. 다른 계열로 답한 척하는 쪽이 더 큰 잘못이다.</li>
 </ul>
 
@@ -1184,7 +1192,7 @@ Aaa는 무디스가 매긴 최고 등급 회사채의 평균 수익률이다. Ba
 <p>⚠ 이 글이 측정한 것은 투자적격 등급 사이의 차이다.
 이야기꾼이 전조현상에서 말하는 신용금리스프레드는 하이일드 회사채와 국채의 차이다.
 하이일드는 등급이 낮아 더 빨리 반응한다.
-그 계열은 라이선스 때문에 최근 3년치만 공개되어 107년 계산에는 쓰지 못했다.
+그 계열은 1996년 말부터 있어 107년 계산에는 쓰지 못했다.
 그가 상승 전환이라 부른 최근 3번을 비교하는 절에만 쓴다.</p>
 
 </details>
@@ -1357,7 +1365,7 @@ S&amp;P 500이 이미 중앙값 17.8% 하락해 있었다. 전체 하락폭의 5
 <div class="claim"><p>달라지지 않았다.
 5가지 스프레드 모두 월말 기준으로는 다음 달 주가와 거의 관계가 없었다.</p></div>
 <p>이야기꾼이 말하는 신용금리스프레드는 하이일드 회사채와 국채의 차이다.
-그 계열(ICE BofA 하이일드 OAS)은 라이선스 때문에 최근 3년치만 공개된다.
+그 계열(ICE BofA 하이일드 OAS)은 1996년 말부터라, 1973년부터 같은 기간으로 맞추는 이 비교에는 넣지 않았다.
 대신 미국 연준이 내는 GZ 스프레드를 썼다.
 개별 회사채를 만기가 같은 국채와 하나하나 비교해 만든 값이라
 정의가 회사채와 국채의 차이에 맞고, 1973년부터 있다.</p>
@@ -1469,10 +1477,11 @@ scripts/fred_rates.py 가 매일 2개 계열을 받아 뺀 값을 파일로 남�
 <p>⚠ 이야기꾼의 신용금리스프레드는 하이일드 회사채와 국채의 차이다.
 이 글이 계산한 Baa−Aaa와는 다른 계열이다.
 그 계열(ICE BofA US High Yield OAS)은 FRED가 라이선스 때문에 최근 3년치만 준다.
-2026년 9월 3일에 확인했다. 1996년부터의 이력은 받을 수 없었다.
-이 사이트는 2026년 10월 3일부터 그 계열을 매일 받는다. 3년 창 밖으로 밀려난 날도 지우지 않고 쌓는다.
-그래도 지금 있는 것은 2023년 10월 3일부터이고 그 안에 중공황이 없다.
-그래서 「폭락을 3~6개월 선행한다」는 이야기꾼의 말은 이 글이 확인하지도 반증하지도 못한다.
+2026년 9월 3일에 확인했다. 그때는 1996년부터의 이력을 받을 수 없었다.
+2026년 10월 5일에 FRED가 창을 줄이기 전의 원본 파일이 웨이백 머신에 보관된 것을 찾아 1996년 12월 31일부터 이었다.
+지금 FRED가 주는 값과 겹친 50일이 모두 같았다. 이 사이트는 그 뒤를 매일 받아 쌓는다.
+이제 2000년과 2008년의 중공황이 이 계열 안에 있다.
+「폭락을 3~6개월 선행한다」는 이야기꾼의 말을 이 계열로 확인하는 일은 아직 하지 않았다.
 대용으로 Baa−Aaa를 쓰지 않았다. 다른 계열로 답한 척하는 쪽이 더 큰 잘못이다.</p>
 <p>⚠ 원자료의 일별 S&amp;P 500에는 1952년 이전 토요일 반일장이 빠져 있다.
 월말이 토요일이던 43개월은 월말 종가가 하루 이르고,
