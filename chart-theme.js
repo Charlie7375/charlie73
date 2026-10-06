@@ -382,6 +382,10 @@ var t0 = null;
 function repaint(){
   /* ⚠ 애니메이션을 끄고 다시 만든다. 켜 두면 차트 5장을 한꺼번에 새로 그리느라
      테마 버튼 한 번에 화면이 수 초 멎는다(2026-08-05 실측). 되돌려 놓는 것도 잊지 않는다. */
+  /* ⚠ 2026-10-06 — 페이지가 제 손으로 차트를 destroy 하고 새로 만들면(kospi-dotcom 의 buildChart) 옛 항목이 LIVE 에 남는다.
+     그 차트는 canvas 가 null 이라 new Chart(null) 이 «can't acquire context» 를 콘솔에 찍었다(⑯-m3 가 처음 잡음).
+     → 이미 destroy 됐거나 문서에서 떨어진 캔버스는 건너뛰고 목록에서 뺀다. */
+  LIVE = LIVE.filter(function(e){ var cv = e.c && e.c.canvas; return !!(cv && cv.isConnected); });
   LIVE.forEach(function(e){
     try{
       var cv = e.c.canvas;

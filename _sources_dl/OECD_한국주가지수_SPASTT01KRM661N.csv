@@ -2,7 +2,7 @@
 # Series ID: SPASTT01KRM661N | Units: Index 2015=100 | Frequency: Monthly | NSA
 # 본가: https://sdmx.oecd.org/public/rest/data/OECD.SDD.STES,DSD_STES@DF_FINMARK,4.0/KOR.M.SHARE.IX._Z._Z._Z._Z.N
 # 미러: https://fred.stlouisfed.org/data/SPASTT01KRM661N  (본가보다 며칠~몇 주 늦을 수 있음)
-# Date Range: 1981-01 ~ 2026-08 | Accessed: 2026-09-02 | 갱신: scripts/oecd_kospi_monthly.py
+# Date Range: 1981-01 ~ 2026-09 | Accessed: 2026-10-06 | 갱신: scripts/oecd_kospi_monthly.py
 # KOSPI_EST = INDEX_2015_100 x 20.1 (2015 KOSPI avg ~2,010). 월평균 기준 — 종가/장중 고저와 다름.
 # Citation: OECD (2026), Main Economic Indicators.
 date,index_2015_100,kospi_est
@@ -554,3 +554,4 @@ date,index_2015_100,kospi_est
 2026-06,421.834800,8479
 2026-07,347.689800,6989
 2026-08,330.622800,6646
+2026-09,341.535800,6865
