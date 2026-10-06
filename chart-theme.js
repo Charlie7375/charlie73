@@ -385,7 +385,9 @@ function repaint(){
   /* ⚠ 2026-10-06 — 페이지가 제 손으로 차트를 destroy 하고 새로 만들면(kospi-dotcom 의 buildChart) 옛 항목이 LIVE 에 남는다.
      그 차트는 canvas 가 null 이라 new Chart(null) 이 «can't acquire context» 를 콘솔에 찍었다(⑯-m3 가 처음 잡음).
      → 이미 destroy 됐거나 문서에서 떨어진 캔버스는 건너뛰고 목록에서 뺀다. */
-  LIVE = LIVE.filter(function(e){ var cv = e.c && e.c.canvas; return !!(cv && cv.isConnected); });
+  /* ⚠ isConnected === false 일 때만 뺀다. 처음엔 !cv.isConnected 로 걸렀더니 isConnected 가 없는 환경(범례 점검 ⑯-m2 의 가짜 DOM)에서
+     차트가 전부 빠져 «범례 없음 88개»로 22:06 사슬이 섰다(2026-10-06). 진짜 브라우저는 isConnected 를 갖는다. */
+  LIVE = LIVE.filter(function(e){ var cv = e.c && e.c.canvas; return !!cv && cv.isConnected !== false; });
   LIVE.forEach(function(e){
     try{
       var cv = e.c.canvas;
