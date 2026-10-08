@@ -1,4 +1,4 @@
-# 알루미늄 (LME 99.5% 1차 알루미늄, 달러/톤, 월평균) · IMF 1차상품 가격 · FRED PALUMUSDM · scripts/commodities.py · 받은 날 2026-10-07
+# 알루미늄 (LME 99.5% 1차 알루미늄, 달러/톤, 월평균) · IMF 1차상품 가격 · FRED PALUMUSDM · scripts/commodities.py · 받은 날 2026-10-08
 # IMF 가 매달 초에 앞 달 값을 낸다 — 1~2달 늦다. 원천이 정본이라 덮어쓴다.
 date,value
 1992-01,1181.2273

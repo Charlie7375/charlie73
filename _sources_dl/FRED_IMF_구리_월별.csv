@@ -1,4 +1,4 @@
-# 구리 (LME grade A, 달러/톤, 월평균) · IMF 1차상품 가격 · FRED PCOPPUSDM · scripts/commodities.py · 받은 날 2026-10-07
+# 구리 (LME grade A, 달러/톤, 월평균) · IMF 1차상품 가격 · FRED PCOPPUSDM · scripts/commodities.py · 받은 날 2026-10-08
 # IMF 가 매달 초에 앞 달 값을 낸다 — 1~2달 늦다. 원천이 정본이라 덮어쓴다.
 date,value
 1992-01,2150.5796

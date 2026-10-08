@@ -1,7 +1,7 @@
 # 연준 통화정책 보도자료 월별 건수 (건)
 # Source: 연준 newsevents/pressreleases/<연도>-press.htm 의 monetary 건
 # 위기에 몰린다 — 2020년 3월처럼. 제목·링크 전문은 FED_보도자료_통화정책.csv 에 있다.
-# Range: 2016-01 ~ 2026-09 | scripts/fed_official.py
+# Range: 2016-01 ~ 2026-10 | scripts/fed_official.py
 date,건수
 2016-01,4
 2016-02,5
@@ -132,3 +132,4 @@ date,건수
 2026-07,4
 2026-08,2
 2026-09,2
+2026-10,1
