@@ -404,7 +404,53 @@ html,body{overflow-x:hidden}
   html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
   html body .site-bar-in{padding:9px 14px 7px}
 }
-/* BAR:END *//*TOCCSS:BEGIN*/
+/* BAR:END */
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
+
+/* SEARCH:BEGIN */
+.srch-btn{position:fixed;top:auto;bottom:18px;right:68px;z-index:130;width:42px;height:42px;border-radius:50%;
+  background:var(--surface,#F6F7F9);border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text,#0f172a);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;
+  box-shadow:0 2px 14px rgba(0,0,0,.10);transition:transform .12s,box-shadow .12s}
+.srch-btn:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(0,0,0,.16)}
+.srch-btn:focus-visible,.srch-in:focus-visible,.srch-r a:focus-visible{outline:2px solid var(--accent,#2563eb);outline-offset:2px}
+.srch-bg{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.38);display:none}
+.srch-bg.on{display:block}
+.srch-box{position:fixed;z-index:201;top:72px;left:50%;transform:translateX(-50%);width:min(680px,calc(100vw - 24px));
+  max-height:calc(100vh - 96px);max-height:calc(100dvh - 96px);display:none;flex-direction:column;
+  background:var(--bg,#fff);color:var(--text,#0f172a);border:1px solid var(--border,rgba(15,23,42,.12));
+  border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.28);overflow:hidden}
+.srch-box.on{display:flex}
+.srch-top{display:flex;gap:8px;align-items:center;padding:12px 14px;border-bottom:1px solid var(--border,rgba(15,23,42,.12))}
+.srch-in{flex:1;min-width:0;font:inherit;font-size:16px;padding:9px 11px;border-radius:9px;
+  border:1px solid var(--border,rgba(15,23,42,.12));background:var(--surface,#F6F7F9);color:var(--text,#0f172a)}
+.srch-x{font:inherit;font-size:13px;padding:8px 10px;border-radius:9px;border:0;background:none;color:var(--text2,#6e6e73);cursor:pointer}
+.srch-meta{padding:8px 16px 0;font-size:12.5px;color:var(--text2,#6e6e73)}
+.srch-r{list-style:none;margin:0;padding:6px 8px 12px;overflow-y:auto;overscroll-behavior:contain}
+.srch-r li{margin:0}
+.srch-r a{display:block;padding:10px 10px;border-radius:9px;color:inherit;text-decoration:none}
+.srch-r a:hover,.srch-r a.cur{background:var(--surface,#F6F7F9)}
+.srch-k{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;padding:1px 6px;border-radius:5px;
+  margin-right:6px;vertical-align:1px;border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text2,#6e6e73)}
+.srch-t{font-weight:700;font-size:14.5px;line-height:1.4}
+.srch-h{font-size:13px;color:var(--text2,#6e6e73);margin-top:2px;line-height:1.4}
+.srch-s{font-size:13px;line-height:1.55;margin-top:4px;color:var(--text,#0f172a);opacity:.86}
+.srch-s mark,.srch-h mark,.srch-t mark{background:rgba(37,99,235,.18);color:inherit;border-radius:3px;padding:0 1px}
+/* 상단 메뉴 «검색» — 드롭다운 버튼(.site-group>button)과 같은 글자로.
+   ⚠ site-group 이 아니라 site-srch 로 감싼다 — 상단바 토글 JS 가 site-group 마다 버튼을 찾다 오류가 났다(2026-10-06). */
+html body .site-srch{position:relative;display:flex;align-items:center}
+html body .site-srch>a.srch-nav{display:flex;align-items:center;font-size:13px;font-weight:600;letter-spacing:-.01em;
+  line-height:normal;color:var(--text-secondary,#475569);padding:8px 12px;border-radius:9px;text-decoration:none}
+html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in srgb,var(--text) 6%,transparent)}
+@media(max-width:760px){.srch-box{top:12px} html body .site-srch>a.srch-nav{padding:8px 8px;font-size:12px}}
+@media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
+/* SEARCH:END */
+/*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
 /* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
@@ -424,7 +470,7 @@ h2[id],h3[id],[id]:target{scroll-margin-top:92px}
 .ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
 .ptoc a:hover{border-bottom-color:var(--text-secondary)}
 @media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*/</style><style>
+/*TOCCSS:END*/</style><link rel="stylesheet" href="vendor/fonts.css"><style>
 .phead .deck{margin:10px 0 0;padding-left:14px;border-left:3px solid var(--accent,#0b4fa8);
   font-size:19px;font-weight:600;line-height:1.5;letter-spacing:-.01em;color:var(--text,#1d1d1f)}
 @media (max-width:640px){.phead .deck{font-size:17px;padding-left:11px}}
@@ -468,51 +514,13 @@ html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;-
 .reveal.visible{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 @media(max-width:720px){.panel{padding:22px 16px 18px}.panel .cbox{min-height:320px}}
-</style><link rel="stylesheet" href="vendor/fonts.css"><style id="freqcss">
+</style>
+<style id="freqcss">
 .freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
  padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
  border:1px solid currentColor;opacity:.85}
 .freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
 .freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
-
-/* SEARCH:BEGIN */
-.srch-btn{position:fixed;top:auto;bottom:18px;right:68px;z-index:130;width:42px;height:42px;border-radius:50%;
-  background:var(--surface,#F6F7F9);border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text,#0f172a);
-  cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;
-  box-shadow:0 2px 14px rgba(0,0,0,.10);transition:transform .12s,box-shadow .12s}
-.srch-btn:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(0,0,0,.16)}
-.srch-btn:focus-visible,.srch-in:focus-visible,.srch-r a:focus-visible{outline:2px solid var(--accent,#2563eb);outline-offset:2px}
-.srch-bg{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.38);display:none}
-.srch-bg.on{display:block}
-.srch-box{position:fixed;z-index:201;top:72px;left:50%;transform:translateX(-50%);width:min(680px,calc(100vw - 24px));
-  max-height:calc(100vh - 96px);max-height:calc(100dvh - 96px);display:none;flex-direction:column;
-  background:var(--bg,#fff);color:var(--text,#0f172a);border:1px solid var(--border,rgba(15,23,42,.12));
-  border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.28);overflow:hidden}
-.srch-box.on{display:flex}
-.srch-top{display:flex;gap:8px;align-items:center;padding:12px 14px;border-bottom:1px solid var(--border,rgba(15,23,42,.12))}
-.srch-in{flex:1;min-width:0;font:inherit;font-size:16px;padding:9px 11px;border-radius:9px;
-  border:1px solid var(--border,rgba(15,23,42,.12));background:var(--surface,#F6F7F9);color:var(--text,#0f172a)}
-.srch-x{font:inherit;font-size:13px;padding:8px 10px;border-radius:9px;border:0;background:none;color:var(--text2,#6e6e73);cursor:pointer}
-.srch-meta{padding:8px 16px 0;font-size:12.5px;color:var(--text2,#6e6e73)}
-.srch-r{list-style:none;margin:0;padding:6px 8px 12px;overflow-y:auto;overscroll-behavior:contain}
-.srch-r li{margin:0}
-.srch-r a{display:block;padding:10px 10px;border-radius:9px;color:inherit;text-decoration:none}
-.srch-r a:hover,.srch-r a.cur{background:var(--surface,#F6F7F9)}
-.srch-k{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;padding:1px 6px;border-radius:5px;
-  margin-right:6px;vertical-align:1px;border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text2,#6e6e73)}
-.srch-t{font-weight:700;font-size:14.5px;line-height:1.4}
-.srch-h{font-size:13px;color:var(--text2,#6e6e73);margin-top:2px;line-height:1.4}
-.srch-s{font-size:13px;line-height:1.55;margin-top:4px;color:var(--text,#0f172a);opacity:.86}
-.srch-s mark,.srch-h mark,.srch-t mark{background:rgba(37,99,235,.18);color:inherit;border-radius:3px;padding:0 1px}
-/* 상단 메뉴 «검색» — 드롭다운 버튼(.site-group>button)과 같은 글자로.
-   ⚠ site-group 이 아니라 site-srch 로 감싼다 — 상단바 토글 JS 가 site-group 마다 버튼을 찾다 오류가 났다(2026-10-06). */
-html body .site-srch{position:relative;display:flex;align-items:center}
-html body .site-srch>a.srch-nav{display:flex;align-items:center;font-size:13px;font-weight:600;letter-spacing:-.01em;
-  line-height:normal;color:var(--text-secondary,#475569);padding:8px 12px;border-radius:9px;text-decoration:none}
-html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in srgb,var(--text) 6%,transparent)}
-@media(max-width:760px){.srch-box{top:12px} html body .site-srch>a.srch-nav{padding:8px 8px;font-size:12px}}
-@media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
-/* SEARCH:END */
 /* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
@@ -1157,7 +1165,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 <!--STORY:BEGIN--><style id="storycss">.story{margin:26px 0 8px;padding:16px 20px;border:1px solid var(--border,#d9d9de);border-left:4px solid var(--accent,#2563eb);border-radius:10px;background:var(--surface,#fafafa)}.story .h{font-weight:800;font-size:.95em;margin-bottom:6px}.story .h span{font-weight:400;color:var(--text-secondary,#6e6e73);margin-left:8px;font-size:.88em}.story p{margin:6px 0;line-height:1.75}.story .src{font-size:.82em;color:var(--text-secondary,#6e6e73);margin-top:8px}</style><div class="story"><div class="h">이야기꾼은 이렇게 읽는다<span>W38 · 2026-09-19</span></div><p>그는 이번 주 KB증권 자료를 빌려 중공황과 장기채 금리 수준을 시대별로 구분했다. 「1968년 12월 역시 장기채 금리 6%를 넘긴 이후에 중공황이 시작됐다.」 「미국 10년물 장기채 금리는 2000년 3월 6.4%, 2000년 9월 5.8%였다. 이때도 6% 전후에서 중공황이 시작됐다.」 「2007년 11월 장기채 금리는 4.3%였다. 디플레이션 시대였기 때문에 6%까지 가지 못했다.」</p><p>규칙은 시대에 따라 다르다. 「인플레이션 시대는 장기채 금리 상승 추세가 3~4부 능선까지만 진행되고 중공황이 왔다. 디플레이션 시대는 정점을 찍고 하락하면서 중공황이 왔다. 예외가 없다.」 지금의 자리는 「1968년과 2000년의 중간 패턴 정도 전망된다.」 이 페이지가 중공황 5번의 시작 금리를 시대별로 계산한 표와 견줄 수 있다.</p><p class="src">출처 이야기꾼 주간 시투 보고서 W38(2026-09-19). 「」 안은 그의 문장 그대로다. 전조현상 28종의 판정은 <a href="jeonjo.html">중공황 전조현상</a>에, 정점 논쟁은 <a href="peak-debate.html">반도체 정점 논쟁</a>에 있다.</p></div><!--STORY:END-->
 <h2 id="apx">원문 상세표</h2>
-<p>본문에서 요약한 표와 계산 과정의 원본, 정정 이력이다. 지우지 않고 여기에 둔다. 제목을 누르면 접었다 펼 수 있다.</p>
+<p>본문에서 요약한 표와 계산 과정의 원본, 정정 이력이다. 여기에 그대로 싣는다. 제목을 누르면 접었다 펼 수 있다.</p>
 
 <details class="apx" open><summary>6% 검산 · 2026년 9월 17일</summary>
 <p>2026년 9월 17일에 받은 「5%가 아니라 6%」 글의 숫자를 이 사이트 자료(FRED GS10 월평균 · DGS10 일별 · LTGOVTBD · 무디스 Aaa·Baa)로 하나씩 확인했다. 시기 구분은 시나리오투자법(이야기꾼)의 기·국면표다.</p>

@@ -313,7 +313,62 @@ a.card:focus-visible,.lst-i:focus-visible{
 .site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
   background:color-mix(in srgb,var(--text) 6%,transparent)}
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/*NAVCSS:END*//* BAR:BEGIN */
+/*NAVCSS:END*/
+.dim{color:var(--mut,#94a3b8)}
+.b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
+  font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
+/* 판정 5색(b-on 로즈·b-wa 앰버·b-ob 슬레이트·b-sf 에메랄드·b-rf 회색)과 겹치지 않는 색을 쓴다.
+   기존 배지처럼 다크 대응 없이 한 색으로 양쪽에서 읽히게 채도를 높인다. */
+.b-pri{background:#4f46e5;color:#fff}
+.b-upd{background:#c7d2fe;color:#312e81}   /* b-pri 의 옅은 형제 — 둘 다 인디고 계열로 묶어
+                                              「강의 대조」 어휘임을 드러낸다. 윤곽선은 라이트
+                                              모드에서 대비 2.56 이라 채움으로 바꿨다. */
+.bg{display:inline-block;min-width:44px;text-align:center;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:800;color:#fff}
+.b-on{background:#e11d48}.b-wa{background:#f59e0b}.b-ob{background:#64748b}.b-sf{background:#059669}.b-rf{background:#94a3b8}
+.gr{display:inline-block;font-size:.68rem;font-weight:800;padding:1px 6px;border-radius:5px;margin-left:6px;
+  color:#e11d48;background:color-mix(in srgb,#e11d48 13%,transparent);vertical-align:middle}
+.chg{font-size:.7rem;font-weight:700;color:var(--accent);margin-left:6px;white-space:nowrap}
+.star{color:#e11d48;font-weight:800}
+td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
+.chl{margin:12px 0 0 18px;font-size:.92rem;line-height:1.9}
+.g1box{margin-top:12px;font-size:.9rem;line-height:1.85;color:var(--text-secondary)}
+.g1box ol{margin:8px 0 0 20px} .g1box li{color:var(--text);font-weight:600}
+.stats5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px}
+@media(max-width:720px){.stats5{grid-template-columns:repeat(2,1fr)}}
+
+/* 주차별 히스토리 */
+.hist{position:relative;padding-left:26px;margin-top:18px}
+.hist::before{content:'';position:absolute;left:7px;top:14px;bottom:14px;width:2px;background:var(--border)}
+.hw{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:20px 22px;margin-bottom:16px}
+.hw::before{content:'';position:absolute;left:-24px;top:26px;width:12px;height:12px;border-radius:50%;
+  background:var(--border);border:3px solid var(--bg)}
+.hw.cur{border-color:color-mix(in srgb,var(--accent) 45%,var(--border));
+  box-shadow:0 1px 14px color-mix(in srgb,var(--accent) 10%,transparent)}
+.hw.cur::before{background:var(--accent)}
+.hh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.hwk{font-size:1.02rem;font-weight:900;letter-spacing:-.02em}
+.hdt{font-size:.82rem;color:var(--text-secondary);font-variant-numeric:tabular-nums}
+.hnow{font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:999px;color:#fff;background:var(--accent)}
+.htitle{margin-top:8px;font-size:1.12rem;font-weight:800;letter-spacing:-.02em;line-height:1.4}
+.htone{margin-top:6px;font-size:.86rem;color:var(--text-secondary);font-style:italic}
+.hpills{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
+.hp{font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.hp.on{color:#e11d48;background:color-mix(in srgb,#e11d48 12%,transparent)}
+.hp.wa{color:#b45309;background:color-mix(in srgb,#f59e0b 15%,transparent)}
+.hp.ob{color:#475569;background:color-mix(in srgb,#64748b 14%,transparent)}
+.hp.sf{color:#047857;background:color-mix(in srgb,#059669 13%,transparent)}
+.hp.g1{color:#fff;background:#e11d48}
+.hbody{margin-top:13px;font-size:.93rem;line-height:1.78;color:var(--text-secondary)}
+.hbody b{color:var(--text)}
+.hchg{margin-top:14px;padding-top:12px;border-top:1px dashed var(--border)}
+.hct{font-size:.76rem;font-weight:800;letter-spacing:.02em;color:var(--accent);text-transform:none}
+.hchg ul{margin:8px 0 0 16px;font-size:.87rem;line-height:1.85;color:var(--text-secondary)}
+.hchg li b{color:var(--text)}
+.hchg .ar{white-space:nowrap}
+.to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
+@media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
+/* BAR:BEGIN */
 /* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
    flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
 html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
@@ -395,61 +450,6 @@ html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in 
 @media(max-width:760px){.srch-box{top:12px} html body .site-srch>a.srch-nav{padding:8px 8px;font-size:12px}}
 @media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
 /* SEARCH:END */
-
-.dim{color:var(--mut,#94a3b8)}
-.b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
-  font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
-/* 판정 5색(b-on 로즈·b-wa 앰버·b-ob 슬레이트·b-sf 에메랄드·b-rf 회색)과 겹치지 않는 색을 쓴다.
-   기존 배지처럼 다크 대응 없이 한 색으로 양쪽에서 읽히게 채도를 높인다. */
-.b-pri{background:#4f46e5;color:#fff}
-.b-upd{background:#c7d2fe;color:#312e81}   /* b-pri 의 옅은 형제 — 둘 다 인디고 계열로 묶어
-                                              「강의 대조」 어휘임을 드러낸다. 윤곽선은 라이트
-                                              모드에서 대비 2.56 이라 채움으로 바꿨다. */
-.bg{display:inline-block;min-width:44px;text-align:center;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:800;color:#fff}
-.b-on{background:#e11d48}.b-wa{background:#f59e0b}.b-ob{background:#64748b}.b-sf{background:#059669}.b-rf{background:#94a3b8}
-.gr{display:inline-block;font-size:.68rem;font-weight:800;padding:1px 6px;border-radius:5px;margin-left:6px;
-  color:#e11d48;background:color-mix(in srgb,#e11d48 13%,transparent);vertical-align:middle}
-.chg{font-size:.7rem;font-weight:700;color:var(--accent);margin-left:6px;white-space:nowrap}
-.star{color:#e11d48;font-weight:800}
-td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
-.chl{margin:12px 0 0 18px;font-size:.92rem;line-height:1.9}
-.g1box{margin-top:12px;font-size:.9rem;line-height:1.85;color:var(--text-secondary)}
-.g1box ol{margin:8px 0 0 20px} .g1box li{color:var(--text);font-weight:600}
-.stats5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px}
-@media(max-width:720px){.stats5{grid-template-columns:repeat(2,1fr)}}
-
-/* 주차별 히스토리 */
-.hist{position:relative;padding-left:26px;margin-top:18px}
-.hist::before{content:'';position:absolute;left:7px;top:14px;bottom:14px;width:2px;background:var(--border)}
-.hw{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:14px;
-  padding:20px 22px;margin-bottom:16px}
-.hw::before{content:'';position:absolute;left:-24px;top:26px;width:12px;height:12px;border-radius:50%;
-  background:var(--border);border:3px solid var(--bg)}
-.hw.cur{border-color:color-mix(in srgb,var(--accent) 45%,var(--border));
-  box-shadow:0 1px 14px color-mix(in srgb,var(--accent) 10%,transparent)}
-.hw.cur::before{background:var(--accent)}
-.hh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.hwk{font-size:1.02rem;font-weight:900;letter-spacing:-.02em}
-.hdt{font-size:.82rem;color:var(--text-secondary);font-variant-numeric:tabular-nums}
-.hnow{font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:999px;color:#fff;background:var(--accent)}
-.htitle{margin-top:8px;font-size:1.12rem;font-weight:800;letter-spacing:-.02em;line-height:1.4}
-.htone{margin-top:6px;font-size:.86rem;color:var(--text-secondary);font-style:italic}
-.hpills{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
-.hp{font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
-.hp.on{color:#e11d48;background:color-mix(in srgb,#e11d48 12%,transparent)}
-.hp.wa{color:#b45309;background:color-mix(in srgb,#f59e0b 15%,transparent)}
-.hp.ob{color:#475569;background:color-mix(in srgb,#64748b 14%,transparent)}
-.hp.sf{color:#047857;background:color-mix(in srgb,#059669 13%,transparent)}
-.hp.g1{color:#fff;background:#e11d48}
-.hbody{margin-top:13px;font-size:.93rem;line-height:1.78;color:var(--text-secondary)}
-.hbody b{color:var(--text)}
-.hchg{margin-top:14px;padding-top:12px;border-top:1px dashed var(--border)}
-.hct{font-size:.76rem;font-weight:800;letter-spacing:.02em;color:var(--accent);text-transform:none}
-.hchg ul{margin:8px 0 0 16px;font-size:.87rem;line-height:1.85;color:var(--text-secondary)}
-.hchg li b{color:var(--text)}
-.hchg .ar{white-space:nowrap}
-.to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
-@media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
 /*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
@@ -957,7 +957,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 2026년 9월 월평균 4.99%가 어느 층인지는 그 글들에서 본다.</p>
 
 <h2 id="apx">원문 상세표</h2>
-<p>본문에서 요약한 표와 강의 2부의 실행 지침, 자료의 원본이다. 지우지 않고 여기에 둔다. 제목을 누르면 접었다 펼 수 있다.</p>
+<p>본문에서 요약한 표와 강의 2부의 실행 지침, 자료의 원본이다. 여기에 그대로 싣는다. 제목을 누르면 접었다 펼 수 있다.</p>
 
 <details class="apx" open><summary>오건영 2부 · 어항을 놓고 기다린다</summary>
 <p>2부의 핵심은 비유 하나다. 물고기는 사람보다 빠르다. 쫓아가면 못 잡는다. 어항을 놓고 기다려야 한다.
