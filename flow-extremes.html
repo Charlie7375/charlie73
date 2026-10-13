@@ -538,6 +538,8 @@ html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in 
 @media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
 /* SEARCH:END */
 
+
+
 /* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
@@ -1467,7 +1469,7 @@ z가 −2.5 아래인 날은 24일, 16사건이다. 그중 상승일이 14일이
 <details class="apx" open><summary>자료와 계산 방법</summary>
 
 <p>수급은 한국거래소 정보데이터시스템 [12008] 투자자별 거래실적의 코스피 시장 전체를 합친 값이다. ETF·ETN·ELW를 뺀 원 단위이고 2020-01-03부터다. 2026년 9월 8일까지는 인증 화면에서 받은 원본이고, 9월 9일부터는 한국투자증권 시장별 투자자매매동향의 같은 집계를 백만원 단위로 잇는다. 두 창구가 겹치는 289거래일은 백만원 단위까지 같다.
-거래대금은 금융투자협회 유가증권시장 일별, 코스피 종가는 FinanceDataReader의 KS11 계열을 scripts/backfill_kospi_index.py 가 채운 일별 OHLC 파일이다. 2개 지수 계열은 1,628일에서 0.2% 넘게 어긋난 날이 없다.
+거래대금은 금융투자협회 유가증권시장 일별, 코스피 종가는 FinanceDataReader의 KS11 일별 계열이다. 2개 지수 계열은 1,628일에서 0.2% 넘게 어긋난 날이 없다.
 개인 순매도 금액 상위 5일과 3개 주체의 순매수 비율 분포는 아래 표다.</p>
 
 <div class="tblwrap"><table class="tw">

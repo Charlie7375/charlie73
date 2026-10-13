@@ -538,6 +538,8 @@ html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in 
 @media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
 /* SEARCH:END */
 
+
+
 /* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
@@ -1090,7 +1092,7 @@ TGA 잔고는 바닥 7번 중 6번에서 6개월 뒤 늘었다. 그러나 순 �
 
 <details class="apx" open><summary>자료와 계산 방법</summary>
 <ul>
-<li>자료는 FRED 계열이다. WALCL(연준 총자산), WDTGAL(TGA 수요일 잔액), RRPONTSYD(역레포), WRBWFRBL(은행 지준 수요일 잔액), SOFR, 광의 달러인덱스, ECB·BOJ 자산을 쓴다. 수집기는 scripts/fred_liquidity.py, 생성기는 scripts/build_liquidity.py 다.</li>
+<li>자료는 FRED 계열이다. WALCL(연준 총자산), WDTGAL(TGA 수요일 잔액), RRPONTSYD(역레포), WRBWFRBL(은행 지준 수요일 잔액), SOFR, 광의 달러인덱스, ECB·BOJ 자산을 쓴다.</li>
 <li>주간 격자는 연준 총자산의 수요일이고 나머지는 그 날짜 이하의 마지막 값을 붙였다. 단위는 십억 달러다(FRED 원단위는 계열마다 달라 백만·십억을 맞췄다).</li>
 <li>항등식은 Δ지준 ≈ Δ연준 총자산 − ΔTGA − Δ역레포로 놓고 예측치와 실제 Δ지준의 상관과 오차 중앙값(지준 변화폭 대비)을 계산했다.</li>
 <li>국면 경계는 2020년 1월, 2021년 4월, 2022년 3월, 2023년 5월, 2024년 6월, 2025년 7월이다. 각 칸은 구간 시작 대비 끝의 변화다.</li>
