@@ -313,62 +313,7 @@ a.card:focus-visible,.lst-i:focus-visible{
 .site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
   background:color-mix(in srgb,var(--text) 6%,transparent)}
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/*NAVCSS:END*/
-.dim{color:var(--mut,#94a3b8)}
-.b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
-  font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
-/* 판정 5색(b-on 로즈·b-wa 앰버·b-ob 슬레이트·b-sf 에메랄드·b-rf 회색)과 겹치지 않는 색을 쓴다.
-   기존 배지처럼 다크 대응 없이 한 색으로 양쪽에서 읽히게 채도를 높인다. */
-.b-pri{background:#4f46e5;color:#fff}
-.b-upd{background:#c7d2fe;color:#312e81}   /* b-pri 의 옅은 형제 — 둘 다 인디고 계열로 묶어
-                                              「강의 대조」 어휘임을 드러낸다. 윤곽선은 라이트
-                                              모드에서 대비 2.56 이라 채움으로 바꿨다. */
-.bg{display:inline-block;min-width:44px;text-align:center;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:800;color:#fff}
-.b-on{background:#e11d48}.b-wa{background:#f59e0b}.b-ob{background:#64748b}.b-sf{background:#059669}.b-rf{background:#94a3b8}
-.gr{display:inline-block;font-size:.68rem;font-weight:800;padding:1px 6px;border-radius:5px;margin-left:6px;
-  color:#e11d48;background:color-mix(in srgb,#e11d48 13%,transparent);vertical-align:middle}
-.chg{font-size:.7rem;font-weight:700;color:var(--accent);margin-left:6px;white-space:nowrap}
-.star{color:#e11d48;font-weight:800}
-td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
-.chl{margin:12px 0 0 18px;font-size:.92rem;line-height:1.9}
-.g1box{margin-top:12px;font-size:.9rem;line-height:1.85;color:var(--text-secondary)}
-.g1box ol{margin:8px 0 0 20px} .g1box li{color:var(--text);font-weight:600}
-.stats5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px}
-@media(max-width:720px){.stats5{grid-template-columns:repeat(2,1fr)}}
-
-/* 주차별 히스토리 */
-.hist{position:relative;padding-left:26px;margin-top:18px}
-.hist::before{content:'';position:absolute;left:7px;top:14px;bottom:14px;width:2px;background:var(--border)}
-.hw{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:14px;
-  padding:20px 22px;margin-bottom:16px}
-.hw::before{content:'';position:absolute;left:-24px;top:26px;width:12px;height:12px;border-radius:50%;
-  background:var(--border);border:3px solid var(--bg)}
-.hw.cur{border-color:color-mix(in srgb,var(--accent) 45%,var(--border));
-  box-shadow:0 1px 14px color-mix(in srgb,var(--accent) 10%,transparent)}
-.hw.cur::before{background:var(--accent)}
-.hh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.hwk{font-size:1.02rem;font-weight:900;letter-spacing:-.02em}
-.hdt{font-size:.82rem;color:var(--text-secondary);font-variant-numeric:tabular-nums}
-.hnow{font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:999px;color:#fff;background:var(--accent)}
-.htitle{margin-top:8px;font-size:1.12rem;font-weight:800;letter-spacing:-.02em;line-height:1.4}
-.htone{margin-top:6px;font-size:.86rem;color:var(--text-secondary);font-style:italic}
-.hpills{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
-.hp{font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
-.hp.on{color:#e11d48;background:color-mix(in srgb,#e11d48 12%,transparent)}
-.hp.wa{color:#b45309;background:color-mix(in srgb,#f59e0b 15%,transparent)}
-.hp.ob{color:#475569;background:color-mix(in srgb,#64748b 14%,transparent)}
-.hp.sf{color:#047857;background:color-mix(in srgb,#059669 13%,transparent)}
-.hp.g1{color:#fff;background:#e11d48}
-.hbody{margin-top:13px;font-size:.93rem;line-height:1.78;color:var(--text-secondary)}
-.hbody b{color:var(--text)}
-.hchg{margin-top:14px;padding-top:12px;border-top:1px dashed var(--border)}
-.hct{font-size:.76rem;font-weight:800;letter-spacing:.02em;color:var(--accent);text-transform:none}
-.hchg ul{margin:8px 0 0 16px;font-size:.87rem;line-height:1.85;color:var(--text-secondary)}
-.hchg li b{color:var(--text)}
-.hchg .ar{white-space:nowrap}
-.to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
-@media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
-/* BAR:BEGIN */
+/*NAVCSS:END*//* BAR:BEGIN */
 /* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
    flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
 html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
@@ -450,6 +395,61 @@ html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in 
 @media(max-width:760px){.srch-box{top:12px} html body .site-srch>a.srch-nav{padding:8px 8px;font-size:12px}}
 @media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
 /* SEARCH:END */
+
+.dim{color:var(--mut,#94a3b8)}
+.b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
+  font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
+/* 판정 5색(b-on 로즈·b-wa 앰버·b-ob 슬레이트·b-sf 에메랄드·b-rf 회색)과 겹치지 않는 색을 쓴다.
+   기존 배지처럼 다크 대응 없이 한 색으로 양쪽에서 읽히게 채도를 높인다. */
+.b-pri{background:#4f46e5;color:#fff}
+.b-upd{background:#c7d2fe;color:#312e81}   /* b-pri 의 옅은 형제 — 둘 다 인디고 계열로 묶어
+                                              「강의 대조」 어휘임을 드러낸다. 윤곽선은 라이트
+                                              모드에서 대비 2.56 이라 채움으로 바꿨다. */
+.bg{display:inline-block;min-width:44px;text-align:center;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:800;color:#fff}
+.b-on{background:#e11d48}.b-wa{background:#f59e0b}.b-ob{background:#64748b}.b-sf{background:#059669}.b-rf{background:#94a3b8}
+.gr{display:inline-block;font-size:.68rem;font-weight:800;padding:1px 6px;border-radius:5px;margin-left:6px;
+  color:#e11d48;background:color-mix(in srgb,#e11d48 13%,transparent);vertical-align:middle}
+.chg{font-size:.7rem;font-weight:700;color:var(--accent);margin-left:6px;white-space:nowrap}
+.star{color:#e11d48;font-weight:800}
+td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
+.chl{margin:12px 0 0 18px;font-size:.92rem;line-height:1.9}
+.g1box{margin-top:12px;font-size:.9rem;line-height:1.85;color:var(--text-secondary)}
+.g1box ol{margin:8px 0 0 20px} .g1box li{color:var(--text);font-weight:600}
+.stats5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px}
+@media(max-width:720px){.stats5{grid-template-columns:repeat(2,1fr)}}
+
+/* 주차별 히스토리 */
+.hist{position:relative;padding-left:26px;margin-top:18px}
+.hist::before{content:'';position:absolute;left:7px;top:14px;bottom:14px;width:2px;background:var(--border)}
+.hw{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:20px 22px;margin-bottom:16px}
+.hw::before{content:'';position:absolute;left:-24px;top:26px;width:12px;height:12px;border-radius:50%;
+  background:var(--border);border:3px solid var(--bg)}
+.hw.cur{border-color:color-mix(in srgb,var(--accent) 45%,var(--border));
+  box-shadow:0 1px 14px color-mix(in srgb,var(--accent) 10%,transparent)}
+.hw.cur::before{background:var(--accent)}
+.hh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.hwk{font-size:1.02rem;font-weight:900;letter-spacing:-.02em}
+.hdt{font-size:.82rem;color:var(--text-secondary);font-variant-numeric:tabular-nums}
+.hnow{font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:999px;color:#fff;background:var(--accent)}
+.htitle{margin-top:8px;font-size:1.12rem;font-weight:800;letter-spacing:-.02em;line-height:1.4}
+.htone{margin-top:6px;font-size:.86rem;color:var(--text-secondary);font-style:italic}
+.hpills{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
+.hp{font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.hp.on{color:#e11d48;background:color-mix(in srgb,#e11d48 12%,transparent)}
+.hp.wa{color:#b45309;background:color-mix(in srgb,#f59e0b 15%,transparent)}
+.hp.ob{color:#475569;background:color-mix(in srgb,#64748b 14%,transparent)}
+.hp.sf{color:#047857;background:color-mix(in srgb,#059669 13%,transparent)}
+.hp.g1{color:#fff;background:#e11d48}
+.hbody{margin-top:13px;font-size:.93rem;line-height:1.78;color:var(--text-secondary)}
+.hbody b{color:var(--text)}
+.hchg{margin-top:14px;padding-top:12px;border-top:1px dashed var(--border)}
+.hct{font-size:.76rem;font-weight:800;letter-spacing:.02em;color:var(--accent);text-transform:none}
+.hchg ul{margin:8px 0 0 16px;font-size:.87rem;line-height:1.85;color:var(--text-secondary)}
+.hchg li b{color:var(--text)}
+.hchg .ar{white-space:nowrap}
+.to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
+@media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
 /*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
@@ -470,7 +470,7 @@ h2[id],h3[id],[id]:target{scroll-margin-top:92px}
 .ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
 .ptoc a:hover{border-bottom-color:var(--text-secondary)}
 @media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*/</style><link rel="stylesheet" href="vendor/fonts.css"><style id="glancecss">
+/*TOCCSS:END*/</style><style id="glancecss">
 .glance{margin:26px 0 8px;padding:18px 20px 14px;border:1px solid var(--border);border-radius:14px;background:var(--surface)}
 .glance .gl-h{font-size:.78rem;font-weight:800;letter-spacing:.08em;color:var(--text-secondary);margin-bottom:12px}
 .gl-lights{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
@@ -808,7 +808,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><style id="freqcss">
+/* PAPER:END */</style><link rel="stylesheet" href="vendor/fonts.css"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><style id="freqcss">
 .freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
  padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
  border:1px solid currentColor;opacity:.85}
@@ -826,9 +826,9 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <h1>하이브</h1>
 <p class="sub">엔터. 위버스 플랫폼 · 멀티 레이블 체제</p>
 <p class="pauth">기준일 2026-10-14 · 하이브 일별시세·투자자 매매동향(한투 KIS) · 매일 갱신</p>
-<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>엔터. 위버스 플랫폼 · 멀티 레이블 체제. 이 페이지는 이 종목이 매수 5원칙에 맞는지 매일 다시 판정한다. 추세는 20주선과의 거리로, 수급은 투자자별 누적 순매수로 판정한다. 재무는 분기 실적으로, 시장의 기대는 증권사 목표가로 본다. 5원칙 가운데 3번과 4번과 5번을 여기서 답한다. 1번 국면과 2번 내러티브는 방법론과 전조현상에서 따로 답한다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#투자자-수급">투자자 수급</a></li><li><a href="#개인-수급-사분면-nbsp-10-14-4분면-상승-개인-순매도">개인 수급 사분면 &nbsp;· 10/14 4분면 (상승 + 개인 순매도)</a></li><li><a href="#이야기꾼-바닥-7단계-매수의-기술적-시나리오">이야기꾼 바닥 7단계: 매수의 기술적 시나리오</a></li><li><a href="#이야기꾼-매수-5원칙">이야기꾼 매수 5원칙</a></li><li><a href="#vcp와-미너비니-추세-템플릿">VCP와 미너비니 추세 템플릿</a></li><li><a href="#이-페이지의-전제를-검증합니다">이 페이지의 전제를 검증한다</a></li><li><a href="#관련-기사">관련 기사</a></li><li><a href="#실적-dart">실적 (DART)</a></li><li><a href="#증권사-목표가">증권사 목표가</a></li></ol></div><!--TOC:END--></header>
+</header>
 
-<!-- GLANCE:BEGIN --><div class="glance" id="한-눈에"><div class="gl-h">하이브 · 2026-10-14</div><div class="gl-lights"><div class="gl-l off"><span class="gl-dot"></span><div><div class="gl-n">가격</div><div class="gl-v">종가 <b>163,800</b> · 20주선 186,005 <b>아래</b></div></div></div><div class="gl-l off"><span class="gl-dot"></span><div><div class="gl-n">상대강도</div><div class="gl-v">60거래일 <b>-20.5%</b> · 코스피 -12.4% <b>못 이김</b></div></div></div><div class="gl-l on"><span class="gl-dot"></span><div><div class="gl-n">거래량</div><div class="gl-v">10/14 거래량 50일 평균의 <b>1.23배</b> · 1배 이상</div></div></div></div><p class="gl-one">하이브 신호 3개 가운데 충족 1개, 미충족 2개다. 미충족은 가격 · 상대강도이다.</p><div class="gl-rec tblwrap"><table class="mini"><thead><tr><th>회복률</th><th>52주 고점</th><th>고점 → 저점</th><th>저점</th><th>오늘</th><th>낙폭의 회복</th><th>전고점까지</th></tr></thead><tbody><tr><td>하이브</td><td>404,500 <span class="dim">(2/19)</span></td><td class="neg">-61.6%</td><td>155,300 <span class="dim">(10/2)</span></td><td>163,800</td><td><b>3%</b></td><td>146.9%</td></tr></tbody></table></div><div class="gl-h" style="margin-top:22px;padding-top:16px;border-top:1px solid var(--border)">한 눈에 — 시장 · 2026-10-14</div><div class="gl-lights"><div class="gl-l off"><span class="gl-dot"></span><div><div class="gl-n">가격</div><div class="gl-v">코스피 <b>6,009</b> · 20주선 7,178 <b>아래</b></div></div></div><div class="gl-l off"><span class="gl-dot"></span><div><div class="gl-n">폭</div><div class="gl-v">최근 5거래일 상승 종목 비율 <b>33%</b> · 절반 아래</div></div></div><div class="gl-l on"><span class="gl-dot"></span><div><div class="gl-n">거래량</div><div class="gl-v">오늘 거래량 50일 평균의 <b>1.17배</b> · 1배 이상</div></div></div></div><p class="gl-one">신호 3개 가운데 충족 1개, 미충족 2개다. 오늘은 <span class="verd stop">쉬는 장</span>이다. 미충족은 가격 · 폭이다. <a href="bottom-top.html">바닥·천장 추적</a>과 같은 판정이다.</p><div class="gl-rec tblwrap"><table class="mini"><thead><tr><th>회복률</th><th>52주 고점</th><th>고점 → 저점</th><th>저점</th><th>오늘</th><th>낙폭의 회복</th><th>전고점까지</th></tr></thead><tbody><tr><td>코스피</td><td>9,115 <span class="dim">(6/22)</span></td><td class="neg">-38.6%</td><td>5,594 <span class="dim">(7/30)</span></td><td>6,009</td><td><b>12%</b></td><td>51.7%</td></tr></tbody></table></div><p class="gl-note">종목 줄의 가격은 종가와 주봉 20주 평균(이야기꾼의 생명선)을 견주고, 상대강도는 최근 60거래일 수익률이 코스피를 이겼는지, 거래량은 최근 거래일 거래량을 50일 평균으로 나눈 값이다. 종목 줄은 충족 개수만 적고 판정 낱말은 쓰지 않는다. 시장 줄은 바닥·천장 추적 맨 위의 「한 눈에」와 같은 계산이다. 낙폭의 회복은 52주 고점에서 그 뒤 저점까지 하락한 폭 가운데 오늘까지 되찾은 비율이다.</p></div><!-- GLANCE:END -->
+<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>엔터. 위버스 플랫폼 · 멀티 레이블 체제. 이 페이지는 이 종목이 매수 5원칙에 맞는지 매일 다시 판정한다. 추세는 20주선과의 거리로, 수급은 투자자별 누적 순매수로 판정한다. 재무는 분기 실적으로, 시장의 기대는 증권사 목표가로 본다. 5원칙 가운데 3번과 4번과 5번을 여기서 답한다. 1번 국면과 2번 내러티브는 방법론과 전조현상에서 따로 답한다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#투자자-수급">투자자 수급</a></li><li><a href="#개인-수급-사분면-nbsp-10-14-4분면-상승-개인-순매도">개인 수급 사분면 &nbsp;· 10/14 4분면 (상승 + 개인 순매도)</a></li><li><a href="#이야기꾼-바닥-7단계-매수의-기술적-시나리오">이야기꾼 바닥 7단계: 매수의 기술적 시나리오</a></li><li><a href="#이야기꾼-매수-5원칙">이야기꾼 매수 5원칙</a></li><li><a href="#vcp와-미너비니-추세-템플릿">VCP와 미너비니 추세 템플릿</a></li><li><a href="#이-페이지의-전제를-검증합니다">이 페이지의 전제를 검증한다</a></li><li><a href="#관련-기사">관련 기사</a></li><li><a href="#실적-dart">실적 (DART)</a></li><li><a href="#증권사-목표가">증권사 목표가</a></li></ol></div><!--TOC:END--><!-- GLANCE:BEGIN --><div class="glance" id="한-눈에"><div class="gl-h">하이브 · 2026-10-14</div><div class="gl-lights"><div class="gl-l off"><span class="gl-dot"></span><div><div class="gl-n">가격</div><div class="gl-v">종가 <b>163,800</b> · 20주선 186,005 <b>아래</b></div></div></div><div class="gl-l off"><span class="gl-dot"></span><div><div class="gl-n">상대강도</div><div class="gl-v">60거래일 <b>-20.5%</b> · 코스피 -12.4% <b>못 이김</b></div></div></div><div class="gl-l on"><span class="gl-dot"></span><div><div class="gl-n">거래량</div><div class="gl-v">10/14 거래량 50일 평균의 <b>1.23배</b> · 1배 이상</div></div></div></div><p class="gl-one">하이브 신호 3개 가운데 충족 1개, 미충족 2개다. 미충족은 가격 · 상대강도이다.</p><div class="gl-rec tblwrap"><table class="mini"><thead><tr><th>회복률</th><th>52주 고점</th><th>고점 → 저점</th><th>저점</th><th>오늘</th><th>낙폭의 회복</th><th>전고점까지</th></tr></thead><tbody><tr><td>하이브</td><td>404,500 <span class="dim">(2/19)</span></td><td class="neg">-61.6%</td><td>155,300 <span class="dim">(10/2)</span></td><td>163,800</td><td><b>3%</b></td><td>146.9%</td></tr></tbody></table></div><div class="gl-h" style="margin-top:22px;padding-top:16px;border-top:1px solid var(--border)">한 눈에 — 시장 · 2026-10-14</div><div class="gl-lights"><div class="gl-l off"><span class="gl-dot"></span><div><div class="gl-n">가격</div><div class="gl-v">코스피 <b>6,009</b> · 20주선 7,178 <b>아래</b></div></div></div><div class="gl-l off"><span class="gl-dot"></span><div><div class="gl-n">폭</div><div class="gl-v">최근 5거래일 상승 종목 비율 <b>33%</b> · 절반 아래</div></div></div><div class="gl-l on"><span class="gl-dot"></span><div><div class="gl-n">거래량</div><div class="gl-v">오늘 거래량 50일 평균의 <b>1.17배</b> · 1배 이상</div></div></div></div><p class="gl-one">신호 3개 가운데 충족 1개, 미충족 2개다. 오늘은 <span class="verd stop">쉬는 장</span>이다. 미충족은 가격 · 폭이다. <a href="bottom-top.html">바닥·천장 추적</a>과 같은 판정이다.</p><div class="gl-rec tblwrap"><table class="mini"><thead><tr><th>회복률</th><th>52주 고점</th><th>고점 → 저점</th><th>저점</th><th>오늘</th><th>낙폭의 회복</th><th>전고점까지</th></tr></thead><tbody><tr><td>코스피</td><td>9,115 <span class="dim">(6/22)</span></td><td class="neg">-38.6%</td><td>5,594 <span class="dim">(7/30)</span></td><td>6,009</td><td><b>12%</b></td><td>51.7%</td></tr></tbody></table></div><p class="gl-note">종목 줄의 가격은 종가와 주봉 20주 평균(이야기꾼의 생명선)을 견주고, 상대강도는 최근 60거래일 수익률이 코스피를 이겼는지, 거래량은 최근 거래일 거래량을 50일 평균으로 나눈 값이다. 종목 줄은 충족 개수만 적고 판정 낱말은 쓰지 않는다. 시장 줄은 바닥·천장 추적 맨 위의 「한 눈에」와 같은 계산이다. 낙폭의 회복은 52주 고점에서 그 뒤 저점까지 하락한 폭 가운데 오늘까지 되찾은 비율이다.</p></div><!-- GLANCE:END -->
 
 <figure class="fig"><div class="tblwrap"><table class="tw">
 <thead><tr><th class="n">종가</th><th class="n">전일비</th><th class="n">시총</th><th class="n">50일 이격도</th><th class="n">20주선 이격도</th><th class="n">오디션</th></tr></thead>
@@ -1027,7 +1027,7 @@ window.__qbRegister=function(){echarts.registerTheme('charlie', {"color": ["#d21
 </style><div class="vbox"><h4>개인은 정말 '떨어지면 사는가'</h4><p>위 사분면은 '한국 개인은 떨어지면 산다'를 전제로 읽는다. 그 전제가 이 종목에서도 맞는지 직접 계산했다.</p><p>하루 등락률과 그날 개인 순매수가 반대로 움직이는 정도를 계산하면 -0.54이다. 이 값이 0보다 작으면 '떨어지는 날에 개인이 샀다'는 뜻이고, 0보다 크면 그 반대이다.</p><p>같은 자료에서 연속 구간을 다시 뽑아 800번 계산해 보니 참값이 들어 있을 범위는 -0.64 ~ -0.43였다. 하이브에서도 그 습관이 확인된다. 범위가 전부 0보다 작으므로 '떨어지면 산다'는 방향은 우연으로 보기 어렵다.</p><p class="vlim">⚠ 관측치 394일로 계산했다. 개인 순매수 금액은 '순매수 주수 × 종가' 환산 근사이다. 방향이 맞다는 것과 그것이 수익으로 이어진다는 것은 다른 문제이다.</p></div><div class="vbox"><h4>큰 등락은 생각보다 자주 온다</h4><p>이 페이지의 이격도(주가가 이동평균선에서 얼마나 벌어졌는지 백분율로 나타낸 값)·추세템플릿은 '평소 범위'를 정해 놓고 그 밖을 이상하다고 판정한다. 그 '평소 범위'를 정규분포로 잡으면 위험을 작게 본다.</p><p>하이브의 하루 등락을 모아 보면 첨도가 8.6이다. 정규분포라면 3이다. 이 값이 클수록 '유난히 큰 하루'가 교과서 예상보다 자주 온다는 뜻이다.</p><p>실제로 평균에서 3표준편차 넘게 벗어난 날이 1166거래일 중 10일 있었다. 정규분포라면 3.1일이어야 한다. 3배이다.</p><p class="vlim">⚠ 그래서 '몇 표준편차'만으로 위험을 판단하지 않는다. 드물다고 계산된 일이 실제로는 드물지 않는다.</p></div><div class="vbox"><h4>여럿을 한꺼번에 볼 때의 함정</h4><p>이 사이트는 매일 23개 종목을 같은 방식으로 훑는다. 대상이 많아지면 아무 일이 없어도 그중 몇 개는 우연히 신호처럼 보인다. 주사위를 한 번 굴리면 6이 잘 안 나오지만 15번 굴리면 대개 한 번은 나온다.</p><p>하이브에서 '떨어지는데 개인도 파는 날'(3사분면)은 전체의 12.2%였다. 이 비율이라면 어느 날이든 23종목 중 평균 2.8개는 우연히 신호가 뜬다.</p><p>한 종목에 신호가 떴다는 사실만으로는 부족하다. 그날 몇 종목이 함께 걸렸는지를 같이 보아야 우연과 구별된다.</p><p class="vlim">⚠ 종목들은 서로 붙어 움직이므로 실제 '우연 개수'는 이보다 적다. 이 값은 넘지 않아야 할 상한으로 읽는다.</p></div>
 
 <h2 id="관련-기사">관련 기사</h2>
-<div class="tblwrap"><table><thead><tr><th>날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Tue, 13 Oct</td><td>연합뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE1kLWpRU3RfMzMzV2ZkRnRFMWhWbnhOOEdJc29jZElkSUc2TGhhTFFVbFlmNlRLYUNFUlhZbmdDZnhVZlA2T205aTBURUE3RlJOWnFXNFM5b05GUm_SAWBBVV95cUxORElPazY3bGtKcDl6MUpreUlxQ3lFWmItX2tRUnRUamxKNlU3NGotczhDSTFJQXNpRUEzbVRQNDBTYllkWkNQZzA2S25kZ29ldG9VUkQ1YnVyanVYQ3ZXVmY?oc=5" target="_blank" rel="noopener nofollow">BTS 월드투어, 롯데시네마서 본다…24∼31일 &#x27;하이브 씨네 페스트&#x27;</a></td></tr><tr><td class="n">Tue, 13 Oct</td><td>뉴시스</td><td><a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE9YV2NaMHUzeXdDemtYaWtqT0NtNTQzcVVRekRrUUVaR3JVaGxxM1VzeEZNd3dyQ3NFV24zd25YdmF3Unl2a1ZXcTUzcVNLNlF4QUEyU0J2cTBfRHdQNHQtMNIBeEFVX3lxTE4xc21jRHUzRE1sUEE4Yk1USDlBRW40QUxWV1VHdU51Z2x0TzBpUmUxa1VrRkNtUmNqUm13YXFqWUFFN1Jld1VDYm5uUHNEbksyelluamY0R19taHdOX3dEQWdWZ0tBZnkydXFDNGFEZmNldVVPc3hOXw?oc=5" target="_blank" rel="noopener nofollow">롯데시네마, &#x27;하이브 씨네 페스트 2026&#x27; 개최…BTS 라이브 뷰잉 상영</a></td></tr><tr><td class="n">Tue, 13 Oct</td><td>뉴스핌</td><td><a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTE8wSFJ2eEYwaE41Ui14MXpMWGdMYzh3Qm5CdVRXLUl5MDRVQV95V0x2QXBEQ2d1bkhTVFBPYXhTTkZaRU80cnJIVGNNTkF2Tk1ILUkzblhZY2NvYUF6?oc=5" target="_blank" rel="noopener nofollow">롯데시네마, 하이브 씨네 페스트 2026 국내 단독 개최</a></td></tr><tr><td class="n">Mon, 12 Oct</td><td>이투데이</td><td><a href="https://news.google.com/rss/articles/CBMidEFVX3lxTE1rVnFVYkt0ODhOSGRyTS1Mb3A0VzktNGxEYUlDSmpzLXcyVEtiVndwQTFnUTNWd1RtM0M1N0NuNFVqMF9WajFINENHd2FRRmVnNmZfa0x2dFJZTkc5amxNNnRULXBWeFhlX0k2SmtRNTBxRXo4?oc=5" target="_blank" rel="noopener nofollow">롯데시네마, ‘하이브 씨네 페스트 2026’ 국내 극장 단독 개최</a></td></tr><tr><td class="n">Wed, 14 Oct</td><td>뉴스핌</td><td><a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTFBSLWMydjNxVHZ5anQ2eDA4Y3BCOWhSYmtTNktGM3diWDNDUEJLMFNHR1psd2NBWlpIQlN1S2NvdDJQLTFCZnBmNk9MWFBWRXRDMllrT05IUDFXcDlj?oc=5" target="_blank" rel="noopener nofollow">민희진 측 &quot;표절 관련 송치 의견, 타당성에 의문…하이브, 재판 지연 악용&quot;</a></td></tr><tr><td class="n">Mon, 12 Oct</td><td>파이낸셜뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE9QUS1xZ1VxSnFJUWQzYzMtdmFhRkp4YmlTMG1yV0kxMEphSmthem9rUXpHcU4zRmVyWkFlUkN5bTlVRXp0MXQ2YzVOeFpOR0RySGVXcDdvbVFidw?oc=5" target="_blank" rel="noopener nofollow">인도서 판 키우는 하이브...내년 &#x27;위버스콘 페스티벌&#x27; 개최</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-10-14 기준. 「하이브」 로 찾았고 제목에 검색어가 실제로 들어간 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 별개이며, 내용이 서로 다를 수 있다.</p>
+<div class="tblwrap"><table><thead><tr><th>날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Tue, 13 Oct</td><td>연합뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE1kLWpRU3RfMzMzV2ZkRnRFMWhWbnhOOEdJc29jZElkSUc2TGhhTFFVbFlmNlRLYUNFUlhZbmdDZnhVZlA2T205aTBURUE3RlJOWnFXNFM5b05GUm_SAWBBVV95cUxORElPazY3bGtKcDl6MUpreUlxQ3lFWmItX2tRUnRUamxKNlU3NGotczhDSTFJQXNpRUEzbVRQNDBTYllkWkNQZzA2S25kZ29ldG9VUkQ1YnVyanVYQ3ZXVmY?oc=5" target="_blank" rel="noopener nofollow">BTS 월드투어, 롯데시네마서 본다…24∼31일 &#x27;하이브 씨네 페스트&#x27;</a></td></tr><tr><td class="n">Wed, 14 Oct</td><td>MTN 머니투데이방송</td><td><a href="https://news.google.com/rss/articles/CBMiZEFVX3lxTE90dzVmWDB6NWxTWW02aDVNVnlpbVFIdTN1N3d1OGNpd1ZxU1N0WlFGMzBQM0FoaDYwOEd2bGxyeE1nZzRDMVJZa1dabUU2cnl1STJjNmJRWTE1cHVlY1lqUVkzS3E?oc=5" target="_blank" rel="noopener nofollow">비행기 처음 타는 하이브 &#x27;위콘페&#x27;, 왜 하필 인도 향하나 [엔터코노미]</a></td></tr><tr><td class="n">Wed, 14 Oct</td><td>스포츠경향</td><td><a href="https://news.google.com/rss/articles/CBMiXkFVX3lxTE5GUFBGWmlCVFRVWkM2eGVBLXRYMkxFanV0SDhidURPRVpnSF94UmRJV2s2S2VGLUhTelNOUVB6SmtVeGVHdW53QXRZanN0NEJ3TlE4ZUxRZi1raG9RRnfSAWNBVV95cUxNNWVwRFkxX09QZlh0cC1rWThsZllrRkxBR1lyQnVyOFpHVnJGNXV1dm1hanZYdjRHMmV2amhleHhFenVPeFptcW94ZXczWmx1ak54UWgydjlfd3FDYnp6Uk1reTg?oc=5" target="_blank" rel="noopener nofollow">“하이브의 잇따른 변론재개, 입증 한계 부딪힌 ‘시간 끌기’” 민희진 측 강력 반발</a></td></tr><tr><td class="n">Tue, 13 Oct</td><td>뉴시스</td><td><a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE9YV2NaMHUzeXdDemtYaWtqT0NtNTQzcVVRekRrUUVaR3JVaGxxM1VzeEZNd3dyQ3NFV24zd25YdmF3Unl2a1ZXcTUzcVNLNlF4QUEyU0J2cTBfRHdQNHQtMNIBeEFVX3lxTE4xc21jRHUzRE1sUEE4Yk1USDlBRW40QUxWV1VHdU51Z2x0TzBpUmUxa1VrRkNtUmNqUm13YXFqWUFFN1Jld1VDYm5uUHNEbksyelluamY0R19taHdOX3dEQWdWZ0tBZnkydXFDNGFEZmNldVVPc3hOXw?oc=5" target="_blank" rel="noopener nofollow">롯데시네마, &#x27;하이브 씨네 페스트 2026&#x27; 개최…BTS 라이브 뷰잉 상영</a></td></tr><tr><td class="n">Mon, 12 Oct</td><td>뉴스티앤티</td><td><a href="https://news.google.com/rss/articles/CBMiakFVX3lxTE1UcUV6UEItUjh0ZWVSWlpkaFdqUTVRalF6R0FWTEYwSXhyUzdlVzE4Y0RBQW5hNk8ybmR1anFFRjVfTGhCRDIxU2k1MHFwcTAzdkVDNER5UGU2NWpHLVFLNkhSSHJ1cnlMcGc?oc=5" target="_blank" rel="noopener nofollow">[공시] 동양고속·츌립앤사이언스 &#x27;투자경고&#x27;, 하이브·HLB제넥스 &#x27;공매도 금지&#x27; 등...54건</a></td></tr><tr><td class="n">Wed, 14 Oct</td><td>아시아뉴스통신</td><td><a href="https://news.google.com/rss/articles/CBMidEFVX3lxTE9ENFE5N0I5ZDJJLUV2QnRpZWFmMlpWMVluTy1QY2ZiUHFvei1CbWp5cTVWLVpaLTJPTF9pSF8xVGNuNE9fejhqcFdsbmpHd1JaNll3M2J4SG95VDl4N3hwQ2lHbmZOWFg5UE95cE44a3RubmxJ?oc=5" target="_blank" rel="noopener nofollow">하이브 주가 400원 상승 후 장마감</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-10-14 기준. 「하이브」 로 찾았고 제목에 검색어가 실제로 들어간 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 별개이며, 내용이 서로 다를 수 있다.</p>
 
 <h2 id="실적-dart">실적 (DART)</h2>
 
@@ -1057,7 +1057,7 @@ window.__qbRegister=function(){echarts.registerTheme('charlie', {"color": ["#d21
 <figure class="fig"><div class="tblwrap"><table class="tw">
 <thead><tr><th>증권사</th><th class="n">날짜</th><th class="n">의견</th><th class="n">목표가</th><th class="n">현재가 대비</th></tr></thead>
 <tbody><tr><td>다올투자</td><td class="n">2026-10-12</td><td class="n">BUY</td><td class="n good">255,000</td><td class="n">+56%</td></tr><tr><td>NH투자</td><td class="n">2026-10-08</td><td class="n">BUY</td><td class="n good">250,000</td><td class="n">+53%</td></tr><tr><td>신한투자증권</td><td class="n">2026-10-08</td><td class="n">매수</td><td class="n">260,000</td><td class="n">+59%</td></tr><tr><td>하나증권</td><td class="n">2026-10-07</td><td class="n">BUY</td><td class="n good">300,000</td><td class="n">+83%</td></tr><tr><td>KB</td><td class="n">2026-09-30</td><td class="n">BUY</td><td class="n good">280,000</td><td class="n">+71%</td></tr><tr><td>SK</td><td class="n">2026-09-22</td><td class="n">매수</td><td class="n">290,000</td><td class="n">+77%</td></tr><tr><td>상상인</td><td class="n">2026-09-14</td><td class="n">BUY</td><td class="n good">320,000</td><td class="n">+95%</td></tr><tr><td>유안타</td><td class="n">2026-08-19</td><td class="n">BUY</td><td class="n good">265,000</td><td class="n">+62%</td></tr><tr><td>LS증권</td><td class="n">2026-07-30</td><td class="n">Buy</td><td class="n">300,000</td><td class="n">+83%</td></tr><tr><td>IM증권</td><td class="n">2026-07-29</td><td class="n">BUY</td><td class="n good">330,000</td><td class="n">+101%</td></tr><tr><td>삼성</td><td class="n">2026-07-29</td><td class="n">BUY</td><td class="n good">280,000</td><td class="n">+71%</td></tr><tr><td>NH투자</td><td class="n">2026-07-29</td><td class="n">BUY</td><td class="n good">310,000</td><td class="n">+89%</td></tr></tbody></table></div>
-<figcaption>최근 12건. 전체는 <code>_sources/투자의견.json</code> 에 있다.</figcaption></figure>
+<figcaption>최근 12건.</figcaption></figure>
 
 <p class="note">⚠ 목표가는 증권사의 의견이지 예측이 아니다.
 매수 의견 비율이 높은 것은 국내 리서치의 구조적 특성이기도 한다. 매도 리포트가 드물다. 목표가 자체보다 최근 방향(상향/하향)이 정보에 가깝다.</p>
@@ -1065,7 +1065,7 @@ window.__qbRegister=function(){echarts.registerTheme('charlie', {"color": ["#d21
 <div class="disclaimer">
 <p>데이터. 가격 KRX·KIS · 수급 KIS · 실적 DART · 목표가 KIS <code>invest-opbysec</code> ·
 기사 제목 KIS <code>news-title</code> ·
-오디션 순위 자체 집계. 생성 <code>scripts/build_stock_pages.py</code>.</p>
+오디션 순위 자체 집계.</p>
 <p>주의. 이 페이지는 기계가 만든 요약이다. 매수 5원칙의 ①시나리오·②내러티브는
 기계가 판정할 수 없어 비워 두었다. 본 자료는 정보 제공·교육 목적이며 투자 권유가 아니다.
 저는 투자 전문가가 아니며, 투자의 최종 판단과 책임은 투자자 본인에게 있다.</p>
@@ -1117,7 +1117,6 @@ window.__qbRegister=function(){echarts.registerTheme('charlie', {"color": ["#d21
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
-<!--SEARCH:BEGIN--><button class="srch-btn" type="button" aria-label="아카이브·원자료 검색 (단축키 /)" title="아카이브·원자료 검색 (/)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></button><script src="search.js?v=8509ea17c1" defer></script><!--SEARCH:END-->
 <script src="vendor/chart-4.4.1.umd.js"></script>
 <!-- CHARTTHEME:BEGIN -->
 <script src="chart-theme.js?v=cfc6570e"></script>
@@ -1185,4 +1184,5 @@ new MutationObserver(function(){var t=__tone();
     }
   });
 })();
-</script><!--TOCJS:END--></body></html>
+</script><!--TOCJS:END--><!--SEARCH:BEGIN--><button class="srch-btn" type="button" aria-label="아카이브·원자료 검색 (단축키 /)" title="아카이브·원자료 검색 (/)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></button><script src="search.js?v=8509ea17c1" defer></script><!--SEARCH:END-->
+</body></html>

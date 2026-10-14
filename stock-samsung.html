@@ -313,62 +313,7 @@ a.card:focus-visible,.lst-i:focus-visible{
 .site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
   background:color-mix(in srgb,var(--text) 6%,transparent)}
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/*NAVCSS:END*/
-.dim{color:var(--mut,#94a3b8)}
-.b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
-  font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
-/* 판정 5색(b-on 로즈·b-wa 앰버·b-ob 슬레이트·b-sf 에메랄드·b-rf 회색)과 겹치지 않는 색을 쓴다.
-   기존 배지처럼 다크 대응 없이 한 색으로 양쪽에서 읽히게 채도를 높인다. */
-.b-pri{background:#4f46e5;color:#fff}
-.b-upd{background:#c7d2fe;color:#312e81}   /* b-pri 의 옅은 형제 — 둘 다 인디고 계열로 묶어
-                                              「강의 대조」 어휘임을 드러낸다. 윤곽선은 라이트
-                                              모드에서 대비 2.56 이라 채움으로 바꿨다. */
-.bg{display:inline-block;min-width:44px;text-align:center;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:800;color:#fff}
-.b-on{background:#e11d48}.b-wa{background:#f59e0b}.b-ob{background:#64748b}.b-sf{background:#059669}.b-rf{background:#94a3b8}
-.gr{display:inline-block;font-size:.68rem;font-weight:800;padding:1px 6px;border-radius:5px;margin-left:6px;
-  color:#e11d48;background:color-mix(in srgb,#e11d48 13%,transparent);vertical-align:middle}
-.chg{font-size:.7rem;font-weight:700;color:var(--accent);margin-left:6px;white-space:nowrap}
-.star{color:#e11d48;font-weight:800}
-td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
-.chl{margin:12px 0 0 18px;font-size:.92rem;line-height:1.9}
-.g1box{margin-top:12px;font-size:.9rem;line-height:1.85;color:var(--text-secondary)}
-.g1box ol{margin:8px 0 0 20px} .g1box li{color:var(--text);font-weight:600}
-.stats5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px}
-@media(max-width:720px){.stats5{grid-template-columns:repeat(2,1fr)}}
-
-/* 주차별 히스토리 */
-.hist{position:relative;padding-left:26px;margin-top:18px}
-.hist::before{content:'';position:absolute;left:7px;top:14px;bottom:14px;width:2px;background:var(--border)}
-.hw{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:14px;
-  padding:20px 22px;margin-bottom:16px}
-.hw::before{content:'';position:absolute;left:-24px;top:26px;width:12px;height:12px;border-radius:50%;
-  background:var(--border);border:3px solid var(--bg)}
-.hw.cur{border-color:color-mix(in srgb,var(--accent) 45%,var(--border));
-  box-shadow:0 1px 14px color-mix(in srgb,var(--accent) 10%,transparent)}
-.hw.cur::before{background:var(--accent)}
-.hh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.hwk{font-size:1.02rem;font-weight:900;letter-spacing:-.02em}
-.hdt{font-size:.82rem;color:var(--text-secondary);font-variant-numeric:tabular-nums}
-.hnow{font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:999px;color:#fff;background:var(--accent)}
-.htitle{margin-top:8px;font-size:1.12rem;font-weight:800;letter-spacing:-.02em;line-height:1.4}
-.htone{margin-top:6px;font-size:.86rem;color:var(--text-secondary);font-style:italic}
-.hpills{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
-.hp{font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
-.hp.on{color:#e11d48;background:color-mix(in srgb,#e11d48 12%,transparent)}
-.hp.wa{color:#b45309;background:color-mix(in srgb,#f59e0b 15%,transparent)}
-.hp.ob{color:#475569;background:color-mix(in srgb,#64748b 14%,transparent)}
-.hp.sf{color:#047857;background:color-mix(in srgb,#059669 13%,transparent)}
-.hp.g1{color:#fff;background:#e11d48}
-.hbody{margin-top:13px;font-size:.93rem;line-height:1.78;color:var(--text-secondary)}
-.hbody b{color:var(--text)}
-.hchg{margin-top:14px;padding-top:12px;border-top:1px dashed var(--border)}
-.hct{font-size:.76rem;font-weight:800;letter-spacing:.02em;color:var(--accent);text-transform:none}
-.hchg ul{margin:8px 0 0 16px;font-size:.87rem;line-height:1.85;color:var(--text-secondary)}
-.hchg li b{color:var(--text)}
-.hchg .ar{white-space:nowrap}
-.to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
-@media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
-/* BAR:BEGIN */
+/*NAVCSS:END*//* BAR:BEGIN */
 /* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
    flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
 html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
@@ -450,6 +395,61 @@ html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in 
 @media(max-width:760px){.srch-box{top:12px} html body .site-srch>a.srch-nav{padding:8px 8px;font-size:12px}}
 @media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
 /* SEARCH:END */
+
+.dim{color:var(--mut,#94a3b8)}
+.b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
+  font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
+/* 판정 5색(b-on 로즈·b-wa 앰버·b-ob 슬레이트·b-sf 에메랄드·b-rf 회색)과 겹치지 않는 색을 쓴다.
+   기존 배지처럼 다크 대응 없이 한 색으로 양쪽에서 읽히게 채도를 높인다. */
+.b-pri{background:#4f46e5;color:#fff}
+.b-upd{background:#c7d2fe;color:#312e81}   /* b-pri 의 옅은 형제 — 둘 다 인디고 계열로 묶어
+                                              「강의 대조」 어휘임을 드러낸다. 윤곽선은 라이트
+                                              모드에서 대비 2.56 이라 채움으로 바꿨다. */
+.bg{display:inline-block;min-width:44px;text-align:center;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:800;color:#fff}
+.b-on{background:#e11d48}.b-wa{background:#f59e0b}.b-ob{background:#64748b}.b-sf{background:#059669}.b-rf{background:#94a3b8}
+.gr{display:inline-block;font-size:.68rem;font-weight:800;padding:1px 6px;border-radius:5px;margin-left:6px;
+  color:#e11d48;background:color-mix(in srgb,#e11d48 13%,transparent);vertical-align:middle}
+.chg{font-size:.7rem;font-weight:700;color:var(--accent);margin-left:6px;white-space:nowrap}
+.star{color:#e11d48;font-weight:800}
+td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
+.chl{margin:12px 0 0 18px;font-size:.92rem;line-height:1.9}
+.g1box{margin-top:12px;font-size:.9rem;line-height:1.85;color:var(--text-secondary)}
+.g1box ol{margin:8px 0 0 20px} .g1box li{color:var(--text);font-weight:600}
+.stats5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px}
+@media(max-width:720px){.stats5{grid-template-columns:repeat(2,1fr)}}
+
+/* 주차별 히스토리 */
+.hist{position:relative;padding-left:26px;margin-top:18px}
+.hist::before{content:'';position:absolute;left:7px;top:14px;bottom:14px;width:2px;background:var(--border)}
+.hw{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:20px 22px;margin-bottom:16px}
+.hw::before{content:'';position:absolute;left:-24px;top:26px;width:12px;height:12px;border-radius:50%;
+  background:var(--border);border:3px solid var(--bg)}
+.hw.cur{border-color:color-mix(in srgb,var(--accent) 45%,var(--border));
+  box-shadow:0 1px 14px color-mix(in srgb,var(--accent) 10%,transparent)}
+.hw.cur::before{background:var(--accent)}
+.hh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.hwk{font-size:1.02rem;font-weight:900;letter-spacing:-.02em}
+.hdt{font-size:.82rem;color:var(--text-secondary);font-variant-numeric:tabular-nums}
+.hnow{font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:999px;color:#fff;background:var(--accent)}
+.htitle{margin-top:8px;font-size:1.12rem;font-weight:800;letter-spacing:-.02em;line-height:1.4}
+.htone{margin-top:6px;font-size:.86rem;color:var(--text-secondary);font-style:italic}
+.hpills{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
+.hp{font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.hp.on{color:#e11d48;background:color-mix(in srgb,#e11d48 12%,transparent)}
+.hp.wa{color:#b45309;background:color-mix(in srgb,#f59e0b 15%,transparent)}
+.hp.ob{color:#475569;background:color-mix(in srgb,#64748b 14%,transparent)}
+.hp.sf{color:#047857;background:color-mix(in srgb,#059669 13%,transparent)}
+.hp.g1{color:#fff;background:#e11d48}
+.hbody{margin-top:13px;font-size:.93rem;line-height:1.78;color:var(--text-secondary)}
+.hbody b{color:var(--text)}
+.hchg{margin-top:14px;padding-top:12px;border-top:1px dashed var(--border)}
+.hct{font-size:.76rem;font-weight:800;letter-spacing:.02em;color:var(--accent);text-transform:none}
+.hchg ul{margin:8px 0 0 16px;font-size:.87rem;line-height:1.85;color:var(--text-secondary)}
+.hchg li b{color:var(--text)}
+.hchg .ar{white-space:nowrap}
+.to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
+@media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
 /*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
@@ -470,7 +470,7 @@ h2[id],h3[id],[id]:target{scroll-margin-top:92px}
 .ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
 .ptoc a:hover{border-bottom-color:var(--text-secondary)}
 @media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*/</style><link rel="stylesheet" href="vendor/fonts.css"><style id="glancecss">
+/*TOCCSS:END*/</style><style id="glancecss">
 .glance{margin:26px 0 8px;padding:18px 20px 14px;border:1px solid var(--border);border-radius:14px;background:var(--surface)}
 .glance .gl-h{font-size:.78rem;font-weight:800;letter-spacing:.08em;color:var(--text-secondary);margin-bottom:12px}
 .gl-lights{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
@@ -808,7 +808,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><style id="freqcss">
+/* PAPER:END */</style><link rel="stylesheet" href="vendor/fonts.css"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><style id="freqcss">
 .freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
  padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
  border:1px solid currentColor;opacity:.85}
@@ -826,9 +826,9 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <h1>삼성전자</h1>
 <p class="sub">시총 1위. 반도체 사이클의 기준선</p>
 <p class="pauth">기준일 2026-10-14 · 삼성전자 일별시세·투자자 매매동향(한투 KIS) · 매일 갱신</p>
-<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>시총 1위. 반도체 사이클의 기준선. 이 페이지는 이 종목이 매수 5원칙에 맞는지 매일 다시 판정한다. 추세는 20주선과의 거리로, 수급은 투자자별 누적 순매수로 판정한다. 재무는 분기 실적으로, 시장의 기대는 증권사 목표가로 본다. 5원칙 가운데 3번과 4번과 5번을 여기서 답한다. 1번 국면과 2번 내러티브는 방법론과 전조현상에서 따로 답한다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#투자자-수급">투자자 수급</a></li><li><a href="#개인-수급-사분면-nbsp-10-14-1분면-상승-개인-순매수">개인 수급 사분면 &nbsp;· 10/14 1분면 (상승 + 개인 순매수)</a></li><li><a href="#이야기꾼-바닥-7단계-매수의-기술적-시나리오">이야기꾼 바닥 7단계: 매수의 기술적 시나리오</a></li><li><a href="#이야기꾼-매수-5원칙">이야기꾼 매수 5원칙</a></li><li><a href="#vcp와-미너비니-추세-템플릿">VCP와 미너비니 추세 템플릿</a></li><li><a href="#이-페이지의-전제를-검증합니다">이 페이지의 전제를 검증한다</a></li><li><a href="#관련-기사">관련 기사</a></li><li><a href="#실적-dart">실적 (DART)</a></li><li><a href="#증권사-목표가">증권사 목표가</a></li></ol></div><!--TOC:END--></header>
+</header>
 
-<!-- GLANCE:BEGIN --><div class="glance" id="한-눈에"><div class="gl-h">삼성전자 · 2026-10-14</div><div class="gl-lights"><div class="gl-l off"><span class="gl-dot"></span><div><div class="gl-n">가격</div><div class="gl-v">종가 <b>232,000</b> · 20주선 279,100 <b>아래</b></div></div></div><div class="gl-l on"><span class="gl-dot"></span><div><div class="gl-n">상대강도</div><div class="gl-v">60거래일 <b>-11.8%</b> · 코스피 -12.4% <b>이김</b></div></div></div><div class="gl-l off"><span class="gl-dot"></span><div><div class="gl-n">거래량</div><div class="gl-v">10/14 거래량 50일 평균의 <b>0.80배</b> · 1배 아래</div></div></div></div><p class="gl-one">삼성전자 신호 3개 가운데 충족 1개, 미충족 2개다. 미충족은 가격 · 거래량이다.</p><div class="gl-rec tblwrap"><table class="mini"><thead><tr><th>회복률</th><th>52주 고점</th><th>고점 → 저점</th><th>저점</th><th>오늘</th><th>낙폭의 회복</th><th>전고점까지</th></tr></thead><tbody><tr><td>삼성전자</td><td>362,500 <span class="dim">(6/18)</span></td><td class="neg">-42.9%</td><td>207,000 <span class="dim">(7/30)</span></td><td>232,000</td><td><b>16%</b></td><td>56.2%</td></tr></tbody></table></div><div class="gl-h" style="margin-top:22px;padding-top:16px;border-top:1px solid var(--border)">한 눈에 — 시장 · 2026-10-14</div><div class="gl-lights"><div class="gl-l off"><span class="gl-dot"></span><div><div class="gl-n">가격</div><div class="gl-v">코스피 <b>6,009</b> · 20주선 7,178 <b>아래</b></div></div></div><div class="gl-l off"><span class="gl-dot"></span><div><div class="gl-n">폭</div><div class="gl-v">최근 5거래일 상승 종목 비율 <b>33%</b> · 절반 아래</div></div></div><div class="gl-l on"><span class="gl-dot"></span><div><div class="gl-n">거래량</div><div class="gl-v">오늘 거래량 50일 평균의 <b>1.17배</b> · 1배 이상</div></div></div></div><p class="gl-one">신호 3개 가운데 충족 1개, 미충족 2개다. 오늘은 <span class="verd stop">쉬는 장</span>이다. 미충족은 가격 · 폭이다. <a href="bottom-top.html">바닥·천장 추적</a>과 같은 판정이다.</p><div class="gl-rec tblwrap"><table class="mini"><thead><tr><th>회복률</th><th>52주 고점</th><th>고점 → 저점</th><th>저점</th><th>오늘</th><th>낙폭의 회복</th><th>전고점까지</th></tr></thead><tbody><tr><td>코스피</td><td>9,115 <span class="dim">(6/22)</span></td><td class="neg">-38.6%</td><td>5,594 <span class="dim">(7/30)</span></td><td>6,009</td><td><b>12%</b></td><td>51.7%</td></tr></tbody></table></div><p class="gl-note">종목 줄의 가격은 종가와 주봉 20주 평균(이야기꾼의 생명선)을 견주고, 상대강도는 최근 60거래일 수익률이 코스피를 이겼는지, 거래량은 최근 거래일 거래량을 50일 평균으로 나눈 값이다. 종목 줄은 충족 개수만 적고 판정 낱말은 쓰지 않는다. 시장 줄은 바닥·천장 추적 맨 위의 「한 눈에」와 같은 계산이다. 낙폭의 회복은 52주 고점에서 그 뒤 저점까지 하락한 폭 가운데 오늘까지 되찾은 비율이다.</p></div><!-- GLANCE:END -->
+<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>시총 1위. 반도체 사이클의 기준선. 이 페이지는 이 종목이 매수 5원칙에 맞는지 매일 다시 판정한다. 추세는 20주선과의 거리로, 수급은 투자자별 누적 순매수로 판정한다. 재무는 분기 실적으로, 시장의 기대는 증권사 목표가로 본다. 5원칙 가운데 3번과 4번과 5번을 여기서 답한다. 1번 국면과 2번 내러티브는 방법론과 전조현상에서 따로 답한다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#투자자-수급">투자자 수급</a></li><li><a href="#개인-수급-사분면-nbsp-10-14-1분면-상승-개인-순매수">개인 수급 사분면 &nbsp;· 10/14 1분면 (상승 + 개인 순매수)</a></li><li><a href="#이야기꾼-바닥-7단계-매수의-기술적-시나리오">이야기꾼 바닥 7단계: 매수의 기술적 시나리오</a></li><li><a href="#이야기꾼-매수-5원칙">이야기꾼 매수 5원칙</a></li><li><a href="#vcp와-미너비니-추세-템플릿">VCP와 미너비니 추세 템플릿</a></li><li><a href="#이-페이지의-전제를-검증합니다">이 페이지의 전제를 검증한다</a></li><li><a href="#관련-기사">관련 기사</a></li><li><a href="#실적-dart">실적 (DART)</a></li><li><a href="#증권사-목표가">증권사 목표가</a></li></ol></div><!--TOC:END--><!-- GLANCE:BEGIN --><div class="glance" id="한-눈에"><div class="gl-h">삼성전자 · 2026-10-14</div><div class="gl-lights"><div class="gl-l off"><span class="gl-dot"></span><div><div class="gl-n">가격</div><div class="gl-v">종가 <b>232,000</b> · 20주선 279,100 <b>아래</b></div></div></div><div class="gl-l on"><span class="gl-dot"></span><div><div class="gl-n">상대강도</div><div class="gl-v">60거래일 <b>-11.8%</b> · 코스피 -12.4% <b>이김</b></div></div></div><div class="gl-l off"><span class="gl-dot"></span><div><div class="gl-n">거래량</div><div class="gl-v">10/14 거래량 50일 평균의 <b>0.80배</b> · 1배 아래</div></div></div></div><p class="gl-one">삼성전자 신호 3개 가운데 충족 1개, 미충족 2개다. 미충족은 가격 · 거래량이다.</p><div class="gl-rec tblwrap"><table class="mini"><thead><tr><th>회복률</th><th>52주 고점</th><th>고점 → 저점</th><th>저점</th><th>오늘</th><th>낙폭의 회복</th><th>전고점까지</th></tr></thead><tbody><tr><td>삼성전자</td><td>362,500 <span class="dim">(6/18)</span></td><td class="neg">-42.9%</td><td>207,000 <span class="dim">(7/30)</span></td><td>232,000</td><td><b>16%</b></td><td>56.2%</td></tr></tbody></table></div><div class="gl-h" style="margin-top:22px;padding-top:16px;border-top:1px solid var(--border)">한 눈에 — 시장 · 2026-10-14</div><div class="gl-lights"><div class="gl-l off"><span class="gl-dot"></span><div><div class="gl-n">가격</div><div class="gl-v">코스피 <b>6,009</b> · 20주선 7,178 <b>아래</b></div></div></div><div class="gl-l off"><span class="gl-dot"></span><div><div class="gl-n">폭</div><div class="gl-v">최근 5거래일 상승 종목 비율 <b>33%</b> · 절반 아래</div></div></div><div class="gl-l on"><span class="gl-dot"></span><div><div class="gl-n">거래량</div><div class="gl-v">오늘 거래량 50일 평균의 <b>1.17배</b> · 1배 이상</div></div></div></div><p class="gl-one">신호 3개 가운데 충족 1개, 미충족 2개다. 오늘은 <span class="verd stop">쉬는 장</span>이다. 미충족은 가격 · 폭이다. <a href="bottom-top.html">바닥·천장 추적</a>과 같은 판정이다.</p><div class="gl-rec tblwrap"><table class="mini"><thead><tr><th>회복률</th><th>52주 고점</th><th>고점 → 저점</th><th>저점</th><th>오늘</th><th>낙폭의 회복</th><th>전고점까지</th></tr></thead><tbody><tr><td>코스피</td><td>9,115 <span class="dim">(6/22)</span></td><td class="neg">-38.6%</td><td>5,594 <span class="dim">(7/30)</span></td><td>6,009</td><td><b>12%</b></td><td>51.7%</td></tr></tbody></table></div><p class="gl-note">종목 줄의 가격은 종가와 주봉 20주 평균(이야기꾼의 생명선)을 견주고, 상대강도는 최근 60거래일 수익률이 코스피를 이겼는지, 거래량은 최근 거래일 거래량을 50일 평균으로 나눈 값이다. 종목 줄은 충족 개수만 적고 판정 낱말은 쓰지 않는다. 시장 줄은 바닥·천장 추적 맨 위의 「한 눈에」와 같은 계산이다. 낙폭의 회복은 52주 고점에서 그 뒤 저점까지 하락한 폭 가운데 오늘까지 되찾은 비율이다.</p></div><!-- GLANCE:END -->
 
 <figure class="fig"><div class="tblwrap"><table class="tw">
 <thead><tr><th class="n">종가</th><th class="n">전일비</th><th class="n">시총</th><th class="n">50일 이격도</th><th class="n">20주선 이격도</th><th class="n">오디션</th></tr></thead>
@@ -1050,7 +1050,7 @@ window.__qbRegister=function(){echarts.registerTheme('charlie', {"color": ["#d21
 </style><div class="vbox"><h4>개인은 정말 '떨어지면 사는가'</h4><p>위 사분면은 '한국 개인은 떨어지면 산다'를 전제로 읽는다. 그 전제가 이 종목에서도 맞는지 직접 계산했다.</p><p>하루 등락률과 그날 개인 순매수가 반대로 움직이는 정도를 계산하면 -0.52이다. 이 값이 0보다 작으면 '떨어지는 날에 개인이 샀다'는 뜻이고, 0보다 크면 그 반대이다.</p><p>같은 자료에서 연속 구간을 다시 뽑아 800번 계산해 보니 참값이 들어 있을 범위는 -0.62 ~ -0.44였다. 삼성전자에서도 그 습관이 확인된다. 범위가 전부 0보다 작으므로 '떨어지면 산다'는 방향은 우연으로 보기 어렵다.</p><p class="vlim">⚠ 관측치 394일로 계산했다. 개인 순매수 금액은 '순매수 주수 × 종가' 환산 근사이다. 방향이 맞다는 것과 그것이 수익으로 이어진다는 것은 다른 문제이다.</p></div><div class="vbox"><h4>큰 등락은 생각보다 자주 온다</h4><p>이 페이지의 이격도(주가가 이동평균선에서 얼마나 벌어졌는지 백분율로 나타낸 값)·추세템플릿은 '평소 범위'를 정해 놓고 그 밖을 이상하다고 판정한다. 그 '평소 범위'를 정규분포로 잡으면 위험을 작게 본다.</p><p>삼성전자의 하루 등락을 모아 보면 첨도가 15.3이다. 정규분포라면 3이다. 이 값이 클수록 '유난히 큰 하루'가 교과서 예상보다 자주 온다는 뜻이다.</p><p>실제로 평균에서 3표준편차 넘게 벗어난 날이 1166거래일 중 24일 있었다. 정규분포라면 3.1일이어야 한다. 8배이다.</p><p class="vlim">⚠ 그래서 '몇 표준편차'만으로 위험을 판단하지 않는다. 드물다고 계산된 일이 실제로는 드물지 않는다.</p></div><div class="vbox"><h4>여럿을 한꺼번에 볼 때의 함정</h4><p>이 사이트는 매일 23개 종목을 같은 방식으로 훑는다. 대상이 많아지면 아무 일이 없어도 그중 몇 개는 우연히 신호처럼 보인다. 주사위를 한 번 굴리면 6이 잘 안 나오지만 15번 굴리면 대개 한 번은 나온다.</p><p>삼성전자에서 '떨어지는데 개인도 파는 날'(3사분면)은 전체의 5.1%였다. 이 비율이라면 어느 날이든 23종목 중 평균 1.2개는 우연히 신호가 뜬다.</p><p>한 종목에 신호가 떴다는 사실만으로는 부족하다. 그날 몇 종목이 함께 걸렸는지를 같이 보아야 우연과 구별된다.</p><p class="vlim">⚠ 종목들은 서로 붙어 움직이므로 실제 '우연 개수'는 이보다 적다. 이 값은 넘지 않아야 할 상한으로 읽는다.</p></div>
 
 <h2 id="관련-기사">관련 기사</h2>
-<div class="tblwrap"><table><thead><tr><th>날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Tue, 13 Oct</td><td>조선일보</td><td><a href="https://news.google.com/rss/articles/CBMijwFBVV95cUxQdDItRmJBYmxLOEU3a1Rja1hEbWJrMXN6ZGotNmQ3Qi16Y0ZINUVZd0Zld19ETlhjTkpndVkwODBaNF9XQnE3SmNMa1V4NWUyakZ3ZlBhb1hld0RKVWc0NnlFY3ZiczluM3I4NFQyX2JES0thcU9YVkhoVHlBNGxQTG9CMGZZazRVUU1CejV6SQ?oc=5" target="_blank" rel="noopener nofollow">홍라희 관장, 이재용 회장에 삼성전자 지분 2.6조 증여</a></td></tr><tr><td class="n">Wed, 14 Oct</td><td>지디넷코리아</td><td><a href="https://news.google.com/rss/articles/CBMiVkFVX3lxTFA0bmxsVWozRTNIbnRtUVE1Sy1ZY21TRUhsZDZ0RWNTYjA4Z3ZUODVWTHRnWkpNcFhZUjdmUDQ4NVphcThhTGl4ZWZhdXg3eWhRSGJWV213?oc=5" target="_blank" rel="noopener nofollow">삼성전자, 수면·러닝 코칭 강화 &#x27;삼성 헬스&#x27; 앱 업데이트</a></td></tr><tr><td class="n">Wed, 14 Oct</td><td>조선일보</td><td><a href="https://news.google.com/rss/articles/CBMigwFBVV95cUxOMGtPdGtsUkFBUHAtaWdyME5TS3VXcTRoSjkwOGZidm9MWDF3S3h0dWRjbFpPY1QtR2FSdE53eENvWU9WNzdTVmFkcFhBbmtUaW14VzZBSy1qQzE2bklrVUVFNmhrajVVTjNfVVFQc3Q0eC14Q0pOUFZYQURhQ3N0MHlwUQ?oc=5" target="_blank" rel="noopener nofollow">삼성전자, 건강 앱 수면·러닝 기능 업데이트</a></td></tr><tr><td class="n">Wed, 14 Oct</td><td>비즈니스포스트</td><td><a href="https://news.google.com/rss/articles/CBMic0FVX3lxTE5jU3gtZjBfUXFxYU9VMlhvUzNFUlFxTkcxdG5VRjhCbkRqbUFvYnpYSEFtUGhFeFpwZHZzQ0pxNDBsX3MwZUFMTGRTQXh2VHNYeTVPN2l2dWFUV0pvT3o3YkJxeVpwN29adWZGZkh4SGZ1OUE?oc=5" target="_blank" rel="noopener nofollow">삼성전자 &#x27;삼성 헬스&#x27; 수면·러닝 코칭 강화, 개인 맞춤형 건강관리 고도화</a></td></tr><tr><td class="n">Tue, 13 Oct</td><td>Investing.com 한국어</td><td><a href="https://news.google.com/rss/articles/CBMid0FVX3lxTE1HRi1FRjNCTEpXdXExWEtqdkFUV1lSTUUzYmxfRnJRYllOMENmQlJIRm02c1RCb1RRTmpGY0NCTWVBVGE1VXRHVTVZUUY2VlJEWEdlbXBDRTV1d3lsczkxb3ctajFaUTJEMWpLUWFwUjZFY1A1SDdj?oc=5" target="_blank" rel="noopener nofollow">삼성전자 주가, 오늘 급락한 이유는?</a></td></tr><tr><td class="n">Wed, 14 Oct</td><td>한국경제</td><td><a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE1iMDFKZ0FMZFVqcWcxUjd3NFJIRXBod0lGaVhYVUh5RXU2WWRzazhPVWp1OTR2UGRUdkJhV0dRNjF0Ym5LWkRaX0U1Mm5pMnprSGdOdGdnLVZvUQ?oc=5" target="_blank" rel="noopener nofollow">투자원금 1000만원 초고수…급락한 삼성전자 담았다</a></td></tr><tr><td class="n">Sun, 26 Jul</td><td>ER 이코노믹리뷰</td><td><a href="https://news.google.com/rss/articles/CBMibEFVX3lxTFBMN3o4WFNCeEVHQXhIbHExVUJRRjZZaHoteHhiTmw1Z3JMV29nRVlISUt2VU9jSEN4NjN1SVBGU0hoOFZBWmNTY3AyX3VMT0xmTGc4dHI1VzE1U3NCY3p2eHpKQm5Bd1dMS3FiNg?oc=5" target="_blank" rel="noopener nofollow">낸드 품귀 2027년 풀릴 듯…트렌드포스 &quot;메모리 중 유일하게 안정화&quot;</a></td></tr><tr><td class="n">Fri, 31 Jul</td><td>뉴스스페이스</td><td><a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE94TUR6VnJfdGNiLWNlOHlkSTM3QmpNZURlZkE1dGs5SzUwNWFyY2FSMDBTejVjdEh6MUQ2bUNMd19idlNjRlAxd3BPZDBsbi1sSTh3MUlOWHNKQVJhRzliUQ?oc=5" target="_blank" rel="noopener nofollow">[랭킹연구소] 삼성전자, HBM 왕좌 탈환 &#x27;초읽기&#x27;…UBS·번스타인·트렌드포스 &quot;2027년 역전&quot; 한목소리</a></td></tr><tr><td class="n">Wed, 05 Aug</td><td>IT비즈뉴스</td><td><a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE5EYkJIdjh6QjRSdHRjZWZ4YWxqYWtBQWZXYTdmVEpPYnU3S0czTkRESnRpTnQxYUZoQ1JwR3pHLVBJTzR1cnFET2JlTm1QZE9DY3V5VHB3cDNTQjk2TEFHby1vUkUzelpEOTRMeg?oc=5" target="_blank" rel="noopener nofollow">트렌드포스 “메모리 수요공급 불균형, 내년까지 지속”</a></td></tr><tr><td class="n">Thu, 09 Jul</td><td>생생비즈플러스</td><td><a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE5NcVkzUk1fN0RCdER3Nm96U2lKRDh5UXd4d2Z3X0dibURlRGRQY28wdmI0cEZFd0x1T2ZTT2x3MlBrNVE1TjlNWG5HQ2FDS1dCWDdxVW5DWmR5SFJTbVk4bjlkVWFua24waHg1Tg?oc=5" target="_blank" rel="noopener nofollow">3분기 서버용 D램 가격 상승세 둔화 가능성...트렌드포스 &quot;전분기 대비 최대 18%↑&quot;</a></td></tr><tr><td class="n">Mon, 01 Jun</td><td>생생비즈플러스</td><td><a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE5fbjlXa1BENW1hTHh2YXpydHM1SUoxS0djLUNnVzBiT0FMR3ZlZUYxcDZyQ0NUc2pwWkx2a25aVlRWblk5TlJMMTlsZVlQeEZXbjdLWVBGaGFXZEN2cUxDVHNSdkwxZmNqV1gwdg?oc=5" target="_blank" rel="noopener nofollow">1Q 글로벌 D램 시장 점유율 삼전 38.5%로 1위 ...트렌드포스 &quot;2Q D램값 58∼63% 상승&quot;</a></td></tr><tr><td class="n">Sun, 31 May</td><td>테크M</td><td><a href="https://news.google.com/rss/articles/CBMiZkFVX3lxTE9vQlN0SDVlQVBqUnR0RXZ6Vm8tOVVxN2NWeFBjenlDYmc0LXlveHU3cUFnMVNLRHh4MklDNVlLS3hhT3lyRllJUXdDdVVDMENjZW16NWY5ZU90RTkzTnhMSEF0dW1pQdIBakFVX3lxTFBWVlhiVmZFV1JCa25nSXlvNVhlTTRLOE9VRGhsdzVVSkVUUWhXbDFicHQyNWNaZjBfTHhrUy10clduc0p4TUIwcTNWWW1Nc3ExQjl2YkVCc0E5a1pXMEtZdi1EaHhLdEdzOVE?oc=5" target="_blank" rel="noopener nofollow">D램·낸드, 5월 가격 강세 &#x27;여전&#x27;...트렌드포스 &#x27;공급사가 가격 결정&#x27;</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-10-14 기준. 「삼성전자」 로 찾았고 제목에 검색어가 실제로 들어간 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 별개이며, 내용이 서로 다를 수 있다.</p>
+<div class="tblwrap"><table><thead><tr><th>날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Tue, 13 Oct</td><td>조선일보</td><td><a href="https://news.google.com/rss/articles/CBMijwFBVV95cUxQdDItRmJBYmxLOEU3a1Rja1hEbWJrMXN6ZGotNmQ3Qi16Y0ZINUVZd0Zld19ETlhjTkpndVkwODBaNF9XQnE3SmNMa1V4NWUyakZ3ZlBhb1hld0RKVWc0NnlFY3ZiczluM3I4NFQyX2JES0thcU9YVkhoVHlBNGxQTG9CMGZZazRVUU1CejV6SQ?oc=5" target="_blank" rel="noopener nofollow">홍라희 관장, 이재용 회장에 삼성전자 지분 2.6조 증여</a></td></tr><tr><td class="n">Wed, 14 Oct</td><td>지디넷코리아</td><td><a href="https://news.google.com/rss/articles/CBMiVkFVX3lxTFA0bmxsVWozRTNIbnRtUVE1Sy1ZY21TRUhsZDZ0RWNTYjA4Z3ZUODVWTHRnWkpNcFhZUjdmUDQ4NVphcThhTGl4ZWZhdXg3eWhRSGJWV213?oc=5" target="_blank" rel="noopener nofollow">삼성전자, 수면·러닝 코칭 강화 &#x27;삼성 헬스&#x27; 앱 업데이트</a></td></tr><tr><td class="n">Wed, 14 Oct</td><td>조선일보</td><td><a href="https://news.google.com/rss/articles/CBMigwFBVV95cUxOMGtPdGtsUkFBUHAtaWdyME5TS3VXcTRoSjkwOGZidm9MWDF3S3h0dWRjbFpPY1QtR2FSdE53eENvWU9WNzdTVmFkcFhBbmtUaW14VzZBSy1qQzE2bklrVUVFNmhrajVVTjNfVVFQc3Q0eC14Q0pOUFZYQURhQ3N0MHlwUQ?oc=5" target="_blank" rel="noopener nofollow">삼성전자, 건강 앱 수면·러닝 기능 업데이트</a></td></tr><tr><td class="n">Wed, 14 Oct</td><td>동아일보</td><td><a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE9wX0w5aDRBS3UwTUJMdHptNjFlT2RxVl9HUG1sYlU3MlFZWWNPamV4T09xcWVCLU5rb2RTd1loZE83TldkQUsweHFJdnIyYzR3WDBvWHZtYnQyUGI0TjJsV2RvbGhpMmxoMEhpYU0tLW9BN2hsMFHSAWZBVV95cUxNY2lud29rUGNGY3dvaGdZQnVPWDVzMkFtOU9BMWs2cUNEb3ZVWlRjZHZxZjA1eXNRQmpCYXU0WWJVc3B4MnpSalhfMHVaUW9lc0ZrSFV1Q2FFT21NYXNNZnd3SVVVUXc?oc=5" target="_blank" rel="noopener nofollow">12단계 러닝 코치·수면 균형 그래프까지…삼성전자, ‘헬스 플랫폼’ 고도화</a></td></tr><tr><td class="n">Wed, 14 Oct</td><td>톱데일리</td><td><a href="https://news.google.com/rss/articles/CBMiUEFVX3lxTE1EazNqZXBtWWdtYXYtVFJDdHR0NUJab2lQMEdMTUVyMmhpLTRKS01oRS12VU1qRmZNRko2bHNsaGg4RDViOWFQSmlOV0E4S0w3?oc=5" target="_blank" rel="noopener nofollow">삼성전자, 고효율·저탄소 주거 솔루션 제시 外</a></td></tr><tr><td class="n">Wed, 14 Oct</td><td>Chosunbiz</td><td><a href="https://news.google.com/rss/articles/CBMiggFBVV95cUxNTDJXaTNnZFZ1T2JkNXlVT2FLazc1Wko2NUluYnZGZENhYVNteEtHVk1rdDJVQnB4LTk4UTZyU3l1d1VOTVRBcFpoSllYVEt5WmU3ekhmZEpuSzdLbjVETmRLS200QkVlNFFidGh3UGgxakNkUzBsbndxbmgxLTVhaWdB0gGWAUFVX3lxTFBxTTZIeGgtcTc0bjhGOTZFT191SVRyVTVzZGdkT3BlX1F0ckJPRzBGak8tclNLWldGaUdQUDdNRXNjZVBIbVdtY1ZONkQxLXhCX0xFanhMd1kyUnhpSTJVNktreVZPSWNsVDlITklaU0JXaFVDZTFvYjdHdFk4VG15QWVuX29XSU85UG5tWXNLX2JuM1FBQQ?oc=5" target="_blank" rel="noopener nofollow">“에너지 절감 탁월”… 삼성전자, 김성환 기후부 장관에 ‘AI 모듈러 홈’ 소개 - 조선비즈</a></td></tr><tr><td class="n">Sun, 26 Jul</td><td>ER 이코노믹리뷰</td><td><a href="https://news.google.com/rss/articles/CBMibEFVX3lxTFBMN3o4WFNCeEVHQXhIbHExVUJRRjZZaHoteHhiTmw1Z3JMV29nRVlISUt2VU9jSEN4NjN1SVBGU0hoOFZBWmNTY3AyX3VMT0xmTGc4dHI1VzE1U3NCY3p2eHpKQm5Bd1dMS3FiNg?oc=5" target="_blank" rel="noopener nofollow">낸드 품귀 2027년 풀릴 듯…트렌드포스 &quot;메모리 중 유일하게 안정화&quot;</a></td></tr><tr><td class="n">Fri, 31 Jul</td><td>뉴스스페이스</td><td><a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE94TUR6VnJfdGNiLWNlOHlkSTM3QmpNZURlZkE1dGs5SzUwNWFyY2FSMDBTejVjdEh6MUQ2bUNMd19idlNjRlAxd3BPZDBsbi1sSTh3MUlOWHNKQVJhRzliUQ?oc=5" target="_blank" rel="noopener nofollow">[랭킹연구소] 삼성전자, HBM 왕좌 탈환 &#x27;초읽기&#x27;…UBS·번스타인·트렌드포스 &quot;2027년 역전&quot; 한목소리</a></td></tr><tr><td class="n">Wed, 05 Aug</td><td>IT비즈뉴스</td><td><a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE5EYkJIdjh6QjRSdHRjZWZ4YWxqYWtBQWZXYTdmVEpPYnU3S0czTkRESnRpTnQxYUZoQ1JwR3pHLVBJTzR1cnFET2JlTm1QZE9DY3V5VHB3cDNTQjk2TEFHby1vUkUzelpEOTRMeg?oc=5" target="_blank" rel="noopener nofollow">트렌드포스 “메모리 수요공급 불균형, 내년까지 지속”</a></td></tr><tr><td class="n">Thu, 09 Jul</td><td>생생비즈플러스</td><td><a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE5NcVkzUk1fN0RCdER3Nm96U2lKRDh5UXd4d2Z3X0dibURlRGRQY28wdmI0cEZFd0x1T2ZTT2x3MlBrNVE1TjlNWG5HQ2FDS1dCWDdxVW5DWmR5SFJTbVk4bjlkVWFua24waHg1Tg?oc=5" target="_blank" rel="noopener nofollow">3분기 서버용 D램 가격 상승세 둔화 가능성...트렌드포스 &quot;전분기 대비 최대 18%↑&quot;</a></td></tr><tr><td class="n">Mon, 01 Jun</td><td>생생비즈플러스</td><td><a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE5fbjlXa1BENW1hTHh2YXpydHM1SUoxS0djLUNnVzBiT0FMR3ZlZUYxcDZyQ0NUc2pwWkx2a25aVlRWblk5TlJMMTlsZVlQeEZXbjdLWVBGaGFXZEN2cUxDVHNSdkwxZmNqV1gwdg?oc=5" target="_blank" rel="noopener nofollow">1Q 글로벌 D램 시장 점유율 삼전 38.5%로 1위 ...트렌드포스 &quot;2Q D램값 58∼63% 상승&quot;</a></td></tr><tr><td class="n">Sun, 31 May</td><td>테크M</td><td><a href="https://news.google.com/rss/articles/CBMiZkFVX3lxTE9vQlN0SDVlQVBqUnR0RXZ6Vm8tOVVxN2NWeFBjenlDYmc0LXlveHU3cUFnMVNLRHh4MklDNVlLS3hhT3lyRllJUXdDdVVDMENjZW16NWY5ZU90RTkzTnhMSEF0dW1pQdIBakFVX3lxTFBWVlhiVmZFV1JCa25nSXlvNVhlTTRLOE9VRGhsdzVVSkVUUWhXbDFicHQyNWNaZjBfTHhrUy10clduc0p4TUIwcTNWWW1Nc3ExQjl2YkVCc0E5a1pXMEtZdi1EaHhLdEdzOVE?oc=5" target="_blank" rel="noopener nofollow">D램·낸드, 5월 가격 강세 &#x27;여전&#x27;...트렌드포스 &#x27;공급사가 가격 결정&#x27;</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-10-14 기준. 「삼성전자」 로 찾았고 제목에 검색어가 실제로 들어간 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 별개이며, 내용이 서로 다를 수 있다.</p>
 
 <h2 id="실적-dart">실적 (DART)</h2>
 
@@ -1080,7 +1080,7 @@ window.__qbRegister=function(){echarts.registerTheme('charlie', {"color": ["#d21
 <figure class="fig"><div class="tblwrap"><table class="tw">
 <thead><tr><th>증권사</th><th class="n">날짜</th><th class="n">의견</th><th class="n">목표가</th><th class="n">현재가 대비</th></tr></thead>
 <tbody><tr><td>유안타</td><td class="n">2026-09-23</td><td class="n">BUY</td><td class="n good">630,000</td><td class="n">+172%</td></tr><tr><td>미래에셋</td><td class="n">2026-09-07</td><td class="n">매수</td><td class="n">400,000</td><td class="n">+72%</td></tr><tr><td>LS증권</td><td class="n">2026-08-31</td><td class="n">Buy</td><td class="n">450,000</td><td class="n">+94%</td></tr><tr><td>키움</td><td class="n">2026-08-10</td><td class="n">BUY</td><td class="n good">350,000</td><td class="n">+51%</td></tr><tr><td>삼성</td><td class="n">2026-07-31</td><td class="n">BUY</td><td class="n good">400,000</td><td class="n">+72%</td></tr><tr><td>한국투자</td><td class="n">2026-07-31</td><td class="n">매수</td><td class="n">650,000</td><td class="n">+180%</td></tr><tr><td>신한투자증권</td><td class="n">2026-07-31</td><td class="n">매수</td><td class="n">450,000</td><td class="n">+94%</td></tr><tr><td>미래에셋</td><td class="n">2026-07-29</td><td class="n">매수</td><td class="n">370,000</td><td class="n">+59%</td></tr><tr><td>IBK투자</td><td class="n">2026-07-08</td><td class="n">매수</td><td class="n">460,000</td><td class="n">+98%</td></tr><tr><td>키움</td><td class="n">2026-07-08</td><td class="n">BUY</td><td class="n good">390,000</td><td class="n">+68%</td></tr><tr><td>KB</td><td class="n">2026-07-08</td><td class="n">BUY</td><td class="n good">600,000</td><td class="n">+159%</td></tr><tr><td>메리츠</td><td class="n">2026-07-06</td><td class="n">BUY</td><td class="n good">500,000</td><td class="n">+116%</td></tr></tbody></table></div>
-<figcaption>최근 12건. 전체는 <code>_sources/투자의견.json</code> 에 있다.</figcaption></figure>
+<figcaption>최근 12건.</figcaption></figure>
 
 <p class="note">⚠ 목표가는 증권사의 의견이지 예측이 아니다.
 매수 의견 비율이 높은 것은 국내 리서치의 구조적 특성이기도 한다. 매도 리포트가 드물다. 목표가 자체보다 최근 방향(상향/하향)이 정보에 가깝다.</p>
@@ -1088,7 +1088,7 @@ window.__qbRegister=function(){echarts.registerTheme('charlie', {"color": ["#d21
 <div class="disclaimer">
 <p>데이터. 가격 KRX·KIS · 수급 KIS · 실적 DART · 목표가 KIS <code>invest-opbysec</code> ·
 기사 제목 KIS <code>news-title</code> ·
-오디션 순위 자체 집계. 생성 <code>scripts/build_stock_pages.py</code>.</p>
+오디션 순위 자체 집계.</p>
 <p>주의. 이 페이지는 기계가 만든 요약이다. 매수 5원칙의 ①시나리오·②내러티브는
 기계가 판정할 수 없어 비워 두었다. 본 자료는 정보 제공·교육 목적이며 투자 권유가 아니다.
 저는 투자 전문가가 아니며, 투자의 최종 판단과 책임은 투자자 본인에게 있다.</p>
@@ -1141,7 +1141,6 @@ window.__qbRegister=function(){echarts.registerTheme('charlie', {"color": ["#d21
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
-<!--SEARCH:BEGIN--><button class="srch-btn" type="button" aria-label="아카이브·원자료 검색 (단축키 /)" title="아카이브·원자료 검색 (/)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></button><script src="search.js?v=8509ea17c1" defer></script><!--SEARCH:END-->
 <script src="vendor/chart-4.4.1.umd.js"></script>
 <!-- CHARTTHEME:BEGIN -->
 <script src="chart-theme.js?v=cfc6570e"></script>
@@ -1209,4 +1208,5 @@ new MutationObserver(function(){var t=__tone();
     }
   });
 })();
-</script><!--TOCJS:END--></body></html>
+</script><!--TOCJS:END--><!--SEARCH:BEGIN--><button class="srch-btn" type="button" aria-label="아카이브·원자료 검색 (단축키 /)" title="아카이브·원자료 검색 (/)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></button><script src="search.js?v=8509ea17c1" defer></script><!--SEARCH:END-->
+</body></html>

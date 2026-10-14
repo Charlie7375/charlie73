@@ -313,7 +313,89 @@ a.card:focus-visible,.lst-i:focus-visible{
 .site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
   background:color-mix(in srgb,var(--text) 6%,transparent)}
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/*NAVCSS:END*/
+/*NAVCSS:END*//* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+/* ⚠⚠ 2026-09-10 상수님 «작은 해상도에서는 제목을 누를 수 없네».
+   아카이브가 29장이 되면서 드롭다운이 1,254px 로 자랐다. 상단바는 sticky 라
+   드롭다운은 화면 위에서 72px 자리에 열리는데, 390px 화면의 보이는 높이가 915px 이니
+   **아래 411px 는 화면 밖이고 스크롤이 없어 닿을 방법이 아예 없었다.**
+   → 화면 높이만큼만 열고 넘치면 그 안에서 스크롤한다.
+   · dvh 를 뒤에 한 번 더 적는다 — 모바일 주소창이 접혔다 펴질 때 100vh 는 화면보다 크다.
+     dvh 를 모르는 브라우저는 앞줄(vh)만 읽고 지나간다.
+   · overscroll-behavior:contain — 목록 끝에서 계속 밀어도 뒤 본문이 따라 스크롤되지 않게.
+   · 120px 은 상단바(2줄, 96px)와 아래 여백 16px 이다. 아카이브·원자료는 메뉴 2번째 줄에
+     달려 있어 104px 자리에서 열린다 — 92px 로 뺐더니 12px 이 화면 밖으로 나갔다. */
+html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);
+  overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+
+/* ★ 2026-09-14 상수님 «가로 CSS 가 째지지 않게». 숨은 펼침 메뉴(visibility:hidden)가 자리를 차지해 375px 화면에서
+   scrollWidth 427 로 가로 스크롤이 생겼다(전 페이지). 메뉴 폭을 화면 안에 묶고 문서의 가로 넘침을 자른다.
+   ⚠ 상단바 CSS 를 전 페이지에 미치게 하는 자리는 **여기(CENTER)뿐**이다. nav2.py 를 고쳐도 원자료 장에만 닿는다. */
+html body .site-dd{max-width:calc(100vw - 24px)}
+html,body{overflow-x:hidden}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END */
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
+
+/* SEARCH:BEGIN */
+.srch-btn{position:fixed;top:auto;bottom:18px;right:68px;z-index:130;width:42px;height:42px;border-radius:50%;
+  background:var(--surface,#F6F7F9);border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text,#0f172a);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;
+  box-shadow:0 2px 14px rgba(0,0,0,.10);transition:transform .12s,box-shadow .12s}
+.srch-btn:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(0,0,0,.16)}
+.srch-btn:focus-visible,.srch-in:focus-visible,.srch-r a:focus-visible{outline:2px solid var(--accent,#2563eb);outline-offset:2px}
+.srch-bg{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.38);display:none}
+.srch-bg.on{display:block}
+.srch-box{position:fixed;z-index:201;top:72px;left:50%;transform:translateX(-50%);width:min(680px,calc(100vw - 24px));
+  max-height:calc(100vh - 96px);max-height:calc(100dvh - 96px);display:none;flex-direction:column;
+  background:var(--bg,#fff);color:var(--text,#0f172a);border:1px solid var(--border,rgba(15,23,42,.12));
+  border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.28);overflow:hidden}
+.srch-box.on{display:flex}
+.srch-top{display:flex;gap:8px;align-items:center;padding:12px 14px;border-bottom:1px solid var(--border,rgba(15,23,42,.12))}
+.srch-in{flex:1;min-width:0;font:inherit;font-size:16px;padding:9px 11px;border-radius:9px;
+  border:1px solid var(--border,rgba(15,23,42,.12));background:var(--surface,#F6F7F9);color:var(--text,#0f172a)}
+.srch-x{font:inherit;font-size:13px;padding:8px 10px;border-radius:9px;border:0;background:none;color:var(--text2,#6e6e73);cursor:pointer}
+.srch-meta{padding:8px 16px 0;font-size:12.5px;color:var(--text2,#6e6e73)}
+.srch-r{list-style:none;margin:0;padding:6px 8px 12px;overflow-y:auto;overscroll-behavior:contain}
+.srch-r li{margin:0}
+.srch-r a{display:block;padding:10px 10px;border-radius:9px;color:inherit;text-decoration:none}
+.srch-r a:hover,.srch-r a.cur{background:var(--surface,#F6F7F9)}
+.srch-k{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;padding:1px 6px;border-radius:5px;
+  margin-right:6px;vertical-align:1px;border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text2,#6e6e73)}
+.srch-t{font-weight:700;font-size:14.5px;line-height:1.4}
+.srch-h{font-size:13px;color:var(--text2,#6e6e73);margin-top:2px;line-height:1.4}
+.srch-s{font-size:13px;line-height:1.55;margin-top:4px;color:var(--text,#0f172a);opacity:.86}
+.srch-s mark,.srch-h mark,.srch-t mark{background:rgba(37,99,235,.18);color:inherit;border-radius:3px;padding:0 1px}
+/* 상단 메뉴 «검색» — 드롭다운 버튼(.site-group>button)과 같은 글자로.
+   ⚠ site-group 이 아니라 site-srch 로 감싼다 — 상단바 토글 JS 가 site-group 마다 버튼을 찾다 오류가 났다(2026-10-06). */
+html body .site-srch{position:relative;display:flex;align-items:center}
+html body .site-srch>a.srch-nav{display:flex;align-items:center;font-size:13px;font-weight:600;letter-spacing:-.01em;
+  line-height:normal;color:var(--text-secondary,#475569);padding:8px 12px;border-radius:9px;text-decoration:none}
+html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in srgb,var(--text) 6%,transparent)}
+@media(max-width:760px){.srch-box{top:12px} html body .site-srch>a.srch-nav{padding:8px 8px;font-size:12px}}
+@media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
+/* SEARCH:END */
+
 .dim{color:var(--mut,#94a3b8)}
 .b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
   font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
@@ -368,43 +450,7 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .hchg .ar{white-space:nowrap}
 .to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
 @media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
-/* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-/* ⚠⚠ 2026-09-10 상수님 «작은 해상도에서는 제목을 누를 수 없네».
-   아카이브가 29장이 되면서 드롭다운이 1,254px 로 자랐다. 상단바는 sticky 라
-   드롭다운은 화면 위에서 72px 자리에 열리는데, 390px 화면의 보이는 높이가 915px 이니
-   **아래 411px 는 화면 밖이고 스크롤이 없어 닿을 방법이 아예 없었다.**
-   → 화면 높이만큼만 열고 넘치면 그 안에서 스크롤한다.
-   · dvh 를 뒤에 한 번 더 적는다 — 모바일 주소창이 접혔다 펴질 때 100vh 는 화면보다 크다.
-     dvh 를 모르는 브라우저는 앞줄(vh)만 읽고 지나간다.
-   · overscroll-behavior:contain — 목록 끝에서 계속 밀어도 뒤 본문이 따라 스크롤되지 않게.
-   · 120px 은 상단바(2줄, 96px)와 아래 여백 16px 이다. 아카이브·원자료는 메뉴 2번째 줄에
-     달려 있어 104px 자리에서 열린다 — 92px 로 뺐더니 12px 이 화면 밖으로 나갔다. */
-html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);
-  overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
-
-/* ★ 2026-09-14 상수님 «가로 CSS 가 째지지 않게». 숨은 펼침 메뉴(visibility:hidden)가 자리를 차지해 375px 화면에서
-   scrollWidth 427 로 가로 스크롤이 생겼다(전 페이지). 메뉴 폭을 화면 안에 묶고 문서의 가로 넘침을 자른다.
-   ⚠ 상단바 CSS 를 전 페이지에 미치게 하는 자리는 **여기(CENTER)뿐**이다. nav2.py 를 고쳐도 원자료 장에만 닿는다. */
-html body .site-dd{max-width:calc(100vw - 24px)}
-html,body{overflow-x:hidden}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END *//*TOCCSS:BEGIN*/
+/*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
 /* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
@@ -424,14 +470,7 @@ h2[id],h3[id],[id]:target{scroll-margin-top:92px}
 .ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
 .ptoc a:hover{border-bottom-color:var(--text-secondary)}
 @media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*/
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
-/* PAPER:BEGIN */
+/*TOCCSS:END*//* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -746,46 +785,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */
-/* SEARCH:BEGIN */
-.srch-btn{position:fixed;top:auto;bottom:18px;right:68px;z-index:130;width:42px;height:42px;border-radius:50%;
-  background:var(--surface,#F6F7F9);border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text,#0f172a);
-  cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;
-  box-shadow:0 2px 14px rgba(0,0,0,.10);transition:transform .12s,box-shadow .12s}
-.srch-btn:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(0,0,0,.16)}
-.srch-btn:focus-visible,.srch-in:focus-visible,.srch-r a:focus-visible{outline:2px solid var(--accent,#2563eb);outline-offset:2px}
-.srch-bg{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.38);display:none}
-.srch-bg.on{display:block}
-.srch-box{position:fixed;z-index:201;top:72px;left:50%;transform:translateX(-50%);width:min(680px,calc(100vw - 24px));
-  max-height:calc(100vh - 96px);max-height:calc(100dvh - 96px);display:none;flex-direction:column;
-  background:var(--bg,#fff);color:var(--text,#0f172a);border:1px solid var(--border,rgba(15,23,42,.12));
-  border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.28);overflow:hidden}
-.srch-box.on{display:flex}
-.srch-top{display:flex;gap:8px;align-items:center;padding:12px 14px;border-bottom:1px solid var(--border,rgba(15,23,42,.12))}
-.srch-in{flex:1;min-width:0;font:inherit;font-size:16px;padding:9px 11px;border-radius:9px;
-  border:1px solid var(--border,rgba(15,23,42,.12));background:var(--surface,#F6F7F9);color:var(--text,#0f172a)}
-.srch-x{font:inherit;font-size:13px;padding:8px 10px;border-radius:9px;border:0;background:none;color:var(--text2,#6e6e73);cursor:pointer}
-.srch-meta{padding:8px 16px 0;font-size:12.5px;color:var(--text2,#6e6e73)}
-.srch-r{list-style:none;margin:0;padding:6px 8px 12px;overflow-y:auto;overscroll-behavior:contain}
-.srch-r li{margin:0}
-.srch-r a{display:block;padding:10px 10px;border-radius:9px;color:inherit;text-decoration:none}
-.srch-r a:hover,.srch-r a.cur{background:var(--surface,#F6F7F9)}
-.srch-k{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;padding:1px 6px;border-radius:5px;
-  margin-right:6px;vertical-align:1px;border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text2,#6e6e73)}
-.srch-t{font-weight:700;font-size:14.5px;line-height:1.4}
-.srch-h{font-size:13px;color:var(--text2,#6e6e73);margin-top:2px;line-height:1.4}
-.srch-s{font-size:13px;line-height:1.55;margin-top:4px;color:var(--text,#0f172a);opacity:.86}
-.srch-s mark,.srch-h mark,.srch-t mark{background:rgba(37,99,235,.18);color:inherit;border-radius:3px;padding:0 1px}
-/* 상단 메뉴 «검색» — 드롭다운 버튼(.site-group>button)과 같은 글자로.
-   ⚠ site-group 이 아니라 site-srch 로 감싼다 — 상단바 토글 JS 가 site-group 마다 버튼을 찾다 오류가 났다(2026-10-06). */
-html body .site-srch{position:relative;display:flex;align-items:center}
-html body .site-srch>a.srch-nav{display:flex;align-items:center;font-size:13px;font-weight:600;letter-spacing:-.01em;
-  line-height:normal;color:var(--text-secondary,#475569);padding:8px 12px;border-radius:9px;text-decoration:none}
-html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in srgb,var(--text) 6%,transparent)}
-@media(max-width:760px){.srch-box{top:12px} html body .site-srch>a.srch-nav{padding:8px 8px;font-size:12px}}
-@media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
-/* SEARCH:END */
-</style><link rel="stylesheet" href="vendor/fonts.css"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
+/* PAPER:END */</style><link rel="stylesheet" href="vendor/fonts.css"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="here" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a class="here" href="jeonjo.html">중공황 전조현상</a><a href="macro-timeline.html">거시 이벤트 연대기</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="minervini-x.html">마크 미너비니 X 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-psk-holdings.html">피에스케이홀딩스</a><a href="stock-samsung-sdi.html">삼성SDI</a><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-nhn.html">NHN</a><a href="stock-kolmar.html">한국콜마</a><a href="stock-cosmax.html">코스맥스</a><a href="stock-pharmaresearch.html">파마리서치</a><a href="stock-jyp.html">JYP Ent.</a><a href="stock-sm-ent.html">에스엠</a><a href="stock-yg-ent.html">와이지엔터테인먼트</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="marks.html">하워드 막스의 방법론</a><a href="marks-glossary.html">사이클 용어사전</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a><a href="cycle-rope.html">사이클과 규칙</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><span class="nav-h sub">금리와 통화</span><a href="kospi-spx-gap.html">코스피와 S&P 500</a><a href="rate-crash-process.html">금리-공황 프로세스</a><a href="gold-rates.html">금리와 금값</a><a href="treasury-trust.html">미국 국채 바이백</a><a href="inflation-playbook.html">인플레 시대의 자산</a><a href="rates-century.html">미국 금리 100년</a><a href="liquidity.html">미국 유동성</a><a href="fed-kospi.html">연준 기준금리와 코스피</a><a href="rates-101.html">금리 기초</a><a href="rates-crashes.html">금리 5%와 공황</a><a href="dollar-kospi.html">달러와 코스피</a><span class="nav-h sub">수급과 폭락</span><a href="foreign-flow.html">외국인 수급</a><a href="flow-extremes.html">개인과 외국인의 대량 매매</a><a href="flow-crashes.html">폭락의 구조</a><span class="nav-h sub">경기와 수출</span><a href="jp-cci-kospi.html">일본 소비심리와 코스피</a><a href="us-elections.html">미국 선거와 증시</a><a href="export-kospi.html">수출과 코스피</a><a href="cli-kospi.html">OECD CLI 와 코스피</a><a href="ism-kospi.html">ISM 과 코스피</a><a href="jeoji-kospi.html">제오지산수</a><span class="nav-h sub">시장 국면</span><a href="rally-angle.html">상승 각도</a><a href="kospi-seasonality-down.html">해와 달의 코스피 · 역편</a><a href="kospi-drivers.html">코스피 선행 변수</a><a href="kospi-seasonality.html">해와 달의 코스피</a><a href="breadth-concentration.html">신고가 쏠림</a><a href="kospi-analog.html">닮은 과거</a><a href="audition-history.html">오디션 히스토리</a><a href="disparity-archive.html">두 버블의 이격도</a><a href="stage-analysis.html">와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리</a><span class="nav-h sub">신용과 청산</span><a href="us-credit-spread.html">미국 신용스프레드</a><a href="deleveraging.html">강제청산</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="sentiment.html">빚과 현금</a><span class="nav-h sub">개별 종목</span><a href="memory-price.html">D램 가격과 삼성전자</a><a href="leadlag.html">하이닉스의 선행과 후행</a><a href="samsung-long.html">삼성전자 27년</a></div></div><div class="site-group"><button class="" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 116계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a href="data-kr-rates.html">한국 금리</a><a href="data-us-market.html">미국 시장</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a href="data-fx.html">환율·원자재·암호</a><a href="data-macro.html">재정·거시</a><a href="data-world.html">세계 증시</a></div></div><div class="site-srch"><a class="srch-nav" href="#search" role="button">검색</a></div><!-- NAV:END --></nav>
@@ -821,7 +821,7 @@ html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in 
       <tbody><tr><td class="n">3</td><td class="nm">인플레이션 상승 → 긴축 <span class="gr">1급</span></td><td class="c"><span class="bg b-on">점등</span></td><td class="no">W38 연준 인상 실행. SEP 올해 PCE 3.7%(3.6% 상향)·GDP 2.3%·실업률 4.1%. 미국 8월 수입가격 +7.0%·수출가격 +8.6%. 독일 8월 PPI 4.6%·도매물가 6.8%. 한국 8월 PPI 7.9%(5월 8.6% 뒤 반등). 「지금 CPI는 이미 고삐 풀린 망아지」. 점등 유지·강화</td></tr><tr><td class="n">8</td><td class="nm">일본 무역수지 적자 누적 <span class="gr">1급</span></td><td class="c"><span class="bg b-on">점등</span></td><td class="no">W38 일본 무역수지 언급 없음. 유지. 일본 8월 수출 +19.3%(7월 23.2%에서 하락, 「7월이 정점이었는지 한두 달 더 관찰」). 가동률 107.7p·CPI 1.9%. 일본은행 0.25%p 인상 → 1.25%(7:2). 점등 유지</td></tr><tr><td class="n">10</td><td class="nm">신용경색 선행 <span class="gr">1급</span></td><td class="c"><span class="bg b-on">점등</span></td><td class="no">W38 「신용 금리 스프레드 아무런 반응 없음」·MOVE 80.64p 바닥·한국 CDS 바닥. 그러나 <span class="star">★</span> 「부동산발 신용경색 시작될 듯」: 30년 모기지 6.97%(2월 6.09%에서 +0.9%p), NAHB 32p. 헨릭 제버그 「부동산 침체가 사모대출·금융기관 부실로」. 「이제 연준이 인상을 시작했으니 신용 리스크도 동반해 커지게 된다 (아직 확인되지 않았다, 커져야 정상이다)」. 점등 유지</td></tr><tr><td class="n">19</td><td class="nm">주식 공급 과잉(대형 IPO·락업 해제) <span class="gr">1급</span></td><td class="c"><span class="bg b-on">점등</span></td><td class="no">W38 「IPO를 앞둔 프런티어 AI 기업들 … 개발 속도를 늦추고 수익성을 확대해야」(속도조절론의 월가 해석). 삼전 자사주 15조·하닉 40조 소각은 공급의 반대편. 점등 유지</td></tr><tr><td class="n">25</td><td class="nm">신용융자 급증(개인 과열) <span class="gr">1급</span></td><td class="c"><span class="bg b-on">점등</span></td><td class="no">W38 신용잔고 32.66조(소폭 증가, 볼트 KOFIA 9/17 33.07조)·고객예탁금 99.57조 「다시 100조 아래」. 「올해 상반기처럼 과열을 더 이상 기대하기 어렵다」. 점등 유지·완화 조짐</td></tr><tr><td class="n">28</td><td class="nm">이격도 고점 하락(상승탄력 약화) <span class="gr">1급</span></td><td class="c"><span class="bg b-on">점등</span></td><td class="no">W38 코스피 6,894p(볼트 9/18 6,894.23), 7,000 미탈환. 「20일 추세선 위로 올라서면서 2주 전 상승 추세로 복귀」. 볼트 실측 20일 이격 101.4·50일 102.9. 점등 유지</td></tr><tr><td class="n">11</td><td class="nm">미국 주택착공·인허가·NAHB 하락</td><td class="c"><span class="bg b-on">점등</span></td><td class="no"><span class="star">★</span> W38 NAHB 9월 32p: 「작년 9월 최저점 32p를 하향 돌파하려고 위협 중」, 「박스권을 깨고 하락 추세로 전환되려는 조짐」. 8월 착공 127.5만(7월 131만)·인허가 139.4만(143.3만) 모두 감소. 미결판매 −4.7%. 점등 유지·강화</td></tr><tr><td class="n">14</td><td class="nm">주변부 증시 선행 하락</td><td class="c"><span class="bg b-on">점등</span></td><td class="no"><span class="star">★</span> W38 미국 52주 신고가−신저가 −3.68% 「역사적 저점 수준 … 지수는 버티지만 내부적으로 박살나는 종목이 많다」. 외국인 코스닥 −1,765억(3개월 −2.8조), 「바닥권을 탄력 있게 벗어나지 못하고 있다」. 점등 유지</td></tr><tr><td class="n">16</td><td class="nm">대형주 초과상승 멈춤</td><td class="c"><span class="bg b-on">점등</span></td><td class="no"><span class="star">★</span> W38 외국인 최근 6거래일 코스피 −11.9조, 그중 삼전+하닉 −10.2조(86%). 이번주 −8.36조를 기타법인(자사주) +8.15조가 받음. 3개월 외국인 −49조 vs 기타법인 +34조. 「외국인의 복귀는 요원」. 「코스피 주가를 보면 SOX 지수와 그냥 똑같다」. 점등 유지</td></tr><tr><td class="n">20</td><td class="nm">실질소득 감소</td><td class="c"><span class="bg b-on">점등</span></td><td class="no">W38 유로존 2Q 임금 +3.0%(2024-1Q 5.4%에서 2년 하락, 「현재 인플레이션은 공급 요인」). 미국 소매 +6%. 실질소득 직접 언급 없음. 점등 유지</td></tr><tr><td class="n">1</td><td class="nm">신용 금리 스프레드 확대 <span class="gr">1급</span></td><td class="c"><span class="bg b-wa">주의</span></td><td class="no">W38 한국 0.671%(8/5 0.72% 정점 뒤 6주 하락, 「0.6%대 초반까지 하락하면 안심」)·미국 「이번주에 아무런 반응을 보이지 않고 있다」. 연준이 인상했는데도 스프레드가 안 움직였다. 주의 유지</td></tr><tr><td class="n">6</td><td class="nm">OECD/컨퍼런스보드 선행지수 고점·오버슈팅 <span class="gr">1급</span></td><td class="c"><span class="bg b-wa">주의</span></td><td class="no">W38 OECD CLI 언급 없음. KB증권 인용: 「디플레 시대에는 물가와 경기가 동행하지만 인플레 시대에는 거꾸로」, 「경기 지표로 물가를 판단하지 못한다 … 연준의 data 보고 결정하기를 하면 안 된다」. 볼트 실측 2026-08 102.21 그대로. 주의 유지</td></tr><tr><td class="n">7</td><td class="nm">유로존 무역수지 적자 전환·감소 추세 <span class="gr">1급</span></td><td class="c"><span class="bg b-wa">주의</span> <span class="chg">▲변화</span></td><td class="no"><span class="star">★</span>점등→주의. 유로존 7월 무역수지 +142억유로 「흑자로 돌아섰다」(4~5월 적자에서). 기준이 「적자 전환 후 감소 추세 확인」인데 적자가 해소됐다. 그는 「무역 적자는 공황을 선행: 2021-10(3개월), 작년 1월·올해 1월(1개월)」이라 4~5월 적자를 이미 신호로 본다. 흑자 복귀로 근거가 사라져 내린다</td></tr><tr><td class="n">21</td><td class="nm">ZEW·EC 소비심리 고점 후 반전 <span class="gr">1급</span></td><td class="c"><span class="bg b-wa">주의</span> <span class="chg">▲변화</span></td><td class="no"><span class="star">★</span>관찰→주의. 유로존 9월 ZEW 25.8p(8월 31.4p에서 반락). 「아직 고점은 아닌 듯 하지만 긴장해야」. 역대 고점: 2017-06(연중조정 6개월 선행)·2021-05(중공황 2개월)·2024-06(연중조정 1개월·소공황 8개월)·2026-01(연중조정 1개월). 「완만한 상승이면 공황은 고점 이후 6개월 전후」. 첫 반락이라 올린다</td></tr><tr><td class="n">26</td><td class="nm">단기 자금경색(TED·LIBOR-OIS·CDS) <span class="gr">1급</span></td><td class="c"><span class="bg b-wa">주의</span></td><td class="no">W38 한국 5년 CDS 「바닥권에서 예쁘게 횡보」·MOVE 80.64p 바닥. 주의 유지</td></tr><tr><td class="n">4</td><td class="nm">유동성 감소(증시 선행 하락)</td><td class="c"><span class="bg b-wa">주의</span></td><td class="no">W38 달러 인덱스 100 돌파(「전운이 감돌고 있다」)·TGA 상승 중. <span class="star">★</span> 중국 7월 신규 대출 −3,400억 위안 「초유의 사태 … 이야기꾼은 본 적이 없다」, 8월 +600억. 일본 대출 증가세 둔화. 미 증시는 상승 중이라 「유동성 축소+증시 선행 하락」 뒷조건 미충족. 주의 유지</td></tr><tr><td class="n">5</td><td class="nm">장단기 금리차 역전·재확대</td><td class="c"><span class="bg b-wa">주의</span></td><td class="no">W38 9/17 10년물 4.97%·2년물 4.72%·장단기 25bp. 볼트 실측 9/17 DGS10 4.94·DGS2 4.67 = +27bp(9/3 +43bp에서 축소). <span class="star">★</span> 그가 금리-공황 프로세스 5단계를 재시작했다. ① 금리차 2026-02부터 먼저 하락 ② 인상 2026-09 시작 ③ 마이너스 언제? ④ 바닥·플러스 언제? ⑤ 중공황 언제? 「내년 중공황 전까지 매달 추적」. 기준(역전 후 재확대)은 ③④ 단계라 아직 아니다. 주의 유지</td></tr><tr><td class="n">15</td><td class="nm">주도주 일부 상승추세 마감</td><td class="c"><span class="bg b-wa">주의</span></td><td class="no">W38 AI 속도조절론(아모데이·올트먼·머스크·허사비스)으로 월요일 반도체 급락 → 트럼프·중국 반대로 반등. 젠슨황 「내년 GPU 판매 올해의 2배」. 비트코인 8만불 재돌파, 나스닥 반등. 주의 유지</td></tr><tr><td class="n">22</td><td class="nm">일직선 급등·안일한 낙관</td><td class="c"><span class="bg b-wa">주의</span></td><td class="no">W38 VIX 14.8p·MOVE 바닥(안일함) vs F&amp;G 29p fear·52주 신고가−신저가 −3.68%(공포). 「시장 참여자 대다수가 폭락할 확률이 높다고 생각하지 않는다」. 골드만·UBS 「첫 인상 뒤 12개월 +9~10.8%」 통계 확산. 주의 유지</td></tr><tr><td class="n">27</td><td class="nm">거래량 급증·손바뀜</td><td class="c"><span class="bg b-wa">주의</span></td><td class="no">W38 외국인 −8.36조 → 기타법인 +8.15조. 3개월 외국인 −49조 / 기타법인 +34조·기관 +8.4조·개인 +6.4조. 「삼전닉스 자사주 매입이 외국인 매도를 버티고 있다」. 같은 구조 지속. 주의 유지</td></tr><tr><td class="n">2</td><td class="nm">연준 금리 인하(Rate Cut) <span class="gr">1급</span></td><td class="c"><span class="bg b-ob">관찰</span></td><td class="no"><span class="star">★</span> W38 연준 9/16 FOMC 0.25%p 인상 → 3.75~4.00%, 만장일치. 「4년 6개월 만에 금리 인상기로 전환」. 점도표 연말 4.1%(6월 3.8%), 18명 중 16명 연내 추가 인상, 2028년까지 4% 유지 9명: Higher for Longer. 이 항목은 「인하 전환 시 위험」이라 인상기 시작은 반대 방향. 그의 금리-공황 프로세스로는 ④.5 「인하 있을 수도 없을 수도」가 이 항목의 자리다. 관찰 유지</td></tr><tr><td class="n">12</td><td class="nm">미국 주택가격 하락 반전 <span class="gr">1급</span></td><td class="c"><span class="bg b-ob">관찰</span></td><td class="no">W38 미국 주택가격 지수 언급 없음. 유지. 중국 8월 신규주택 −3.0%(2024-10 −5.9% 바닥 뒤 축소 중)</td></tr><tr><td class="n">24</td><td class="nm">대출심사 강화 비율(SLOOS) <span class="gr">1급</span></td><td class="c"><span class="bg b-ob">관찰</span></td><td class="no">W38 언급 없음. 유지</td></tr><tr><td class="n">17</td><td class="nm">코인 탐욕 오버슈팅</td><td class="c"><span class="bg b-ob">관찰</span></td><td class="no">W38 비트코인 클래리티법 상원 부결(49:50)로 하락 뒤 「크게 반등해 다시 8만불 위로」. 헨릭 제버그 「올해말 내년초 기술주와 비트코인 급등해 정점」. 추세 이탈 아님. 관찰 유지</td></tr><tr><td class="n">18</td><td class="nm">VIX·MOVE 오버슈팅</td><td class="c"><span class="bg b-ob">관찰</span></td><td class="no">W38 VIX 14.8p(「굳이 풋 옵션으로 헷징할 필요를 느끼지 않을 때」)·MOVE 80.64p 바닥. CNN F&amp;G 29p fear. 풋/콜 0.78. 급등 아님. 관찰 유지. ⚠ 볼트에 VIX·MOVE 시계열 없음</td></tr><tr><td class="n">9</td><td class="nm">기업 이익 QoQ 마이너스 1년간 반복 <span class="gr">1급</span></td><td class="c"><span class="bg b-sf">안전</span></td><td class="no">W38 BofA: S&amp;P500 2026E·2027E EPS 컨센서스 상향 중, 2분기 87% 어닝 서프라이즈, 「3분기는 일제히 전망을 상향」. 골드만 삼전 49만·하닉 350만 목표 유지, 3분기 DRAM·NAND ASP +20%, 내년 HBM ASP +100%. 삼전닉스 재고 10일 미만. 안전 유지</td></tr><tr><td class="n">13</td><td class="nm">한국 악성미분양↑·전세가율 40%↓</td><td class="c"><span class="bg b-sf">안전</span></td><td class="no">W38 언급 없음. 유지</td></tr><tr><td class="n">23</td><td class="nm">한미 금리 스프레드 역전</td><td class="c"><span class="bg b-rf">참고</span></td><td class="no">W38 원달러 1,385원(지난주 1,334원에서 급반등, 「달러 강세가 원화 약세를 이끌었다」). 엔달러 156.9. 미 3.75~4.00 vs 한국 3.00 → 역전 폭 확대. 참고 유지</td></tr></tbody></table></div>
     <div class="note">상태 정의 — <b>점등</b>: 위험 기준 충족 · <b>주의</b>: 기준 근접 · <b>관찰</b>: 추적 중 ·
       <b>안전</b>: 기준과 거리 있음 · <b>참고</b>: 보조지표.
-      정본은 <span class="f">_sources/중공황_전조현상_점검체크리스트.xlsx</span>이며 이 페이지는 매주 자동 생성됩니다.</div>
+      정본은 중공황 전조현상 점검 체크리스트(엑셀)이며 이 페이지는 매주 자동 생성됩니다.</div>
   </div>
 
   <h2 id="우리-원자료로-확인한-28종-실측-2026-10-14" class="sec">우리 원자료로 확인한 28종 <span class="sub2">실측 2026-10-14</span></h2>
@@ -835,7 +835,7 @@ html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in 
       <th class="c" style="width:90px">이야기꾼</th><th class="c" style="width:90px">볼트 실측</th><th>지금 값 · 최근 변화 · 기준에 비춘 사실</th></tr></thead>
       <tbody><tr><td class="n">1</td><td class="nm">신용 금리 스프레드 확대 <span class="gr">1급</span></td><td class="c"><span class="bg b-wa">주의</span></td><td class="c"><span class="bg b-sf">미충족</span></td><td class="no">한국 0.672%p(2026-09) · 미국 GZ 0.842%p(2026-07)<br><span class="dim">3개월 변화 한국 +4bp · 미국 -8bp / 12개월 저점 대비 한국 +25bp · 미국 +1bp / 미 은행 연체율 전체 1.42% · 기업대출 1.27%(2026-Q2, 1년 전 1.49%)</span><br>추세적 상승 미충족. 두 스프레드 모두 3개월 전보다 낮거나 같다<br><span class="dim">자료 한국은행 ECOS 721Y001 회사채(AA-)−국고3년 월별 · 연준 GZ 스프레드 월별</span></td></tr><tr><td class="n">2</td><td class="nm">연준 금리 인하(Rate Cut) <span class="gr">1급</span></td><td class="c"><span class="bg b-ob">관찰</span></td><td class="c"><span class="bg b-sf">미충족</span></td><td class="no">상단 4.00%(2026-10)<br><span class="dim">마지막 변경 2026-09 +0.25%p → 4.00%</span><br>인하 전환 미충족. 마지막 변경이 인상이고 그 뒤 1개월 동결<br><span class="dim">자료 연준 정책금리 목표(상단) 월별</span></td></tr><tr><td class="n">3</td><td class="nm">인플레이션 상승 → 긴축 <span class="gr">1급</span></td><td class="c"><span class="bg b-on">점등</span></td><td class="c"><span class="bg b-sf">미충족</span></td><td class="no">CPI 전년비 3.7%(2026-08)<br><span class="dim">3개월 전 4.3% · 12개월 전 2.7% · 12개월 저점 2.7%(2026-02)</span><br>물가 재가속 미충족. 전년비가 3개월 전보다 높지 않다, 연준은 마지막 변경이 인상<br><span class="dim">자료 FRED CPIAUCSL 월별 → 전년동월비</span></td></tr><tr><td class="n">4</td><td class="nm">유동성 감소(증시 선행 하락)</td><td class="c"><span class="bg b-wa">주의</span></td><td class="c"><span class="bg b-on">충족</span></td><td class="no">순유동성 5.87조달러(2026-10-07)<br><span class="dim">13주 변화 -94십억달러(-1.6%) · 코스피 13주 -16.0%</span><br>유동성 축소 + 증시 먼저 하락 충족. 순유동성 13주 감소, 코스피 13주 하락<br><span class="dim">자료 FRED WALCL−TGA−RRP 주별(순유동성) · KRX 코스피 종가</span></td></tr><tr><td class="n">5</td><td class="nm">장단기 금리차 역전·재확대</td><td class="c"><span class="bg b-wa">주의</span></td><td class="c"><span class="bg b-sf">미충족</span></td><td class="no">10Y−2Y +44bp(2026-10-09)<br><span class="dim">12개월 최저 +20bp(2026-09-21) · 90일 전 +40bp</span><br>역전 후 재확대 미충족. 12개월 안에 역전(0 아래)이 없었다<br><span class="dim">자료 FRED DGS10−DGS2 일별</span></td></tr><tr><td class="n">6</td><td class="nm">OECD/컨퍼런스보드 선행지수 고점·오버슈팅 <span class="gr">1급</span></td><td class="c"><span class="bg b-wa">주의</span></td><td class="c"><span class="bg b-on">충족</span></td><td class="no">101.94(2026-09) · 월간 변화 +0.08→-0.03→-0.10<br><span class="dim">0개월 연속 상승 · 상승폭은 둔화</span><br>고점 후 하락 반전 충족. 아직 상승 중(마지막 달 -0.10)<br><span class="dim">자료 OECD CLI 한국 월별(볼트 최신 2026-09)</span></td></tr><tr><td class="n">7</td><td class="nm">유로존 무역수지 적자 전환·감소 추세 <span class="gr">1급</span></td><td class="c"><span class="bg b-wa">주의</span></td><td class="c"><span class="bg b-on">충족</span></td><td class="no">무역수지 +5,031백만유로(2026-07)<br><span class="dim">3개월 평균 -270 · 12개월 전 3개월 평균 +6,778 · 12개월 합 +56,158</span><br>적자 전환 후 감소 추세 충족. 3개월 평균이 적자이고 1년 전보다 작다. 마지막 달은 흑자<br><span class="dim">자료 ECB Data Portal 유로존 역외 상품 수출−수입 월별(계절조정) · 신설 수집기</span></td></tr><tr><td class="n">8</td><td class="nm">일본 무역수지 적자 누적 <span class="gr">1급</span></td><td class="c"><span class="bg b-on">점등</span></td><td class="c"><span class="bg b-sf">미충족</span></td><td class="no">무역수지 -8,819억엔(2026-06)<br><span class="dim">12개월 합 -15,553억엔 · 그 전 12개월 -42,372억엔 · 최근 12개월 중 적자 8개월</span><br>적자 추세 확대 미충족. 12개월 합이 적자이고 전년보다 커지지 않았다<br><span class="dim">자료 OECD MEI(FRED XTNTVA01JPM664S) 일본 상품 무역수지 월별(엔, 계절조정) · 신설 수집기</span></td></tr><tr><td class="n">9</td><td class="nm">기업 이익 QoQ 마이너스 1년간 반복 <span class="gr">1급</span></td><td class="c"><span class="bg b-sf">안전</span></td><td class="c"><span class="bg b-rf">없다</span></td><td class="no">없다<br>코스피 전종목 분기 이익 합계가 볼트에 없다(DART 캐시는 22종목·연간 위주)</td></tr><tr><td class="n">10</td><td class="nm">신용경색 선행 <span class="gr">1급</span></td><td class="c"><span class="bg b-on">점등</span></td><td class="c"><span class="bg b-sf">미충족</span></td><td class="no">Baa−Aaa 0.47%p(2026-10-09)<br><span class="dim">3개월 전 0.42 · 12개월 저점 0.40 · 1986년 이후 백분위 1%</span><br>① 스프레드 확대 미충족. 3개월 전보다 높다. ②③④ 는 자료 없음<br><span class="dim">자료 FRED Baa−Aaa 일별(기준 ①만) · ②CMBS ③AI 크레딧 CDS ④FCF 는 볼트에 없다</span></td></tr><tr><td class="n">11</td><td class="nm">미국 주택착공·인허가·NAHB 하락</td><td class="c"><span class="bg b-on">점등</span></td><td class="c"><span class="bg b-sf">미충족</span></td><td class="no">착공 1,275천 호 · 인허가 1,403천 호(2026-08)<br><span class="dim">12개월 전 대비 착공 -1.2% · 인허가 +4.2% · 3년 최저 대비 착공 +7.9%</span><br>착공·인허가 동반 하락 미충족. NAHB 는 자료가 없다<br><span class="dim">자료 FRED HOUST·PERMIT 월별(연환산 천 호, SA) · 신설 수집기 · NAHB 는 없다</span></td></tr><tr><td class="n">12</td><td class="nm">미국 주택가격 하락 반전 <span class="gr">1급</span></td><td class="c"><span class="bg b-ob">관찰</span></td><td class="c"><span class="bg b-sf">미충족</span></td><td class="no">337.3(2026-07)<br><span class="dim">전년동월비 +1.9% · 사상 최고 337.3(2026-07) 대비 +0.0%</span><br>주택가격 하락 반전 미충족. 전년동월비가 플러스다<br><span class="dim">자료 S&amp;P 케이스실러 미국 주택가격지수 월별(FRED CSUSHPINSA, NSA) · 신설 수집기</span></td></tr><tr><td class="n">13</td><td class="nm">한국 악성미분양↑·전세가율 40%↓</td><td class="c"><span class="bg b-sf">안전</span></td><td class="c"><span class="bg b-rf">없다</span></td><td class="no">없다<br>한국 미분양·전세가율이 볼트에 없다(KOSIS 키 없음)</td></tr><tr><td class="n">14</td><td class="nm">주변부 증시 선행 하락</td><td class="c"><span class="bg b-on">점등</span></td><td class="c"><span class="bg b-on">충족</span></td><td class="no">니프티50 22,585(2026-10-14) · JCI 5,954(2026-10-14)<br><span class="dim">60일 수익률 니프티 -6.8% · JCI -4.5% · 코스피 -10.6% / 200일선 대비 니프티 -6.8% · JCI -15.7%</span><br>주변부가 먼저 하락 충족. 두 지수 60일 수익률이 둘 다 마이너스<br><span class="dim">자료 야후 파이낸스 인도 니프티50·인도네시아 JCI 종가 · 신설 수집기</span></td></tr><tr><td class="n">15</td><td class="nm">주도주 일부 상승추세 마감</td><td class="c"><span class="bg b-wa">주의</span></td><td class="c"><span class="bg b-on">충족</span></td><td class="no">엔비디아 200일선 위 · 마이크론 200일선 위 · 브로드컴 200일선 아래 · TSMC 200일선 위 · 반도체 ETF 200일선 위 · 나스닥100 200일선 위 (2026-10-09)<br><span class="dim">엔비디아 고점 대비 -4% · 마이크론 고점 대비 -15% · 브로드컴 고점 대비 -25% · TSMC 고점 대비 -7% · 반도체 ETF 고점 대비 -10% · 나스닥100 고점 대비 -1%</span><br>주도주 추세 이탈 충족. 200일선 아래 1종목(브로드컴)<br><span class="dim">자료 KB 해외주식 일별(2024-03~) 엔비디아·마이크론·브로드컴·TSMC·SMH·QQQ</span></td></tr><tr><td class="n">16</td><td class="nm">대형주 초과상승 멈춤</td><td class="c"><span class="bg b-on">점등</span></td><td class="c"><span class="bg b-on">충족</span></td><td class="no">60일 수익률 삼성전자 -11.8% · 하이닉스 -25.8% · 코스피 -10.6%(2026-10-14)<br><span class="dim">코스피 대비 삼성전자 -1.2%p · 하이닉스 -15.2%p</span><br>대형 주도주의 초과상승 멈춤 충족. 60일 상대 수익률이 둘 다 마이너스<br><span class="dim">자료 KRX 일별 종가 삼성전자·SK하이닉스 대 코스피 60영업일 수익률</span></td></tr><tr><td class="n">17</td><td class="nm">코인 탐욕 오버슈팅</td><td class="c"><span class="bg b-ob">관찰</span></td><td class="c"><span class="bg b-sf">미충족</span></td><td class="no">83,491달러(2026-10-14) · 공포탐욕 54 중립(2026-10-14)<br><span class="dim">사상 최고 124,753(2025-10-06) 대비 -33% · 200일선 대비 +16%</span><br>탐욕 극단(지수 75 이상) 후 추세 이탈 미충족. 지수 54, 200일선 위<br><span class="dim">자료 비트코인 달러 일별(야후) · 가상자산 공포탐욕지수(네이버, 글로벌 집계)</span></td></tr><tr><td class="n">18</td><td class="nm">VIX·MOVE 오버슈팅</td><td class="c"><span class="bg b-ob">관찰</span></td><td class="c"><span class="bg b-sf">미충족</span></td><td class="no">VIX 15.21(2026-10-12) · MOVE 101.09(2026-10-13)<br><span class="dim">VIX 20일 전 17.10 · 1년 최고 31.05(2026-03-27) · 1990년 이후 백분위 33% / MOVE 1년 최고 115.0</span><br>변동성 오버슈팅(VIX 30 이상 또는 20일 새 +50%) 미충족. VIX 15.21<br><span class="dim">자료 FRED VIXCLS 일별 · 야후 ^MOVE 일별 · 신설 수집기</span></td></tr><tr><td class="n">19</td><td class="nm">주식 공급 과잉(대형 IPO·락업 해제) <span class="gr">1급</span></td><td class="c"><span class="bg b-on">점등</span></td><td class="c"><span class="bg b-rf">없다</span></td><td class="no">없다<br>IPO·락업 해제 일정이 볼트에 없다</td></tr><tr><td class="n">20</td><td class="nm">실질소득 감소</td><td class="c"><span class="bg b-on">점등</span></td><td class="c"><span class="bg b-on">충족</span></td><td class="no">실질 주급 중앙값 378달러(2026-Q2) 전년비 +1.3% · 시간당임금 37.81달러(2026-09)<br><span class="dim">시간당임금 전년비 +3.0% − CPI 전년비 3.7% = 실질 -0.7%p</span><br>실질소득 감소 충족. 실질 주급 증가, 임금−물가 마이너스<br><span class="dim">자료 FRED 실질 주급 중앙값 분기(LES1252881600Q) · 시간당 평균임금 월별(CES0500000003)과 CPI · 신설 수집기</span></td></tr><tr><td class="n">21</td><td class="nm">ZEW·EC 소비심리 고점 후 반전 <span class="gr">1급</span></td><td class="c"><span class="bg b-wa">주의</span></td><td class="c"><span class="bg b-sf">미충족</span></td><td class="no">유로존 소비자신뢰 -16.5(2026-09) · 미시간 51.7(2026-08)<br><span class="dim">유로존 12개월 고점 -12.4(2026-02) · 역대 고점 -0.4(2000-01) / 미시간 12개월 전 58.2</span><br>역대 고점 경신 후 반전 미충족. 유로존 지수가 역대 고점 -0.4 에서 16.1 아래에 있어 「고점 경신」 자체가 없다<br><span class="dim">자료 Eurostat 유로존 소비자신뢰(EA21, 잔차) 월별 · FRED 미시간 소비심리 · 신설 수집기 · ZEW 는 없다</span></td></tr><tr><td class="n">22</td><td class="nm">일직선 급등·안일한 낙관</td><td class="c"><span class="bg b-wa">주의</span></td><td class="c"><span class="bg b-sf">미충족</span></td><td class="no">VIX 15.21(1년 백분위 15%) · 코스피 60일 -10.6%<br><span class="dim">VIX 1년 최저 13.47(2025-12-24) · 코스피 60일 최고 상승은 표에 없다</span><br>일직선 급등 + 안일한 낙관(VIX 1년 하위 20% 이고 코스피 60일 +20% 이상) 미충족<br><span class="dim">자료 FRED VIXCLS(안일함) · KRX 코스피 60일 수익률(일직선 급등) · 풋콜은 없다</span></td></tr><tr><td class="n">23</td><td class="nm">한미 금리 스프레드 역전</td><td class="c"><span class="bg b-rf">참고</span></td><td class="c"><span class="bg b-on">충족</span></td><td class="no">한국 3.00%(2026-09) − 미국 상단 4.00% = -1.00%p<br><span class="dim">한국 12개월 전 2.50% · 마지막 변경 2026-08</span><br>역전(한국 &lt; 미국) 충족. 보조 지표라 점등이 아니라 참고다<br><span class="dim">자료 한국은행 기준금리 월별(ECOS 722Y001) · 연준 정책금리 목표 상단 · 신설 수집기</span></td></tr><tr><td class="n">24</td><td class="nm">대출심사 강화 비율(SLOOS) <span class="gr">1급</span></td><td class="c"><span class="bg b-ob">관찰</span></td><td class="c"><span class="bg b-sf">미충족</span></td><td class="no">0.0%(2026-Q3)<br><span class="dim">1년 전 9.5% · 최근 3년 최고 33.9%</span><br>대출태도 강화 40~50% 도달 미충족. 지금 0.0%<br><span class="dim">자료 FRED DRTSCILM 분기(대·중기업 C&amp;I 대출 기준 강화 은행 순비율) · 신설 수집기</span></td></tr><tr><td class="n">25</td><td class="nm">신용융자 급증(개인 과열) <span class="gr">1급</span></td><td class="c"><span class="bg b-on">점등</span></td><td class="c"><span class="bg b-on">충족</span></td><td class="no">34.25조(2026-10-13)<br><span class="dim">사상 최고 38.63조(2026-06-24) 대비 -11.3% · 20영업일 +5.7% · 60영업일 -1.5%</span><br>신용융자 천정(사상 최고 뒤 감소) 충족. 최고 대비 -11.3%<br><span class="dim">자료 금융투자협회 신용거래융자 전체 일별</span></td></tr><tr><td class="n">26</td><td class="nm">단기 자금경색(TED·LIBOR-OIS·CDS) <span class="gr">1급</span></td><td class="c"><span class="bg b-wa">주의</span></td><td class="c"><span class="bg b-rf">없다</span></td><td class="no">없다<br>TED·OIS·한국 CDS 가 볼트에 없다(SOFR 수준만 있다)</td></tr><tr><td class="n">27</td><td class="nm">거래량 급증·손바뀜</td><td class="c"><span class="bg b-wa">주의</span></td><td class="c"><span class="bg b-sf">미충족</span></td><td class="no">거래량 20일 평균 2.73억주, 250일 평균의 0.47배(2026-10-14)<br><span class="dim">20영업일 합계 부호 개인 순매수 · 외국인 순매도 · 기관 순매수</span><br>고점권 거래량 급증(250일 평균의 1.5배 이상) 미충족. 지금 0.47배<br><span class="dim">자료 KRX 코스피 거래량 · 투자자별 매매(krx_cache) 20영업일</span></td></tr><tr><td class="n">28</td><td class="nm">이격도 고점 하락(상승탄력 약화) <span class="gr">1급</span></td><td class="c"><span class="bg b-on">점등</span></td><td class="c"><span class="bg b-sf">미충족</span></td><td class="no">50일 이격도 91.5(2026-10-14)<br><span class="dim">최근 이격도 고점(105 이상 국면) 129.9(2026-02) → 105.2(2026-03) → 133.1(2026-06) → 105.9(2026-09)</span><br>고점의 계단식 하락 미충족 · 100대 진입 충족<br><span class="dim">자료 KRX 코스피 종가 ÷ 50일 이동평균</span></td></tr></tbody></table></div>
     <div class="note">기준선(3개월·13주·60일·200일선·1.5배 같은 창)은 이 볼트가 정한 것이라 엑셀의 기준 문장을 숫자로 옮긴 해석이다. 이야기꾼 판정과 다르면 어느 쪽이 맞느냐의 문제가 아니다. 무엇을 보고 있느냐가 다른 것이다.
-      없는 자료 4종(#9, #13, #19, #26)은 조달 지도의 「두드려 보지 않았다」 목록이다. 계산은 <span class="f">scripts/jeonjo_measure.py</span>.</div>
+      없는 자료 4종(#9, #13, #19, #26)은 아직 원자료를 받지 못한 항목이다.</div>
   </div>
 
   <h2 id="강의의-10가지와-지금의-28종" class="sec">강의의 10가지와 지금의 28종</h2>
