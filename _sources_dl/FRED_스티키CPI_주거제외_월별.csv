@@ -1,4 +1,4 @@
-# 애틀랜타 연은 Sticky Price CPI less Shelter (전년동월비 %) · FRED STICKCPIXSHLTRM159SFRBATL · 단위 % · 받은 날 2026-10-14 · scripts/precursor_sources.py
+# 애틀랜타 연은 Sticky Price CPI less Shelter (전년동월비 %) · FRED STICKCPIXSHLTRM159SFRBATL · 단위 % · 받은 날 2026-10-15 · scripts/precursor_sources.py
 date,value
 1968-01,3.998
 1968-02,4.044
@@ -704,3 +704,4 @@ date,value
 2026-06,2.534
 2026-07,2.404
 2026-08,2.494
+2026-09,2.506
