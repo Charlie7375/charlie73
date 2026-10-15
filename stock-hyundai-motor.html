@@ -313,89 +313,7 @@ a.card:focus-visible,.lst-i:focus-visible{
 .site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
   background:color-mix(in srgb,var(--text) 6%,transparent)}
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/*NAVCSS:END*//* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-/* ⚠⚠ 2026-09-10 상수님 «작은 해상도에서는 제목을 누를 수 없네».
-   아카이브가 29장이 되면서 드롭다운이 1,254px 로 자랐다. 상단바는 sticky 라
-   드롭다운은 화면 위에서 72px 자리에 열리는데, 390px 화면의 보이는 높이가 915px 이니
-   **아래 411px 는 화면 밖이고 스크롤이 없어 닿을 방법이 아예 없었다.**
-   → 화면 높이만큼만 열고 넘치면 그 안에서 스크롤한다.
-   · dvh 를 뒤에 한 번 더 적는다 — 모바일 주소창이 접혔다 펴질 때 100vh 는 화면보다 크다.
-     dvh 를 모르는 브라우저는 앞줄(vh)만 읽고 지나간다.
-   · overscroll-behavior:contain — 목록 끝에서 계속 밀어도 뒤 본문이 따라 스크롤되지 않게.
-   · 120px 은 상단바(2줄, 96px)와 아래 여백 16px 이다. 아카이브·원자료는 메뉴 2번째 줄에
-     달려 있어 104px 자리에서 열린다 — 92px 로 뺐더니 12px 이 화면 밖으로 나갔다. */
-html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);
-  overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
-
-/* ★ 2026-09-14 상수님 «가로 CSS 가 째지지 않게». 숨은 펼침 메뉴(visibility:hidden)가 자리를 차지해 375px 화면에서
-   scrollWidth 427 로 가로 스크롤이 생겼다(전 페이지). 메뉴 폭을 화면 안에 묶고 문서의 가로 넘침을 자른다.
-   ⚠ 상단바 CSS 를 전 페이지에 미치게 하는 자리는 **여기(CENTER)뿐**이다. nav2.py 를 고쳐도 원자료 장에만 닿는다. */
-html body .site-dd{max-width:calc(100vw - 24px)}
-html,body{overflow-x:hidden}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END */
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
-
-/* SEARCH:BEGIN */
-.srch-btn{position:fixed;top:auto;bottom:18px;right:68px;z-index:130;width:42px;height:42px;border-radius:50%;
-  background:var(--surface,#F6F7F9);border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text,#0f172a);
-  cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;
-  box-shadow:0 2px 14px rgba(0,0,0,.10);transition:transform .12s,box-shadow .12s}
-.srch-btn:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(0,0,0,.16)}
-.srch-btn:focus-visible,.srch-in:focus-visible,.srch-r a:focus-visible{outline:2px solid var(--accent,#2563eb);outline-offset:2px}
-.srch-bg{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.38);display:none}
-.srch-bg.on{display:block}
-.srch-box{position:fixed;z-index:201;top:72px;left:50%;transform:translateX(-50%);width:min(680px,calc(100vw - 24px));
-  max-height:calc(100vh - 96px);max-height:calc(100dvh - 96px);display:none;flex-direction:column;
-  background:var(--bg,#fff);color:var(--text,#0f172a);border:1px solid var(--border,rgba(15,23,42,.12));
-  border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.28);overflow:hidden}
-.srch-box.on{display:flex}
-.srch-top{display:flex;gap:8px;align-items:center;padding:12px 14px;border-bottom:1px solid var(--border,rgba(15,23,42,.12))}
-.srch-in{flex:1;min-width:0;font:inherit;font-size:16px;padding:9px 11px;border-radius:9px;
-  border:1px solid var(--border,rgba(15,23,42,.12));background:var(--surface,#F6F7F9);color:var(--text,#0f172a)}
-.srch-x{font:inherit;font-size:13px;padding:8px 10px;border-radius:9px;border:0;background:none;color:var(--text2,#6e6e73);cursor:pointer}
-.srch-meta{padding:8px 16px 0;font-size:12.5px;color:var(--text2,#6e6e73)}
-.srch-r{list-style:none;margin:0;padding:6px 8px 12px;overflow-y:auto;overscroll-behavior:contain}
-.srch-r li{margin:0}
-.srch-r a{display:block;padding:10px 10px;border-radius:9px;color:inherit;text-decoration:none}
-.srch-r a:hover,.srch-r a.cur{background:var(--surface,#F6F7F9)}
-.srch-k{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;padding:1px 6px;border-radius:5px;
-  margin-right:6px;vertical-align:1px;border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text2,#6e6e73)}
-.srch-t{font-weight:700;font-size:14.5px;line-height:1.4}
-.srch-h{font-size:13px;color:var(--text2,#6e6e73);margin-top:2px;line-height:1.4}
-.srch-s{font-size:13px;line-height:1.55;margin-top:4px;color:var(--text,#0f172a);opacity:.86}
-.srch-s mark,.srch-h mark,.srch-t mark{background:rgba(37,99,235,.18);color:inherit;border-radius:3px;padding:0 1px}
-/* 상단 메뉴 «검색» — 드롭다운 버튼(.site-group>button)과 같은 글자로.
-   ⚠ site-group 이 아니라 site-srch 로 감싼다 — 상단바 토글 JS 가 site-group 마다 버튼을 찾다 오류가 났다(2026-10-06). */
-html body .site-srch{position:relative;display:flex;align-items:center}
-html body .site-srch>a.srch-nav{display:flex;align-items:center;font-size:13px;font-weight:600;letter-spacing:-.01em;
-  line-height:normal;color:var(--text-secondary,#475569);padding:8px 12px;border-radius:9px;text-decoration:none}
-html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in srgb,var(--text) 6%,transparent)}
-@media(max-width:760px){.srch-box{top:12px} html body .site-srch>a.srch-nav{padding:8px 8px;font-size:12px}}
-@media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
-/* SEARCH:END */
-
+/*NAVCSS:END*/
 .dim{color:var(--mut,#94a3b8)}
 .b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
   font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
@@ -450,6 +368,49 @@ td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
 .hchg .ar{white-space:nowrap}
 .to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
 @media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
+/* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+/* ⚠⚠ 2026-09-10 상수님 «작은 해상도에서는 제목을 누를 수 없네».
+   아카이브가 29장이 되면서 드롭다운이 1,254px 로 자랐다. 상단바는 sticky 라
+   드롭다운은 화면 위에서 72px 자리에 열리는데, 390px 화면의 보이는 높이가 915px 이니
+   **아래 411px 는 화면 밖이고 스크롤이 없어 닿을 방법이 아예 없었다.**
+   → 화면 높이만큼만 열고 넘치면 그 안에서 스크롤한다.
+   · dvh 를 뒤에 한 번 더 적는다 — 모바일 주소창이 접혔다 펴질 때 100vh 는 화면보다 크다.
+     dvh 를 모르는 브라우저는 앞줄(vh)만 읽고 지나간다.
+   · overscroll-behavior:contain — 목록 끝에서 계속 밀어도 뒤 본문이 따라 스크롤되지 않게.
+   · 120px 은 상단바(2줄, 96px)와 아래 여백 16px 이다. 아카이브·원자료는 메뉴 2번째 줄에
+     달려 있어 104px 자리에서 열린다 — 92px 로 뺐더니 12px 이 화면 밖으로 나갔다. */
+html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);
+  overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+
+/* ★ 2026-09-14 상수님 «가로 CSS 가 째지지 않게». 숨은 펼침 메뉴(visibility:hidden)가 자리를 차지해 375px 화면에서
+   scrollWidth 427 로 가로 스크롤이 생겼다(전 페이지). 메뉴 폭을 화면 안에 묶고 문서의 가로 넘침을 자른다.
+   ⚠ 상단바 CSS 를 전 페이지에 미치게 하는 자리는 **여기(CENTER)뿐**이다. nav2.py 를 고쳐도 원자료 장에만 닿는다. */
+html body .site-dd{max-width:calc(100vw - 24px)}
+html,body{overflow-x:hidden}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END */
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 /*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
@@ -1020,7 +981,7 @@ window.__qbRegister=function(){echarts.registerTheme('charlie', {"color": ["#d21
 </style><div class="vbox"><h4>개인은 정말 '떨어지면 사는가'</h4><p>위 사분면은 '한국 개인은 떨어지면 산다'를 전제로 읽는다. 그 전제가 이 종목에서도 맞는지 직접 계산했다.</p><p>하루 등락률과 그날 개인 순매수가 반대로 움직이는 정도를 계산하면 -0.48이다. 이 값이 0보다 작으면 '떨어지는 날에 개인이 샀다'는 뜻이고, 0보다 크면 그 반대이다.</p><p>같은 자료에서 연속 구간을 다시 뽑아 800번 계산해 보니 참값이 들어 있을 범위는 -0.62 ~ -0.37였다. 현대차에서도 그 습관이 확인된다. 범위가 전부 0보다 작으므로 '떨어지면 산다'는 방향은 우연으로 보기 어렵다.</p><p class="vlim">⚠ 관측치 395일로 계산했다. 개인 순매수 금액은 '순매수 주수 × 종가' 환산 근사이다. 방향이 맞다는 것과 그것이 수익으로 이어진다는 것은 다른 문제이다.</p></div><div class="vbox"><h4>큰 등락은 생각보다 자주 온다</h4><p>이 페이지의 이격도(주가가 이동평균선에서 얼마나 벌어졌는지 백분율로 나타낸 값)·추세템플릿은 '평소 범위'를 정해 놓고 그 밖을 이상하다고 판정한다. 그 '평소 범위'를 정규분포로 잡으면 위험을 작게 본다.</p><p>현대차의 하루 등락을 모아 보면 첨도가 9.5이다. 정규분포라면 3이다. 이 값이 클수록 '유난히 큰 하루'가 교과서 예상보다 자주 온다는 뜻이다.</p><p>실제로 평균에서 3표준편차 넘게 벗어난 날이 1167거래일 중 25일 있었다. 정규분포라면 3.2일이어야 한다. 8배이다.</p><p class="vlim">⚠ 그래서 '몇 표준편차'만으로 위험을 판단하지 않는다. 드물다고 계산된 일이 실제로는 드물지 않는다.</p></div><div class="vbox"><h4>여럿을 한꺼번에 볼 때의 함정</h4><p>이 사이트는 매일 23개 종목을 같은 방식으로 훑는다. 대상이 많아지면 아무 일이 없어도 그중 몇 개는 우연히 신호처럼 보인다. 주사위를 한 번 굴리면 6이 잘 안 나오지만 15번 굴리면 대개 한 번은 나온다.</p><p>현대차에서 '떨어지는데 개인도 파는 날'(3사분면)은 전체의 6.8%였다. 이 비율이라면 어느 날이든 23종목 중 평균 1.6개는 우연히 신호가 뜬다.</p><p>한 종목에 신호가 떴다는 사실만으로는 부족하다. 그날 몇 종목이 함께 걸렸는지를 같이 보아야 우연과 구별된다.</p><p class="vlim">⚠ 종목들은 서로 붙어 움직이므로 실제 '우연 개수'는 이보다 적다. 이 값은 넘지 않아야 할 상한으로 읽는다.</p></div>
 
 <h2 id="관련-기사">관련 기사</h2>
-<div class="tblwrap"><table><thead><tr><th>날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Wed, 14 Oct</td><td>경향신문</td><td><a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE5NRHdyMHBGendCY05oMWV3ZW5JUVlXRl90b1l1am11Vm81RVItbHBKRjFFcHdzT2RaN3VXMVVSYVozZEcwVklhNXU3RnU2bUdrUkpseFY4alVuQdIBX0FVX3lxTE9EMWNyUUp5UEIxWGtjNXdpaWJKS2ZQOTJBMFdNRjhPYnhIc0JVczluOFVyYTdwZFpfT3VWQUg0a1hueDhkUk1CRFlMVk9HVnpiTXlfc2ljV0lseDRkVF9F?oc=5" target="_blank" rel="noopener nofollow">현대차, 인도에 20조 투자 ‘푸네 공장’ 준공</a></td></tr><tr><td class="n">Wed, 14 Oct</td><td>아시아경제</td><td><a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE01ZzBSTVkyazRlYi1KcU1CZEYxblVEeFFQWW11c2h3cnhPUkxzRDE4WU9nT3QzLS16WXUzbWU5REtoN2ZvQ2dyS1UxX1pTVTRFQnJPNm85UEx3alRLNUlzRw?oc=5" target="_blank" rel="noopener nofollow">현대차 &#x27;바다숲&#x27; 보전 캠페인, 서울디자인어워드 수상</a></td></tr><tr><td class="n">Wed, 14 Oct</td><td>중앙일보</td><td><a href="https://news.google.com/rss/articles/CBMiVkFVX3lxTE41Q2hEQlUwNXRVcjIzY2E0Qy10OHF6TEN2ck9iSjZrY1kzZjlIbXlDSjA1MmgwSWZSeUVnUXM5azFnakE4dlRreDZUS2k4bmJtMDFORWpB?oc=5" target="_blank" rel="noopener nofollow">“로봇 막으면 공장 사라진다” 현대차 노조에 날아든 경고장</a></td></tr><tr><td class="n">Wed, 14 Oct</td><td>기후에너지데이터뱅크</td><td><a href="https://news.google.com/rss/articles/CBMiXkFVX3lxTFBRVDlubUY2OTNwM01tTnlocG1yUkpIZWk2NlpaTzNFMEZzcE4tbGRNRnZMekJ5enV0T3dTUnpXcU9qdzllZC1CMkY0NHM5UW9CSUlaSFlxQjBzRlg5aVE?oc=5" target="_blank" rel="noopener nofollow">싱가포르 에너지기업, 현대차증권과 합작법인 설립…자동차 공급망 RE100 지원</a></td></tr><tr><td class="n">Wed, 14 Oct</td><td>매일경제 마켓</td><td><a href="https://news.google.com/rss/articles/CBMiUkFVX3lxTE1uQzVaVnlxM2w1WkV1aEU1aHlSR1VSQkh6VXY0REJrcEhhMVBYWF9hOUEwOTdPU290c3JaZ1R4TVJtXzJTUDBfUEdWYndBYmNVX1E?oc=5" target="_blank" rel="noopener nofollow">“현대차 주주입니다. 주가가 1년전이랑 같아요”...여의도서도 목표가 다 내린다</a></td></tr><tr><td class="n">Mon, 12 Oct</td><td>이데일리</td><td><a href="https://news.google.com/rss/articles/CBMigAFBVV95cUxOa2syMTBlQmxjbWNFNG1CWTFXZmVJRF9ZVGZQTVZpYjZYeUx4MWFwNFVXY05iX3JDbHN4cFp0dV9xeVdWcnJPZDlXaGU3aTY5MmR1YncxODlVUDF3ZzJRNTM0V0dTUmplVUJMTlZWN3hlSHhaTUlSRE5tX0J6ai1iUg?oc=5" target="_blank" rel="noopener nofollow">“반토막 현대차, 지금 사 말아?”…증권사 15곳 목표가 줄하향[종목e슈]</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-10-15 기준. 「현대차」 로 찾았고 제목에 검색어가 실제로 들어간 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 별개이며, 내용이 서로 다를 수 있다.</p>
+<div class="tblwrap"><table><thead><tr><th>날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Thu, 15 Oct</td><td>YTN 사이언스</td><td><a href="https://news.google.com/rss/articles/CBMijAFBVV95cUxQd0xOR0FFWkxoNlk2cWR4LUtGRVJEXzRoRy1hOS1IM1o5Vms5a292RFhQdmowLW8wYUl3azVEd2VUT1FxV2dmMVJqN2RPWURJNG9FNDVMd2NNQy1ZMHI1a3VWekZybzdFMjJZT0JxZlRPeWZoWmczcHEteTU4WTNyTzNLUEJsQWo0ZFROTA?oc=5" target="_blank" rel="noopener nofollow">현대차, 인도에 신공장...&quot;글로벌 성장 동력&quot;</a></td></tr><tr><td class="n">Thu, 15 Oct</td><td>이코노미스트</td><td><a href="https://news.google.com/rss/articles/CBMiYkFVX3lxTE5oU3NmYVA0Zms3TzNxdEJpTE5zQlIycTNwdXIwYWNESk1PZ3FvdmdEVW1aQXBzZnE5aFIwRmdBdmt1YXIxUmRUZ2FMdmlJbEVvZ1hLWE91OXBVSkZxSy1yZHZn?oc=5" target="_blank" rel="noopener nofollow">[단독] 현대차 울산공장서 또 ‘두발뛰기’ 무더기 징계</a></td></tr><tr><td class="n">Thu, 15 Oct</td><td>머니투데이</td><td><a href="https://news.google.com/rss/articles/CBMibEFVX3lxTFBwT3VNVG91M0pzSXoyQkloejJUOF82Q3J2TEtUQTlPNE04NWlEN1VJMzVVYXAzYjQzYWRIVTRmMFdDODJrTThMM01QNkYxc1laclhkajVVV0ozWUVMYmxPOWFKRXdMVFdiYnk0StIBckFVX3lxTE1WYkVyY3NFVU0xQ2RneGsweHlScE04MjVYT3ZaRkM1TmF5WC1XZi14b2NCM3Y4WXpaOFRyWW9xRXo3Qi1TejFDS1l5TUJybGdpWE9lUzVfc3NRS2RuMlNESG1nblZ1OVB1Y2tTVlNWYkRfUQ?oc=5" target="_blank" rel="noopener nofollow">&quot;아틀라스 1대 만드는데 하루, 내년엔 1시간&quot;…현대차 양산 속도전 - 머니투데이</a></td></tr><tr><td class="n">Wed, 14 Oct</td><td>중앙일보</td><td><a href="https://news.google.com/rss/articles/CBMiVkFVX3lxTE41Q2hEQlUwNXRVcjIzY2E0Qy10OHF6TEN2ck9iSjZrY1kzZjlIbXlDSjA1MmgwSWZSeUVnUXM5azFnakE4dlRreDZUS2k4bmJtMDFORWpB?oc=5" target="_blank" rel="noopener nofollow">“로봇 막으면 공장 사라진다” 현대차 노조에 날아든 경고장</a></td></tr><tr><td class="n">Thu, 15 Oct</td><td>연합뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE5RRlBzc0JYSFJ5dUpJRVZhalRnd0dGNUxqTDFsVVlaaV9qcVNITkZsMDFya1dUZGdsTU5jOURlRGxzd1RiYzFkQXV4MDVseEdzRXd4U09RZ1ZpRzDSAWBBVV95cUxNZjduQWlQZDRLVTVNWnIzc2puUXJVTFBkUnlDcm5SU0ZwNklGaVN3LXBLd1ZKdF83VHJ1ZVpldE40RVMybmpXcUZQaG50U1k0NTk1M01SVjFMUUdhWVBrbjA?oc=5" target="_blank" rel="noopener nofollow">현대차 하이브리드, 미국 매체 10대 엔진·동력시스템 선정</a></td></tr><tr><td class="n">Thu, 15 Oct</td><td>한국아이닷컴</td><td><a href="https://news.google.com/rss/articles/CBMia0FVX3lxTE0xa0V3ejBReUpTTGVkV24zdUJGbWp5X0JxcFYzYVdwbzNqVDdCaVRiVmpOY2xHRTFDZ0ZSVXFPd3ROd0I0Z0dvVllUbFZsUHlWNFUyeTg1QUJlTGVoVWduU3ljZkJNa2c2ejhB0gFvQVVfeXFMUEhVZU92YXpWbUZSTG41VFVfQWFBQzJNZmxBUWRaYjI0U2pRd0tFUXRlQ3UyRGlJQTR4QlAtR01OdE5nRUJiNUJOeXRxSnN3czlsd21jMUJjc1FqTHBDa2JtLS11TUtyMXQyNV9PZ1pB?oc=5" target="_blank" rel="noopener nofollow">현대차 팰리세이드 HEV, 워즈오토 &#x27;10대 엔진&#x27; 수상</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-10-15 기준. 「현대차」 로 찾았고 제목에 검색어가 실제로 들어간 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 별개이며, 내용이 서로 다를 수 있다.</p>
 
 <h2 id="실적-dart">실적 (DART)</h2>
 
@@ -1110,7 +1071,6 @@ window.__qbRegister=function(){echarts.registerTheme('charlie', {"color": ["#d21
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
-<!--SEARCH:BEGIN--><button class="srch-btn" type="button" aria-label="아카이브·원자료 검색 (단축키 /)" title="아카이브·원자료 검색 (/)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></button><script src="search.js?v=8509ea17c1" defer></script><!--SEARCH:END-->
 <script src="vendor/chart-4.4.1.umd.js"></script>
 <!-- CHARTTHEME:BEGIN -->
 <script src="chart-theme.js?v=cfc6570e"></script>
