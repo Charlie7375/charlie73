@@ -1,7 +1,7 @@
 # Series: INDPRO | US Industrial Production Total Index | Index 2017=100 | SA | Monthly
 # Source: Board of Governors of the Federal Reserve System (US), via FRED
-# URL: https://fred.stlouisfed.org/data/INDPRO | Full range 1919-01~2026-08 | 여기엔 1990-01~2026-08만 저장
-# Accessed: 2026-10-16
+# URL: https://fred.stlouisfed.org/data/INDPRO | Full range 1919-01~2026-09 | 여기엔 1990-01~2026-09만 저장
+# Accessed: 2026-10-17
 date,indpro
 1990-01,61.7290
 1990-02,62.2896
@@ -438,8 +438,9 @@ date,indpro
 2026-01,101.0388
 2026-02,101.9053
 2026-03,101.7336
-2026-04,102.5783
-2026-05,102.6396
-2026-06,102.8420
-2026-07,103.0454
-2026-08,103.0682
+2026-04,102.5768
+2026-05,102.7232
+2026-06,102.9610
+2026-07,103.2006
+2026-08,103.2664
+2026-09,103.9506
