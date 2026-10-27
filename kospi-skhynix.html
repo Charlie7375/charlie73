@@ -313,62 +313,7 @@ a.card:focus-visible,.lst-i:focus-visible{
 .site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
   background:color-mix(in srgb,var(--text) 6%,transparent)}
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/*NAVCSS:END*/
-.dim{color:var(--mut,#94a3b8)}
-.b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
-  font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
-/* 판정 5색(b-on 로즈·b-wa 앰버·b-ob 슬레이트·b-sf 에메랄드·b-rf 회색)과 겹치지 않는 색을 쓴다.
-   기존 배지처럼 다크 대응 없이 한 색으로 양쪽에서 읽히게 채도를 높인다. */
-.b-pri{background:#4f46e5;color:#fff}
-.b-upd{background:#c7d2fe;color:#312e81}   /* b-pri 의 옅은 형제 — 둘 다 인디고 계열로 묶어
-                                              「강의 대조」 어휘임을 드러낸다. 윤곽선은 라이트
-                                              모드에서 대비 2.56 이라 채움으로 바꿨다. */
-.bg{display:inline-block;min-width:44px;text-align:center;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:800;color:#fff}
-.b-on{background:#e11d48}.b-wa{background:#f59e0b}.b-ob{background:#64748b}.b-sf{background:#059669}.b-rf{background:#94a3b8}
-.gr{display:inline-block;font-size:.68rem;font-weight:800;padding:1px 6px;border-radius:5px;margin-left:6px;
-  color:#e11d48;background:color-mix(in srgb,#e11d48 13%,transparent);vertical-align:middle}
-.chg{font-size:.7rem;font-weight:700;color:var(--accent);margin-left:6px;white-space:nowrap}
-.star{color:#e11d48;font-weight:800}
-td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
-.chl{margin:12px 0 0 18px;font-size:.92rem;line-height:1.9}
-.g1box{margin-top:12px;font-size:.9rem;line-height:1.85;color:var(--text-secondary)}
-.g1box ol{margin:8px 0 0 20px} .g1box li{color:var(--text);font-weight:600}
-.stats5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px}
-@media(max-width:720px){.stats5{grid-template-columns:repeat(2,1fr)}}
-
-/* 주차별 히스토리 */
-.hist{position:relative;padding-left:26px;margin-top:18px}
-.hist::before{content:'';position:absolute;left:7px;top:14px;bottom:14px;width:2px;background:var(--border)}
-.hw{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:14px;
-  padding:20px 22px;margin-bottom:16px}
-.hw::before{content:'';position:absolute;left:-24px;top:26px;width:12px;height:12px;border-radius:50%;
-  background:var(--border);border:3px solid var(--bg)}
-.hw.cur{border-color:color-mix(in srgb,var(--accent) 45%,var(--border));
-  box-shadow:0 1px 14px color-mix(in srgb,var(--accent) 10%,transparent)}
-.hw.cur::before{background:var(--accent)}
-.hh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.hwk{font-size:1.02rem;font-weight:900;letter-spacing:-.02em}
-.hdt{font-size:.82rem;color:var(--text-secondary);font-variant-numeric:tabular-nums}
-.hnow{font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:999px;color:#fff;background:var(--accent)}
-.htitle{margin-top:8px;font-size:1.12rem;font-weight:800;letter-spacing:-.02em;line-height:1.4}
-.htone{margin-top:6px;font-size:.86rem;color:var(--text-secondary);font-style:italic}
-.hpills{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
-.hp{font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
-.hp.on{color:#e11d48;background:color-mix(in srgb,#e11d48 12%,transparent)}
-.hp.wa{color:#b45309;background:color-mix(in srgb,#f59e0b 15%,transparent)}
-.hp.ob{color:#475569;background:color-mix(in srgb,#64748b 14%,transparent)}
-.hp.sf{color:#047857;background:color-mix(in srgb,#059669 13%,transparent)}
-.hp.g1{color:#fff;background:#e11d48}
-.hbody{margin-top:13px;font-size:.93rem;line-height:1.78;color:var(--text-secondary)}
-.hbody b{color:var(--text)}
-.hchg{margin-top:14px;padding-top:12px;border-top:1px dashed var(--border)}
-.hct{font-size:.76rem;font-weight:800;letter-spacing:.02em;color:var(--accent);text-transform:none}
-.hchg ul{margin:8px 0 0 16px;font-size:.87rem;line-height:1.85;color:var(--text-secondary)}
-.hchg li b{color:var(--text)}
-.hchg .ar{white-space:nowrap}
-.to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
-@media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
-/* BAR:BEGIN */
+/*NAVCSS:END*//* BAR:BEGIN */
 /* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
    flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
 html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
@@ -450,6 +395,61 @@ html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in 
 @media(max-width:760px){.srch-box{top:12px} html body .site-srch>a.srch-nav{padding:8px 8px;font-size:12px}}
 @media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
 /* SEARCH:END */
+
+.dim{color:var(--mut,#94a3b8)}
+.b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
+  font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
+/* 판정 5색(b-on 로즈·b-wa 앰버·b-ob 슬레이트·b-sf 에메랄드·b-rf 회색)과 겹치지 않는 색을 쓴다.
+   기존 배지처럼 다크 대응 없이 한 색으로 양쪽에서 읽히게 채도를 높인다. */
+.b-pri{background:#4f46e5;color:#fff}
+.b-upd{background:#c7d2fe;color:#312e81}   /* b-pri 의 옅은 형제 — 둘 다 인디고 계열로 묶어
+                                              「강의 대조」 어휘임을 드러낸다. 윤곽선은 라이트
+                                              모드에서 대비 2.56 이라 채움으로 바꿨다. */
+.bg{display:inline-block;min-width:44px;text-align:center;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:800;color:#fff}
+.b-on{background:#e11d48}.b-wa{background:#f59e0b}.b-ob{background:#64748b}.b-sf{background:#059669}.b-rf{background:#94a3b8}
+.gr{display:inline-block;font-size:.68rem;font-weight:800;padding:1px 6px;border-radius:5px;margin-left:6px;
+  color:#e11d48;background:color-mix(in srgb,#e11d48 13%,transparent);vertical-align:middle}
+.chg{font-size:.7rem;font-weight:700;color:var(--accent);margin-left:6px;white-space:nowrap}
+.star{color:#e11d48;font-weight:800}
+td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
+.chl{margin:12px 0 0 18px;font-size:.92rem;line-height:1.9}
+.g1box{margin-top:12px;font-size:.9rem;line-height:1.85;color:var(--text-secondary)}
+.g1box ol{margin:8px 0 0 20px} .g1box li{color:var(--text);font-weight:600}
+.stats5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px}
+@media(max-width:720px){.stats5{grid-template-columns:repeat(2,1fr)}}
+
+/* 주차별 히스토리 */
+.hist{position:relative;padding-left:26px;margin-top:18px}
+.hist::before{content:'';position:absolute;left:7px;top:14px;bottom:14px;width:2px;background:var(--border)}
+.hw{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:20px 22px;margin-bottom:16px}
+.hw::before{content:'';position:absolute;left:-24px;top:26px;width:12px;height:12px;border-radius:50%;
+  background:var(--border);border:3px solid var(--bg)}
+.hw.cur{border-color:color-mix(in srgb,var(--accent) 45%,var(--border));
+  box-shadow:0 1px 14px color-mix(in srgb,var(--accent) 10%,transparent)}
+.hw.cur::before{background:var(--accent)}
+.hh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.hwk{font-size:1.02rem;font-weight:900;letter-spacing:-.02em}
+.hdt{font-size:.82rem;color:var(--text-secondary);font-variant-numeric:tabular-nums}
+.hnow{font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:999px;color:#fff;background:var(--accent)}
+.htitle{margin-top:8px;font-size:1.12rem;font-weight:800;letter-spacing:-.02em;line-height:1.4}
+.htone{margin-top:6px;font-size:.86rem;color:var(--text-secondary);font-style:italic}
+.hpills{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
+.hp{font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.hp.on{color:#e11d48;background:color-mix(in srgb,#e11d48 12%,transparent)}
+.hp.wa{color:#b45309;background:color-mix(in srgb,#f59e0b 15%,transparent)}
+.hp.ob{color:#475569;background:color-mix(in srgb,#64748b 14%,transparent)}
+.hp.sf{color:#047857;background:color-mix(in srgb,#059669 13%,transparent)}
+.hp.g1{color:#fff;background:#e11d48}
+.hbody{margin-top:13px;font-size:.93rem;line-height:1.78;color:var(--text-secondary)}
+.hbody b{color:var(--text)}
+.hchg{margin-top:14px;padding-top:12px;border-top:1px dashed var(--border)}
+.hct{font-size:.76rem;font-weight:800;letter-spacing:.02em;color:var(--accent);text-transform:none}
+.hchg ul{margin:8px 0 0 16px;font-size:.87rem;line-height:1.85;color:var(--text-secondary)}
+.hchg li b{color:var(--text)}
+.hchg .ar{white-space:nowrap}
+.to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
+@media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
 /*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
@@ -844,9 +844,9 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <p class="sub">지수를 일반 종목처럼 분석한다. 이격도(이동평균선에서 얼마나 벌어졌나), 바닥 7단계, 시장 수급, 그리고
 개인 수급 사분면. 삼성전자·SK하이닉스는 각자 페이지에서 다룬다.</p>
 <p class="pauth">기준일 2026-10-27 · 코스피·하닉·삼전 일별시세 · 매일 갱신</p>
-<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>지수를 일반 종목처럼 본다. 이격도로 과열을 계산하고 바닥 일곱 단계로 국면을 세며 개인 수급 사분면으로 습관이 부러지는 날을 찾는다. 한국 개인의 통계적 습관은 역추세라, 정보는 그 습관에서 벗어난 날에 나온다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#이야기꾼-바닥-7단계-매수의-기술적-시나리오">이야기꾼 바닥 7단계: 매수의 기술적 시나리오</a></li><li><a href="#시장-수급-누가-사고-누가-팔았나">시장 수급: 누가 사고 누가 팔았나</a></li><li><a href="#개인-수급-사분면-nbsp-10-27-4분면-상승-개인-순매도">개인 수급 사분면 &nbsp;· 10/27 4분면 (상승 + 개인 순매도)</a></li><li><a href="#투자심리-3종-일별-신용융자-예탁금-반대매매">투자심리 3종 일별: 신용융자 · 예탁금 · 반대매매</a></li></ol></div><!--TOC:END--></header>
+</header>
 
-<figure class="fig"><div class="tblwrap"><table class="tw">
+<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>지수를 일반 종목처럼 본다. 이격도로 과열을 계산하고 바닥 일곱 단계로 국면을 세며 개인 수급 사분면으로 습관이 부러지는 날을 찾는다. 한국 개인의 통계적 습관은 역추세라, 정보는 그 습관에서 벗어난 날에 나온다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#이야기꾼-바닥-7단계-매수의-기술적-시나리오">이야기꾼 바닥 7단계: 매수의 기술적 시나리오</a></li><li><a href="#시장-수급-누가-사고-누가-팔았나">시장 수급: 누가 사고 누가 팔았나</a></li><li><a href="#개인-수급-사분면-nbsp-10-27-4분면-상승-개인-순매도">개인 수급 사분면 &nbsp;· 10/27 4분면 (상승 + 개인 순매도)</a></li><li><a href="#투자심리-3종-일별-신용융자-예탁금-반대매매">투자심리 3종 일별: 신용융자 · 예탁금 · 반대매매</a></li></ol></div><!--TOC:END--><figure class="fig"><div class="tblwrap"><table class="tw">
 <thead><tr><th class="n">지수</th><th class="n">전일비</th><th class="n">50일 이격도</th>
 <th class="n">20주선 이격도</th><th class="n">200일선 이격도</th><th class="n">바닥 7단계</th></tr></thead>
 <tbody><tr class="cur">
@@ -874,7 +874,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <div class="panel" data-reveal><div class="panel-head"><div><h3>코스피 누적 순매수와 지수</h3></div></div><figure class="fig"><div class="cbox"><canvas id="mf1" role="img" aria-label="코스피 누적 순매수와 지수. 올해 첫 거래일부터 쌓은 누적 순매수입니다. 절대 수준보다 기울기를 봅니다 — 지수(점선)가 오르는 동안 외국인·기관 곡선이 함께 올라가면 건강한 상승, 개인만 올라가고 외국인이 내려가면 분배입니다.전종목 929개 기준 · 자료 기준일 2026-10-27."></canvas></div><figcaption><span class="freq d">일간</span>올해 첫 거래일부터 쌓은 누적 순매수이다. 절대 수준보다 기울기를 본다. 지수(점선)가 오르는 동안 외국인·기관 곡선이 함께 올라가면 건강한 상승, 개인만 올라가고 외국인이 내려가면 분배이다.<br><span class="dim">전종목 929개 기준 · 자료 기준일 2026-10-27. </span></figcaption></figure><div class="srcline"><span class="lbl">출처</span><span>KRX 투자자별 거래실적</span></div></div><script>(window.__ST=window.__ST||[]).push({"id": "mf1", "t": "코스피 누적 순매수와 지수", "l": ["26-01-02", "26-01-05", "26-01-06", "26-01-07", "26-01-08", "26-01-09", "26-01-12", "26-01-13", "26-01-14", "26-01-15", "26-01-16", "26-01-19", "26-01-20", "26-01-21", "26-01-22", "26-01-23", "26-01-26", "26-01-27", "26-01-28", "26-01-29", "26-01-30", "26-02-02", "26-02-03", "26-02-04", "26-02-05", "26-02-06", "26-02-09", "26-02-10", "26-02-11", "26-02-12", "26-02-13", "26-02-19", "26-02-20", "26-02-23", "26-02-24", "26-02-25", "26-02-26", "26-02-27", "26-03-03", "26-03-04", "26-03-05", "26-03-06", "26-03-09", "26-03-10", "26-03-11", "26-03-12", "26-03-13", "26-03-16", "26-03-17", "26-03-18", "26-03-19", "26-03-20", "26-03-23", "26-03-24", "26-03-25", "26-03-26", "26-03-27", "26-03-30", "26-03-31", "26-04-01", "26-04-02", "26-04-03", "26-04-06", "26-04-07", "26-04-08", "26-04-09", "26-04-10", "26-04-13", "26-04-14", "26-04-15", "26-04-16", "26-04-17", "26-04-20", "26-04-21", "26-04-22", "26-04-23", "26-04-24", "26-04-27", "26-04-28", "26-04-29", "26-04-30", "26-05-04", "26-05-06", "26-05-07", "26-05-08", "26-05-11", "26-05-12", "26-05-13", "26-05-14", "26-05-15", "26-05-18", "26-05-19", "26-05-20", "26-05-21", "26-05-22", "26-05-26", "26-05-27", "26-05-28", "26-05-29", "26-06-01", "26-06-02", "26-06-04", "26-06-05", "26-06-08", "26-06-09", "26-06-10", "26-06-11", "26-06-12", "26-06-15", "26-06-16", "26-06-17", "26-06-18", "26-06-19", "26-06-22", "26-06-23", "26-06-24", "26-06-25", "26-06-26", "26-06-29", "26-06-30", "26-07-01", "26-07-02", "26-07-03", "26-07-06", "26-07-07", "26-07-08", "26-07-09", "26-07-10", "26-07-13", "26-07-14", "26-07-15", "26-07-16", "26-07-20", "26-07-21", "26-07-22", "26-07-23", "26-07-24", "26-07-27", "26-07-28", "26-07-29", "26-07-30", "26-07-31", "26-08-03", "26-08-04", "26-08-05", "26-08-06", "26-08-07", "26-08-10", "26-08-11", "26-08-12", "26-08-13", "26-08-14", "26-08-18", "26-08-19", "26-08-20", "26-08-21", "26-08-24", "26-08-25", "26-08-26", "26-08-27", "26-08-28", "26-08-31", "26-09-01", "26-09-02", "26-09-03", "26-09-04", "26-09-07", "26-09-08", "26-09-09", "26-09-10", "26-09-11", "26-09-14", "26-09-15", "26-09-16", "26-09-17", "26-09-18", "26-09-21", "26-09-22", "26-09-23", "26-09-28", "26-09-29", "26-09-30", "26-10-01", "26-10-02", "26-10-06", "26-10-07", "26-10-08", "26-10-12", "26-10-13", "26-10-14", "26-10-15", "26-10-16", "26-10-19", "26-10-20", "26-10-21", "26-10-22", "26-10-23", "26-10-26", "26-10-27"], "d": [{"label": "개인", "data": [0.032, -0.449, -0.301, -0.588, -0.542, -0.176, -0.225, -0.285, -0.222, -0.601, -0.715, -1.012, -0.62, -0.775, 0.082, 0.052, 0.905, 0.329, 0.968, 2.017, 3.273, 6.24, 5.201, 5.517, 8.927, 9.962, 8.309, 8.358, 8.122, 6.227, 6.595, 6.122, 4.706, 4.992, 3.439, 3.499, 3.932, 7.941, 10.643, 10.763, 11.434, 12.669, 14.979, 13.213, 12.907, 14.316, 15.31, 15.089, 15.264, 12.635, 14.339, 15.879, 18.69, 18.205, 16.822, 18.639, 20.337, 21.487, 22.642, 21.233, 21.568, 20.71, 20.317, 19.707, 15.869, 16.142, 15.318, 14.932, 13.555, 14.393, 14.309, 15.908, 14.891, 14.109, 15.254, 15.75, 16.408, 14.198, 15.524, 16.42, 16.937, 10.825, 11.091, 17.819, 21.749, 24.608, 34.34, 36.608, 43.371, 51.736, 53.592, 59.412, 61.152, 59.53, 60.335, 59.13, 57.809, 62.697, 63.893, 64.532, 69.445, 73.215, 80.65, 83.109, 80.626, 86.588, 88.228, 85.879, 81.204, 76.164, 74.729, 73.243, 76.243, 79.968, 100.201, 109.266, 100.867, 117.287, 125.276, 124.918, 126.731, 139.855, 137.162, 143.026, 146.636, 146.936, 144.545, 147.65, 153.893, 146.671, 143.549, 149.3, 150.67, 149.399, 148.32, 146.193, 152.279, 153.761, 158.457, 156.733, 156.167, 145.598, 151.048, 152.452, 150.493, 155.419, 155.899, 156.391, 156.326, 153.108, 150.369, 148.376, 149.134, 153.735, 151.454, 150.269, 153.534, 154.622, 152.386, 150.448, 150.846, 150.703, 150.156, 152.424, 151.472, 147.746, 140.826, 137.845, 135.55, 135.939, 137.807, 140.824, 141.682, 140.448, 141.139, 137.468, 134.249, 132.731, 131.28, 133.889, 135.151, 136.366, 134.952, 133.16, 133.877, 136.451, 139.42, 140.902, 143.178, 142.812, 144.202, 143.708, 142.441, 143.27, 142.158, 142.519, 142.576, 142.612, 141.68], "borderColor": "#eb6834", "borderWidth": 2, "pointRadius": 0, "tension": 0.2, "yAxisID": "y", "uu": " 조원"}, {"label": "외국인", "data": [0.086, 0.798, 0.711, 1.328, 1.565, 0.675, 0.6, 0.256, -0.136, -0.215, -0.362, -0.238, -0.421, -0.613, -1.526, -1.744, -2.046, -1.636, -1.81, -2.788, -3.786, -5.717, -5.937, -6.802, -9.131, -10.625, -10.455, -10.662, -10.607, -9.485, -9.78, -9.892, -9.073, -9.084, -8.842, -9.21, -10.292, -14.346, -16.575, -16.968, -17.011, -17.723, -19.449, -18.4, -18.406, -19.551, -19.957, -19.954, -20.327, -19.388, -20.631, -21.771, -22.613, -23.117, -23.276, -24.712, -26.66, -28.104, -29.695, -30.206, -30.197, -29.788, -29.737, -29.078, -27.931, -28.209, -27.143, -26.615, -25.876, -26.306, -26.601, -27.906, -27.246, -26.789, -27.306, -27.636, -28.731, -27.722, -28.834, -29.856, -30.554, -26.666, -25.868, -33.153, -38.025, -41.177, -49.046, -53.467, -58.794, -64.908, -68.225, -74.071, -76.911, -79.529, -81.244, -81.757, -81.968, -87.245, -89.826, -94.974, -99.077, -103.673, -108.188, -108.736, -111.393, -114.151, -114.333, -111.268, -107.296, -104.122, -104.824, -103.238, -107.184, -114.449, -126.172, -138.425, -138.731, -147.019, -158.186, -162.346, -164.294, -170.361, -174.908, -176.419, -179.509, -178.547, -178.388, -182.16, -184.559, -180.678, -178.26, -180.543, -179.87, -180.101, -176.93, -174.132, -178.489, -180.969, -186.371, -187.435, -186.478, -177.33, -181.306, -182.892, -180.832, -185.305, -185.836, -186.68, -186.63, -183.775, -181.683, -178.639, -178.59, -182.032, -180.309, -180.47, -184.085, -188.007, -188.111, -187.945, -189.672, -190.325, -190.817, -192.699, -193.104, -192.634, -190.056, -189.426, -189.85, -192.474, -194.788, -198.096, -199.635, -201.334, -203.953, -203.467, -203.431, -203.391, -203.901, -207.125, -210.127, -212.184, -212.087, -212.194, -213.927, -216.502, -218.547, -220.53, -225.052, -226.216, -229.94, -229.628, -229.529, -230.04, -229.386, -229.35, -230.361, -231.006, -230.421], "borderColor": "#2a78d6", "borderWidth": 2, "pointRadius": 0, "tension": 0.2, "yAxisID": "y", "uu": " 조원"}, {"label": "기관", "data": [-0.135, -0.353, -0.431, -0.754, -1.06, -0.592, -0.513, -0.141, 0.154, 0.602, 0.838, 0.967, 0.734, 1.019, 1.016, 1.249, 0.687, 0.879, 0.421, 0.317, 0.048, -1.075, 0.146, 0.641, -0.577, -0.156, 1.287, 1.394, 1.525, 2.295, 2.21, 2.79, 3.394, 3.093, 4.413, 4.737, 5.375, 5.289, 4.711, 4.861, 4.189, 3.631, 2.915, 3.721, 4.044, 3.723, 3.092, 3.308, 3.528, 5.304, 4.762, 4.31, 2.178, 3.133, 4.66, 4.223, 4.396, 4.564, 4.929, 6.724, 6.32, 6.651, 6.879, 6.764, 8.71, 8.538, 8.206, 7.97, 8.586, 8.079, 8.379, 7.921, 8.241, 8.613, 7.991, 7.806, 8.199, 9.356, 9.147, 9.245, 9.401, 11.771, 11.044, 11.614, 12.41, 12.664, 10.736, 12.816, 11.108, 8.587, 10.07, 9.981, 10.927, 14.975, 15.776, 17.5, 19.362, 19.441, 20.72, 25.334, 24.684, 25.339, 21.981, 19.781, 24.824, 21.407, 19.707, 19.197, 20.025, 21.957, 24.162, 24.383, 25.6, 29.047, 20.271, 23.005, 32.046, 23.247, 26.028, 30.464, 30.555, 22.875, 29.92, 25.389, 24.759, 23.347, 25.61, 26.233, 22.205, 25.61, 26.318, 22.617, 20.444, 22.047, 19.9, 19.267, 17.389, 18.357, 19.013, 21.727, 21.293, 22.353, 20.862, 20.972, 20.892, 20.299, 20.697, 21.006, 21.024, 21.56, 22.258, 21.234, 20.462, 19.128, 18.626, 18.888, 17.622, 18.81, 19.564, 19.748, 19.494, 18.664, 18.031, 16.011, 15.799, 17.481, 20.162, 20.806, 21.746, 22.307, 21.086, 19.904, 18.953, 20.207, 20.438, 21.952, 23.475, 23.353, 23.672, 22.669, 22.763, 21.968, 22.286, 22.703, 22.712, 22.012, 20.354, 20.205, 21.867, 22.675, 24.362, 23.725, 24.787, 23.839, 23.752, 23.309, 24.193, 24.765, 25.038], "borderColor": "#7c7a73", "borderWidth": 2, "pointRadius": 0, "tension": 0.2, "yAxisID": "y", "uu": " 조원"}, {"label": "코스피", "data": [4309.6, 4457.5, 4525.5, 4551.1, 4552.4, 4586.3, 4624.8, 4692.6, 4723.1, 4797.6, 4840.7, 4904.7, 4885.8, 4909.9, 4952.5, 4990.1, 4949.6, 5084.9, 5170.8, 5221.2, 5224.4, 4949.7, 5288.1, 5371.1, 5163.6, 5089.1, 5298.0, 5301.7, 5354.5, 5522.3, 5507.0, 5677.2, 5808.5, 5846.1, 5969.6, 6083.9, 6307.3, 6244.1, 5791.9, 5093.5, 5583.9, 5584.9, 5251.9, 5532.6, 5609.9, 5583.2, 5487.2, 5549.9, 5640.5, 5925.0, 5763.2, 5781.2, 5405.8, 5553.9, 5642.2, 5460.5, 5438.9, 5277.3, 5052.5, 5478.7, 5234.1, 5377.3, 5450.3, 5494.8, 5872.3, 5778.0, 5858.9, 5808.6, 5967.8, 6091.4, 6226.1, 6191.9, 6219.1, 6388.5, 6417.9, 6475.8, 6475.6, 6615.0, 6641.0, 6690.9, 6598.9, 6937.0, 7384.6, 7490.1, 7498.0, 7822.2, 7643.1, 7844.0, 7981.4, 7493.2, 7516.0, 7271.7, 7208.9, 7815.6, 7847.7, 8047.5, 8228.7, 8185.3, 8476.1, 8788.4, 8801.5, 8639.4, 8160.6, 7484.4, 8096.9, 7730.8, 7763.9, 8123.6, 8546.0, 8726.6, 8864.2, 9063.8, 9052.4, 9114.5, 8203.8, 8471.0, 8930.3, 8411.2, 8394.6, 8476.5, 8303.4, 7648.1, 8088.3, 8051.3, 7656.3, 7246.8, 7291.9, 7475.9, 6806.9, 6856.8, 7284.4, 6820.6, 6516.3, 6747.9, 6797.7, 7096.9, 6690.6, 6755.8, 6023.7, 5663.2, 5593.6, 6595.4, 6257.4, 6358.9, 6598.3, 6296.4, 6258.8, 6299.7, 6345.5, 6579.0, 6813.3, 6977.9, 6869.8, 6471.2, 6852.6, 6912.9, 6697.0, 6742.7, 6808.2, 6912.4, 6788.9, 6820.0, 6835.8, 6562.7, 6579.5, 6687.2, 6995.4, 6954.5, 7051.6, 7033.9, 6909.9, 6684.4, 6627.3, 6718.0, 6715.4, 6894.2, 7007.7, 7017.9, 7080.9, 6889.7, 6870.8, 6838.0, 6971.4, 7003.7, 6941.4, 6803.9, 6625.9, 6384.2, 6035.4, 6008.8, 5554.2, 5668.1, 5768.0, 5552.7, 5735.7, 5533.8, 5550.3, 5469.5, 5638.3], "borderColor": "--text", "borderWidth": 2.2, "pointRadius": 0, "borderDash": [4, 3], "tension": 0.2, "yAxisID": "y1", "uu": "pt"}], "yt": "누적 순매수 (조원)", "y1t": "코스피 지수", "dp": 2, "xt": 12});</script>
 <p class="note">올해 들어 개인이 +141.68 조원어치를 순매수하는 동안 외국인은 -230.42 조원어치를 내다 팔았다. 3가지를 더하면 -63.70 조원이다. 주식은 사라지지 않으니 누가 사면 누군가는 판다. 정확히 0이 아닌 것은 기타법인·국가 같은 나머지 주체가 이 표에 없기 때문이다.</p>
 <p class="note">최근 20일은 개인 +10.40 · 외국인 -26.52 · 기관 +1.37(조원)이다. 한 방향으로 몰리지 않은, 손바뀜이 섞인 구간이다.</p>
-<p class="note">최근 5일은 개인 -1.59 · 외국인 -0.38 · 기관 +1.20로, 20일 흐름과 같은 방향이다. 다만 이 5일의 71%가 10-21 하루에서 나왔다. 추세가 바뀐 것인지 하루짜리 사건인지는 다음 며칠을 더 봐야 한다.</p>
+<p class="note">최근 5일은 개인 -1.59 · 외국인 -0.38 · 기관 +1.20로, 20일 흐름과 같은 방향이다. 다만 이 5일의 71%가 10-21 하루에서 나왔다. 추세가 바뀐 것인지 그날 하루의 사건인지는 다음 며칠을 더 봐야 한다.</p>
 <p class="note">마지막 집계일 2026-10-27에는 외국인 · 기관이 샀고 개인이 팔았다.</p>
 
 <style id="qtcss">
