@@ -1,4 +1,4 @@
-# 시카고 연준 국가 금융여건지수 NFCI (0=평균, 플러스=긴축) · FRED NFCI · 단위 표준편차 · 받은 날 2026-10-27 · scripts/precursor_sources.py
+# 시카고 연준 국가 금융여건지수 NFCI (0=평균, 플러스=긴축) · FRED NFCI · 단위 표준편차 · 받은 날 2026-10-28 · scripts/precursor_sources.py
 date,value
 1971-01-08,0.603
 1971-01-15,0.636
