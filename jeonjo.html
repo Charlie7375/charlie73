@@ -313,63 +313,7 @@ a.card:focus-visible,.lst-i:focus-visible{
 .site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
   background:color-mix(in srgb,var(--text) 6%,transparent)}
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/*NAVCSS:END*/
-.dim{color:var(--mut,#94a3b8)}
-.b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
-  font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
-/* 판정 5색(b-on 로즈·b-wa 앰버·b-ob 슬레이트·b-sf 에메랄드·b-rf 회색)과 겹치지 않는 색을 쓴다.
-   기존 배지처럼 다크 대응 없이 한 색으로 양쪽에서 읽히게 채도를 높인다. */
-.b-pri{background:#4f46e5;color:#fff}
-.b-upd{background:#c7d2fe;color:#312e81}   /* b-pri 의 옅은 형제 — 둘 다 인디고 계열로 묶어
-                                              「강의 대조」 어휘임을 드러낸다. 윤곽선은 라이트
-                                              모드에서 대비 2.56 이라 채움으로 바꿨다. */
-.bg{display:inline-block;min-width:44px;text-align:center;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:800;color:#fff}
-.b-on{background:#e11d48}.b-wa{background:#f59e0b}.b-ob{background:#64748b}.b-sf{background:#059669}.b-rf{background:#94a3b8}
-.gr{display:inline-block;font-size:.68rem;font-weight:800;padding:1px 6px;border-radius:5px;margin-left:6px;
-  color:#e11d48;background:color-mix(in srgb,#e11d48 13%,transparent);vertical-align:middle}
-.chg{font-size:.7rem;font-weight:700;color:var(--accent);margin-left:6px;white-space:nowrap}
-.star{color:#e11d48;font-weight:800}
-td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
-td.no .back{display:inline-block;margin-top:4px;padding-left:8px;border-left:2px solid var(--line,#cbd5e1);color:var(--text)}
-.chl{margin:12px 0 0 18px;font-size:.92rem;line-height:1.9}
-.g1box{margin-top:12px;font-size:.9rem;line-height:1.85;color:var(--text-secondary)}
-.g1box ol{margin:8px 0 0 20px} .g1box li{color:var(--text);font-weight:600}
-.stats5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px}
-@media(max-width:720px){.stats5{grid-template-columns:repeat(2,1fr)}}
-
-/* 주차별 히스토리 */
-.hist{position:relative;padding-left:26px;margin-top:18px}
-.hist::before{content:'';position:absolute;left:7px;top:14px;bottom:14px;width:2px;background:var(--border)}
-.hw{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:14px;
-  padding:20px 22px;margin-bottom:16px}
-.hw::before{content:'';position:absolute;left:-24px;top:26px;width:12px;height:12px;border-radius:50%;
-  background:var(--border);border:3px solid var(--bg)}
-.hw.cur{border-color:color-mix(in srgb,var(--accent) 45%,var(--border));
-  box-shadow:0 1px 14px color-mix(in srgb,var(--accent) 10%,transparent)}
-.hw.cur::before{background:var(--accent)}
-.hh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.hwk{font-size:1.02rem;font-weight:900;letter-spacing:-.02em}
-.hdt{font-size:.82rem;color:var(--text-secondary);font-variant-numeric:tabular-nums}
-.hnow{font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:999px;color:#fff;background:var(--accent)}
-.htitle{margin-top:8px;font-size:1.12rem;font-weight:800;letter-spacing:-.02em;line-height:1.4}
-.htone{margin-top:6px;font-size:.86rem;color:var(--text-secondary);font-style:italic}
-.hpills{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
-.hp{font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
-.hp.on{color:#e11d48;background:color-mix(in srgb,#e11d48 12%,transparent)}
-.hp.wa{color:#b45309;background:color-mix(in srgb,#f59e0b 15%,transparent)}
-.hp.ob{color:#475569;background:color-mix(in srgb,#64748b 14%,transparent)}
-.hp.sf{color:#047857;background:color-mix(in srgb,#059669 13%,transparent)}
-.hp.g1{color:#fff;background:#e11d48}
-.hbody{margin-top:13px;font-size:.93rem;line-height:1.78;color:var(--text-secondary)}
-.hbody b{color:var(--text)}
-.hchg{margin-top:14px;padding-top:12px;border-top:1px dashed var(--border)}
-.hct{font-size:.76rem;font-weight:800;letter-spacing:.02em;color:var(--accent);text-transform:none}
-.hchg ul{margin:8px 0 0 16px;font-size:.87rem;line-height:1.85;color:var(--text-secondary)}
-.hchg li b{color:var(--text)}
-.hchg .ar{white-space:nowrap}
-.to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
-@media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
-/* BAR:BEGIN */
+/*NAVCSS:END*//* BAR:BEGIN */
 /* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
    flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
 html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
@@ -451,6 +395,62 @@ html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in 
 @media(max-width:760px){.srch-box{top:12px} html body .site-srch>a.srch-nav{padding:8px 8px;font-size:12px}}
 @media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
 /* SEARCH:END */
+
+.dim{color:var(--mut,#94a3b8)}
+.b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
+  font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
+/* 판정 5색(b-on 로즈·b-wa 앰버·b-ob 슬레이트·b-sf 에메랄드·b-rf 회색)과 겹치지 않는 색을 쓴다.
+   기존 배지처럼 다크 대응 없이 한 색으로 양쪽에서 읽히게 채도를 높인다. */
+.b-pri{background:#4f46e5;color:#fff}
+.b-upd{background:#c7d2fe;color:#312e81}   /* b-pri 의 옅은 형제 — 둘 다 인디고 계열로 묶어
+                                              「강의 대조」 어휘임을 드러낸다. 윤곽선은 라이트
+                                              모드에서 대비 2.56 이라 채움으로 바꿨다. */
+.bg{display:inline-block;min-width:44px;text-align:center;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:800;color:#fff}
+.b-on{background:#e11d48}.b-wa{background:#f59e0b}.b-ob{background:#64748b}.b-sf{background:#059669}.b-rf{background:#94a3b8}
+.gr{display:inline-block;font-size:.68rem;font-weight:800;padding:1px 6px;border-radius:5px;margin-left:6px;
+  color:#e11d48;background:color-mix(in srgb,#e11d48 13%,transparent);vertical-align:middle}
+.chg{font-size:.7rem;font-weight:700;color:var(--accent);margin-left:6px;white-space:nowrap}
+.star{color:#e11d48;font-weight:800}
+td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
+td.no .back{display:inline-block;margin-top:4px;padding-left:8px;border-left:2px solid var(--line,#cbd5e1);color:var(--text)}
+.chl{margin:12px 0 0 18px;font-size:.92rem;line-height:1.9}
+.g1box{margin-top:12px;font-size:.9rem;line-height:1.85;color:var(--text-secondary)}
+.g1box ol{margin:8px 0 0 20px} .g1box li{color:var(--text);font-weight:600}
+.stats5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px}
+@media(max-width:720px){.stats5{grid-template-columns:repeat(2,1fr)}}
+
+/* 주차별 히스토리 */
+.hist{position:relative;padding-left:26px;margin-top:18px}
+.hist::before{content:'';position:absolute;left:7px;top:14px;bottom:14px;width:2px;background:var(--border)}
+.hw{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:20px 22px;margin-bottom:16px}
+.hw::before{content:'';position:absolute;left:-24px;top:26px;width:12px;height:12px;border-radius:50%;
+  background:var(--border);border:3px solid var(--bg)}
+.hw.cur{border-color:color-mix(in srgb,var(--accent) 45%,var(--border));
+  box-shadow:0 1px 14px color-mix(in srgb,var(--accent) 10%,transparent)}
+.hw.cur::before{background:var(--accent)}
+.hh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.hwk{font-size:1.02rem;font-weight:900;letter-spacing:-.02em}
+.hdt{font-size:.82rem;color:var(--text-secondary);font-variant-numeric:tabular-nums}
+.hnow{font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:999px;color:#fff;background:var(--accent)}
+.htitle{margin-top:8px;font-size:1.12rem;font-weight:800;letter-spacing:-.02em;line-height:1.4}
+.htone{margin-top:6px;font-size:.86rem;color:var(--text-secondary);font-style:italic}
+.hpills{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
+.hp{font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.hp.on{color:#e11d48;background:color-mix(in srgb,#e11d48 12%,transparent)}
+.hp.wa{color:#b45309;background:color-mix(in srgb,#f59e0b 15%,transparent)}
+.hp.ob{color:#475569;background:color-mix(in srgb,#64748b 14%,transparent)}
+.hp.sf{color:#047857;background:color-mix(in srgb,#059669 13%,transparent)}
+.hp.g1{color:#fff;background:#e11d48}
+.hbody{margin-top:13px;font-size:.93rem;line-height:1.78;color:var(--text-secondary)}
+.hbody b{color:var(--text)}
+.hchg{margin-top:14px;padding-top:12px;border-top:1px dashed var(--border)}
+.hct{font-size:.76rem;font-weight:800;letter-spacing:.02em;color:var(--accent);text-transform:none}
+.hchg ul{margin:8px 0 0 16px;font-size:.87rem;line-height:1.85;color:var(--text-secondary)}
+.hchg li b{color:var(--text)}
+.hchg .ar{white-space:nowrap}
+.to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
+@media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
 /*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
@@ -819,7 +819,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   <div class="panel">
     <div class="tblwrap"><table><thead><tr><th style="width:38px">#</th><th>전조현상</th>
       <th class="c" style="width:110px">상태</th><th>근거 (W43 기준)</th></tr></thead>
-      <tbody><tr><td class="n">1</td><td class="nm">신용 금리 스프레드 확대 <span class="gr">1급</span></td><td class="c"><span class="bg b-on">점등</span></td><td class="no"><span class="star">★</span>주의→점등(W40). 미 하이일드 OAS 10/1 3.24%(9/21 2.66% 뒤 8거래일 +58bp) 「드디어 신용 금리 스프레드가 상승 반응을 시작했다 … 본격 상승 추세로 전환」. W41 3.15% 반락, W42 3.23%(10/16 3.31% 전고점 돌파), W43 3.40% 「이미 신용 경색이 진행 중」. 숫자 6번 일치. 한국 CDS 5년물 22.37→24.16p 바닥권</td></tr><tr><td class="n">3</td><td class="nm">인플레이션 상승 → 긴축 <span class="gr">1급</span></td><td class="c"><span class="bg b-on">점등</span></td><td class="no">W42 미국 9월 CPI 3.7%(볼트 3.72%, 8월 3.35%), 유로존 CPI 3.8%, 독일 도매 8.7%. W43 한국 PPI 9월 7.7%·독일 PPI 6.7%, TTF 86유로. 「물가는 경기 확장의 결과지만, 시간이 지나면 공황의 원인으로 탈바꿈한다」. 점등 유지</td></tr><tr><td class="n">6</td><td class="nm">OECD/컨퍼런스보드 선행지수 고점·오버슈팅 <span class="gr">1급</span></td><td class="c"><span class="bg b-on">점등</span></td><td class="no"><span class="star">★</span>주의→점등(W41). 「OECD 경기선행지수 G20 3월·한국 8월 하락 전환」(개정). 볼트 OECD 한국 8월 −0.03·9월 −0.10으로 같은 방향(폭은 판 차이). 기준 '고점 찍고 하락 반전'에 닿았다</td></tr><tr><td class="n">8</td><td class="nm">일본 무역수지 적자 누적 <span class="gr">1급</span></td><td class="c"><span class="bg b-on">점등</span></td><td class="no">W40~W43 일본 무역수지 언급 없음. 유지. W43 일본 수출 9월 16.7%(7월 23.2% 뒤 2달 하락) 「7월 정점 추정 … 내년 3~4월에 공황 시작 위험」</td></tr><tr><td class="n">10</td><td class="nm">신용경색 선행 <span class="gr">1급</span></td><td class="c"><span class="bg b-on">점등</span></td><td class="no">W40 30년 모기지 7.30% 「신용경색 진입은 시간 문제」. W41 프랑스·이탈리아·그리스 CDS 급등, 오라클 CDS. W42 코어위브 CDS 추격, 회사채 78센트. W43 메타 5년 CDS 사상 최고, CCC 급등. 단 「은행 대출 태도와 연체율은 반응하지 않고 있다」. 점등 유지</td></tr><tr><td class="n">19</td><td class="nm">주식 공급 과잉(대형 IPO·락업 해제) <span class="gr">1급</span></td><td class="c"><span class="bg b-on">점등</span></td><td class="no">W42 SpaceX·하닉 ADR IPO 성공, 솔리다임 IPO(100억불) 추진 「7기 가을 국면이 거의 끝나가고 있다는 증거」, 앤트로픽·OpenAI 대기. W43 솔리다임 pre-IPO 철회. <span class="star">★</span> W43 뒤 10/26 앤트로픽 S-1 공시(SEC), 같은 날 메타 최대 950억불 주식 발행 계획. 점등 유지</td></tr><tr><td class="n">25</td><td class="nm">신용융자 급증(개인 과열) <span class="gr">1급</span></td><td class="c"><span class="bg b-on">점등</span></td><td class="no">W42 반대매매 893억·804억, W43 500억 이상 5일 연속(금투협 10/13~10/19), 신용잔고 29.8조(9월 33조대에서 감소). 천정 뒤 폭락이 진행됐다. 점등 유지</td></tr><tr><td class="n">28</td><td class="nm">이격도 고점 하락(상승탄력 약화) <span class="gr">1급</span></td><td class="c"><span class="bg b-on">점등</span></td><td class="no">W40 코스피 7,003p 「7천p에 다시 도달」 → W42 5,668p. 50일 이격도 100 아래(10/27 85.8)로 내려가 기준의 '100%대 진입 시 마감'에 닿았다. 정점 신호가 실현된 자리. 점등 유지</td></tr><tr><td class="n">11</td><td class="nm">미국 주택착공·인허가·NAHB 하락</td><td class="c"><span class="bg b-on">점등</span></td><td class="no">W43 NAHB 29p(2012년 이후 최저, 4년 바닥 31~32 이탈), 착공 9월 122.1만·인허가 140만. 「주택 건설 경기가 이제 둔화에서 침체로 진입하는 초기 상태」. 점등 유지·강화</td></tr><tr><td class="n">14</td><td class="nm">주변부 증시 선행 하락</td><td class="c"><span class="bg b-on">점등</span></td><td class="no">W43 미국 52주 신고가−신저가 −6.65%(W38 −3.68%), 나스닥 20주선 살짝 이탈. W41 「남유럽이 다음 중공황의 진원지가 될 수도」. 점등 유지</td></tr><tr><td class="n">15</td><td class="nm">주도주 일부 상승추세 마감</td><td class="c"><span class="bg b-on">점등</span> <span class="chg">▲변화</span></td><td class="no"><span class="star">★</span>주의→점등(W43). W40 나스닥 30,807p·엔비디아·애플·AMD·TSMC 역신가. W43 메타 실적 뒤 나스닥 −2.6%·SOX −6.7%, 메타 FCF 상장 뒤 첫 순유출·CDS 사상 최고, 나스닥 20주선 이탈. 주도주가 하나씩 추세를 이탈하기 시작했다</td></tr><tr><td class="n">16</td><td class="nm">대형주 초과상승 멈춤</td><td class="c"><span class="bg b-on">점등</span></td><td class="no">W42 외국인 주간 −11.2조(KIS 일치), 삼전닉스 자사주 종료(삼전 10/6·하닉 10/21 96.6%). W42 코스피 −14.5%(10/8 6,626 → 10/16 5,668). 점등 유지</td></tr><tr><td class="n">20</td><td class="nm">실질소득 감소</td><td class="c"><span class="bg b-on">점등</span></td><td class="no">W40~W43 실질소득 직접 언급 없음. W43 베이지북 「저소득층 소비자들이 지출을 줄이고」. 점등 유지</td></tr><tr><td class="n">7</td><td class="nm">유로존 무역수지 적자 전환·감소 추세 <span class="gr">1급</span></td><td class="c"><span class="bg b-wa">주의</span></td><td class="no">W40~W43 유로존 무역수지 언급 없음. 유지(7월 +142억유로 흑자 뒤)</td></tr><tr><td class="n">21</td><td class="nm">ZEW·EC 소비심리 고점 후 반전 <span class="gr">1급</span></td><td class="c"><span class="bg b-wa">주의</span></td><td class="no">W43 ZEW 10월 18.5p(8월 31.4p 뒤 2달 하락)·EC −17.9p(8월 −15.5p) 「8월 정점 추정 … 내년 3~4월 공황 가능성 증가」. 그러나 「ZEW 지수 수준이 너무 낮기 때문에 아직 정점이 아닐 가능성도」, 8월 값이 역대 고점도 아니다. 주의 유지</td></tr><tr><td class="n">26</td><td class="nm">단기 자금경색(TED·LIBOR-OIS·CDS) <span class="gr">1급</span></td><td class="c"><span class="bg b-wa">주의</span></td><td class="no">한국 CDS 5년물 W40 22.37 · W41 23.83 · W42 24.16p 바닥권 「바닥권인 것이 반드시 좋은 것은 아니다」. 남유럽 CDS 급등(W41). TED·OIS 언급 없음. 주의 유지</td></tr><tr><td class="n">4</td><td class="nm">유동성 감소(증시 선행 하락)</td><td class="c"><span class="bg b-wa">주의</span></td><td class="no">W41 TGA 8,857억불·지준 3.02조(「선행 지표가 되긴 어려워 보인다」, 경고선 2.8조). W43 TGA 9,451억불, 중국 가계대출/GDP 57.5% 「유동성 감소는 신용 지표에 이어 1급 중공황 지표」. 미 증시는 고점권이라 '증시 선행 하락' 뒷조건 미충족. 주의 유지</td></tr><tr><td class="n">5</td><td class="nm">장단기 금리차 역전·재확대</td><td class="c"><span class="bg b-wa">주의</span></td><td class="no">10Y−2Y 10/1 +0.46%p → 10/15 +0.33%p → 10/22 +0.31%p(볼트 FRED). 역전 없이 플러스. 금리-공황 프로세스 ③(마이너스 전환) 미도래. W43 「금리 정점이 10월인가」: 10년물 10/5 5.31% 고점, 10/22 4.96%. 주의 유지</td></tr><tr><td class="n">18</td><td class="nm">VIX·MOVE 오버슈팅</td><td class="c"><span class="bg b-wa">주의</span></td><td class="no"><span class="star">★</span>관찰→주의(W40). MOVE 10/2 107.29(8월 평균 73.5 → 상승 추세 전환, W41 98.47 반락, W42 102.49 「고공권」). VIX W42 19.99 「25p 이상 급등하거나 3주 연속 20p 상회하면 전량 매도」, W43 19.45 「20p 이상이면 비상 대기」. 오버슈팅(30 이상)은 아직</td></tr><tr><td class="n">27</td><td class="nm">거래량 급증·손바뀜</td><td class="c"><span class="bg b-wa">주의</span></td><td class="no">W40 외국인 −9조 / 기타법인 +8조. W42 외국인 −11.2조 → 개인 4.3조·기관 3.4조·기타법인 3.5조. W43 외국인 −6,782억 「매도가 급감」. 고점권이 아니라 폭락 구간의 손바뀜이라 주의 유지</td></tr><tr><td class="n">2</td><td class="nm">연준 금리 인하(Rate Cut) <span class="gr">1급</span></td><td class="c"><span class="bg b-ob">관찰</span></td><td class="no">W40~W43 인하 없음. 10월 동결 확률 82.8%(W41)→83%(W43), 12월 인상 60%(W42). 「내년은 내내 금리 인상기」(W40). 인하 전환이 기준이라 관찰 유지</td></tr><tr><td class="n">12</td><td class="nm">미국 주택가격 하락 반전 <span class="gr">1급</span></td><td class="c"><span class="bg b-ob">관찰</span></td><td class="no">W40 케이스실러 20개 도시 7월 +2.5%(2~3월 1% 바닥 뒤 4개월째 상승)·FHFA +2.6% 「미약한 상승 추세」. 하락 반전 아님. 관찰 유지</td></tr><tr><td class="n">24</td><td class="nm">대출심사 강화 비율(SLOOS) <span class="gr">1급</span></td><td class="c"><span class="bg b-ob">관찰</span></td><td class="no">W41 「3분기 은행 대출 태도 0%까지 내려온 상태라 시간차가 좀 늦어질 가능성」. W43 「대출 태도 0% … 신용 경색은 빠르게 진행될 수 없다」, 연체율 2분기 1.42%(1.51% 아래). 관찰 유지</td></tr><tr><td class="n">17</td><td class="nm">코인 탐욕 오버슈팅</td><td class="c"><span class="bg b-ob">관찰</span></td><td class="no">W40 비트코인 8.46만불 「고공권 유지 … 기술주와 함께 당분간 상승 추세에 동행」. W41~W43 언급 없음. 관찰 유지</td></tr><tr><td class="n">22</td><td class="nm">일직선 급등·안일한 낙관</td><td class="c"><span class="bg b-ob">관찰</span></td><td class="no"><span class="star">★</span>주의→관찰(W42). W40 나스닥 역신가 「공황 마일리지 적립 중」. W42 블랙위크 뒤 CNN F&amp;G 18p(극단 공포)·풋/콜 0.82, W43 F&amp;G 21p. 낙관 만연이 아니라 공포다</td></tr><tr><td class="n">9</td><td class="nm">기업 이익 QoQ 마이너스 1년간 반복 <span class="gr">1급</span></td><td class="c"><span class="bg b-sf">안전</span></td><td class="no">W41 삼성전자 3분기 잠정 영업이익 107.4조(분기 100조 첫 돌파), W40 마이크론 영업이익률 80.7%·EPS 33.42불. W43 메타 FCF 상장 뒤 첫 순유출. QoQ 마이너스 반복 없음. 안전 유지</td></tr><tr><td class="n">13</td><td class="nm">한국 악성미분양↑·전세가율 40%↓</td><td class="c"><span class="bg b-sf">안전</span></td><td class="no">W40 한국 전국 주택가격 올해 다시 소폭 상승(지방 주도). 악성 미분양·전세가율 언급 없음. 안전 유지</td></tr><tr><td class="n">23</td><td class="nm">한미 금리 스프레드 역전</td><td class="c"><span class="bg b-rf">참고</span></td><td class="no">W43 엔화 강세 「상황은 나쁘게 흘러가고 있다」. 미 3.75~4.00% vs 한국 3.00% 역전 유지. 참고 유지</td></tr></tbody></table></div>
+      <tbody><tr><td class="n">1</td><td class="nm">신용 금리 스프레드 확대 <span class="gr">1급</span></td><td class="c"><span class="bg b-on">점등</span></td><td class="no"><span class="star">★</span>주의→점등(W40). 미 하이일드 OAS 10/1 3.24%(9/21 2.66% 뒤 8거래일 +58bp) 「드디어 신용 금리 스프레드가 상승 반응을 시작했다 … 본격 상승 추세로 전환」. W41 3.15% 반락, W42 3.23%(10/16 3.31% 전고점 돌파), W43 3.40% 「이미 신용 경색이 진행 중」. 숫자 6번 일치. 한국 CDS 5년물 22.37→24.16p 바닥권</td></tr><tr><td class="n">3</td><td class="nm">인플레이션 상승 → 긴축 <span class="gr">1급</span></td><td class="c"><span class="bg b-on">점등</span></td><td class="no">W42 미국 9월 CPI 3.7%(볼트 3.72%, 8월 3.35%), 유로존 CPI 3.8%, 독일 도매 8.7%. W43 한국 PPI 9월 7.7%·독일 PPI 6.7%, TTF 86유로. 「물가는 경기 확장의 결과지만, 시간이 지나면 공황의 원인으로 탈바꿈한다」. 점등 유지</td></tr><tr><td class="n">6</td><td class="nm">OECD/컨퍼런스보드 선행지수 고점·오버슈팅 <span class="gr">1급</span></td><td class="c"><span class="bg b-on">점등</span></td><td class="no"><span class="star">★</span>주의→점등(W41). 「OECD 경기선행지수 G20 3월·한국 8월 하락 전환」(개정). 볼트 OECD 한국 8월 −0.03·9월 −0.10으로 같은 방향(폭은 판 차이). 기준 '고점 찍고 하락 반전'에 닿았다</td></tr><tr><td class="n">8</td><td class="nm">일본 무역수지 적자 누적 <span class="gr">1급</span></td><td class="c"><span class="bg b-on">점등</span></td><td class="no">W40~W43 일본 무역수지 언급 없음. 유지. W43 일본 수출 9월 16.7%(7월 23.2% 뒤 2달 하락) 「7월 정점 추정 … 내년 3~4월에 공황 시작 위험」</td></tr><tr><td class="n">10</td><td class="nm">신용경색 선행 <span class="gr">1급</span></td><td class="c"><span class="bg b-on">점등</span></td><td class="no">W40 30년 모기지 7.30% 「신용경색 진입은 시간 문제」. W41 프랑스·이탈리아·그리스 CDS 급등, 오라클 CDS. W42 코어위브 CDS 추격, 회사채 78센트. W43 메타 5년 CDS 사상 최고, CCC 급등. 단 「은행 대출 태도와 연체율은 반응하지 않고 있다」. 점등 유지</td></tr><tr><td class="n">19</td><td class="nm">주식 공급 과잉(대형 IPO·락업 해제) <span class="gr">1급</span></td><td class="c"><span class="bg b-on">점등</span></td><td class="no">W42 SpaceX·하닉 ADR IPO 성공, 솔리다임 IPO(100억불) 추진 「7기 가을 국면이 거의 끝나가고 있다는 증거」, 앤트로픽·OpenAI 대기. W43 솔리다임 pre-IPO 철회. <span class="star">★</span> W43 뒤 10/26 앤트로픽 S-1 공시(SEC), 같은 날 메타 최대 950억불 주식 발행 계획. 점등 유지</td></tr><tr><td class="n">25</td><td class="nm">신용융자 급증(개인 과열) <span class="gr">1급</span></td><td class="c"><span class="bg b-on">점등</span></td><td class="no">W42 반대매매 893억·804억, W43 500억 이상 5일 연속(금투협 10/13~10/19), 신용잔고 29.8조(9월 33조대에서 감소). 천정 뒤 폭락이 진행됐다. 점등 유지</td></tr><tr><td class="n">28</td><td class="nm">이격도 고점 하락(상승탄력 약화) <span class="gr">1급</span></td><td class="c"><span class="bg b-on">점등</span></td><td class="no">W40 코스피 7,003p 「7천p에 다시 도달」 → W42 5,668p. 50일 이격도 100 아래(10/27 85.8)로 내려가 기준의 '100%대 진입 시 마감'에 닿았다. 정점 신호가 실현된 자리. 점등 유지</td></tr><tr><td class="n">11</td><td class="nm">미국 주택착공·인허가·NAHB 하락</td><td class="c"><span class="bg b-on">점등</span></td><td class="no">W43 NAHB 29p(2012년 이후 최저, 4년 바닥 31~32 이탈), 착공 9월 122.1만·인허가 140만. 「주택 건설 경기가 이제 둔화에서 침체로 진입하는 초기 상태」. 점등 유지·강화</td></tr><tr><td class="n">14</td><td class="nm">주변부 증시 선행 하락</td><td class="c"><span class="bg b-on">점등</span></td><td class="no">W43 미국 52주 신고가−신저가 −6.65%(W38 −3.68%), 나스닥 20주선 살짝 이탈. W41 「남유럽이 다음 중공황의 진원지가 될 수도」. 점등 유지</td></tr><tr><td class="n">15</td><td class="nm">주도주 일부 상승추세 마감</td><td class="c"><span class="bg b-on">점등</span> <span class="chg">▲변화</span></td><td class="no"><span class="star">★</span>주의→점등(W43). W40 나스닥 30,807p·엔비디아·애플·AMD·TSMC 역신가. W43 메타 실적 뒤 나스닥 −2.6%·SOX −6.7%, 메타 FCF 상장 뒤 첫 순유출·CDS 사상 최고, 나스닥 20주선 이탈. 주도주가 하나씩 추세를 이탈하기 시작했다</td></tr><tr><td class="n">16</td><td class="nm">대형주 초과상승 멈춤</td><td class="c"><span class="bg b-on">점등</span></td><td class="no">W42 외국인 주간 −11.2조(KIS 일치), 삼전닉스 자사주 종료(삼전 10/6·하닉 10/21 96.6%). W42 코스피 −14.5%(10/8 6,626 → 10/16 5,668). 점등 유지</td></tr><tr><td class="n">20</td><td class="nm">실질소득 감소</td><td class="c"><span class="bg b-on">점등</span></td><td class="no">W40~W43 실질소득 직접 언급 없음. W43 베이지북 「저소득층 소비자들이 지출을 줄이고」. 점등 유지</td></tr><tr><td class="n">7</td><td class="nm">유로존 무역수지 적자 전환·감소 추세 <span class="gr">1급</span></td><td class="c"><span class="bg b-wa">주의</span></td><td class="no">W40~W43 유로존 무역수지 언급 없음. 유지(7월 +142억유로 흑자 뒤). 8월은 다시 적자(Eurostat 계절조정 전 −161억유로 · 계절조정 −68억유로, 실측). W44 보고서에서 다시 본다</td></tr><tr><td class="n">21</td><td class="nm">ZEW·EC 소비심리 고점 후 반전 <span class="gr">1급</span></td><td class="c"><span class="bg b-wa">주의</span></td><td class="no">W43 ZEW 10월 18.5p(8월 31.4p 뒤 2달 하락)·EC −17.9p(8월 −15.5p) 「8월 정점 추정 … 내년 3~4월 공황 가능성 증가」. 그러나 「ZEW 지수 수준이 너무 낮기 때문에 아직 정점이 아닐 가능성도」, 8월 값이 역대 고점도 아니다. 주의 유지</td></tr><tr><td class="n">26</td><td class="nm">단기 자금경색(TED·LIBOR-OIS·CDS) <span class="gr">1급</span></td><td class="c"><span class="bg b-wa">주의</span></td><td class="no">한국 CDS 5년물 W40 22.37 · W41 23.83 · W42 24.16p 바닥권 「바닥권인 것이 반드시 좋은 것은 아니다」. 남유럽 CDS 급등(W41). TED·OIS 언급 없음. 주의 유지</td></tr><tr><td class="n">4</td><td class="nm">유동성 감소(증시 선행 하락)</td><td class="c"><span class="bg b-wa">주의</span></td><td class="no">W41 TGA 8,857억불·지준 3.02조(「선행 지표가 되긴 어려워 보인다」, 경고선 2.8조). W43 TGA 9,451억불, 중국 가계대출/GDP 57.5% 「유동성 감소는 신용 지표에 이어 1급 중공황 지표」. 미 증시는 고점권이라 '증시 선행 하락' 뒷조건 미충족. 주의 유지</td></tr><tr><td class="n">5</td><td class="nm">장단기 금리차 역전·재확대</td><td class="c"><span class="bg b-wa">주의</span></td><td class="no">10Y−2Y 10/1 +0.46%p → 10/15 +0.33%p → 10/22 +0.31%p(볼트 FRED). 역전 없이 플러스. 금리-공황 프로세스 ③(마이너스 전환) 미도래. W43 「금리 정점이 10월인가」: 10년물 10/5 5.31% 고점, 10/22 4.96%. 주의 유지</td></tr><tr><td class="n">18</td><td class="nm">VIX·MOVE 오버슈팅</td><td class="c"><span class="bg b-wa">주의</span></td><td class="no"><span class="star">★</span>관찰→주의(W40). MOVE 10/2 107.29(8월 평균 73.5 → 상승 추세 전환, W41 98.47 반락, W42 102.49 「고공권」). VIX W42 19.99 「25p 이상 급등하거나 3주 연속 20p 상회하면 전량 매도」, W43 19.45 「20p 이상이면 비상 대기」. 오버슈팅(30 이상)은 아직</td></tr><tr><td class="n">27</td><td class="nm">거래량 급증·손바뀜</td><td class="c"><span class="bg b-wa">주의</span></td><td class="no">W40 외국인 −9조 / 기타법인 +8조. W42 외국인 −11.2조 → 개인 4.3조·기관 3.4조·기타법인 3.5조. W43 외국인 −6,782억 「매도가 급감」. 고점권이 아니라 폭락 구간의 손바뀜이라 주의 유지</td></tr><tr><td class="n">2</td><td class="nm">연준 금리 인하(Rate Cut) <span class="gr">1급</span></td><td class="c"><span class="bg b-ob">관찰</span></td><td class="no">W40~W43 인하 없음. 10월 동결 확률 82.8%(W41)→83%(W43), 12월 인상 60%(W42). 「내년은 내내 금리 인상기」(W40). 인하 전환이 기준이라 관찰 유지</td></tr><tr><td class="n">12</td><td class="nm">미국 주택가격 하락 반전 <span class="gr">1급</span></td><td class="c"><span class="bg b-ob">관찰</span></td><td class="no">W40 케이스실러 20개 도시 7월 +2.5%(2~3월 1% 바닥 뒤 4개월째 상승)·FHFA +2.6% 「미약한 상승 추세」. 하락 반전 아님. 관찰 유지</td></tr><tr><td class="n">24</td><td class="nm">대출심사 강화 비율(SLOOS) <span class="gr">1급</span></td><td class="c"><span class="bg b-ob">관찰</span></td><td class="no">W41 「3분기 은행 대출 태도 0%까지 내려온 상태라 시간차가 좀 늦어질 가능성」. W43 「대출 태도 0% … 신용 경색은 빠르게 진행될 수 없다」, 연체율 2분기 1.42%(1.51% 아래). 관찰 유지</td></tr><tr><td class="n">17</td><td class="nm">코인 탐욕 오버슈팅</td><td class="c"><span class="bg b-ob">관찰</span></td><td class="no">W40 비트코인 8.46만불 「고공권 유지 … 기술주와 함께 당분간 상승 추세에 동행」. W41~W43 언급 없음. 관찰 유지</td></tr><tr><td class="n">22</td><td class="nm">일직선 급등·안일한 낙관</td><td class="c"><span class="bg b-ob">관찰</span></td><td class="no"><span class="star">★</span>주의→관찰(W42). W40 나스닥 역신가 「공황 마일리지 적립 중」. W42 블랙위크 뒤 CNN F&amp;G 18p(극단 공포)·풋/콜 0.82, W43 F&amp;G 21p. 낙관 만연이 아니라 공포다</td></tr><tr><td class="n">9</td><td class="nm">기업 이익 QoQ 마이너스 1년간 반복 <span class="gr">1급</span></td><td class="c"><span class="bg b-sf">안전</span></td><td class="no">W41 삼성전자 3분기 잠정 영업이익 107.4조(분기 100조 첫 돌파), W40 마이크론 영업이익률 80.7%·EPS 33.42불. W43 메타 FCF 상장 뒤 첫 순유출. QoQ 마이너스 반복 없음. 안전 유지</td></tr><tr><td class="n">13</td><td class="nm">한국 악성미분양↑·전세가율 40%↓</td><td class="c"><span class="bg b-sf">안전</span></td><td class="no">W40 한국 전국 주택가격 올해 다시 소폭 상승(지방 주도). 악성 미분양·전세가율 언급 없음. 안전 유지</td></tr><tr><td class="n">23</td><td class="nm">한미 금리 스프레드 역전</td><td class="c"><span class="bg b-rf">참고</span></td><td class="no">W43 엔화 강세 「상황은 나쁘게 흘러가고 있다」. 미 3.75~4.00% vs 한국 3.00% 역전 유지. 참고 유지</td></tr></tbody></table></div>
     <div class="note">상태 정의 — <b>점등</b>: 위험 기준 충족 · <b>주의</b>: 기준 근접 · <b>관찰</b>: 추적 중 ·
       <b>안전</b>: 기준과 거리 있음 · <b>참고</b>: 보조지표.
       정본은 중공황 전조현상 점검 체크리스트(엑셀)이며 이 페이지는 매주 자동 생성됩니다.</div>
@@ -985,7 +985,6 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
-<!--SEARCH:BEGIN--><button class="srch-btn" type="button" aria-label="아카이브·원자료 검색 (단축키 /)" title="아카이브·원자료 검색 (/)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></button><script src="search.js?v=8509ea17c1" defer></script><!--SEARCH:END-->
 <button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 <!--TOCJS:BEGIN--><script>
 /* 목차 클릭 보정 — 2026-08-24
@@ -1014,4 +1013,5 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
     }
   });
 })();
-</script><!--TOCJS:END--></body></html>
+</script><!--TOCJS:END--><!--SEARCH:BEGIN--><button class="srch-btn" type="button" aria-label="아카이브·원자료 검색 (단축키 /)" title="아카이브·원자료 검색 (/)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></button><script src="search.js?v=8509ea17c1" defer></script><!--SEARCH:END-->
+</body></html>
