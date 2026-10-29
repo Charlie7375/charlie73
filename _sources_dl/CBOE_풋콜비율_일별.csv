@@ -1,4 +1,4 @@
-# CBOE 풋콜 비율 (전체·지수·주식) · cdn.cboe.com market_statistics daily · 받은 날 2026-10-28 · scripts/precursor_sources.py
+# CBOE 풋콜 비율 (전체·지수·주식) · cdn.cboe.com market_statistics daily · 받은 날 2026-10-29 · scripts/precursor_sources.py
 # 2006-11-01~2019-10-04 는 CBOE 옛 보관 파일(totalpc·indexpc·equitypc.csv)이다 — 2019-10-07 Cboe Options 시스템 이전으로 공시 창구가 바뀌었다. 같은 거래소·같은 구성(지수+주식+ETP)이고 해외 보도 값과 맞다(precursor_sources.py CBOE_ARC 주석)
 date,total,index,equity
 2006-11-01,0.91,1.25,0.64
@@ -5028,3 +5028,4 @@ date,total,index,equity
 2026-10-23,0.93,1.10,0.67
 2026-10-26,0.86,0.96,0.60
 2026-10-27,0.93,1.06,0.59
+2026-10-28,0.90,1.06,0.54
