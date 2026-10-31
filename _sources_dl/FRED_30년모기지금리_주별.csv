@@ -1,4 +1,4 @@
-# 프레디맥 30년 고정 모기지 금리 (%, 주별 목요일) · FRED MORTGAGE30US · 단위 % · 받은 날 2026-10-30 · scripts/precursor_sources.py
+# 프레디맥 30년 고정 모기지 금리 (%, 주별 목요일) · FRED MORTGAGE30US · 단위 % · 받은 날 2026-10-31 · scripts/precursor_sources.py
 date,value
 1971-04-02,7.33
 1971-04-09,7.31
