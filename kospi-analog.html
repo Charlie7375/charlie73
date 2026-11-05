@@ -465,52 +465,7 @@ h2[id],h3[id],[id]:target{scroll-margin-top:92px}
 .ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
 .ptoc a:hover{border-bottom-color:var(--text-secondary)}
 @media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*/</style><link rel="stylesheet" href="vendor/fonts.css"><style id="freqcss">
-.freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
- padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
- border:1px solid currentColor;opacity:.85}
-.freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
-.freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
-
-/* SEARCH:BEGIN */
-.srch-btn{position:fixed;top:auto;bottom:18px;right:68px;z-index:130;width:42px;height:42px;border-radius:50%;
-  background:var(--surface,#F6F7F9);border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text,#0f172a);
-  cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;
-  box-shadow:0 2px 14px rgba(0,0,0,.10);transition:transform .12s,box-shadow .12s}
-.srch-btn:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(0,0,0,.16)}
-.srch-btn:focus-visible,.srch-in:focus-visible,.srch-r a:focus-visible{outline:2px solid var(--accent,#2563eb);outline-offset:2px}
-.srch-bg{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.38);display:none}
-.srch-bg.on{display:block}
-.srch-box{position:fixed;z-index:201;top:72px;left:50%;transform:translateX(-50%);width:min(680px,calc(100vw - 24px));
-  max-height:calc(100vh - 96px);max-height:calc(100dvh - 96px);display:none;flex-direction:column;
-  background:var(--bg,#fff);color:var(--text,#0f172a);border:1px solid var(--border,rgba(15,23,42,.12));
-  border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.28);overflow:hidden}
-.srch-box.on{display:flex}
-.srch-top{display:flex;gap:8px;align-items:center;padding:12px 14px;border-bottom:1px solid var(--border,rgba(15,23,42,.12))}
-.srch-in{flex:1;min-width:0;font:inherit;font-size:16px;padding:9px 11px;border-radius:9px;
-  border:1px solid var(--border,rgba(15,23,42,.12));background:var(--surface,#F6F7F9);color:var(--text,#0f172a)}
-.srch-x{font:inherit;font-size:13px;padding:8px 10px;border-radius:9px;border:0;background:none;color:var(--text2,#6e6e73);cursor:pointer}
-.srch-meta{padding:8px 16px 0;font-size:12.5px;color:var(--text2,#6e6e73)}
-.srch-r{list-style:none;margin:0;padding:6px 8px 12px;overflow-y:auto;overscroll-behavior:contain}
-.srch-r li{margin:0}
-.srch-r a{display:block;padding:10px 10px;border-radius:9px;color:inherit;text-decoration:none}
-.srch-r a:hover,.srch-r a.cur{background:var(--surface,#F6F7F9)}
-.srch-k{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;padding:1px 6px;border-radius:5px;
-  margin-right:6px;vertical-align:1px;border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text2,#6e6e73)}
-.srch-t{font-weight:700;font-size:14.5px;line-height:1.4}
-.srch-h{font-size:13px;color:var(--text2,#6e6e73);margin-top:2px;line-height:1.4}
-.srch-s{font-size:13px;line-height:1.55;margin-top:4px;color:var(--text,#0f172a);opacity:.86}
-.srch-s mark,.srch-h mark,.srch-t mark{background:rgba(37,99,235,.18);color:inherit;border-radius:3px;padding:0 1px}
-/* 상단 메뉴 «검색» — 드롭다운 버튼(.site-group>button)과 같은 글자로.
-   ⚠ site-group 이 아니라 site-srch 로 감싼다 — 상단바 토글 JS 가 site-group 마다 버튼을 찾다 오류가 났다(2026-10-06). */
-html body .site-srch{position:relative;display:flex;align-items:center}
-html body .site-srch>a.srch-nav{display:flex;align-items:center;font-size:13px;font-weight:600;letter-spacing:-.01em;
-  line-height:normal;color:var(--text-secondary,#475569);padding:8px 12px;border-radius:9px;text-decoration:none}
-html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in srgb,var(--text) 6%,transparent)}
-@media(max-width:760px){.srch-box{top:12px} html body .site-srch>a.srch-nav{padding:8px 8px;font-size:12px}}
-@media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
-/* SEARCH:END */
-/* PAPER:BEGIN */
+/*TOCCSS:END*//* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -825,8 +780,53 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style>
-<!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
+/* PAPER:END */</style><link rel="stylesheet" href="vendor/fonts.css"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><style id="freqcss">
+.freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
+ padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
+ border:1px solid currentColor;opacity:.85}
+.freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
+.freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
+
+/* SEARCH:BEGIN */
+.srch-btn{position:fixed;top:auto;bottom:18px;right:68px;z-index:130;width:42px;height:42px;border-radius:50%;
+  background:var(--surface,#F6F7F9);border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text,#0f172a);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;
+  box-shadow:0 2px 14px rgba(0,0,0,.10);transition:transform .12s,box-shadow .12s}
+.srch-btn:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(0,0,0,.16)}
+.srch-btn:focus-visible,.srch-in:focus-visible,.srch-r a:focus-visible{outline:2px solid var(--accent,#2563eb);outline-offset:2px}
+.srch-bg{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.38);display:none}
+.srch-bg.on{display:block}
+.srch-box{position:fixed;z-index:201;top:72px;left:50%;transform:translateX(-50%);width:min(680px,calc(100vw - 24px));
+  max-height:calc(100vh - 96px);max-height:calc(100dvh - 96px);display:none;flex-direction:column;
+  background:var(--bg,#fff);color:var(--text,#0f172a);border:1px solid var(--border,rgba(15,23,42,.12));
+  border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.28);overflow:hidden}
+.srch-box.on{display:flex}
+.srch-top{display:flex;gap:8px;align-items:center;padding:12px 14px;border-bottom:1px solid var(--border,rgba(15,23,42,.12))}
+.srch-in{flex:1;min-width:0;font:inherit;font-size:16px;padding:9px 11px;border-radius:9px;
+  border:1px solid var(--border,rgba(15,23,42,.12));background:var(--surface,#F6F7F9);color:var(--text,#0f172a)}
+.srch-x{font:inherit;font-size:13px;padding:8px 10px;border-radius:9px;border:0;background:none;color:var(--text2,#6e6e73);cursor:pointer}
+.srch-meta{padding:8px 16px 0;font-size:12.5px;color:var(--text2,#6e6e73)}
+.srch-r{list-style:none;margin:0;padding:6px 8px 12px;overflow-y:auto;overscroll-behavior:contain}
+.srch-r li{margin:0}
+.srch-r a{display:block;padding:10px 10px;border-radius:9px;color:inherit;text-decoration:none}
+.srch-r a:hover,.srch-r a.cur{background:var(--surface,#F6F7F9)}
+.srch-k{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;padding:1px 6px;border-radius:5px;
+  margin-right:6px;vertical-align:1px;border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text2,#6e6e73)}
+.srch-t{font-weight:700;font-size:14.5px;line-height:1.4}
+.srch-h{font-size:13px;color:var(--text2,#6e6e73);margin-top:2px;line-height:1.4}
+.srch-s{font-size:13px;line-height:1.55;margin-top:4px;color:var(--text,#0f172a);opacity:.86}
+.srch-s mark,.srch-h mark,.srch-t mark{background:rgba(37,99,235,.18);color:inherit;border-radius:3px;padding:0 1px}
+/* 상단 메뉴 «검색» — 드롭다운 버튼(.site-group>button)과 같은 글자로.
+   ⚠ site-group 이 아니라 site-srch 로 감싼다 — 상단바 토글 JS 가 site-group 마다 버튼을 찾다 오류가 났다(2026-10-06). */
+html body .site-srch{position:relative;display:flex;align-items:center}
+html body .site-srch>a.srch-nav{display:flex;align-items:center;font-size:13px;font-weight:600;letter-spacing:-.01em;
+  line-height:normal;color:var(--text-secondary,#475569);padding:8px 12px;border-radius:9px;text-decoration:none}
+html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in srgb,var(--text) 6%,transparent)}
+@media(max-width:760px){.srch-box{top:12px} html body .site-srch>a.srch-nav{padding:8px 8px;font-size:12px}}
+@media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
+/* SEARCH:END */
+</style>
+</head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="macro-timeline.html">거시 이벤트 연대기</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="minervini-x.html">마크 미너비니 X 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-psk-holdings.html">피에스케이홀딩스</a><a href="stock-samsung-sdi.html">삼성SDI</a><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-nhn.html">NHN</a><a href="stock-kolmar.html">한국콜마</a><a href="stock-cosmax.html">코스맥스</a><a href="stock-pharmaresearch.html">파마리서치</a><a href="stock-jyp.html">JYP Ent.</a><a href="stock-sm-ent.html">에스엠</a><a href="stock-yg-ent.html">와이지엔터테인먼트</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="marks.html">하워드 막스의 방법론</a><a href="marks-glossary.html">사이클 용어사전</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a><a href="cycle-rope.html">사이클과 규칙</a></div></div><div class="site-group"><button class="here" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><span class="nav-h sub">금리와 통화</span><a href="rate-crash-primer.html">금리-공황 프로세스 읽기</a><a href="nikkei-rates.html">닛케이와 미국 금리</a><a href="kospi-spx-gap.html">코스피와 S&P 500</a><a href="rate-crash-process.html">금리-공황 프로세스</a><a href="gold-rates.html">금리와 금값</a><a href="treasury-trust.html">미국 국채 바이백</a><a href="inflation-playbook.html">인플레 시대의 자산</a><a href="rates-century.html">미국 금리 100년</a><a href="liquidity.html">미국 유동성</a><a href="fed-kospi.html">연준 기준금리와 코스피</a><a href="rates-101.html">금리 기초</a><a href="rates-crashes.html">금리 5%와 공황</a><a href="dollar-kospi.html">달러와 코스피</a><span class="nav-h sub">수급과 폭락</span><a href="foreign-flow.html">외국인 수급</a><a href="flow-extremes.html">개인과 외국인의 대량 매매</a><a href="flow-crashes.html">폭락의 구조</a><span class="nav-h sub">경기와 수출</span><a href="jp-cci-kospi.html">일본 소비심리와 코스피</a><a href="us-elections.html">미국 선거와 증시</a><a href="export-kospi.html">수출과 코스피</a><a href="cli-kospi.html">OECD CLI 와 코스피</a><a href="ism-kospi.html">ISM 과 코스피</a><a href="jeoji-kospi.html">제오지산수</a><span class="nav-h sub">시장 국면</span><a href="rally-angle.html">상승 각도</a><a href="kospi-seasonality-down.html">해와 달의 코스피 · 역편</a><a href="kospi-drivers.html">코스피 선행 변수</a><a href="kospi-seasonality.html">해와 달의 코스피</a><a href="breadth-concentration.html">신고가 쏠림</a><a class="here" href="kospi-analog.html">닮은 과거</a><a href="audition-history.html">오디션 히스토리</a><a href="disparity-archive.html">두 버블의 이격도</a><a href="stage-analysis.html">와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리</a><span class="nav-h sub">신용과 청산</span><a href="us-credit-spread.html">미국 신용스프레드</a><a href="deleveraging.html">강제청산</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="sentiment.html">빚과 현금</a><span class="nav-h sub">개별 종목</span><a href="memory-price.html">D램 가격과 삼성전자</a><a href="leadlag.html">하이닉스의 선행과 후행</a><a href="samsung-long.html">삼성전자 27년</a></div></div><div class="site-group"><button class="" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 134계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a href="data-kr-rates.html">한국 금리</a><a href="data-us-market.html">미국 시장</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a href="data-fx.html">환율·원자재·암호</a><a href="data-macro.html">재정·거시</a><a href="data-world.html">세계 증시</a></div></div><div class="site-srch"><a class="srch-nav" href="#search" role="button">검색</a></div><!-- NAV:END --></nav>
@@ -835,8 +835,8 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <header class="phead">
 <div class="eyebrow">아카이브 · 닮은 과거</div>
 <h1>15개월에 70% 넘게 오른 국면은 45년 동안 3번 뿐</h1>
-<p class="pauth">갱신 2026년 11월 4일 · 코스피 월평균 1981년 1월부터 2026년 10월까지 · OECD·FRED·관세청·KRX·한국은행</p>
-<!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#닮은-구간은-저점부터-지금까지-19개월의-궤적을-45년의-모든-구간과-견">닮은 구간은 저점부터 지금까지 19개월의 궤적을 45년의 모든 구간과 견줘 고른다</a></li><li><a href="#15개월에-70-넘게-상승한-급등은-45년에-3번뿐이고-그-뒤-1년은-3">15개월에 70% 넘게 상승한 급등은 45년에 3번뿐이고 그 뒤 1년은 3번 중 2번 하락했다</a></li><li><a href="#붕괴까지-넣어도-가장-닮은-구간은-1998년-6월부터다-기준을-바꾸면-1">붕괴까지 넣어도 가장 닮은 구간은 1998년 6월부터다. 기준을 바꾸면 1985년이다</a></li><li><a href="#정점-직후-월평균-17-하락은-45년에-전례가-없다-가장-가까운-것이-1">정점 직후 월평균 17% 하락은 45년에 전례가 없다. 가장 가까운 것이 1999년 10월의 11% 하락이다</a></li><li><a href="#이야기꾼이-든-1999년의-길은-급락-2번째-바닥-전고점-회복-그다음-중">이야기꾼이 든 1999년의 길은 급락, 2번째 바닥, 전고점 회복, 그다음 중공황이었다. 2026년은 91거래일째에 2번째 바닥을 쓰고 있다</a></li><li><a href="#이야기꾼의-3월-국면-상승장에서-코스피-정점은-s-amp-p-500-고점">이야기꾼의 3월 국면 상승장에서 코스피 정점은 S&amp;P 500 고점보다 2기 2.7개월, 3기 7.7개월 먼저 왔다. 4기는 하락폭 40.1%로 앞의 2번보다 깊다</a></li><li><a href="#정점-뒤-24개월-과거-3번의-길은-4개월째에-나뉘었다-지금은-4개월째다">정점 뒤 24개월, 과거 3번의 길은 4개월째에 나뉘었다. 지금은 4개월째다</a></li><li><a href="#거시-방향으로는-1998년과-1986년이-구분되지-않는다-다른-것은-달러">거시 방향으로는 1998년과 1986년이 구분되지 않는다. 다른 것은 달러와 신용스프레드다</a></li><li><a href="#이야기꾼은-시대가-다르다고-본다-인플레-시대의-공황은-금리-인상-시점에-">이야기꾼은 시대가 다르다고 본다. 인플레 시대의 공황은 금리 인상 시점에 온다</a></li><li><a href="#아직-불확실한-곳은-어디인가">아직 불확실한 곳은 어디인가</a></li><li><a href="#그래서-닮은-과거는-다음-달이-아니라-갈림길을-알려-준다-지금은-정점-뒤">그래서 닮은 과거는 다음 달이 아니라 갈림길을 알려 준다. 지금은 정점 뒤 4개월째다</a></li><li><a href="#apx">원문 상세표</a></li></ol></div><!--TOC:END--></header>
+<p class="pauth">갱신 2026년 11월 5일 · 코스피 월평균 1981년 1월부터 2026년 10월까지 · OECD·FRED·관세청·KRX·한국은행</p>
+<!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#닮은-구간은-저점부터-지금까지-19개월의-궤적을-45년의-모든-구간과-견">닮은 구간은 저점부터 지금까지 19개월의 궤적을 45년의 모든 구간과 견줘 고른다</a></li><li><a href="#15개월에-70-넘게-상승한-급등은-45년에-3번뿐이고-그-뒤-1년은-3">15개월에 70% 넘게 상승한 급등은 45년에 3번뿐이고 그 뒤 1년은 3번 중 2번 하락했다</a></li><li><a href="#붕괴까지-넣어도-가장-닮은-구간은-1998년-6월부터다-기준을-바꾸면-1">붕괴까지 넣어도 가장 닮은 구간은 1998년 6월부터다. 기준을 바꾸면 1985년이다</a></li><li><a href="#정점-직후-월평균-17-하락은-45년에-전례가-없다-가장-가까운-것이-1">정점 직후 월평균 17% 하락은 45년에 전례가 없다. 가장 가까운 것이 1999년 10월의 11% 하락이다</a></li><li><a href="#이야기꾼이-든-1999년의-길은-급락-2번째-바닥-전고점-회복-그다음-중">이야기꾼이 든 1999년의 길은 급락, 2번째 바닥, 전고점 회복, 그다음 중공황이었다. 2026년은 92거래일째에 2번째 바닥을 쓰고 있다</a></li><li><a href="#이야기꾼의-3월-국면-상승장에서-코스피-정점은-s-amp-p-500-고점">이야기꾼의 3월 국면 상승장에서 코스피 정점은 S&amp;P 500 고점보다 2기 2.7개월, 3기 7.7개월 먼저 왔다. 4기는 하락폭 40.6%로 앞의 2번보다 깊다</a></li><li><a href="#정점-뒤-24개월-과거-3번의-길은-4개월째에-나뉘었다-지금은-4개월째다">정점 뒤 24개월, 과거 3번의 길은 4개월째에 나뉘었다. 지금은 4개월째다</a></li><li><a href="#거시-방향으로는-1998년과-1986년이-구분되지-않는다-다른-것은-달러">거시 방향으로는 1998년과 1986년이 구분되지 않는다. 다른 것은 달러와 신용스프레드다</a></li><li><a href="#이야기꾼은-시대가-다르다고-본다-인플레-시대의-공황은-금리-인상-시점에-">이야기꾼은 시대가 다르다고 본다. 인플레 시대의 공황은 금리 인상 시점에 온다</a></li><li><a href="#아직-불확실한-곳은-어디인가">아직 불확실한 곳은 어디인가</a></li><li><a href="#그래서-닮은-과거는-다음-달이-아니라-갈림길을-알려-준다-지금은-정점-뒤">그래서 닮은 과거는 다음 달이 아니라 갈림길을 알려 준다. 지금은 정점 뒤 4개월째다</a></li><li><a href="#apx">원문 상세표</a></li></ol></div><!--TOC:END--></header>
 
 <!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div>
 <p>2025년 4월 저점부터 2026년 10월까지 19개월의 코스피는 15개월에 70% 넘게 상승한 급등이었다.
@@ -909,69 +909,69 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <div class="claim"><p>직전 12개월에 60% 넘게 상승한 뒤 한 달에 8% 넘게 하락한 달을 45년에서 찾으면 1번뿐이다.
 그때는 11% 하락했다. 7월은 17% 하락했다. 훨씬 크다.
 
-이 값은 월평균으로 계산했다. 같은 사건을 일별 종가로 계산하면 고점 2026년 6월 22일의 9,115에서 저점 2026년 10월 26일의 5,469까지 40.0% 하락했다.</p></div>
+이 값은 월평균으로 계산했다. 같은 사건을 일별 종가로 계산하면 고점 2026년 6월 22일의 9,115에서 저점 2026년 11월 5일의 5,384까지 40.9% 하락했다.</p></div>
 
 <figure class="tw"><figcaption>급등 뒤 월간 급락의 전례. 조건을 8% 하락까지 낮춰도 1건이다. 이 표의 값은 월평균 기준이다. 45년을 같은 기준으로 비교하기 위해서다.
-같은 사건을 일별 종가로 계산하면 2026년 7월은 40.0% 하락이고 1999년 10월은 17.7% 하락이다.</figcaption>
+같은 사건을 일별 종가로 계산하면 2026년 7월은 40.9% 하락이고 1999년 10월은 17.7% 하락이다.</figcaption>
 <table class="tw"><thead><tr><th>시점</th><th class="n">그 달<br><span class="dim">월평균</span></th>
 <th class="n">그 달<br><span class="dim">일별 종가</span></th>
 <th class="n">직전 12개월</th><th class="n">+6개월</th><th class="n">+12개월</th></tr></thead>
 <tbody><tr><td>1999-10</td><td class="n">-10.6%</td><td class="n">−17.7% <span class="dim">인용</span></td><td class="n">+197%</td><td class="n">-5%</td><td class="n">-34%</td></tr>
 <tr class="hot"><td>2026-07 (이번 국면)</td><td class="n">-17.5%</td>
-<td class="n"><b>-40.0%</b></td><td class="n">+189%</td>
+<td class="n"><b>-40.9%</b></td><td class="n">+189%</td>
 <td class="n">?</td><td class="n">?</td></tr></tbody></table></figure>
 
 <p>표의 첫 줄 1999년 10월은 중간 조정이었다. 한 달 뒤 신고가를 만들고 나서야 진짜 하락이 왔다. 급락, 반등, 이중 천장 시도, 붕괴의 순서다.
 이 순서가 지금 국면을 읽는 틀이다. 다만 원인이 다르다. 1999년 10월은 대우 사태라는 신용 사건이었다. 2026년 7월은 강제청산이라는 포지션 사건이었다.
 급락이 난 달에 한국 신용스프레드(회사채 금리에서 국고채 금리를 뺀 값)는 0.06%p 상승하는 데 그쳤다. 19개월 전체로는 0.58%p에서 0.69%p로 벌어졌다. 그 달만 조용했지 국면 전체가 조용한 것은 아니다.</p>
 
-<p>어느 기준으로 계산했는지가 중요하다. 월평균으로는 7월이 17.5% 하락이다. 일별 종가로는 40.0% 하락이다. 월평균은 한 달을 평균 내므로 고점과 저점이 서로 상쇄된다.
+<p>어느 기준으로 계산했는지가 중요하다. 월평균으로는 7월이 17.5% 하락이다. 일별 종가로는 40.9% 하락이다. 월평균은 한 달을 평균 내므로 고점과 저점이 서로 상쇄된다.
 장중 고가·저가로는 더 크다. 고가 2026년 6월 19일의 9,386에서 저가 2026년 7월 29일의 5,263까지 43.9% 하락했다. 3개 값 모두 같은 사건이다. 앞에 붙은 월평균·일별 종가·장중이 어느 기준으로 계산했는지를 가리킨다.</p>
 
-<h2 id="이야기꾼이-든-1999년의-길은-급락-2번째-바닥-전고점-회복-그다음-중">이야기꾼이 든 1999년의 길은 급락, 2번째 바닥, 전고점 회복, 그다음 중공황이었다. 2026년은 91거래일째에 2번째 바닥을 쓰고 있다</h2>
+<h2 id="이야기꾼이-든-1999년의-길은-급락-2번째-바닥-전고점-회복-그다음-중">이야기꾼이 든 1999년의 길은 급락, 2번째 바닥, 전고점 회복, 그다음 중공황이었다. 2026년은 92거래일째에 2번째 바닥을 쓰고 있다</h2>
 <div class="claim"><p>코스피는 1999년 7월 9일 종가 고점 1,028에서 57거래일 뒤인 9월 30일 836까지 18.7% 하락했다. 최저 종가는 10월 5일 792로 고점 대비 23.0% 하락이었다.
 코스피는 그 뒤 10월 14일 866까지 반등했다가 10월 25일 799로 2번째 바닥을 만들었다. 2번째 바닥은 최저 종가보다 0.9% 높았다.
 코스피는 고점 뒤 120거래일인 1999년 12월 28일에 종가로 고점을 회복했고 2000년 1월 4일 1,059가 최고였다. 코스피는 그 뒤 중공황으로 2000년 12월 22일 501까지 52.7% 하락했다.
-2026년 코스피는 6월 22일 고점 9,115에서 27거래일 뒤인 7월 30일 5,594까지 38.6% 하락했다. 2번째 바닥은 11월 4일의 5,458로 고점 대비 40.1% 하락이고, 1차 바닥보다 2.4% 낮다.</p></div>
+2026년 코스피는 6월 22일 고점 9,115에서 27거래일 뒤인 7월 30일 5,594까지 38.6% 하락했다. 2번째 바닥은 11월 5일의 5,416으로 고점 대비 40.6% 하락이고, 1차 바닥보다 3.2% 낮다.</p></div>
 
-<div class="panel" data-reveal><div class="panel-head"><div><h3>1999년의 길과 2026년: 고점 뒤 거래일</h3></div></div><div class="kpis"><div class="kpi"><div class="k">1999 최저</div><div class="v">−23.0%</div><div class="s">10월 5일 · 고점 뒤 60거래일</div></div><div class="kpi hl"><div class="k">1999 전고점 회복</div><div class="v">120거래일</div><div class="s">1999년 12월 28일 종가</div></div><div class="kpi hl"><div class="k">2026 2번째 바닥</div><div class="v">−40.1%</div><div class="s">11월 4일 · 1차 바닥보다 2.4% 낮음</div></div><div class="kpi"><div class="k">2026 지금</div><div class="v">91거래일째</div><div class="s">11월 4일 종가 5,458</div></div></div><figure class="fig"><div class="cbox" style="height:420px"><canvas id="a3"></canvas></div><figcaption><span class="freq m">월간</span>굵은 황금색이 2026년(6월 22일 고점 뒤 91거래일), 붉은 파선이 1999년(7월 9일 고점 뒤 360거래일)이다. 고점 종가를 100으로 맞췄다. 1999년은 60거래일에 최저, 120거래일에 전고점 회복, 그 뒤 중공황이었다.</figcaption></figure><p class="panel-cap rngnote" style="margin-top:12px">이야기꾼이 10월 23일에 든 1999년 차트(블로거 디케이, 주봉)를 이 사이트의 일별 종가로 다시 그렸다. 그의 날짜 7월 12일·10월 25일·12월 27일은 장중·주봉 값이라 종가 날짜와 며칠 다르다.</p><div class="srcline"><span class="lbl">출처</span><span>KRX 코스피 지수 일별 종가(1995-05~) · FinanceDataReader KS11</span></div></div><script>(window.__AN=window.__AN||[]).push({"id": "a3", "l": ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "94", "95", "96", "97", "98", "99", "100", "101", "102", "103", "104", "105", "106", "107", "108", "109", "110", "111", "112", "113", "114", "115", "116", "117", "118", "119", "120", "121", "122", "123", "124", "125", "126", "127", "128", "129", "130", "131", "132", "133", "134", "135", "136", "137", "138", "139", "140", "141", "142", "143", "144", "145", "146", "147", "148", "149", "150", "151", "152", "153", "154", "155", "156", "157", "158", "159", "160", "161", "162", "163", "164", "165", "166", "167", "168", "169", "170", "171", "172", "173", "174", "175", "176", "177", "178", "179", "180", "181", "182", "183", "184", "185", "186", "187", "188", "189", "190", "191", "192", "193", "194", "195", "196", "197", "198", "199", "200", "201", "202", "203", "204", "205", "206", "207", "208", "209", "210", "211", "212", "213", "214", "215", "216", "217", "218", "219", "220", "221", "222", "223", "224", "225", "226", "227", "228", "229", "230", "231", "232", "233", "234", "235", "236", "237", "238", "239", "240", "241", "242", "243", "244", "245", "246", "247", "248", "249", "250", "251", "252", "253", "254", "255", "256", "257", "258", "259", "260", "261", "262", "263", "264", "265", "266", "267", "268", "269", "270", "271", "272", "273", "274", "275", "276", "277", "278", "279", "280", "281", "282", "283", "284", "285", "286", "287", "288", "289", "290", "291", "292", "293", "294", "295", "296", "297", "298", "299", "300", "301", "302", "303", "304", "305", "306", "307", "308", "309", "310", "311", "312", "313", "314", "315", "316", "317", "318", "319", "320", "321", "322", "323", "324", "325", "326", "327", "328", "329", "330", "331", "332", "333", "334", "335", "336", "337", "338", "339", "340", "341", "342", "343", "344", "345", "346", "347", "348", "349", "350", "351", "352", "353", "354", "355", "356", "357", "358", "359", "360"], "yt": "고점 = 100", "dp": 1, "xt": 20, "xp": "고점 뒤 거래일 ", "mk": {"60": {"t": "1999 최저 77", "v": 77.0, "dy": 22}, "120": {"t": "1999 회복 100", "v": 100.0, "dy": -14}, "91": {"t": "2026 지금 60", "v": 59.9, "dy": 24}}, "d": [{"label": "2026년 6월 22일 고점 뒤", "data": [100.0, 90.0, 92.9, 98.0, 92.3, 92.1, 93.0, 91.1, 83.9, 88.7, 88.3, 84.0, 79.5, 80.0, 82.0, 74.7, 75.2, 79.9, 74.8, 71.5, 74.0, 74.6, 77.9, 73.4, 74.1, 66.1, 62.1, 61.4, 72.4, 68.7, 69.8, 72.4, 69.1, 68.7, 69.1, 69.6, 72.2, 74.8, 76.6, 75.4, 71.0, 75.2, 75.8, 73.5, 74.0, 74.7, 75.8, 74.5, 74.8, 75.0, 72.0, 72.2, 73.4, 76.7, 76.3, 77.4, 77.2, 75.8, 73.3, 72.7, 73.7, 73.7, 75.6, 76.9, 77.0, 77.7, 75.6, 75.4, 75.0, 76.5, 76.8, 76.2, 74.6, 72.7, 70.0, 66.2, 65.9, 60.9, 62.2, 63.3, 60.9, 62.9, 60.7, 60.9, 60.0, 61.9, 66.0, 65.1, 62.9, 64.3, 62.0, 59.9, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null], "c": "acc", "w": 3.2, "fill": true, "order": 1}, {"label": "1999년 7월 9일 고점 뒤", "data": [100.0, 97.7, 96.1, 92.8, 95.5, 99.3, 99.7, 97.1, 93.9, 95.0, 88.0, 84.9, 90.4, 91.9, 97.2, 94.3, 93.4, 94.7, 94.9, 91.4, 91.3, 92.3, 94.2, 91.8, 92.4, 89.3, 88.3, 85.0, 84.5, 84.8, 85.5, 89.3, 90.7, 93.7, 93.4, 93.4, 91.7, 91.2, 88.1, 87.5, 88.6, 91.8, 91.8, 91.1, 92.5, 93.6, 95.4, 94.2, 92.7, 89.1, 90.0, 90.9, 93.1, 91.6, 87.9, 87.6, 84.5, 81.3, 81.7, 79.6, 77.0, 81.3, 82.8, 81.7, 81.2, 83.3, 83.2, 84.2, 83.9, 80.4, 78.9, 80.8, 79.6, 79.7, 77.7, 77.5, 77.2, 79.9, 81.1, 85.3, 86.6, 86.3, 88.7, 88.8, 88.3, 91.8, 91.3, 92.2, 94.3, 94.8, 98.0, 94.1, 94.4, 96.6, 95.1, 94.8, 94.3, 94.6, 92.3, 93.8, 97.0, 97.2, 94.2, 94.0, 97.1, 97.3, 96.1, 95.4, 99.1, 98.6, 97.5, 93.7, 92.3, 92.3, 94.1, 93.3, 94.2, 94.8, 96.5, 97.8, 100.0, 103.0, 96.0, 93.5, 92.3, 96.0, 95.5, 92.9, 92.5, 92.2, 95.7, 95.5, 91.3, 92.0, 90.0, 90.2, 86.7, 86.1, 88.5, 91.6, 91.8, 90.4, 91.8, 92.4, 94.7, 93.5, 95.0, 94.0, 92.7, 88.6, 85.6, 85.6, 87.3, 85.5, 82.2, 82.7, 85.7, 84.4, 84.1, 79.7, 80.6, 87.0, 87.1, 88.5, 88.3, 89.1, 86.1, 86.7, 83.1, 82.4, 81.5, 81.8, 83.2, 82.7, 84.0, 85.8, 84.4, 86.5, 86.3, 86.7, 88.4, 86.6, 83.8, 82.3, 80.8, 78.2, 81.5, 84.7, 83.2, 81.4, 77.9, 68.8, 72.7, 73.5, 74.1, 74.6, 72.7, 71.7, 69.4, 67.3, 70.6, 73.2, 73.2, 73.1, 74.9, 74.0, 73.9, 72.0, 70.9, 72.6, 70.7, 69.4, 71.1, 67.3, 66.1, 65.7, 68.1, 63.9, 63.8, 67.2, 71.2, 71.8, 74.0, 77.3, 80.0, 77.8, 81.4, 82.3, 78.3, 79.7, 75.0, 73.8, 73.5, 76.4, 76.1, 76.1, 75.8, 77.0, 78.8, 79.6, 79.7, 79.9, 81.3, 79.6, 80.8, 81.5, 81.9, 82.8, 81.4, 81.7, 82.3, 80.5, 79.0, 77.6, 75.8, 76.2, 71.8, 71.8, 72.4, 70.8, 67.4, 68.7, 70.7, 70.9, 70.2, 69.1, 65.7, 64.8, 69.1, 70.9, 70.3, 71.3, 73.1, 72.3, 70.9, 70.3, 71.9, 70.0, 69.9, 71.0, 71.2, 71.2, 69.9, 67.0, 67.3, 66.3, 66.1, 65.8, 63.9, 63.6, 63.2, 61.1, 56.2, 55.6, 59.0, 58.0, 53.8, 56.9, 57.2, 58.3, 58.9, 59.7, 57.3, 58.2, 59.0, 59.2, 57.3, 57.2, 54.2, 52.0, 51.0, 53.5, 49.9, 50.0, 50.1, 53.1, 51.4, 53.0, 52.8, 50.9, 50.1, 49.1, 50.1, 53.4, 54.3, 54.5, 54.2, 53.8, 54.3, 54.5, 55.0, 52.4, 53.8, 54.2, 54.0, 53.6, 52.3, 51.7, 50.8, 50.0, 51.6, 53.9, 52.2, 50.2, 49.5, 50.0, 48.8, 50.3, 50.4, 51.0, 52.0, 54.0, 52.8, 54.3, 53.3, 51.9, 52.5, 51.6, 50.0, 49.8, 48.7], "c": "dn", "w": 2.2, "dash": [6, 3], "order": 2}]});</script>
+<div class="panel" data-reveal><div class="panel-head"><div><h3>1999년의 길과 2026년: 고점 뒤 거래일</h3></div></div><div class="kpis"><div class="kpi"><div class="k">1999 최저</div><div class="v">−23.0%</div><div class="s">10월 5일 · 고점 뒤 60거래일</div></div><div class="kpi hl"><div class="k">1999 전고점 회복</div><div class="v">120거래일</div><div class="s">1999년 12월 28일 종가</div></div><div class="kpi hl"><div class="k">2026 2번째 바닥</div><div class="v">−40.6%</div><div class="s">11월 5일 · 1차 바닥보다 3.2% 낮음</div></div><div class="kpi"><div class="k">2026 지금</div><div class="v">92거래일째</div><div class="s">11월 5일 종가 5,416</div></div></div><figure class="fig"><div class="cbox" style="height:420px"><canvas id="a3"></canvas></div><figcaption><span class="freq m">월간</span>굵은 황금색이 2026년(6월 22일 고점 뒤 92거래일), 붉은 파선이 1999년(7월 9일 고점 뒤 360거래일)이다. 고점 종가를 100으로 맞췄다. 1999년은 60거래일에 최저, 120거래일에 전고점 회복, 그 뒤 중공황이었다.</figcaption></figure><p class="panel-cap rngnote" style="margin-top:12px">이야기꾼이 10월 23일에 든 1999년 차트(블로거 디케이, 주봉)를 이 사이트의 일별 종가로 다시 그렸다. 그의 날짜 7월 12일·10월 25일·12월 27일은 장중·주봉 값이라 종가 날짜와 며칠 다르다.</p><div class="srcline"><span class="lbl">출처</span><span>KRX 코스피 지수 일별 종가(1995-05~) · FinanceDataReader KS11</span></div></div><script>(window.__AN=window.__AN||[]).push({"id": "a3", "l": ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "94", "95", "96", "97", "98", "99", "100", "101", "102", "103", "104", "105", "106", "107", "108", "109", "110", "111", "112", "113", "114", "115", "116", "117", "118", "119", "120", "121", "122", "123", "124", "125", "126", "127", "128", "129", "130", "131", "132", "133", "134", "135", "136", "137", "138", "139", "140", "141", "142", "143", "144", "145", "146", "147", "148", "149", "150", "151", "152", "153", "154", "155", "156", "157", "158", "159", "160", "161", "162", "163", "164", "165", "166", "167", "168", "169", "170", "171", "172", "173", "174", "175", "176", "177", "178", "179", "180", "181", "182", "183", "184", "185", "186", "187", "188", "189", "190", "191", "192", "193", "194", "195", "196", "197", "198", "199", "200", "201", "202", "203", "204", "205", "206", "207", "208", "209", "210", "211", "212", "213", "214", "215", "216", "217", "218", "219", "220", "221", "222", "223", "224", "225", "226", "227", "228", "229", "230", "231", "232", "233", "234", "235", "236", "237", "238", "239", "240", "241", "242", "243", "244", "245", "246", "247", "248", "249", "250", "251", "252", "253", "254", "255", "256", "257", "258", "259", "260", "261", "262", "263", "264", "265", "266", "267", "268", "269", "270", "271", "272", "273", "274", "275", "276", "277", "278", "279", "280", "281", "282", "283", "284", "285", "286", "287", "288", "289", "290", "291", "292", "293", "294", "295", "296", "297", "298", "299", "300", "301", "302", "303", "304", "305", "306", "307", "308", "309", "310", "311", "312", "313", "314", "315", "316", "317", "318", "319", "320", "321", "322", "323", "324", "325", "326", "327", "328", "329", "330", "331", "332", "333", "334", "335", "336", "337", "338", "339", "340", "341", "342", "343", "344", "345", "346", "347", "348", "349", "350", "351", "352", "353", "354", "355", "356", "357", "358", "359", "360"], "yt": "고점 = 100", "dp": 1, "xt": 20, "xp": "고점 뒤 거래일 ", "mk": {"60": {"t": "1999 최저 77", "v": 77.0, "dy": 22}, "120": {"t": "1999 회복 100", "v": 100.0, "dy": -14}, "92": {"t": "2026 지금 59", "v": 59.4, "dy": 24}}, "d": [{"label": "2026년 6월 22일 고점 뒤", "data": [100.0, 90.0, 92.9, 98.0, 92.3, 92.1, 93.0, 91.1, 83.9, 88.7, 88.3, 84.0, 79.5, 80.0, 82.0, 74.7, 75.2, 79.9, 74.8, 71.5, 74.0, 74.6, 77.9, 73.4, 74.1, 66.1, 62.1, 61.4, 72.4, 68.7, 69.8, 72.4, 69.1, 68.7, 69.1, 69.6, 72.2, 74.8, 76.6, 75.4, 71.0, 75.2, 75.8, 73.5, 74.0, 74.7, 75.8, 74.5, 74.8, 75.0, 72.0, 72.2, 73.4, 76.7, 76.3, 77.4, 77.2, 75.8, 73.3, 72.7, 73.7, 73.7, 75.6, 76.9, 77.0, 77.7, 75.6, 75.4, 75.0, 76.5, 76.8, 76.2, 74.6, 72.7, 70.0, 66.2, 65.9, 60.9, 62.2, 63.3, 60.9, 62.9, 60.7, 60.9, 60.0, 61.9, 66.0, 65.1, 62.9, 64.3, 62.0, 62.4, 59.4, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null], "c": "acc", "w": 3.2, "fill": true, "order": 1}, {"label": "1999년 7월 9일 고점 뒤", "data": [100.0, 97.7, 96.1, 92.8, 95.5, 99.3, 99.7, 97.1, 93.9, 95.0, 88.0, 84.9, 90.4, 91.9, 97.2, 94.3, 93.4, 94.7, 94.9, 91.4, 91.3, 92.3, 94.2, 91.8, 92.4, 89.3, 88.3, 85.0, 84.5, 84.8, 85.5, 89.3, 90.7, 93.7, 93.4, 93.4, 91.7, 91.2, 88.1, 87.5, 88.6, 91.8, 91.8, 91.1, 92.5, 93.6, 95.4, 94.2, 92.7, 89.1, 90.0, 90.9, 93.1, 91.6, 87.9, 87.6, 84.5, 81.3, 81.7, 79.6, 77.0, 81.3, 82.8, 81.7, 81.2, 83.3, 83.2, 84.2, 83.9, 80.4, 78.9, 80.8, 79.6, 79.7, 77.7, 77.5, 77.2, 79.9, 81.1, 85.3, 86.6, 86.3, 88.7, 88.8, 88.3, 91.8, 91.3, 92.2, 94.3, 94.8, 98.0, 94.1, 94.4, 96.6, 95.1, 94.8, 94.3, 94.6, 92.3, 93.8, 97.0, 97.2, 94.2, 94.0, 97.1, 97.3, 96.1, 95.4, 99.1, 98.6, 97.5, 93.7, 92.3, 92.3, 94.1, 93.3, 94.2, 94.8, 96.5, 97.8, 100.0, 103.0, 96.0, 93.5, 92.3, 96.0, 95.5, 92.9, 92.5, 92.2, 95.7, 95.5, 91.3, 92.0, 90.0, 90.2, 86.7, 86.1, 88.5, 91.6, 91.8, 90.4, 91.8, 92.4, 94.7, 93.5, 95.0, 94.0, 92.7, 88.6, 85.6, 85.6, 87.3, 85.5, 82.2, 82.7, 85.7, 84.4, 84.1, 79.7, 80.6, 87.0, 87.1, 88.5, 88.3, 89.1, 86.1, 86.7, 83.1, 82.4, 81.5, 81.8, 83.2, 82.7, 84.0, 85.8, 84.4, 86.5, 86.3, 86.7, 88.4, 86.6, 83.8, 82.3, 80.8, 78.2, 81.5, 84.7, 83.2, 81.4, 77.9, 68.8, 72.7, 73.5, 74.1, 74.6, 72.7, 71.7, 69.4, 67.3, 70.6, 73.2, 73.2, 73.1, 74.9, 74.0, 73.9, 72.0, 70.9, 72.6, 70.7, 69.4, 71.1, 67.3, 66.1, 65.7, 68.1, 63.9, 63.8, 67.2, 71.2, 71.8, 74.0, 77.3, 80.0, 77.8, 81.4, 82.3, 78.3, 79.7, 75.0, 73.8, 73.5, 76.4, 76.1, 76.1, 75.8, 77.0, 78.8, 79.6, 79.7, 79.9, 81.3, 79.6, 80.8, 81.5, 81.9, 82.8, 81.4, 81.7, 82.3, 80.5, 79.0, 77.6, 75.8, 76.2, 71.8, 71.8, 72.4, 70.8, 67.4, 68.7, 70.7, 70.9, 70.2, 69.1, 65.7, 64.8, 69.1, 70.9, 70.3, 71.3, 73.1, 72.3, 70.9, 70.3, 71.9, 70.0, 69.9, 71.0, 71.2, 71.2, 69.9, 67.0, 67.3, 66.3, 66.1, 65.8, 63.9, 63.6, 63.2, 61.1, 56.2, 55.6, 59.0, 58.0, 53.8, 56.9, 57.2, 58.3, 58.9, 59.7, 57.3, 58.2, 59.0, 59.2, 57.3, 57.2, 54.2, 52.0, 51.0, 53.5, 49.9, 50.0, 50.1, 53.1, 51.4, 53.0, 52.8, 50.9, 50.1, 49.1, 50.1, 53.4, 54.3, 54.5, 54.2, 53.8, 54.3, 54.5, 55.0, 52.4, 53.8, 54.2, 54.0, 53.6, 52.3, 51.7, 50.8, 50.0, 51.6, 53.9, 52.2, 50.2, 49.5, 50.0, 48.8, 50.3, 50.4, 51.0, 52.0, 54.0, 52.8, 54.3, 53.3, 51.9, 52.5, 51.6, 50.0, 49.8, 48.7], "c": "dn", "w": 2.2, "dash": [6, 3], "order": 2}]});</script>
 
 <figure class="tw"><figcaption>1999년과 2026년의 같은 자리. 전부 KRX 일별 종가다. 거래일은 고점 종가의 날을 0으로 센 수다.</figcaption>
 <table class="tw"><thead><tr><th>자리</th><th class="n">1999년</th><th class="n">2026년</th></tr></thead>
 <tbody>
 <tr><td>고점 종가</td><td class="n">7월 9일 · 1,028</td><td class="n">6월 22일 · 9,115</td></tr>
 <tr><td>1차 바닥</td><td class="n">9월 30일 · 836 · −18.7% · 57거래일</td><td class="n">7월 30일 · 5,594 · −38.6% · 27거래일</td></tr>
-<tr><td>최저 종가</td><td class="n">10월 5일 · 792 · −23.0%</td><td class="n">11월 4일 · 5,458 · −40.1%</td></tr>
-<tr><td>2번째 바닥</td><td class="n">10월 25일 · 799 · 최저보다 0.9% 높음 · 74거래일</td><td class="n">11월 4일 · 1차 바닥보다 2.4% 낮음 · 91거래일</td></tr>
+<tr><td>최저 종가</td><td class="n">10월 5일 · 792 · −23.0%</td><td class="n">11월 5일 · 5,416 · −40.6%</td></tr>
+<tr><td>2번째 바닥</td><td class="n">10월 25일 · 799 · 최저보다 0.9% 높음 · 74거래일</td><td class="n">11월 5일 · 1차 바닥보다 3.2% 낮음 · 92거래일</td></tr>
 <tr><td>전고점 회복</td><td class="n">1999년 12월 28일 · 1,028 · 120거래일</td><td class="n">아직 없다</td></tr>
 <tr><td>그다음</td><td class="n">2000년 1월 4일 1,059 최고 → 12월 22일 501(−52.7%)</td><td class="n">모른다</td></tr>
 </tbody></table></figure>
 
 <p>이야기꾼은 2026년 10월 23일 주간 정리에서 블로거 디케이의 1999년 주봉 차트를 들었다. 「코스피가 2000년 중공황 들어가기 전에 1999년 7/12일부터 폭락 > 10/25일 바닥 > 12/27일 전고점까지 상승」, 「하락폭이 당시 −30%로 지금보다 좀 낮은 것만 빼고는 완전히 똑같」, 「1999년은 9월말 1차 바닥, 10월말 2차 바닥」, 「이번엔 8월초 1차바닥, 지금 10월말 2차 바닥」.
 이 글의 종가 자료로 보면 날짜가 며칠 다르다. 1999년 고점 종가는 7월 9일이고 7월 12일은 장중 고가 1,052.60의 날이다. 전고점 회복은 종가로 1999년 12월 28일이다. 2026년 1차 바닥은 7월 30일 종가다. 그가 적은 날짜는 주봉 차트의 장중 값이다.
-모양은 같고 크기와 속도가 다르다. 1999년의 하락폭은 종가로 23.0%였고 2026년은 40.1%다. 1999년은 1차 바닥까지 57거래일이 걸렸고 2026년은 27거래일이었다. 1999년의 2번째 바닥은 최저 종가보다 높았고 2026년의 2번째 바닥은 1차 바닥보다 낮다.
+모양은 같고 크기와 속도가 다르다. 1999년의 하락폭은 종가로 23.0%였고 2026년은 40.6%다. 1999년은 1차 바닥까지 57거래일이 걸렸고 2026년은 27거래일이었다. 1999년의 2번째 바닥은 최저 종가보다 높았고 2026년의 2번째 바닥은 1차 바닥보다 낮다.
 이 글은 1999년의 다음 장을 2026년의 전망으로 쓰지 않는다. 그 다음 장은 「정점 뒤 24개월」 절의 닷컴 경로 그대로다. 그 절의 결론은 닮은 모양이 다음 달이 아니라 갈림길을 알려 준다는 것이다. 지금 갈림길은 2번째 바닥 뒤에 종가로 고점을 회복하는가다. 1999년은 2번째 바닥 뒤 46거래일 만에 회복했다.</p>
 
-<h2 id="이야기꾼의-3월-국면-상승장에서-코스피-정점은-s-amp-p-500-고점">이야기꾼의 3월 국면 상승장에서 코스피 정점은 S&amp;P 500 고점보다 2기 2.7개월, 3기 7.7개월 먼저 왔다. 4기는 하락폭 40.1%로 앞의 2번보다 깊다</h2>
+<h2 id="이야기꾼의-3월-국면-상승장에서-코스피-정점은-s-amp-p-500-고점">이야기꾼의 3월 국면 상승장에서 코스피 정점은 S&amp;P 500 고점보다 2기 2.7개월, 3기 7.7개월 먼저 왔다. 4기는 하락폭 40.6%로 앞의 2번보다 깊다</h2>
 <div class="claim"><p>이야기꾼은 2026년 10월 27일 회원들에게 코스피 3월 국면 상승장의 순서를 이렇게 적었다. 「9~10개월 짧게 급등 &gt; 각도 급증 &gt; 폭락 &gt; 반등해 50~150% 반등 &gt; 본격 공황: 통상 글로벌 공황에 2기때는 3개월 선행했고, 3기때는 9개월 선행했음 &gt; 공황이 두 번 오게 됨」.
 이 글은 그 순서를 KRX 코스피 일별 종가와 S&amp;P 500 일별 종가로 다시 계산했다. 공황은 이 사이트의 기준으로 판정했다. 고점에서 20% 이상 하락하면 공황이고, 30% 이상이면 중공황이다.
 2기에 코스피는 1999년 7월 9일 고점 1,028에서 10월 5일까지 23.0% 하락했다. 코스피는 그 뒤 2000년 1월 4일 1,059까지 상승해 하락폭의 113%를 되돌렸다.
 S&amp;P 500은 그보다 2.7개월 뒤인 2000년 3월 24일에 고점을 기록했다. 코스피는 2000년 1월 정점 뒤 30개월 안에 중공황을 2번 겪었다.
 3기에 코스피는 2017년 11월 3일 2,558에서 12월 26일까지 5.1% 하락했다. 코스피는 그 뒤 2018년 1월 29일 2,598까지 상승해 하락폭의 131%를 되돌렸다.
 S&amp;P 500은 그보다 7.7개월 뒤인 2018년 9월 20일에 고점을 기록했다.
-4기에 코스피는 2026년 6월 22일 고점 9,115에서 11월 4일까지 40.1% 하락했다. 하락폭의 50%를 되돌리는 값은 종가로 7,286이다. 코스피는 11월 4일 종가 5,458로 하락폭의 0%를 되돌린 자리다. 50% 되돌림까지 33.5% 남았다.</p></div>
+4기에 코스피는 2026년 6월 22일 고점 9,115에서 11월 5일까지 40.6% 하락했다. 하락폭의 50%를 되돌리는 값은 종가로 7,266이다. 코스피는 11월 5일 종가 5,416으로 하락폭의 0%를 되돌린 자리다. 50% 되돌림까지 34.1% 남았다.</p></div>
 
 <figure class="tw"><figcaption>이야기꾼의 3월 국면 상승장 3번. 전부 일별 종가다. 되돌림은 폭락으로 잃은 폭 가운데 그 뒤 반등으로 되찾은 비율이다. 100%를 넘으면 앞 고점을 넘어선 것이다. 공황은 코스피 정점 뒤 30개월 안에 시작한 것이다.</figcaption>
 <table class="tw"><thead><tr><th>국면</th><th class="n">폭락<br>앞 고점 → 저점</th><th class="n">반등<br>코스피 정점</th><th class="n">S&amp;P 500 고점<br>코스피 정점 뒤</th><th class="n">그 뒤 코스피 공황</th></tr></thead>
-<tbody><tr><td>2기<br><span class="dim">1998년 10월~1999년 12월</span></td><td class="n">1999-07-09 · 1,028<br>1999-10-05 · −23.0%</td><td class="n">2000-01-04 · 1,059<br>되돌림 113%</td><td class="n">2000-03-24 · −49.1%<br>2.7개월 뒤</td><td class="n">2000-01~2001-09 · −55.7% 중공황<br>2002-04~2003-03 · −45.0% 중공황</td></tr><tr><td>3기<br><span class="dim">2017년</span></td><td class="n">2017-11-03 · 2,558<br>2017-12-26 · −5.1%</td><td class="n">2018-01-29 · 2,598<br>되돌림 131%</td><td class="n">2018-09-20 · −19.8%<br>7.7개월 뒤</td><td class="n">2018-01~2020-03 · −43.9% 중공황</td></tr><tr><td>4기<br><span class="dim">2025년 4월~2026년 6월</span></td><td class="n">2026-06-22 · 9,115<br>2026-11-04 · −40.1%<br><span class="dim">진행 중</span></td><td class="n">50% 되돌림 7,286<br><span class="dim">지금 0%</span></td><td class="n">모른다</td><td class="n">모른다</td></tr></tbody></table></figure>
+<tbody><tr><td>2기<br><span class="dim">1998년 10월~1999년 12월</span></td><td class="n">1999-07-09 · 1,028<br>1999-10-05 · −23.0%</td><td class="n">2000-01-04 · 1,059<br>되돌림 113%</td><td class="n">2000-03-24 · −49.1%<br>2.7개월 뒤</td><td class="n">2000-01~2001-09 · −55.7% 중공황<br>2002-04~2003-03 · −45.0% 중공황</td></tr><tr><td>3기<br><span class="dim">2017년</span></td><td class="n">2017-11-03 · 2,558<br>2017-12-26 · −5.1%</td><td class="n">2018-01-29 · 2,598<br>되돌림 131%</td><td class="n">2018-09-20 · −19.8%<br>7.7개월 뒤</td><td class="n">2018-01~2020-03 · −43.9% 중공황</td></tr><tr><td>4기<br><span class="dim">2025년 4월~2026년 6월</span></td><td class="n">2026-06-22 · 9,115<br>2026-11-05 · −40.6%<br><span class="dim">진행 중</span></td><td class="n">50% 되돌림 7,266<br><span class="dim">지금 0%</span></td><td class="n">모른다</td><td class="n">모른다</td></tr></tbody></table></figure>
 
 <p>계산이 이야기꾼의 설명과 다른 곳이 3군데다. 첫째, 3기의 「한 달 하락하고 한 달 반등해 전고점을 20% 가량 넘어섰음」은 코스피보다 코스닥에 가깝다.
 코스닥은 2017년 11월 23일 797에서 12월 21일까지 7.1% 하락했다. 코스닥은 그 뒤 2018년 1월 29일 927까지 상승해 앞 고점을 16.3% 넘어섰다. 같은 기간 코스피는 앞 고점을 1.6% 넘어섰다.
 둘째, S&amp;P 500의 2018년 하락은 12월 24일까지 19.8%로 이 사이트의 공황 문턱 20%에 조금 못 미쳤다. 이 사이트 기준으로 3기 정점 뒤 첫 미국 공황은 2020년 2월 19일에 시작한 코로나 플래시 크래시이고, 코스피 정점 24.7개월 뒤다.
 셋째, 이야기꾼은 3기 뒤 중공황을 2018년과 2020년 2번으로 본다. 코스피는 2018년 10월 29일까지 23.2% 하락한 뒤 2019년 4월 16일까지 반등했다. 그 반등은 2018년 1월 고점의 86.5%로 이 사이트가 정한 회복 문턱 95%에 못 미쳤다. 그래서 이 사이트 기준으로는 2018년 1월부터 2020년 3월까지 하나의 중공황이다.</p>
 
-<p>4기는 폭락의 크기가 다르다. 2기의 폭락은 23.0%, 3기는 5.1%였다. 4기는 40.1%로 이 사이트 기준으로 이미 중공황이다.
-이야기꾼은 같은 날 「최소 50%인 7300p 이상은 반등을 기대한다」라고 적었다. 종가로 계산한 50% 되돌림은 7,286이다. 장중 고가 9,386과 저가 5,263으로 계산하면 7,324다.
+<p>4기는 폭락의 크기가 다르다. 2기의 폭락은 23.0%, 3기는 5.1%였다. 4기는 40.6%로 이 사이트 기준으로 이미 중공황이다.
+이야기꾼은 같은 날 「최소 50%인 7300p 이상은 반등을 기대한다」라고 적었다. 종가로 계산한 50% 되돌림은 7,266이다. 장중 고가 9,386과 저가 5,263으로 계산하면 7,324다.
 2기는 하락폭의 113%, 3기는 131%를 되돌린 뒤 코스피 정점을 만들었다. 상승 마지막 구간의 각도가 가장 가팔랐다는 것은 <a href="rally-angle.html">상승 각도</a>가 따로 확인한다.
 이 표가 말하는 것은 여기까지다. 사례가 2번뿐이라 4기의 반등 크기나 정점 시기를 전망하지 않는다. 2기와 3기에서 확인되는 것은 순서다. 반등이 앞 고점을 넘어선 뒤 코스피 정점이 미국 주가 고점보다 먼저 왔다.</p>
 
@@ -1033,7 +1033,7 @@ S&amp;P 500은 그보다 7.7개월 뒤인 2018년 9월 20일에 고점을 기록
 이 비교의 가장 큰 한계이고, 확률을 붙이지 않은 이유다.</p>
 
 <p>월평균에는 착시가 있다. 45년을 같은 기준으로 비교할 수 있는 것은 월평균뿐이다. 그런데 월평균에서는 한 달 안의 고점과 저점이 서로 상쇄된다.
-일별 종가로 40.0% 하락한 것이 월평균으로는 17.5% 하락으로 줄었다. 이어 붙인 월평균(2026년 7월 · 2026년 8월 · 2026년 9월 · 2026년 10월)도 근사치다. 겹치는 구간의 편차가 1.5% 안이라는 것을 확인했다.</p>
+일별 종가로 40.9% 하락한 것이 월평균으로는 17.5% 하락으로 줄었다. 이어 붙인 월평균(2026년 7월 · 2026년 8월 · 2026년 9월 · 2026년 10월)도 근사치다. 겹치는 구간의 편차가 1.5% 안이라는 것을 확인했다.</p>
 
 <p>기준을 바꾸면 1위가 바뀐다. 궤적 거리는 1998년을, 상관계수는 1985년을 고른다.
 2026년 9월 8일까지 이 글은 2개 기준 모두 1998년이 1위라고 적어 두었다. 그것이 틀렸다. 상관계수 쪽을 확인하지 않고 쓴 문장이었다.</p>
@@ -1315,8 +1315,7 @@ function anRange(id,n,btn){
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',anBuild);
 else anBuild();
 setTimeout(anBuild,400);
-</script><!--SEARCH:BEGIN--><button class="srch-btn" type="button" aria-label="아카이브·원자료 검색 (단축키 /)" title="아카이브·원자료 검색 (/)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></button><script src="search.js?v=8509ea17c1" defer></script><!--SEARCH:END-->
-<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
+</script><button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 <!--TOCJS:BEGIN--><script>
 /* 목차 클릭 보정 — 2026-08-24
    ⚠ 해시가 이미 그 값이면 브라우저가 클릭을 무시한다. 스크롤을 내린 뒤
@@ -1344,4 +1343,5 @@ setTimeout(anBuild,400);
     }
   });
 })();
-</script><!--TOCJS:END--></body></html>
+</script><!--TOCJS:END--><!--SEARCH:BEGIN--><button class="srch-btn" type="button" aria-label="아카이브·원자료 검색 (단축키 /)" title="아카이브·원자료 검색 (/)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></button><script src="search.js?v=8509ea17c1" defer></script><!--SEARCH:END-->
+</body></html>
