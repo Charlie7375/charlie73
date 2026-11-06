@@ -293,7 +293,10 @@ function tiles(ch){
        ⚠ 넷 이하는 지금 그림 그대로다 — 쓰고 계신 디자인을 바꾸지 않는다.
        ⚠ 값을 안 적는 이유 — 계열이 다섯을 넘으면 축도 여럿이라 서로 다른 기준으로 측정한 값이
          한 줄에 서게 되고, «인플레이션 시대» 같은 띠는 애초에 값이 뜻을 갖지 않는다. */
-    var big = items.length <= 4 && !items.some(function(x){ return x.band; });
+    /* 2026-11-07 — 가로축이 시간이 아닌 차트(구간·상대 일수)는 마지막 값과 그 앞 값의 차이가 뜻이 없다.
+       생성기가 options.ctChips 로 알리면 이름표만 남긴다. */
+    var big = items.length <= 4 && !items.some(function(x){ return x.band; }) &&
+      !(ch.config && ch.config.options && ch.config.options.ctChips);
 
     function chip(it){
       return '<div class="ct-tile" role="button" tabindex="0" data-i="' + it.i + '"' +
