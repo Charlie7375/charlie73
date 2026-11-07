@@ -1,4 +1,4 @@
-# ICE BofA MOVE 지수(미 국채 변동성) · 야후 파이낸스 chart API ^MOVE · 종가 · 받은 날 2026-11-06 · scripts/precursor_sources.py
+# ICE BofA MOVE 지수(미 국채 변동성) · 야후 파이낸스 chart API ^MOVE · 종가 · 받은 날 2026-11-07 · scripts/precursor_sources.py
 # ⚠ 장중에 받으면 마지막 행이 그날 진행 중 값이다. 하루 지나 다시 받으면 확정된다.
 date,close
 2004-12-31,86.60
@@ -5406,3 +5406,4 @@ date,close
 2026-11-03,99.97
 2026-11-04,93.88
 2026-11-05,97.92
+2026-11-06,92.77
