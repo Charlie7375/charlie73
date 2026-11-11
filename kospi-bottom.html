@@ -543,6 +543,7 @@ html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in 
 .wrap td:first-child,.wrap th:first-child{white-space:nowrap}
 .paper .tblwrap > table[data-t^="kb"] td,.paper .tblwrap > table[data-t^="kb"] th{word-break:keep-all}
 .kb-now td{background:color-mix(in srgb,#2b6cb0 9%,transparent)}
+.kb-fail td{background:color-mix(in srgb,var(--chart-neg) 8%,transparent)}
 .kb-key td:first-child{font-weight:700}
 .wrap.paper > ul,.wrap.paper > ol{margin-bottom:18px;padding-left:1.4em}   /* 글머리표·번호가 본문 왼쪽 선 밖으로 나가지 않게(2026-11-11 상수님 «좌측 정렬이 깨져 보인다») */
 .wrap.paper > .tblwrap{margin:14px 0 20px}                                  /* 표 아래 문단이 표에 붙지 않게 */
@@ -991,7 +992,7 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 
 <div class="tblwrap"><table class="tw" data-t="kbE"><thead><tr><th>조건</th><th>기준</th><th>2026년 11월 9일 저점</th><th>2025년 3월 31일 저점</th></tr></thead><tbody><tr><td>저점 종가</td><td></td><td>5,018.85</td><td>2,481.12</td></tr><tr><td><b>반등 폭</b></td><td>2% 이상</td><td>4.39% · 충족</td><td>1.62% · 미달</td></tr><tr><td><b>하락 깊이</b></td><td>92 이하</td><td>88.9 · 충족</td><td>95.9 · 미달</td></tr><tr><td><b>상승 종목 비율</b></td><td>80% 이상</td><td>80.4% · 충족</td><td>79.8% · 미달</td></tr><tr><td><b>VKOSPI</b></td><td>30 이상</td><td>63.93 · 충족</td><td>25.35 · 미달</td></tr><tr><td><b>점수</b></td><td></td><td><b>4점</b></td><td><b>0점</b></td></tr><tr><td>결과</td><td></td><td>2거래일 뒤 초단기 바닥 성립</td><td>4거래일 뒤 저점 이탈</td></tr></tbody></table></div>
 
-<p>2026년 11월 9일 저점은 조건 4개를 모두 채웠다. 저점 뒤 2거래일째인 2026년 11월 11일에 종가가 저점보다 5% 넘게 높아졌다. 초단기 바닥이 성립했다.</p>
+<p>2026년 11월 9일 저점은 조건 4개를 모두 채웠다. 다만 상승 종목 비율은 80.4%였다. 기준 80%보다 0.4%p 높았다. 그날 상승 종목은 716개, 하락 종목은 175개였다. 상승 종목이 17개 적었다면 기준에 미달해 3점이었다. 저점 뒤 2거래일째인 2026년 11월 11일에 종가가 저점보다 5% 넘게 높아졌다. 초단기 바닥이 성립했다.</p>
 
 <p>2025년 3월 31일 저점은 0점이었다. 저점 뒤 4거래일째인 2025년 4월 4일에 종가가 저점 아래에서 마감했다. 초단기 바닥이 되지 못했다.</p>
 
@@ -1010,6 +1011,22 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 <li>0~1점인 저점 후보는 90번 중 27번(30%)이었다. 0점과 1점은 한 줄로 합쳤다. 따로 보면 0점은 69번 중 18번이었다. 1점은 21번 중 9번이었다.</li>
 <li>3점 줄은 6번 중 3번이다. 2점 줄보다 비율이 낮다. 3점인 저점 후보가 6번뿐이라 순서가 어긋났다.</li>
 </ul>
+
+<h3>4점이던 저점 후보 9번</h3>
+
+<p>4점이던 저점 후보 9번을 모두 적었다. 고점 대비 하락은 저점 종가가 그 앞 고점보다 얼마나 낮았는지다. 공황 중이면 공황 고점이 기준이다. 공황이 아니면 직전 공황 바닥 뒤의 최고 종가가 기준이다. 색이 있는 줄이 초단기 바닥이 되지 못한 저점이다.</p>
+
+<div class="tblwrap"><table class="tw" data-t="kb4c"><thead><tr><th>저점</th><th class="n">종가</th><th class="n">고점 대비 하락</th><th class="n">반등 첫날</th><th>초단기 바닥</th><th>당시</th><th>공황 바닥</th></tr></thead><tbody><tr><td>2011년 8월 12일</td><td class="n">1,793.31</td><td class="n">19.5%</td><td class="n">4.83%</td><td>8월 17일 성립 · 2거래일 뒤</td><td>2011년 소공황 · 5월 2일 고점 뒤</td><td>아님 · 8월 19일 이탈</td></tr><tr><td>2011년 9월 26일</td><td class="n">1,652.71</td><td class="n">25.9%</td><td class="n">5.02%</td><td>9월 27일 성립 · 1거래일 뒤</td><td>2011년 소공황 · 5월 2일 고점 뒤</td><td>예</td></tr><tr><td>2020년 3월 19일</td><td class="n">1,457.64</td><td class="n">35.7%</td><td class="n">7.44%</td><td>3월 20일 성립 · 1거래일 뒤</td><td>2020년 플래시 크래시 · 1월 22일 고점 뒤</td><td>예</td></tr><tr><td>2024년 8월 5일</td><td class="n">2,441.55</td><td class="n">15.6%</td><td class="n">3.30%</td><td>8월 7일 성립 · 2거래일 뒤</td><td>2024년 소공황 · 7월 11일 고점 뒤</td><td>아님 · 11월 13일 이탈</td></tr><tr><td>2025년 4월 9일</td><td class="n">2,293.70</td><td class="n">20.7%</td><td class="n">6.60%</td><td>4월 10일 성립 · 1거래일 뒤</td><td>2024년 소공황 · 7월 11일 고점 뒤</td><td>예</td></tr><tr><td>2026년 3월 31일</td><td class="n">5,052.46</td><td class="n">19.9%</td><td class="n">8.44%</td><td>4월 1일 성립 · 1거래일 뒤</td><td>공황 아님</td><td> </td></tr><tr><td>2026년 7월 30일</td><td class="n">5,593.56</td><td class="n">38.6%</td><td class="n">17.91%</td><td>7월 31일 성립 · 1거래일 뒤</td><td>2026년 중공황 · 6월 22일 고점 뒤</td><td>아님 · 10월 15일 이탈</td></tr><tr class="kb-fail"><td>2026년 10월 15일</td><td class="n">5,554.22</td><td class="n">39.1%</td><td class="n">2.05%</td><td>10월 20일 이탈 · 3거래일 뒤</td><td>2026년 중공황 · 6월 22일 고점 뒤</td><td>아님 · 10월 20일 이탈</td></tr><tr><td>2026년 11월 9일</td><td class="n">5,018.85</td><td class="n">44.9%</td><td class="n">4.39%</td><td>11월 11일 성립 · 2거래일 뒤</td><td>2026년 중공황 · 6월 22일 고점 뒤</td><td>진행 중</td></tr></tbody></table></div>
+
+<p>9번 가운데 6번은 공황 중의 저점이었다. 공황 중의 저점은 고점 대비 하락이 20%를 넘은 뒤의 저점이다. 그 가운데 3번은 그 공황의 바닥이었다. 2011년 9월 26일 · 2020년 3월 19일 · 2025년 4월 9일이다.</p>
+
+<p>초단기 바닥이 되지 못한 1번은 2026년 10월 15일 저점이다. 반등 첫날 상승률은 2.05%였다. 기준 2%와 0.05%p 차이다. 3거래일 뒤인 2026년 10월 20일에 종가가 저점 아래에서 마감했다.</p>
+
+<p>'공황 바닥' 칸이 '아님'인 저점은 초단기 바닥이었지만 그 뒤 종가가 저점 아래에서 마감한 저점이다. 4점은 초단기 바닥을 판별하는 점수다. 공황 바닥은 아래 4단계로 따로 확인한다.</p>
+
+<p>표에 나온 공황은 아래와 같다. 직접 원인은 <a href="kospi-panics.html">코스피 역대 공황</a> 글의 정리를 따랐다.</p>
+
+<div class="tblwrap"><table class="tw" data-t="kb4p"><thead><tr><th>공황</th><th>고점 → 바닥</th><th class="n">하락률</th><th>직접 원인</th></tr></thead><tbody><tr><td>2011년 소공황</td><td>2011년 5월 2일 → 2011년 9월 26일</td><td class="n">25.9%</td><td>2011년 8월 5일 S&amp;P의 미국 신용등급 강등, 유럽 재정위기와 그리스 디폴트 우려</td></tr><tr><td>2020년 플래시 크래시</td><td>2020년 1월 22일 → 2020년 3월 19일</td><td class="n">35.7%</td><td>코로나19 확산, 2020년 3월 11일 WHO 팬데믹 선언</td></tr><tr><td>2024년 소공황</td><td>2024년 7월 11일 → 2025년 4월 9일</td><td class="n">20.7%</td><td>2024년 8월 5일 엔캐리 트레이드 청산 폭락, 12월 3일 비상계엄, 2025년 4월 9일 미국 상호관세 발효</td></tr><tr><td>2026년 중공황</td><td>2026년 6월 22일 → 진행 중</td><td class="n">44.9% 이상</td><td>반도체·AI 투자 회의와 단일종목 레버리지 상품 청산(2026년 7월 28~29일 서킷브레이커), 10월 금리 재인상과 AI 부채 우려, 11월 미국 중간선거 뒤 반도체 급락</td></tr></tbody></table></div>
 
 <h3>1990년부터의 긴 기간에서도 같은 순서였다</h3>
 
