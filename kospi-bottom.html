@@ -538,6 +538,7 @@ html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in 
 @media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
 /* SEARCH:END */
 
+
 .wrap table{min-width:560px}
 .wrap td:first-child,.wrap th:first-child{white-space:nowrap}
 .paper .tblwrap > table[data-t^="kb"] td,.paper .tblwrap > table[data-t^="kb"] th{word-break:keep-all}
@@ -974,7 +975,7 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 
 <div class="tblwrap"><table class="tw" data-t="kbC"><thead><tr><th>조건</th><th>확인하는 값</th><th>기준</th><th>보는 것</th><th>자료</th></tr></thead><tbody><tr><td><b>반등 폭</b></td><td>반등 첫날 코스피 상승률</td><td>2% 이상</td><td>반등의 크기</td><td>1990년부터</td></tr><tr><td><b>하락 깊이</b></td><td>저점 당일 20일 이격도</td><td>92 이하</td><td>저점이 20일 이동평균에서 떨어진 정도</td><td>1990년부터</td></tr><tr><td><b>상승 종목 비율</b></td><td>반등 첫날 상승 종목 비율</td><td>80% 이상</td><td>반등이 시장 전체로 퍼졌는가</td><td>2010년부터</td></tr><tr><td><b>VKOSPI</b></td><td>저점 당일 VKOSPI</td><td>30 이상</td><td>저점 당일 투자자의 불안</td><td>2003년부터</td></tr></tbody></table></div>
 
-<p>조건 1개를 채우면 1점이다. 4개를 모두 채우면 4점이다. 1개도 채우지 못하면 0점이다. 조건에는 순서가 없다. 4개를 따로 확인한다. 진짜 바닥의 4단계는 앞 단계가 확인돼야 다음 단계를 본다. 점수는 그렇지 않다.</p>
+<p>조건 1개를 채우면 1점이다. 4개를 모두 채우면 4점이다. 1개도 채우지 못하면 0점이다. 조건에는 순서가 없다. 4개를 따로 확인한다. 앞의 조건을 채우지 못해도 뒤의 조건을 확인한다.</p>
 
 <p>표의 값은 이렇게 읽는다.</p>
 
@@ -1021,7 +1022,7 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 
 <p>초단기 바닥이 되지 못한 1번은 2026년 10월 15일 저점이다. 반등 첫날 상승률은 2.05%였다. 기준 2%와 0.05%p 차이다. 3거래일 뒤인 2026년 10월 20일에 종가가 저점 아래에서 마감했다.</p>
 
-<p>'공황 바닥' 칸이 '아님'인 저점은 초단기 바닥이었지만 그 뒤 종가가 저점 아래에서 마감한 저점이다. 4점은 초단기 바닥을 판별하는 점수다. 공황 바닥은 아래 4단계로 따로 확인한다.</p>
+<p>'공황 바닥' 칸이 '아님'인 저점은 초단기 바닥이었지만 그 뒤 종가가 저점 아래에서 마감한 저점이다. 4점은 초단기 바닥을 판별하는 점수다. 공황 바닥인지는 이 점수로 판별하지 않는다. 뒤의 진짜 바닥 절에서 따로 확인한다.</p>
 
 <p>표에 나온 공황은 아래와 같다. 직접 원인은 <a href="kospi-panics.html">코스피 역대 공황</a> 글의 정리를 따랐다.</p>
 
@@ -1071,7 +1072,7 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 
 <p>공황 중에 성립한 초단기 바닥은 더 빨리 이탈했다. 이탈한 것만 보면 저점부터 이탈까지 중앙값이 공황 중 30거래일이다. 공황 밖은 84거래일이다. 공황 중의 초단기 바닥은 82번 가운데 29번이 20거래일 안에 이탈했다. 공황 밖은 69번 가운데 13번이었다.</p>
 
-<p>공황 중의 저점은 아래 절에서 진짜 바닥의 4단계로 따로 확인한다.</p>
+<p>공황 중의 초단기 바닥은 20거래일 안에 이탈한 비율이 높았다. 그래서 공황 중에는 초단기 바닥이 성립해도 공황 바닥으로 읽지 않는다.</p>
 
 <h2 id="rsi와-td-셋업-9-같은-과매도-지표는-초단기-바닥을-구분하지-못했다">RSI와 TD 셋업 9 같은 과매도 지표는 초단기 바닥을 구분하지 못했다</h2>
 
