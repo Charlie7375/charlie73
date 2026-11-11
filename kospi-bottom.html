@@ -538,6 +538,7 @@ html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in 
 @media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
 /* SEARCH:END */
 
+
 .wrap table{min-width:560px}
 .wrap td:first-child,.wrap th:first-child{white-space:nowrap}
 .paper .tblwrap > table[data-t^="kb"] td,.paper .tblwrap > table[data-t^="kb"] th{word-break:keep-all}
@@ -882,15 +883,20 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <div class="eyebrow">아카이브 · 코스피 바닥 판별</div>
 <h1>코스피 초단기 바닥 점수 4점이면 9번 중 8번, 공황 진짜 바닥은 4단계 확인</h1>
 <p class="pauth">기준일 2026-11-11 · 코스피 일별 종가·거래량 1990~ · VKOSPI 2003~ · 상승·하락 거래량 · 풋/콜 비율 · 신용융자 · 매일 갱신</p>
-<!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#저점-후보-초단기-바닥-진짜-바닥은-이렇게-정했다">저점 후보, 초단기 바닥, 진짜 바닥은 이렇게 정했다</a></li><li><a href="#반등-첫날-조건-4개를-모두-채운-저점-후보는-9번-중-8번이-초단기-바">반등 첫날 조건 4개를 모두 채운 저점 후보는 9번 중 8번이 초단기 바닥이 됐다</a></li><li><a href="#rsi와-td-셋업-9-같은-과매도-지표는-초단기-바닥을-구분하지-못했다">RSI와 TD 셋업 9 같은 과매도 지표는 초단기 바닥을 구분하지 못했다</a></li><li><a href="#공황-바닥-16번은-모두-4단계까지-확인됐고-1단계-판정은-62번-중-4">공황 바닥 16번은 모두 4단계까지 확인됐고, 1단계 판정은 62번 중 46번이 실패했다</a></li><li><a href="#코스피와-코스닥은-저점-당일-거래량이-평균보다-적으면-판정이-더-자주-실">코스피와 코스닥은 저점 당일 거래량이 평균보다 적으면 판정이 더 자주 실패했다</a></li><li><a href="#같은-4단계를-s-amp-p-500-닛케이225-코스닥에-적용해도-바닥은">같은 4단계를 S&amp;P 500, 닛케이225, 코스닥에 적용해도 바닥은 모두 4단계까지 확인됐다</a></li><li><a href="#vkospi와-상승-하락-거래량-풋-콜-비율-규칙은-진짜-바닥-판정을-앞">VKOSPI와 상승·하락 거래량, 풋/콜 비율 규칙은 진짜 바닥 판정을 앞당기지 못했다</a></li><li><a href="#2026년-공황에서-초단기-바닥은-5번-성립했고-4번은-그-뒤-저점을-이">2026년 공황에서 초단기 바닥은 5번 성립했고 4번은 그 뒤 저점을 이탈했다</a></li><li><a href="#지금-코스피는-초단기-바닥이-성립했고-진짜-바닥-판정은-1단계다">지금 코스피는 초단기 바닥이 성립했고 진짜 바닥 판정은 1단계다</a></li><li><a href="#바닥을-판정하는-규칙은-대부분-미국-주식시장에서-나왔다">바닥을 판정하는 규칙은 대부분 미국 주식시장에서 나왔다</a></li><li><a href="#아직-불확실한-곳은-어디인가">아직 불확실한 곳은 어디인가</a></li><li><a href="#그래서-바닥은-날짜가-아니라-단계로-읽는다">그래서 바닥은 날짜가 아니라 단계로 읽는다</a></li><li><a href="#apx">원문 상세표</a></li></ol></div><!--TOC:END--></header>
+<!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#저점-후보-초단기-바닥-진짜-바닥은-이렇게-정했다">저점 후보, 초단기 바닥, 진짜 바닥은 이렇게 정했다</a></li><li><a href="#반등-첫날-조건-4개를-모두-채운-저점-후보는-9번-중-8번이-초단기-바">반등 첫날 조건 4개를 모두 채운 저점 후보는 9번 중 8번이 초단기 바닥이 됐다</a></li><li><a href="#rsi와-td-셋업-9-같은-과매도-지표는-초단기-바닥을-구분하지-못했다">RSI와 TD 셋업 9 같은 과매도 지표는 초단기 바닥을 구분하지 못했다</a></li><li><a href="#공황-바닥-16번은-모두-4단계까지-확인됐고-1단계-판정은-62번-중-4">공황 바닥 16번은 모두 4단계까지 확인됐고, 1단계 판정은 62번 중 46번이 실패했다</a></li><li><a href="#코스피와-코스닥은-저점-당일-거래량이-평균보다-적으면-판정이-더-자주-실">코스피와 코스닥은 저점 당일 거래량이 평균보다 적으면 판정이 더 자주 실패했다</a></li><li><a href="#같은-4단계를-s-amp-p-500-닛케이225-코스닥에-적용해도-바닥은">같은 4단계를 S&amp;P 500, 닛케이225, 코스닥에 적용해도 바닥은 모두 4단계까지 확인됐다</a></li><li><a href="#5일선-돌파와-20일선-고임은-같은-시점의-단계보다-실패가-많았다">5일선 돌파와 20일선 고임은 같은 시점의 단계보다 실패가 많았다</a></li><li><a href="#vkospi와-상승-하락-거래량-풋-콜-비율-규칙은-진짜-바닥-판정을-앞">VKOSPI와 상승·하락 거래량, 풋/콜 비율 규칙은 진짜 바닥 판정을 앞당기지 못했다</a></li><li><a href="#2026년-공황에서-초단기-바닥은-5번-성립했고-4번은-그-뒤-저점을-이">2026년 공황에서 초단기 바닥은 5번 성립했고 4번은 그 뒤 저점을 이탈했다</a></li><li><a href="#지금-코스피는-초단기-바닥이-성립했고-진짜-바닥-판정은-1단계다">지금 코스피는 초단기 바닥이 성립했고 진짜 바닥 판정은 1단계다</a></li><li><a href="#바닥을-판정하는-규칙은-대부분-미국-주식시장에서-나왔다">바닥을 판정하는 규칙은 대부분 미국 주식시장에서 나왔다</a></li><li><a href="#아직-불확실한-곳은-어디인가">아직 불확실한 곳은 어디인가</a></li><li><a href="#그래서-바닥은-날짜가-아니라-단계로-읽는다">그래서 바닥은 날짜가 아니라 단계로 읽는다</a></li><li><a href="#apx">원문 상세표</a></li></ol></div><!--TOC:END--></header>
 
 <!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div>
 <p>바닥은 지나고 나서야 확정된다. 그래서 이 글은 바닥을 날짜로 판정하지 않는다. 저점 뒤에 무엇이 확인됐는지를 단계로 구분한다. 단계마다 과거에 그 저점이 유지된 횟수를 붙인다.</p>
 <p>초단기 바닥은 하락 1번이 끝난 저점이다. 코스피는 1990년부터 저점 후보를 401번 만들었다. 그 가운데 151번이 초단기 바닥이 됐다. 반등 첫날에 조건 4개를 모두 채운 저점 후보는 9번 중 8번이 초단기 바닥이 됐다.</p>
-<p>진짜 바닥은 공황의 마지막 바닥이다. 과거 공황 16번의 바닥은 모두 4단계까지 확인됐다. 그러나 낮은 단계의 판정은 대부분 실패했다. 2단계 팔로스루 데이는 56번 중 16번만 진짜 바닥이었다. 3단계는 26번 중 16번, 4단계는 22번 중 16번이었다.</p>
+<p>진짜 바닥은 공황의 마지막 바닥이다. 과거 공황 16번의 바닥은 모두 4단계까지 확인됐다. 그러나 낮은 단계의 판정은 대부분 실패했다. 1단계 판정은 62번 중 16번(26%)만 진짜 바닥이었다. 2단계는 56번 중 16번(29%)이었다. 3단계는 26번 중 16번(62%)이었다. 4단계는 22번 중 16번(73%)이었다.</p>
 <p>같은 4단계를 다른 시장에도 적용했다. S&amp;P 500, 닛케이225, 코스닥의 과거 공황 49번에서도 바닥은 모두 4단계까지 확인됐다.</p>
+<p>종가의 5일선 돌파와 20일선 고임도 같은 방법으로 확인했다. 같은 시점의 단계보다 실패가 많았다. 그래서 단계에 넣지 않았다.</p>
 <p>지금 코스피의 저점은 2026년 11월 9일의 종가 5,018.85다. 2026년 6월 22일 고점보다 44.9% 낮다. 이 저점은 2026년 11월 11일에 초단기 바닥이 성립했다. 진짜 바닥 판정은 1단계다.</p>
 </div><!--PCLAIM:END-->
+
+<p>진짜 바닥의 4단계와 과거 적중률은 아래 표와 같다. 판정은 과거 공황 16번에서 그 단계가 확인된 저점의 수다. 적중은 그 가운데 진짜 바닥이었던 저점의 수다. 적중률은 적중을 판정으로 나눈 값이다. 바닥 뒤 거래일은 진짜 바닥에서 그 단계가 확인되기까지 걸린 거래일의 중앙값이다.</p>
+
+<div class="tblwrap"><table class="tw" data-t="kbS"><thead><tr><th>단계</th><th>확인 조건</th><th class="n">판정</th><th class="n">적중</th><th class="n">적중률</th><th class="n">바닥 뒤 거래일</th></tr></thead><tbody><tr><td><b>1단계</b></td><td>초단기 바닥 성립 · 종가가 저점보다 5% 이상 높다</td><td class="n">62</td><td class="n">16</td><td class="n">26%</td><td class="n">2</td></tr><tr><td><b>2단계</b></td><td>팔로스루 데이 · 반등 4일차 이후 1.5% 이상 상승하고 거래량이 늘었다</td><td class="n">56</td><td class="n">16</td><td class="n">29%</td><td class="n">7</td></tr><tr><td><b>3단계</b></td><td>2단계 뒤 종가가 저점보다 15% 이상 높다</td><td class="n">26</td><td class="n">16</td><td class="n">62%</td><td class="n">21</td></tr><tr><td><b>4단계</b></td><td>3단계 뒤 종가가 60거래일 최고 종가다</td><td class="n">22</td><td class="n">16</td><td class="n">73%</td><td class="n">40.5</td></tr></tbody></table></div>
 
 <!--LEAD:BEGIN--><details class="lead"><summary>펼치기 · 문제 · 왜 지금 · 반론 · 이 글의 입장</summary>
 <p>무엇이 문제인가. 하락장에서는 반등이 나올 때마다 바닥이라는 말이 나온다. 그 저점은 대부분 다시 이탈된다. 어떤 저점이 유지됐는지를 숫자로 확인한 자료는 드물다. 이 글은 코스피 1990년부터의 일별 자료로 그것을 확인한다.</p>
@@ -909,21 +915,36 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 <ul>
 <li>저점 후보 · 최근 20거래일 가운데 가장 낮은 종가다. 그 종가는 20거래일 최고 종가보다 5% 이상 낮아야 한다. 다음 거래일에 코스피가 상승 마감해야 한다. 그 다음 거래일을 '반등 첫날'이라 부른다.</li>
-<li>초단기 바닥 · 종가가 저점 아래로 하락하기 전에, 저점보다 5% 이상 높게 마감한 저점 후보다. 이때 초단기 바닥이 '성립했다'고 적는다.</li>
+<li>초단기 바닥 · 종가가 저점 아래로 하락하기 전에, 저점보다 5% 이상 높게 마감한 저점 후보다. 이때 초단기 바닥이 '성립했다'고 적는다. 초단기 바닥의 성립이 아래 1단계다.</li>
 <li>공황 · 코스피 종가가 고점에서 20% 이상 하락한 국면이다. 30% 이상은 중공황, 20~30%는 소공황이다. 3개월 안에 급락하고 3개월 안에 하락폭의 절반을 회복하면 플래시 크래시다. 기준은 <a href="kospi-panics.html">코스피 역대 공황</a>과 같다.</li>
 <li>진짜 바닥 · 공황 고점 뒤 가장 낮은 종가다. 공황이 끝난 뒤에야 확정된다.</li>
 <li>판정 · 공황 중의 저점마다, 종가가 그 저점을 이탈하기 전 250거래일 안에 단계의 조건이 처음 충족된 날이다. 그 저점이 진짜 바닥이었으면 '적중'이다. 판정 뒤 종가가 저점을 이탈했으면 '실패'다.</li>
 </ul>
 
-<p>그림 1은 3가지 저점을 가상의 지수로 그린 것이다.</p>
+<p>진짜 바닥은 4단계로 확인한다. 단계는 저점 뒤에 차례로 확인되는 조건이다. 앞 단계가 확인된 저점만 다음 단계를 본다.</p>
+
+<div class="tblwrap"><table class="tw" data-t="kbD"><thead><tr><th>단계</th><th>이름</th><th>확인 조건</th></tr></thead><tbody><tr><td><b>1단계</b></td><td>초단기 바닥 성립</td><td>종가가 저점보다 5% 이상 높다.</td></tr><tr><td><b>2단계</b></td><td>팔로스루 데이</td><td>저점 뒤 첫 상승 마감일이 1일차다. 4일차 이후에 코스피가 1.5% 이상 상승하고 거래량이 전날보다 늘어난 첫날이다.</td></tr><tr><td><b>3단계</b></td><td>저점 대비 15% 상승</td><td>2단계가 확인된 저점에서 종가가 저점보다 15% 이상 높다.</td></tr><tr><td><b>4단계</b></td><td>60일 신고가 종가</td><td>3단계가 확인된 저점에서 종가가 최근 60거래일 최고 종가다.</td></tr></tbody></table></div>
+
+<p>종가가 저점을 이탈하면 그 저점의 단계는 무효가 된다. 그때는 새 저점에서 1단계부터 다시 확인한다.</p>
+
+<p>그림 1은 3가지 저점을 가상의 지수로 그린 것이다. 그림의 '1단계'부터 '4단계'까지는 위의 정의다.</p>
 
 <figure class="fig kbd"><div class="kbd-sc"><svg viewBox="0 0 760 380" role="img" aria-label="가상의 지수에서 저점 후보 3개가 초단기 바닥과 진짜 바닥으로 판정되는 과정"><line class="kgl" x1="46" y1="53.2" x2="730" y2="53.2"/><text class="kt" x="40" y="57.2" text-anchor="end">100</text><line class="kgl" x1="46" y1="119.1" x2="730" y2="119.1"/><text class="kt" x="40" y="123.1" text-anchor="end">90</text><line class="kgl" x1="46" y1="185.0" x2="730" y2="185.0"/><text class="kt" x="40" y="189.0" text-anchor="end">80</text><line class="kgl" x1="46" y1="250.9" x2="730" y2="250.9"/><text class="kt" x="40" y="254.9" text-anchor="end">70</text><line class="kgl" x1="46" y1="316.8" x2="730" y2="316.8"/><text class="kt" x="40" y="320.8" text-anchor="end">60</text><line class="kpn" x1="46" y1="185.0" x2="730" y2="185.0"/><text class="kt" x="338.3" y="179.0">고점 대비 20% 하락 · 이 아래가 공황</text><path class="kln" d="M46.0,53.2L52.2,60.9L58.4,68.6L64.7,76.2L70.9,83.9L77.1,91.6L83.3,99.3L89.5,93.8L95.7,88.3L102.0,82.8L108.2,105.9L114.4,129.0L120.6,152.0L126.8,175.1L133.1,198.2L139.3,192.5L145.5,186.8L151.7,181.0L157.9,192.9L164.1,204.8L170.4,211.4L176.6,218.0L182.8,224.5L189.0,231.1L195.2,237.7L201.5,244.3L207.7,250.9L213.9,239.0L220.1,233.6L226.3,228.1L232.5,222.6L238.8,217.6L245.0,209.4L251.2,207.1L257.4,204.8L263.6,209.7L269.9,214.7L276.1,219.6L282.3,224.5L288.5,229.5L294.7,234.4L300.9,239.4L307.2,244.3L313.4,249.3L319.6,254.2L325.8,260.4L332.0,266.6L338.3,272.7L344.5,278.9L350.7,285.1L356.9,291.3L363.1,297.5L369.3,303.6L375.6,295.1L381.8,288.5L388.0,281.9L394.2,279.9L400.4,271.3L406.7,268.6L412.9,265.8L419.1,263.0L425.3,260.3L431.5,257.5L437.7,254.6L444.0,251.8L450.2,248.9L456.4,246.1L462.6,243.2L468.8,240.4L475.1,243.8L481.3,247.2L487.5,250.6L493.7,254.0L499.9,257.4L506.1,260.8L512.4,258.0L518.6,255.3L524.8,252.6L531.0,249.8L537.2,247.1L543.5,244.3L549.7,241.4L555.9,238.4L562.1,235.4L568.3,232.5L574.5,229.5L580.8,226.5L587.0,223.6L593.2,220.6L599.4,217.6L605.6,214.7L611.9,212.0L618.1,209.4L624.3,206.8L630.5,204.1L636.7,201.5L642.9,198.8L649.2,196.2L655.4,193.6L661.6,190.9L667.8,188.3L674.0,186.6L680.3,185.0L686.5,183.4L692.7,181.7L698.9,180.1L705.1,178.4L711.3,176.8L717.6,175.1L723.8,173.5L730.0,171.8"/><circle class="kpt" cx="46.0" cy="53.2" r="3.5"/><text class="kh" x="54.0" y="47.2">고점 100</text><line class="klw" x1="133.1" y1="198.2" x2="164.1" y2="198.2"/><circle class="kneg" cx="133.1" cy="198.2" r="6"/><text class="kh" x="147.1" y="222.2" text-anchor="end">저점 후보 1</text><text class="kt" x="147.1" y="239.2" text-anchor="end">5% 상승 전에 이탈</text><path class="kfx" d="M160.1,200.8 l8,8 m0,-8 l-8,8"/><text class="kx" x="173.1" y="208.8" text-anchor="start">이탈</text><line class="klw" x1="207.7" y1="250.9" x2="319.6" y2="250.9"/><circle class="kneg" cx="207.7" cy="250.9" r="6"/><text class="kh" x="207.7" y="274.9" text-anchor="middle">저점 후보 2</text><text class="kt" x="207.7" y="291.9" text-anchor="middle">2단계까지 확인 뒤 이탈</text><line class="klead" x1="232.5" y1="222.6" x2="230.5" y2="170.6"/><rect class="kb3" x="205.0" y="150.6" width="51" height="20" rx="4"/><text class="kbt" x="230.5" y="164.6" text-anchor="middle">1단계</text><circle class="kb3d" cx="232.5" cy="222.6" r="4"/><line class="klead" x1="245.0" y1="209.4" x2="291.0" y2="183.4"/><rect class="kb3" x="265.5" y="163.4" width="51" height="20" rx="4"/><text class="kbt" x="291.0" y="177.4" text-anchor="middle">2단계</text><circle class="kb3d" cx="245.0" cy="209.4" r="4"/><path class="kfx" d="M315.6,250.2 l8,8 m0,-8 l-8,8"/><text class="kx" x="310.6" y="272.2" text-anchor="end">이탈</text><line class="klw" x1="369.3" y1="303.6" x2="555.9" y2="303.6"/><circle class="kpos" cx="369.3" cy="303.6" r="6"/><text class="kh" x="369.3" y="327.6" text-anchor="middle">저점 후보 3 · 진짜 바닥</text><text class="kt" x="369.3" y="344.6" text-anchor="middle">4단계까지 확인</text><line class="klead" x1="388.0" y1="281.9" x2="354.0" y2="257.9"/><rect class="kb5" x="328.5" y="237.9" width="51" height="20" rx="4"/><text class="kbt" x="354.0" y="251.9" text-anchor="middle">1단계</text><circle class="kb5d" cx="388.0" cy="281.9" r="4"/><line class="klead" x1="400.4" y1="271.3" x2="406.4" y2="209.3"/><rect class="kb5" x="380.9" y="189.3" width="51" height="20" rx="4"/><text class="kbt" x="406.4" y="203.3" text-anchor="middle">2단계</text><circle class="kb5d" cx="400.4" cy="271.3" r="4"/><line class="klead" x1="468.8" y1="240.4" x2="468.8" y2="216.4"/><rect class="kb5" x="443.3" y="196.4" width="51" height="20" rx="4"/><text class="kbt" x="468.8" y="210.4" text-anchor="middle">3단계</text><circle class="kb5d" cx="468.8" cy="240.4" r="4"/><line class="klead" x1="630.5" y1="204.1" x2="630.5" y2="180.1"/><rect class="kb5" x="605.0" y="160.1" width="51" height="20" rx="4"/><text class="kbt" x="630.5" y="174.1" text-anchor="middle">4단계</text><circle class="kb5d" cx="630.5" cy="204.1" r="4"/></svg></div><figcaption>설명을 위해 만든 가상의 지수다. 실제 코스피가 아니다. 고점을 100으로 놓았다. 빨간 점은 그 뒤 종가가 이탈한 저점이다. 초록 점은 진짜 바닥이다. 단계 표시는 그 단계가 확인된 날에 놓았다. 단계는 이 글의 실제 계산과 같은 규칙으로 판정했다.</figcaption><div class="srcline"><span class="lbl">출처</span><span>이 글이 만든 가상의 지수 · 판정은 이 글의 계산</span></div></figure>
 
-<p>저점 후보 1을 보자. 지수는 고점보다 22% 낮은 78에서 반등했다. 반등은 3.3%에서 멈췄다. 저점보다 5% 높은 종가가 나오기 전에 종가가 저점을 이탈했다. 이 저점은 초단기 바닥이 되지 못했다.</p>
+<p>저점 후보 1을 보자. 지수는 고점보다 22% 낮은 78에서 반등했다. 반등은 3.3%에서 멈췄다. 저점보다 5% 높은 종가가 나오기 전에 종가가 저점을 이탈했다. 1단계도 확인되지 않았다. 이 저점은 초단기 바닥이 되지 못했다.</p>
 
-<p>저점 후보 2는 초단기 바닥이 됐다. 저점 뒤 4거래일째에 종가가 저점보다 5% 넘게 높아졌다. 이것이 1단계다. 그 2거래일 뒤에는 팔로스루 데이가 나왔다. 이것이 2단계다. 그러나 반등은 10.0%에서 멈췄다. 3단계 기준인 15%에 이르지 못했다. 그 뒤 종가가 저점을 이탈했다. 이 저점은 초단기 바닥이었지만 진짜 바닥은 아니었다. 이때의 1단계와 2단계 판정은 실패로 기록된다.</p>
+<p>저점 후보 2는 초단기 바닥이 됐다. 저점 뒤 4거래일째에 종가가 저점보다 5% 넘게 높아졌다. 1단계가 확인된 날이다. 그 2거래일 뒤에는 지수가 1.5% 넘게 상승하고 거래량이 늘었다. 2단계가 확인된 날이다. 그러나 반등은 10.0%에서 멈췄다. 3단계의 기준인 15%에 이르지 못했다. 그 뒤 종가가 저점을 이탈했다. 이 저점은 초단기 바닥이었지만 진짜 바닥은 아니었다. 이때의 1단계와 2단계 판정은 실패로 기록된다.</p>
 
-<p>저점 후보 3이 진짜 바닥이다. 1단계부터 4단계까지 차례로 확인됐다. 1단계가 확인된 날 지수는 바닥보다 5.3% 높았다. 4단계는 바닥 뒤 42거래일째에 확인됐다. 그날 지수는 바닥보다 이미 24.4% 높았다. 진짜 바닥은 이렇게 늦게 확인된다.</p>
+<p>저점 후보 3이 진짜 바닥이다. 4단계가 아래 순서로 확인됐다.</p>
+
+<ul>
+<li>1단계 · 바닥 뒤 3거래일째. 그날 지수는 바닥보다 5.3% 높았다.</li>
+<li>2단계 · 바닥 뒤 5거래일째.</li>
+<li>3단계 · 바닥 뒤 16거래일째.</li>
+<li>4단계 · 바닥 뒤 42거래일째. 그날 지수는 바닥보다 이미 24.4% 높았다.</li>
+</ul>
+
+<p>진짜 바닥은 이렇게 늦게 확인된다.</p>
 
 <p>저점 3개는 당일에는 구분되지 않는다. 구분은 그 뒤의 종가가 한다. 이 글의 점수와 단계는 그 과정을 숫자로 적은 것이다. 점수는 반등 첫날에 나온다. 단계는 그 뒤 며칠에서 몇 주에 걸쳐 확인된다.</p>
 
@@ -990,12 +1011,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 <p>판정 대상은 공황 중의 저점이다. 코스피가 고점에서 20% 이상 하락한 뒤에 기록한 새 저점만 본다. 과거 공황 16번에는 초단기 바닥이 성립한 저점이 62개 있었다. 그 가운데 16개가 진짜 바닥이었다.</p>
 
-<ul>
-<li>1단계 · 초단기 바닥 성립. 종가가 저점보다 5% 이상 높다.</li>
-<li>2단계 · 팔로스루 데이. 저점 뒤 첫 상승 마감일을 1일차로 놓는다. 4일차 이후에 코스피가 1.5% 이상 상승하고 거래량이 전날보다 늘어난 첫날이다. 정의는 <a href="kospi-ftd.html">팔로스루 데이</a> 글과 같다.</li>
-<li>3단계 · 저점 대비 15% 상승. 팔로스루 데이가 나온 저점에서 종가가 저점보다 15% 이상 높다.</li>
-<li>4단계 · 60일 신고가 종가. 3단계를 채운 저점에서 종가가 최근 60거래일 최고 종가를 기록했다.</li>
-</ul>
+<p>단계의 정의는 1절과 같다. 1단계는 초단기 바닥 성립이다. 2단계는 팔로스루 데이다. 3단계는 저점 대비 15% 상승이다. 4단계는 60일 신고가 종가다. 팔로스루 데이의 정의는 <a href="kospi-ftd.html">팔로스루 데이</a> 글과 같다.</p>
 
 <div class="tblwrap"><table class="tw" data-t="kb4"><thead><tr><th>단계</th><th class="n">적중</th><th class="n">실패</th><th class="n">판정 가운데 적중</th><th class="n">바닥 뒤 거래일</th><th class="n">지나간 상승률</th><th class="n">실패 뒤 하락률</th></tr></thead><tbody><tr><td>1단계 초단기 바닥 성립</td><td class="n">16</td><td class="n">46</td><td class="n">62번 중 16번</td><td class="n">2</td><td class="n">6.5%</td><td class="n">28.7%</td></tr><tr><td>2단계 팔로스루 데이</td><td class="n">16</td><td class="n">40</td><td class="n">56번 중 16번</td><td class="n">7</td><td class="n">11.0%</td><td class="n">22.4%</td></tr><tr><td>3단계 저점 대비 15% 상승</td><td class="n">16</td><td class="n">10</td><td class="n">26번 중 16번</td><td class="n">21</td><td class="n">16.4%</td><td class="n">36.9%</td></tr><tr><td>4단계 60일 신고가 종가</td><td class="n">16</td><td class="n">6</td><td class="n">22번 중 16번</td><td class="n">40.5</td><td class="n">22.1%</td><td class="n">35.5%</td></tr></tbody></table></div>
 
@@ -1039,6 +1055,32 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 <p>닛케이225는 거래량 자료가 없다. 그래서 팔로스루 데이를 거래량 조건 없이 판정했다. S&amp;P 500은 거래량 자료가 있는 1950년부터 계산했다.</p>
 
+<h2 id="5일선-돌파와-20일선-고임은-같은-시점의-단계보다-실패가-많았다">5일선 돌파와 20일선 고임은 같은 시점의 단계보다 실패가 많았다</h2>
+
+<div class="claim"><p>종가가 5일선을 돌파하고 20일선에서 고이는 과정을 같은 방법으로 확인했다. 과거 공황 바닥 16번은 이 과정을 모두 지났다. 그러나 이 과정은 같은 시점의 단계보다 실패가 많았다. 그래서 단계에 넣지 않았다.</p></div>
+
+<p>주가가 5일선을 돌파하고 20일선에서 고인다는 표현이 있다. 5일선은 종가의 5일 이동평균이다. 20일선은 20일 이동평균이다. 이 글은 고임을 숫자로 정했다. 저점 뒤 종가가 5일선 위에서 마감한다. 그 뒤 종가가 20일선의 위아래 3% 안에서 5거래일 연속 마감한다. 이것이 20일선 고임이다. 시가·고가·저가는 쓰지 않고 종가로 계산했다.</p>
+
+<p>아래 표는 이동평균 규칙 5개를 4단계와 함께 놓은 것이다. 줄은 바닥 뒤 거래일이 짧은 순서다. 색이 있는 줄이 단계다.</p>
+
+<div class="tblwrap"><table class="tw" data-t="kbM"><thead><tr><th>규칙</th><th class="n">판정</th><th class="n">적중</th><th class="n">적중률</th><th class="n">바닥 뒤 거래일</th><th class="n">지나간 상승률</th></tr></thead><tbody><tr><td>종가 5일선 돌파</td><td class="n">90</td><td class="n">16</td><td class="n">18%</td><td class="n">1.5</td><td class="n">4.3%</td></tr><tr class="kb-now"><td>1단계 초단기 바닥 성립</td><td class="n">62</td><td class="n">16</td><td class="n">26%</td><td class="n">2</td><td class="n">6.5%</td></tr><tr class="kb-now"><td>2단계 팔로스루 데이</td><td class="n">56</td><td class="n">16</td><td class="n">29%</td><td class="n">7</td><td class="n">11.0%</td></tr><tr><td>종가 20일선 돌파</td><td class="n">59</td><td class="n">16</td><td class="n">27%</td><td class="n">7.5</td><td class="n">8.2%</td></tr><tr><td>20일선 고임</td><td class="n">57</td><td class="n">16</td><td class="n">28%</td><td class="n">15.5</td><td class="n">9.7%</td></tr><tr class="kb-now"><td>3단계 저점 대비 15% 상승</td><td class="n">26</td><td class="n">16</td><td class="n">62%</td><td class="n">21</td><td class="n">16.4%</td></tr><tr><td>종가 20일선 위 10거래일 연속</td><td class="n">34</td><td class="n">16</td><td class="n">47%</td><td class="n">21</td><td class="n">16.3%</td></tr><tr><td>고임 뒤 20일선 3% 초과</td><td class="n">30</td><td class="n">16</td><td class="n">53%</td><td class="n">24.5</td><td class="n">14.8%</td></tr><tr class="kb-now"><td>4단계 60일 신고가 종가</td><td class="n">22</td><td class="n">16</td><td class="n">73%</td><td class="n">40.5</td><td class="n">22.1%</td></tr></tbody></table></div>
+
+<p>종가 5일선 돌파는 가장 빨랐다. 진짜 바닥 뒤 1.5거래일째에 나왔다. 그러나 판정 90번 중 16번만 적중했다. 1단계는 62번 중 16번이었다.</p>
+
+<p>20일선 고임은 바닥 뒤 15.5거래일째에 나왔다. 판정은 57번 중 16번이 적중했다. 2단계 팔로스루 데이의 56번 중 16번과 비슷하다. 2단계보다 8.5거래일 늦다.</p>
+
+<p>종가가 20일선 위에서 10거래일 연속 마감한 판정은 34번 중 16번이 적중했다. 바닥 뒤 21거래일째였다. 3단계와 같은 날이다. 3단계는 26번 중 16번이 적중했다.</p>
+
+<p>고임 뒤에 종가가 20일선보다 3% 넘게 높아진 판정은 30번 중 16번이 적중했다. 바닥 뒤 24.5거래일째였다. 3단계보다 늦고 실패도 많았다.</p>
+
+<p>다른 시장에서도 같았다. 아래 표의 칸은 '판정 횟수 중 적중 횟수'다. 어느 시장에서나 3단계의 실패가 가장 적었다.</p>
+
+<div class="tblwrap"><table class="tw" data-t="kbM2"><thead><tr><th>시장</th><th>20일선 고임</th><th>20일선 위 10거래일</th><th>고임 뒤 3% 초과</th><th>3단계</th></tr></thead><tbody><tr class="kb-now"><td>코스피</td><td>57번 중 16번</td><td>34번 중 16번</td><td>30번 중 16번</td><td>26번 중 16번</td></tr><tr><td>S&P 500</td><td>30번 중 11번</td><td>23번 중 11번</td><td>21번 중 11번</td><td>17번 중 11번</td></tr><tr><td>닛케이225</td><td>76번 중 25번</td><td>52번 중 25번</td><td>51번 중 25번</td><td>41번 중 25번</td></tr><tr><td>코스닥</td><td>38번 중 13번</td><td>27번 중 13번</td><td>26번 중 13번</td><td>22번 중 13번</td></tr></tbody></table></div>
+
+<p>5일선은 초단기 바닥에서 다른 쓸모가 있었다. 저점 뒤 3거래일 안에 종가가 5일선을 넘지 못한 저점 후보는 114번이다. 그 가운데 초단기 바닥이 된 것은 1번이다. 3거래일 안에 5일선을 넘은 저점 후보는 287번 중 150번이 초단기 바닥이 됐다. 다만 이 결과는 당연한 면이 있다. 저점보다 5% 높은 종가는 대부분 5일선 위에 있기 때문이다.</p>
+
+<p>그래서 5일선 돌파는 1단계 앞에 나오는 조건으로만 읽는다. 20일선 고임은 2단계와 3단계 사이에 나온다. 4단계는 바꾸지 않았다.</p>
+
 <h2 id="vkospi와-상승-하락-거래량-풋-콜-비율-규칙은-진짜-바닥-판정을-앞">VKOSPI와 상승·하락 거래량, 풋/콜 비율 규칙은 진짜 바닥 판정을 앞당기지 못했다</h2>
 
 <div class="claim"><p>미국에서 쓰는 바닥 규칙을 코스피 자료로 옮겨 계산했다. 공황 바닥을 모두 잡으면서 팔로스루 데이보다 실패가 적은 규칙은 없었다.</p></div>
@@ -1077,6 +1119,8 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 <p>보조 지표도 함께 적는다. VKOSPI는 2026년 11월 11일에 52.76이었다. 저점 앞 10거래일부터의 최고치는 2026년 11월 6일의 65.17이다. 지금은 그보다 19.0% 낮다. 신용융자 잔고는 2026년 11월 10일에 하루 5.42% 감소했다. 이 글이 깊은 급감으로 보는 6%에는 이르지 못했다.</p>
 
+<p>2026년 11월 11일 종가는 5일선 위에 있다. 20일선보다는 3.5% 낮다. 이동평균은 단계에 넣지 않은 참고 값이다.</p>
+
 <p>이 단계는 매일 장 마감 뒤에 다시 계산된다. 종가가 저점을 이탈하면 판정은 처음으로 돌아간다. 새 저점에서 다시 1단계부터 확인한다.</p>
 
 <h2 id="바닥을-판정하는-규칙은-대부분-미국-주식시장에서-나왔다">바닥을 판정하는 규칙은 대부분 미국 주식시장에서 나왔다</h2>
@@ -1100,6 +1144,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <li>표본이 적다. 과거 공황은 16번이다. 2010년부터의 공황은 더 적다. 3단계와 4단계의 적중 횟수는 숫자 16개에서 나왔다.</li>
 <li>문턱은 이 글이 정했다. 5%, 15%, 60거래일, 점수의 조건 4개가 그렇다. 문턱은 결과를 본 뒤에 정한 값이다. 그래서 앞으로의 결과는 이 표보다 낮을 수 있다.</li>
 <li>점수의 3번째와 4번째 조건은 2010년부터의 저점 후보 118번으로만 확인했다.</li>
+<li>5일선과 20일선 규칙의 문턱도 이 글이 정했다. 고임의 폭 3%와 기간 5거래일이 그렇다. 고임의 정의가 다르면 결과도 달라진다.</li>
 <li>확률은 회귀식 1개에서 나온 값이다. 재료를 바꾸면 값이 달라진다. 구간별 결과는 검증한 250번에서 나왔다.</li>
 <li>거래량 조건은 코스피와 코스닥에서만 확인됐다. S&amp;P 500에서는 확인되지 않았다.</li>
 <li>3사분면 조건은 수급 자료가 있는 1999년부터의 저점 후보로만 확인했다. 적중한 비율의 차이는 크지 않다.</li>
@@ -1134,6 +1179,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <li>판정 기한: 저점 뒤 250거래일. 그 안에 종가가 저점을 이탈하면 그 저점의 판정은 끝난다.</li>
 <li>확률: 반등 첫날 상승률, 저점 당일의 20일 이격도, 저점 당일 거래량을 앞 50거래일 평균으로 나눈 값으로, 초단기 바닥이 될 확률을 구하는 회귀식을 추정했다. 처음 150번으로 추정을 시작했다. 그 뒤 25번마다 그때까지 결과가 정해진 저점 후보로 다시 추정했다.</li>
 <li>다른 시장: S&amp;P 500 일별 종가와 거래량(1950년부터), 닛케이225 일별 종가(1949년부터, 거래량 없음), 코스닥 지수와 거래량(2000년 11월부터). 문턱은 코스피와 같다.</li>
+<li>이동평균 규칙: 5일선과 20일선은 종가의 5일·20일 이동평균이다. 20일선 고임은 저점 뒤 종가가 5일선 위에서 마감한 날부터, 종가가 20일선의 위아래 3% 안에서 5거래일 연속 마감한 것이다. 고임 뒤 초과는 고임이 나온 뒤 종가가 20일선보다 3% 넘게 높은 첫날이다.</li>
 <li>90% 하락일: 하락 종목 거래량이 상승·하락 종목 거래량 합의 90% 이상이고, 하락 종목의 하락폭 합도 90% 이상인 날. 90% 상승일은 그 반대다.</li>
 </ul>
 </details>
@@ -1145,7 +1191,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 
 <details class="apx" open><summary>확인한 규칙 전체</summary>
 <p>공황 칸은 그 규칙의 자료가 있는 과거 공황 수다. 적중과 실패의 뜻은 본문과 같다.</p>
-<div class="tblwrap"><table class="tw" data-t="kbB"><thead><tr><th>규칙</th><th class="n">공황</th><th class="n">적중</th><th class="n">실패</th><th class="n">바닥 뒤 거래일</th><th class="n">지나간 상승률</th></tr></thead><tbody><tr><td>1단계 초단기 바닥 성립</td><td class="n">16</td><td class="n">16</td><td class="n">46</td><td class="n">2</td><td class="n">6.5%</td></tr><tr><td>2단계 팔로스루 데이</td><td class="n">16</td><td class="n">16</td><td class="n">40</td><td class="n">7</td><td class="n">11.0%</td></tr><tr><td>저점 대비 10% 상승</td><td class="n">16</td><td class="n">16</td><td class="n">26</td><td class="n">8.5</td><td class="n">10.4%</td></tr><tr><td>60일 이동평균 회복</td><td class="n">16</td><td class="n">16</td><td class="n">19</td><td class="n">18</td><td class="n">14.2%</td></tr><tr><td>저점 대비 15% 상승</td><td class="n">16</td><td class="n">16</td><td class="n">11</td><td class="n">20</td><td class="n">15.9%</td></tr><tr><td>100일 이동평균 회복</td><td class="n">16</td><td class="n">16</td><td class="n">11</td><td class="n">24.5</td><td class="n">16.6%</td></tr><tr><td>저점 대비 20% 상승</td><td class="n">16</td><td class="n">15</td><td class="n">6</td><td class="n">28</td><td class="n">20.7%</td></tr><tr><td>60일 신고가 종가</td><td class="n">16</td><td class="n">16</td><td class="n">8</td><td class="n">40.5</td><td class="n">22.1%</td></tr><tr><td>3단계 팔로스루 데이와 저점 대비 15% 상승</td><td class="n">16</td><td class="n">16</td><td class="n">10</td><td class="n">21</td><td class="n">16.4%</td></tr><tr><td>4단계 3단계와 60일 신고가 종가</td><td class="n">16</td><td class="n">16</td><td class="n">6</td><td class="n">40.5</td><td class="n">22.1%</td></tr><tr><td>하락폭의 3분의 1 회복</td><td class="n">16</td><td class="n">16</td><td class="n">13</td><td class="n">34</td><td class="n">19.3%</td></tr><tr><td>하락폭의 50% 회복</td><td class="n">16</td><td class="n">14</td><td class="n">4</td><td class="n">55.5</td><td class="n">24.9%</td></tr><tr><td>5거래일 사이 10.05% 넘게 상승(Whaley)</td><td class="n">16</td><td class="n">12</td><td class="n">15</td><td class="n">5.5</td><td class="n">14.5%</td></tr><tr><td>등락률 절댓값의 10일 평균이 2% 아래로 하락</td><td class="n">16</td><td class="n">13</td><td class="n">21</td><td class="n">11</td><td class="n">9.4%</td></tr><tr><td>Coppock 곡선 상승 전환</td><td class="n">16</td><td class="n">14</td><td class="n">3</td><td class="n">60</td><td class="n">35.1%</td></tr><tr><td>이중 바닥 뒤 고점 돌파(Bulkowski)</td><td class="n">16</td><td class="n">8</td><td class="n">1</td><td class="n">53.5</td><td class="n">20.6%</td></tr><tr><td>팔로스루 데이와 신용융자 잔고 급감</td><td class="n">12</td><td class="n">5</td><td class="n">1</td><td class="n">7</td><td class="n">6.8%</td></tr><tr><td>팔로스루 데이와 반대매매 급증</td><td class="n">6</td><td class="n">1</td><td class="n">1</td><td class="n">5</td><td class="n">18.6%</td></tr><tr><td>VKOSPI가 30 이상이던 최고치에서 20% 이상 하락</td><td class="n">7</td><td class="n">6</td><td class="n">8</td><td class="n">8.5</td><td class="n">9.1%</td></tr><tr><td>VKOSPI가 40 이상이던 최고치에서 25% 이상 하락</td><td class="n">7</td><td class="n">4</td><td class="n">3</td><td class="n">5.5</td><td class="n">13.2%</td></tr><tr><td>VKOSPI가 6거래일 사이 35% 이상 하락</td><td class="n">7</td><td class="n">1</td><td class="n">1</td><td class="n">4</td><td class="n">8.0%</td></tr><tr><td>팔로스루 데이와 VKOSPI 20% 이상 하락</td><td class="n">7</td><td class="n">5</td><td class="n">4</td><td class="n">10</td><td class="n">10.1%</td></tr><tr><td>90% 하락일 뒤 90% 상승일(Lowry)</td><td class="n">5</td><td class="n">1</td><td class="n">3</td><td class="n">1</td><td class="n">7.4%</td></tr><tr><td>상승 종목 비율의 급반전(Zweig)</td><td class="n">5</td><td class="n">1</td><td class="n">1</td><td class="n">8</td><td class="n">20.4%</td></tr><tr><td>10일 상승·하락 종목 수 비율 1.97 초과(Deemer)</td><td class="n">5</td><td class="n">2</td><td class="n">0</td><td class="n">10</td><td class="n">14.2%</td></tr><tr><td>5일 상승 종목 비율 73.66% 초과(Whaley)</td><td class="n">5</td><td class="n">1</td><td class="n">0</td><td class="n">5</td><td class="n">15.7%</td></tr><tr><td>5일 상승 거래량 비율 77.88% 초과(Whaley)</td><td class="n">5</td><td class="n">4</td><td class="n">3</td><td class="n">20</td><td class="n">15.4%</td></tr><tr><td>풋/콜 비율 상위 5% 뒤 팔로스루 데이</td><td class="n">12</td><td class="n">4</td><td class="n">3</td><td class="n">14</td><td class="n">8.2%</td></tr><tr><td>풋/콜 비율 하위 5% 뒤 팔로스루 데이</td><td class="n">12</td><td class="n">5</td><td class="n">10</td><td class="n">5</td><td class="n">10.1%</td></tr></tbody></table></div>
+<div class="tblwrap"><table class="tw" data-t="kbB"><thead><tr><th>규칙</th><th class="n">공황</th><th class="n">적중</th><th class="n">실패</th><th class="n">바닥 뒤 거래일</th><th class="n">지나간 상승률</th></tr></thead><tbody><tr><td>1단계 초단기 바닥 성립</td><td class="n">16</td><td class="n">16</td><td class="n">46</td><td class="n">2</td><td class="n">6.5%</td></tr><tr><td>2단계 팔로스루 데이</td><td class="n">16</td><td class="n">16</td><td class="n">40</td><td class="n">7</td><td class="n">11.0%</td></tr><tr><td>저점 대비 10% 상승</td><td class="n">16</td><td class="n">16</td><td class="n">26</td><td class="n">8.5</td><td class="n">10.4%</td></tr><tr><td>60일 이동평균 회복</td><td class="n">16</td><td class="n">16</td><td class="n">19</td><td class="n">18</td><td class="n">14.2%</td></tr><tr><td>저점 대비 15% 상승</td><td class="n">16</td><td class="n">16</td><td class="n">11</td><td class="n">20</td><td class="n">15.9%</td></tr><tr><td>100일 이동평균 회복</td><td class="n">16</td><td class="n">16</td><td class="n">11</td><td class="n">24.5</td><td class="n">16.6%</td></tr><tr><td>저점 대비 20% 상승</td><td class="n">16</td><td class="n">15</td><td class="n">6</td><td class="n">28</td><td class="n">20.7%</td></tr><tr><td>60일 신고가 종가</td><td class="n">16</td><td class="n">16</td><td class="n">8</td><td class="n">40.5</td><td class="n">22.1%</td></tr><tr><td>3단계 팔로스루 데이와 저점 대비 15% 상승</td><td class="n">16</td><td class="n">16</td><td class="n">10</td><td class="n">21</td><td class="n">16.4%</td></tr><tr><td>4단계 3단계와 60일 신고가 종가</td><td class="n">16</td><td class="n">16</td><td class="n">6</td><td class="n">40.5</td><td class="n">22.1%</td></tr><tr><td>하락폭의 3분의 1 회복</td><td class="n">16</td><td class="n">16</td><td class="n">13</td><td class="n">34</td><td class="n">19.3%</td></tr><tr><td>하락폭의 50% 회복</td><td class="n">16</td><td class="n">14</td><td class="n">4</td><td class="n">55.5</td><td class="n">24.9%</td></tr><tr><td>5거래일 사이 10.05% 넘게 상승(Whaley)</td><td class="n">16</td><td class="n">12</td><td class="n">15</td><td class="n">5.5</td><td class="n">14.5%</td></tr><tr><td>등락률 절댓값의 10일 평균이 2% 아래로 하락</td><td class="n">16</td><td class="n">13</td><td class="n">21</td><td class="n">11</td><td class="n">9.4%</td></tr><tr><td>Coppock 곡선 상승 전환</td><td class="n">16</td><td class="n">14</td><td class="n">3</td><td class="n">60</td><td class="n">35.1%</td></tr><tr><td>이중 바닥 뒤 고점 돌파(Bulkowski)</td><td class="n">16</td><td class="n">8</td><td class="n">1</td><td class="n">53.5</td><td class="n">20.6%</td></tr><tr><td>팔로스루 데이와 신용융자 잔고 급감</td><td class="n">12</td><td class="n">5</td><td class="n">1</td><td class="n">7</td><td class="n">6.8%</td></tr><tr><td>팔로스루 데이와 반대매매 급증</td><td class="n">6</td><td class="n">1</td><td class="n">1</td><td class="n">5</td><td class="n">18.6%</td></tr><tr><td>VKOSPI가 30 이상이던 최고치에서 20% 이상 하락</td><td class="n">7</td><td class="n">6</td><td class="n">8</td><td class="n">8.5</td><td class="n">9.1%</td></tr><tr><td>VKOSPI가 40 이상이던 최고치에서 25% 이상 하락</td><td class="n">7</td><td class="n">4</td><td class="n">3</td><td class="n">5.5</td><td class="n">13.2%</td></tr><tr><td>VKOSPI가 6거래일 사이 35% 이상 하락</td><td class="n">7</td><td class="n">1</td><td class="n">1</td><td class="n">4</td><td class="n">8.0%</td></tr><tr><td>팔로스루 데이와 VKOSPI 20% 이상 하락</td><td class="n">7</td><td class="n">5</td><td class="n">4</td><td class="n">10</td><td class="n">10.1%</td></tr><tr><td>90% 하락일 뒤 90% 상승일(Lowry)</td><td class="n">5</td><td class="n">1</td><td class="n">3</td><td class="n">1</td><td class="n">7.4%</td></tr><tr><td>상승 종목 비율의 급반전(Zweig)</td><td class="n">5</td><td class="n">1</td><td class="n">1</td><td class="n">8</td><td class="n">20.4%</td></tr><tr><td>10일 상승·하락 종목 수 비율 1.97 초과(Deemer)</td><td class="n">5</td><td class="n">2</td><td class="n">0</td><td class="n">10</td><td class="n">14.2%</td></tr><tr><td>5일 상승 종목 비율 73.66% 초과(Whaley)</td><td class="n">5</td><td class="n">1</td><td class="n">0</td><td class="n">5</td><td class="n">15.7%</td></tr><tr><td>5일 상승 거래량 비율 77.88% 초과(Whaley)</td><td class="n">5</td><td class="n">4</td><td class="n">3</td><td class="n">20</td><td class="n">15.4%</td></tr><tr><td>풋/콜 비율 상위 5% 뒤 팔로스루 데이</td><td class="n">12</td><td class="n">4</td><td class="n">3</td><td class="n">14</td><td class="n">8.2%</td></tr><tr><td>풋/콜 비율 하위 5% 뒤 팔로스루 데이</td><td class="n">12</td><td class="n">5</td><td class="n">10</td><td class="n">5</td><td class="n">10.1%</td></tr><tr><td>종가 5일선 돌파</td><td class="n">16</td><td class="n">16</td><td class="n">74</td><td class="n">1.5</td><td class="n">4.3%</td></tr><tr><td>종가 20일선 돌파</td><td class="n">16</td><td class="n">16</td><td class="n">43</td><td class="n">7.5</td><td class="n">8.2%</td></tr><tr><td>20일선 고임</td><td class="n">16</td><td class="n">16</td><td class="n">41</td><td class="n">15.5</td><td class="n">9.7%</td></tr><tr><td>종가 20일선 위 10거래일 연속</td><td class="n">16</td><td class="n">16</td><td class="n">18</td><td class="n">21</td><td class="n">16.3%</td></tr><tr><td>고임 뒤 20일선 3% 초과</td><td class="n">16</td><td class="n">16</td><td class="n">14</td><td class="n">24.5</td><td class="n">14.8%</td></tr></tbody></table></div>
 </details>
 
 <details class="apx" open><summary>출처</summary>
