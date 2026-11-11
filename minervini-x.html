@@ -576,6 +576,16 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
   box-sizing:border-box}
 .paper .sec,.paper .status,.paper .foot-in{max-width:none}
 
+/* 면책 문구 — footer 요소가 body 바로 아래(본문 기둥 밖)에 놓인 장이 80장이다. 폭 규칙이 없어
+   글이 화면 왼쪽 끝에 붙었다(2026-11-12 상수님 «네, 고쳐줘»). 글 폭을 본문 기둥의 글 폭과 맞춘다.
+   64px·36px 는 본문 기둥 좌우 여백(apply_layout.py 의 32px, 900px 이하 18px)의 2배다 — 그쪽을 바꾸면 여기도 바꾼다.
+   기둥 안에 있는 footer(8장)와 메인(index, 이 판형을 입지 않는다)은 해당하지 않는다.
+   ⚠ 이 주석에 꺾쇠를 붙여 footer 태그를 적지 않는다 — check_markers 와 여러 단계가 페이지에서
+     그 태그의 첫 자리를 글자로 찾는다(2026-11-12 관문 206건). */
+html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
+  margin-left:auto;margin-right:auto;padding-bottom:48px}
+@media(max-width:900px){html body > footer{max-width:calc(var(--w-col) - 36px);width:calc(100% - 36px)}}
+
 /* 자료 breakout — **그림·표 알맹이만** 기둥 밖으로. 가운데는 유지.
 
    ⚠ 처음엔 <figure> 통째로 넓혔다가 2026-08-02에 문제가 드러났다.
