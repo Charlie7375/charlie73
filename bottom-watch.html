@@ -434,11 +434,11 @@ h2[id],h3[id],[id]:target{scroll-margin-top:92px}
  margin:22px 0 24px;background:var(--surface);text-align:left}
 .ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
  color:var(--text-secondary);margin-bottom:7px;text-align:left}
-.ptoc ol{margin:0;padding-left:19px;line-height:1.8}
+.ptoc ol{margin:0;padding-left:28px;line-height:1.8}   /* 28px — «10.» 같은 2자리 번호가 상자·옆 단으로 넘어가지 않게(2026-11-11 kospi-bottom 13절에서 2번째 단의 «13.»이 1번째 단 글자와 겹쳤다) */
 .ptoc li{font-size:.9rem}
 .ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
 .ptoc a:hover{border-bottom-color:var(--text-secondary)}
-@media(min-width:900px){.ptoc ol{columns:2;column-gap:26px}.ptoc li{break-inside:avoid}}
+@media(min-width:900px){.ptoc ol{columns:2;column-gap:30px}.ptoc li{break-inside:avoid}}
 /*TOCCSS:END*/</style><style id="freqcss">
 .freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
  padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
@@ -537,7 +537,6 @@ html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in 
 @media(max-width:760px){.srch-box{top:12px} html body .site-srch>a.srch-nav{padding:8px 8px;font-size:12px}}
 @media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
 /* SEARCH:END */
-
 
 .wrap table{min-width:520px}
 .wrap td:first-child,.wrap th:first-child{white-space:nowrap}
