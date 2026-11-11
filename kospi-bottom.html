@@ -546,6 +546,8 @@ html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in 
 .kb-key td:first-child{font-weight:700}
 .wrap.paper > ul,.wrap.paper > ol{margin-bottom:18px;padding-left:1.4em}   /* 글머리표·번호가 본문 왼쪽 선 밖으로 나가지 않게(2026-11-11 상수님 «좌측 정렬이 깨져 보인다») */
 .wrap.paper > .tblwrap{margin:14px 0 20px}                                  /* 표 아래 문단이 표에 붙지 않게 */
+body > footer{max-width:1024px;width:calc(100% - 64px);margin:0 auto;padding:22px 0 48px}
+@media(max-width:900px){body > footer{width:calc(100% - 36px)}}
 .wrap.paper details.apx ul{padding-left:1.4em}
 /* 그림 1(개념) — SVG. 색은 사이트 토큰. 좁은 화면은 가로 스크롤 */
 .kbd-sc{overflow-x:auto}.kbd-sc svg{display:block;width:100%;min-width:640px;height:auto}
@@ -914,7 +916,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <p>주가는 하락하는 동안에도 여러 번 반등한다. 반등이 시작된 저점마다 바닥이라는 말이 붙는다. 이 글은 그 저점을 3가지로 구분한다.</p>
 
 <ul>
-<li>저점 후보 · 최근 20거래일 가운데 가장 낮은 종가다. 그 종가는 20거래일 최고 종가보다 5% 이상 낮아야 한다. 다음 거래일에 코스피가 상승 마감해야 한다. 그 다음 거래일을 '반등 첫날'이라 부른다.</li>
+<li>저점 후보 · 최근 20거래일 가운데 가장 낮은 종가다. 그 종가는 20거래일 최고 종가보다 5% 이상 낮아야 한다. 다음 거래일에 코스피가 상승 마감해야 한다. 그 상승 마감일을 '반등 첫날'이라 부른다.</li>
 <li>초단기 바닥 · 종가가 저점 아래로 하락하기 전에, 저점보다 5% 이상 높게 마감한 저점 후보다. 이때 초단기 바닥이 '성립했다'고 적는다. 초단기 바닥의 성립이 아래 1단계다.</li>
 <li>공황 · 코스피 종가가 고점에서 20% 이상 하락한 국면이다. 30% 이상은 중공황, 20~30%는 소공황이다. 3개월 안에 급락하고 3개월 안에 하락폭의 절반을 회복하면 플래시 크래시다. 기준은 <a href="kospi-panics.html">코스피 역대 공황</a>과 같다.</li>
 <li>진짜 바닥 · 공황 고점 뒤 가장 낮은 종가다. 공황이 끝난 뒤에야 확정된다.</li>
@@ -1214,6 +1216,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <li>다른 시장에서 바닥이 4단계를 거치지 않는 공황이 나오면 '다른 시장에서도 같았다'를 거둔다.</li>
 </ul>
 </details>
+<!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="bottom-watch.html">코스피 바닥 추적</a> 이 글의 점수와 단계를 지금 저점에 날마다 적용하는 화면이다. 단계가 바뀐 날을 기록한다.</p><p><a href="kospi-ftd.html">팔로스루 데이</a> 이 글의 2단계인 팔로스루 데이를 IBD의 정의에 따라 설명하고 코스피 공황마다 적용한 글이다. 정의와 실패 사례가 자세히 있다.</p><p><a href="kospi-panics.html">코스피 역대 공황</a> 이 글이 진짜 바닥으로 놓은 공황 바닥의 목록이다. 공황마다 고점 · 바닥 · 원인 · 바닥 뒤 3·6·12개월이 있다.</p><p><a href="deleveraging.html">강제청산</a> 이 글의 보조 신호인 신용융자 잔고 급감을 따로 다룬 글이다. 하루 6% 넘게 감소한 국면과 그 뒤 코스피를 확인했다.</p><p><a href="bottom-top.html">바닥·천장 추적</a> 지금 저점의 판정이 날마다 갱신되는 곳이다. 팔로스루 데이의 확인 기간과 거래대금 기준이 이 글과 다르다.</p></div><!--RELATED:END-->
 </div>
 <script src="vendor/chart-4.4.1.umd.js"></script>
 <!-- CHARTTHEME:BEGIN -->
@@ -1231,8 +1234,7 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
         return (x.dataset.label?x.dataset.label+'  ':'')+x.parsed.y.toLocaleString('ko-KR');}}}},
     scales:c.s}});
 });
-</script><div class="wrap"><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="bottom-watch.html">코스피 바닥 추적</a> 이 글의 점수와 단계를 지금 저점에 날마다 적용하는 화면이다. 단계가 바뀐 날을 기록한다.</p><p><a href="kospi-ftd.html">팔로스루 데이</a> 이 글의 2단계인 팔로스루 데이를 IBD의 정의에 따라 설명하고 코스피 공황마다 적용한 글이다. 정의와 실패 사례가 자세히 있다.</p><p><a href="kospi-panics.html">코스피 역대 공황</a> 이 글이 진짜 바닥으로 놓은 공황 바닥의 목록이다. 공황마다 고점 · 바닥 · 원인 · 바닥 뒤 3·6·12개월이 있다.</p><p><a href="deleveraging.html">강제청산</a> 이 글의 보조 신호인 신용융자 잔고 급감을 따로 다룬 글이다. 하루 6% 넘게 감소한 국면과 그 뒤 코스피를 확인했다.</p><p><a href="bottom-top.html">바닥·천장 추적</a> 지금 저점의 판정이 날마다 갱신되는 곳이다. 팔로스루 데이의 확인 기간과 거래대금 기준이 이 글과 다르다.</p></div><!--RELATED:END--></div>
-<footer>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.
+</script><footer>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.
     · 근거: 한국거래소 코스피 일별 종가·거래량(1990년부터), VKOSPI(2003년부터), 유가증권시장 전 종목 일별 시세, 코스피200 옵션 거래량, 금융투자협회 신용융자 잔고, S&amp;P 500·닛케이225·코스닥 일별 종가, IBD(Investor&#39;s Business Daily) 팔로스루 데이 정의. 공황 판정과 계산은 자체 실측.</footer>
 </div>
 

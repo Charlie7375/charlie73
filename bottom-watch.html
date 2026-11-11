@@ -538,14 +538,34 @@ html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in 
 @media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
 /* SEARCH:END */
 
+
 .wrap table{min-width:520px}
 .wrap td:first-child,.wrap th:first-child{white-space:nowrap}
 .paper .tblwrap > table[data-t^="bw"] td,.paper .tblwrap > table[data-t^="bw"] th{word-break:keep-all}
-.bw-on td{background:color-mix(in srgb,#2b6cb0 9%,transparent)}
-.bw-today{border-left:4px solid #c0392b;padding:10px 14px;margin:14px 0;background:color-mix(in srgb,#c0392b 6%,transparent)}
-.bw-none{border-left:4px solid #7f8c8d;padding:10px 14px;margin:14px 0}
+.paper .tblwrap > table[data-t="bw1"] td:nth-child(2),.paper .tblwrap > table[data-t="bw4"] td:nth-child(3){white-space:normal;min-width:220px}
+.bw-on td{background:color-mix(in srgb,var(--chart-pos) 10%,transparent)}
+.bw-today{border-left:4px solid var(--chart-neg);padding:10px 14px;margin:14px 0;background:color-mix(in srgb,var(--chart-neg) 7%,transparent)}
+.bw-none{border-left:4px solid var(--chart-mute);padding:10px 14px;margin:14px 0}
 .wrap.paper > ul,.wrap.paper > ol{margin-bottom:18px;padding-left:1.4em}
+.wrap.paper > ul > li,.wrap.paper > ol > li{font-size:16.5px;line-height:1.75;margin-bottom:4px}
 .wrap.paper > .tblwrap{margin:14px 0 20px}
+body > footer{max-width:1024px;width:calc(100% - 64px);margin:0 auto;padding:22px 0 48px}
+@media(max-width:900px){body > footer{width:calc(100% - 36px)}}
+.bwc-sc{overflow-x:auto}.bwc-sc svg{display:block;width:100%;min-width:680px;height:auto}
+.bwc text{font-variant-numeric:tabular-nums}
+.bwc .t{fill:var(--text-secondary);font-size:11.5px}.bwc .h{fill:var(--text);font-size:12px;font-weight:700}
+.bwc .ln{fill:none;stroke:var(--text);stroke-width:1.6;stroke-linejoin:round}.bwc .pt{fill:var(--text)}
+.bwc .gl{stroke:var(--chart-grid)}
+.bwc .neg{fill:var(--chart-neg)}.bwc .pos{fill:var(--chart-pos)}.bwc .hol{fill:var(--surface);stroke:var(--text);stroke-width:1.5}
+.bwc .tn{fill:var(--chart-neg);font-size:11.5px;font-weight:700}.bwc .tp{fill:var(--chart-pos);font-size:12px;font-weight:700}
+.bwc .ta{fill:var(--chart-accent);font-size:11.5px;font-weight:700}
+.bwc .l0{stroke:var(--chart-neg);stroke-width:1;stroke-dasharray:5 4}.bwc .l1{stroke:var(--chart-accent);stroke-width:1;stroke-dasharray:5 4}
+.bwc .bg{fill:var(--surface);opacity:.88}.bwc .halo{paint-order:stroke;stroke:var(--surface);stroke-width:3px;stroke-linejoin:round}
+.bw-leg{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;color:var(--text-secondary);margin:0 0 10px}
+.bw-leg i{display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:middle}
+.bw-leg .g-ln{width:16px;height:2px;background:var(--text)}.bw-leg .g-neg{border-radius:50%;background:var(--chart-neg)}
+.bw-leg .g-pos{background:var(--chart-pos);transform:rotate(45deg)}
+.bw-leg .g-l0{width:16px;height:0;border-top:2px dashed var(--chart-neg)}.bw-leg .g-l1{width:16px;height:0;border-top:2px dashed var(--chart-accent)}
 /* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
@@ -872,62 +892,60 @@ html body .wrap{max-width:var(--w-col)!important;margin-left:auto!important;
 <div class="eyebrow">오늘의 시장 · 바닥 추적</div>
 <h1>코스피 바닥 추적</h1>
 <p class="pauth">기준일 2026-11-11 · 코스피 일별 종가·거래량 · VKOSPI · 상승·하락 종목 수 · 신용융자 · 매일 갱신</p>
-<!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#진짜-바닥은-4단계로-확인한다">진짜 바닥은 4단계로 확인한다</a></li><li><a href="#초단기-바닥은-반등-첫날의-점수와-저점-대비-5-상승으로-확인한다">초단기 바닥은 반등 첫날의 점수와 저점 대비 5% 상승으로 확인한다</a></li><li><a href="#이번-공황에서-단계가-바뀐-날">이번 공황에서 단계가 바뀐 날</a></li></ol></div><!--TOC:END--></header>
+<!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#진짜-바닥-판정은-4단계-가운데-1단계다">진짜 바닥 판정은 4단계 가운데 1단계다</a></li><li><a href="#초단기-바닥-점수는-4점-가운데-4점이다">초단기 바닥 점수는 4점 가운데 4점이다</a></li><li><a href="#이번-공황의-초단기-바닥-5번-중-4번은-저점을-이탈했다">이번 공황의 초단기 바닥 5번 중 4번은 저점을 이탈했다</a></li></ol></div><!--TOC:END--></header>
 
 <!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div>
-<p>코스피의 지금 저점은 2026년 11월 9일의 종가 5,018.85다. 2026년 6월 22일 고점보다 44.9% 낮다. 이 저점은 2026년 11월 11일에 초단기 바닥이 성립했다. 진짜 바닥 판정은 4단계 가운데 1단계다.</p>
+<p>코스피의 지금 저점은 2026년 11월 9일의 종가 5,018.85다. 2026년 6월 22일 고점보다 44.9% 낮다. 이 저점은 2026년 11월 11일에 초단기 바닥이 성립했다. 진짜 바닥 판정은 4단계 가운데 1단계다. 과거 공황 16번에서 1단계 판정은 62번 중 16번(26%)이 진짜 바닥이었다.</p>
 <p>2026년 11월 11일 코스피 종가는 5,375.36이다. 저점 뒤 2거래일 동안 7.10% 상승했다.</p>
 </div><!--PCLAIM:END-->
 
 <div class="bw-today"><b>오늘 바뀐 것</b> · 2026년 11월 11일 · 1단계 초단기 바닥 성립(11월 9일 저점)</div>
 
-<p>이 화면은 단계만 적는다. 단계는 저점 뒤에 확인된 사실이다. 바닥을 전망하지 않는다. 정의와 과거 검증은 <a href="kospi-bottom.html">코스피 바닥 판별</a> 글에 있다.</p>
+<p>이 화면은 코스피의 지금 저점을 2가지로 판정한다. 초단기 바닥과 진짜 바닥이다. 초단기 바닥은 하락 1번이 끝난 저점이다. 진짜 바닥은 공황 전체가 끝난 저점이다. 공황은 코스피 종가가 고점에서 20% 이상 하락한 국면이다.</p>
 
-<h2 id="진짜-바닥은-4단계로-확인한다">진짜 바닥은 4단계로 확인한다</h2>
+<p>이 화면은 단계만 적는다. 단계는 저점 뒤에 확인된 사실이다. 바닥을 전망하지 않는다. 정의의 근거와 과거 검증은 <a href="kospi-bottom.html">코스피 바닥 판별</a> 글에 있다.</p>
 
-<p>아래 표는 지금 저점이 어느 단계까지 확인됐는지다. 마지막 칸은 과거 공황에서 그 단계의 판정이 적중한 횟수다. 종가가 저점을 이탈하면 판정은 무효다. 그때는 새 저점에서 1단계부터 다시 확인한다.</p>
+<h2 id="진짜-바닥-판정은-4단계-가운데-1단계다">진짜 바닥 판정은 4단계 가운데 1단계다</h2>
 
-<div class="tblwrap"><table class="tw" data-t="bw1"><thead><tr><th>단계</th><th>지금</th><th>기준</th><th>과거 판정 중 적중</th></tr></thead><tbody><tr class="bw-on"><td>1단계 초단기 바닥 성립</td><td>11월 11일 확인</td><td>종가 5,269.79 이상</td><td>62번 중 16번</td></tr><tr><td>2단계 팔로스루 데이</td><td>반등 2일차 · 4일차부터 판정</td><td>1.5% 이상 상승 · 거래량 증가</td><td>56번 중 16번</td></tr><tr><td>3단계 저점 대비 15% 상승</td><td>아직</td><td>종가 5,771.68 이상</td><td>26번 중 16번</td></tr><tr><td>4단계 60일 신고가 종가</td><td>아직</td><td>종가 7,080.92 이상</td><td>22번 중 16번</td></tr></tbody></table></div>
+<p>진짜 바닥은 아래 4단계로 확인한다. 단계는 저점 뒤에 차례로 확인되는 조건이다. 앞 단계가 확인된 저점만 다음 단계를 본다. 색이 있는 줄이 지금 저점에서 확인된 단계다.</p>
 
-<h2 id="초단기-바닥은-반등-첫날의-점수와-저점-대비-5-상승으로-확인한다">초단기 바닥은 반등 첫날의 점수와 저점 대비 5% 상승으로 확인한다</h2>
+<div class="tblwrap"><table class="tw" data-t="bw1"><thead><tr><th>단계</th><th>확인 조건</th><th>지금</th><th>과거 적중률</th></tr></thead><tbody><tr class="bw-on"><td><b>1단계</b> 초단기 바닥 성립</td><td>종가 5,269.79 이상(저점보다 5% 상승)</td><td>11월 11일 확인</td><td>62번 중 16번(26%)</td></tr><tr><td><b>2단계</b> 팔로스루 데이</td><td>반등 4일차 이후 하루 1.5% 이상 상승하고 거래량이 전날보다 증가</td><td>반등 2일차 · 4일차부터 판정</td><td>56번 중 16번(29%)</td></tr><tr><td><b>3단계</b> 저점 대비 15% 상승</td><td>2단계 뒤 종가 5,771.68 이상(저점보다 15% 상승)</td><td>아직</td><td>26번 중 16번(62%)</td></tr><tr><td><b>4단계</b> 60일 신고가 종가</td><td>3단계 뒤 종가 7,080.92 이상(60거래일 최고 종가)</td><td>아직</td><td>22번 중 16번(73%)</td></tr></tbody></table></div>
+
+<p>'과거 적중률' 칸은 과거 공황 16번에서 나온 값이다. 그 단계가 확인된 저점 가운데 진짜 바닥이었던 저점의 수다. 나머지는 그 뒤 종가가 저점을 이탈했다. 단계가 높을수록 적중률이 높다. 그 대신 확인이 늦다.</p>
+
+<p>다음은 2단계 팔로스루 데이다. 지금은 반등 2일차다. 팔로스루 데이는 4일차부터 판정한다. 2거래일 뒤부터다. 종가가 지금 저점 아래에서 마감하면 판정은 무효다. 그때는 새 저점에서 1단계부터 다시 확인한다.</p>
+
+<p>아래 그림은 이번 공황의 종가 위에 저점과 기준을 놓은 것이다.</p>
+
+<figure class="fig bwc"><div class="bw-leg"><span><i class="g-ln"></i>코스피 종가</span><span><i class="g-neg"></i>초단기 바닥이 성립한 뒤 이탈한 저점</span><span><i class="g-pos"></i>유지 중인 저점</span><span><i class="g-l0"></i>지금 저점의 종가</span><span><i class="g-l1"></i>아직 확인되지 않은 단계의 기준</span></div><div class="bwc-sc"><svg viewBox="0 0 900 386" role="img" aria-label="이번 공황의 코스피 종가와 초단기 바닥이 성립한 저점, 지금 저점의 단계 기준"><line class="gl" x1="56" y1="356.0" x2="826" y2="356.0"/><text class="t" x="49" y="360.0" text-anchor="end">4,000</text><line class="gl" x1="56" y1="300.3" x2="826" y2="300.3"/><text class="t" x="49" y="304.3" text-anchor="end">5,000</text><line class="gl" x1="56" y1="244.7" x2="826" y2="244.7"/><text class="t" x="49" y="248.7" text-anchor="end">6,000</text><line class="gl" x1="56" y1="189.0" x2="826" y2="189.0"/><text class="t" x="49" y="193.0" text-anchor="end">7,000</text><line class="gl" x1="56" y1="133.3" x2="826" y2="133.3"/><text class="t" x="49" y="137.3" text-anchor="end">8,000</text><line class="gl" x1="56" y1="77.7" x2="826" y2="77.7"/><text class="t" x="49" y="81.7" text-anchor="end">9,000</text><line class="gl" x1="56" y1="22.0" x2="826" y2="22.0"/><text class="t" x="49" y="26.0" text-anchor="end">10,000</text><line class="gl" x1="95.8" y1="356" x2="95.8" y2="361"/><text class="t" x="95.8" y="375" text-anchor="middle">6월</text><line class="gl" x1="235.2" y1="356" x2="235.2" y2="361"/><text class="t" x="235.2" y="375" text-anchor="middle">7월</text><line class="gl" x1="381.3" y1="356" x2="381.3" y2="361"/><text class="t" x="381.3" y="375" text-anchor="middle">8월</text><line class="gl" x1="514.0" y1="356" x2="514.0" y2="361"/><text class="t" x="514.0" y="375" text-anchor="middle">9월</text><line class="gl" x1="646.8" y1="356" x2="646.8" y2="361"/><text class="t" x="646.8" y="375" text-anchor="middle">10월</text><line class="gl" x1="779.5" y1="356" x2="779.5" y2="361"/><text class="t" x="779.5" y="375" text-anchor="middle">11월</text><line class="l0" x1="56" y1="299.3" x2="826" y2="299.3"/><rect class="bg" x="61" y="283.3" width="246" height="15" rx="2"/><text class="tn" x="65" y="294.3">지금 저점 5,018.85 · 이탈하면 판정 무효</text><line class="l1" x1="56" y1="257.4" x2="826" y2="257.4"/><rect class="bg" x="61" y="241.4" width="250" height="15" rx="2"/><text class="ta" x="65" y="252.4">3단계 기준 5,771.68 · 저점보다 15% 상승</text><line class="l1" x1="56" y1="184.5" x2="826" y2="184.5"/><rect class="bg" x="61" y="168.5" width="255" height="15" rx="2"/><text class="ta" x="65" y="179.5">4단계 기준 7,080.92 · 60거래일 최고 종가</text><path class="ln" d="M56.0,143.6L62.6,141.8L69.3,130.7L75.9,120.6L82.6,123.0L89.2,106.8L95.8,89.4L102.5,88.7L109.1,97.7L115.7,124.4L122.4,162.0L129.0,127.9L135.7,148.3L142.3,146.5L148.9,126.5L155.6,102.9L162.2,92.9L168.8,85.2L175.5,74.1L182.1,74.7L188.8,71.3L195.4,122.0L202.0,107.1L208.7,81.5L215.3,110.4L221.9,111.4L228.6,106.8L235.2,116.4L241.9,152.9L248.5,128.4L255.1,130.5L261.8,152.5L268.4,175.3L275.1,172.8L281.7,162.5L288.3,199.7L295.0,197.0L301.6,173.2L308.2,199.0L314.9,215.9L321.5,203.0L328.2,200.3L334.8,183.6L341.4,206.2L348.1,202.6L354.7,243.3L361.3,263.4L368.0,267.3L374.6,211.5L381.3,230.3L387.9,224.7L394.5,211.4L401.2,228.2L407.8,230.3L414.4,228.0L421.1,225.4L427.7,212.4L434.4,199.4L441.0,190.2L447.6,196.2L454.3,218.4L460.9,197.2L467.6,193.8L474.2,205.9L480.8,203.3L487.5,199.7L494.1,193.9L500.7,200.8L507.4,199.0L514.0,198.1L520.7,213.3L527.3,212.4L533.9,206.4L540.6,189.3L547.2,191.5L553.8,186.1L560.5,187.1L567.1,194.0L573.8,206.6L580.4,209.7L587.0,204.7L593.7,204.8L600.3,194.9L606.9,188.6L613.6,188.0L620.2,184.5L626.9,195.1L633.5,196.2L640.1,198.0L646.8,190.6L653.4,188.8L660.1,192.3L666.7,199.9L673.3,209.8L680.0,223.3L686.6,242.7L693.2,244.2L699.9,269.5L706.5,263.1L713.2,257.6L719.8,269.6L726.4,259.4L733.1,270.6L739.7,269.7L746.3,274.2L753.0,264.8L759.6,244.0L766.3,248.1L772.9,259.7L779.5,252.5L786.2,264.2L792.8,262.3L799.4,279.0L806.1,297.0L812.7,299.3L819.4,287.0L826.0,279.4"/><circle class="pt" cx="188.8" cy="71.3" r="3.5"/><text class="h" x="196.8" y="64.3" text-anchor="start">고점 6월 22일 9,114.55</text><circle class="neg" cx="288.3" cy="199.7" r="5"/><text class="tn halo" x="288.3" y="217.7" text-anchor="middle">7월 13일</text><circle class="neg" cx="314.9" cy="215.9" r="5"/><text class="tn halo" x="314.9" y="246.9" text-anchor="middle">7월 20일</text><circle class="neg" cx="368.0" cy="267.3" r="5"/><text class="tn halo" x="368.0" y="285.3" text-anchor="middle">7월 30일</text><circle class="neg" cx="746.3" cy="274.2" r="5"/><text class="tn halo" x="746.3" y="292.2" text-anchor="middle">10월 26일</text><path class="pos" d="M812.7,292.3 l7,7 l-7,7 l-7,-7 z"/><text class="tp" x="800.7" y="318.3" text-anchor="end">11월 9일 저점 5,018.85</text><circle class="pt" cx="826.0" cy="279.4" r="3"/><text class="h" x="833.0" y="283.4">5,375.36</text></svg></div><figcaption>2026년 5월 21일부터 2026년 11월 11일까지의 코스피 일별 종가다. 점 아래의 날짜는 그 저점의 날짜다. 가로 점선은 지금 저점(11월 9일)에만 해당한다.</figcaption><div class="srcline"><span class="lbl">출처</span><span>코스피 일별 종가(한국거래소) · 판정은 이 사이트의 계산</span></div></figure>
 
 <ul>
-<li>초단기 바닥 점수는 4점 가운데 4점이다.</li><li>반등 첫날(11월 10일) 상승률 4.39% · 기준 2% 이상 · 충족</li><li>저점 당일 20일 이격도 88.9 · 기준 92 이하 · 충족</li><li>반등 첫날 상승 종목 비율 80% · 기준 80% 이상 · 충족</li><li>저점 당일 VKOSPI 63.93 · 기준 30 이상 · 충족</li><li>회귀식으로 추정한 초단기 바닥 확률은 83%다. 검증에서 같은 구간의 저점 후보는 33번 중 28번이 초단기 바닥이 됐다.</li>
+<li>선은 코스피 종가다. 가장 높은 곳이 이번 공황의 고점이다.</li><li>붉은 점은 초단기 바닥이 성립했던 저점이다. 그 뒤 종가가 그 저점 아래에서 마감했다. 이번 공황에 4개 있다.</li><li>초록 표시는 지금 유지 중인 저점이다. 2026년 11월 9일의 종가 5,018.85다.</li><li>붉은 점선은 지금 저점의 종가다. 종가가 이 선 아래에서 마감하면 지금의 단계는 무효가 된다.</li><li>주황 점선은 아직 확인되지 않은 단계의 기준이다. 종가가 그 선 위에서 마감해야 그 단계가 확인된다. 3단계와 4단계는 앞 단계가 먼저 확인돼야 한다.</li><li>2단계 팔로스루 데이는 하루 상승률과 거래량으로 판정한다. 그래서 그림에 선이 없다.</li>
 </ul>
 
-<p>보조 지표는 아래와 같다. 단계에는 넣지 않는다.</p>
+<h2 id="초단기-바닥-점수는-4점-가운데-4점이다">초단기 바닥 점수는 4점 가운데 4점이다</h2>
 
-<ul>
-<li>저점 당일 거래량은 앞 50거래일 평균의 0.88배다. 보조 조건인 '평균 이상'은 충족하지 못했다.</li><li>VKOSPI는 11월 11일에 52.76이다. 저점 앞 10거래일부터의 최고치 65.17(11월 6일)보다 19.0% 낮다.</li><li>저점 당일의 수급은 3사분면이다. 지수가 하락한 날 개인이 순매도했다. 과거에는 이런 저점이 초단기 바닥이 된 비율이 더 높았다.</li><li>신용융자 잔고는 11월 10일에 하루 5.42% 감소했다. 깊은 급감으로 보는 6%에는 이르지 못했다.</li>
-</ul>
+<p>초단기 바닥은 저점 후보에서 판정한다. 저점 후보는 최근 20거래일 가운데 가장 낮은 종가다. 그 종가는 20거래일 최고 종가보다 5% 이상 낮아야 한다. 다음 거래일에 코스피가 상승 마감해야 한다. 그 상승 마감일이 '반등 첫날'이다. 종가가 저점을 이탈하기 전에 저점보다 5% 이상 높게 마감하면 초단기 바닥이 성립한다.</p>
 
-<h2 id="이번-공황에서-단계가-바뀐-날">이번 공황에서 단계가 바뀐 날</h2>
+<p>점수는 반등 첫날에 나온다. 조건 4개 가운데 충족한 조건의 수다. 점수가 높을수록 과거에 초단기 바닥이 많았다.</p>
 
-<p>이번 공황에서 초단기 바닥은 5번 성립했다. 그 가운데 4번은 그 뒤 종가가 저점을 이탈했다. 아래 표는 단계가 바뀐 날만 최근 순으로 적은 것이다.</p>
+<div class="tblwrap"><table class="tw" data-t="bw3"><thead><tr><th>조건</th><th class="n">지금</th><th class="n">기준</th><th>충족</th></tr></thead><tbody><tr><td>반등 첫날(11월 10일) 상승률</td><td class="n">4.39%</td><td class="n">2% 이상</td><td>충족</td></tr><tr><td>저점 당일 20일 이격도</td><td class="n">88.9</td><td class="n">92 이하</td><td>충족</td></tr><tr><td>반등 첫날 상승 종목 비율</td><td class="n">80%</td><td class="n">80% 이상</td><td>충족</td></tr><tr><td>저점 당일 VKOSPI</td><td class="n">63.93</td><td class="n">30 이상</td><td>충족</td></tr></tbody></table></div>
+
+<p>2010년부터 4점이던 저점 후보는 9번 중 8번이 초단기 바닥이 됐다. 회귀식으로 추정한 초단기 바닥 확률은 83%다. 검증에서 같은 구간의 저점 후보는 33번 중 28번이 초단기 바닥이 됐다.</p>
+
+<p>아래는 보조 지표다. 단계와 점수에는 넣지 않는다. 판정을 읽을 때 함께 본다.</p>
+
+<div class="tblwrap"><table class="tw" data-t="bw4"><thead><tr><th>보조 지표</th><th>지금</th><th>읽는 법</th></tr></thead><tbody><tr><td>저점 당일 거래량</td><td>앞 50거래일 평균의 0.88배</td><td>평균 이상이면 과거 1단계 판정의 적중이 더 많았다. 지금 저점은 이 조건을 충족하지 못했다.</td></tr><tr><td>VKOSPI</td><td>11월 11일 52.76</td><td>저점 앞 10거래일부터의 최고치는 11월 6일의 65.17이다. 지금은 그보다 19.0% 낮다. VKOSPI의 하락은 과거에 단계를 앞당기지 못했다.</td></tr><tr><td>저점 당일 수급</td><td>3사분면</td><td>지수가 하락한 날 개인이 순매도했다. 과거에는 이런 저점이 초단기 바닥이 된 비율이 더 높았다.</td></tr><tr><td>신용융자 잔고</td><td>11월 10일 하루 5.42% 감소</td><td>하루 6% 이상 감소하면 깊은 급감으로 본다. 지금은 그 기준에 이르지 못했다.</td></tr><tr><td>5일선 · 20일선</td><td>종가는 5일선 위 · 20일선보다 3.5% 낮다</td><td>저점 뒤 종가가 5일선 위에서 처음 마감한 날은 11월 11일이다. 20일선 고임은 아직 없다. 과거에 이동평균 규칙은 같은 시점의 단계보다 실패가 많았다.</td></tr></tbody></table></div>
+
+<h2 id="이번-공황의-초단기-바닥-5번-중-4번은-저점을-이탈했다">이번 공황의 초단기 바닥 5번 중 4번은 저점을 이탈했다</h2>
+
+<p>이번 공황에서 초단기 바닥은 5번 성립했다. 그 가운데 4번은 그 뒤 종가가 저점을 이탈했다. 아래 표는 단계가 바뀐 날만 최근 순으로 적은 것이다. '대상 저점'은 그 판정이 붙은 저점이다. '저점 이탈'은 종가가 그 저점 아래에서 마감한 날이다. 그날 그 저점의 단계는 모두 무효가 됐다.</p>
 
 <div class="tblwrap"><table class="tw" data-t="bw2"><thead><tr><th>날짜</th><th>바뀐 것</th><th>대상 저점</th><th class="n">그날 종가</th></tr></thead><tbody><tr class="bw-on"><td>2026-11-11</td><td>1단계 초단기 바닥 성립</td><td>11월 9일 저점 5,018.85</td><td class="n">5,375.36</td></tr><tr><td>2026-11-05</td><td>저점 이탈 · 판정 무효</td><td>10월 26일 저점 5,469.47</td><td class="n">5,383.80</td></tr><tr><td>2026-10-28</td><td>1단계 초단기 바닥 성립</td><td>10월 26일 저점 5,469.47</td><td class="n">6,012.44</td></tr><tr><td>2026-10-15</td><td>저점 이탈 · 판정 무효</td><td>7월 30일 저점 5,593.56</td><td class="n">5,554.22</td></tr><tr><td>2026-08-05</td><td>3단계 저점 대비 15% 상승</td><td>7월 30일 저점 5,593.56</td><td class="n">6,598.26</td></tr><tr><td>2026-08-05</td><td>2단계 팔로스루 데이</td><td>7월 30일 저점 5,593.56</td><td class="n">6,598.26</td></tr><tr><td>2026-07-31</td><td>1단계 초단기 바닥 성립</td><td>7월 30일 저점 5,593.56</td><td class="n">6,595.45</td></tr><tr><td>2026-07-28</td><td>저점 이탈 · 판정 무효</td><td>7월 20일 저점 6,516.27</td><td class="n">6,023.66</td></tr><tr><td>2026-07-23</td><td>1단계 초단기 바닥 성립</td><td>7월 20일 저점 6,516.27</td><td class="n">7,096.89</td></tr><tr><td>2026-07-20</td><td>저점 이탈 · 판정 무효</td><td>7월 13일 저점 6,806.93</td><td class="n">6,516.27</td></tr><tr><td>2026-07-15</td><td>1단계 초단기 바닥 성립</td><td>7월 13일 저점 6,806.93</td><td class="n">7,284.41</td></tr></tbody></table></div>
 
-<figure class="fig"><div class="cbox" style="height:360px"><canvas id="bwNow"></canvas></div><figcaption><span class="freq d">일간</span>2026년 5월 21일부터 코스피 일별 종가다. 빨간 점은 초단기 바닥이 성립했다가 종가가 저점을 이탈한 저점이다. 파란 점은 유지 중인 저점이다. 점선은 지금 저점의 3단계 기준이다.</figcaption><div class="srcline"><span class="lbl">출처</span><span>코스피 일별 종가(한국거래소) · 판정은 이 사이트의 계산</span></div></figure><script>(window.__JC=window.__JC||[]).push({"id": "bwNow", "t": "line", "l": ["2026-05-21", "2026-05-22", "2026-05-26", "2026-05-27", "2026-05-28", "2026-05-29", "2026-06-01", "2026-06-02", "2026-06-04", "2026-06-05", "2026-06-08", "2026-06-09", "2026-06-10", "2026-06-11", "2026-06-12", "2026-06-15", "2026-06-16", "2026-06-17", "2026-06-18", "2026-06-19", "2026-06-22", "2026-06-23", "2026-06-24", "2026-06-25", "2026-06-26", "2026-06-29", "2026-06-30", "2026-07-01", "2026-07-02", "2026-07-03", "2026-07-06", "2026-07-07", "2026-07-08", "2026-07-09", "2026-07-10", "2026-07-13", "2026-07-14", "2026-07-15", "2026-07-16", "2026-07-20", "2026-07-21", "2026-07-22", "2026-07-23", "2026-07-24", "2026-07-27", "2026-07-28", "2026-07-29", "2026-07-30", "2026-07-31", "2026-08-03", "2026-08-04", "2026-08-05", "2026-08-06", "2026-08-07", "2026-08-10", "2026-08-11", "2026-08-12", "2026-08-13", "2026-08-14", "2026-08-18", "2026-08-19", "2026-08-20", "2026-08-21", "2026-08-24", "2026-08-25", "2026-08-26", "2026-08-27", "2026-08-28", "2026-08-31", "2026-09-01", "2026-09-02", "2026-09-03", "2026-09-04", "2026-09-07", "2026-09-08", "2026-09-09", "2026-09-10", "2026-09-11", "2026-09-14", "2026-09-15", "2026-09-16", "2026-09-17", "2026-09-18", "2026-09-21", "2026-09-22", "2026-09-23", "2026-09-28", "2026-09-29", "2026-09-30", "2026-10-01", "2026-10-02", "2026-10-06", "2026-10-07", "2026-10-08", "2026-10-12", "2026-10-13", "2026-10-14", "2026-10-15", "2026-10-16", "2026-10-19", "2026-10-20", "2026-10-21", "2026-10-22", "2026-10-23", "2026-10-26", "2026-10-27", "2026-10-28", "2026-10-29", "2026-10-30", "2026-11-02", "2026-11-03", "2026-11-04", "2026-11-05", "2026-11-06", "2026-11-09", "2026-11-10", "2026-11-11"], "chips": true, "d": [{"label": "코스피 종가", "data": [7815.59, 7847.71, 8047.51, 8228.7, 8185.29, 8476.15, 8788.38, 8801.49, 8639.41, 8160.59, 7484.41, 8096.93, 7730.82, 7763.95, 8123.62, 8545.98, 8726.6, 8864.24, 9063.84, 9052.42, 9114.55, 8203.84, 8471.02, 8930.3, 8411.21, 8394.65, 8476.48, 8303.41, 7648.09, 8088.34, 8051.33, 7656.31, 7246.79, 7291.91, 7475.94, 6806.93, 6856.83, 7284.41, 6820.6, 6516.27, 6747.95, 6797.7, 7096.89, 6690.62, 6755.75, 6023.66, 5663.24, 5593.56, 6595.45, 6257.45, 6358.95, 6598.26, 6296.38, 6258.77, 6299.66, 6345.53, 6579.04, 6813.34, 6977.94, 6869.83, 6471.17, 6852.58, 6912.95, 6696.96, 6742.74, 6808.21, 6912.37, 6788.88, 6820.02, 6835.8, 6562.72, 6579.48, 6687.21, 6995.39, 6954.52, 7051.64, 7033.92, 6909.91, 6684.37, 6627.26, 6717.97, 6715.41, 6894.23, 7007.72, 7017.91, 7080.92, 6889.74, 6870.81, 6838.04, 6971.35, 7003.74, 6941.39, 6803.9, 6625.93, 6384.24, 6035.35, 6008.81, 5554.22, 5668.05, 5768.01, 5552.74, 5735.66, 5533.77, 5550.3, 5469.47, 5638.34, 6012.44, 5937.66, 5730.74, 5859.08, 5648.79, 5683.8, 5383.8, 5059.69, 5018.85, 5239.13, 5375.36], "borderColor": "#2b4c7e", "borderWidth": 1.4, "pointRadius": 0, "fill": false}, {"label": "초단기 바닥 · 그 뒤 이탈", "data": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 6806.93, null, null, null, 6516.27, null, null, null, null, null, null, null, 5593.56, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 5469.47, null, null, null, null, null, null, null, null, null, null, null, null], "showLine": false, "pointRadius": 6, "pointStyle": "circle", "borderColor": "#c0392b", "backgroundColor": "#c0392b"}, {"label": "초단기 바닥 · 유지 중", "data": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 5018.85, null, null], "showLine": false, "pointRadius": 7, "pointStyle": "rectRot", "borderColor": "#2b6cb0", "backgroundColor": "#2b6cb0"}, {"label": "3단계 기준(저점 대비 15% 상승)", "data": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 5771.68, 5771.68, 5771.68], "borderColor": "#d68910", "borderWidth": 1.2, "borderDash": [5, 4], "pointRadius": 0, "fill": false}], "s": {"x": {"ticks": {"maxTicksLimit": 9}, "grid": {"display": false}}, "y": {"title": {"display": true, "text": "코스피 종가"}, "grid": {"color": "rgba(128,128,128,.14)"}}}});</script>
-
 <p>이 화면의 단계는 종가로 판정한다. 그날 종가는 다음 거래일에 한국거래소 확정치로 다시 계산한다.</p>
+<!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="kospi-bottom.html">코스피 바닥 판별</a> 이 화면의 단계와 점수를 정의하고 1990년부터의 공황에서 적중과 실패 횟수를 확인한 글이다.</p><p><a href="bottom-top.html">바닥·천장 추적</a> 코스피 · SK하이닉스 · 삼성전자의 분산일과 팔로스루 데이 판정이 날마다 갱신되는 곳이다. 팔로스루 데이의 확인 기간이 이 화면과 다르다.</p><p><a href="kospi-ftd.html">팔로스루 데이</a> 이 화면의 2단계인 팔로스루 데이를 따로 설명한 글이다.</p></div><!--RELATED:END-->
 </div>
-<script src="vendor/chart-4.4.1.umd.js"></script>
-<!-- CHARTTHEME:BEGIN -->
-<script src="chart-theme.js?v=78def56d"></script>
-<!-- CHARTTHEME:END -->
-<script>
-(window.__JC=window.__JC||[]).forEach(function(c){
-  var el=document.getElementById(c.id); if(!el||!window.Chart) return;
-  new Chart(el,{type:c.t||'line',data:{labels:c.l,datasets:c.d},options:{
-    ctChips:!!c.chips,responsive:true,maintainAspectRatio:false,
-    interaction:{mode:'nearest',intersect:false},
-    plugins:{legend:{display:true,position:'bottom',
-        labels:{boxWidth:10,boxHeight:10,font:{size:11.5},usePointStyle:true}},
-      tooltip:{filter:function(x){return x.parsed.y!==null;},callbacks:{label:function(x){
-        return (x.dataset.label?x.dataset.label+'  ':'')+x.parsed.y.toLocaleString('ko-KR');}}}},
-    scales:c.s}});
-});
-</script><div class="wrap"><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="kospi-bottom.html">코스피 바닥 판별</a> 이 화면의 단계와 점수를 정의하고 1990년부터의 공황에서 적중과 실패 횟수를 확인한 글이다.</p><p><a href="bottom-top.html">바닥·천장 추적</a> 코스피 · SK하이닉스 · 삼성전자의 분산일과 팔로스루 데이 판정이 날마다 갱신되는 곳이다. 팔로스루 데이의 확인 기간이 이 화면과 다르다.</p><p><a href="kospi-ftd.html">팔로스루 데이</a> 이 화면의 2단계인 팔로스루 데이를 따로 설명한 글이다.</p></div><!--RELATED:END--></div>
 <footer>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.
     · 근거: 이야기꾼 주간 시투 보고서(W31·2026-08-01) 및 자체 실측.</footer>
 </div>
