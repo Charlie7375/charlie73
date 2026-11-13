@@ -1,4 +1,4 @@
-# 연준 SLOOS(Senior Loan Officer Opinion Survey) 항목별 · 은행 순비율 % · 분기(날짜 = 조사 분기 첫날) · FRED · 받은 날 2026-11-12 · scripts/precursor_sources.py
+# 연준 SLOOS(Senior Loan Officer Opinion Survey) 항목별 · 은행 순비율 % · 분기(날짜 = 조사 분기 첫날) · FRED · 받은 날 2026-11-13 · scripts/precursor_sources.py
 # 기준 열은 «대출 기준을 강화했다» − «완화했다» 은행 비율(플러스 = 강화). 수요 열(dem_)은 «수요가 늘었다» − «줄었다» 비율(플러스 = 수요 증가).
 # 열 — ci_large 대·중견기업 C&I 대출 기준(DRTSCILM) · ci_small 소기업 C&I 대출 기준(DRTSCIS) · cre_constr 상업용 부동산 대출 기준 · 건설·토지개발(SUBLPDRCSC) · cre_multi 상업용 부동산 대출 기준 · 다가구 주택(SUBLPDRCSM) · cre_nonres 상업용 부동산 대출 기준 · 비농업 비주거용(SUBLPDRCSN) · card 신용카드 대출 기준(DRTSCLCC) · auto 자동차 대출 기준(STDSAUTO) · cons_other 신용카드·자동차를 뺀 소비자 대출 기준(STDSOTHCONS) · mortgage_gse 주택담보대출 기준 · 공공기관(GSE) 매입 적격(SUBLPDHMSENQ) · dem_ci_large 대·중견기업 C&I 대출 수요(DRSDCILM) · dem_ci_small 소기업 C&I 대출 수요(DRSDCIS)
 # 계열마다 시작이 다르다 — 없는 분기는 빈칸이다. ci_large 는 FRED_SLOOS_대출태도_분기.csv 와 같은 계열이다(매번 대조).
