@@ -413,45 +413,6 @@ html,body{overflow-x:hidden}
  color:var(--accent);margin-bottom:5px}
 .pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 
-/* SEARCH:BEGIN */
-.srch-btn{position:fixed;top:auto;bottom:18px;right:68px;z-index:130;width:42px;height:42px;border-radius:50%;
-  background:var(--surface,#F6F7F9);border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text,#0f172a);
-  cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;
-  box-shadow:0 2px 14px rgba(0,0,0,.10);transition:transform .12s,box-shadow .12s}
-.srch-btn:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(0,0,0,.16)}
-.srch-btn:focus-visible,.srch-in:focus-visible,.srch-r a:focus-visible{outline:2px solid var(--accent,#2563eb);outline-offset:2px}
-.srch-bg{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.38);display:none}
-.srch-bg.on{display:block}
-.srch-box{position:fixed;z-index:201;top:72px;left:50%;transform:translateX(-50%);width:min(680px,calc(100vw - 24px));
-  max-height:calc(100vh - 96px);max-height:calc(100dvh - 96px);display:none;flex-direction:column;
-  background:var(--bg,#fff);color:var(--text,#0f172a);border:1px solid var(--border,rgba(15,23,42,.12));
-  border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.28);overflow:hidden}
-.srch-box.on{display:flex}
-.srch-top{display:flex;gap:8px;align-items:center;padding:12px 14px;border-bottom:1px solid var(--border,rgba(15,23,42,.12))}
-.srch-in{flex:1;min-width:0;font:inherit;font-size:16px;padding:9px 11px;border-radius:9px;
-  border:1px solid var(--border,rgba(15,23,42,.12));background:var(--surface,#F6F7F9);color:var(--text,#0f172a)}
-.srch-x{font:inherit;font-size:13px;padding:8px 10px;border-radius:9px;border:0;background:none;color:var(--text2,#6e6e73);cursor:pointer}
-.srch-meta{padding:8px 16px 0;font-size:12.5px;color:var(--text2,#6e6e73)}
-.srch-r{list-style:none;margin:0;padding:6px 8px 12px;overflow-y:auto;overscroll-behavior:contain}
-.srch-r li{margin:0}
-.srch-r a{display:block;padding:10px 10px;border-radius:9px;color:inherit;text-decoration:none}
-.srch-r a:hover,.srch-r a.cur{background:var(--surface,#F6F7F9)}
-.srch-k{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;padding:1px 6px;border-radius:5px;
-  margin-right:6px;vertical-align:1px;border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text2,#6e6e73)}
-.srch-t{font-weight:700;font-size:14.5px;line-height:1.4}
-.srch-h{font-size:13px;color:var(--text2,#6e6e73);margin-top:2px;line-height:1.4}
-.srch-s{font-size:13px;line-height:1.55;margin-top:4px;color:var(--text,#0f172a);opacity:.86}
-.srch-s mark,.srch-h mark,.srch-t mark{background:rgba(37,99,235,.18);color:inherit;border-radius:3px;padding:0 1px}
-/* 상단 메뉴 «검색» — 드롭다운 버튼(.site-group>button)과 같은 글자로.
-   ⚠ site-group 이 아니라 site-srch 로 감싼다 — 상단바 토글 JS 가 site-group 마다 버튼을 찾다 오류가 났다(2026-10-06). */
-html body .site-srch{position:relative;display:flex;align-items:center}
-html body .site-srch>a.srch-nav{display:flex;align-items:center;font-size:13px;font-weight:600;letter-spacing:-.01em;
-  line-height:normal;color:var(--text-secondary,#475569);padding:8px 12px;border-radius:9px;text-decoration:none}
-html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in srgb,var(--text) 6%,transparent)}
-@media(max-width:760px){.srch-box{top:12px} html body .site-srch>a.srch-nav{padding:8px 8px;font-size:12px}}
-@media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
-/* SEARCH:END */
-
 .kbp{margin:14px 0}
 .kbp>.s{font-weight:700;font-size:.92em;color:var(--text-secondary,#6e6e73);margin:0 0 3px}
 .kbp>div>p{margin:0 0 8px}
@@ -804,7 +765,53 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style><link rel="stylesheet" href="vendor/fonts.css"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
+/* PAPER:END */</style><link rel="stylesheet" href="vendor/fonts.css"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><style id="freqcss">
+.freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
+ padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
+ border:1px solid currentColor;opacity:.85}
+.freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
+.freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
+
+/* SEARCH:BEGIN */
+.srch-btn{position:fixed;top:auto;bottom:18px;right:68px;z-index:130;width:42px;height:42px;border-radius:50%;
+  background:var(--surface,#F6F7F9);border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text,#0f172a);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;
+  box-shadow:0 2px 14px rgba(0,0,0,.10);transition:transform .12s,box-shadow .12s}
+.srch-btn:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(0,0,0,.16)}
+.srch-btn:focus-visible,.srch-in:focus-visible,.srch-r a:focus-visible{outline:2px solid var(--accent,#2563eb);outline-offset:2px}
+.srch-bg{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.38);display:none}
+.srch-bg.on{display:block}
+.srch-box{position:fixed;z-index:201;top:72px;left:50%;transform:translateX(-50%);width:min(680px,calc(100vw - 24px));
+  max-height:calc(100vh - 96px);max-height:calc(100dvh - 96px);display:none;flex-direction:column;
+  background:var(--bg,#fff);color:var(--text,#0f172a);border:1px solid var(--border,rgba(15,23,42,.12));
+  border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.28);overflow:hidden}
+.srch-box.on{display:flex}
+.srch-top{display:flex;gap:8px;align-items:center;padding:12px 14px;border-bottom:1px solid var(--border,rgba(15,23,42,.12))}
+.srch-in{flex:1;min-width:0;font:inherit;font-size:16px;padding:9px 11px;border-radius:9px;
+  border:1px solid var(--border,rgba(15,23,42,.12));background:var(--surface,#F6F7F9);color:var(--text,#0f172a)}
+.srch-x{font:inherit;font-size:13px;padding:8px 10px;border-radius:9px;border:0;background:none;color:var(--text2,#6e6e73);cursor:pointer}
+.srch-meta{padding:8px 16px 0;font-size:12.5px;color:var(--text2,#6e6e73)}
+.srch-r{list-style:none;margin:0;padding:6px 8px 12px;overflow-y:auto;overscroll-behavior:contain}
+.srch-r li{margin:0}
+.srch-r a{display:block;padding:10px 10px;border-radius:9px;color:inherit;text-decoration:none}
+.srch-r a:hover,.srch-r a.cur{background:var(--surface,#F6F7F9)}
+.srch-k{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;padding:1px 6px;border-radius:5px;
+  margin-right:6px;vertical-align:1px;border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text2,#6e6e73)}
+.srch-t{font-weight:700;font-size:14.5px;line-height:1.4}
+.srch-h{font-size:13px;color:var(--text2,#6e6e73);margin-top:2px;line-height:1.4}
+.srch-s{font-size:13px;line-height:1.55;margin-top:4px;color:var(--text,#0f172a);opacity:.86}
+.srch-s mark,.srch-h mark,.srch-t mark{background:rgba(37,99,235,.18);color:inherit;border-radius:3px;padding:0 1px}
+/* 상단 메뉴 «검색» — 드롭다운 버튼(.site-group>button)과 같은 글자로.
+   ⚠ site-group 이 아니라 site-srch 로 감싼다 — 상단바 토글 JS 가 site-group 마다 버튼을 찾다 오류가 났다(2026-10-06). */
+html body .site-srch{position:relative;display:flex;align-items:center}
+html body .site-srch>a.srch-nav{display:flex;align-items:center;font-size:13px;font-weight:600;letter-spacing:-.01em;
+  line-height:normal;color:var(--text-secondary,#475569);padding:8px 12px;border-radius:9px;text-decoration:none}
+html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in srgb,var(--text) 6%,transparent)}
+@media(max-width:760px){.srch-box{top:12px} html body .site-srch>a.srch-nav{padding:8px 8px;font-size:12px}}
+@media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
+/* SEARCH:END */
+</style>
+</head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-watch.html">바닥 추적</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="macro-timeline.html">거시 이벤트 연대기</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="minervini-x.html">마크 미너비니 X 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-psk-holdings.html">피에스케이홀딩스</a><a href="stock-samsung-sdi.html">삼성SDI</a><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-nhn.html">NHN</a><a href="stock-kolmar.html">한국콜마</a><a href="stock-cosmax.html">코스맥스</a><a href="stock-pharmaresearch.html">파마리서치</a><a href="stock-jyp.html">JYP Ent.</a><a href="stock-sm-ent.html">에스엠</a><a href="stock-yg-ent.html">와이지엔터테인먼트</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="marks.html">하워드 막스의 방법론</a><a href="marks-glossary.html">사이클 용어사전</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a><a href="cycle-rope.html">사이클과 규칙</a></div></div><div class="site-group"><button class="here" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><span class="nav-h sub">시장 국면</span><a href="kosdaq-seasonality.html">해와 달의 코스닥</a><a href="kospi-bottom.html">코스피 바닥 판별</a><a href="sp500-ftd.html">S&P 500 팔로스루 데이</a><a href="kospi-ftd.html">팔로스루 데이</a><a href="kospi-panics.html">코스피 역대 공황</a><a href="rally-angle.html">상승 각도</a><a href="kospi-seasonality-down.html">해와 달의 코스피 · 역편</a><a href="kospi-drivers.html">코스피 선행 변수</a><a href="kospi-seasonality.html">해와 달의 코스피</a><a href="breadth-concentration.html">신고가 쏠림</a><a href="kospi-analog.html">닮은 과거</a><a href="audition-history.html">오디션 히스토리</a><a href="disparity-archive.html">두 버블의 이격도</a><a href="stage-analysis.html">와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리</a><span class="nav-h sub">신용과 청산</span><a href="credit-lag.html">미 은행 대출 태도와 가산금리</a><a href="us-credit-spread.html">미국 신용스프레드</a><a href="deleveraging.html">강제청산</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="sentiment.html">빚과 현금</a><span class="nav-h sub">수급과 폭락</span><a href="flow-quadrant.html">개인 수급 사분면</a><a href="foreign-flow.html">외국인 수급</a><a href="flow-extremes.html">개인과 외국인의 대량 매매</a><a href="flow-crashes.html">폭락의 구조</a><span class="nav-h sub">금리와 통화</span><a href="rate-crash-primer.html">금리-공황 프로세스 읽기</a><a href="nikkei-rates.html">닛케이와 미국 금리</a><a href="kospi-spx-gap.html">코스피와 S&P 500</a><a href="rate-crash-process.html">금리-공황 프로세스</a><a href="gold-rates.html">금리와 금값</a><a href="treasury-trust.html">미국 국채 바이백</a><a href="inflation-playbook.html">인플레 시대의 자산</a><a href="rates-century.html">미국 금리 100년</a><a href="liquidity.html">미국 유동성</a><a href="fed-kospi.html">연준 기준금리와 코스피</a><a href="rates-101.html">금리 기초</a><a href="rates-crashes.html">금리 5%와 공황</a><a href="dollar-kospi.html">달러와 코스피</a><span class="nav-h sub">경기와 수출</span><a href="jp-cci-kospi.html">일본 소비심리와 코스피</a><a href="us-elections.html">미국 선거와 증시</a><a href="export-kospi.html">수출과 코스피</a><a href="cli-kospi.html">OECD CLI 와 코스피</a><a href="ism-kospi.html">ISM 과 코스피</a><a href="jeoji-kospi.html">제오지산수</a><span class="nav-h sub">개별 종목</span><a href="memory-price.html">D램 가격과 삼성전자</a><a class="here" href="leadlag.html">하이닉스의 선행과 후행</a><a href="samsung-long.html">삼성전자 27년</a></div></div><div class="site-group"><button class="" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 153계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a href="data-kr-rates.html">한국 금리</a><a href="data-us-market.html">미국 시장</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a href="data-fx.html">환율·원자재·암호</a><a href="data-macro.html">재정·거시</a><a href="data-world.html">세계 증시</a></div></div><div class="site-srch"><a class="srch-nav" href="#search" role="button">검색</a></div><!-- NAV:END --></nav>
@@ -875,30 +882,30 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 <div class="kbp"><div class="s">사건이 먼저, 상관은 근거</div><div><p>상관계수는 독자가 아침에 볼 수 있는 숫자가 아니다. 독자가 보는 것은 "어젯밤 마이크론이 6% 상승했다"는 사건이다. 그래서 이 글은 사건을 앞에 놓고, 상관은 근거로 뒤에 둔다.</p></div></div>
 <div class="kbp"><div class="s">사건이 아니라 모든 날</div><div><p>이번에는 사건이 아니라 모든 날의 등락으로 상관을 계산했다. 그림 1의 파란 막대는 미국 → 하이닉스 상관이다. 빨간 막대는 하이닉스 → 미국 상관이다.</p></div></div>
 
-<figure class="fig"><div class="cbox" style="height:370px"><canvas id="g1"></canvas></div><figcaption>파란색은 미국에서 하이닉스로 가는 방향, 빨간색은 하이닉스에서 미국으로 가는 방향이다. 관계가 강한 순서로 정렬했다.</figcaption></figure>
+<figure class="fig"><div class="cbox" style="height:370px"><canvas id="g1"></canvas></div><figcaption><span class="freq d">일간</span>파란색은 미국에서 하이닉스로 가는 방향, 빨간색은 하이닉스에서 미국으로 가는 방향이다. 관계가 강한 순서로 정렬했다.</figcaption></figure>
 <p>칸은 2가지 방향의 상관, 상관 비율, 관계의 세기다. 상관 비율은 하이닉스 → 미국 상관을 미국 → 하이닉스 상관으로 나눈 값이다.</p>
 <p class="kb-cap">표 3. 양방향 상관: 관계의 세기는 마이크론이 가장 크다</p>
 <div class="tblwrap"><table class="tw"><thead><tr><th>상대</th><th class="n">미국 → 하이닉스</th><th class="n">하이닉스 → 미국</th>
 <th class="n">상관 비율</th><th class="n">관계의 세기</th><th class="n">판정</th></tr></thead>
-<tbody><tr class="cur"><td>마이크론<div class="w">같은 제품을 판매 · 메모리</div></td><td class="n">0.452</td><td class="n">0.372</td><td class="n">82%</td><td class="n">0.410</td><td class="n">충분</td></tr><tr><td>반도체 ETF(SOXX)<div class="w">반도체 섹터 전체</div></td><td class="n">0.431</td><td class="n">0.319</td><td class="n">74%</td><td class="n">0.371</td><td class="n">충분</td></tr><tr><td>반도체 ETF(SMH)<div class="w">반도체 섹터 전체 · 구성 다름</div></td><td class="n">0.428</td><td class="n">0.317</td><td class="n">74%</td><td class="n">0.368</td><td class="n">충분</td></tr><tr><td>TSMC<div class="w">같은 공급망 · 패키징 병목</div></td><td class="n">0.356</td><td class="n">0.278</td><td class="n">78%</td><td class="n">0.315</td><td class="n">충분</td></tr><tr><td>나스닥100(QQQ)<div class="w">반도체가 아님 · 시장 전체</div></td><td class="n">0.379</td><td class="n">0.228</td><td class="n">60%</td><td class="n">0.294</td><td class="n">충분</td></tr><tr><td>엔비디아<div class="w">서사만 공유 · AI 가속기</div></td><td class="n">0.273</td><td class="n">0.215</td><td class="n">79%</td><td class="n">0.242</td><td class="n"><span class="dim">약함</span></td></tr><tr><td>브로드컴<div class="w">서사만 공유 · 커스텀 ASIC</div></td><td class="n">0.315</td><td class="n">0.136</td><td class="n">43%</td><td class="n">0.207</td><td class="n"><span class="dim">약함</span></td></tr></tbody></table></div>
+<tbody><tr class="cur"><td>마이크론<div class="w">같은 제품을 판매 · 메모리</div></td><td class="n">0.452</td><td class="n">0.372</td><td class="n">82%</td><td class="n">0.410</td><td class="n">충분</td></tr><tr><td>반도체 ETF(SOXX)<div class="w">반도체 섹터 전체</div></td><td class="n">0.431</td><td class="n">0.319</td><td class="n">74%</td><td class="n">0.371</td><td class="n">충분</td></tr><tr><td>반도체 ETF(SMH)<div class="w">반도체 섹터 전체 · 구성 다름</div></td><td class="n">0.428</td><td class="n">0.317</td><td class="n">74%</td><td class="n">0.368</td><td class="n">충분</td></tr><tr><td>TSMC<div class="w">같은 공급망 · 패키징 병목</div></td><td class="n">0.354</td><td class="n">0.276</td><td class="n">78%</td><td class="n">0.312</td><td class="n">충분</td></tr><tr><td>나스닥100(QQQ)<div class="w">반도체가 아님 · 시장 전체</div></td><td class="n">0.379</td><td class="n">0.228</td><td class="n">60%</td><td class="n">0.294</td><td class="n">충분</td></tr><tr><td>엔비디아<div class="w">서사만 공유 · AI 가속기</div></td><td class="n">0.272</td><td class="n">0.215</td><td class="n">79%</td><td class="n">0.242</td><td class="n"><span class="dim">약함</span></td></tr><tr><td>브로드컴<div class="w">서사만 공유 · 커스텀 ASIC</div></td><td class="n">0.315</td><td class="n">0.136</td><td class="n">43%</td><td class="n">0.207</td><td class="n"><span class="dim">약함</span></td></tr></tbody></table></div>
 <div class="kbp"><div class="s">관계의 세기 1위: 마이크론</div><div><p>마이크론의 미국 → 하이닉스 상관은 0.452다. 하이닉스 → 미국 상관은 0.372다. 상관 비율은 82%다. 관계의 세기는 0.410이다.</p></div></div>
 <div class="kbp"><div class="s">가장 대등한 상대: 마이크론 82%</div><div><p>상관 비율로 가장 대등한 상대는 마이크론으로 82%다. 마이크론은 하이닉스와 같은 메모리를 판매한다. 같은 재료에 반응하므로, 어느 쪽이 먼저 반영하든 상대가 참고할 정보가 생긴다.</p></div></div>
 <div class="kbp"><div class="s">가장 일방적인 상대: 나스닥100(QQQ) 60%</div><div><p>관계의 세기가 충분한 상대 가운데 가장 일방적인 것은 나스닥100(QQQ)으로 60%다. 미국 → 하이닉스 상관은 0.379다. 하이닉스 → 미국 상관은 0.228에 그친다.</p></div></div>
-<div class="kbp"><div class="s">문턱 아래 상대는 비교에서 뺐다</div><div><p>관계의 세기가 문턱 0.25에 못 미치는 상대는 엔비디아 · 브로드컴이다. 엔비디아는 미국 → 하이닉스 상관만 보면 0.273으로 0.25보다 높다. 하이닉스 → 미국 상관은 0.215다. 2개 방향의 기하평균인 관계의 세기는 0.242로 문턱 아래다. 그래서 이들의 상관 비율은 비대칭 비교에서 뺐다.</p></div></div>
+<div class="kbp"><div class="s">문턱 아래 상대는 비교에서 뺐다</div><div><p>관계의 세기가 문턱 0.25에 못 미치는 상대는 엔비디아 · 브로드컴이다. 엔비디아는 미국 → 하이닉스 상관만 보면 0.272로 0.25보다 높다. 하이닉스 → 미국 상관은 0.215다. 2개 방향의 기하평균인 관계의 세기는 0.242로 문턱 아래다. 그래서 이들의 상관 비율은 비대칭 비교에서 뺐다.</p></div></div>
 <p class="kb-note">※ 상관 비율만 보면 잘못 읽는다. 작은 상관끼리 나눈 값은 우연에 크게 흔들린다. 그래서 이 글은 관계의 세기가 0.25 이상인 상대끼리만 비대칭을 말한다.</p>
-<p class="kb-note">※ 상관 표본은 짝이 맞는 날로 629~673일이다. 630일에서 상관이 0.078보다 크면 우연으로 보기 어렵다(유의수준 5%). 이 글은 그보다 높은 0.25를 '충분'의 문턱으로 정했다.</p>
-<p class="kb-note">※ 하이닉스 → 미국 상관은 부분상관이다. 하이닉스의 오늘 등락에는 전날 밤 미국의 등락이 이미 반영돼 있다. 그래서 전날 미국의 영향을 뺐다. 마이크론 기준으로 0.318에서 0.372로 오히려 높아졌다. 미국 일간 등락은 전날과 조금 반대로 움직이는 경향이 있다. 전날 밤 미국의 몫을 빼면 하이닉스의 몫이 드러난다는 뜻이다.</p>
-<p class="kb-note">※ 계산 정정(주식 분할). 미국 일봉은 분할을 반영하지 않은 원주가다. 처음 글은 이 종가로 등락을 계산했다. 그래서 분할한 날이 큰 하락으로 들어갔다. 엔비디아 2024년 6월 10일(10:1)은 하루 89.9% 하락으로 계산됐다. 분할을 되돌리면 0.7% 상승이다. 브로드컴 2024년 7월 15일(10:1)은 하루 89.9% 하락으로 계산됐다. 분할을 되돌리면 0.8% 상승이다. 반도체 ETF(SOXX) 2026년 11월 5일(3:1)은 하루 70.7% 하락으로 계산됐다. 분할을 되돌리면 12.1% 하락이다. 분할한 날의 등락을 분할 비율로 되돌려 다시 계산했다. 이 글은 2026년 9월 24일에 엔비디아 · 브로드컴의 계산을, 2026년 11월 6일에 반도체 ETF(SOXX)의 계산을 고쳤다. 엔비디아의 미국 → 하이닉스 상관은 0.166에서 0.273으로 높아졌다. 엔비디아가 5% 넘게 움직인 밤은 49번에서 48번으로 줄었다. 같은 방향 비율은 69%에서 71%로 바뀌었다. 브로드컴의 미국 → 하이닉스 상관은 0.211에서 0.315로 높아졌다. 브로드컴이 5% 넘게 움직인 밤은 62번에서 61번으로 줄었다. 같은 방향 비율은 71%에서 72%로 바뀌었다. 반도체 ETF(SOXX)의 미국 → 하이닉스 상관은 0.359에서 0.431로 높아졌다. 처음 글은 "엔비디아는 양방향이 모두 약하다"고 적었다. 분할을 반영해 다시 계산하면 미국 → 하이닉스 상관이 0.25보다 높다. 그래서 그 문장을 수정했다. 분할을 반영한 뒤에도 마이크론은 상관(0.452 대 0.273)과 같은 방향 비율(79% 대 71%) 모두 엔비디아보다 높다. 아침에 볼 것은 엔비디아가 아니라 마이크론이라는 결론은 그대로다.</p>
+<p class="kb-note">※ 상관 표본은 짝이 맞는 날로 630~673일이다. 630일에서 상관이 0.078보다 크면 우연으로 보기 어렵다(유의수준 5%). 이 글은 그보다 높은 0.25를 '충분'의 문턱으로 정했다.</p>
+<p class="kb-note">※ 하이닉스 → 미국 상관은 부분상관이다. 하이닉스의 오늘 등락에는 전날 밤 미국의 등락이 이미 반영돼 있다. 그래서 전날 미국의 영향을 뺐다. 마이크론 기준으로 0.319에서 0.372로 오히려 높아졌다. 미국 일간 등락은 전날과 조금 반대로 움직이는 경향이 있다. 전날 밤 미국의 몫을 빼면 하이닉스의 몫이 드러난다는 뜻이다.</p>
+<p class="kb-note">※ 계산 정정(주식 분할). 미국 일봉은 분할을 반영하지 않은 원주가다. 처음 글은 이 종가로 등락을 계산했다. 그래서 분할한 날이 큰 하락으로 들어갔다. 엔비디아 2024년 6월 10일(10:1)은 하루 89.9% 하락으로 계산됐다. 분할을 되돌리면 0.7% 상승이다. 브로드컴 2024년 7월 15일(10:1)은 하루 89.9% 하락으로 계산됐다. 분할을 되돌리면 0.8% 상승이다. 반도체 ETF(SOXX) 2026년 11월 5일(3:1)은 하루 70.7% 하락으로 계산됐다. 분할을 되돌리면 12.1% 하락이다. 분할한 날의 등락을 분할 비율로 되돌려 다시 계산했다. 이 글은 2026년 9월 24일에 엔비디아 · 브로드컴의 계산을, 2026년 11월 6일에 반도체 ETF(SOXX)의 계산을 고쳤다. 엔비디아의 미국 → 하이닉스 상관은 0.166에서 0.272로 높아졌다. 엔비디아가 5% 넘게 움직인 밤은 49번에서 48번으로 줄었다. 같은 방향 비율은 69%에서 71%로 바뀌었다. 브로드컴의 미국 → 하이닉스 상관은 0.211에서 0.315로 높아졌다. 브로드컴이 5% 넘게 움직인 밤은 62번에서 61번으로 줄었다. 같은 방향 비율은 71%에서 72%로 바뀌었다. 반도체 ETF(SOXX)의 미국 → 하이닉스 상관은 0.359에서 0.431로 높아졌다. 처음 글은 "엔비디아는 양방향이 모두 약하다"고 적었다. 분할을 반영해 다시 계산하면 미국 → 하이닉스 상관이 0.25보다 높다. 그래서 그 문장을 수정했다. 분할을 반영한 뒤에도 마이크론은 상관(0.452 대 0.272)과 같은 방향 비율(79% 대 71%) 모두 엔비디아보다 높다. 아침에 볼 것은 엔비디아가 아니라 마이크론이라는 결론은 그대로다.</p>
 <p class="kb-note">※ 이 사이트가 받는 창구는 필라델피아 반도체 지수의 과거 일별 값을 주지 않는다. 그래서 지수 대신 미국 상장 반도체 ETF 2개(SOXX · SMH)를 상대로 놓았다. 운용사도 구성도 다른 2개 ETF의 상관은 0.9826(673일)이다. 미국 → 하이닉스 상관도 0.431과 0.428로 0.003 차이다. 따라서 특정 ETF의 구성 때문에 생긴 왜곡은 아니다.</p>
 
 <h3>4-2. 시차별 상관: 영향은 하루를 넘기지 않는다</h3>
 <div class="kbp"><div class="s">우연이라면 아무 시차에서나 높다</div><div><p>관계가 우연이 아니라면 상관은 미국 밤의 다음 날(+1일)에서만 높아야 한다. 이틀 뒤(+2일)와 사흘 뒤(+3일)는 작아야 한다. 아무 시차에서나 값이 높으면 잡음이다. +0일은 하이닉스가 먼저 움직인 짝이다. 하이닉스 → 미국 관계가 있으므로 0보다 높다.</p></div></div>
 
-<figure class="fig"><div class="cbox" style="height:370px"><canvas id="g2"></canvas></div><figcaption>모든 상대의 상관이 +1일 시차에서 가장 높다. −1일 · −2일 시차는 모두 0 근처다.</figcaption></figure>
+<figure class="fig"><div class="cbox" style="height:370px"><canvas id="g2"></canvas></div><figcaption><span class="freq d">일간</span>모든 상대의 상관이 +1일 시차에서 가장 높다. −1일 · −2일 시차는 모두 0 근처다.</figcaption></figure>
 <p>칸은 시차다. 값은 모두 부분상관을 하기 전의 상관이다.</p>
 <p class="kb-cap">표 4. 시차별 상관: 모든 상대가 +1일에서 가장 높다</p>
-<div class="tblwrap"><table class="tw"><thead><tr><th>상대</th><th class="n">-2일</th><th class="n">-1일</th><th class="n">+0일</th><th class="n">+1일</th><th class="n">+2일</th><th class="n">+3일</th></tr></thead><tbody><tr class="cur"><td>마이크론</td><td class="n">0.053</td><td class="n">-0.050</td><td class="n">0.319</td><td class="n good">0.452</td><td class="n">-0.044</td><td class="n">0.017</td></tr><tr><td>반도체 ETF(SOXX)</td><td class="n">0.021</td><td class="n">-0.034</td><td class="n">0.250</td><td class="n good">0.431</td><td class="n">-0.079</td><td class="n">-0.011</td></tr><tr><td>반도체 ETF(SMH)</td><td class="n">0.014</td><td class="n">-0.030</td><td class="n">0.248</td><td class="n good">0.428</td><td class="n">-0.074</td><td class="n">-0.005</td></tr><tr><td>TSMC</td><td class="n">-0.042</td><td class="n">-0.032</td><td class="n">0.215</td><td class="n good">0.356</td><td class="n">-0.060</td><td class="n">0.006</td></tr><tr><td>나스닥100(QQQ)</td><td class="n">-0.004</td><td class="n">-0.003</td><td class="n">0.187</td><td class="n good">0.379</td><td class="n">-0.071</td><td class="n">-0.032</td></tr><tr><td>엔비디아</td><td class="n">-0.008</td><td class="n">-0.008</td><td class="n">0.178</td><td class="n good">0.273</td><td class="n">-0.046</td><td class="n">0.000</td></tr><tr><td>브로드컴</td><td class="n">0.005</td><td class="n">-0.039</td><td class="n">0.135</td><td class="n good">0.315</td><td class="n">-0.040</td><td class="n">-0.053</td></tr></tbody></table></div>
-<div class="kbp"><div class="s">마이크론 +1일 0.452</div><div><p>마이크론의 상관은 +1일 0.452다. +2일은 −0.044, −1일은 −0.050이다. +2일 · +3일은 모든 상대에서 절대값 0.079 이하다. 값 14개 가운데 1개(반도체 ETF(SOXX) +2일 −0.079)는 유의수준 5%의 문턱 0.078을 조금 넘는다. 관계가 전혀 없어도 값 14개를 함께 보면 평균 0.7개는 이 문턱을 넘는다. +2일 값 7개는 모두 0보다 작다. 미국 밤의 이틀 뒤 하이닉스 등락은 미국 밤과 조금 반대 방향으로 기울었다. 다만 상대 7개는 서로 함께 움직이므로, 7번 따로 확인한 것은 아니다. 가장 큰 값도 절대값 0.079로, +1일 값 가운데 가장 작은 엔비디아 0.273의 3분의 1보다 작다.</p></div></div>
+<div class="tblwrap"><table class="tw"><thead><tr><th>상대</th><th class="n">-2일</th><th class="n">-1일</th><th class="n">+0일</th><th class="n">+1일</th><th class="n">+2일</th><th class="n">+3일</th></tr></thead><tbody><tr class="cur"><td>마이크론</td><td class="n">0.053</td><td class="n">-0.049</td><td class="n">0.319</td><td class="n good">0.452</td><td class="n">-0.044</td><td class="n">0.017</td></tr><tr><td>반도체 ETF(SOXX)</td><td class="n">0.021</td><td class="n">-0.034</td><td class="n">0.250</td><td class="n good">0.431</td><td class="n">-0.079</td><td class="n">-0.011</td></tr><tr><td>반도체 ETF(SMH)</td><td class="n">0.014</td><td class="n">-0.030</td><td class="n">0.248</td><td class="n good">0.428</td><td class="n">-0.074</td><td class="n">-0.005</td></tr><tr><td>TSMC</td><td class="n">-0.040</td><td class="n">-0.027</td><td class="n">0.216</td><td class="n good">0.354</td><td class="n">-0.060</td><td class="n">0.006</td></tr><tr><td>나스닥100(QQQ)</td><td class="n">-0.004</td><td class="n">-0.003</td><td class="n">0.187</td><td class="n good">0.379</td><td class="n">-0.071</td><td class="n">-0.032</td></tr><tr><td>엔비디아</td><td class="n">-0.007</td><td class="n">-0.007</td><td class="n">0.178</td><td class="n good">0.272</td><td class="n">-0.046</td><td class="n">0.001</td></tr><tr><td>브로드컴</td><td class="n">0.005</td><td class="n">-0.039</td><td class="n">0.135</td><td class="n good">0.315</td><td class="n">-0.039</td><td class="n">-0.053</td></tr></tbody></table></div>
+<div class="kbp"><div class="s">마이크론 +1일 0.452</div><div><p>마이크론의 상관은 +1일 0.452다. +2일은 −0.044, −1일은 −0.049다. +2일 · +3일은 모든 상대에서 절대값 0.079 이하다. 값 14개 가운데 1개(반도체 ETF(SOXX) +2일 −0.079)는 유의수준 5%의 문턱 0.078을 조금 넘는다. 관계가 전혀 없어도 값 14개를 함께 보면 평균 0.7개는 이 문턱을 넘는다. +2일 값 7개는 모두 0보다 작다. 미국 밤의 이틀 뒤 하이닉스 등락은 미국 밤과 조금 반대 방향으로 기울었다. 다만 상대 7개는 서로 함께 움직이므로, 7번 따로 확인한 것은 아니다. 가장 큰 값도 절대값 0.079로, +1일 값 가운데 가장 작은 엔비디아 0.272의 3분의 1보다 작다.</p></div></div>
 <div class="kbp"><div class="s">하이닉스의 영향도 그날 밤까지</div><div><p>−1일 · −2일 시차는 모두 0 근처다. 즉 하이닉스의 영향도 그날 밤 안에 소진된다. 어느 쪽이든 영향은 하루를 넘기지 않는다.</p></div></div>
 <p class="kb-note">※ +1일 값은 표 3의 미국 → 하이닉스 상관과 같다. +0일 값은 표 3의 하이닉스 → 미국 상관과 다르다. 표 3의 값은 전날 밤 미국의 영향을 뺀 부분상관이다. 마이크론은 +0일 0.319, 표 3의 하이닉스 → 미국 0.372다.</p>
 
@@ -910,7 +917,7 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 
 <h2 id="지금-최근-5번의-밤-가운데-4번-같은-방향">지금: 최근 5번의 밤 가운데 4번 같은 방향</h2>
 <h3>6-1. 가장 최근 사건: 2026년 11월 16일 밤</h3>
-<div class="kbp"><div class="s">최근 사건</div><div><p>마이크론은 2026년 11월 16일 밤에 7.6% 하락했다. 다음 날 하이닉스는 2.0% 하락했다. 마이크론이 5% 넘게 움직인 최근 5번의 밤에서 다음 날 하이닉스는 4번 같은 방향, 1번 반대 방향이었다. 미국 자료는 2026년 11월 16일까지다. 이 페이지는 매일 다시 계산된다.</p></div></div>
+<div class="kbp"><div class="s">최근 사건</div><div><p>마이크론은 2026년 11월 16일 밤에 7.6% 하락했다. 다음 날 하이닉스는 2.0% 하락했다. 마이크론이 5% 넘게 움직인 최근 5번의 밤에서 다음 날 하이닉스는 4번 같은 방향, 1번 반대 방향이었다. 미국 자료는 2026년 11월 17일까지다. 이 페이지는 매일 다시 계산된다.</p></div></div>
 <p>최근 사건 12번은 원문 상세표에 있다.</p>
 
 <h3>6-2. 이 글의 결론: 아침에 볼 것은 마이크론, 그것도 그날 하루까지</h3>
@@ -921,7 +928,7 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 
 <h2 id="이-글의-한계">이 글의 한계</h2>
 <ol>
-<li>표본은 2024년 3월 14일부터 2026년 11월 16일까지 미국 673거래일이다. 국면이 바뀌면 순위도 바뀔 수 있다. 이 페이지는 매일 다시 계산된다.</li>
+<li>표본은 2024년 3월 14일부터 2026년 11월 17일까지 미국 674거래일이다. 국면이 바뀌면 순위도 바뀔 수 있다. 이 페이지는 매일 다시 계산된다.</li>
 <li>관계의 세기가 가장 큰 마이크론도 미국 → 하이닉스 상관은 0.452다. 설명력은 20% 남짓이다. 나머지는 국내 수급 · 환율 · 개별 이슈 같은 다른 요인이다. 그래서 모든 날로 보면 상관은 다음 날 방향을 맞히는 데 조금 보태는 정도다. 5% 넘게 움직인 날로 좁혀야 같은 방향이 79%가 된다.</li>
 <li>상관은 인과가 아니다. 한국 마감과 미국 개장 사이 7시간에 유럽장과 뉴스가 끼어 있다. 따라서 '하이닉스가 미국을 움직였다'가 아니라 '그 시간대에 하이닉스가 먼저 반영한 무언가가 미국에도 나타났다'가 정확하다. 이 글이 '영향'이라고 쓴 것도 이 뜻이다.</li>
 <li>5% 문턱은 이 글이 정한 것이다. 3%로 낮추면 마이크론이 3% 넘게 움직인 밤은 278번이다. 합친 같은 방향 비율은 77%다. 엔비디아는 176번, 64%다. 상승한 밤만 보면 마이크론 75%, 엔비디아 57%다. 순서는 바뀌지 않는다.</li>
@@ -957,7 +964,7 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 
 <details class="apx" open><summary>자료와 계산 방법</summary>
 <ul>
-<li>미국 일봉은 KB증권 해외 주식 일봉이다. 2024년 3월 14일부터 2026년 11월 16일까지 673거래일이다. 한국은 SK하이닉스 일별 시세다. 등락률은 전일 종가 대비 종가의 변화율이다.</li>
+<li>미국 일봉은 KB증권 해외 주식 일봉이다. 2024년 3월 14일부터 2026년 11월 17일까지 674거래일이다. 한국은 SK하이닉스 일별 시세다. 등락률은 전일 종가 대비 종가의 변화율이다.</li>
 <li>미국 일봉은 분할을 반영하지 않은 원주가다. 분할한 날은 엔비디아 2024년 6월 10일(10:1) · 브로드컴 2024년 7월 15일(10:1) · 반도체 ETF(SOXX) 2026년 11월 5일(3:1)이다. 그날의 등락은 분할 비율로 되돌렸다.</li>
 <li>사건은 전일 종가 대비 등락의 절대값이 5%를 넘는 날이다. 미국 사건의 짝은 그 뒤 첫 한국 거래일이다. 하이닉스 사건의 짝은 같은 날짜의 미국 종가다.</li>
 <li>「가장 어긋난 날」은 미국이 상승한 밤 뒤 하이닉스가 가장 크게 하락한 날과 하락한 밤 뒤 가장 크게 상승한 날 가운데 큰 쪽이다. 날짜는 미국 밤의 날짜다. 반대로 간 날이 없으면 '없음'이다.</li>
@@ -977,7 +984,7 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 <!-- CHARTTHEME:END -->
 <script>
 (function(){
-var CFG=[{"id": "g1", "k": "bar", "t": "양방향 — 미국이 하이닉스에 주는 정보와 하이닉스가 미국에 주는 정보", "l": ["마이크론", "반도체 ETF(SOXX)", "반도체 ETF(SMH)", "TSMC", "나스닥100(QQQ)", "엔비디아", "브로드컴"], "yt": "상관", "dp": 3, "d": [{"label": "미국 → 하이닉스 (다음날)", "data": [0.452, 0.431, 0.428, 0.356, 0.379, 0.273, 0.315], "backgroundColor": "#1161c4"}, {"label": "하이닉스 → 미국 (그날 밤, 부분상관)", "data": [0.372, 0.319, 0.317, 0.278, 0.228, 0.215, 0.136], "backgroundColor": "#d21f3c"}]},{"id": "g2", "t": "시차별 상관 — 미국 D 와 하이닉스 D+k", "l": ["-2일", "-1일", "+0일", "+1일", "+2일", "+3일"], "yt": "상관", "dp": 3, "xt": 6, "d": [{"label": "마이크론", "data": [0.053, -0.05, 0.319, 0.452, -0.044, 0.017], "borderColor": "#d21f3c", "borderWidth": 2.4, "pointRadius": 3, "tension": 0.2}, {"label": "반도체 ETF(SOXX)", "data": [0.021, -0.034, 0.25, 0.431, -0.079, -0.011], "borderColor": "#1161c4", "borderWidth": 1.5, "pointRadius": 3, "tension": 0.2}, {"label": "반도체 ETF(SMH)", "data": [0.014, -0.03, 0.248, 0.428, -0.074, -0.005], "borderColor": "#047857", "borderWidth": 1.5, "pointRadius": 3, "tension": 0.2}, {"label": "TSMC", "data": [-0.042, -0.032, 0.215, 0.356, -0.06, 0.006], "borderColor": "#eb6834", "borderWidth": 1.5, "pointRadius": 3, "tension": 0.2}, {"label": "나스닥100(QQQ)", "data": [-0.004, -0.003, 0.187, 0.379, -0.071, -0.032], "borderColor": "#7c3aed", "borderWidth": 1.5, "pointRadius": 3, "tension": 0.2}, {"label": "엔비디아", "data": [-0.008, -0.008, 0.178, 0.273, -0.046, 0.0], "borderColor": "#7c7a73", "borderWidth": 1.5, "pointRadius": 3, "tension": 0.2}, {"label": "브로드컴", "data": [0.005, -0.039, 0.135, 0.315, -0.04, -0.053], "borderColor": "#0891b2", "borderWidth": 1.5, "pointRadius": 3, "tension": 0.2}]}], CH=[];
+var CFG=[{"id": "g1", "k": "bar", "t": "양방향 — 미국이 하이닉스에 주는 정보와 하이닉스가 미국에 주는 정보", "l": ["마이크론", "반도체 ETF(SOXX)", "반도체 ETF(SMH)", "TSMC", "나스닥100(QQQ)", "엔비디아", "브로드컴"], "yt": "상관", "dp": 3, "d": [{"label": "미국 → 하이닉스 (다음날)", "data": [0.452, 0.431, 0.428, 0.354, 0.379, 0.272, 0.315], "backgroundColor": "#1161c4"}, {"label": "하이닉스 → 미국 (그날 밤, 부분상관)", "data": [0.372, 0.319, 0.317, 0.276, 0.228, 0.215, 0.136], "backgroundColor": "#d21f3c"}]},{"id": "g2", "t": "시차별 상관 — 미국 D 와 하이닉스 D+k", "l": ["-2일", "-1일", "+0일", "+1일", "+2일", "+3일"], "yt": "상관", "dp": 3, "xt": 6, "d": [{"label": "마이크론", "data": [0.053, -0.049, 0.319, 0.452, -0.044, 0.017], "borderColor": "#d21f3c", "borderWidth": 2.4, "pointRadius": 3, "tension": 0.2}, {"label": "반도체 ETF(SOXX)", "data": [0.021, -0.034, 0.25, 0.431, -0.079, -0.011], "borderColor": "#1161c4", "borderWidth": 1.5, "pointRadius": 3, "tension": 0.2}, {"label": "반도체 ETF(SMH)", "data": [0.014, -0.03, 0.248, 0.428, -0.074, -0.005], "borderColor": "#047857", "borderWidth": 1.5, "pointRadius": 3, "tension": 0.2}, {"label": "TSMC", "data": [-0.04, -0.027, 0.216, 0.354, -0.06, 0.006], "borderColor": "#eb6834", "borderWidth": 1.5, "pointRadius": 3, "tension": 0.2}, {"label": "나스닥100(QQQ)", "data": [-0.004, -0.003, 0.187, 0.379, -0.071, -0.032], "borderColor": "#7c3aed", "borderWidth": 1.5, "pointRadius": 3, "tension": 0.2}, {"label": "엔비디아", "data": [-0.007, -0.007, 0.178, 0.272, -0.046, 0.001], "borderColor": "#7c7a73", "borderWidth": 1.5, "pointRadius": 3, "tension": 0.2}, {"label": "브로드컴", "data": [0.005, -0.039, 0.135, 0.315, -0.039, -0.053], "borderColor": "#0891b2", "borderWidth": 1.5, "pointRadius": 3, "tension": 0.2}]}], CH=[];
 function draw(c){
  var el=document.getElementById(c.id);
  if(!el||!window.Chart){setTimeout(function(){draw(c)},300);return;}
@@ -1038,7 +1045,6 @@ CFG.forEach(draw);
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
-<!--SEARCH:BEGIN--><button class="srch-btn" type="button" aria-label="아카이브·원자료 검색 (단축키 /)" title="아카이브·원자료 검색 (/)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></button><script src="search.js?v=8509ea17c1" defer></script><!--SEARCH:END-->
 <button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 <script id="dotcom-defaults">
 /* ★ 차트 형식 정본 — kospi-dotcom-1998-2000 의 눈맛 (2026-08-08 상수님 지시)
@@ -1088,4 +1094,5 @@ CFG.forEach(draw);
     }
   });
 })();
-</script><!--TOCJS:END--></body></html>
+</script><!--TOCJS:END--><!--SEARCH:BEGIN--><button class="srch-btn" type="button" aria-label="아카이브·원자료 검색 (단축키 /)" title="아카이브·원자료 검색 (/)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></button><script src="search.js?v=8509ea17c1" defer></script><!--SEARCH:END-->
+</body></html>
