@@ -412,32 +412,6 @@ html,body{overflow-x:hidden}
 .pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
  color:var(--accent);margin-bottom:5px}
 .pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
-/*TOCCSS:BEGIN*/
-/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
-
-/* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
-   원인은 상단바다. .site-bar 가 position:sticky · 높이 78px 로 화면 맨 위를 덮는데
-   앵커로 이동하면 제목이 정확히 그 아래에 깔린다. 그래서 독자는 제목을 못 보고
-   그 다음 문단부터 보게 된다. 눌러 간 곳과 보이는 글이 어긋나는 것이 이 때문이다.
-   scroll-margin-top 이 0 이었다. 78 에 여백 14 를 더해 92 로 둔다.
-   ⚠ 상단바 높이를 바꾸면 이 값도 같이 바꾼다. 측정: .site-bar 의 getBoundingClientRect().height */
-h2[id],h3[id],[id]:target{scroll-margin-top:92px}
-@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
- margin:22px 0 24px;background:var(--surface);text-align:left}
-.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
- color:var(--text-secondary);margin-bottom:7px;text-align:left}
-.ptoc ol{margin:0;padding-left:28px;line-height:1.8}   /* 28px — «10.» 같은 2자리 번호가 상자·옆 단으로 넘어가지 않게(2026-11-11 kospi-bottom 13절에서 2번째 단의 «13.»이 1번째 단 글자와 겹쳤다) */
-.ptoc li{font-size:.9rem}
-.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
-.ptoc a:hover{border-bottom-color:var(--text-secondary)}
-@media(min-width:900px){.ptoc ol{columns:2;column-gap:30px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*/</style><link rel="stylesheet" href="vendor/fonts.css"><style id="freqcss">
-.freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
- padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
- border:1px solid currentColor;opacity:.85}
-.freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
-.freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
 
 /* SEARCH:BEGIN */
 .srch-btn{position:fixed;top:auto;bottom:18px;right:68px;z-index:130;width:42px;height:42px;border-radius:50%;
@@ -477,7 +451,35 @@ html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in 
 @media(max-width:760px){.srch-box{top:12px} html body .site-srch>a.srch-nav{padding:8px 8px;font-size:12px}}
 @media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
 /* SEARCH:END */
-/* PAPER:BEGIN */
+
+.kbp{margin:14px 0}
+.kbp>.s{font-weight:700;font-size:.92em;color:var(--text-secondary,#6e6e73);margin:0 0 3px}
+.kbp>div>p{margin:0 0 8px}
+.kbp ol,.kbp ul{padding-left:1.4em;margin:6px 0 10px}
+.kb-note{font-size:.88em;color:var(--text-secondary,#6e6e73);line-height:1.7;margin:4px 0}
+.kb-cap{font-weight:700;margin:20px 0 6px}
+.pclaim .kb-t{font-weight:800;margin-top:12px}
+/*TOCCSS:BEGIN*/
+/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
+
+/* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
+   원인은 상단바다. .site-bar 가 position:sticky · 높이 78px 로 화면 맨 위를 덮는데
+   앵커로 이동하면 제목이 정확히 그 아래에 깔린다. 그래서 독자는 제목을 못 보고
+   그 다음 문단부터 보게 된다. 눌러 간 곳과 보이는 글이 어긋나는 것이 이 때문이다.
+   scroll-margin-top 이 0 이었다. 78 에 여백 14 를 더해 92 로 둔다.
+   ⚠ 상단바 높이를 바꾸면 이 값도 같이 바꾼다. 측정: .site-bar 의 getBoundingClientRect().height */
+h2[id],h3[id],[id]:target{scroll-margin-top:92px}
+@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
+ margin:22px 0 24px;background:var(--surface);text-align:left}
+.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
+ color:var(--text-secondary);margin-bottom:7px;text-align:left}
+.ptoc ol{margin:0;padding-left:28px;line-height:1.8}   /* 28px — «10.» 같은 2자리 번호가 상자·옆 단으로 넘어가지 않게(2026-11-11 kospi-bottom 13절에서 2번째 단의 «13.»이 1번째 단 글자와 겹쳤다) */
+.ptoc li{font-size:.9rem}
+.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
+.ptoc a:hover{border-bottom-color:var(--text-secondary)}
+@media(min-width:900px){.ptoc ol{columns:2;column-gap:30px}.ptoc li{break-inside:avoid}}
+/*TOCCSS:END*//* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -802,8 +804,14 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style>
-<!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
+/* PAPER:END */</style><link rel="stylesheet" href="vendor/fonts.css"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><style id="freqcss">
+.freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
+ padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
+ border:1px solid currentColor;opacity:.85}
+.freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
+.freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
+</style>
+</head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-watch.html">바닥 추적</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="macro-timeline.html">거시 이벤트 연대기</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="minervini-x.html">마크 미너비니 X 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-psk-holdings.html">피에스케이홀딩스</a><a href="stock-samsung-sdi.html">삼성SDI</a><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-nhn.html">NHN</a><a href="stock-kolmar.html">한국콜마</a><a href="stock-cosmax.html">코스맥스</a><a href="stock-pharmaresearch.html">파마리서치</a><a href="stock-jyp.html">JYP Ent.</a><a href="stock-sm-ent.html">에스엠</a><a href="stock-yg-ent.html">와이지엔터테인먼트</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="marks.html">하워드 막스의 방법론</a><a href="marks-glossary.html">사이클 용어사전</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a><a href="cycle-rope.html">사이클과 규칙</a></div></div><div class="site-group"><button class="here" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><span class="nav-h sub">시장 국면</span><a href="kosdaq-seasonality.html">해와 달의 코스닥</a><a href="kospi-bottom.html">코스피 바닥 판별</a><a href="sp500-ftd.html">S&P 500 팔로스루 데이</a><a href="kospi-ftd.html">팔로스루 데이</a><a href="kospi-panics.html">코스피 역대 공황</a><a href="rally-angle.html">상승 각도</a><a href="kospi-seasonality-down.html">해와 달의 코스피 · 역편</a><a href="kospi-drivers.html">코스피 선행 변수</a><a href="kospi-seasonality.html">해와 달의 코스피</a><a href="breadth-concentration.html">신고가 쏠림</a><a href="kospi-analog.html">닮은 과거</a><a href="audition-history.html">오디션 히스토리</a><a href="disparity-archive.html">두 버블의 이격도</a><a href="stage-analysis.html">와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리</a><span class="nav-h sub">신용과 청산</span><a href="credit-lag.html">미 은행 대출 태도와 가산금리</a><a href="us-credit-spread.html">미국 신용스프레드</a><a href="deleveraging.html">강제청산</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="sentiment.html">빚과 현금</a><span class="nav-h sub">수급과 폭락</span><a href="flow-quadrant.html">개인 수급 사분면</a><a href="foreign-flow.html">외국인 수급</a><a href="flow-extremes.html">개인과 외국인의 대량 매매</a><a class="here" href="flow-crashes.html">폭락의 구조</a><span class="nav-h sub">금리와 통화</span><a href="rate-crash-primer.html">금리-공황 프로세스 읽기</a><a href="nikkei-rates.html">닛케이와 미국 금리</a><a href="kospi-spx-gap.html">코스피와 S&P 500</a><a href="rate-crash-process.html">금리-공황 프로세스</a><a href="gold-rates.html">금리와 금값</a><a href="treasury-trust.html">미국 국채 바이백</a><a href="inflation-playbook.html">인플레 시대의 자산</a><a href="rates-century.html">미국 금리 100년</a><a href="liquidity.html">미국 유동성</a><a href="fed-kospi.html">연준 기준금리와 코스피</a><a href="rates-101.html">금리 기초</a><a href="rates-crashes.html">금리 5%와 공황</a><a href="dollar-kospi.html">달러와 코스피</a><span class="nav-h sub">경기와 수출</span><a href="jp-cci-kospi.html">일본 소비심리와 코스피</a><a href="us-elections.html">미국 선거와 증시</a><a href="export-kospi.html">수출과 코스피</a><a href="cli-kospi.html">OECD CLI 와 코스피</a><a href="ism-kospi.html">ISM 과 코스피</a><a href="jeoji-kospi.html">제오지산수</a><span class="nav-h sub">개별 종목</span><a href="memory-price.html">D램 가격과 삼성전자</a><a href="leadlag.html">하이닉스의 선행과 후행</a><a href="samsung-long.html">삼성전자 27년</a></div></div><div class="site-group"><button class="" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 153계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a href="data-kr-rates.html">한국 금리</a><a href="data-us-market.html">미국 시장</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a href="data-fx.html">환율·원자재·암호</a><a href="data-macro.html">재정·거시</a><a href="data-world.html">세계 증시</a></div></div><div class="site-srch"><a class="srch-nav" href="#search" role="button">검색</a></div><!-- NAV:END --></nav>
@@ -813,77 +821,60 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 <div class="eyebrow">아카이브 · 폭락의 구조</div>
 <h1>경제에 문제가 없어도 폭락은 온다</h1>
 <p class="pauth">1987~2026 · 수급으로 생긴 폭락 8건 · 고정 자료 · 시장 데이터로 갱신되지 않는다</p>
-<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>경제에 문제가 없는데도 주가가 폭락한 일이 1987년부터 2026년까지 8번 있었다. 투자 전략이 틀려서가 아니라, 여러 투자자가 같은 종목을 대출로 보유하고 있어서였다. 1곳이 급하게 매도하면 비슷하게 투자하던 다른 펀드도 연쇄로 매도하게 된다. 다만 2026년 7월의 코스피 37.9% 하락만큼 지수가 하락한 선례는 없다. 같은 방식은 반복됐지만 규모는 처음이다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#보통의-하락은-스스로-멈추고-강제청산은-스스로-커진다">보통의 하락은 스스로 멈추고, 강제청산은 스스로 커진다</a></li><li><a href="#1987년부터-8번-같은-일이-되풀이됐다">1987년부터 8번, 같은 일이 되풀이됐다</a></li><li><a href="#8번-모두-경제에-문제가-없었고-대출은-한곳에-몰려-있었다">8번 모두 경제에 문제가 없었고 대출은 한곳에 몰려 있었다</a></li><li><a href="#2026년-7월은-방식이-같고-규모가-처음이다">2026년 7월은 방식이 같고 규모가 처음이다</a></li><li><a href="#아직-불확실한-곳은-어디인가">아직 불확실한 곳은 어디인가</a></li><li><a href="#그래서-끝났는지는-이것으로-본다">그래서 끝났는지는 이것으로 본다</a></li><li><a href="#apx">원문 상세표</a></li></ol></div><!--TOC:END--></header>
+<!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#보통의-하락은-스스로-멈추고-강제청산은-스스로-커진다">보통의 하락은 스스로 멈추고, 강제청산은 스스로 커진다</a></li><li><a href="#1987년부터-8번-같은-일이-되풀이됐다">1987년부터 8번, 같은 일이 되풀이됐다</a></li><li><a href="#8번-모두-경제에-문제가-없었고-대출은-한곳에-몰려-있었다">8번 모두 경제에 문제가 없었고 대출은 한곳에 몰려 있었다</a></li><li><a href="#2026년-7월은-방식이-같고-규모가-처음이다">2026년 7월은 방식이 같고 규모가 처음이다</a></li><li><a href="#그래서-끝났는지는-이것으로-본다">그래서 끝났는지는 이것으로 본다</a></li><li><a href="#이-글의-한계">이 글의 한계</a></li><li><a href="#이-글의-용어">이 글의 용어</a></li><li><a href="#apx">원문 상세표</a></li></ol></div><!--TOC:END--></header>
 
-<!--LEAD:BEGIN--><details class="lead"><summary>펼치기 · 문제 · 왜 지금 · 반론 · 이 글의 입장</summary>
-<p>무엇이 문제인가. 주가가 하락하는 이유는 보통 2가지 중 1가지다. 회사 실적이 악화됐거나, 경제가 악화됐거나.
-그런데 2가지 모두 아닌데 하락하는 경우가 있다.
-매도하는 쪽이 매도하고 싶어서가 아니라 강제로 매도해야 할 때다.
-이것을 경제 탓으로 읽으면 원인도, 끝나는 때도 잘못 짚는다.</p>
+<p>2026년 6월 22일 고점에서 7월 30일까지 코스피 종가는 38.6% 하락했다. 7월 한 달(6월 말 대비 7월 말) 하락률은 22.2%로 1990년 이후 3번째로 크다. 같은 달에 강제청산이 3곳에서 겹쳤다. 해외 반도체 펀드의 마진콜, 국내 레버리지 ETF의 구조적 매도, 신용융자 반대매매다.</p>
+<p>주가가 하락하는 이유는 보통 2가지 중 1가지다. 회사 실적이 악화됐거나, 경제가 악화됐거나. 그런데 2가지 모두 아닌데 하락하는 경우가 있다. 그래서 이 글은 1987년부터 2026년까지 강제청산으로 무너진 사건 8개를 모았다.</p>
+<p>결론부터 말하면, 8번 모두 경제에 문제가 없었다. 대출로 매수한 주식이 한곳에 쌓여 있었다. 문제는 2026년 7월의 규모다. 선례 7건의 지수 하락폭은 1987년의 하루 22.6%를 빼면 0%에서 8.8% 사이였다.</p>
+<p class="kb-note">※ 2026년 11월 19일 정정. 앞서 이 글은 2026년 7월 코스피가 한 달에 37.9% 하락했고 월간으로 역대 최대라고 적었다. 월말 종가로 다시 계산하면 7월 한 달 하락률은 22.2%로 1990년 이후 3번째다. 37.9%는 고점에서 저점까지의 하락률이었다. 지금 자료로는 38.6%다.</p>
 
-<p>왜 지금인가. 2026년 7월에 코스피가 한 달에 37.9% 하락했다. 월간으로 역대 최대다.
-같은 달에 강제청산이 3곳에서 겹쳤다.
-해외 반도체 펀드의 마진콜, 국내 레버리지 ETF의 구조적 매도, 신용융자 반대매매다.</p>
+<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div>
+<p class="kb-t">1. 강제청산: 1987년부터 8번</p><p>8번 모두 경제에 문제가 없었다.</p>
+<p class="kb-t">2. 공통점: 대출이 한곳에 몰려 있었다</p><p>가격이 하락할수록 더 매도해야 하는 고리가 작동했다.</p>
+<p class="kb-t">3. 2026년 7월: 방식은 같고 규모는 처음</p><p>고점에서 저점까지 38.6% 하락했다.</p>
+<p class="kb-t">4. 끝의 신호: 매도할 사람이 사라질 때</p><p>반등은 매수하려는 사람이 생긴 것이 아니라 매도할 사람이 없어진 것이었다.</p>
+</div><!--PCLAIM:END-->
 
-<p>반론은 무엇인가. "전에도 있었던 일이라 곧 돌아온다"는 말과 "이번에는 경제가 꺾인 것"이라는 말이 함께 나온다.
-이 글은 2가지 읽기 모두에 반대한다.
-같은 방식은 반복됐지만 지수가 이만큼 하락한 선례는 없다. 경제 지표에서 원인을 찾지도 못한다.</p>
-
-<p>이 글의 입장은 무엇인가. 1987년부터 2026년까지 강제청산으로 무너진 사건 8개를 모았다.
-8번 모두 경제에 문제가 없었다. 대출로 매수한 주식이 한곳에 쌓여 있었고,
-가격이 하락할수록 더 매도해야 하는 구조가 작동했다.
-다만 2026년 7월을 뺀 선례 7건의 지수 하락폭은 1987년의 하루 22.6%를 빼면 0%에서 8.8% 사이였다. 방식은 반복됐지만 규모는 처음이다.
-그래서 끝났는지를 무엇으로 보는지는 마지막 절에 있다.</p>
-</details><!--LEAD:END-->
 <section class="s">
 <h2 id="보통의-하락은-스스로-멈추고-강제청산은-스스로-커진다">보통의 하락은 스스로 멈추고, 강제청산은 스스로 커진다</h2>
 
-<p>주가가 하락하면 보통 어떤 일이 벌어질까. 가격이 낮아졌으니 매수하려는 사람이 생긴다.
-그래서 하락이 멈춘다. 보통의 하락은 이렇게 멈춘다.</p>
+<div class="kbp"><div class="s">보통의 하락은 멈춘다</div><div><p>주가가 하락하면 보통 어떤 일이 벌어질까. 가격이 낮아졌으니 매수하려는 사람이 생긴다.
+그래서 하락이 멈춘다. 보통의 하락은 이렇게 멈춘다.</p></div></div>
 
-<p>그런데 하락이 멈추지 않는 경우가 있다.
+<div class="kbp"><div class="s">대출로 매수한 사람이 많을 때</div><div><p>그런데 하락이 멈추지 않는 경우가 있다.
 대출로 주식을 매수한 사람이 많을 때다.
 대출로 매수한 주식이 본인 뜻과 무관하게 매도되는 것을 강제청산이라고 한다.
-이 글의 사례 8건이 전부 강제청산이다.</p>
+이 글의 사례 8건이 전부 강제청산이다.</p></div></div>
 
-<p>돈을 빌려 주식을 매수하면 증권사가 담보를 본다.
+<div class="kbp"><div class="s">반대매매와 마진콜</div><div><p>돈을 빌려 주식을 매수하면 증권사가 담보를 본다.
 주가가 하락해 담보가 부족해지면 증권사는 본인 의사와 무관하게 주식을 매도한다.
-이것을 반대매매라고 한다. 헤지펀드 세계에서는 마진콜이라고 부른다. 같은 말이다.</p>
+이것을 반대매매라고 한다. 헤지펀드 세계에서는 마진콜이라고 부른다. 같은 말이다.</p></div></div>
 
-<p>여기서 문제가 생긴다. 강제로 매도하면 주가가 더 하락한다.
+<div class="kbp"><div class="s">하락할수록 더 매도해야 하는 고리</div><div><p>여기서 문제가 생긴다. 강제로 매도하면 주가가 더 하락한다.
 더 하락하면 담보가 더 부족해진다. 그러면 또 매도해야 한다.
-하락할수록 더 매도해야 하는 고리가 작동하기 시작한다.</p>
+하락할수록 더 매도해야 하는 고리가 작동하기 시작한다.</p></div></div>
 
 <figure class="fig dg" style="width:min(1400px,calc(100vw - 48px));max-width:none;margin-left:calc((100% - min(1400px,calc(100vw - 48px)))/2)"><iframe class="dgv" data-dg="dg/flow-crashes-loop.html" src="dg/flow-crashes-loop.html?embed=1&amp;theme=light" title="강제청산의 되먹임 고리" loading="lazy" style="display:block;width:100%;aspect-ratio:1159/590;border:1px solid var(--border,#e3e3e6);border-radius:12px;background:var(--surface,#fff)"></iframe><figcaption>같은 "주가 하락"이라도 뒤에 무엇이 붙느냐가 완전히 다르다. 위 칸이 보통의 하락, 가운데 칸이 강제청산의 스스로 강해지는 되먹임이다. 이 페이지의 사례는 전부 가운데 칸이다. 그림을 누르면 경로를 따라갈 수 있고 <a href="dg/flow-crashes-loop.html">따로 열기</a>.</figcaption></figure>
 
-<p>보통의 하락에서는 가격이 낮아질수록 매수하는 사람이 늘어난다.
+<div class="kbp"><div class="s">방향이 정반대</div><div><p>보통의 하락에서는 가격이 낮아질수록 매수하는 사람이 늘어난다.
 강제청산에서는 가격이 낮아질수록 매도하는 사람이 늘어난다. 방향이 정반대다.
-그래서 상식으로 설명이 안 되는 하락폭이 나온다.</p>
+그래서 상식으로 설명이 안 되는 하락폭이 나온다.</p></div></div>
 
-<h3>4가지 낱말만 알면 된다</h3>
-<p>레버리지: 내 돈에 빌린 돈을 더해 크게 투자하는 것.
-4배 레버리지라면 1억으로 4억어치를 매수한다. 주가가 25%만 하락해도 내 돈은 모두 사라진다.</p>
-<p>마진콜: "담보가 모자라니 돈을 더 넣으세요"라는 통보.
-못 넣으면 강제로 매도된다.</p>
-<p>반대매매: 마진콜에 응하지 못했을 때 증권사가 대신 매도하는 것.
-가격을 따지지 않고 매도한다. 회수가 목적이지 잘 매도하는 것이 목적이 아니다.</p>
-<p>리밸런싱: 레버리지 ETF 같은 상품이 매일 자동으로 비중을 맞추는 것.
-문제는 지수가 하락하면 이 상품이 기계적으로 매도해야 한다는 점이다.
-사람의 판단이 개입할 여지가 없다.</p>
 </section>
 
 <section class="s">
 <h2 id="1987년부터-8번-같은-일이-되풀이됐다">1987년부터 8번, 같은 일이 되풀이됐다</h2>
 
+<p class="kb-cap">표 1. 강제청산 사례 8번: 지수 하락폭과 문제가 시작된 곳의 하락폭</p>
 <figure class="tw">
 <figcaption>수급으로 무너진 사례. 지수 하락폭은 시장 전체가 얼마나 하락했는지,
 진앙 하락폭은 문제가 시작된 종목·상품이 얼마나 하락했는지다. * 표시는 근사치.</figcaption>
 <table class="tbl"><thead><tr>
 <th>시기</th><th>사건</th><th>진앙</th><th class="n">지수</th><th class="n">진앙</th><th>기간</th>
-</tr></thead><tbody><tr><td>1987.10</td><td><b>블랙먼데이</b></td><td>다우 지수 자체</td><td class="n">-22.6%</td><td class="n">-22.6%</td><td>하루</td></tr><tr><td>2007.08</td><td><b>퀀트 퀘이크</b></td><td>골드만 GEO 펀드</td><td class="n">-3.0%</td><td class="n">-30.0%</td><td>1주</td></tr><tr><td>2018.02</td><td><b>볼마겟돈</b></td><td>XIV(인버스 변동성)</td><td class="n">-4.1%</td><td class="n">-97.0%</td><td>하루</td></tr><tr><td>2021.03</td><td><b>아케고스</b></td><td>ViacomCBS</td><td class="n">0.0%</td><td class="n">-60.0%</td><td>4일</td></tr><tr><td>2023.04</td><td><b>SG증권·CFD</b></td><td>8개 종목</td><td class="n">-1.0%</td><td class="n">-70.0%*</td><td>3~4일</td></tr><tr><td>2023.10</td><td><b>영풍제지</b></td><td>영풍제지</td><td class="n">-2.0%</td><td class="n">-80.0%*</td><td>수일</td></tr><tr><td>2024.08</td><td><b>2024 블랙먼데이</b></td><td>코스피 지수 자체</td><td class="n">-8.8%</td><td class="n">-8.8%</td><td>하루</td></tr><tr><td>2026.07</td><td><b>2026년 7월</b></td><td>코스피 지수 자체</td><td class="n">-37.9%</td><td class="n">-37.9%</td><td>1개월</td></tr></tbody></table>
+</tr></thead><tbody><tr><td>1987.10</td><td><b>블랙먼데이</b></td><td>다우 지수 자체</td><td class="n">-22.6%</td><td class="n">-22.6%</td><td>하루</td></tr><tr><td>2007.08</td><td><b>퀀트 퀘이크</b></td><td>골드만 GEO 펀드</td><td class="n">-3.0%</td><td class="n">-30.0%</td><td>1주</td></tr><tr><td>2018.02</td><td><b>볼마겟돈</b></td><td>XIV(인버스 변동성)</td><td class="n">-4.1%</td><td class="n">-97.0%</td><td>하루</td></tr><tr><td>2021.03</td><td><b>아케고스</b></td><td>ViacomCBS</td><td class="n">0.0%</td><td class="n">-60.0%</td><td>4일</td></tr><tr><td>2023.04</td><td><b>SG증권·CFD</b></td><td>8개 종목</td><td class="n">-1.0%</td><td class="n">-70.0%*</td><td>3~4일</td></tr><tr><td>2023.10</td><td><b>영풍제지</b></td><td>영풍제지</td><td class="n">-2.0%</td><td class="n">-80.0%*</td><td>수일</td></tr><tr><td>2024.08</td><td><b>2024 블랙먼데이</b></td><td>코스피 지수 자체</td><td class="n">-8.8%</td><td class="n">-8.8%</td><td>하루</td></tr><tr><td>2026.07</td><td><b>2026년 7월</b></td><td>코스피 지수 자체</td><td class="n">-38.6%</td><td class="n">-38.6%</td><td>약 1개월</td></tr></tbody></table>
 </figure>
 
-<figure class="fig"><div class="cbox" style="height:430px"><canvas id="fc"></canvas></div><figcaption><span class="freq d">일간</span>지수는 거의 움직이지 않는데 진앙만 무너진다. 2개 막대의 길이 차이가 클수록 그 사건이 시장 전체 문제가 아니라 특정 참가자의 사고였다는 뜻이다. 맨 아래 2건만 2개 막대가 같은데, 지수 자체가 진앙이었기 때문이다. 기간이 사건마다 달라 세로로 곧장 비교하면 안 된다. 막대에 마우스를 올리면 기간이 나온다. 2023년 2건은 연속 하한가라 정확한 집계가 어려워 근사치다.</figcaption></figure><script>(window.__FC=window.__FC||[]).push({"id": "fc", "l": ["1987.10 블랙먼데이", "2007.08 퀀트 퀘이크", "2018.02 볼마겟돈", "2021.03 아케고스", "2023.04 SG증권·CFD", "2023.10 영풍제지", "2024.08 2024 블랙먼데이", "2026.07 2026년 7월"], "f": ["1987.10 블랙먼데이 — 하루 동안 · 진앙: 다우 지수 자체", "2007.08 퀀트 퀘이크 — 1주 동안 · 진앙: 골드만 GEO 펀드", "2018.02 볼마겟돈 — 하루 동안 · 진앙: XIV(인버스 변동성)", "2021.03 아케고스 — 4일 동안 · 진앙: ViacomCBS", "2023.04 SG증권·CFD — 3~4일 동안 · 진앙: 8개 종목  (근사치)", "2023.10 영풍제지 — 수일 동안 · 진앙: 영풍제지  (근사치)", "2024.08 2024 블랙먼데이 — 하루 동안 · 진앙: 코스피 지수 자체", "2026.07 2026년 7월 — 1개월 동안 · 진앙: 코스피 지수 자체"], "d": [{"label": "지수 하락폭", "data": [-22.6, -3.0, -4.1, 0.0, -1.0, -2.0, -8.8, -37.9], "backgroundColor": "rgba(91,100,112,.55)", "borderWidth": 0}, {"label": "진앙 하락폭 (문제가 시작된 종목·상품)", "data": [-22.6, -30.0, -97.0, -60.0, -70.0, -80.0, -8.8, -37.9], "backgroundColor": "#d21f3c", "borderWidth": 0}]});</script>
+<figure class="fig"><div class="cbox" style="height:430px"><canvas id="fc"></canvas></div><figcaption><span class="freq d">일간</span>지수는 거의 움직이지 않는데 진앙만 무너진다. 2개 막대의 길이 차이가 클수록 그 사건이 시장 전체 문제가 아니라 특정 참가자의 사고였다는 뜻이다. 맨 아래 2건만 2개 막대가 같은데, 지수 자체가 진앙이었기 때문이다. 기간이 사건마다 달라 세로로 곧장 비교하면 안 된다. 막대에 마우스를 올리면 기간이 나온다. 2023년 2건은 연속 하한가라 정확한 집계가 어려워 근사치다.</figcaption></figure><script>(window.__FC=window.__FC||[]).push({"id": "fc", "l": ["1987.10 블랙먼데이", "2007.08 퀀트 퀘이크", "2018.02 볼마겟돈", "2021.03 아케고스", "2023.04 SG증권·CFD", "2023.10 영풍제지", "2024.08 2024 블랙먼데이", "2026.07 2026년 7월"], "f": ["1987.10 블랙먼데이 — 하루 동안 · 진앙: 다우 지수 자체", "2007.08 퀀트 퀘이크 — 1주 동안 · 진앙: 골드만 GEO 펀드", "2018.02 볼마겟돈 — 하루 동안 · 진앙: XIV(인버스 변동성)", "2021.03 아케고스 — 4일 동안 · 진앙: ViacomCBS", "2023.04 SG증권·CFD — 3~4일 동안 · 진앙: 8개 종목  (근사치)", "2023.10 영풍제지 — 수일 동안 · 진앙: 영풍제지  (근사치)", "2024.08 2024 블랙먼데이 — 하루 동안 · 진앙: 코스피 지수 자체", "2026.07 2026년 7월 — 약 1개월 동안 · 진앙: 코스피 지수 자체"], "d": [{"label": "지수 하락폭", "data": [-22.6, -3.0, -4.1, 0.0, -1.0, -2.0, -8.8, -38.6], "backgroundColor": "rgba(91,100,112,.55)", "borderWidth": 0}, {"label": "진앙 하락폭 (문제가 시작된 종목·상품)", "data": [-22.6, -30.0, -97.0, -60.0, -70.0, -80.0, -8.8, -38.6], "backgroundColor": "#d21f3c", "borderWidth": 0}]});</script>
 
 <h3>1987년 10월: 프로그램이 매도한 첫 사례</h3>
 <p>당시 미국에는 포트폴리오 보험이라는 것이 유행했다.
@@ -904,7 +895,7 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 결론은 이랬다. 1곳이 급하게 포지션을 매도했다.
 그러자 비슷한 방식으로 투자하던 다른 펀드들이 연쇄로 매도하게 됐다.
 전략이 틀린 것이 아니라 같은 종목을 보유하고 있었던 것이 문제였다는 것이다.</p>
-<p class="note">이 논문에는 2026년과 겹치는 대목이 있다.
+<p class="kb-note">※ 이 논문에는 2026년과 겹치는 대목이 있다.
 2007년 7월, 손실이 50%를 넘은 소우드 캐피털을 시타델이 인수했다.
 2026년 7월 SA펀드를 시타델이 인수한 것과 같은 구조다. 19년 만에 같은 회사가 같은 역할을 했다.</p>
 
@@ -936,7 +927,7 @@ CFD라는 파생 계좌를 썼다. 적은 돈으로 큰 금액을 운용할 수 
 <p>가장 큰 문제는 매도할 기회도 없었다는 것이다.
 하한가에서는 매수하려는 사람이 없어 거래가 안 된다.
 보유하고 있던 사람은 매일 30%씩 손실이 커지는 것을 보고만 있어야 했다.</p>
-<p class="note">참고로 CFD는 원래 10배까지 가능했다. 아케고스 사건 이후 2.5배로 규제됐다.
+<p class="kb-note">※ 참고로 CFD는 원래 10배까지 가능했다. 아케고스 사건 이후 2.5배로 규제됐다.
 사고가 나면 규제가 따라붙는다. 다만 늘 한 발 늦다.</p>
 
 <h3>2023년 10월: 증권사가 미수금 5,000억원을 떠안았다</h3>
@@ -959,82 +950,52 @@ CFD라는 파생 계좌를 썼다. 적은 돈으로 큰 금액을 운용할 수 
 </section>
 
 <section class="s">
-<div class="note"><p>이렇게 읽으면 안 된다. 「경제에 문제가 없었다」는 공통점은 표본을 그렇게 골랐기 때문일 수 있다. 경제가 나쁠 때 벌어진 강제청산은 그냥 공황으로 분류돼 이 목록에 안 들어왔다.</p></div>
+<p class="kb-note">※ 「경제에 문제가 없었다」는 공통점은 표본을 그렇게 골랐기 때문일 수 있다. 경제가 나쁠 때 벌어진 강제청산은 그냥 공황으로 분류돼 이 목록에 안 들어왔다.</p>
 
 <h2 id="8번-모두-경제에-문제가-없었고-대출은-한곳에-몰려-있었다">8번 모두 경제에 문제가 없었고 대출은 한곳에 몰려 있었다</h2>
 
-<h3>경제에 문제가 없었다</h3>
-<p>8번 모두 그랬다. 오히려 좋을 때가 많았다.
+<div class="kbp"><div class="s">경제에 문제가 없었다</div><div><p>8번 모두 그랬다. 오히려 좋을 때가 많았다.
 2018년 미국은 감세 직후 실업률 4.1%로 호황이었다.
 2021년 3월은 백신과 부양책으로 S&amp;P 500이 사상 최고였다.</p>
 <p>2026년 7월도 마찬가지다. 2026년 7월에 SK하이닉스와 삼성전자는 사상 최대 실적을 냈다.
-실적이 사상 최고인 달에 주가가 37.9% 하락한 것이다.</p>
-
-<h3>대출이 한곳에 몰려 있었다</h3>
-<p>아케고스 5배, CFD 최대 10배, SA펀드 4배.
-그리고 2026년 7월 말 한국에는 신용융자 32.5조원과 단일종목 레버리지 ETF가 있었다.</p>
-
-<h3>매도하는 쪽이 매도하고 싶어서 매도한 것이 아니다</h3>
-<p>매도하는 쪽의 뜻과 무관하게 매도가 일어난다는 것이 핵심이다. 앞에서 본 고리다.
-가격이 하락할수록 더 매도해야 하는 구조가 작동하면 하락폭은 상식을 벗어난다.</p>
-
-<h3>실적과 무관하게 벌어진다</h3>
-<p>2018년 2월 5일, 같은 시장 같은 날에 S&amp;P 500은 4.1% 하락인데 XIV는 97% 하락이었다.
-회사가 무엇을 잘못한 것이 아니라 구조가 매도를 낳은 것이다.</p>
-
-<h3>끝은 갑작스럽고, 반등도 급하다</h3>
-<p>매도해야 할 물량이 모두 나오면 매도가 그냥 사라진다.
+실적이 사상 최고인 달에 코스피가 22.2% 하락한 것이다.</p></div></div><div class="kbp"><div class="s">대출이 한곳에 몰려 있었다</div><div><p>아케고스 5배, CFD 최대 10배, SA펀드 4배.
+그리고 2026년 7월 말 한국에는 신용융자 32.5조원과 단일종목 레버리지 ETF가 있었다.</p></div></div><div class="kbp"><div class="s">매도하는 쪽이 매도하고 싶어서 매도한 것이 아니다</div><div><p>매도하는 쪽의 뜻과 무관하게 매도가 일어난다는 것이 핵심이다. 앞에서 본 고리다.
+가격이 하락할수록 더 매도해야 하는 구조가 작동하면 하락폭은 상식을 벗어난다.</p></div></div><div class="kbp"><div class="s">실적과 무관하게 벌어진다</div><div><p>2018년 2월 5일, 같은 시장 같은 날에 S&amp;P 500은 4.1% 하락인데 XIV는 97% 하락이었다.
+회사가 무엇을 잘못한 것이 아니라 구조가 매도를 낳은 것이다.</p></div></div><div class="kbp"><div class="s">끝은 갑작스럽고, 반등도 급하다</div><div><p>매도해야 할 물량이 모두 나오면 매도가 그냥 사라진다.
 아케고스는 은행들의 블록딜이 끝나자 안정됐다.
 2026년 7월 31일에는 시타델이 SA펀드를 인수한 뒤 코스피가 17.91% 상승했다.</p>
 <p>여기서 착각하기 쉽다. 이 반등은 매수하려는 사람이 생긴 것이 아니라
-매도할 사람이 없어진 것이다. 2가지는 완전히 다른 이야기다.</p>
-
-<h3>원래 비쌌던 것은 돌아오지 않는다</h3>
-<p>ViacomCBS는 아케고스 이전 가격으로 돌아가지 않았다.
+매도할 사람이 없어진 것이다. 2가지는 완전히 다른 이야기다.</p></div></div><div class="kbp"><div class="s">원래 비쌌던 것은 돌아오지 않는다</div><div><p>ViacomCBS는 아케고스 이전 가격으로 돌아가지 않았다.
 강제청산이 끝났다는 것과 적정 가격으로 돌아왔다는 것은 다른 말이다.
-거품이 있었다면 그 부분은 그대로 사라진다.</p>
-</section>
+거품이 있었다면 그 부분은 그대로 사라진다.</p></div></div></section>
 
 <section class="s">
 <h2 id="2026년-7월은-방식이-같고-규모가-처음이다">2026년 7월은 방식이 같고 규모가 처음이다</h2>
 
-<p>지금까지의 사례는 전부 1곳에서만 일어났다.
-2026년 7월은 3곳에서 같은 달에 일어났다.</p>
+<div class="kbp"><div class="s">1곳이 아니라 3곳</div><div><p>지금까지의 사례는 전부 1곳에서만 일어났다.
+2026년 7월은 3곳에서 같은 달에 일어났다.</p></div></div>
 
 <figure class="fig dg" style="width:min(1400px,calc(100vw - 48px));max-width:none;margin-left:calc((100% - min(1400px,calc(100vw - 48px)))/2)"><iframe class="dgv" data-dg="dg/flow-crashes-july.html" src="dg/flow-crashes-july.html?embed=1&amp;theme=light" title="2026년 7월 강제청산 3곳의 겹침" loading="lazy" style="display:block;width:100%;aspect-ratio:1104/696;border:1px solid var(--border,#e3e3e6);border-radius:12px;background:var(--surface,#fff)"></iframe><figcaption>3개의 강제청산이 같은 달에 겹쳐 지수까지 하락시켰다. <a href="dg/flow-crashes-july.html">따로 열기</a>.</figcaption></figure><script>(function(){var h=document.documentElement;function fit(f){try{var s=f.contentDocument&&f.contentDocument.querySelector("svg");if(s){var b=s.getBoundingClientRect().bottom+10;if(b>120)f.style.height=Math.ceil(b)+"px";}}catch(e){}}function sync(){var t=h.classList.contains("theme-dark")?"dark":"light";document.querySelectorAll("iframe.dgv").forEach(function(f){var u=f.getAttribute("data-dg")+"?embed=1&theme="+t;if(f.getAttribute("src")!==u){f.style.height="";f.setAttribute("src",u);}});}document.querySelectorAll("iframe.dgv").forEach(function(f){f.addEventListener("load",function(){setTimeout(function(){fit(f)},50);});});window.addEventListener("resize",function(){document.querySelectorAll("iframe.dgv").forEach(fit);});sync();if(window.MutationObserver)new MutationObserver(sync).observe(h,{attributes:true,attributeFilter:["class"]});})();</script>
 
-<p>그리고 2026년 8월 1일 기준으로는 아직 끝나지 않았다.
+<div class="kbp"><div class="s">8월 1일 기준: 청산 65%</div><div><p>그리고 2026년 8월 1일 기준으로는 아직 끝나지 않았다.
 씨티은행은 그때 신용융자 청산이 65%만 진행됐다고 추정했다.
 앞선 사례에서 반등은 매도해야 할 물량이 모두 나온 뒤에 왔다.
-그때 35%가 남아 있었다는 뜻이다.</p>
+그때 35%가 남아 있었다는 뜻이다.</p></div></div>
 </section>
 
 <section class="s">
-<h2 id="아직-불확실한-곳은-어디인가">아직 불확실한 곳은 어디인가</h2>
-
-<p>결론을 적었으면 그 결론이 틀렸다고 인정할 조건도 적어야 한다. 3가지다.</p>
-
-<p>① 이 글은 2026년 7월을 "수급 사고이지 경제 문제가 아니다"라고 본다.
-그런데 8월이나 9월에 기업 실적 전망 자체가 꺾이면 이 진단은 틀린 것이다.
-강제청산은 실적을 훼손하지 않는다. 그러나 실적이 훼손되면 하락폭이 회복되지 않는다.
-2021년 홍콩 항셍테크가 그랬다. 상승분의 113%를 반납했다.
-규제와 부동산 부실로 이익 전망 자체가 무너졌기 때문이다.</p>
-
-<p>② 사례가 8개뿐이다. 통계라고 부르기에는 너무 적다.
-"경제에 문제가 없었다"는 공통점도, 경제가 나쁠 때 벌어진 강제청산은 그냥 공황으로 분류되어
-이 목록에 안 들어왔기 때문일 수 있다.
-살아남은 사례만 보고 규칙을 만드는 생존 편향의 가능성을 배제하지 못한다.</p>
-
-<p>③ 이야기꾼의 "금리 인상 없이 강한 공황은 없었다"는 틀에 기대고 있다.
-130년이라 해도 실제 관측 횟수는 10번 안팎이다.
-금리 인상이 시작됐는데 시장이 버티거나, 인상 없이 무너지면 이 틀 자체가 흔들린다.</p>
-</section>
-
-<section class="s">
-<div class="note"><p>이렇게 읽으면 안 된다. 아래 신호는 과거 8번에서 공통으로 관찰된 것이지 검증된 매수 규칙이 아니다. 신호가 나왔다고 바닥이라는 뜻은 아니다.</p></div>
+<p class="kb-note">※ 아래 신호는 과거 8번에서 공통으로 관찰된 것이지 검증된 매수 규칙이 아니다. 신호가 나왔다고 바닥이라는 뜻은 아니다.</p>
 
 <h2 id="그래서-끝났는지는-이것으로-본다">그래서 끝났는지는 이것으로 본다</h2>
 
+<p>결론적으로 강제청산은 경제가 아니라 구조가 만든 하락이었다. 정리하면 아래와 같다.</p>
+<ol>
+<li>1987년부터 8번 모두 경제에 문제가 없었다. 대출로 매수한 주식이 한곳에 몰려 있었다.</li>
+<li>끝은 매도해야 할 물량이 모두 나온 뒤에 왔다. 반등은 매도할 사람이 없어진 결과였다.</li>
+<li>2026년 7월은 방식이 같고 규모가 처음이다.</li>
+</ol>
+
+<p class="kb-cap">표 2. 강제청산이 끝났다는 신호 5가지</p>
 <figure class="tw">
 <figcaption>강제청산이 끝났는지 판단하는 신호. 이 페이지의 사례들에서 공통으로 관찰된 것들이다.</figcaption>
 <table class="tbl"><thead><tr><th style="width:34%">볼 것</th><th>끝났다는 신호</th></tr></thead><tbody>
@@ -1051,31 +1012,55 @@ CFD라는 파생 계좌를 썼다. 적은 돈으로 큰 금액을 운용할 수 
 </tbody></table>
 </figure>
 
-<p>마지막 항목이 특히 중요하다.
+<div class="kbp"><div class="s">레버리지 ETF를 매수한 개인</div><div><p>마지막 항목이 특히 중요하다.
 2026년 7월 28일 코스피가 10.84% 하락한 날,
 개인은 코스피 현물을 매도하면서도 레버리지 ETF는 1조 996억원어치를 매수했다.
 그날 개인 순매수 전체의 25.5%다.
-하락하면 반등한다는 학습이 자리 잡은 것이다. 구조를 모르고 하면 같은 일을 다시 겪는다.</p>
+하락하면 반등한다는 학습이 자리 잡은 것이다. 구조를 모르고 하면 같은 일을 다시 겪는다.</p></div></div>
+
+<div class="kbp"><div class="s">반론에 대한 답</div><div><p>"전에도 있었던 일이라 곧 돌아온다"는 말과 "이번에는 경제가 꺾인 것"이라는 말이 함께 나온다.
+이 글은 2가지 읽기 모두에 반대한다.
+같은 방식은 반복됐지만 지수가 이만큼 하락한 선례는 없다. 경제 지표에서 원인을 찾지도 못한다.
+이 글은 이번 강제청산이 언제 끝날지 전망하지 않는다. 아래 표의 신호로 확인할 뿐이다.</p></div></div>
+</section>
+
+<section class="s">
+<h2 id="이-글의-한계">이 글의 한계</h2>
+<ol>
+<li>이 글은 2026년 7월을 "수급 사고이지 경제 문제가 아니다"라고 본다.
+그런데 8월이나 9월에 기업 실적 전망 자체가 꺾이면 이 진단은 틀린 것이다.
+강제청산은 실적을 훼손하지 않는다. 그러나 실적이 훼손되면 하락폭이 회복되지 않는다.
+2021년 홍콩 항셍테크가 그랬다. 상승분의 113%를 반납했다.
+규제와 부동산 부실로 이익 전망 자체가 무너졌기 때문이다.</li>
+<li>사례가 8개뿐이다. 통계라고 부르기에는 너무 적다.
+"경제에 문제가 없었다"는 공통점도, 경제가 나쁠 때 벌어진 강제청산은 그냥 공황으로 분류되어
+이 목록에 안 들어왔기 때문일 수 있다.
+살아남은 사례만 보고 규칙을 만드는 생존 편향의 가능성을 배제하지 못한다.</li>
+<li>이야기꾼의 "금리 인상 없이 강한 공황은 없었다"는 틀에 기대고 있다.
+130년이라 해도 실제 관측 횟수는 10번 안팎이다.
+금리 인상이 시작됐는데 시장이 버티거나, 인상 없이 무너지면 이 틀 자체가 흔들린다.</li>
+</ol>
+</section>
+
+<section class="s">
+<h2 id="이-글의-용어">이 글의 용어</h2>
+<p>강제청산은 대출로 매수한 주식이 본인 뜻과 무관하게 매도되는 것이다.</p>
+<p>레버리지는 내 돈에 빌린 돈을 더해 크게 투자하는 것.
+4배 레버리지라면 1억으로 4억어치를 매수한다. 주가가 25%만 하락해도 내 돈은 모두 사라진다.</p>
+<p>마진콜은 "담보가 모자라니 돈을 더 넣으세요"라는 통보.
+못 넣으면 강제로 매도된다.</p>
+<p>반대매매는 마진콜에 응하지 못했을 때 증권사가 대신 매도하는 것.
+가격을 따지지 않고 매도한다. 회수가 목적이지 잘 매도하는 것이 목적이 아니다.</p>
+<p>리밸런싱은 레버리지 ETF 같은 상품이 매일 자동으로 비중을 맞추는 것.
+문제는 지수가 하락하면 이 상품이 기계적으로 매도해야 한다는 점이다.
+사람의 판단이 개입할 여지가 없다.</p>
 </section>
 
 <section class="s refs-sec">
-<p class="dim">출처: 공개 자료와 인용 목록: 아래 <a href="#apx">원문 상세</a>에 있다.</p>
-
-</section>
-
-<div class="disclaimer">
-<p>주의. 과거 사례가 이번에도 같게 흘러간다는 보장은 없다.
-표본이 8개뿐이라 통계로 쓸 수 없다. 「아직 불확실한 곳은 어디인가」 절에 적은 반증 조건을 함께 읽어야 한다.
-이 페이지는 투자 판단을 대신하지 않는다. 저는 투자 전문가가 아니며, 투자의 최종 판단과 책임은 투자자 본인에게 있다.</p>
-</div>
-</div>
-<div class="wrap">
-
 <h2 id="apx">원문 상세표</h2>
-<p>본문에서 요약한 표와 계산 과정의 원본이다. 여기에 그대로 싣는다. 제목을 누르면 접었다 펼 수 있다.</p>
 <details class="apx" open><summary>출처: 공개 자료와 인용 목록</summary>
 
-<p class="note">공개 자료는 링크를 걸었다. 이야기꾼 보고서는 회원 대상 자료라 링크하지 않는다.
+<p class="kb-note">※ 공개 자료는 링크를 걸었다. 이야기꾼 보고서는 회원 대상 자료라 링크하지 않는다.
 보고서 번호와 발행일만 적어 둔다.</p>
 
 <h3>공개 자료</h3>
@@ -1129,8 +1114,13 @@ ViacomCBS and Discovery Pare Losses After Archegos-Driven Selloff.</a>
 <li>씨티은행 (2026). 코스피 신용융자 청산 진행률 추정 &mdash; W31 보고서에 인용된 것을 재인용.</li>
 </ol>
 </details>
+</section>
 
-<!--TOPICNEWS:BEGIN--><style id="tnewscss">.tnews{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 10px;margin:34px 0 10px}.tnews h3{margin:0 0 10px;font-size:1.02rem}.tnews table{width:100%;border-collapse:collapse;font-size:.9rem}.tnews td{padding:5px 8px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}.tnews td.d{white-space:nowrap;color:var(--text-secondary)}.tnews p.cap{margin:10px 0 8px;font-size:.8rem;color:var(--text-secondary);line-height:1.6}</style><div class="tnews"><h3>관련 뉴스</h3><p class="cap">제목에 검색어가 실제로 들어간 기사만 골랐다. 제목을 누르면 원문으로 간다.</p><p class="cap">국내: 「증시 폭락 수급」 로 찾았다.</p><div class="tblwrap"><table><tbody><tr><td class="d">Sun, 08 Nov</td><td class="d">에너지경제신문</td><td><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTFBUT0tmd0tKYm1uVTVUc2pDYkpBTTdzeFRuUUpaRU1FYmJJM3d5YkJEWkpaSVZXNHZjZW1Rc2F6ako1S2Q1RlNraUdOdFdQdUx4cy1CUnIyazhfYjg?oc=5" target="_blank" rel="noopener nofollow">코스피 폭락 진정될까…외국인 수급·AI 불안에 촉각 [주간증시]</a></td></tr><tr><td class="d">Sun, 08 Nov</td><td class="d">산경투데이</td><td><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTE9PbFAxV3VCSVdtdDI0RGt3dC1MQkFJaUZrXy1DUGFMR3pyLWVtNXZYZExqTW1CejFSRzJEWHRnLUtpNVZaWjhtR21fdnlNeWVWUEQ2aWE0WG1NSlp4cmhvVFVGc1lua3g3VWRGVURmRkbSAXRBVV95cUxPRDV5VmVGMnhia2RCSXl0RFhoazRvREZuM1FlQWhFdHVpQWptcWNxNzBnMm1VcDYwYWIwWDZudjk5V2FoOFd2Z3dCTU1LZjBsLVQ1MXR2NEZSQS1PUHJVS1N0V1A2aGRLMmMzU2JLa250dkYxZQ?oc=5" target="_blank" rel="noopener nofollow">코스피, 폭락 딛고 반등 시도…'5천피' 사수·외국인 수급 관건</a></td></tr><tr><td class="d">Fri, 30 Oct</td><td class="d">KB Think</td><td><a href="https://news.google.com/rss/articles/CBMickFVX3lxTE1IMTBTeHU0RHFTVUZrbUNFMnI4dzVQWU9FNGdOMHZqYlg5ODZNS19STXp1eGczaHZtbC1nbGFUUjBSZjE3ZF9hUzV0a3Rid0I4ZlYxaHhfMURjOEtTenhKNm1JNFQ2cHV4MnB0ZHZGVTdhUQ?oc=5" target="_blank" rel="noopener nofollow">[도쿄증시-마감] 기술주 폭락에 닛케이 2%대 하락</a></td></tr><tr><td class="d">Tue, 13 Oct</td><td class="d">한겨레</td><td><a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE0tRmpHc0Z2MmtGV2hxcTJUdFBod1lVYV8taW9YTzEya0E0RVpSV2dQZ3hWSFZZSFItcmFUV0lTWlo0YTBSZ19nVG9BcnVmMlB0TmlmREdGT2VXYjhONDNEXzZ6TlNKcTg?oc=5" target="_blank" rel="noopener nofollow">코스피 왜 홀로 폭락했나…중국 기술 추격에 ‘수급 공백’ 겹쳐</a></td></tr><tr><td class="d">Mon, 12 Oct</td><td class="d">연합인포맥스</td><td><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTE0wVEVJUWNIeFBoZGZhaXJWdkpSMjVZamJhQzBNbzlEN1hkU0tGWmFYcGNnZ0lPUk5hTndRRWxXRi1OQndzQkNia0tWenpLdzlzSVAxZmhLSGpNeTV3YmdwMkpKbmYzNHlRaTdBN3pUZTk?oc=5" target="_blank" rel="noopener nofollow">코스피만 왜 이러나…반도체 노이즈·수급 불안에 '나홀로 급락'</a></td></tr><tr><td class="d">Thu, 05 Nov</td><td class="d">이투데이</td><td><a href="https://news.google.com/rss/articles/CBMiVEFVX3lxTFB4RTc5YzA5bEU5NHB0VVdZOUhOLWZuYkZtLWxra2tkLTJINVFsRy1xdDhjYjlnNENkQTZXNFdSWXBuMmRXclZvdC1wVkR5LVVCcjV4bQ?oc=5" target="_blank" rel="noopener nofollow">[증시키워드] 美 반도체 12% 폭락에 삼전·SK하닉 추가 급락 우려⋯수급 이동할까</a></td></tr></tbody></table></div><p class="cap">출처 구글 뉴스 · 2026-11-18 기준. 뉴스는 이 글의 분석과 별개이며, 내용이 서로 다를 수 있다.</p></div><!--TOPICNEWS:END--><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="bottom-top.html">바닥·천장 추적</a> 2026년 7월 폭락이 끝났는지의 실시간 판정이 그 페이지이다.</p><p><a href="sentiment.html">빚과 현금</a> 여기 나온 폭락들의 공통 연료(신용융자·반대매매)를 28년 시계열로 계산한 것이 그 페이지이다.</p></div><!--RELATED:END--><!--GLOSSARY:BEGIN--><style id="glocss">.glo{margin:34px 0 8px}.glo h3{font-size:1.02rem;margin:0 0 12px}.glo dl{margin:0;font-size:.9rem;line-height:1.62}.glo dt{font-weight:800;margin-top:10px}.glo dd{margin:2px 0 0 0;color:var(--text-secondary,#555)}</style><div class="glo"><h3>용어 설명</h3><dl><dt>수급</dt><dd>누가 매수하고 누가 매도하는가. 개인·외국인·기관 3개 주체로 구분해 본다. 같은 가격이라도 누가 매수했는지에 따라 다음이 달라진다고 보는 관점이다.</dd><dt>순매수</dt><dd>매수 금액에서 매도 금액을 뺀 것. 플러스면 순매수, 마이너스면 순매도다.</dd><dt>표본</dt><dd>실제로 확인한 사례의 묶음. 표본이 적으면 우연히 그렇게 보였을 가능성을 배제하기 어렵다. 그래서 이 사이트는 사례가 몇 번인지를 늘 함께 적는다.</dd><dt>변동성</dt><dd>가격이 얼마나 크게 흔들리는가. 방향과는 상관이 없다. 크게 상승한 달과 크게 하락한 달은 방향이 반대지만 변동성은 똑같이 크다.</dd><dt>신용융자</dt><dd>증권사에서 대출을 받아 주식을 매수하는 것. 잔고가 늘면 시장에 레버리지가 쌓인다는 뜻이다.</dd><dt>반대매매</dt><dd>대출을 받아 매수한 주식의 담보 가치가 기준 아래로 하락하면 증권사가 강제로 매도하는 것. 하락을 스스로 키우는 매도라 바닥 판정의 재료가 된다.</dd><dt>미수금</dt><dd>돈 없이 먼저 매수한 뒤 3일 안에 채워야 하는 대금. 못 채우면 반대매매로 이어진다.</dd><dt>셀링 클라이맥스</dt><dd>공포가 절정에 달해 대량 거래와 함께 쏟아지는 마지막 투매. 매도 물량이 소진되는 자리라 역사적 바닥이 이 '근처'에서 나왔다.</dd><dt>마진콜</dt><dd>레버리지 투자에서 담보 가치가 하락할 때 추가 증거금을 요구받는 것. 못 채우면 강제청산된다.</dd><dt>엔캐리</dt><dd>금리가 낮은 엔화로 자금을 조달해 다른 자산에 투자하는 거래. 일본 금리가 상승하면 이 거래가 청산되며 글로벌 자산이 흔들린다.</dd></dl><p style="font-size:.8rem;color:var(--text-secondary,#777);margin-top:12px">이 글에 나온 용어만 실었다.</p></div><!--GLOSSARY:END--></div>
+<p class="kb-note">※ 과거 사례가 이번에도 같게 흘러간다는 보장은 없다.
+표본이 8개뿐이라 통계로 쓸 수 없다. 「이 글의 한계」 절을 함께 읽어야 한다.
+이 페이지는 투자 판단을 대신하지 않는다. 저는 투자 전문가가 아니며, 투자의 최종 판단과 책임은 투자자 본인에게 있다.</p>
+</div>
+<div class="wrap"><!--TOPICNEWS:BEGIN--><style id="tnewscss">.tnews{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 10px;margin:34px 0 10px}.tnews h3{margin:0 0 10px;font-size:1.02rem}.tnews table{width:100%;border-collapse:collapse;font-size:.9rem}.tnews td{padding:5px 8px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}.tnews td.d{white-space:nowrap;color:var(--text-secondary)}.tnews p.cap{margin:10px 0 8px;font-size:.8rem;color:var(--text-secondary);line-height:1.6}</style><div class="tnews"><h3>관련 뉴스</h3><p class="cap">제목에 검색어가 실제로 들어간 기사만 골랐다. 제목을 누르면 원문으로 간다.</p><p class="cap">국내: 「증시 폭락 수급」 로 찾았다.</p><div class="tblwrap"><table><tbody><tr><td class="d">Sun, 08 Nov</td><td class="d">에너지경제신문</td><td><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTFBUT0tmd0tKYm1uVTVUc2pDYkpBTTdzeFRuUUpaRU1FYmJJM3d5YkJEWkpaSVZXNHZjZW1Rc2F6ako1S2Q1RlNraUdOdFdQdUx4cy1CUnIyazhfYjg?oc=5" target="_blank" rel="noopener nofollow">코스피 폭락 진정될까…외국인 수급·AI 불안에 촉각 [주간증시]</a></td></tr><tr><td class="d">Sun, 08 Nov</td><td class="d">산경투데이</td><td><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTE9PbFAxV3VCSVdtdDI0RGt3dC1MQkFJaUZrXy1DUGFMR3pyLWVtNXZYZExqTW1CejFSRzJEWHRnLUtpNVZaWjhtR21fdnlNeWVWUEQ2aWE0WG1NSlp4cmhvVFVGc1lua3g3VWRGVURmRkbSAXRBVV95cUxPRDV5VmVGMnhia2RCSXl0RFhoazRvREZuM1FlQWhFdHVpQWptcWNxNzBnMm1VcDYwYWIwWDZudjk5V2FoOFd2Z3dCTU1LZjBsLVQ1MXR2NEZSQS1PUHJVS1N0V1A2aGRLMmMzU2JLa250dkYxZQ?oc=5" target="_blank" rel="noopener nofollow">코스피, 폭락 딛고 반등 시도…'5천피' 사수·외국인 수급 관건</a></td></tr><tr><td class="d">Fri, 30 Oct</td><td class="d">KB Think</td><td><a href="https://news.google.com/rss/articles/CBMickFVX3lxTE1IMTBTeHU0RHFTVUZrbUNFMnI4dzVQWU9FNGdOMHZqYlg5ODZNS19STXp1eGczaHZtbC1nbGFUUjBSZjE3ZF9hUzV0a3Rid0I4ZlYxaHhfMURjOEtTenhKNm1JNFQ2cHV4MnB0ZHZGVTdhUQ?oc=5" target="_blank" rel="noopener nofollow">[도쿄증시-마감] 기술주 폭락에 닛케이 2%대 하락</a></td></tr><tr><td class="d">Tue, 13 Oct</td><td class="d">한겨레</td><td><a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE0tRmpHc0Z2MmtGV2hxcTJUdFBod1lVYV8taW9YTzEya0E0RVpSV2dQZ3hWSFZZSFItcmFUV0lTWlo0YTBSZ19nVG9BcnVmMlB0TmlmREdGT2VXYjhONDNEXzZ6TlNKcTg?oc=5" target="_blank" rel="noopener nofollow">코스피 왜 홀로 폭락했나…중국 기술 추격에 ‘수급 공백’ 겹쳐</a></td></tr><tr><td class="d">Mon, 12 Oct</td><td class="d">연합인포맥스</td><td><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTE0wVEVJUWNIeFBoZGZhaXJWdkpSMjVZamJhQzBNbzlEN1hkU0tGWmFYcGNnZ0lPUk5hTndRRWxXRi1OQndzQkNia0tWenpLdzlzSVAxZmhLSGpNeTV3YmdwMkpKbmYzNHlRaTdBN3pUZTk?oc=5" target="_blank" rel="noopener nofollow">코스피만 왜 이러나…반도체 노이즈·수급 불안에 '나홀로 급락'</a></td></tr><tr><td class="d">Thu, 05 Nov</td><td class="d">이투데이</td><td><a href="https://news.google.com/rss/articles/CBMiVEFVX3lxTFB4RTc5YzA5bEU5NHB0VVdZOUhOLWZuYkZtLWxra2tkLTJINVFsRy1xdDhjYjlnNENkQTZXNFdSWXBuMmRXclZvdC1wVkR5LVVCcjV4bQ?oc=5" target="_blank" rel="noopener nofollow">[증시키워드] 美 반도체 12% 폭락에 삼전·SK하닉 추가 급락 우려⋯수급 이동할까</a></td></tr></tbody></table></div><p class="cap">출처 구글 뉴스 · 2026-11-18 기준. 뉴스는 이 글의 분석과 별개이며, 내용이 서로 다를 수 있다.</p></div><!--TOPICNEWS:END--><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="bottom-top.html">바닥·천장 추적</a> 2026년 7월 폭락이 끝났는지의 실시간 판정이 그 페이지이다.</p><p><a href="sentiment.html">빚과 현금</a> 여기 나온 폭락들의 공통 연료(신용융자·반대매매)를 28년 시계열로 계산한 것이 그 페이지이다.</p></div><!--RELATED:END--><!--GLOSSARY:BEGIN--><style id="glocss">.glo{margin:34px 0 8px}.glo h3{font-size:1.02rem;margin:0 0 12px}.glo dl{margin:0;font-size:.9rem;line-height:1.62}.glo dt{font-weight:800;margin-top:10px}.glo dd{margin:2px 0 0 0;color:var(--text-secondary,#555)}</style><div class="glo"><h3>용어 설명</h3><dl><dt>수급</dt><dd>누가 매수하고 누가 매도하는가. 개인·외국인·기관 3개 주체로 구분해 본다. 같은 가격이라도 누가 매수했는지에 따라 다음이 달라진다고 보는 관점이다.</dd><dt>순매수</dt><dd>매수 금액에서 매도 금액을 뺀 것. 플러스면 순매수, 마이너스면 순매도다.</dd><dt>표본</dt><dd>실제로 확인한 사례의 묶음. 표본이 적으면 우연히 그렇게 보였을 가능성을 배제하기 어렵다. 그래서 이 사이트는 사례가 몇 번인지를 늘 함께 적는다.</dd><dt>변동성</dt><dd>가격이 얼마나 크게 흔들리는가. 방향과는 상관이 없다. 크게 상승한 달과 크게 하락한 달은 방향이 반대지만 변동성은 똑같이 크다.</dd><dt>신용융자</dt><dd>증권사에서 대출을 받아 주식을 매수하는 것. 잔고가 늘면 시장에 레버리지가 쌓인다는 뜻이다.</dd><dt>반대매매</dt><dd>대출을 받아 매수한 주식의 담보 가치가 기준 아래로 하락하면 증권사가 강제로 매도하는 것. 하락을 스스로 키우는 매도라 바닥 판정의 재료가 된다.</dd><dt>미수금</dt><dd>돈 없이 먼저 매수한 뒤 3일 안에 채워야 하는 대금. 못 채우면 반대매매로 이어진다.</dd><dt>셀링 클라이맥스</dt><dd>공포가 절정에 달해 대량 거래와 함께 쏟아지는 마지막 투매. 매도 물량이 소진되는 자리라 역사적 바닥이 이 '근처'에서 나왔다.</dd><dt>마진콜</dt><dd>레버리지 투자에서 담보 가치가 하락할 때 추가 증거금을 요구받는 것. 못 채우면 강제청산된다.</dd><dt>엔캐리</dt><dd>금리가 낮은 엔화로 자금을 조달해 다른 자산에 투자하는 거래. 일본 금리가 상승하면 이 거래가 청산되며 글로벌 자산이 흔들린다.</dd></dl><p style="font-size:.8rem;color:var(--text-secondary,#777);margin-top:12px">이 글에 나온 용어만 실었다.</p></div><!--GLOSSARY:END--></div>
 <footer>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.
     · 근거: 이야기꾼 시투주간보고서·주간거시경제(호수와 날짜는 본문 주석), Khandani & Lo(MIT, 2007), 공개 보도. 정리는 자체 작성.</footer>
 </div>
@@ -1177,6 +1167,7 @@ ViacomCBS and Discovery Pare Losses After Archegos-Driven Selloff.</a>
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
+<!--SEARCH:BEGIN--><button class="srch-btn" type="button" aria-label="아카이브·원자료 검색 (단축키 /)" title="아카이브·원자료 검색 (/)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></button><script src="search.js?v=8509ea17c1" defer></script><!--SEARCH:END-->
 <script src="vendor/chart-4.4.1.umd.js"></script>
 <!-- CHARTTHEME:BEGIN -->
 <script src="chart-theme.js?v=78def56d"></script>
@@ -1197,8 +1188,7 @@ ViacomCBS and Discovery Pare Losses After Archegos-Driven Selloff.</a>
         ticks:{callback:function(v){return v+'%';}}},
       y:{grid:{display:false}}}}});
 });
-</script><!--SEARCH:BEGIN--><button class="srch-btn" type="button" aria-label="아카이브·원자료 검색 (단축키 /)" title="아카이브·원자료 검색 (/)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></button><script src="search.js?v=8509ea17c1" defer></script><!--SEARCH:END-->
-<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
+</script><button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 <script id="dotcom-defaults">
 /* ★ 차트 형식 정본 — kospi-dotcom-1998-2000 의 눈맛 (2026-08-08 상수님 지시)
    고치는 곳은 scripts/apply_dotcom_style.py 하나다. 개별 차트의 명시 설정이 우선한다. */
