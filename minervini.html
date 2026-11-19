@@ -504,7 +504,30 @@ h2[id],h3[id],[id]:target{scroll-margin-top:92px}
 .ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
 .ptoc a:hover{border-bottom-color:var(--text-secondary)}
 @media(min-width:900px){.ptoc ol{columns:2;column-gap:30px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*//* PAPER:BEGIN */
+/*TOCCSS:END*/</style><link rel="stylesheet" href="vendor/fonts.css"><style id="RC">
+/* ── 랠리 차트 (scripts/lib/rally_chart.py) — kospi-dotcom 첫 차트의 정본 ── */
+html.theme-light .rc{--rc-accent:#B7791F;--rc-band:rgba(183,121,31,0.07);--rc-grid:rgba(0,0,0,0.06);--rc-neg:#D62839;--rc-pos:#0F8A53;
+  --rc-text:#14171C;--rc-text2:#697180;--rc-surface:#FFFFFF}
+html.theme-dark .rc{--rc-accent:#F0B429;--rc-band:rgba(240,180,41,0.055);--rc-grid:rgba(255,255,255,0.05);--rc-neg:#FF4D5E;--rc-pos:#2FBF71;
+  --rc-text:#E9ECEF;--rc-text2:#8b929c;--rc-surface:#111317}
+.rc .rc-box{position:relative;height:min(60vh,540px);min-height:420px;max-width:var(--w-chart,1100px);margin-left:auto;margin-right:auto}
+@media (max-width:900px){.rc .rc-box{height:400px}}
+@media print{.rc .rc-box{height:440px}}
+
+/* ── 랠리 차트 그릇 — kospi-dotcom 페이지의 .panel · .rng · .srcline 꼴 (scripts/lib/rally_chart.py) ── */
+.rc.panel{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:30px 32px 26px;margin:18px 0 26px}
+.rc .panel-head{display:flex;justify-content:space-between;align-items:flex-end;gap:22px;flex-wrap:wrap;margin-bottom:22px}
+.rc .panel-head h3{margin:0;font-size:1.05rem;font-weight:800;line-height:1.45}
+.rc .panel-head p{color:var(--text-secondary);font-size:.95rem;margin-top:6px;max-width:640px}
+.rc .rng{display:flex;gap:8px;flex-wrap:wrap}
+.rc .rng:empty{display:none}
+.rc .rng button{font-family:inherit;font-size:13.5px;font-weight:600;padding:9px 15px;border-radius:10px;border:1px solid var(--border);background:transparent;color:var(--text-secondary);cursor:pointer;transition:all .18s}
+.rc .rng button.on{background:var(--accent);border-color:var(--accent);color:var(--onAccent)}
+.rc p.note:empty{display:none}
+.rc .srcline{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:14px;padding-top:13px;border-top:1px dashed var(--border);font-size:12.5px;color:var(--text-secondary);line-height:1.65}
+.rc .srcline .lbl{font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:11px;color:var(--text-secondary)}
+@media (max-width:640px){.rc.panel{padding:22px 18px 20px}}
+/* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -832,7 +855,12 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style><link rel="stylesheet" href="vendor/fonts.css"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
+/* PAPER:END */</style>
+<script src="vendor/chart-4.4.7.umd.min.js"></script>
+<!-- CHARTTHEME:BEGIN -->
+<script src="chart-theme.js?v=78def56d"></script>
+<!-- CHARTTHEME:END -->
+<!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-watch.html">바닥 추적</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="macro-timeline.html">거시 이벤트 연대기</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="minervini-x.html">마크 미너비니 X 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-psk-holdings.html">피에스케이홀딩스</a><a href="stock-samsung-sdi.html">삼성SDI</a><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-nhn.html">NHN</a><a href="stock-kolmar.html">한국콜마</a><a href="stock-cosmax.html">코스맥스</a><a href="stock-pharmaresearch.html">파마리서치</a><a href="stock-jyp.html">JYP Ent.</a><a href="stock-sm-ent.html">에스엠</a><a href="stock-yg-ent.html">와이지엔터테인먼트</a></div></div><div class="site-group"><button class="here" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a class="here" href="minervini.html">마크 미너비니의 방법론</a><a href="marks.html">하워드 막스의 방법론</a><a href="marks-glossary.html">사이클 용어사전</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a><a href="cycle-rope.html">사이클과 규칙</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><span class="nav-h sub">시장 국면</span><a href="kosdaq-seasonality.html">해와 달의 코스닥</a><a href="kospi-bottom.html">코스피 바닥 판별</a><a href="sp500-ftd.html">S&P 500 팔로스루 데이</a><a href="kospi-ftd.html">팔로스루 데이</a><a href="kospi-panics.html">코스피 역대 공황</a><a href="rally-angle.html">상승 각도</a><a href="kospi-seasonality-down.html">해와 달의 코스피 · 역편</a><a href="kospi-drivers.html">코스피 선행 변수</a><a href="kospi-seasonality.html">해와 달의 코스피</a><a href="breadth-concentration.html">신고가 쏠림</a><a href="kospi-analog.html">닮은 과거</a><a href="audition-history.html">오디션 히스토리</a><a href="disparity-archive.html">두 버블의 이격도</a><a href="stage-analysis.html">와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리</a><span class="nav-h sub">신용과 청산</span><a href="credit-lag.html">미 은행 대출 태도와 가산금리</a><a href="us-credit-spread.html">미국 신용스프레드</a><a href="deleveraging.html">강제청산</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="sentiment.html">빚과 현금</a><span class="nav-h sub">수급과 폭락</span><a href="flow-quadrant.html">개인 수급 사분면</a><a href="foreign-flow.html">외국인 수급</a><a href="flow-extremes.html">개인과 외국인의 대량 매매</a><a href="flow-crashes.html">폭락의 구조</a><span class="nav-h sub">금리와 통화</span><a href="rate-crash-primer.html">금리-공황 프로세스 읽기</a><a href="nikkei-rates.html">닛케이와 미국 금리</a><a href="kospi-spx-gap.html">코스피와 S&P 500</a><a href="rate-crash-process.html">금리-공황 프로세스</a><a href="gold-rates.html">금리와 금값</a><a href="treasury-trust.html">미국 국채 바이백</a><a href="inflation-playbook.html">인플레 시대의 자산</a><a href="rates-century.html">미국 금리 100년</a><a href="liquidity.html">미국 유동성</a><a href="fed-kospi.html">연준 기준금리와 코스피</a><a href="rates-101.html">금리 기초</a><a href="rates-crashes.html">금리 5%와 공황</a><a href="dollar-kospi.html">달러와 코스피</a><span class="nav-h sub">경기와 수출</span><a href="jp-cci-kospi.html">일본 소비심리와 코스피</a><a href="us-elections.html">미국 선거와 증시</a><a href="export-kospi.html">수출과 코스피</a><a href="cli-kospi.html">OECD CLI 와 코스피</a><a href="ism-kospi.html">ISM 과 코스피</a><a href="jeoji-kospi.html">제오지산수</a><span class="nav-h sub">개별 종목</span><a href="memory-price.html">D램 가격과 삼성전자</a><a href="leadlag.html">하이닉스의 선행과 후행</a><a href="samsung-long.html">삼성전자 27년</a></div></div><div class="site-group"><button class="" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 153계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a href="data-kr-rates.html">한국 금리</a><a href="data-us-market.html">미국 시장</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a href="data-fx.html">환율·원자재·암호</a><a href="data-macro.html">재정·거시</a><a href="data-world.html">세계 증시</a></div></div><div class="site-srch"><a class="srch-nav" href="#search" role="button">검색</a></div><!-- NAV:END --></nav>
@@ -886,6 +914,187 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 </tbody></table></div>
 <div class="kbp"><div class="s">손절은 그 종목을 버린다는 뜻이 아니다</div><div><p>강한 펀더멘털을 가진 종목은 되돌림 뒤에 새 베이스를 만들기도 한다. 2번째 설정이 처음보다 강한 일도 많다. 약한 보유자가 그 과정에서 빠져나갔기 때문이다. 그래서 큰 승자를 잡으려면 2~3번의 시도가 필요할 수 있다.</p></div></div>
 <div class="kbp"><div class="s">우선순위는 거래가 진행되며 바뀐다</div><div><p>처음에는 손실을 제한한다. 주가가 오르면 본전을 지킨다. 상당한 수익이 나면 그 수익을 지킨다.</p></div></div>
+<div class="panel rc">
+      <div class="panel-head">
+        <div>
+          <h3>손절선은 a → b → c 로 올라간다: 처음엔 손실, 다음엔 본전, 끝엔 수익을 지킨다</h3>
+          <p>붉은 실선이 그때그때의 손절선이다. 매수 직후는 a, 수익이 위험의 3배를 넘으면 b, 큰 수익이 나면 c 로 올린다.</p>
+        </div>
+        <div class="rng" role="group" aria-label="기간 선택">
+        </div>
+      </div>
+      <div class="chart-container rc-box" role="img" aria-label="손절선은 a → b → c 로 올라간다: 처음엔 손실, 다음엔 본전, 끝엔 수익을 지킨다">
+        <canvas id="fAbc"></canvas>
+      </div>
+      <p class="note" id="fAbc-note"></p>
+      <div class="srcline">
+        <span class="lbl">출처</span>
+        <span>개념도 · 실제 종목이 아니다 · 『챔피언처럼 생각하고 거래하라』 1장 그림 1-1의 장면</span>
+      </div>
+    </div>
+<script>
+/* 랠리 차트 — scripts/lib/rally_chart.py (kospi-dotcom-1998-2000 첫 차트의 정본 그리기) */
+window.RC = window.RC || {};
+(function(){
+  var C = {"id": "fAbc", "series": [["1일", 100.0], ["2일", 99.22], ["3일", 97.64], ["4일", 95.94], ["5일", 94.12], ["6일", 92.2], ["7일", 90.26], ["8일", 88.34], ["9일", 86.51], ["10일", 84.77], ["11일", 83.11], ["12일", 81.5], ["13일", 80.0], ["14일", 81.12], ["15일", 82.28], ["16일", 83.38], ["17일", 84.45], ["18일", 85.53], ["19일", 86.69], ["20일", 87.95], ["21일", 90.0], ["22일", 88.64], ["23일", 87.98], ["24일", 87.28], ["25일", 86.49], ["26일", 85.6], ["27일", 84.5], ["28일", 85.89], ["29일", 87.14], ["30일", 88.45], ["31일", 90.0], ["32일", 91.06], ["33일", 92.35], ["34일", 93.62], ["35일", 94.83], ["36일", 95.93], ["37일", 96.93], ["38일", 97.84], ["39일", 98.73], ["40일", 99.67], ["41일", 100.71], ["42일", 101.89], ["43일", 104.0], ["44일", 102.06], ["45일", 100.92], ["46일", 99.72], ["47일", 98.43], ["48일", 97.06], ["49일", 95.64], ["50일", 94.23], ["51일", 93.0], ["52일", 94.75], ["53일", 96.74], ["54일", 98.8], ["55일", 100.87], ["56일", 102.89], ["57일", 104.8], ["58일", 106.57], ["59일", 108.2], ["60일", 109.75], ["61일", 111.28], ["62일", 112.87], ["63일", 114.56], ["64일", 116.37], ["65일", 118.0], ["66일", 119.1], ["67일", 119.9], ["68일", 120.6], ["69일", 121.18], ["70일", 121.7], ["71일", 122.2], ["72일", 122.77], ["73일", 123.48], ["74일", 124.35], ["75일", 125.36], ["76일", 126.46], ["77일", 127.54], ["78일", 128.53], ["79일", 129.39], ["80일", 130.09], ["81일", 130.0], ["82일", 131.15], ["83일", 131.67], ["84일", 132.27], ["85일", 132.99], ["86일", 133.79], ["87일", 134.59], ["88일", 135.32], ["89일", 135.92], ["90일", 136.35], ["91일", 136.63], ["92일", 136.85], ["93일", 138.0], ["94일", 135.64], ["95일", 134.36], ["96일", 133.26], ["97일", 132.28], ["98일", 131.34], ["99일", 131.0], ["100일", 131.21], ["101일", 131.93], ["102일", 132.57], ["103일", 134.0], ["104일", 131.47], ["105일", 129.86], ["106일", 128.4], ["107일", 127.05], ["108일", 125.73], ["109일", 124.0], ["110일", 123.56], ["111일", 122.59], ["112일", 121.47], ["113일", 120.23], ["114일", 118.96], ["115일", 118]], "peak": 138, "marks": {"31일": {"t": "매수 90", "dy": -14, "c": "acc"}, "60일": {"t": "위험의 3배 → 손절을 본전으로", "dy": 28, "c": "pos"}, "93일": {"t": "고점 → 손절을 125로", "dy": -14, "c": "pos"}, "109일": {"t": "c 에서 판다 · 매수가 대비 +39%", "dy": 30, "c": "neg"}}, "ranges": {"all": {"from": "1일", "to": "115일", "note": ""}}, "bandFrom": null, "bandTo": null, "bandLabel": "", "label": "가격", "tip": "가격", "start": "all", "suggestedMin": 75, "hlines": [{"v": 83.7, "t": "a 손실 제한 83.7 (−7%)", "c": "neg", "dash": [], "w": 2.4, "frm": "31일", "to": "60일", "below": true}, {"v": 90, "t": "b 본전 지키기 90", "c": "neg", "dash": [], "w": 2.4, "frm": "60일", "to": "93일", "below": true}, {"v": 125, "t": "c 수익 지키기 125", "c": "neg", "dash": [], "w": 2.4, "frm": "93일", "to": "109일"}], "ref": 90, "refLabel": "매수가"};
+  var SERIES = C.series, PEAK = C.peak, MARKS = C.marks, RANGES = C.ranges;
+  var BAND_FROM = C.bandFrom, BAND_TO = C.bandTo;
+  function cv(n){ var el=document.getElementById(C.id); var r=(el&&el.closest('.rc'))||document.documentElement;
+    return getComputedStyle(r).getPropertyValue(n).trim(); }
+  function hexA(h,a){
+    h=(h||'').trim(); if(h.charAt(0)!=='#') return h;
+    if(h.length===4) h='#'+h[1]+h[1]+h[2]+h[2]+h[3]+h[3];
+    var n=parseInt(h.slice(1),16);
+    return 'rgba('+((n>>16)&255)+','+((n>>8)&255)+','+(n&255)+','+a+')';
+  }
+
+  var anno = {
+    id:'anno',
+    beforeDatasetsDraw:function(chart){
+      var xs=chart.scales.x, ys=chart.scales.y, ctx=chart.ctx;
+      if(!xs||!ys) return;
+      var labs=chart.data.labels;
+      if(C.bands){ C.bands.forEach(function(b){
+        var j1=labs.indexOf(b[0]), j2=labs.indexOf(b[1]); if(j1<0||j2<0) return;
+        ctx.save(); ctx.fillStyle=cv('--rc-band');
+        var a1=xs.getPixelForValue(j1), a2=xs.getPixelForValue(j2);
+        ctx.fillRect(a1, ys.top, a2-a1, ys.bottom-ys.top);
+        ctx.strokeStyle=hexA(cv('--rc-accent'),0.28); ctx.setLineDash([4,4]); ctx.lineWidth=1;
+        ctx.beginPath(); ctx.moveTo(a1,ys.top); ctx.lineTo(a1,ys.bottom); ctx.moveTo(a2,ys.top); ctx.lineTo(a2,ys.bottom); ctx.stroke();
+        ctx.setLineDash([]); ctx.fillStyle=hexA(cv('--rc-accent'),0.85); ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='center';
+        ctx.fillText(b[2], (a1+a2)/2, ys.top+16); ctx.restore(); }); }
+      var i1=labs.indexOf(BAND_FROM), i2=labs.indexOf(BAND_TO);
+      if(i1<0||i2<0) return;
+      ctx.save();
+      ctx.fillStyle=cv('--rc-band');
+      var x1=xs.getPixelForValue(i1), x2=xs.getPixelForValue(i2);
+      ctx.fillRect(x1, ys.top, x2-x1, ys.bottom-ys.top);
+      ctx.strokeStyle=hexA(cv('--rc-accent'),0.28); ctx.setLineDash([4,4]); ctx.lineWidth=1;
+      ctx.beginPath(); ctx.moveTo(x1,ys.top); ctx.lineTo(x1,ys.bottom);
+      ctx.moveTo(x2,ys.top); ctx.lineTo(x2,ys.bottom); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle=hexA(cv('--rc-accent'),0.85); ctx.font='700 11.5px Inter, sans-serif'; ctx.textAlign='center';
+      ctx.fillText(C.bandLabel, (x1+x2)/2, ys.top+16);
+      ctx.restore();
+    },
+    afterDatasetsDraw:function(chart){
+      var xs=chart.scales.x, ys=chart.scales.y, ctx=chart.ctx;
+      if(!xs||!ys) return;
+      var labs=chart.data.labels, data=chart.data.datasets[0].data;
+      var accent=cv('--rc-accent'), neg=cv('--rc-neg'), pos=cv('--rc-pos'), txt=cv('--rc-text2'), surf=cv('--rc-surface');
+      var narrow = (xs.width < 620);
+      function colOf(k){ return k==='acc'?accent : k==='neg'?neg : k==='pos'?pos : txt; }
+      if(C.hlines){ C.hlines.forEach(function(h){
+        var y=ys.getPixelForValue(h.v); if(y<ys.top||y>ys.bottom) return;
+        var a=h.frm?labs.indexOf(h.frm):0, b=h.to?labs.indexOf(h.to):labs.length-1;
+        if(h.frm&&a<0) a=0; if(h.to&&b<0) b=labs.length-1;
+        var xa=xs.getPixelForValue(a), xb=xs.getPixelForValue(b), col=colOf(h.c);
+        ctx.save(); ctx.strokeStyle=col; ctx.lineWidth=h.w||1.6; ctx.setLineDash(h.dash||[6,4]);
+        ctx.beginPath(); ctx.moveTo(xa,y); ctx.lineTo(xb,y); ctx.stroke(); ctx.setLineDash([]);
+        if(h.t){ ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='right'; ctx.fillStyle=col;
+          ctx.fillText(h.t, xb-2, y+(h.below?15:-6)); }
+        ctx.restore(); }); }
+      if(C.extra){ C.extra.forEach(function(e,k){ if(!e.end) return;
+        var d=chart.data.datasets[k+1].data, j=d.length-1; while(j>0 && (d[j]===null||d[j]===undefined)) j--;
+        if(j<0||d[j]===null) return;
+        ctx.save(); ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='right'; ctx.fillStyle=colOf(e.c);
+        ctx.fillText(e.end, xs.getPixelForValue(j)-4, ys.getPixelForValue(d[j])+(e.dy||-8)); ctx.restore(); }); }
+      ctx.save();
+      labs.forEach(function(l,i){
+        var m=MARKS[l]; if(!m) return;
+        var col = m.c==='acc'?accent : m.c==='neg'?neg : m.c==='pos'?pos : txt;
+        var x=xs.getPixelForValue(i), y=ys.getPixelForValue(data[i]);
+        ctx.beginPath(); ctx.arc(x,y,5.5,0,Math.PI*2); ctx.fillStyle=col; ctx.fill();
+        ctx.strokeStyle=surf; ctx.lineWidth=2; ctx.stroke();
+        if(narrow) return;
+        ctx.fillStyle=col; ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif';
+        ctx.textAlign = (i > labs.length*0.82) ? 'right' : (i < labs.length*0.08 ? 'left' : 'center');
+        ctx.fillText(m.t, x, y + m.dy);
+      });
+      ctx.restore();
+    }
+  };
+
+  var chart=null, currentRange=C.start;
+  function buildChart(){
+    if (typeof Chart==='undefined'){ console.error('Chart.js not loaded'); return; }
+    var el=document.getElementById(C.id); if(!el) return;
+    if(chart){ try{chart.destroy();}catch(e){} chart=null; }
+
+    var r=RANGES[currentRange];
+    var i1=0,i2=SERIES.length-1,i;
+    for(i=0;i<SERIES.length;i++){ if(SERIES[i][0]===r.from) i1=i; if(SERIES[i][0]===r.to) i2=i; }
+    var slice=SERIES.slice(i1,i2+1);
+    var labels=slice.map(function(d){return d[0];});
+    var vals=slice.map(function(d){return d[1];});
+    var more=(C.extra||[]).map(function(e){
+      var c0 = e.c==='acc'?cv('--rc-accent') : e.c==='neg'?cv('--rc-neg') : e.c==='pos'?cv('--rc-pos') : cv('--rc-text2');
+      return { label:e.label, data:e.data.slice(i1,i2+1), borderColor:c0, borderWidth:e.w||1.6, borderDash:e.dash||[],
+               stepped:!!e.stepped, tension:e.stepped?0:.3, pointRadius:0, pointHoverRadius:0, fill:false, spanGaps:false }; });
+
+    var text=cv('--rc-text'), tsec=cv('--rc-text2'), grid=cv('--rc-grid'), accent=cv('--rc-accent');
+
+    chart=new Chart(el,{
+      type:'line',
+      plugins:[anno],
+      data:{ labels:labels, datasets:[{
+        label:C.label, data:vals,
+        borderColor:accent, backgroundColor:hexA(accent,0.13),
+        borderWidth:3.2, tension:.3, pointRadius:0, pointHoverRadius:6, fill:true
+      }].concat(more)},
+      options:{
+        responsive:true, maintainAspectRatio:false,
+        layout:{ padding:{ top:30, right:16, bottom:4, left:4 } },
+        animation:{ duration:1000, easing:'easeOutQuart' },
+        interaction:{ mode:'index', intersect:false },
+        plugins:{
+          legend:{ display:false },
+          tooltip:{ enabled:true, padding:12, cornerRadius:8,
+            titleFont:{size:13,family:'Inter'}, bodyFont:{size:13,family:'Noto Sans KR'},
+            callbacks:{
+              label:function(c){
+                if(c.datasetIndex>0) return c.parsed.y===null ? '' : ' '+c.dataset.label+' '+c.parsed.y.toLocaleString(undefined,{maximumFractionDigits:2})+(C.unit||'');
+                if(C.ref){ var q=(c.parsed.y/C.ref-1)*100;
+                  return ' '+C.tip+' '+c.parsed.y.toLocaleString(undefined,{maximumFractionDigits:2})+'  ('+C.refLabel+' 대비 '+(q>=0?'+':'')+q.toFixed(1)+'%)'; }
+                if(C.unit) return ' '+C.tip+' '+(c.parsed.y>0?'+':'')+c.parsed.y.toFixed(2)+C.unit;
+                return ' '+C.tip+' '+c.parsed.y.toLocaleString()+'  ('+(C.peakLabel||'정점 대비')+' '+(c.parsed.y/PEAK*100).toFixed(1)+'%)';
+              },
+              afterLabel:function(c){ if(c.datasetIndex>0) return ''; var m=MARKS[c.label]; return m ? ' ▸ '+m.t.replace(/\s\d[\d,]*.*$/,'') : ''; }
+            } }
+        },
+        scales:{
+          x:{ ticks:{color:tsec,font:{family:'Inter',size:11.5},maxRotation:0,autoSkip:true,maxTicksLimit:12},
+              grid:{color:grid} },
+          y:{ beginAtZero:false, suggestedMin:C.suggestedMin,
+              title:{display:true,text:C.ylabel||C.label,color:tsec,font:{family:'Noto Sans KR',size:13}},
+              ticks:{color:tsec,font:{family:'Inter',size:12},callback:function(v){return v.toLocaleString();}},
+              grid:{color:grid} }
+        }
+      }
+    });
+  }
+
+  function setRange(kind,btn){
+    currentRange=kind;
+    try{ buildChart(); }catch(e){ if(window.console) console.error('buildChart', e); }
+    try{
+      var g=(btn&&btn.closest)?btn.closest('.rng'):null;
+      var bs=g?g.querySelectorAll('button'):[];
+      for(var i=0;i<bs.length;i++) bs[i].classList.remove('on');
+      if(btn&&btn.classList) btn.classList.add('on');
+      var rn=document.getElementById(C.id+'-note');
+      if(rn && RANGES[kind]) rn.innerHTML = RANGES[kind].note;
+    }catch(e){ if(window.console) console.error('setRange ui', e); }
+  }
+
+  RC[C.id] = { build:buildChart, setRange:setRange, chart:function(){ return chart; } };
+  try{ var _n=document.getElementById(C.id+'-note'); if(_n) _n.innerHTML = RANGES[currentRange].note; }catch(e){}
+  try{ new MutationObserver(function(){ buildChart(); }).observe(document.documentElement,{attributes:true,attributeFilter:['class']}); }catch(e){}
+  if(document.readyState==='complete'){ buildChart(); }
+  else { window.addEventListener('load', buildChart); }
+  setTimeout(function(){ if(!chart) buildChart(); }, 400);
+})();
+</script>
 
 <h3 class="kb">2-2. 손실은 한 자릿수에서 끊는다</h3>
 <p>손실의 크기와 본전까지 필요한 수익을 정리하면 아래와 같다.</p>
@@ -897,11 +1106,553 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 <tr><td><b>−50%</b></td><td><b>+100%</b></td></tr>
 </tbody></table></div>
 
-<div class="scn"><svg viewBox="0 0 1100 300" role="img" aria-label="손실률별 본전 복구에 필요한 수익률"><text class="ttl" x="0" y="16">손실이 커질수록 복구는 기하급수로 어려워진다</text><text class="cap" x="0" y="34">파랑 = 손실 · 빨강 = 본전까지 필요한 수익</text><g transform="translate(0,58)"><rect x="60" y="172" width="62" height="8" rx="4" fill="var(--dn,#1161c4)" opacity=".8"/><rect x="130" y="172" width="62" height="8" rx="4" fill="var(--up,#d21f3c)" opacity=".85"/><text class="cap" x="91.0" y="164" text-anchor="middle">−5%</text><text class="wt" x="161.0" y="164" text-anchor="middle" style="fill:var(--up,#d21f3c)">+5.3%</text><rect x="232" y="164" width="62" height="16" rx="4" fill="var(--dn,#1161c4)" opacity=".8"/><rect x="302" y="163" width="62" height="17" rx="4" fill="var(--up,#d21f3c)" opacity=".85"/><text class="cap" x="263.0" y="156" text-anchor="middle">−10%</text><text class="wt" x="333.0" y="155" text-anchor="middle" style="fill:var(--up,#d21f3c)">+11%</text><rect x="404" y="148" width="62" height="32" rx="4" fill="var(--dn,#1161c4)" opacity=".8"/><rect x="474" y="140" width="62" height="40" rx="4" fill="var(--up,#d21f3c)" opacity=".85"/><text class="cap" x="435.0" y="140" text-anchor="middle">−20%</text><text class="wt" x="505.0" y="132" text-anchor="middle" style="fill:var(--up,#d21f3c)">+25%</text><rect x="576" y="132" width="62" height="48" rx="4" fill="var(--dn,#1161c4)" opacity=".8"/><rect x="646" y="112" width="62" height="68" rx="4" fill="var(--up,#d21f3c)" opacity=".85"/><text class="cap" x="607.0" y="124" text-anchor="middle">−30%</text><text class="wt" x="677.0" y="104" text-anchor="middle" style="fill:var(--up,#d21f3c)">+43%</text><rect x="748" y="116" width="62" height="64" rx="4" fill="var(--dn,#1161c4)" opacity=".8"/><rect x="818" y="73" width="62" height="107" rx="4" fill="var(--up,#d21f3c)" opacity=".85"/><text class="cap" x="779.0" y="108" text-anchor="middle">−40%</text><text class="wt" x="849.0" y="65" text-anchor="middle" style="fill:var(--up,#d21f3c)">+67%</text><rect x="920" y="100" width="62" height="80" rx="4" fill="var(--dn,#1161c4)" opacity=".8"/><rect x="990" y="20" width="62" height="160" rx="4" fill="var(--up,#d21f3c)" opacity=".85"/><text class="cap" x="951.0" y="92" text-anchor="middle">−50%</text><text class="wt" x="1021.0" y="12" text-anchor="middle" style="fill:var(--up,#d21f3c)">+100%</text><line class="gl" x1="40" y1="180" x2="1070" y2="180"/><text class="cap" x="40" y="206">−10%까지는 대칭에 가깝다 · −50%부터는 2배를 벌어야 제자리 — 최대 허용 손실을 10%로 두는 이유</text></g></svg></div>
+<div class="panel rc">
+      <div class="panel-head">
+        <div>
+          <h3>손실이 커질수록 본전까지 필요한 수익은 더 빨리 커진다</h3>
+          <p>가로는 손실, 세로는 본전까지 필요한 수익이다. 10% 안에서는 거의 대칭이다. 50% 손실은 100% 수익이 필요하다.</p>
+        </div>
+        <div class="rng" role="group" aria-label="기간 선택">
+        </div>
+      </div>
+      <div class="chart-container rc-box" role="img" aria-label="손실이 커질수록 본전까지 필요한 수익은 더 빨리 커진다">
+        <canvas id="fRr"></canvas>
+      </div>
+      <p class="note" id="fRr-note"></p>
+      <div class="srcline">
+        <span class="lbl">출처</span>
+        <span>개념도 · 실제 종목이 아니다 · 계산: 필요한 수익 = 1 ÷ (1 − 손실) − 1</span>
+      </div>
+    </div>
+<script>
+/* 랠리 차트 — scripts/lib/rally_chart.py (kospi-dotcom-1998-2000 첫 차트의 정본 그리기) */
+window.RC = window.RC || {};
+(function(){
+  var C = {"id": "fRr", "series": [["−1%", 1.01], ["−2%", 2.04], ["−3%", 3.09], ["−4%", 4.17], ["−5%", 5.26], ["−6%", 6.38], ["−7%", 7.53], ["−8%", 8.7], ["−9%", 9.89], ["−10%", 11.11], ["−11%", 12.36], ["−12%", 13.64], ["−13%", 14.94], ["−14%", 16.28], ["−15%", 17.65], ["−16%", 19.05], ["−17%", 20.48], ["−18%", 21.95], ["−19%", 23.46], ["−20%", 25.0], ["−21%", 26.58], ["−22%", 28.21], ["−23%", 29.87], ["−24%", 31.58], ["−25%", 33.33], ["−26%", 35.14], ["−27%", 36.99], ["−28%", 38.89], ["−29%", 40.85], ["−30%", 42.86], ["−31%", 44.93], ["−32%", 47.06], ["−33%", 49.25], ["−34%", 51.52], ["−35%", 53.85], ["−36%", 56.25], ["−37%", 58.73], ["−38%", 61.29], ["−39%", 63.93], ["−40%", 66.67], ["−41%", 69.49], ["−42%", 72.41], ["−43%", 75.44], ["−44%", 78.57], ["−45%", 81.82], ["−46%", 85.19], ["−47%", 88.68], ["−48%", 92.31], ["−49%", 96.08], ["−50%", 100.0], ["−51%", 104.08], ["−52%", 108.33], ["−53%", 112.77], ["−54%", 117.39], ["−55%", 122.22], ["−56%", 127.27], ["−57%", 132.56], ["−58%", 138.1], ["−59%", 143.9], ["−60%", 150.0]], "peak": 150, "marks": {"−5%": {"t": "−5% → +5.3%", "dy": -16, "c": "txt"}, "−10%": {"t": "−10% → +11%", "dy": -16, "c": "pos"}, "−20%": {"t": "−20% → +25%", "dy": -18, "c": "txt"}, "−30%": {"t": "−30% → +43%", "dy": -20, "c": "txt"}, "−40%": {"t": "−40% → +67%", "dy": -20, "c": "neg"}, "−50%": {"t": "−50% → +100%", "dy": -20, "c": "neg"}}, "ranges": {"all": {"from": "−1%", "to": "−60%", "note": ""}}, "bandFrom": "−1%", "bandTo": "−10%", "bandLabel": "한 자릿수 손절 구간", "label": "필요한 수익", "tip": "필요한 수익", "start": "all", "suggestedMin": 0, "unit": "%", "ylabel": "본전까지 필요한 수익(%)"};
+  var SERIES = C.series, PEAK = C.peak, MARKS = C.marks, RANGES = C.ranges;
+  var BAND_FROM = C.bandFrom, BAND_TO = C.bandTo;
+  function cv(n){ var el=document.getElementById(C.id); var r=(el&&el.closest('.rc'))||document.documentElement;
+    return getComputedStyle(r).getPropertyValue(n).trim(); }
+  function hexA(h,a){
+    h=(h||'').trim(); if(h.charAt(0)!=='#') return h;
+    if(h.length===4) h='#'+h[1]+h[1]+h[2]+h[2]+h[3]+h[3];
+    var n=parseInt(h.slice(1),16);
+    return 'rgba('+((n>>16)&255)+','+((n>>8)&255)+','+(n&255)+','+a+')';
+  }
+
+  var anno = {
+    id:'anno',
+    beforeDatasetsDraw:function(chart){
+      var xs=chart.scales.x, ys=chart.scales.y, ctx=chart.ctx;
+      if(!xs||!ys) return;
+      var labs=chart.data.labels;
+      if(C.bands){ C.bands.forEach(function(b){
+        var j1=labs.indexOf(b[0]), j2=labs.indexOf(b[1]); if(j1<0||j2<0) return;
+        ctx.save(); ctx.fillStyle=cv('--rc-band');
+        var a1=xs.getPixelForValue(j1), a2=xs.getPixelForValue(j2);
+        ctx.fillRect(a1, ys.top, a2-a1, ys.bottom-ys.top);
+        ctx.strokeStyle=hexA(cv('--rc-accent'),0.28); ctx.setLineDash([4,4]); ctx.lineWidth=1;
+        ctx.beginPath(); ctx.moveTo(a1,ys.top); ctx.lineTo(a1,ys.bottom); ctx.moveTo(a2,ys.top); ctx.lineTo(a2,ys.bottom); ctx.stroke();
+        ctx.setLineDash([]); ctx.fillStyle=hexA(cv('--rc-accent'),0.85); ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='center';
+        ctx.fillText(b[2], (a1+a2)/2, ys.top+16); ctx.restore(); }); }
+      var i1=labs.indexOf(BAND_FROM), i2=labs.indexOf(BAND_TO);
+      if(i1<0||i2<0) return;
+      ctx.save();
+      ctx.fillStyle=cv('--rc-band');
+      var x1=xs.getPixelForValue(i1), x2=xs.getPixelForValue(i2);
+      ctx.fillRect(x1, ys.top, x2-x1, ys.bottom-ys.top);
+      ctx.strokeStyle=hexA(cv('--rc-accent'),0.28); ctx.setLineDash([4,4]); ctx.lineWidth=1;
+      ctx.beginPath(); ctx.moveTo(x1,ys.top); ctx.lineTo(x1,ys.bottom);
+      ctx.moveTo(x2,ys.top); ctx.lineTo(x2,ys.bottom); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle=hexA(cv('--rc-accent'),0.85); ctx.font='700 11.5px Inter, sans-serif'; ctx.textAlign='center';
+      ctx.fillText(C.bandLabel, (x1+x2)/2, ys.top+16);
+      ctx.restore();
+    },
+    afterDatasetsDraw:function(chart){
+      var xs=chart.scales.x, ys=chart.scales.y, ctx=chart.ctx;
+      if(!xs||!ys) return;
+      var labs=chart.data.labels, data=chart.data.datasets[0].data;
+      var accent=cv('--rc-accent'), neg=cv('--rc-neg'), pos=cv('--rc-pos'), txt=cv('--rc-text2'), surf=cv('--rc-surface');
+      var narrow = (xs.width < 620);
+      function colOf(k){ return k==='acc'?accent : k==='neg'?neg : k==='pos'?pos : txt; }
+      if(C.hlines){ C.hlines.forEach(function(h){
+        var y=ys.getPixelForValue(h.v); if(y<ys.top||y>ys.bottom) return;
+        var a=h.frm?labs.indexOf(h.frm):0, b=h.to?labs.indexOf(h.to):labs.length-1;
+        if(h.frm&&a<0) a=0; if(h.to&&b<0) b=labs.length-1;
+        var xa=xs.getPixelForValue(a), xb=xs.getPixelForValue(b), col=colOf(h.c);
+        ctx.save(); ctx.strokeStyle=col; ctx.lineWidth=h.w||1.6; ctx.setLineDash(h.dash||[6,4]);
+        ctx.beginPath(); ctx.moveTo(xa,y); ctx.lineTo(xb,y); ctx.stroke(); ctx.setLineDash([]);
+        if(h.t){ ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='right'; ctx.fillStyle=col;
+          ctx.fillText(h.t, xb-2, y+(h.below?15:-6)); }
+        ctx.restore(); }); }
+      if(C.extra){ C.extra.forEach(function(e,k){ if(!e.end) return;
+        var d=chart.data.datasets[k+1].data, j=d.length-1; while(j>0 && (d[j]===null||d[j]===undefined)) j--;
+        if(j<0||d[j]===null) return;
+        ctx.save(); ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='right'; ctx.fillStyle=colOf(e.c);
+        ctx.fillText(e.end, xs.getPixelForValue(j)-4, ys.getPixelForValue(d[j])+(e.dy||-8)); ctx.restore(); }); }
+      ctx.save();
+      labs.forEach(function(l,i){
+        var m=MARKS[l]; if(!m) return;
+        var col = m.c==='acc'?accent : m.c==='neg'?neg : m.c==='pos'?pos : txt;
+        var x=xs.getPixelForValue(i), y=ys.getPixelForValue(data[i]);
+        ctx.beginPath(); ctx.arc(x,y,5.5,0,Math.PI*2); ctx.fillStyle=col; ctx.fill();
+        ctx.strokeStyle=surf; ctx.lineWidth=2; ctx.stroke();
+        if(narrow) return;
+        ctx.fillStyle=col; ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif';
+        ctx.textAlign = (i > labs.length*0.82) ? 'right' : (i < labs.length*0.08 ? 'left' : 'center');
+        ctx.fillText(m.t, x, y + m.dy);
+      });
+      ctx.restore();
+    }
+  };
+
+  var chart=null, currentRange=C.start;
+  function buildChart(){
+    if (typeof Chart==='undefined'){ console.error('Chart.js not loaded'); return; }
+    var el=document.getElementById(C.id); if(!el) return;
+    if(chart){ try{chart.destroy();}catch(e){} chart=null; }
+
+    var r=RANGES[currentRange];
+    var i1=0,i2=SERIES.length-1,i;
+    for(i=0;i<SERIES.length;i++){ if(SERIES[i][0]===r.from) i1=i; if(SERIES[i][0]===r.to) i2=i; }
+    var slice=SERIES.slice(i1,i2+1);
+    var labels=slice.map(function(d){return d[0];});
+    var vals=slice.map(function(d){return d[1];});
+    var more=(C.extra||[]).map(function(e){
+      var c0 = e.c==='acc'?cv('--rc-accent') : e.c==='neg'?cv('--rc-neg') : e.c==='pos'?cv('--rc-pos') : cv('--rc-text2');
+      return { label:e.label, data:e.data.slice(i1,i2+1), borderColor:c0, borderWidth:e.w||1.6, borderDash:e.dash||[],
+               stepped:!!e.stepped, tension:e.stepped?0:.3, pointRadius:0, pointHoverRadius:0, fill:false, spanGaps:false }; });
+
+    var text=cv('--rc-text'), tsec=cv('--rc-text2'), grid=cv('--rc-grid'), accent=cv('--rc-accent');
+
+    chart=new Chart(el,{
+      type:'line',
+      plugins:[anno],
+      data:{ labels:labels, datasets:[{
+        label:C.label, data:vals,
+        borderColor:accent, backgroundColor:hexA(accent,0.13),
+        borderWidth:3.2, tension:.3, pointRadius:0, pointHoverRadius:6, fill:true
+      }].concat(more)},
+      options:{
+        responsive:true, maintainAspectRatio:false,
+        layout:{ padding:{ top:30, right:16, bottom:4, left:4 } },
+        animation:{ duration:1000, easing:'easeOutQuart' },
+        interaction:{ mode:'index', intersect:false },
+        plugins:{
+          legend:{ display:false },
+          tooltip:{ enabled:true, padding:12, cornerRadius:8,
+            titleFont:{size:13,family:'Inter'}, bodyFont:{size:13,family:'Noto Sans KR'},
+            callbacks:{
+              label:function(c){
+                if(c.datasetIndex>0) return c.parsed.y===null ? '' : ' '+c.dataset.label+' '+c.parsed.y.toLocaleString(undefined,{maximumFractionDigits:2})+(C.unit||'');
+                if(C.ref){ var q=(c.parsed.y/C.ref-1)*100;
+                  return ' '+C.tip+' '+c.parsed.y.toLocaleString(undefined,{maximumFractionDigits:2})+'  ('+C.refLabel+' 대비 '+(q>=0?'+':'')+q.toFixed(1)+'%)'; }
+                if(C.unit) return ' '+C.tip+' '+(c.parsed.y>0?'+':'')+c.parsed.y.toFixed(2)+C.unit;
+                return ' '+C.tip+' '+c.parsed.y.toLocaleString()+'  ('+(C.peakLabel||'정점 대비')+' '+(c.parsed.y/PEAK*100).toFixed(1)+'%)';
+              },
+              afterLabel:function(c){ if(c.datasetIndex>0) return ''; var m=MARKS[c.label]; return m ? ' ▸ '+m.t.replace(/\s\d[\d,]*.*$/,'') : ''; }
+            } }
+        },
+        scales:{
+          x:{ ticks:{color:tsec,font:{family:'Inter',size:11.5},maxRotation:0,autoSkip:true,maxTicksLimit:12},
+              grid:{color:grid} },
+          y:{ beginAtZero:false, suggestedMin:C.suggestedMin,
+              title:{display:true,text:C.ylabel||C.label,color:tsec,font:{family:'Noto Sans KR',size:13}},
+              ticks:{color:tsec,font:{family:'Inter',size:12},callback:function(v){return v.toLocaleString();}},
+              grid:{color:grid} }
+        }
+      }
+    });
+  }
+
+  function setRange(kind,btn){
+    currentRange=kind;
+    try{ buildChart(); }catch(e){ if(window.console) console.error('buildChart', e); }
+    try{
+      var g=(btn&&btn.closest)?btn.closest('.rng'):null;
+      var bs=g?g.querySelectorAll('button'):[];
+      for(var i=0;i<bs.length;i++) bs[i].classList.remove('on');
+      if(btn&&btn.classList) btn.classList.add('on');
+      var rn=document.getElementById(C.id+'-note');
+      if(rn && RANGES[kind]) rn.innerHTML = RANGES[kind].note;
+    }catch(e){ if(window.console) console.error('setRange ui', e); }
+  }
+
+  RC[C.id] = { build:buildChart, setRange:setRange, chart:function(){ return chart; } };
+  try{ var _n=document.getElementById(C.id+'-note'); if(_n) _n.innerHTML = RANGES[currentRange].note; }catch(e){}
+  try{ new MutationObserver(function(){ buildChart(); }).observe(document.documentElement,{attributes:true,attributeFilter:['class']}); }catch(e){}
+  if(document.readyState==='complete'){ buildChart(); }
+  else { window.addEventListener('load', buildChart); }
+  setTimeout(function(){ if(!chart) buildChart(); }, 400);
+})();
+</script>
 
 <div class="kbp"><div class="s">10%는 넘지 않을 바깥 경계</div><div><p>그래서 한 종목의 손실은 대체로 한 자릿수에서 끊는다. 10%는 목표가 아니다. 넘기지 말아야 할 바깥 경계다. 정확한 피벗에서 매수했다면 보통 그보다 작은 손실로도 가설이 틀렸음을 알 수 있다.</p></div></div>
 <div class="kbp"><div class="s">작은 손절은 위험 관리의 비용</div><div><p>손절한 뒤 바로 반등하면 바보처럼 느껴진다. 하지만 그것은 위험 관리의 비용이다. 손절하지 않아 겪는 큰 손실은 작은 손절 여러 번보다 치명적이다(『초수익 성장주 투자』 12장).</p></div></div>
+<div class="panel rc">
+      <div class="panel-head">
+        <div>
+          <h3>손절선에서 나오면 손실은 한 자릿수에서 멈춘다</h3>
+          <p>같은 종목을 같은 값에 샀다. 손절선(붉은 선)에서 매도한 쪽의 손실은 7%다. 버틴 쪽의 손실은 40%까지 커진다.</p>
+        </div>
+        <div class="rng" role="group" aria-label="기간 선택">
+        </div>
+      </div>
+      <div class="chart-container rc-box" role="img" aria-label="손절선에서 나오면 손실은 한 자릿수에서 멈춘다">
+        <canvas id="fStop"></canvas>
+      </div>
+      <p class="note" id="fStop-note"></p>
+      <div class="srcline">
+        <span class="lbl">출처</span>
+        <span>개념도 · 실제 종목이 아니다 · 매수가 100 기준</span>
+      </div>
+    </div>
+<script>
+/* 랠리 차트 — scripts/lib/rally_chart.py (kospi-dotcom-1998-2000 첫 차트의 정본 그리기) */
+window.RC = window.RC || {};
+(function(){
+  var C = {"id": "fStop", "series": [["1일", 100.0], ["2일", 101.57], ["3일", 102.36], ["4일", 103.01], ["5일", 103.53], ["6일", 103.94], ["7일", 104.0], ["8일", 103.18], ["9일", 102.15], ["10일", 101.23], ["11일", 100.4], ["12일", 99.63], ["13일", 99.0], ["14일", 98.24], ["15일", 97.54], ["16일", 96.78], ["17일", 95.98], ["18일", 96.0], ["19일", 94.51], ["20일", 93.94], ["21일", 93.49], ["22일", 93.13], ["23일", 93.0], ["24일", 92.15], ["25일", 91.42], ["26일", 90.57], ["27일", 89.63], ["28일", 88.64], ["29일", 87.64], ["30일", 86.7], ["31일", 86.0], ["32일", 86.4], ["33일", 87.01], ["34일", 87.61], ["35일", 88.15], ["36일", 88.59], ["37일", 89.0], ["38일", 86.83], ["39일", 84.73], ["40일", 82.69], ["41일", 80.74], ["42일", 78.9], ["43일", 77.15], ["44일", 75.45], ["45일", 74.0], ["46일", 74.38], ["47일", 74.95], ["48일", 75.45], ["49일", 75.91], ["50일", 76.38], ["51일", 77.0], ["52일", 75.09], ["53일", 73.35], ["54일", 71.65], ["55일", 69.95], ["56일", 68.19], ["57일", 66.35], ["58일", 64.42], ["59일", 62.42], ["60일", 60]], "peak": 104, "marks": {"1일": {"t": "매수 100", "dy": -14, "c": "acc"}, "23일": {"t": "여기서 판다 · 손실 −7%", "dy": 26, "c": "neg"}, "60일": {"t": "버티면 −40% · 본전까지 +67%", "dy": -14, "c": "txt"}}, "ranges": {"all": {"from": "1일", "to": "60일", "note": ""}}, "bandFrom": null, "bandTo": null, "bandLabel": "", "label": "가격", "tip": "가격", "start": "all", "suggestedMin": 55, "hlines": [{"v": 100, "t": "매수가 100", "c": "txt", "dash": [2, 4], "w": 1.4}, {"v": 93, "t": "손절선 93 (−7%)", "c": "neg", "dash": [], "w": 2.4, "below": true}], "ref": 100, "refLabel": "매수가"};
+  var SERIES = C.series, PEAK = C.peak, MARKS = C.marks, RANGES = C.ranges;
+  var BAND_FROM = C.bandFrom, BAND_TO = C.bandTo;
+  function cv(n){ var el=document.getElementById(C.id); var r=(el&&el.closest('.rc'))||document.documentElement;
+    return getComputedStyle(r).getPropertyValue(n).trim(); }
+  function hexA(h,a){
+    h=(h||'').trim(); if(h.charAt(0)!=='#') return h;
+    if(h.length===4) h='#'+h[1]+h[1]+h[2]+h[2]+h[3]+h[3];
+    var n=parseInt(h.slice(1),16);
+    return 'rgba('+((n>>16)&255)+','+((n>>8)&255)+','+(n&255)+','+a+')';
+  }
+
+  var anno = {
+    id:'anno',
+    beforeDatasetsDraw:function(chart){
+      var xs=chart.scales.x, ys=chart.scales.y, ctx=chart.ctx;
+      if(!xs||!ys) return;
+      var labs=chart.data.labels;
+      if(C.bands){ C.bands.forEach(function(b){
+        var j1=labs.indexOf(b[0]), j2=labs.indexOf(b[1]); if(j1<0||j2<0) return;
+        ctx.save(); ctx.fillStyle=cv('--rc-band');
+        var a1=xs.getPixelForValue(j1), a2=xs.getPixelForValue(j2);
+        ctx.fillRect(a1, ys.top, a2-a1, ys.bottom-ys.top);
+        ctx.strokeStyle=hexA(cv('--rc-accent'),0.28); ctx.setLineDash([4,4]); ctx.lineWidth=1;
+        ctx.beginPath(); ctx.moveTo(a1,ys.top); ctx.lineTo(a1,ys.bottom); ctx.moveTo(a2,ys.top); ctx.lineTo(a2,ys.bottom); ctx.stroke();
+        ctx.setLineDash([]); ctx.fillStyle=hexA(cv('--rc-accent'),0.85); ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='center';
+        ctx.fillText(b[2], (a1+a2)/2, ys.top+16); ctx.restore(); }); }
+      var i1=labs.indexOf(BAND_FROM), i2=labs.indexOf(BAND_TO);
+      if(i1<0||i2<0) return;
+      ctx.save();
+      ctx.fillStyle=cv('--rc-band');
+      var x1=xs.getPixelForValue(i1), x2=xs.getPixelForValue(i2);
+      ctx.fillRect(x1, ys.top, x2-x1, ys.bottom-ys.top);
+      ctx.strokeStyle=hexA(cv('--rc-accent'),0.28); ctx.setLineDash([4,4]); ctx.lineWidth=1;
+      ctx.beginPath(); ctx.moveTo(x1,ys.top); ctx.lineTo(x1,ys.bottom);
+      ctx.moveTo(x2,ys.top); ctx.lineTo(x2,ys.bottom); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle=hexA(cv('--rc-accent'),0.85); ctx.font='700 11.5px Inter, sans-serif'; ctx.textAlign='center';
+      ctx.fillText(C.bandLabel, (x1+x2)/2, ys.top+16);
+      ctx.restore();
+    },
+    afterDatasetsDraw:function(chart){
+      var xs=chart.scales.x, ys=chart.scales.y, ctx=chart.ctx;
+      if(!xs||!ys) return;
+      var labs=chart.data.labels, data=chart.data.datasets[0].data;
+      var accent=cv('--rc-accent'), neg=cv('--rc-neg'), pos=cv('--rc-pos'), txt=cv('--rc-text2'), surf=cv('--rc-surface');
+      var narrow = (xs.width < 620);
+      function colOf(k){ return k==='acc'?accent : k==='neg'?neg : k==='pos'?pos : txt; }
+      if(C.hlines){ C.hlines.forEach(function(h){
+        var y=ys.getPixelForValue(h.v); if(y<ys.top||y>ys.bottom) return;
+        var a=h.frm?labs.indexOf(h.frm):0, b=h.to?labs.indexOf(h.to):labs.length-1;
+        if(h.frm&&a<0) a=0; if(h.to&&b<0) b=labs.length-1;
+        var xa=xs.getPixelForValue(a), xb=xs.getPixelForValue(b), col=colOf(h.c);
+        ctx.save(); ctx.strokeStyle=col; ctx.lineWidth=h.w||1.6; ctx.setLineDash(h.dash||[6,4]);
+        ctx.beginPath(); ctx.moveTo(xa,y); ctx.lineTo(xb,y); ctx.stroke(); ctx.setLineDash([]);
+        if(h.t){ ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='right'; ctx.fillStyle=col;
+          ctx.fillText(h.t, xb-2, y+(h.below?15:-6)); }
+        ctx.restore(); }); }
+      if(C.extra){ C.extra.forEach(function(e,k){ if(!e.end) return;
+        var d=chart.data.datasets[k+1].data, j=d.length-1; while(j>0 && (d[j]===null||d[j]===undefined)) j--;
+        if(j<0||d[j]===null) return;
+        ctx.save(); ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='right'; ctx.fillStyle=colOf(e.c);
+        ctx.fillText(e.end, xs.getPixelForValue(j)-4, ys.getPixelForValue(d[j])+(e.dy||-8)); ctx.restore(); }); }
+      ctx.save();
+      labs.forEach(function(l,i){
+        var m=MARKS[l]; if(!m) return;
+        var col = m.c==='acc'?accent : m.c==='neg'?neg : m.c==='pos'?pos : txt;
+        var x=xs.getPixelForValue(i), y=ys.getPixelForValue(data[i]);
+        ctx.beginPath(); ctx.arc(x,y,5.5,0,Math.PI*2); ctx.fillStyle=col; ctx.fill();
+        ctx.strokeStyle=surf; ctx.lineWidth=2; ctx.stroke();
+        if(narrow) return;
+        ctx.fillStyle=col; ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif';
+        ctx.textAlign = (i > labs.length*0.82) ? 'right' : (i < labs.length*0.08 ? 'left' : 'center');
+        ctx.fillText(m.t, x, y + m.dy);
+      });
+      ctx.restore();
+    }
+  };
+
+  var chart=null, currentRange=C.start;
+  function buildChart(){
+    if (typeof Chart==='undefined'){ console.error('Chart.js not loaded'); return; }
+    var el=document.getElementById(C.id); if(!el) return;
+    if(chart){ try{chart.destroy();}catch(e){} chart=null; }
+
+    var r=RANGES[currentRange];
+    var i1=0,i2=SERIES.length-1,i;
+    for(i=0;i<SERIES.length;i++){ if(SERIES[i][0]===r.from) i1=i; if(SERIES[i][0]===r.to) i2=i; }
+    var slice=SERIES.slice(i1,i2+1);
+    var labels=slice.map(function(d){return d[0];});
+    var vals=slice.map(function(d){return d[1];});
+    var more=(C.extra||[]).map(function(e){
+      var c0 = e.c==='acc'?cv('--rc-accent') : e.c==='neg'?cv('--rc-neg') : e.c==='pos'?cv('--rc-pos') : cv('--rc-text2');
+      return { label:e.label, data:e.data.slice(i1,i2+1), borderColor:c0, borderWidth:e.w||1.6, borderDash:e.dash||[],
+               stepped:!!e.stepped, tension:e.stepped?0:.3, pointRadius:0, pointHoverRadius:0, fill:false, spanGaps:false }; });
+
+    var text=cv('--rc-text'), tsec=cv('--rc-text2'), grid=cv('--rc-grid'), accent=cv('--rc-accent');
+
+    chart=new Chart(el,{
+      type:'line',
+      plugins:[anno],
+      data:{ labels:labels, datasets:[{
+        label:C.label, data:vals,
+        borderColor:accent, backgroundColor:hexA(accent,0.13),
+        borderWidth:3.2, tension:.3, pointRadius:0, pointHoverRadius:6, fill:true
+      }].concat(more)},
+      options:{
+        responsive:true, maintainAspectRatio:false,
+        layout:{ padding:{ top:30, right:16, bottom:4, left:4 } },
+        animation:{ duration:1000, easing:'easeOutQuart' },
+        interaction:{ mode:'index', intersect:false },
+        plugins:{
+          legend:{ display:false },
+          tooltip:{ enabled:true, padding:12, cornerRadius:8,
+            titleFont:{size:13,family:'Inter'}, bodyFont:{size:13,family:'Noto Sans KR'},
+            callbacks:{
+              label:function(c){
+                if(c.datasetIndex>0) return c.parsed.y===null ? '' : ' '+c.dataset.label+' '+c.parsed.y.toLocaleString(undefined,{maximumFractionDigits:2})+(C.unit||'');
+                if(C.ref){ var q=(c.parsed.y/C.ref-1)*100;
+                  return ' '+C.tip+' '+c.parsed.y.toLocaleString(undefined,{maximumFractionDigits:2})+'  ('+C.refLabel+' 대비 '+(q>=0?'+':'')+q.toFixed(1)+'%)'; }
+                if(C.unit) return ' '+C.tip+' '+(c.parsed.y>0?'+':'')+c.parsed.y.toFixed(2)+C.unit;
+                return ' '+C.tip+' '+c.parsed.y.toLocaleString()+'  ('+(C.peakLabel||'정점 대비')+' '+(c.parsed.y/PEAK*100).toFixed(1)+'%)';
+              },
+              afterLabel:function(c){ if(c.datasetIndex>0) return ''; var m=MARKS[c.label]; return m ? ' ▸ '+m.t.replace(/\s\d[\d,]*.*$/,'') : ''; }
+            } }
+        },
+        scales:{
+          x:{ ticks:{color:tsec,font:{family:'Inter',size:11.5},maxRotation:0,autoSkip:true,maxTicksLimit:12},
+              grid:{color:grid} },
+          y:{ beginAtZero:false, suggestedMin:C.suggestedMin,
+              title:{display:true,text:C.ylabel||C.label,color:tsec,font:{family:'Noto Sans KR',size:13}},
+              ticks:{color:tsec,font:{family:'Inter',size:12},callback:function(v){return v.toLocaleString();}},
+              grid:{color:grid} }
+        }
+      }
+    });
+  }
+
+  function setRange(kind,btn){
+    currentRange=kind;
+    try{ buildChart(); }catch(e){ if(window.console) console.error('buildChart', e); }
+    try{
+      var g=(btn&&btn.closest)?btn.closest('.rng'):null;
+      var bs=g?g.querySelectorAll('button'):[];
+      for(var i=0;i<bs.length;i++) bs[i].classList.remove('on');
+      if(btn&&btn.classList) btn.classList.add('on');
+      var rn=document.getElementById(C.id+'-note');
+      if(rn && RANGES[kind]) rn.innerHTML = RANGES[kind].note;
+    }catch(e){ if(window.console) console.error('setRange ui', e); }
+  }
+
+  RC[C.id] = { build:buildChart, setRange:setRange, chart:function(){ return chart; } };
+  try{ var _n=document.getElementById(C.id+'-note'); if(_n) _n.innerHTML = RANGES[currentRange].note; }catch(e){}
+  try{ new MutationObserver(function(){ buildChart(); }).observe(document.documentElement,{attributes:true,attributeFilter:['class']}); }catch(e){}
+  if(document.readyState==='complete'){ buildChart(); }
+  else { window.addEventListener('load', buildChart); }
+  setTimeout(function(){ if(!chart) buildChart(); }, 400);
+})();
+</script>
 <div class="kbp"><div class="s">손절을 나눠 걸 수도 있다</div><div><p>손절 가격을 하나로 정하지 않아도 된다. 6% 손절 대신 절반은 4%에서, 나머지 절반은 8%에서 판다. 평균 위험은 6%로 같다. 하지만 6%를 조금 넘는 흔들림에도 포지션의 절반이 남는다(『챔피언처럼 생각하고 거래하라』 3장).</p></div></div>
+<div class="panel rc">
+      <div class="panel-head">
+        <div>
+          <h3>손절을 나눠 걸면 짧은 흔들림에도 절반이 남는다</h3>
+          <p>절반은 −4%, 나머지 절반은 −8%에 손절을 걸었다. 평균 위험은 6%다. 주가는 6.1% 하락한 뒤 돌아섰다. 손절이 하나였다면 모두 팔았을 자리에서 절반이 남았다.</p>
+        </div>
+        <div class="rng" role="group" aria-label="기간 선택">
+        </div>
+      </div>
+      <div class="chart-container rc-box" role="img" aria-label="손절을 나눠 걸면 짧은 흔들림에도 절반이 남는다">
+        <canvas id="fSplit"></canvas>
+      </div>
+      <p class="note" id="fSplit-note"></p>
+      <div class="srcline">
+        <span class="lbl">출처</span>
+        <span>개념도 · 실제 종목이 아니다 · 『챔피언처럼 생각하고 거래하라』 3장 그림 3-3의 장면(두 달 +54%)</span>
+      </div>
+    </div>
+<script>
+/* 랠리 차트 — scripts/lib/rally_chart.py (kospi-dotcom-1998-2000 첫 차트의 정본 그리기) */
+window.RC = window.RC || {};
+(function(){
+  var C = {"id": "fSplit", "series": [["1일", 100.0], ["2일", 101.1], ["3일", 101.68], ["4일", 102.17], ["5일", 102.0], ["6일", 101.59], ["7일", 100.59], ["8일", 99.61], ["9일", 98.68], ["10일", 98.0], ["11일", 97.01], ["12일", 96.23], ["13일", 95.44], ["14일", 94.62], ["15일", 93.9], ["16일", 94.64], ["17일", 95.52], ["18일", 96.41], ["19일", 97.36], ["20일", 98.39], ["21일", 100.0], ["22일", 100.66], ["23일", 101.85], ["24일", 103.02], ["25일", 104.13], ["26일", 105.15], ["27일", 106.1], ["28일", 107.01], ["29일", 108.0], ["30일", 108.85], ["31일", 109.86], ["32일", 110.92], ["33일", 112.01], ["34일", 113.1], ["35일", 114.13], ["36일", 115]], "peak": 115, "marks": {"1일": {"t": "매수 100", "dy": -14, "c": "acc"}, "13일": {"t": "절반 매도", "dy": -14, "c": "neg"}, "15일": {"t": "저점 −6.1%", "dy": 30, "c": "txt"}, "36일": {"t": "남은 절반은 상승을 탄다 · 두 달 뒤 +54%", "dy": -14, "c": "pos"}}, "ranges": {"all": {"from": "1일", "to": "36일", "note": ""}}, "bandFrom": null, "bandTo": null, "bandLabel": "", "label": "가격", "tip": "가격", "start": "all", "suggestedMin": 89, "hlines": [{"v": 100, "t": "매수가 100", "c": "txt", "dash": [2, 4], "w": 1.4}, {"v": 96, "t": "절반 손절 96 (−4%)", "c": "neg", "dash": [], "w": 2.4}, {"v": 94, "t": "손절이 하나였다면 94 (−6%)", "c": "txt", "dash": [3, 3], "w": 1.4}, {"v": 92, "t": "나머지 절반 손절 92 (−8%)", "c": "neg", "dash": [], "w": 2.4, "below": true}], "ref": 100, "refLabel": "매수가"};
+  var SERIES = C.series, PEAK = C.peak, MARKS = C.marks, RANGES = C.ranges;
+  var BAND_FROM = C.bandFrom, BAND_TO = C.bandTo;
+  function cv(n){ var el=document.getElementById(C.id); var r=(el&&el.closest('.rc'))||document.documentElement;
+    return getComputedStyle(r).getPropertyValue(n).trim(); }
+  function hexA(h,a){
+    h=(h||'').trim(); if(h.charAt(0)!=='#') return h;
+    if(h.length===4) h='#'+h[1]+h[1]+h[2]+h[2]+h[3]+h[3];
+    var n=parseInt(h.slice(1),16);
+    return 'rgba('+((n>>16)&255)+','+((n>>8)&255)+','+(n&255)+','+a+')';
+  }
+
+  var anno = {
+    id:'anno',
+    beforeDatasetsDraw:function(chart){
+      var xs=chart.scales.x, ys=chart.scales.y, ctx=chart.ctx;
+      if(!xs||!ys) return;
+      var labs=chart.data.labels;
+      if(C.bands){ C.bands.forEach(function(b){
+        var j1=labs.indexOf(b[0]), j2=labs.indexOf(b[1]); if(j1<0||j2<0) return;
+        ctx.save(); ctx.fillStyle=cv('--rc-band');
+        var a1=xs.getPixelForValue(j1), a2=xs.getPixelForValue(j2);
+        ctx.fillRect(a1, ys.top, a2-a1, ys.bottom-ys.top);
+        ctx.strokeStyle=hexA(cv('--rc-accent'),0.28); ctx.setLineDash([4,4]); ctx.lineWidth=1;
+        ctx.beginPath(); ctx.moveTo(a1,ys.top); ctx.lineTo(a1,ys.bottom); ctx.moveTo(a2,ys.top); ctx.lineTo(a2,ys.bottom); ctx.stroke();
+        ctx.setLineDash([]); ctx.fillStyle=hexA(cv('--rc-accent'),0.85); ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='center';
+        ctx.fillText(b[2], (a1+a2)/2, ys.top+16); ctx.restore(); }); }
+      var i1=labs.indexOf(BAND_FROM), i2=labs.indexOf(BAND_TO);
+      if(i1<0||i2<0) return;
+      ctx.save();
+      ctx.fillStyle=cv('--rc-band');
+      var x1=xs.getPixelForValue(i1), x2=xs.getPixelForValue(i2);
+      ctx.fillRect(x1, ys.top, x2-x1, ys.bottom-ys.top);
+      ctx.strokeStyle=hexA(cv('--rc-accent'),0.28); ctx.setLineDash([4,4]); ctx.lineWidth=1;
+      ctx.beginPath(); ctx.moveTo(x1,ys.top); ctx.lineTo(x1,ys.bottom);
+      ctx.moveTo(x2,ys.top); ctx.lineTo(x2,ys.bottom); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle=hexA(cv('--rc-accent'),0.85); ctx.font='700 11.5px Inter, sans-serif'; ctx.textAlign='center';
+      ctx.fillText(C.bandLabel, (x1+x2)/2, ys.top+16);
+      ctx.restore();
+    },
+    afterDatasetsDraw:function(chart){
+      var xs=chart.scales.x, ys=chart.scales.y, ctx=chart.ctx;
+      if(!xs||!ys) return;
+      var labs=chart.data.labels, data=chart.data.datasets[0].data;
+      var accent=cv('--rc-accent'), neg=cv('--rc-neg'), pos=cv('--rc-pos'), txt=cv('--rc-text2'), surf=cv('--rc-surface');
+      var narrow = (xs.width < 620);
+      function colOf(k){ return k==='acc'?accent : k==='neg'?neg : k==='pos'?pos : txt; }
+      if(C.hlines){ C.hlines.forEach(function(h){
+        var y=ys.getPixelForValue(h.v); if(y<ys.top||y>ys.bottom) return;
+        var a=h.frm?labs.indexOf(h.frm):0, b=h.to?labs.indexOf(h.to):labs.length-1;
+        if(h.frm&&a<0) a=0; if(h.to&&b<0) b=labs.length-1;
+        var xa=xs.getPixelForValue(a), xb=xs.getPixelForValue(b), col=colOf(h.c);
+        ctx.save(); ctx.strokeStyle=col; ctx.lineWidth=h.w||1.6; ctx.setLineDash(h.dash||[6,4]);
+        ctx.beginPath(); ctx.moveTo(xa,y); ctx.lineTo(xb,y); ctx.stroke(); ctx.setLineDash([]);
+        if(h.t){ ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='right'; ctx.fillStyle=col;
+          ctx.fillText(h.t, xb-2, y+(h.below?15:-6)); }
+        ctx.restore(); }); }
+      if(C.extra){ C.extra.forEach(function(e,k){ if(!e.end) return;
+        var d=chart.data.datasets[k+1].data, j=d.length-1; while(j>0 && (d[j]===null||d[j]===undefined)) j--;
+        if(j<0||d[j]===null) return;
+        ctx.save(); ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='right'; ctx.fillStyle=colOf(e.c);
+        ctx.fillText(e.end, xs.getPixelForValue(j)-4, ys.getPixelForValue(d[j])+(e.dy||-8)); ctx.restore(); }); }
+      ctx.save();
+      labs.forEach(function(l,i){
+        var m=MARKS[l]; if(!m) return;
+        var col = m.c==='acc'?accent : m.c==='neg'?neg : m.c==='pos'?pos : txt;
+        var x=xs.getPixelForValue(i), y=ys.getPixelForValue(data[i]);
+        ctx.beginPath(); ctx.arc(x,y,5.5,0,Math.PI*2); ctx.fillStyle=col; ctx.fill();
+        ctx.strokeStyle=surf; ctx.lineWidth=2; ctx.stroke();
+        if(narrow) return;
+        ctx.fillStyle=col; ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif';
+        ctx.textAlign = (i > labs.length*0.82) ? 'right' : (i < labs.length*0.08 ? 'left' : 'center');
+        ctx.fillText(m.t, x, y + m.dy);
+      });
+      ctx.restore();
+    }
+  };
+
+  var chart=null, currentRange=C.start;
+  function buildChart(){
+    if (typeof Chart==='undefined'){ console.error('Chart.js not loaded'); return; }
+    var el=document.getElementById(C.id); if(!el) return;
+    if(chart){ try{chart.destroy();}catch(e){} chart=null; }
+
+    var r=RANGES[currentRange];
+    var i1=0,i2=SERIES.length-1,i;
+    for(i=0;i<SERIES.length;i++){ if(SERIES[i][0]===r.from) i1=i; if(SERIES[i][0]===r.to) i2=i; }
+    var slice=SERIES.slice(i1,i2+1);
+    var labels=slice.map(function(d){return d[0];});
+    var vals=slice.map(function(d){return d[1];});
+    var more=(C.extra||[]).map(function(e){
+      var c0 = e.c==='acc'?cv('--rc-accent') : e.c==='neg'?cv('--rc-neg') : e.c==='pos'?cv('--rc-pos') : cv('--rc-text2');
+      return { label:e.label, data:e.data.slice(i1,i2+1), borderColor:c0, borderWidth:e.w||1.6, borderDash:e.dash||[],
+               stepped:!!e.stepped, tension:e.stepped?0:.3, pointRadius:0, pointHoverRadius:0, fill:false, spanGaps:false }; });
+
+    var text=cv('--rc-text'), tsec=cv('--rc-text2'), grid=cv('--rc-grid'), accent=cv('--rc-accent');
+
+    chart=new Chart(el,{
+      type:'line',
+      plugins:[anno],
+      data:{ labels:labels, datasets:[{
+        label:C.label, data:vals,
+        borderColor:accent, backgroundColor:hexA(accent,0.13),
+        borderWidth:3.2, tension:.3, pointRadius:0, pointHoverRadius:6, fill:true
+      }].concat(more)},
+      options:{
+        responsive:true, maintainAspectRatio:false,
+        layout:{ padding:{ top:30, right:16, bottom:4, left:4 } },
+        animation:{ duration:1000, easing:'easeOutQuart' },
+        interaction:{ mode:'index', intersect:false },
+        plugins:{
+          legend:{ display:false },
+          tooltip:{ enabled:true, padding:12, cornerRadius:8,
+            titleFont:{size:13,family:'Inter'}, bodyFont:{size:13,family:'Noto Sans KR'},
+            callbacks:{
+              label:function(c){
+                if(c.datasetIndex>0) return c.parsed.y===null ? '' : ' '+c.dataset.label+' '+c.parsed.y.toLocaleString(undefined,{maximumFractionDigits:2})+(C.unit||'');
+                if(C.ref){ var q=(c.parsed.y/C.ref-1)*100;
+                  return ' '+C.tip+' '+c.parsed.y.toLocaleString(undefined,{maximumFractionDigits:2})+'  ('+C.refLabel+' 대비 '+(q>=0?'+':'')+q.toFixed(1)+'%)'; }
+                if(C.unit) return ' '+C.tip+' '+(c.parsed.y>0?'+':'')+c.parsed.y.toFixed(2)+C.unit;
+                return ' '+C.tip+' '+c.parsed.y.toLocaleString()+'  ('+(C.peakLabel||'정점 대비')+' '+(c.parsed.y/PEAK*100).toFixed(1)+'%)';
+              },
+              afterLabel:function(c){ if(c.datasetIndex>0) return ''; var m=MARKS[c.label]; return m ? ' ▸ '+m.t.replace(/\s\d[\d,]*.*$/,'') : ''; }
+            } }
+        },
+        scales:{
+          x:{ ticks:{color:tsec,font:{family:'Inter',size:11.5},maxRotation:0,autoSkip:true,maxTicksLimit:12},
+              grid:{color:grid} },
+          y:{ beginAtZero:false, suggestedMin:C.suggestedMin,
+              title:{display:true,text:C.ylabel||C.label,color:tsec,font:{family:'Noto Sans KR',size:13}},
+              ticks:{color:tsec,font:{family:'Inter',size:12},callback:function(v){return v.toLocaleString();}},
+              grid:{color:grid} }
+        }
+      }
+    });
+  }
+
+  function setRange(kind,btn){
+    currentRange=kind;
+    try{ buildChart(); }catch(e){ if(window.console) console.error('buildChart', e); }
+    try{
+      var g=(btn&&btn.closest)?btn.closest('.rng'):null;
+      var bs=g?g.querySelectorAll('button'):[];
+      for(var i=0;i<bs.length;i++) bs[i].classList.remove('on');
+      if(btn&&btn.classList) btn.classList.add('on');
+      var rn=document.getElementById(C.id+'-note');
+      if(rn && RANGES[kind]) rn.innerHTML = RANGES[kind].note;
+    }catch(e){ if(window.console) console.error('setRange ui', e); }
+  }
+
+  RC[C.id] = { build:buildChart, setRange:setRange, chart:function(){ return chart; } };
+  try{ var _n=document.getElementById(C.id+'-note'); if(_n) _n.innerHTML = RANGES[currentRange].note; }catch(e){}
+  try{ new MutationObserver(function(){ buildChart(); }).observe(document.documentElement,{attributes:true,attributeFilter:['class']}); }catch(e){}
+  if(document.readyState==='complete'){ buildChart(); }
+  else { window.addEventListener('load', buildChart); }
+  setTimeout(function(){ if(!chart) buildChart(); }, 400);
+})();
+</script>
 <div class="kbp"><div class="s">가격 %와 이동평균선</div><div><p>이야기꾼의 <a href="methodology.html">3개의 선</a>이 같은 일을 다른 방식으로 한다. 미너비니는 가격 %로 자른다. 이야기꾼은 이동평균선으로 자른다.</p><p>%는 종목마다 변동성이 달라도 같은 기준을 댄다. 이동평균선은 종목의 성격에 따라 기준선 자체가 움직인다.</p></div></div>
 
 <h2 id="손익비는-승률을-넣어서-본다">손익비는 승률을 넣어서 본다</h2>
@@ -922,6 +1673,187 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 </tbody></table></div>
 <p class="kb-note">※ 승률 50%에서는 가장 좋은 조합이 +48% / −24%로 바뀐다. 승률 30%에서 +100% / −50%로 거래하면 10번 만에 −93.75%다(『챔피언처럼 생각하고 거래하라』 3장).</p>
 <p class="kb-note">※ 이 절은 2026-11-19에 고쳤다. 옛 판은 '승률 40%에서 2:1을 지키려면 손실은 수익의 절반이고, 그 조합이 +20% / −10%'라고 적었다. 승률을 넣은 2:1과 크기만 2:1인 조합을 한 문장에 섞은 것이다.</p>
+<div class="panel rc">
+      <div class="panel-head">
+        <div>
+          <h3>크기만 2:1인 조합도 결과가 다르다: 승률 40%에서는 +20% / −10%가 가장 컸다</h3>
+          <p>승률 40%로 10번 거래했을 때(4번 수익 · 6번 손실) 계좌가 얼마나 늘었는지 계산했다. 가로는 평균 수익과 평균 손실이다.</p>
+        </div>
+        <div class="rng" role="group" aria-label="기간 선택">
+        </div>
+      </div>
+      <div class="chart-container rc-box" role="img" aria-label="크기만 2:1인 조합도 결과가 다르다: 승률 40%에서는 +20% / −10%가 가장 컸다">
+        <canvas id="fRatio"></canvas>
+      </div>
+      <p class="note" id="fRatio-note"></p>
+      <div class="srcline">
+        <span class="lbl">출처</span>
+        <span>개념도 · 실제 종목이 아니다 · 계산: (1 + 수익)⁴ × (1 − 손실)⁶ − 1</span>
+      </div>
+    </div>
+<script>
+/* 랠리 차트 — scripts/lib/rally_chart.py (kospi-dotcom-1998-2000 첫 차트의 정본 그리기) */
+window.RC = window.RC || {};
+(function(){
+  var C = {"id": "fRatio", "series": [["+2 / −1", 1.91], ["+4 / −2", 3.63], ["+6 / −3", 5.16], ["+8 / −4", 6.49], ["+10 / −5", 7.62], ["+12 / −6", 8.55], ["+14 / −7", 9.27], ["+16 / −8", 9.79], ["+18 / −9", 10.1], ["+20 / −10", 10.2], ["+22 / −11", 10.1], ["+24 / −12", 9.8], ["+26 / −13", 9.29], ["+28 / −14", 8.6], ["+30 / −15", 7.72], ["+32 / −16", 6.65], ["+34 / −17", 5.41], ["+36 / −18", 4.0], ["+38 / −19", 2.43], ["+40 / −20", 0.71], ["+42 / −21", -1.16], ["+44 / −22", -3.17], ["+46 / −23", -5.3], ["+48 / −24", -7.55], ["+50 / −25", -9.9], ["+52 / −26", -12.35], ["+54 / −27", -14.88], ["+56 / −28", -17.49], ["+58 / −29", -20.17], ["+60 / −30", -22.9]], "peak": 10.2, "marks": {"+4 / −2": {"t": "+4 / −2 → +3.63%", "dy": -16, "c": "txt"}, "+20 / −10": {"t": "+20 / −10 → +10.20%", "dy": -16, "c": "pos"}, "+42 / −21": {"t": "+42 / −21 → -1.16%", "dy": 30, "c": "neg"}}, "ranges": {"all": {"from": "+2 / −1", "to": "+60 / −30", "note": ""}}, "bandFrom": null, "bandTo": null, "bandLabel": "", "label": "10번 뒤 계좌 증감", "tip": "10번 뒤", "start": "all", "suggestedMin": -25, "hlines": [{"v": 0, "t": "본전", "c": "txt", "dash": [2, 4], "w": 1.4, "below": true}], "unit": "%", "ylabel": "10번 뒤 계좌 증감(%)"};
+  var SERIES = C.series, PEAK = C.peak, MARKS = C.marks, RANGES = C.ranges;
+  var BAND_FROM = C.bandFrom, BAND_TO = C.bandTo;
+  function cv(n){ var el=document.getElementById(C.id); var r=(el&&el.closest('.rc'))||document.documentElement;
+    return getComputedStyle(r).getPropertyValue(n).trim(); }
+  function hexA(h,a){
+    h=(h||'').trim(); if(h.charAt(0)!=='#') return h;
+    if(h.length===4) h='#'+h[1]+h[1]+h[2]+h[2]+h[3]+h[3];
+    var n=parseInt(h.slice(1),16);
+    return 'rgba('+((n>>16)&255)+','+((n>>8)&255)+','+(n&255)+','+a+')';
+  }
+
+  var anno = {
+    id:'anno',
+    beforeDatasetsDraw:function(chart){
+      var xs=chart.scales.x, ys=chart.scales.y, ctx=chart.ctx;
+      if(!xs||!ys) return;
+      var labs=chart.data.labels;
+      if(C.bands){ C.bands.forEach(function(b){
+        var j1=labs.indexOf(b[0]), j2=labs.indexOf(b[1]); if(j1<0||j2<0) return;
+        ctx.save(); ctx.fillStyle=cv('--rc-band');
+        var a1=xs.getPixelForValue(j1), a2=xs.getPixelForValue(j2);
+        ctx.fillRect(a1, ys.top, a2-a1, ys.bottom-ys.top);
+        ctx.strokeStyle=hexA(cv('--rc-accent'),0.28); ctx.setLineDash([4,4]); ctx.lineWidth=1;
+        ctx.beginPath(); ctx.moveTo(a1,ys.top); ctx.lineTo(a1,ys.bottom); ctx.moveTo(a2,ys.top); ctx.lineTo(a2,ys.bottom); ctx.stroke();
+        ctx.setLineDash([]); ctx.fillStyle=hexA(cv('--rc-accent'),0.85); ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='center';
+        ctx.fillText(b[2], (a1+a2)/2, ys.top+16); ctx.restore(); }); }
+      var i1=labs.indexOf(BAND_FROM), i2=labs.indexOf(BAND_TO);
+      if(i1<0||i2<0) return;
+      ctx.save();
+      ctx.fillStyle=cv('--rc-band');
+      var x1=xs.getPixelForValue(i1), x2=xs.getPixelForValue(i2);
+      ctx.fillRect(x1, ys.top, x2-x1, ys.bottom-ys.top);
+      ctx.strokeStyle=hexA(cv('--rc-accent'),0.28); ctx.setLineDash([4,4]); ctx.lineWidth=1;
+      ctx.beginPath(); ctx.moveTo(x1,ys.top); ctx.lineTo(x1,ys.bottom);
+      ctx.moveTo(x2,ys.top); ctx.lineTo(x2,ys.bottom); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle=hexA(cv('--rc-accent'),0.85); ctx.font='700 11.5px Inter, sans-serif'; ctx.textAlign='center';
+      ctx.fillText(C.bandLabel, (x1+x2)/2, ys.top+16);
+      ctx.restore();
+    },
+    afterDatasetsDraw:function(chart){
+      var xs=chart.scales.x, ys=chart.scales.y, ctx=chart.ctx;
+      if(!xs||!ys) return;
+      var labs=chart.data.labels, data=chart.data.datasets[0].data;
+      var accent=cv('--rc-accent'), neg=cv('--rc-neg'), pos=cv('--rc-pos'), txt=cv('--rc-text2'), surf=cv('--rc-surface');
+      var narrow = (xs.width < 620);
+      function colOf(k){ return k==='acc'?accent : k==='neg'?neg : k==='pos'?pos : txt; }
+      if(C.hlines){ C.hlines.forEach(function(h){
+        var y=ys.getPixelForValue(h.v); if(y<ys.top||y>ys.bottom) return;
+        var a=h.frm?labs.indexOf(h.frm):0, b=h.to?labs.indexOf(h.to):labs.length-1;
+        if(h.frm&&a<0) a=0; if(h.to&&b<0) b=labs.length-1;
+        var xa=xs.getPixelForValue(a), xb=xs.getPixelForValue(b), col=colOf(h.c);
+        ctx.save(); ctx.strokeStyle=col; ctx.lineWidth=h.w||1.6; ctx.setLineDash(h.dash||[6,4]);
+        ctx.beginPath(); ctx.moveTo(xa,y); ctx.lineTo(xb,y); ctx.stroke(); ctx.setLineDash([]);
+        if(h.t){ ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='right'; ctx.fillStyle=col;
+          ctx.fillText(h.t, xb-2, y+(h.below?15:-6)); }
+        ctx.restore(); }); }
+      if(C.extra){ C.extra.forEach(function(e,k){ if(!e.end) return;
+        var d=chart.data.datasets[k+1].data, j=d.length-1; while(j>0 && (d[j]===null||d[j]===undefined)) j--;
+        if(j<0||d[j]===null) return;
+        ctx.save(); ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='right'; ctx.fillStyle=colOf(e.c);
+        ctx.fillText(e.end, xs.getPixelForValue(j)-4, ys.getPixelForValue(d[j])+(e.dy||-8)); ctx.restore(); }); }
+      ctx.save();
+      labs.forEach(function(l,i){
+        var m=MARKS[l]; if(!m) return;
+        var col = m.c==='acc'?accent : m.c==='neg'?neg : m.c==='pos'?pos : txt;
+        var x=xs.getPixelForValue(i), y=ys.getPixelForValue(data[i]);
+        ctx.beginPath(); ctx.arc(x,y,5.5,0,Math.PI*2); ctx.fillStyle=col; ctx.fill();
+        ctx.strokeStyle=surf; ctx.lineWidth=2; ctx.stroke();
+        if(narrow) return;
+        ctx.fillStyle=col; ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif';
+        ctx.textAlign = (i > labs.length*0.82) ? 'right' : (i < labs.length*0.08 ? 'left' : 'center');
+        ctx.fillText(m.t, x, y + m.dy);
+      });
+      ctx.restore();
+    }
+  };
+
+  var chart=null, currentRange=C.start;
+  function buildChart(){
+    if (typeof Chart==='undefined'){ console.error('Chart.js not loaded'); return; }
+    var el=document.getElementById(C.id); if(!el) return;
+    if(chart){ try{chart.destroy();}catch(e){} chart=null; }
+
+    var r=RANGES[currentRange];
+    var i1=0,i2=SERIES.length-1,i;
+    for(i=0;i<SERIES.length;i++){ if(SERIES[i][0]===r.from) i1=i; if(SERIES[i][0]===r.to) i2=i; }
+    var slice=SERIES.slice(i1,i2+1);
+    var labels=slice.map(function(d){return d[0];});
+    var vals=slice.map(function(d){return d[1];});
+    var more=(C.extra||[]).map(function(e){
+      var c0 = e.c==='acc'?cv('--rc-accent') : e.c==='neg'?cv('--rc-neg') : e.c==='pos'?cv('--rc-pos') : cv('--rc-text2');
+      return { label:e.label, data:e.data.slice(i1,i2+1), borderColor:c0, borderWidth:e.w||1.6, borderDash:e.dash||[],
+               stepped:!!e.stepped, tension:e.stepped?0:.3, pointRadius:0, pointHoverRadius:0, fill:false, spanGaps:false }; });
+
+    var text=cv('--rc-text'), tsec=cv('--rc-text2'), grid=cv('--rc-grid'), accent=cv('--rc-accent');
+
+    chart=new Chart(el,{
+      type:'line',
+      plugins:[anno],
+      data:{ labels:labels, datasets:[{
+        label:C.label, data:vals,
+        borderColor:accent, backgroundColor:hexA(accent,0.13),
+        borderWidth:3.2, tension:.3, pointRadius:0, pointHoverRadius:6, fill:true
+      }].concat(more)},
+      options:{
+        responsive:true, maintainAspectRatio:false,
+        layout:{ padding:{ top:30, right:16, bottom:4, left:4 } },
+        animation:{ duration:1000, easing:'easeOutQuart' },
+        interaction:{ mode:'index', intersect:false },
+        plugins:{
+          legend:{ display:false },
+          tooltip:{ enabled:true, padding:12, cornerRadius:8,
+            titleFont:{size:13,family:'Inter'}, bodyFont:{size:13,family:'Noto Sans KR'},
+            callbacks:{
+              label:function(c){
+                if(c.datasetIndex>0) return c.parsed.y===null ? '' : ' '+c.dataset.label+' '+c.parsed.y.toLocaleString(undefined,{maximumFractionDigits:2})+(C.unit||'');
+                if(C.ref){ var q=(c.parsed.y/C.ref-1)*100;
+                  return ' '+C.tip+' '+c.parsed.y.toLocaleString(undefined,{maximumFractionDigits:2})+'  ('+C.refLabel+' 대비 '+(q>=0?'+':'')+q.toFixed(1)+'%)'; }
+                if(C.unit) return ' '+C.tip+' '+(c.parsed.y>0?'+':'')+c.parsed.y.toFixed(2)+C.unit;
+                return ' '+C.tip+' '+c.parsed.y.toLocaleString()+'  ('+(C.peakLabel||'정점 대비')+' '+(c.parsed.y/PEAK*100).toFixed(1)+'%)';
+              },
+              afterLabel:function(c){ if(c.datasetIndex>0) return ''; var m=MARKS[c.label]; return m ? ' ▸ '+m.t.replace(/\s\d[\d,]*.*$/,'') : ''; }
+            } }
+        },
+        scales:{
+          x:{ ticks:{color:tsec,font:{family:'Inter',size:11.5},maxRotation:0,autoSkip:true,maxTicksLimit:12},
+              grid:{color:grid} },
+          y:{ beginAtZero:false, suggestedMin:C.suggestedMin,
+              title:{display:true,text:C.ylabel||C.label,color:tsec,font:{family:'Noto Sans KR',size:13}},
+              ticks:{color:tsec,font:{family:'Inter',size:12},callback:function(v){return v.toLocaleString();}},
+              grid:{color:grid} }
+        }
+      }
+    });
+  }
+
+  function setRange(kind,btn){
+    currentRange=kind;
+    try{ buildChart(); }catch(e){ if(window.console) console.error('buildChart', e); }
+    try{
+      var g=(btn&&btn.closest)?btn.closest('.rng'):null;
+      var bs=g?g.querySelectorAll('button'):[];
+      for(var i=0;i<bs.length;i++) bs[i].classList.remove('on');
+      if(btn&&btn.classList) btn.classList.add('on');
+      var rn=document.getElementById(C.id+'-note');
+      if(rn && RANGES[kind]) rn.innerHTML = RANGES[kind].note;
+    }catch(e){ if(window.console) console.error('setRange ui', e); }
+  }
+
+  RC[C.id] = { build:buildChart, setRange:setRange, chart:function(){ return chart; } };
+  try{ var _n=document.getElementById(C.id+'-note'); if(_n) _n.innerHTML = RANGES[currentRange].note; }catch(e){}
+  try{ new MutationObserver(function(){ buildChart(); }).observe(document.documentElement,{attributes:true,attributeFilter:['class']}); }catch(e){}
+  if(document.readyState==='complete'){ buildChart(); }
+  else { window.addEventListener('load', buildChart); }
+  setTimeout(function(){ if(!chart) buildChart(); }, 400);
+})();
+</script>
 
 <h3 class="kb">3-1. 손절 비율은 자기 기록으로 정한다</h3>
 <div class="kbp"><div class="s">희망이 아니라 기록</div><div><p>손절 비율은 기대하는 수익이 아니라 실제로 낸 평균 수익으로 정한다. 미너비니는 이것을 '결과 기반 가정(RBA)'이라고 부른다. 지난 1년 평균 수익이 10%이고 승률이 절반이었다면 10% 손실은 감당할 수 없다.</p></div></div>
@@ -951,6 +1883,187 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 <tr><td>8</td><td><b>상대강도 순위 70 이상</b>, 선호 구간은 80~90대</td></tr>
 </tbody></table></div>
 <p class="kb-note">※ 『챔피언처럼 생각하고 거래하라』 6장은 6번을 '52주 저가보다 25% 이상'으로, 8번의 선호 구간을 '90 이상'으로 적었다. 같은 장은 200일선이 가능하면 4~5개월 이상 상승하기를 바란다. 상대강도선도 5주, 가능하면 13주 이상 상승하기를 바란다. 이 사이트는 표 6의 수치로 점검한다.</p>
+<div class="panel rc">
+      <div class="panel-head">
+        <div>
+          <h3>추세 템플릿: 주가가 50일선 · 150일선 · 200일선 위에 있고, 선은 모두 상승한다</h3>
+          <p>점선 3개는 이동평균선이다(위에서부터 50일 · 150일 · 200일, 그림의 주가로 계산). 현재가는 52주 저가 +30% 선 위, 52주 고가 −25% 선 위에 있어야 한다.</p>
+        </div>
+        <div class="rng" role="group" aria-label="기간 선택">
+        </div>
+      </div>
+      <div class="chart-container rc-box" role="img" aria-label="추세 템플릿: 주가가 50일선 · 150일선 · 200일선 위에 있고, 선은 모두 상승한다">
+        <canvas id="fTt"></canvas>
+      </div>
+      <p class="note" id="fTt-note"></p>
+      <div class="srcline">
+        <span class="lbl">출처</span>
+        <span>개념도 · 실제 종목이 아니다 · 2단계 상승추세의 장면</span>
+      </div>
+    </div>
+<script>
+/* 랠리 차트 — scripts/lib/rally_chart.py (kospi-dotcom-1998-2000 첫 차트의 정본 그리기) */
+window.RC = window.RC || {};
+(function(){
+  var C = {"id": "fTt", "series": [["1일", 62.7], ["2일", 63.33], ["3일", 63.51], ["4일", 63.59], ["5일", 63.31], ["6일", 63.33], ["7일", 63.21], ["8일", 63.11], ["9일", 63.13], ["10일", 63.14], ["11일", 63.23], ["12일", 63.13], ["13일", 63.4], ["14일", 63.62], ["15일", 63.89], ["16일", 64.26], ["17일", 64.72], ["18일", 65.29], ["19일", 65.44], ["20일", 65.59], ["21일", 65.61], ["22일", 65.98], ["23일", 66.4], ["24일", 66.99], ["25일", 67.36], ["26일", 67.45], ["27일", 67.33], ["28일", 67.31], ["29일", 67.72], ["30일", 68.17], ["31일", 68.72], ["32일", 69.16], ["33일", 69.91], ["34일", 70.26], ["35일", 70.37], ["36일", 70.38], ["37일", 70.28], ["38일", 70.35], ["39일", 70.43], ["40일", 70.98], ["41일", 71.3], ["42일", 71.45], ["43일", 71.45], ["44일", 71.64], ["45일", 71.63], ["46일", 71.65], ["47일", 71.57], ["48일", 71.86], ["49일", 72.01], ["50일", 72.13], ["51일", 72.24], ["52일", 72.2], ["53일", 72.71], ["54일", 72.91], ["55일", 73.35], ["56일", 73.5], ["57일", 73.81], ["58일", 74.36], ["59일", 74.67], ["60일", 75.24], ["61일", 75.41], ["62일", 75.58], ["63일", 75.3], ["64일", 75.52], ["65일", 75.96], ["66일", 76.76], ["67일", 76.91], ["68일", 76.95], ["69일", 76.82], ["70일", 76.81], ["71일", 76.79], ["72일", 76.73], ["73일", 76.96], ["74일", 77.39], ["75일", 77.85], ["76일", 78.34], ["77일", 78.94], ["78일", 79.7], ["79일", 80.46], ["80일", 80.92], ["81일", 81.08], ["82일", 80.79], ["83일", 80.4], ["84일", 79.95], ["85일", 79.72], ["86일", 80.01], ["87일", 80.6], ["88일", 81.07], ["89일", 81.42], ["90일", 81.48], ["91일", 81.88], ["92일", 81.72], ["93일", 81.57], ["94일", 81.24], ["95일", 81.4], ["96일", 81.61], ["97일", 81.65], ["98일", 81.73], ["99일", 81.64], ["100일", 81.96], ["101일", 82.23], ["102일", 82.74], ["103일", 82.91], ["104일", 83.12], ["105일", 83.48], ["106일", 83.79], ["107일", 84.14], ["108일", 84.19], ["109일", 84.23], ["110일", 84.23], ["111일", 84.6], ["112일", 85.42], ["113일", 86.0], ["114일", 86.07], ["115일", 86.12], ["116일", 86.33], ["117일", 86.63], ["118일", 86.57], ["119일", 86.44], ["120일", 86.5], ["121일", 86.36], ["122일", 86.16], ["123일", 85.97], ["124일", 85.77], ["125일", 85.89], ["126일", 85.73], ["127일", 85.67], ["128일", 85.49], ["129일", 85.38], ["130일", 85.49], ["131일", 85.68], ["132일", 85.67], ["133일", 85.7], ["134일", 85.27], ["135일", 85.13], ["136일", 84.73], ["137일", 84.64], ["138일", 84.87], ["139일", 84.94], ["140일", 84.93], ["141일", 85.11], ["142일", 85.36], ["143일", 85.33], ["144일", 85.58], ["145일", 85.9], ["146일", 86.31], ["147일", 86.32], ["148일", 86.53], ["149일", 86.7], ["150일", 87.39], ["151일", 87.96], ["152일", 88.45], ["153일", 88.68], ["154일", 89.18], ["155일", 89.9], ["156일", 90.33], ["157일", 90.41], ["158일", 90.91], ["159일", 91.59], ["160일", 92.01], ["161일", 91.84], ["162일", 92.18], ["163일", 92.75], ["164일", 93.83], ["165일", 94.66], ["166일", 95.18], ["167일", 95.14], ["168일", 94.67], ["169일", 94.69], ["170일", 95.35], ["171일", 96.53], ["172일", 97.82], ["173일", 98.92], ["174일", 99.39], ["175일", 99.8], ["176일", 99.74], ["177일", 99.75], ["178일", 99.41], ["179일", 99.26], ["180일", 99.61], ["181일", 99.37], ["182일", 99.46], ["183일", 99.36], ["184일", 99.54], ["185일", 99.59], ["186일", 99.35], ["187일", 99.43], ["188일", 99.32], ["189일", 99.76], ["190일", 99.91], ["191일", 100.21], ["192일", 99.86], ["193일", 99.6], ["194일", 98.94], ["195일", 98.72], ["196일", 98.46], ["197일", 98.43], ["198일", 98.66], ["199일", 99.01], ["200일", 99.33], ["201일", 99.99], ["202일", 100.34], ["203일", 100.68], ["204일", 100.98], ["205일", 101.23], ["206일", 101.56], ["207일", 102.03], ["208일", 102.54], ["209일", 103.32], ["210일", 104.03], ["211일", 105.2], ["212일", 106.32], ["213일", 107.36], ["214일", 107.81], ["215일", 108.24], ["216일", 109.44], ["217일", 110.96], ["218일", 112.76], ["219일", 113.65], ["220일", 114.43], ["221일", 114.79], ["222일", 115.61], ["223일", 116.05], ["224일", 116.46], ["225일", 117.21], ["226일", 118.36], ["227일", 119.69], ["228일", 120.38], ["229일", 121.13], ["230일", 122.02], ["231일", 123.01], ["232일", 123.57], ["233일", 122.62], ["234일", 122.13], ["235일", 122.02], ["236일", 122.24], ["237일", 122.44], ["238일", 122.81], ["239일", 122.83], ["240일", 122.88], ["241일", 123.06], ["242일", 123.29], ["243일", 123.18], ["244일", 122.39], ["245일", 122.04], ["246일", 121.85], ["247일", 121.67], ["248일", 121.05], ["249일", 119.98], ["250일", 119.46]], "peak": 123.5672734508547, "marks": {"1일": {"t": "52주 저가", "dy": 26, "c": "neg"}, "232일": {"t": "52주 고가", "dy": -14, "c": "pos"}, "250일": {"t": "현재가 · 저가 +91% · 고가 −3%", "dy": 30, "c": "acc"}}, "ranges": {"all": {"from": "1일", "to": "250일", "note": ""}}, "bandFrom": null, "bandTo": null, "bandLabel": "", "label": "가격", "tip": "가격", "start": "all", "suggestedMin": 50, "hlines": [{"v": 81.51, "t": "52주 저가 +30%", "c": "txt", "dash": [2, 4], "w": 1.4, "below": true}, {"v": 92.68, "t": "52주 고가 −25%", "c": "txt", "dash": [6, 4], "w": 1.4, "below": true}], "extra": [{"label": "50일선", "data": [60.82, 60.89, 60.96, 61.03, 61.08, 61.13, 61.18, 61.22, 61.26, 61.31, 61.35, 61.4, 61.45, 61.51, 61.57, 61.64, 61.73, 61.83, 61.94, 62.05, 62.16, 62.27, 62.4, 62.54, 62.68, 62.81, 62.95, 63.09, 63.24, 63.39, 63.56, 63.72, 63.89, 64.07, 64.25, 64.42, 64.6, 64.77, 64.95, 65.15, 65.36, 65.57, 65.79, 66.01, 66.22, 66.42, 66.63, 66.84, 67.05, 67.25, 67.45, 67.62, 67.81, 67.99, 68.19, 68.4, 68.61, 68.83, 69.07, 69.31, 69.55, 69.8, 70.04, 70.28, 70.52, 70.77, 71.01, 71.24, 71.47, 71.7, 71.92, 72.14, 72.35, 72.55, 72.76, 72.98, 73.21, 73.46, 73.72, 73.97, 74.22, 74.45, 74.66, 74.86, 75.04, 75.24, 75.44, 75.66, 75.88, 76.09, 76.3, 76.5, 76.71, 76.9, 77.09, 77.29, 77.49, 77.69, 77.88, 78.08, 78.28, 78.49, 78.7, 78.9, 79.1, 79.31, 79.51, 79.71, 79.9, 80.08, 80.27, 80.46, 80.68, 80.89, 81.09, 81.28, 81.48, 81.67, 81.86, 82.06, 82.25, 82.43, 82.62, 82.78, 82.94, 83.09, 83.23, 83.34, 83.44, 83.53, 83.62, 83.72, 83.83, 83.93, 84.04, 84.14, 84.22, 84.29, 84.36, 84.43, 84.5, 84.57, 84.64, 84.73, 84.82, 84.92, 85.01, 85.1, 85.21, 85.31, 85.43, 85.54, 85.66, 85.78, 85.91, 86.04, 86.16, 86.3, 86.45, 86.6, 86.75, 86.88, 87.02, 87.17, 87.34, 87.52, 87.69, 87.85, 88.02, 88.19, 88.4, 88.63, 88.89, 89.16, 89.44, 89.72, 90.0, 90.28, 90.56, 90.84, 91.11, 91.39, 91.66, 91.95, 92.24, 92.53, 92.83, 93.11, 93.41, 93.71, 94.01, 94.3, 94.59, 94.86, 95.11, 95.36, 95.6, 95.84, 96.09, 96.33, 96.57, 96.8, 97.04, 97.28, 97.51, 97.73, 97.96, 98.2, 98.43, 98.67, 98.94, 99.22, 99.51, 99.79, 100.06, 100.35, 100.67, 101.03, 101.41, 101.79, 102.15, 102.51, 102.85, 103.19, 103.54, 103.91, 104.31, 104.73, 105.17, 105.62, 106.09, 106.57, 107.04, 107.49, 107.94, 108.4, 108.86, 109.33, 109.79, 110.25, 110.7, 111.17, 111.64, 112.11, 112.58, 113.05, 113.51, 113.96, 114.38, 114.78], "c": "txt", "dash": [2, 3], "w": 1.6, "end": "50일선", "dy": 16}, {"label": "150일선", "data": [59.27, 59.3, 59.33, 59.36, 59.39, 59.42, 59.44, 59.47, 59.49, 59.52, 59.55, 59.58, 59.62, 59.66, 59.69, 59.73, 59.77, 59.82, 59.87, 59.92, 59.97, 60.03, 60.09, 60.15, 60.21, 60.27, 60.33, 60.38, 60.44, 60.51, 60.57, 60.64, 60.72, 60.8, 60.88, 60.96, 61.04, 61.12, 61.2, 61.28, 61.36, 61.44, 61.53, 61.61, 61.69, 61.78, 61.87, 61.96, 62.05, 62.15, 62.24, 62.34, 62.44, 62.54, 62.65, 62.76, 62.87, 62.98, 63.09, 63.2, 63.32, 63.43, 63.55, 63.66, 63.78, 63.91, 64.03, 64.16, 64.28, 64.4, 64.53, 64.65, 64.77, 64.9, 65.03, 65.16, 65.29, 65.43, 65.57, 65.72, 65.87, 66.02, 66.17, 66.32, 66.46, 66.6, 66.75, 66.9, 67.06, 67.21, 67.36, 67.51, 67.66, 67.81, 67.96, 68.11, 68.25, 68.4, 68.55, 68.7, 68.85, 69.0, 69.16, 69.31, 69.46, 69.61, 69.77, 69.92, 70.08, 70.23, 70.39, 70.55, 70.72, 70.89, 71.06, 71.23, 71.41, 71.58, 71.76, 71.93, 72.11, 72.28, 72.45, 72.63, 72.79, 72.96, 73.13, 73.3, 73.46, 73.63, 73.8, 73.96, 74.13, 74.29, 74.44, 74.6, 74.75, 74.91, 75.06, 75.22, 75.38, 75.55, 75.71, 75.88, 76.04, 76.21, 76.38, 76.55, 76.71, 76.88, 77.05, 77.22, 77.39, 77.56, 77.73, 77.91, 78.1, 78.28, 78.47, 78.66, 78.85, 79.05, 79.24, 79.44, 79.65, 79.86, 80.06, 80.25, 80.45, 80.65, 80.85, 81.07, 81.28, 81.5, 81.72, 81.93, 82.15, 82.36, 82.57, 82.78, 82.99, 83.19, 83.38, 83.58, 83.77, 83.97, 84.16, 84.35, 84.55, 84.74, 84.94, 85.13, 85.31, 85.49, 85.68, 85.85, 86.03, 86.21, 86.39, 86.57, 86.76, 86.95, 87.13, 87.32, 87.51, 87.69, 87.88, 88.07, 88.26, 88.45, 88.65, 88.86, 89.07, 89.28, 89.5, 89.72, 89.94, 90.18, 90.43, 90.68, 90.93, 91.19, 91.45, 91.71, 91.97, 92.24, 92.51, 92.78, 93.06, 93.33, 93.61, 93.89, 94.18, 94.46, 94.74, 95.02, 95.3, 95.58, 95.85, 96.13, 96.4, 96.68, 96.96, 97.23, 97.5, 97.77, 98.04, 98.3, 98.56, 98.81], "c": "txt", "dash": [5, 4], "w": 1.6, "end": "150일선", "dy": 16}, {"label": "200일선", "data": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 59.68, 59.71, 59.74, 59.77, 59.81, 59.85, 59.88, 59.92, 59.96, 59.99, 60.03, 60.07, 60.12, 60.17, 60.22, 60.28, 60.34, 60.39, 60.45, 60.5, 60.56, 60.62, 60.68, 60.74, 60.8, 60.86, 60.92, 60.99, 61.05, 61.12, 61.18, 61.25, 61.32, 61.38, 61.45, 61.52, 61.59, 61.66, 61.73, 61.81, 61.88, 61.96, 62.05, 62.14, 62.22, 62.31, 62.4, 62.49, 62.58, 62.68, 62.77, 62.86, 62.96, 63.05, 63.15, 63.25, 63.35, 63.45, 63.55, 63.65, 63.76, 63.87, 63.98, 64.1, 64.21, 64.31, 64.42, 64.53, 64.64, 64.76, 64.87, 64.98, 65.1, 65.21, 65.32, 65.43, 65.54, 65.66, 65.78, 65.89, 66.01, 66.13, 66.25, 66.38, 66.5, 66.63, 66.76, 66.9, 67.03, 67.16, 67.29, 67.42, 67.55, 67.69, 67.83, 67.97, 68.11, 68.25, 68.39, 68.53, 68.67, 68.81, 68.96, 69.1, 69.23, 69.37, 69.51, 69.64, 69.78, 69.91, 70.04, 70.17, 70.31, 70.45, 70.59, 70.72, 70.86, 70.99, 71.12, 71.25, 71.38, 71.52, 71.65, 71.78, 71.91, 72.04, 72.17, 72.31, 72.44, 72.58, 72.71, 72.85, 72.99, 73.14, 73.28, 73.43, 73.57, 73.72, 73.87, 74.02, 74.17, 74.32, 74.48, 74.64, 74.8, 74.96, 75.13, 75.3, 75.48, 75.65, 75.82, 76.0, 76.18, 76.37, 76.56, 76.76, 76.96, 77.15, 77.35, 77.54, 77.74, 77.93, 78.13, 78.32, 78.51, 78.7, 78.89, 79.08, 79.27, 79.46, 79.65, 79.85, 80.04, 80.24, 80.43, 80.62, 80.81, 81.0, 81.18, 81.37, 81.56, 81.74, 81.93, 82.12, 82.3, 82.49, 82.68, 82.87, 83.06, 83.26, 83.46, 83.67, 83.88, 84.09, 84.31, 84.53, 84.75, 84.98, 85.21, 85.45, 85.69, 85.93, 86.18, 86.43, 86.68, 86.92, 87.17, 87.43, 87.69, 87.95, 88.22, 88.49, 88.76, 89.03, 89.3, 89.56, 89.81, 90.07, 90.34, 90.6, 90.86, 91.12, 91.38, 91.64, 91.9, 92.15, 92.4, 92.65, 92.9, 93.15, 93.39, 93.63], "c": "txt", "dash": [9, 4], "w": 1.6, "end": "200일선", "dy": 16}], "peakLabel": "52주 고가 대비"};
+  var SERIES = C.series, PEAK = C.peak, MARKS = C.marks, RANGES = C.ranges;
+  var BAND_FROM = C.bandFrom, BAND_TO = C.bandTo;
+  function cv(n){ var el=document.getElementById(C.id); var r=(el&&el.closest('.rc'))||document.documentElement;
+    return getComputedStyle(r).getPropertyValue(n).trim(); }
+  function hexA(h,a){
+    h=(h||'').trim(); if(h.charAt(0)!=='#') return h;
+    if(h.length===4) h='#'+h[1]+h[1]+h[2]+h[2]+h[3]+h[3];
+    var n=parseInt(h.slice(1),16);
+    return 'rgba('+((n>>16)&255)+','+((n>>8)&255)+','+(n&255)+','+a+')';
+  }
+
+  var anno = {
+    id:'anno',
+    beforeDatasetsDraw:function(chart){
+      var xs=chart.scales.x, ys=chart.scales.y, ctx=chart.ctx;
+      if(!xs||!ys) return;
+      var labs=chart.data.labels;
+      if(C.bands){ C.bands.forEach(function(b){
+        var j1=labs.indexOf(b[0]), j2=labs.indexOf(b[1]); if(j1<0||j2<0) return;
+        ctx.save(); ctx.fillStyle=cv('--rc-band');
+        var a1=xs.getPixelForValue(j1), a2=xs.getPixelForValue(j2);
+        ctx.fillRect(a1, ys.top, a2-a1, ys.bottom-ys.top);
+        ctx.strokeStyle=hexA(cv('--rc-accent'),0.28); ctx.setLineDash([4,4]); ctx.lineWidth=1;
+        ctx.beginPath(); ctx.moveTo(a1,ys.top); ctx.lineTo(a1,ys.bottom); ctx.moveTo(a2,ys.top); ctx.lineTo(a2,ys.bottom); ctx.stroke();
+        ctx.setLineDash([]); ctx.fillStyle=hexA(cv('--rc-accent'),0.85); ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='center';
+        ctx.fillText(b[2], (a1+a2)/2, ys.top+16); ctx.restore(); }); }
+      var i1=labs.indexOf(BAND_FROM), i2=labs.indexOf(BAND_TO);
+      if(i1<0||i2<0) return;
+      ctx.save();
+      ctx.fillStyle=cv('--rc-band');
+      var x1=xs.getPixelForValue(i1), x2=xs.getPixelForValue(i2);
+      ctx.fillRect(x1, ys.top, x2-x1, ys.bottom-ys.top);
+      ctx.strokeStyle=hexA(cv('--rc-accent'),0.28); ctx.setLineDash([4,4]); ctx.lineWidth=1;
+      ctx.beginPath(); ctx.moveTo(x1,ys.top); ctx.lineTo(x1,ys.bottom);
+      ctx.moveTo(x2,ys.top); ctx.lineTo(x2,ys.bottom); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle=hexA(cv('--rc-accent'),0.85); ctx.font='700 11.5px Inter, sans-serif'; ctx.textAlign='center';
+      ctx.fillText(C.bandLabel, (x1+x2)/2, ys.top+16);
+      ctx.restore();
+    },
+    afterDatasetsDraw:function(chart){
+      var xs=chart.scales.x, ys=chart.scales.y, ctx=chart.ctx;
+      if(!xs||!ys) return;
+      var labs=chart.data.labels, data=chart.data.datasets[0].data;
+      var accent=cv('--rc-accent'), neg=cv('--rc-neg'), pos=cv('--rc-pos'), txt=cv('--rc-text2'), surf=cv('--rc-surface');
+      var narrow = (xs.width < 620);
+      function colOf(k){ return k==='acc'?accent : k==='neg'?neg : k==='pos'?pos : txt; }
+      if(C.hlines){ C.hlines.forEach(function(h){
+        var y=ys.getPixelForValue(h.v); if(y<ys.top||y>ys.bottom) return;
+        var a=h.frm?labs.indexOf(h.frm):0, b=h.to?labs.indexOf(h.to):labs.length-1;
+        if(h.frm&&a<0) a=0; if(h.to&&b<0) b=labs.length-1;
+        var xa=xs.getPixelForValue(a), xb=xs.getPixelForValue(b), col=colOf(h.c);
+        ctx.save(); ctx.strokeStyle=col; ctx.lineWidth=h.w||1.6; ctx.setLineDash(h.dash||[6,4]);
+        ctx.beginPath(); ctx.moveTo(xa,y); ctx.lineTo(xb,y); ctx.stroke(); ctx.setLineDash([]);
+        if(h.t){ ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='right'; ctx.fillStyle=col;
+          ctx.fillText(h.t, xb-2, y+(h.below?15:-6)); }
+        ctx.restore(); }); }
+      if(C.extra){ C.extra.forEach(function(e,k){ if(!e.end) return;
+        var d=chart.data.datasets[k+1].data, j=d.length-1; while(j>0 && (d[j]===null||d[j]===undefined)) j--;
+        if(j<0||d[j]===null) return;
+        ctx.save(); ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='right'; ctx.fillStyle=colOf(e.c);
+        ctx.fillText(e.end, xs.getPixelForValue(j)-4, ys.getPixelForValue(d[j])+(e.dy||-8)); ctx.restore(); }); }
+      ctx.save();
+      labs.forEach(function(l,i){
+        var m=MARKS[l]; if(!m) return;
+        var col = m.c==='acc'?accent : m.c==='neg'?neg : m.c==='pos'?pos : txt;
+        var x=xs.getPixelForValue(i), y=ys.getPixelForValue(data[i]);
+        ctx.beginPath(); ctx.arc(x,y,5.5,0,Math.PI*2); ctx.fillStyle=col; ctx.fill();
+        ctx.strokeStyle=surf; ctx.lineWidth=2; ctx.stroke();
+        if(narrow) return;
+        ctx.fillStyle=col; ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif';
+        ctx.textAlign = (i > labs.length*0.82) ? 'right' : (i < labs.length*0.08 ? 'left' : 'center');
+        ctx.fillText(m.t, x, y + m.dy);
+      });
+      ctx.restore();
+    }
+  };
+
+  var chart=null, currentRange=C.start;
+  function buildChart(){
+    if (typeof Chart==='undefined'){ console.error('Chart.js not loaded'); return; }
+    var el=document.getElementById(C.id); if(!el) return;
+    if(chart){ try{chart.destroy();}catch(e){} chart=null; }
+
+    var r=RANGES[currentRange];
+    var i1=0,i2=SERIES.length-1,i;
+    for(i=0;i<SERIES.length;i++){ if(SERIES[i][0]===r.from) i1=i; if(SERIES[i][0]===r.to) i2=i; }
+    var slice=SERIES.slice(i1,i2+1);
+    var labels=slice.map(function(d){return d[0];});
+    var vals=slice.map(function(d){return d[1];});
+    var more=(C.extra||[]).map(function(e){
+      var c0 = e.c==='acc'?cv('--rc-accent') : e.c==='neg'?cv('--rc-neg') : e.c==='pos'?cv('--rc-pos') : cv('--rc-text2');
+      return { label:e.label, data:e.data.slice(i1,i2+1), borderColor:c0, borderWidth:e.w||1.6, borderDash:e.dash||[],
+               stepped:!!e.stepped, tension:e.stepped?0:.3, pointRadius:0, pointHoverRadius:0, fill:false, spanGaps:false }; });
+
+    var text=cv('--rc-text'), tsec=cv('--rc-text2'), grid=cv('--rc-grid'), accent=cv('--rc-accent');
+
+    chart=new Chart(el,{
+      type:'line',
+      plugins:[anno],
+      data:{ labels:labels, datasets:[{
+        label:C.label, data:vals,
+        borderColor:accent, backgroundColor:hexA(accent,0.13),
+        borderWidth:3.2, tension:.3, pointRadius:0, pointHoverRadius:6, fill:true
+      }].concat(more)},
+      options:{
+        responsive:true, maintainAspectRatio:false,
+        layout:{ padding:{ top:30, right:16, bottom:4, left:4 } },
+        animation:{ duration:1000, easing:'easeOutQuart' },
+        interaction:{ mode:'index', intersect:false },
+        plugins:{
+          legend:{ display:false },
+          tooltip:{ enabled:true, padding:12, cornerRadius:8,
+            titleFont:{size:13,family:'Inter'}, bodyFont:{size:13,family:'Noto Sans KR'},
+            callbacks:{
+              label:function(c){
+                if(c.datasetIndex>0) return c.parsed.y===null ? '' : ' '+c.dataset.label+' '+c.parsed.y.toLocaleString(undefined,{maximumFractionDigits:2})+(C.unit||'');
+                if(C.ref){ var q=(c.parsed.y/C.ref-1)*100;
+                  return ' '+C.tip+' '+c.parsed.y.toLocaleString(undefined,{maximumFractionDigits:2})+'  ('+C.refLabel+' 대비 '+(q>=0?'+':'')+q.toFixed(1)+'%)'; }
+                if(C.unit) return ' '+C.tip+' '+(c.parsed.y>0?'+':'')+c.parsed.y.toFixed(2)+C.unit;
+                return ' '+C.tip+' '+c.parsed.y.toLocaleString()+'  ('+(C.peakLabel||'정점 대비')+' '+(c.parsed.y/PEAK*100).toFixed(1)+'%)';
+              },
+              afterLabel:function(c){ if(c.datasetIndex>0) return ''; var m=MARKS[c.label]; return m ? ' ▸ '+m.t.replace(/\s\d[\d,]*.*$/,'') : ''; }
+            } }
+        },
+        scales:{
+          x:{ ticks:{color:tsec,font:{family:'Inter',size:11.5},maxRotation:0,autoSkip:true,maxTicksLimit:12},
+              grid:{color:grid} },
+          y:{ beginAtZero:false, suggestedMin:C.suggestedMin,
+              title:{display:true,text:C.ylabel||C.label,color:tsec,font:{family:'Noto Sans KR',size:13}},
+              ticks:{color:tsec,font:{family:'Inter',size:12},callback:function(v){return v.toLocaleString();}},
+              grid:{color:grid} }
+        }
+      }
+    });
+  }
+
+  function setRange(kind,btn){
+    currentRange=kind;
+    try{ buildChart(); }catch(e){ if(window.console) console.error('buildChart', e); }
+    try{
+      var g=(btn&&btn.closest)?btn.closest('.rng'):null;
+      var bs=g?g.querySelectorAll('button'):[];
+      for(var i=0;i<bs.length;i++) bs[i].classList.remove('on');
+      if(btn&&btn.classList) btn.classList.add('on');
+      var rn=document.getElementById(C.id+'-note');
+      if(rn && RANGES[kind]) rn.innerHTML = RANGES[kind].note;
+    }catch(e){ if(window.console) console.error('setRange ui', e); }
+  }
+
+  RC[C.id] = { build:buildChart, setRange:setRange, chart:function(){ return chart; } };
+  try{ var _n=document.getElementById(C.id+'-note'); if(_n) _n.innerHTML = RANGES[currentRange].note; }catch(e){}
+  try{ new MutationObserver(function(){ buildChart(); }).observe(document.documentElement,{attributes:true,attributeFilter:['class']}); }catch(e){}
+  if(document.readyState==='complete'){ buildChart(); }
+  else { window.addEventListener('load', buildChart); }
+  setTimeout(function(){ if(!chart) buildChart(); }, 400);
+})();
+</script>
 <div class="kbp"><div class="s">매수 신호가 아니라 후보 자격</div><div><p>8개 조건은 매수 신호가 아니라 후보 자격이다. 실적과 베이스를 확인하지 않은 자동 매수 규칙으로 쓰면 안 된다.</p></div></div>
 <div class="kbp"><div class="s">이 사이트의 점검</div><div><p><a href="bottom-top.html">바닥·천장 추적 분석</a>에서 이 8개 조건을 코스피·하이닉스·삼성전자에 매일 점검한다. 8번 상대강도는 <a href="breadth-rs.html">52주 신고가와 상대강도</a>에서 전 종목으로 계산한다.</p></div></div>
 
@@ -968,7 +2081,187 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 <div class="kbp"><div class="s">조정폭과 거래량이 줄어든다</div><div><p>상승 뒤의 소화기간에서 조정폭이 단계마다 줄고 거래량도 마르는지 본다. 마지막 구간은 특히 짧고 타이트해야 한다. 약한 보유자의 매물이 줄고 주식이 강한 보유자에게 이동했다는 증거다.</p></div></div>
 <div class="kbp"><div class="s">피벗을 넘을 때 산다</div><div><p>마지막 저항 가격이 피벗이다. 피벗을 수요 증가와 함께 넘어설 때 산다. 돌파 전에 미리 사면 아직 끝나지 않은 매물을 떠안는다.</p></div></div>
 
-<div class="scn"><svg viewBox="0 0 1100 330" role="img" aria-label="VCP 변동성 수축 패턴과 피벗 돌파"><text class="ttl" x="0" y="16">VCP — 조정의 폭이 단계마다 줄어든다</text><text class="cap" x="0" y="34">파는 사람이 소진되는 과정 · 마지막 평평한 구간의 고점이 피벗</text><g transform="translate(0,54)"><rect class="zn" x="110" y="20" width="130" height="180" fill="var(--up,#d21f3c)" opacity=".07"/><text class="cap" x="175.0" y="216" text-anchor="middle">1차 −34%</text><rect class="zn" x="240" y="20" width="120" height="180" fill="var(--up,#d21f3c)" opacity=".07"/><text class="cap" x="300.0" y="216" text-anchor="middle">2차 −24%</text><rect class="zn" x="360" y="20" width="100" height="180" fill="var(--up,#d21f3c)" opacity=".07"/><text class="cap" x="410.0" y="216" text-anchor="middle">3차 −16%</text><rect class="zn" x="460" y="20" width="120" height="180" fill="var(--up,#d21f3c)" opacity=".07"/><text class="cap" x="520.0" y="216" text-anchor="middle">4차 −9%</text><line class="gl" x1="545" y1="70" x2="1060" y2="70" opacity=".8" stroke-dasharray="4 4"/><text class="cap" x="1060" y="62" text-anchor="end">피벗 — 여기를 거래량 급증과 함께 넘을 때 매수</text><path class="px" d="M40,210 L110,90 L170,150 L240,86 L300,128 L360,80 L410,110 L460,74 L500,92 L545,70 L580,80 L610,72 L650,66 L700,40 L780,26 L870,18 L1060,14"/><circle cx="650" cy="66" r="11" fill="var(--up,#d21f3c)"/><text class="num" x="650" y="70" text-anchor="middle">B</text><g transform="translate(0,236)"><rect x="110" y="16" width="34" height="34" rx="2" fill="var(--text3,#86868b)" opacity=".55"/><rect x="190" y="24" width="34" height="26" rx="2" fill="var(--text3,#86868b)" opacity=".55"/><rect x="270" y="28" width="34" height="22" rx="2" fill="var(--text3,#86868b)" opacity=".55"/><rect x="350" y="32" width="34" height="18" rx="2" fill="var(--text3,#86868b)" opacity=".55"/><rect x="430" y="36" width="34" height="14" rx="2" fill="var(--text3,#86868b)" opacity=".55"/><rect x="500" y="39" width="34" height="11" rx="2" fill="var(--text3,#86868b)" opacity=".55"/><rect x="560" y="41" width="34" height="9" rx="2" fill="var(--text3,#86868b)" opacity=".55"/><rect x="620" y="42" width="34" height="8" rx="2" fill="var(--text3,#86868b)" opacity=".55"/><rect x="660" y="6" width="34" height="44" rx="2" fill="var(--up,#d21f3c)" opacity=".55"/><rect x="730" y="12" width="34" height="38" rx="2" fill="var(--up,#d21f3c)" opacity=".55"/><rect x="800" y="20" width="34" height="30" rx="2" fill="var(--up,#d21f3c)" opacity=".55"/><rect x="880" y="24" width="34" height="26" rx="2" fill="var(--up,#d21f3c)" opacity=".55"/><text class="cap" x="0" y="46">거래량</text><text class="cap" x="700" y="12" style="fill:var(--up,#d21f3c)">돌파 = 거래량 급증 (기관 진입)</text></g></g></svg></div>
+<div class="panel rc">
+      <div class="panel-head">
+        <div>
+          <h3>VCP: 조정폭이 32% → 16% → 6%로 줄어든 뒤 피벗을 넘을 때 산다</h3>
+          <p>6주 베이스에서 조정이 3번(T1 · T2 · T3) 나왔다. 조정은 매번 작아졌다. 마지막 수축의 고점이 피벗이다. 피벗을 거래량 증가와 함께 넘는 날 산다. 손절선은 그 아래 7%에 둔다.</p>
+        </div>
+        <div class="rng" role="group" aria-label="기간 선택">
+        </div>
+      </div>
+      <div class="chart-container rc-box" role="img" aria-label="VCP: 조정폭이 32% → 16% → 6%로 줄어든 뒤 피벗을 넘을 때 산다">
+        <canvas id="fVcp"></canvas>
+      </div>
+      <p class="note" id="fVcp-note"></p>
+      <div class="srcline">
+        <span class="lbl">출처</span>
+        <span>개념도 · 실제 종목이 아니다 · 『챔피언처럼 생각하고 거래하라』 6장 그림 6-10의 장면(6W 32/6 3T)</span>
+      </div>
+    </div>
+<script>
+/* 랠리 차트 — scripts/lib/rally_chart.py (kospi-dotcom-1998-2000 첫 차트의 정본 그리기) */
+window.RC = window.RC || {};
+(function(){
+  var C = {"id": "fVcp", "series": [["1일", 30.0], ["2일", 31.13], ["3일", 32.1], ["4일", 33.05], ["5일", 33.97], ["6일", 34.86], ["7일", 35.73], ["8일", 36.61], ["9일", 37.51], ["10일", 38.43], ["11일", 39.38], ["12일", 40.33], ["13일", 41.29], ["14일", 42.23], ["15일", 43.15], ["16일", 44.04], ["17일", 44.92], ["18일", 45.8], ["19일", 47.0], ["20일", 44.85], ["21일", 43.03], ["22일", 41.24], ["23일", 39.44], ["24일", 37.63], ["25일", 35.79], ["26일", 33.92], ["27일", 32.0], ["28일", 33.86], ["29일", 35.69], ["30일", 37.52], ["31일", 39.38], ["32일", 41.25], ["33일", 43.15], ["34일", 45.0], ["35일", 43.3], ["36일", 41.53], ["37일", 39.73], ["38일", 38.0], ["39일", 39.46], ["40일", 41.02], ["41일", 42.61], ["42일", 44.5], ["43일", 43.38], ["44일", 42.54], ["45일", 41.8], ["46일", 42.66], ["47일", 43.6], ["48일", 43.38], ["49일", 43.2], ["50일", 45.4], ["51일", 46.3], ["52일", 47.27], ["53일", 48.28], ["54일", 49.32], ["55일", 50.36], ["56일", 51.38], ["57일", 52.0], ["58일", 53.02], ["59일", 53.64], ["60일", 54.22], ["61일", 54.81], ["62일", 55.41], ["63일", 56]], "peak": 47, "marks": {"27일": {"t": "T1 −32%", "dy": 22, "c": "neg"}, "38일": {"t": "T2 −16%", "dy": 22, "c": "neg"}, "45일": {"t": "T3 −6%", "dy": 22, "c": "neg"}, "50일": {"t": "피벗 돌파 매수", "dy": -16, "c": "acc"}}, "ranges": {"all": {"from": "1일", "to": "63일", "note": ""}}, "bandFrom": "19일", "bandTo": "49일", "bandLabel": "6주 베이스", "label": "가격", "tip": "가격", "start": "all", "suggestedMin": 28, "hlines": [{"v": 44.5, "t": "피벗 44.5", "c": "acc", "dash": [6, 4], "w": 1.8, "frm": "42일"}, {"v": 41.4, "t": "손절선 41.4 (−7%)", "c": "neg", "dash": [], "w": 2.4, "frm": "50일", "below": true}], "ref": 44.5, "refLabel": "피벗"};
+  var SERIES = C.series, PEAK = C.peak, MARKS = C.marks, RANGES = C.ranges;
+  var BAND_FROM = C.bandFrom, BAND_TO = C.bandTo;
+  function cv(n){ var el=document.getElementById(C.id); var r=(el&&el.closest('.rc'))||document.documentElement;
+    return getComputedStyle(r).getPropertyValue(n).trim(); }
+  function hexA(h,a){
+    h=(h||'').trim(); if(h.charAt(0)!=='#') return h;
+    if(h.length===4) h='#'+h[1]+h[1]+h[2]+h[2]+h[3]+h[3];
+    var n=parseInt(h.slice(1),16);
+    return 'rgba('+((n>>16)&255)+','+((n>>8)&255)+','+(n&255)+','+a+')';
+  }
+
+  var anno = {
+    id:'anno',
+    beforeDatasetsDraw:function(chart){
+      var xs=chart.scales.x, ys=chart.scales.y, ctx=chart.ctx;
+      if(!xs||!ys) return;
+      var labs=chart.data.labels;
+      if(C.bands){ C.bands.forEach(function(b){
+        var j1=labs.indexOf(b[0]), j2=labs.indexOf(b[1]); if(j1<0||j2<0) return;
+        ctx.save(); ctx.fillStyle=cv('--rc-band');
+        var a1=xs.getPixelForValue(j1), a2=xs.getPixelForValue(j2);
+        ctx.fillRect(a1, ys.top, a2-a1, ys.bottom-ys.top);
+        ctx.strokeStyle=hexA(cv('--rc-accent'),0.28); ctx.setLineDash([4,4]); ctx.lineWidth=1;
+        ctx.beginPath(); ctx.moveTo(a1,ys.top); ctx.lineTo(a1,ys.bottom); ctx.moveTo(a2,ys.top); ctx.lineTo(a2,ys.bottom); ctx.stroke();
+        ctx.setLineDash([]); ctx.fillStyle=hexA(cv('--rc-accent'),0.85); ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='center';
+        ctx.fillText(b[2], (a1+a2)/2, ys.top+16); ctx.restore(); }); }
+      var i1=labs.indexOf(BAND_FROM), i2=labs.indexOf(BAND_TO);
+      if(i1<0||i2<0) return;
+      ctx.save();
+      ctx.fillStyle=cv('--rc-band');
+      var x1=xs.getPixelForValue(i1), x2=xs.getPixelForValue(i2);
+      ctx.fillRect(x1, ys.top, x2-x1, ys.bottom-ys.top);
+      ctx.strokeStyle=hexA(cv('--rc-accent'),0.28); ctx.setLineDash([4,4]); ctx.lineWidth=1;
+      ctx.beginPath(); ctx.moveTo(x1,ys.top); ctx.lineTo(x1,ys.bottom);
+      ctx.moveTo(x2,ys.top); ctx.lineTo(x2,ys.bottom); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle=hexA(cv('--rc-accent'),0.85); ctx.font='700 11.5px Inter, sans-serif'; ctx.textAlign='center';
+      ctx.fillText(C.bandLabel, (x1+x2)/2, ys.top+16);
+      ctx.restore();
+    },
+    afterDatasetsDraw:function(chart){
+      var xs=chart.scales.x, ys=chart.scales.y, ctx=chart.ctx;
+      if(!xs||!ys) return;
+      var labs=chart.data.labels, data=chart.data.datasets[0].data;
+      var accent=cv('--rc-accent'), neg=cv('--rc-neg'), pos=cv('--rc-pos'), txt=cv('--rc-text2'), surf=cv('--rc-surface');
+      var narrow = (xs.width < 620);
+      function colOf(k){ return k==='acc'?accent : k==='neg'?neg : k==='pos'?pos : txt; }
+      if(C.hlines){ C.hlines.forEach(function(h){
+        var y=ys.getPixelForValue(h.v); if(y<ys.top||y>ys.bottom) return;
+        var a=h.frm?labs.indexOf(h.frm):0, b=h.to?labs.indexOf(h.to):labs.length-1;
+        if(h.frm&&a<0) a=0; if(h.to&&b<0) b=labs.length-1;
+        var xa=xs.getPixelForValue(a), xb=xs.getPixelForValue(b), col=colOf(h.c);
+        ctx.save(); ctx.strokeStyle=col; ctx.lineWidth=h.w||1.6; ctx.setLineDash(h.dash||[6,4]);
+        ctx.beginPath(); ctx.moveTo(xa,y); ctx.lineTo(xb,y); ctx.stroke(); ctx.setLineDash([]);
+        if(h.t){ ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='right'; ctx.fillStyle=col;
+          ctx.fillText(h.t, xb-2, y+(h.below?15:-6)); }
+        ctx.restore(); }); }
+      if(C.extra){ C.extra.forEach(function(e,k){ if(!e.end) return;
+        var d=chart.data.datasets[k+1].data, j=d.length-1; while(j>0 && (d[j]===null||d[j]===undefined)) j--;
+        if(j<0||d[j]===null) return;
+        ctx.save(); ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='right'; ctx.fillStyle=colOf(e.c);
+        ctx.fillText(e.end, xs.getPixelForValue(j)-4, ys.getPixelForValue(d[j])+(e.dy||-8)); ctx.restore(); }); }
+      ctx.save();
+      labs.forEach(function(l,i){
+        var m=MARKS[l]; if(!m) return;
+        var col = m.c==='acc'?accent : m.c==='neg'?neg : m.c==='pos'?pos : txt;
+        var x=xs.getPixelForValue(i), y=ys.getPixelForValue(data[i]);
+        ctx.beginPath(); ctx.arc(x,y,5.5,0,Math.PI*2); ctx.fillStyle=col; ctx.fill();
+        ctx.strokeStyle=surf; ctx.lineWidth=2; ctx.stroke();
+        if(narrow) return;
+        ctx.fillStyle=col; ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif';
+        ctx.textAlign = (i > labs.length*0.82) ? 'right' : (i < labs.length*0.08 ? 'left' : 'center');
+        ctx.fillText(m.t, x, y + m.dy);
+      });
+      ctx.restore();
+    }
+  };
+
+  var chart=null, currentRange=C.start;
+  function buildChart(){
+    if (typeof Chart==='undefined'){ console.error('Chart.js not loaded'); return; }
+    var el=document.getElementById(C.id); if(!el) return;
+    if(chart){ try{chart.destroy();}catch(e){} chart=null; }
+
+    var r=RANGES[currentRange];
+    var i1=0,i2=SERIES.length-1,i;
+    for(i=0;i<SERIES.length;i++){ if(SERIES[i][0]===r.from) i1=i; if(SERIES[i][0]===r.to) i2=i; }
+    var slice=SERIES.slice(i1,i2+1);
+    var labels=slice.map(function(d){return d[0];});
+    var vals=slice.map(function(d){return d[1];});
+    var more=(C.extra||[]).map(function(e){
+      var c0 = e.c==='acc'?cv('--rc-accent') : e.c==='neg'?cv('--rc-neg') : e.c==='pos'?cv('--rc-pos') : cv('--rc-text2');
+      return { label:e.label, data:e.data.slice(i1,i2+1), borderColor:c0, borderWidth:e.w||1.6, borderDash:e.dash||[],
+               stepped:!!e.stepped, tension:e.stepped?0:.3, pointRadius:0, pointHoverRadius:0, fill:false, spanGaps:false }; });
+
+    var text=cv('--rc-text'), tsec=cv('--rc-text2'), grid=cv('--rc-grid'), accent=cv('--rc-accent');
+
+    chart=new Chart(el,{
+      type:'line',
+      plugins:[anno],
+      data:{ labels:labels, datasets:[{
+        label:C.label, data:vals,
+        borderColor:accent, backgroundColor:hexA(accent,0.13),
+        borderWidth:3.2, tension:.3, pointRadius:0, pointHoverRadius:6, fill:true
+      }].concat(more)},
+      options:{
+        responsive:true, maintainAspectRatio:false,
+        layout:{ padding:{ top:30, right:16, bottom:4, left:4 } },
+        animation:{ duration:1000, easing:'easeOutQuart' },
+        interaction:{ mode:'index', intersect:false },
+        plugins:{
+          legend:{ display:false },
+          tooltip:{ enabled:true, padding:12, cornerRadius:8,
+            titleFont:{size:13,family:'Inter'}, bodyFont:{size:13,family:'Noto Sans KR'},
+            callbacks:{
+              label:function(c){
+                if(c.datasetIndex>0) return c.parsed.y===null ? '' : ' '+c.dataset.label+' '+c.parsed.y.toLocaleString(undefined,{maximumFractionDigits:2})+(C.unit||'');
+                if(C.ref){ var q=(c.parsed.y/C.ref-1)*100;
+                  return ' '+C.tip+' '+c.parsed.y.toLocaleString(undefined,{maximumFractionDigits:2})+'  ('+C.refLabel+' 대비 '+(q>=0?'+':'')+q.toFixed(1)+'%)'; }
+                if(C.unit) return ' '+C.tip+' '+(c.parsed.y>0?'+':'')+c.parsed.y.toFixed(2)+C.unit;
+                return ' '+C.tip+' '+c.parsed.y.toLocaleString()+'  ('+(C.peakLabel||'정점 대비')+' '+(c.parsed.y/PEAK*100).toFixed(1)+'%)';
+              },
+              afterLabel:function(c){ if(c.datasetIndex>0) return ''; var m=MARKS[c.label]; return m ? ' ▸ '+m.t.replace(/\s\d[\d,]*.*$/,'') : ''; }
+            } }
+        },
+        scales:{
+          x:{ ticks:{color:tsec,font:{family:'Inter',size:11.5},maxRotation:0,autoSkip:true,maxTicksLimit:12},
+              grid:{color:grid} },
+          y:{ beginAtZero:false, suggestedMin:C.suggestedMin,
+              title:{display:true,text:C.ylabel||C.label,color:tsec,font:{family:'Noto Sans KR',size:13}},
+              ticks:{color:tsec,font:{family:'Inter',size:12},callback:function(v){return v.toLocaleString();}},
+              grid:{color:grid} }
+        }
+      }
+    });
+  }
+
+  function setRange(kind,btn){
+    currentRange=kind;
+    try{ buildChart(); }catch(e){ if(window.console) console.error('buildChart', e); }
+    try{
+      var g=(btn&&btn.closest)?btn.closest('.rng'):null;
+      var bs=g?g.querySelectorAll('button'):[];
+      for(var i=0;i<bs.length;i++) bs[i].classList.remove('on');
+      if(btn&&btn.classList) btn.classList.add('on');
+      var rn=document.getElementById(C.id+'-note');
+      if(rn && RANGES[kind]) rn.innerHTML = RANGES[kind].note;
+    }catch(e){ if(window.console) console.error('setRange ui', e); }
+  }
+
+  RC[C.id] = { build:buildChart, setRange:setRange, chart:function(){ return chart; } };
+  try{ var _n=document.getElementById(C.id+'-note'); if(_n) _n.innerHTML = RANGES[currentRange].note; }catch(e){}
+  try{ new MutationObserver(function(){ buildChart(); }).observe(document.documentElement,{attributes:true,attributeFilter:['class']}); }catch(e){}
+  if(document.readyState==='complete'){ buildChart(); }
+  else { window.addEventListener('load', buildChart); }
+  setTimeout(function(){ if(!chart) buildChart(); }, 400);
+})();
+</script>
 
 <div class="kbp"><div class="s">VCP를 숫자로 적는다</div><div><p>미너비니는 VCP를 기간, 조정폭, 수축 횟수로 적는다. 예를 들어 '6W 32/6 3T'는 6주 동안 조정폭이 32%에서 6%까지 줄었고 수축이 3번이었다는 뜻이다. 마지막 수축에서는 거래량도 평균보다 크게 줄어야 한다(『챔피언처럼 생각하고 거래하라』 6장).</p></div></div>
 <div class="kbp"><div class="s">모양만 보지 않는다</div><div><p>이야기꾼의 "물이 고인다"와 닿는다. 하지만 VCP는 모양만 보지 않는다. 2단계 추세, 실적, 거래량 감소와 피벗 돌파가 함께 있어야 한다. <a href="methodology.html">방법론</a>에서 두 방법을 나란히 볼 수 있다.</p></div></div>
@@ -982,6 +2275,368 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 <tr><td><b>파워 플레이</b></td><td>폭발적 상승 뒤 좁은 횡보</td><td>8주 안에 대량 거래로 100% 이상 상승한 뒤, 3~6주 동안 20% 이내(저가주는 25%)로 쉰다</td></tr>
 </tbody></table></div>
 <p class="kb-note">※ 미너비니는 로우 치트에서 작게 시작하는 일이 많다고 적었다. 그 뒤 더 높은 가격에서 새 피벗이 생길 때마다 포지션을 더한다.</p>
+<div class="panel rc">
+      <div class="panel-head">
+        <div>
+          <h3>같은 베이스, 다른 매수 지점: 아래일수록 일찍 사고 위험이 크다</h3>
+          <p>베이스의 높이(고점 100 → 저점 71)를 3등분했다. 하단에서 사는 것이 로우 치트, 중간이 3C, 손잡이 고점을 넘을 때가 피벗 매수다.</p>
+        </div>
+        <div class="rng" role="group" aria-label="기간 선택">
+        </div>
+      </div>
+      <div class="chart-container rc-box" role="img" aria-label="같은 베이스, 다른 매수 지점: 아래일수록 일찍 사고 위험이 크다">
+        <canvas id="fBuy"></canvas>
+      </div>
+      <p class="note" id="fBuy-note"></p>
+      <div class="srcline">
+        <span class="lbl">출처</span>
+        <span>개념도 · 실제 종목이 아니다 · 『챔피언처럼 생각하고 거래하라』 7장의 매수 지점</span>
+      </div>
+    </div>
+<script>
+/* 랠리 차트 — scripts/lib/rally_chart.py (kospi-dotcom-1998-2000 첫 차트의 정본 그리기) */
+window.RC = window.RC || {};
+(function(){
+  var C = {"id": "fBuy", "series": [["1일", 72.0], ["2일", 74.44], ["3일", 76.51], ["4일", 78.52], ["5일", 80.45], ["6일", 82.32], ["7일", 84.16], ["8일", 86.01], ["9일", 87.89], ["10일", 89.84], ["11일", 91.84], ["12일", 93.87], ["13일", 95.9], ["14일", 97.89], ["15일", 100.0], ["16일", 98.21], ["17일", 96.58], ["18일", 94.97], ["19일", 93.42], ["20일", 91.94], ["21일", 90.55], ["22일", 89.2], ["23일", 88.0], ["24일", 86.52], ["25일", 85.1], ["26일", 83.62], ["27일", 82.08], ["28일", 80.51], ["29일", 78.94], ["30일", 77.4], ["31일", 76.0], ["32일", 75.11], ["33일", 74.34], ["34일", 73.56], ["35일", 72.75], ["36일", 71.88], ["37일", 71.0], ["38일", 71.09], ["39일", 71.21], ["40일", 71.35], ["41일", 71.55], ["42일", 71.81], ["43일", 72.13], ["44일", 72.48], ["45일", 73.0], ["46일", 73.09], ["47일", 73.3], ["48일", 73.47], ["49일", 73.61], ["50일", 73.76], ["51일", 74.0], ["52일", 74.48], ["53일", 75.09], ["54일", 75.73], ["55일", 76.0], ["56일", 77.49], ["57일", 78.54], ["58일", 79.53], ["59일", 80.45], ["60일", 81.34], ["61일", 82.0], ["62일", 82.61], ["63일", 83.07], ["64일", 83.57], ["65일", 84.12], ["66일", 84.67], ["67일", 85.0], ["68일", 85.29], ["69일", 85.34], ["70일", 85.35], ["71일", 85.5], ["72일", 85.9], ["73일", 86.51], ["74일", 87.19], ["75일", 88.0], ["76일", 89.26], ["77일", 90.59], ["78일", 91.87], ["79일", 93.09], ["80일", 94.24], ["81일", 95.0], ["82일", 95.74], ["83일", 96.16], ["84일", 96.63], ["85일", 97.0], ["86일", 96.59], ["87일", 96.03], ["88일", 95.43], ["89일", 94.5], ["90일", 95.04], ["91일", 95.24], ["92일", 95.4], ["93일", 96.0], ["94일", 95.38], ["95일", 95.25], ["96일", 95.8], ["97일", 96.19], ["98일", 97.6], ["99일", 99.34], ["100일", 101.43], ["101일", 103.47], ["102일", 105.47], ["103일", 107.45], ["104일", 109.46], ["105일", 112]], "peak": 100, "marks": {"51일": {"t": "L 로우 치트", "dy": 22, "c": "pos"}, "71일": {"t": "C 3C", "dy": 22, "c": "txt"}, "98일": {"t": "P 피벗 돌파", "dy": -16, "c": "acc"}}, "ranges": {"all": {"from": "1일", "to": "105일", "note": ""}}, "bandFrom": "15일", "bandTo": "97일", "bandLabel": "컵 모양 베이스", "label": "가격", "tip": "가격", "start": "all", "suggestedMin": 60, "hlines": [{"v": 80.7, "t": "하단 3분의 1 (로우 치트)", "c": "txt", "dash": [2, 4], "w": 1.4, "frm": "15일", "below": true}, {"v": 90.3, "t": "중간 3분의 1 (3C)", "c": "txt", "dash": [2, 4], "w": 1.4, "frm": "15일", "below": true}, {"v": 97, "t": "피벗 97", "c": "acc", "dash": [6, 4], "w": 1.8, "frm": "81일"}]};
+  var SERIES = C.series, PEAK = C.peak, MARKS = C.marks, RANGES = C.ranges;
+  var BAND_FROM = C.bandFrom, BAND_TO = C.bandTo;
+  function cv(n){ var el=document.getElementById(C.id); var r=(el&&el.closest('.rc'))||document.documentElement;
+    return getComputedStyle(r).getPropertyValue(n).trim(); }
+  function hexA(h,a){
+    h=(h||'').trim(); if(h.charAt(0)!=='#') return h;
+    if(h.length===4) h='#'+h[1]+h[1]+h[2]+h[2]+h[3]+h[3];
+    var n=parseInt(h.slice(1),16);
+    return 'rgba('+((n>>16)&255)+','+((n>>8)&255)+','+(n&255)+','+a+')';
+  }
+
+  var anno = {
+    id:'anno',
+    beforeDatasetsDraw:function(chart){
+      var xs=chart.scales.x, ys=chart.scales.y, ctx=chart.ctx;
+      if(!xs||!ys) return;
+      var labs=chart.data.labels;
+      if(C.bands){ C.bands.forEach(function(b){
+        var j1=labs.indexOf(b[0]), j2=labs.indexOf(b[1]); if(j1<0||j2<0) return;
+        ctx.save(); ctx.fillStyle=cv('--rc-band');
+        var a1=xs.getPixelForValue(j1), a2=xs.getPixelForValue(j2);
+        ctx.fillRect(a1, ys.top, a2-a1, ys.bottom-ys.top);
+        ctx.strokeStyle=hexA(cv('--rc-accent'),0.28); ctx.setLineDash([4,4]); ctx.lineWidth=1;
+        ctx.beginPath(); ctx.moveTo(a1,ys.top); ctx.lineTo(a1,ys.bottom); ctx.moveTo(a2,ys.top); ctx.lineTo(a2,ys.bottom); ctx.stroke();
+        ctx.setLineDash([]); ctx.fillStyle=hexA(cv('--rc-accent'),0.85); ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='center';
+        ctx.fillText(b[2], (a1+a2)/2, ys.top+16); ctx.restore(); }); }
+      var i1=labs.indexOf(BAND_FROM), i2=labs.indexOf(BAND_TO);
+      if(i1<0||i2<0) return;
+      ctx.save();
+      ctx.fillStyle=cv('--rc-band');
+      var x1=xs.getPixelForValue(i1), x2=xs.getPixelForValue(i2);
+      ctx.fillRect(x1, ys.top, x2-x1, ys.bottom-ys.top);
+      ctx.strokeStyle=hexA(cv('--rc-accent'),0.28); ctx.setLineDash([4,4]); ctx.lineWidth=1;
+      ctx.beginPath(); ctx.moveTo(x1,ys.top); ctx.lineTo(x1,ys.bottom);
+      ctx.moveTo(x2,ys.top); ctx.lineTo(x2,ys.bottom); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle=hexA(cv('--rc-accent'),0.85); ctx.font='700 11.5px Inter, sans-serif'; ctx.textAlign='center';
+      ctx.fillText(C.bandLabel, (x1+x2)/2, ys.top+16);
+      ctx.restore();
+    },
+    afterDatasetsDraw:function(chart){
+      var xs=chart.scales.x, ys=chart.scales.y, ctx=chart.ctx;
+      if(!xs||!ys) return;
+      var labs=chart.data.labels, data=chart.data.datasets[0].data;
+      var accent=cv('--rc-accent'), neg=cv('--rc-neg'), pos=cv('--rc-pos'), txt=cv('--rc-text2'), surf=cv('--rc-surface');
+      var narrow = (xs.width < 620);
+      function colOf(k){ return k==='acc'?accent : k==='neg'?neg : k==='pos'?pos : txt; }
+      if(C.hlines){ C.hlines.forEach(function(h){
+        var y=ys.getPixelForValue(h.v); if(y<ys.top||y>ys.bottom) return;
+        var a=h.frm?labs.indexOf(h.frm):0, b=h.to?labs.indexOf(h.to):labs.length-1;
+        if(h.frm&&a<0) a=0; if(h.to&&b<0) b=labs.length-1;
+        var xa=xs.getPixelForValue(a), xb=xs.getPixelForValue(b), col=colOf(h.c);
+        ctx.save(); ctx.strokeStyle=col; ctx.lineWidth=h.w||1.6; ctx.setLineDash(h.dash||[6,4]);
+        ctx.beginPath(); ctx.moveTo(xa,y); ctx.lineTo(xb,y); ctx.stroke(); ctx.setLineDash([]);
+        if(h.t){ ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='right'; ctx.fillStyle=col;
+          ctx.fillText(h.t, xb-2, y+(h.below?15:-6)); }
+        ctx.restore(); }); }
+      if(C.extra){ C.extra.forEach(function(e,k){ if(!e.end) return;
+        var d=chart.data.datasets[k+1].data, j=d.length-1; while(j>0 && (d[j]===null||d[j]===undefined)) j--;
+        if(j<0||d[j]===null) return;
+        ctx.save(); ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='right'; ctx.fillStyle=colOf(e.c);
+        ctx.fillText(e.end, xs.getPixelForValue(j)-4, ys.getPixelForValue(d[j])+(e.dy||-8)); ctx.restore(); }); }
+      ctx.save();
+      labs.forEach(function(l,i){
+        var m=MARKS[l]; if(!m) return;
+        var col = m.c==='acc'?accent : m.c==='neg'?neg : m.c==='pos'?pos : txt;
+        var x=xs.getPixelForValue(i), y=ys.getPixelForValue(data[i]);
+        ctx.beginPath(); ctx.arc(x,y,5.5,0,Math.PI*2); ctx.fillStyle=col; ctx.fill();
+        ctx.strokeStyle=surf; ctx.lineWidth=2; ctx.stroke();
+        if(narrow) return;
+        ctx.fillStyle=col; ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif';
+        ctx.textAlign = (i > labs.length*0.82) ? 'right' : (i < labs.length*0.08 ? 'left' : 'center');
+        ctx.fillText(m.t, x, y + m.dy);
+      });
+      ctx.restore();
+    }
+  };
+
+  var chart=null, currentRange=C.start;
+  function buildChart(){
+    if (typeof Chart==='undefined'){ console.error('Chart.js not loaded'); return; }
+    var el=document.getElementById(C.id); if(!el) return;
+    if(chart){ try{chart.destroy();}catch(e){} chart=null; }
+
+    var r=RANGES[currentRange];
+    var i1=0,i2=SERIES.length-1,i;
+    for(i=0;i<SERIES.length;i++){ if(SERIES[i][0]===r.from) i1=i; if(SERIES[i][0]===r.to) i2=i; }
+    var slice=SERIES.slice(i1,i2+1);
+    var labels=slice.map(function(d){return d[0];});
+    var vals=slice.map(function(d){return d[1];});
+    var more=(C.extra||[]).map(function(e){
+      var c0 = e.c==='acc'?cv('--rc-accent') : e.c==='neg'?cv('--rc-neg') : e.c==='pos'?cv('--rc-pos') : cv('--rc-text2');
+      return { label:e.label, data:e.data.slice(i1,i2+1), borderColor:c0, borderWidth:e.w||1.6, borderDash:e.dash||[],
+               stepped:!!e.stepped, tension:e.stepped?0:.3, pointRadius:0, pointHoverRadius:0, fill:false, spanGaps:false }; });
+
+    var text=cv('--rc-text'), tsec=cv('--rc-text2'), grid=cv('--rc-grid'), accent=cv('--rc-accent');
+
+    chart=new Chart(el,{
+      type:'line',
+      plugins:[anno],
+      data:{ labels:labels, datasets:[{
+        label:C.label, data:vals,
+        borderColor:accent, backgroundColor:hexA(accent,0.13),
+        borderWidth:3.2, tension:.3, pointRadius:0, pointHoverRadius:6, fill:true
+      }].concat(more)},
+      options:{
+        responsive:true, maintainAspectRatio:false,
+        layout:{ padding:{ top:30, right:16, bottom:4, left:4 } },
+        animation:{ duration:1000, easing:'easeOutQuart' },
+        interaction:{ mode:'index', intersect:false },
+        plugins:{
+          legend:{ display:false },
+          tooltip:{ enabled:true, padding:12, cornerRadius:8,
+            titleFont:{size:13,family:'Inter'}, bodyFont:{size:13,family:'Noto Sans KR'},
+            callbacks:{
+              label:function(c){
+                if(c.datasetIndex>0) return c.parsed.y===null ? '' : ' '+c.dataset.label+' '+c.parsed.y.toLocaleString(undefined,{maximumFractionDigits:2})+(C.unit||'');
+                if(C.ref){ var q=(c.parsed.y/C.ref-1)*100;
+                  return ' '+C.tip+' '+c.parsed.y.toLocaleString(undefined,{maximumFractionDigits:2})+'  ('+C.refLabel+' 대비 '+(q>=0?'+':'')+q.toFixed(1)+'%)'; }
+                if(C.unit) return ' '+C.tip+' '+(c.parsed.y>0?'+':'')+c.parsed.y.toFixed(2)+C.unit;
+                return ' '+C.tip+' '+c.parsed.y.toLocaleString()+'  ('+(C.peakLabel||'정점 대비')+' '+(c.parsed.y/PEAK*100).toFixed(1)+'%)';
+              },
+              afterLabel:function(c){ if(c.datasetIndex>0) return ''; var m=MARKS[c.label]; return m ? ' ▸ '+m.t.replace(/\s\d[\d,]*.*$/,'') : ''; }
+            } }
+        },
+        scales:{
+          x:{ ticks:{color:tsec,font:{family:'Inter',size:11.5},maxRotation:0,autoSkip:true,maxTicksLimit:12},
+              grid:{color:grid} },
+          y:{ beginAtZero:false, suggestedMin:C.suggestedMin,
+              title:{display:true,text:C.ylabel||C.label,color:tsec,font:{family:'Noto Sans KR',size:13}},
+              ticks:{color:tsec,font:{family:'Inter',size:12},callback:function(v){return v.toLocaleString();}},
+              grid:{color:grid} }
+        }
+      }
+    });
+  }
+
+  function setRange(kind,btn){
+    currentRange=kind;
+    try{ buildChart(); }catch(e){ if(window.console) console.error('buildChart', e); }
+    try{
+      var g=(btn&&btn.closest)?btn.closest('.rng'):null;
+      var bs=g?g.querySelectorAll('button'):[];
+      for(var i=0;i<bs.length;i++) bs[i].classList.remove('on');
+      if(btn&&btn.classList) btn.classList.add('on');
+      var rn=document.getElementById(C.id+'-note');
+      if(rn && RANGES[kind]) rn.innerHTML = RANGES[kind].note;
+    }catch(e){ if(window.console) console.error('setRange ui', e); }
+  }
+
+  RC[C.id] = { build:buildChart, setRange:setRange, chart:function(){ return chart; } };
+  try{ var _n=document.getElementById(C.id+'-note'); if(_n) _n.innerHTML = RANGES[currentRange].note; }catch(e){}
+  try{ new MutationObserver(function(){ buildChart(); }).observe(document.documentElement,{attributes:true,attributeFilter:['class']}); }catch(e){}
+  if(document.readyState==='complete'){ buildChart(); }
+  else { window.addEventListener('load', buildChart); }
+  setTimeout(function(){ if(!chart) buildChart(); }, 400);
+})();
+</script>
+<div class="panel rc">
+      <div class="panel-head">
+        <div>
+          <h3>파워 플레이: 8주 안에 2배가 되고, 그 뒤 좁게 쉰다</h3>
+          <p>8주 동안 100% 이상 상승한 뒤 3~6주 동안 고점 대비 20% 안(저가주는 25%)에서 쉰다. 그 횡보의 고점을 넘을 때가 매수 지점이다.</p>
+        </div>
+        <div class="rng" role="group" aria-label="기간 선택">
+        </div>
+      </div>
+      <div class="chart-container rc-box" role="img" aria-label="파워 플레이: 8주 안에 2배가 되고, 그 뒤 좁게 쉰다">
+        <canvas id="fPp"></canvas>
+      </div>
+      <p class="note" id="fPp-note"></p>
+      <div class="srcline">
+        <span class="lbl">출처</span>
+        <span>개념도 · 실제 종목이 아니다 · 주 단위 · 『챔피언처럼 생각하고 거래하라』 7장의 조건</span>
+      </div>
+    </div>
+<script>
+/* 랠리 차트 — scripts/lib/rally_chart.py (kospi-dotcom-1998-2000 첫 차트의 정본 그리기) */
+window.RC = window.RC || {};
+(function(){
+  var C = {"id": "fPp", "series": [["1주", 100.0], ["2주", 99.0], ["3주", 98.0], ["4주", 99.5], ["5주", 101.0], ["6주", 113.0], ["7주", 125.0], ["8주", 137.5], ["9주", 150.0], ["10주", 165.0], ["11주", 180.0], ["12주", 196.0], ["13주", 212.0], ["14주", 203.0], ["15주", 208.0], ["16주", 197.0], ["17주", 206.0], ["18주", 201.0], ["19주", 210.0], ["20주", 228.0], ["21주", 246]], "peak": 212, "marks": {"13주": {"t": "8주 · +110%", "dy": -14, "c": "pos"}, "16주": {"t": "고점 대비 −7%", "dy": 22, "c": "txt"}, "20주": {"t": "재돌파", "dy": -14, "c": "acc"}}, "ranges": {"all": {"from": "1주", "to": "21주", "note": ""}}, "bandFrom": "5주", "bandTo": "13주", "bandLabel": "8주 급등", "label": "가격", "tip": "가격", "start": "all", "suggestedMin": 80, "bands": [["13주", "19주", "6주 횡보"]], "peakLabel": "첫 고점 대비"};
+  var SERIES = C.series, PEAK = C.peak, MARKS = C.marks, RANGES = C.ranges;
+  var BAND_FROM = C.bandFrom, BAND_TO = C.bandTo;
+  function cv(n){ var el=document.getElementById(C.id); var r=(el&&el.closest('.rc'))||document.documentElement;
+    return getComputedStyle(r).getPropertyValue(n).trim(); }
+  function hexA(h,a){
+    h=(h||'').trim(); if(h.charAt(0)!=='#') return h;
+    if(h.length===4) h='#'+h[1]+h[1]+h[2]+h[2]+h[3]+h[3];
+    var n=parseInt(h.slice(1),16);
+    return 'rgba('+((n>>16)&255)+','+((n>>8)&255)+','+(n&255)+','+a+')';
+  }
+
+  var anno = {
+    id:'anno',
+    beforeDatasetsDraw:function(chart){
+      var xs=chart.scales.x, ys=chart.scales.y, ctx=chart.ctx;
+      if(!xs||!ys) return;
+      var labs=chart.data.labels;
+      if(C.bands){ C.bands.forEach(function(b){
+        var j1=labs.indexOf(b[0]), j2=labs.indexOf(b[1]); if(j1<0||j2<0) return;
+        ctx.save(); ctx.fillStyle=cv('--rc-band');
+        var a1=xs.getPixelForValue(j1), a2=xs.getPixelForValue(j2);
+        ctx.fillRect(a1, ys.top, a2-a1, ys.bottom-ys.top);
+        ctx.strokeStyle=hexA(cv('--rc-accent'),0.28); ctx.setLineDash([4,4]); ctx.lineWidth=1;
+        ctx.beginPath(); ctx.moveTo(a1,ys.top); ctx.lineTo(a1,ys.bottom); ctx.moveTo(a2,ys.top); ctx.lineTo(a2,ys.bottom); ctx.stroke();
+        ctx.setLineDash([]); ctx.fillStyle=hexA(cv('--rc-accent'),0.85); ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='center';
+        ctx.fillText(b[2], (a1+a2)/2, ys.top+16); ctx.restore(); }); }
+      var i1=labs.indexOf(BAND_FROM), i2=labs.indexOf(BAND_TO);
+      if(i1<0||i2<0) return;
+      ctx.save();
+      ctx.fillStyle=cv('--rc-band');
+      var x1=xs.getPixelForValue(i1), x2=xs.getPixelForValue(i2);
+      ctx.fillRect(x1, ys.top, x2-x1, ys.bottom-ys.top);
+      ctx.strokeStyle=hexA(cv('--rc-accent'),0.28); ctx.setLineDash([4,4]); ctx.lineWidth=1;
+      ctx.beginPath(); ctx.moveTo(x1,ys.top); ctx.lineTo(x1,ys.bottom);
+      ctx.moveTo(x2,ys.top); ctx.lineTo(x2,ys.bottom); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle=hexA(cv('--rc-accent'),0.85); ctx.font='700 11.5px Inter, sans-serif'; ctx.textAlign='center';
+      ctx.fillText(C.bandLabel, (x1+x2)/2, ys.top+16);
+      ctx.restore();
+    },
+    afterDatasetsDraw:function(chart){
+      var xs=chart.scales.x, ys=chart.scales.y, ctx=chart.ctx;
+      if(!xs||!ys) return;
+      var labs=chart.data.labels, data=chart.data.datasets[0].data;
+      var accent=cv('--rc-accent'), neg=cv('--rc-neg'), pos=cv('--rc-pos'), txt=cv('--rc-text2'), surf=cv('--rc-surface');
+      var narrow = (xs.width < 620);
+      function colOf(k){ return k==='acc'?accent : k==='neg'?neg : k==='pos'?pos : txt; }
+      if(C.hlines){ C.hlines.forEach(function(h){
+        var y=ys.getPixelForValue(h.v); if(y<ys.top||y>ys.bottom) return;
+        var a=h.frm?labs.indexOf(h.frm):0, b=h.to?labs.indexOf(h.to):labs.length-1;
+        if(h.frm&&a<0) a=0; if(h.to&&b<0) b=labs.length-1;
+        var xa=xs.getPixelForValue(a), xb=xs.getPixelForValue(b), col=colOf(h.c);
+        ctx.save(); ctx.strokeStyle=col; ctx.lineWidth=h.w||1.6; ctx.setLineDash(h.dash||[6,4]);
+        ctx.beginPath(); ctx.moveTo(xa,y); ctx.lineTo(xb,y); ctx.stroke(); ctx.setLineDash([]);
+        if(h.t){ ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='right'; ctx.fillStyle=col;
+          ctx.fillText(h.t, xb-2, y+(h.below?15:-6)); }
+        ctx.restore(); }); }
+      if(C.extra){ C.extra.forEach(function(e,k){ if(!e.end) return;
+        var d=chart.data.datasets[k+1].data, j=d.length-1; while(j>0 && (d[j]===null||d[j]===undefined)) j--;
+        if(j<0||d[j]===null) return;
+        ctx.save(); ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='right'; ctx.fillStyle=colOf(e.c);
+        ctx.fillText(e.end, xs.getPixelForValue(j)-4, ys.getPixelForValue(d[j])+(e.dy||-8)); ctx.restore(); }); }
+      ctx.save();
+      labs.forEach(function(l,i){
+        var m=MARKS[l]; if(!m) return;
+        var col = m.c==='acc'?accent : m.c==='neg'?neg : m.c==='pos'?pos : txt;
+        var x=xs.getPixelForValue(i), y=ys.getPixelForValue(data[i]);
+        ctx.beginPath(); ctx.arc(x,y,5.5,0,Math.PI*2); ctx.fillStyle=col; ctx.fill();
+        ctx.strokeStyle=surf; ctx.lineWidth=2; ctx.stroke();
+        if(narrow) return;
+        ctx.fillStyle=col; ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif';
+        ctx.textAlign = (i > labs.length*0.82) ? 'right' : (i < labs.length*0.08 ? 'left' : 'center');
+        ctx.fillText(m.t, x, y + m.dy);
+      });
+      ctx.restore();
+    }
+  };
+
+  var chart=null, currentRange=C.start;
+  function buildChart(){
+    if (typeof Chart==='undefined'){ console.error('Chart.js not loaded'); return; }
+    var el=document.getElementById(C.id); if(!el) return;
+    if(chart){ try{chart.destroy();}catch(e){} chart=null; }
+
+    var r=RANGES[currentRange];
+    var i1=0,i2=SERIES.length-1,i;
+    for(i=0;i<SERIES.length;i++){ if(SERIES[i][0]===r.from) i1=i; if(SERIES[i][0]===r.to) i2=i; }
+    var slice=SERIES.slice(i1,i2+1);
+    var labels=slice.map(function(d){return d[0];});
+    var vals=slice.map(function(d){return d[1];});
+    var more=(C.extra||[]).map(function(e){
+      var c0 = e.c==='acc'?cv('--rc-accent') : e.c==='neg'?cv('--rc-neg') : e.c==='pos'?cv('--rc-pos') : cv('--rc-text2');
+      return { label:e.label, data:e.data.slice(i1,i2+1), borderColor:c0, borderWidth:e.w||1.6, borderDash:e.dash||[],
+               stepped:!!e.stepped, tension:e.stepped?0:.3, pointRadius:0, pointHoverRadius:0, fill:false, spanGaps:false }; });
+
+    var text=cv('--rc-text'), tsec=cv('--rc-text2'), grid=cv('--rc-grid'), accent=cv('--rc-accent');
+
+    chart=new Chart(el,{
+      type:'line',
+      plugins:[anno],
+      data:{ labels:labels, datasets:[{
+        label:C.label, data:vals,
+        borderColor:accent, backgroundColor:hexA(accent,0.13),
+        borderWidth:3.2, tension:.3, pointRadius:0, pointHoverRadius:6, fill:true
+      }].concat(more)},
+      options:{
+        responsive:true, maintainAspectRatio:false,
+        layout:{ padding:{ top:30, right:16, bottom:4, left:4 } },
+        animation:{ duration:1000, easing:'easeOutQuart' },
+        interaction:{ mode:'index', intersect:false },
+        plugins:{
+          legend:{ display:false },
+          tooltip:{ enabled:true, padding:12, cornerRadius:8,
+            titleFont:{size:13,family:'Inter'}, bodyFont:{size:13,family:'Noto Sans KR'},
+            callbacks:{
+              label:function(c){
+                if(c.datasetIndex>0) return c.parsed.y===null ? '' : ' '+c.dataset.label+' '+c.parsed.y.toLocaleString(undefined,{maximumFractionDigits:2})+(C.unit||'');
+                if(C.ref){ var q=(c.parsed.y/C.ref-1)*100;
+                  return ' '+C.tip+' '+c.parsed.y.toLocaleString(undefined,{maximumFractionDigits:2})+'  ('+C.refLabel+' 대비 '+(q>=0?'+':'')+q.toFixed(1)+'%)'; }
+                if(C.unit) return ' '+C.tip+' '+(c.parsed.y>0?'+':'')+c.parsed.y.toFixed(2)+C.unit;
+                return ' '+C.tip+' '+c.parsed.y.toLocaleString()+'  ('+(C.peakLabel||'정점 대비')+' '+(c.parsed.y/PEAK*100).toFixed(1)+'%)';
+              },
+              afterLabel:function(c){ if(c.datasetIndex>0) return ''; var m=MARKS[c.label]; return m ? ' ▸ '+m.t.replace(/\s\d[\d,]*.*$/,'') : ''; }
+            } }
+        },
+        scales:{
+          x:{ ticks:{color:tsec,font:{family:'Inter',size:11.5},maxRotation:0,autoSkip:true,maxTicksLimit:12},
+              grid:{color:grid} },
+          y:{ beginAtZero:false, suggestedMin:C.suggestedMin,
+              title:{display:true,text:C.ylabel||C.label,color:tsec,font:{family:'Noto Sans KR',size:13}},
+              ticks:{color:tsec,font:{family:'Inter',size:12},callback:function(v){return v.toLocaleString();}},
+              grid:{color:grid} }
+        }
+      }
+    });
+  }
+
+  function setRange(kind,btn){
+    currentRange=kind;
+    try{ buildChart(); }catch(e){ if(window.console) console.error('buildChart', e); }
+    try{
+      var g=(btn&&btn.closest)?btn.closest('.rng'):null;
+      var bs=g?g.querySelectorAll('button'):[];
+      for(var i=0;i<bs.length;i++) bs[i].classList.remove('on');
+      if(btn&&btn.classList) btn.classList.add('on');
+      var rn=document.getElementById(C.id+'-note');
+      if(rn && RANGES[kind]) rn.innerHTML = RANGES[kind].note;
+    }catch(e){ if(window.console) console.error('setRange ui', e); }
+  }
+
+  RC[C.id] = { build:buildChart, setRange:setRange, chart:function(){ return chart; } };
+  try{ var _n=document.getElementById(C.id+'-note'); if(_n) _n.innerHTML = RANGES[currentRange].note; }catch(e){}
+  try{ new MutationObserver(function(){ buildChart(); }).observe(document.documentElement,{attributes:true,attributeFilter:['class']}); }catch(e){}
+  if(document.readyState==='complete'){ buildChart(); }
+  else { window.addEventListener('load', buildChart); }
+  setTimeout(function(){ if(!chart) buildChart(); }, 400);
+})();
+</script>
 
 <h3 class="kb">7-2. 돌파 뒤의 반응을 본다</h3>
 <div class="kbp"><div class="s">정상 반응은 테니스공처럼</div><div><p>정상적인 주도주는 충격 뒤 테니스공처럼 빠르게 회복한다. 깨진 달걀처럼 회복하지 못하면 경계한다(『초수익 성장주 투자』 10장).</p></div></div>
@@ -994,6 +2649,187 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 <tr><td>대량 거래로 50일선 아래 종가</td><td>20일선 이탈보다 더 나쁜 신호다</td></tr>
 <tr><td>스쿼트(돌파일에 약하게 마감)</td><td>혼자서는 매도 이유가 아니다. 반전해 회복하는지 본다</td></tr>
 </tbody></table></div>
+<div class="panel rc">
+      <div class="panel-head">
+        <div>
+          <h3>돌파 뒤 며칠: 정상은 되돌림 뒤 회복하고, 실패는 위반이 쌓여 손절선에 닿는다</h3>
+          <p>굵은 실선이 실패한 돌파다. 스쿼트 하나로는 팔지 않는다. 20일선 아래 종가가 겹치면 줄이고, 손절선에 닿으면 판다. 초록 점선이 정상 반응이다.</p>
+        </div>
+        <div class="rng" role="group" aria-label="기간 선택">
+        </div>
+      </div>
+      <div class="chart-container rc-box" role="img" aria-label="돌파 뒤 며칠: 정상은 되돌림 뒤 회복하고, 실패는 위반이 쌓여 손절선에 닿는다">
+        <canvas id="fReact"></canvas>
+      </div>
+      <p class="note" id="fReact-note"></p>
+      <div class="srcline">
+        <span class="lbl">출처</span>
+        <span>개념도 · 실제 종목이 아니다 · 『챔피언처럼 생각하고 거래하라』 1장의 위반 신호</span>
+      </div>
+    </div>
+<script>
+/* 랠리 차트 — scripts/lib/rally_chart.py (kospi-dotcom-1998-2000 첫 차트의 정본 그리기) */
+window.RC = window.RC || {};
+(function(){
+  var C = {"id": "fReact", "series": [["1일", 92.0], ["2일", 93.02], ["3일", 93.67], ["4일", 94.27], ["5일", 94.8], ["6일", 95.28], ["7일", 95.47], ["8일", 95.67], ["9일", 95.91], ["10일", 98.37], ["11일", 101.0], ["12일", 99.2], ["13일", 98.52], ["14일", 97.92], ["15일", 96.67], ["16일", 95.6], ["17일", 94.79], ["18일", 94.21], ["19일", 94.61], ["20일", 95.07], ["21일", 93.7], ["22일", 92.6], ["23일", 93.2], ["24일", 94.01], ["25일", 92.75], ["26일", 91.43], ["27일", 90.07], ["28일", 89.34], ["29일", 88.61], ["30일", 87.91]], "peak": 101, "marks": {"11일": {"t": "돌파 매수", "dy": -16, "c": "acc"}, "12일": {"t": "스쿼트", "dy": 26, "c": "txt"}, "16일": {"t": "20일선 아래 종가", "dy": 26, "c": "neg"}, "22일": {"t": "손절 −7%", "dy": 26, "c": "neg"}}, "ranges": {"all": {"from": "1일", "to": "30일", "note": ""}}, "bandFrom": null, "bandTo": null, "bandLabel": "", "label": "가격", "tip": "가격", "start": "all", "suggestedMin": 84, "hlines": [{"v": 100, "t": "피벗 100", "c": "acc", "dash": [6, 4], "w": 1.6}, {"v": 93, "t": "손절선 93 (−7%)", "c": "neg", "dash": [], "w": 2.4, "below": true}], "extra": [{"label": "정상", "data": [92.0, 93.02, 93.67, 94.27, 94.8, 95.28, 95.47, 95.67, 95.91, 98.37, 101.0, 102.67, 104.33, 106.0, 104.5, 103.0, 101.5, 101.07, 100.63, 100.2, 101.47, 102.73, 104.0, 105.5, 107.0, 108.5, 110.0, 112.0, 114.0, 116], "c": "pos", "dash": [6, 4], "w": 2.2, "end": "정상: 되돌림 뒤 회복"}, {"label": "20일선", "data": [90.0, 90.4, 90.8, 91.2, 91.6, 92.0, 92.4, 92.8, 93.2, 93.6, 94.0, 94.25, 94.5, 94.75, 95.0, 95.25, 95.5, 95.75, 96.0, 96.25, 96.5, 96.33, 96.17, 96.0, 95.83, 95.67, 95.5, 95.33, 95.17, 95], "c": "txt", "dash": [2, 4], "w": 1.6, "end": "20일선", "dy": 16}], "ref": 100, "refLabel": "매수가"};
+  var SERIES = C.series, PEAK = C.peak, MARKS = C.marks, RANGES = C.ranges;
+  var BAND_FROM = C.bandFrom, BAND_TO = C.bandTo;
+  function cv(n){ var el=document.getElementById(C.id); var r=(el&&el.closest('.rc'))||document.documentElement;
+    return getComputedStyle(r).getPropertyValue(n).trim(); }
+  function hexA(h,a){
+    h=(h||'').trim(); if(h.charAt(0)!=='#') return h;
+    if(h.length===4) h='#'+h[1]+h[1]+h[2]+h[2]+h[3]+h[3];
+    var n=parseInt(h.slice(1),16);
+    return 'rgba('+((n>>16)&255)+','+((n>>8)&255)+','+(n&255)+','+a+')';
+  }
+
+  var anno = {
+    id:'anno',
+    beforeDatasetsDraw:function(chart){
+      var xs=chart.scales.x, ys=chart.scales.y, ctx=chart.ctx;
+      if(!xs||!ys) return;
+      var labs=chart.data.labels;
+      if(C.bands){ C.bands.forEach(function(b){
+        var j1=labs.indexOf(b[0]), j2=labs.indexOf(b[1]); if(j1<0||j2<0) return;
+        ctx.save(); ctx.fillStyle=cv('--rc-band');
+        var a1=xs.getPixelForValue(j1), a2=xs.getPixelForValue(j2);
+        ctx.fillRect(a1, ys.top, a2-a1, ys.bottom-ys.top);
+        ctx.strokeStyle=hexA(cv('--rc-accent'),0.28); ctx.setLineDash([4,4]); ctx.lineWidth=1;
+        ctx.beginPath(); ctx.moveTo(a1,ys.top); ctx.lineTo(a1,ys.bottom); ctx.moveTo(a2,ys.top); ctx.lineTo(a2,ys.bottom); ctx.stroke();
+        ctx.setLineDash([]); ctx.fillStyle=hexA(cv('--rc-accent'),0.85); ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='center';
+        ctx.fillText(b[2], (a1+a2)/2, ys.top+16); ctx.restore(); }); }
+      var i1=labs.indexOf(BAND_FROM), i2=labs.indexOf(BAND_TO);
+      if(i1<0||i2<0) return;
+      ctx.save();
+      ctx.fillStyle=cv('--rc-band');
+      var x1=xs.getPixelForValue(i1), x2=xs.getPixelForValue(i2);
+      ctx.fillRect(x1, ys.top, x2-x1, ys.bottom-ys.top);
+      ctx.strokeStyle=hexA(cv('--rc-accent'),0.28); ctx.setLineDash([4,4]); ctx.lineWidth=1;
+      ctx.beginPath(); ctx.moveTo(x1,ys.top); ctx.lineTo(x1,ys.bottom);
+      ctx.moveTo(x2,ys.top); ctx.lineTo(x2,ys.bottom); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle=hexA(cv('--rc-accent'),0.85); ctx.font='700 11.5px Inter, sans-serif'; ctx.textAlign='center';
+      ctx.fillText(C.bandLabel, (x1+x2)/2, ys.top+16);
+      ctx.restore();
+    },
+    afterDatasetsDraw:function(chart){
+      var xs=chart.scales.x, ys=chart.scales.y, ctx=chart.ctx;
+      if(!xs||!ys) return;
+      var labs=chart.data.labels, data=chart.data.datasets[0].data;
+      var accent=cv('--rc-accent'), neg=cv('--rc-neg'), pos=cv('--rc-pos'), txt=cv('--rc-text2'), surf=cv('--rc-surface');
+      var narrow = (xs.width < 620);
+      function colOf(k){ return k==='acc'?accent : k==='neg'?neg : k==='pos'?pos : txt; }
+      if(C.hlines){ C.hlines.forEach(function(h){
+        var y=ys.getPixelForValue(h.v); if(y<ys.top||y>ys.bottom) return;
+        var a=h.frm?labs.indexOf(h.frm):0, b=h.to?labs.indexOf(h.to):labs.length-1;
+        if(h.frm&&a<0) a=0; if(h.to&&b<0) b=labs.length-1;
+        var xa=xs.getPixelForValue(a), xb=xs.getPixelForValue(b), col=colOf(h.c);
+        ctx.save(); ctx.strokeStyle=col; ctx.lineWidth=h.w||1.6; ctx.setLineDash(h.dash||[6,4]);
+        ctx.beginPath(); ctx.moveTo(xa,y); ctx.lineTo(xb,y); ctx.stroke(); ctx.setLineDash([]);
+        if(h.t){ ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='right'; ctx.fillStyle=col;
+          ctx.fillText(h.t, xb-2, y+(h.below?15:-6)); }
+        ctx.restore(); }); }
+      if(C.extra){ C.extra.forEach(function(e,k){ if(!e.end) return;
+        var d=chart.data.datasets[k+1].data, j=d.length-1; while(j>0 && (d[j]===null||d[j]===undefined)) j--;
+        if(j<0||d[j]===null) return;
+        ctx.save(); ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='right'; ctx.fillStyle=colOf(e.c);
+        ctx.fillText(e.end, xs.getPixelForValue(j)-4, ys.getPixelForValue(d[j])+(e.dy||-8)); ctx.restore(); }); }
+      ctx.save();
+      labs.forEach(function(l,i){
+        var m=MARKS[l]; if(!m) return;
+        var col = m.c==='acc'?accent : m.c==='neg'?neg : m.c==='pos'?pos : txt;
+        var x=xs.getPixelForValue(i), y=ys.getPixelForValue(data[i]);
+        ctx.beginPath(); ctx.arc(x,y,5.5,0,Math.PI*2); ctx.fillStyle=col; ctx.fill();
+        ctx.strokeStyle=surf; ctx.lineWidth=2; ctx.stroke();
+        if(narrow) return;
+        ctx.fillStyle=col; ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif';
+        ctx.textAlign = (i > labs.length*0.82) ? 'right' : (i < labs.length*0.08 ? 'left' : 'center');
+        ctx.fillText(m.t, x, y + m.dy);
+      });
+      ctx.restore();
+    }
+  };
+
+  var chart=null, currentRange=C.start;
+  function buildChart(){
+    if (typeof Chart==='undefined'){ console.error('Chart.js not loaded'); return; }
+    var el=document.getElementById(C.id); if(!el) return;
+    if(chart){ try{chart.destroy();}catch(e){} chart=null; }
+
+    var r=RANGES[currentRange];
+    var i1=0,i2=SERIES.length-1,i;
+    for(i=0;i<SERIES.length;i++){ if(SERIES[i][0]===r.from) i1=i; if(SERIES[i][0]===r.to) i2=i; }
+    var slice=SERIES.slice(i1,i2+1);
+    var labels=slice.map(function(d){return d[0];});
+    var vals=slice.map(function(d){return d[1];});
+    var more=(C.extra||[]).map(function(e){
+      var c0 = e.c==='acc'?cv('--rc-accent') : e.c==='neg'?cv('--rc-neg') : e.c==='pos'?cv('--rc-pos') : cv('--rc-text2');
+      return { label:e.label, data:e.data.slice(i1,i2+1), borderColor:c0, borderWidth:e.w||1.6, borderDash:e.dash||[],
+               stepped:!!e.stepped, tension:e.stepped?0:.3, pointRadius:0, pointHoverRadius:0, fill:false, spanGaps:false }; });
+
+    var text=cv('--rc-text'), tsec=cv('--rc-text2'), grid=cv('--rc-grid'), accent=cv('--rc-accent');
+
+    chart=new Chart(el,{
+      type:'line',
+      plugins:[anno],
+      data:{ labels:labels, datasets:[{
+        label:C.label, data:vals,
+        borderColor:accent, backgroundColor:hexA(accent,0.13),
+        borderWidth:3.2, tension:.3, pointRadius:0, pointHoverRadius:6, fill:true
+      }].concat(more)},
+      options:{
+        responsive:true, maintainAspectRatio:false,
+        layout:{ padding:{ top:30, right:16, bottom:4, left:4 } },
+        animation:{ duration:1000, easing:'easeOutQuart' },
+        interaction:{ mode:'index', intersect:false },
+        plugins:{
+          legend:{ display:false },
+          tooltip:{ enabled:true, padding:12, cornerRadius:8,
+            titleFont:{size:13,family:'Inter'}, bodyFont:{size:13,family:'Noto Sans KR'},
+            callbacks:{
+              label:function(c){
+                if(c.datasetIndex>0) return c.parsed.y===null ? '' : ' '+c.dataset.label+' '+c.parsed.y.toLocaleString(undefined,{maximumFractionDigits:2})+(C.unit||'');
+                if(C.ref){ var q=(c.parsed.y/C.ref-1)*100;
+                  return ' '+C.tip+' '+c.parsed.y.toLocaleString(undefined,{maximumFractionDigits:2})+'  ('+C.refLabel+' 대비 '+(q>=0?'+':'')+q.toFixed(1)+'%)'; }
+                if(C.unit) return ' '+C.tip+' '+(c.parsed.y>0?'+':'')+c.parsed.y.toFixed(2)+C.unit;
+                return ' '+C.tip+' '+c.parsed.y.toLocaleString()+'  ('+(C.peakLabel||'정점 대비')+' '+(c.parsed.y/PEAK*100).toFixed(1)+'%)';
+              },
+              afterLabel:function(c){ if(c.datasetIndex>0) return ''; var m=MARKS[c.label]; return m ? ' ▸ '+m.t.replace(/\s\d[\d,]*.*$/,'') : ''; }
+            } }
+        },
+        scales:{
+          x:{ ticks:{color:tsec,font:{family:'Inter',size:11.5},maxRotation:0,autoSkip:true,maxTicksLimit:12},
+              grid:{color:grid} },
+          y:{ beginAtZero:false, suggestedMin:C.suggestedMin,
+              title:{display:true,text:C.ylabel||C.label,color:tsec,font:{family:'Noto Sans KR',size:13}},
+              ticks:{color:tsec,font:{family:'Inter',size:12},callback:function(v){return v.toLocaleString();}},
+              grid:{color:grid} }
+        }
+      }
+    });
+  }
+
+  function setRange(kind,btn){
+    currentRange=kind;
+    try{ buildChart(); }catch(e){ if(window.console) console.error('buildChart', e); }
+    try{
+      var g=(btn&&btn.closest)?btn.closest('.rng'):null;
+      var bs=g?g.querySelectorAll('button'):[];
+      for(var i=0;i<bs.length;i++) bs[i].classList.remove('on');
+      if(btn&&btn.classList) btn.classList.add('on');
+      var rn=document.getElementById(C.id+'-note');
+      if(rn && RANGES[kind]) rn.innerHTML = RANGES[kind].note;
+    }catch(e){ if(window.console) console.error('setRange ui', e); }
+  }
+
+  RC[C.id] = { build:buildChart, setRange:setRange, chart:function(){ return chart; } };
+  try{ var _n=document.getElementById(C.id+'-note'); if(_n) _n.innerHTML = RANGES[currentRange].note; }catch(e){}
+  try{ new MutationObserver(function(){ buildChart(); }).observe(document.documentElement,{attributes:true,attributeFilter:['class']}); }catch(e){}
+  if(document.readyState==='complete'){ buildChart(); }
+  else { window.addEventListener('load', buildChart); }
+  setTimeout(function(){ if(!chart) buildChart(); }, 400);
+})();
+</script>
 <div class="kbp"><div class="s">스쿼트 하나로는 팔지 않는다</div><div><p>스쿼트 하나만으로는 팔지 않는다. 사고 난 뒤 1~2주는 손절선 안에서 위아래로 움직일 여유를 준다. 다만 손절선에 닿으면 그때는 묻지 않고 판다.</p></div></div>
 
 <h2 id="얼마나-살지-위험으로-크기를-정한다">얼마나 살지: 위험으로 크기를 정한다</h2>
@@ -1026,6 +2862,187 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 <tr><td>3~4</td><td>유효할 수 있지만 주기의 후반이다. 매매 기회로 다룬다</td></tr>
 <tr><td>5~6</td><td>실패하기 쉽다. 돌파가 확장되면 곧 팔 기회로 본다</td></tr>
 </tbody></table></div>
+<div class="panel rc">
+      <div class="panel-head">
+        <div>
+          <h3>베이스가 쌓일수록 후반이다: 1~2번이 가장 좋고 5번째부터 실패가 잦다</h3>
+          <p>음영이 베이스(상승 뒤 쉬는 구간)다. 하락장 뒤 첫 안정 구간이 베이스 1이다. 마지막의 가파른 상승이 클라이맥스다.</p>
+        </div>
+        <div class="rng" role="group" aria-label="기간 선택">
+        </div>
+      </div>
+      <div class="chart-container rc-box" role="img" aria-label="베이스가 쌓일수록 후반이다: 1~2번이 가장 좋고 5번째부터 실패가 잦다">
+        <canvas id="fBases"></canvas>
+      </div>
+      <p class="note" id="fBases-note"></p>
+      <div class="srcline">
+        <span class="lbl">출처</span>
+        <span>개념도 · 실제 종목이 아니다 · 주 단위 · 『챔피언처럼 생각하고 거래하라』 9장의 베이스 수</span>
+      </div>
+    </div>
+<script>
+/* 랠리 차트 — scripts/lib/rally_chart.py (kospi-dotcom-1998-2000 첫 차트의 정본 그리기) */
+window.RC = window.RC || {};
+(function(){
+  var C = {"id": "fBases", "series": [["1주", 40.0], ["2주", 39.33], ["3주", 38.67], ["4주", 38.0], ["5주", 37.33], ["6주", 36.67], ["7주", 36.0], ["8주", 36.33], ["9주", 36.67], ["10주", 37.0], ["11주", 37.33], ["12주", 37.67], ["13주", 38.0], ["14주", 41.0], ["15주", 44.0], ["16주", 47.0], ["17주", 50.0], ["18주", 49.0], ["19주", 48.0], ["20주", 47.0], ["21주", 46.0], ["22주", 46.5], ["23주", 47.0], ["24주", 47.5], ["25주", 48.0], ["26주", 51.5], ["27주", 55.0], ["28주", 58.5], ["29주", 62.0], ["30주", 60.75], ["31주", 59.5], ["32주", 58.25], ["33주", 57.0], ["34주", 57.75], ["35주", 58.5], ["36주", 59.25], ["37주", 60.0], ["38주", 64.0], ["39주", 68.0], ["40주", 72.0], ["41주", 76.0], ["42주", 74.5], ["43주", 73.0], ["44주", 71.5], ["45주", 70.0], ["46주", 71.0], ["47주", 72.0], ["48주", 73.0], ["49주", 74.0], ["50주", 78.5], ["51주", 83.0], ["52주", 87.5], ["53주", 92.0], ["54주", 90.25], ["55주", 88.5], ["56주", 86.75], ["57주", 85.0], ["58주", 86.25], ["59주", 87.5], ["60주", 88.75], ["61주", 90.0], ["62주", 95.5], ["63주", 101.0], ["64주", 106.5], ["65주", 112.0], ["66주", 110.0], ["67주", 108.0], ["68주", 106.0], ["69주", 104.0], ["70주", 105.5], ["71주", 107.0], ["72주", 108.5], ["73주", 110.0], ["74주", 120.0], ["75주", 130.0], ["76주", 140.0], ["77주", 150.0], ["78주", 142.67], ["79주", 135.33], ["80주", 128.0], ["81주", 122.4], ["82주", 116.8], ["83주", 111.2], ["84주", 105.6], ["85주", 100]], "peak": 150, "marks": {"7주": {"t": "베이스 1 · 가장 좋다", "dy": 24, "c": "pos"}, "21주": {"t": "베이스 2 · 가장 좋다", "dy": 24, "c": "pos"}, "33주": {"t": "베이스 3 · 후반", "dy": 24, "c": "txt"}, "45주": {"t": "베이스 4 · 후반", "dy": 24, "c": "txt"}, "57주": {"t": "베이스 5 · 실패가 잦다", "dy": 24, "c": "neg"}, "77주": {"t": "클라이맥스 → 강세에서 판다", "dy": -14, "c": "acc"}}, "ranges": {"all": {"from": "1주", "to": "85주", "note": ""}}, "bandFrom": null, "bandTo": null, "bandLabel": "", "label": "가격", "tip": "가격", "start": "all", "suggestedMin": 25, "bands": [["5주", "15주", ""], ["18주", "26주", ""], ["30주", "38주", ""], ["42주", "50주", ""], ["54주", "62주", ""]]};
+  var SERIES = C.series, PEAK = C.peak, MARKS = C.marks, RANGES = C.ranges;
+  var BAND_FROM = C.bandFrom, BAND_TO = C.bandTo;
+  function cv(n){ var el=document.getElementById(C.id); var r=(el&&el.closest('.rc'))||document.documentElement;
+    return getComputedStyle(r).getPropertyValue(n).trim(); }
+  function hexA(h,a){
+    h=(h||'').trim(); if(h.charAt(0)!=='#') return h;
+    if(h.length===4) h='#'+h[1]+h[1]+h[2]+h[2]+h[3]+h[3];
+    var n=parseInt(h.slice(1),16);
+    return 'rgba('+((n>>16)&255)+','+((n>>8)&255)+','+(n&255)+','+a+')';
+  }
+
+  var anno = {
+    id:'anno',
+    beforeDatasetsDraw:function(chart){
+      var xs=chart.scales.x, ys=chart.scales.y, ctx=chart.ctx;
+      if(!xs||!ys) return;
+      var labs=chart.data.labels;
+      if(C.bands){ C.bands.forEach(function(b){
+        var j1=labs.indexOf(b[0]), j2=labs.indexOf(b[1]); if(j1<0||j2<0) return;
+        ctx.save(); ctx.fillStyle=cv('--rc-band');
+        var a1=xs.getPixelForValue(j1), a2=xs.getPixelForValue(j2);
+        ctx.fillRect(a1, ys.top, a2-a1, ys.bottom-ys.top);
+        ctx.strokeStyle=hexA(cv('--rc-accent'),0.28); ctx.setLineDash([4,4]); ctx.lineWidth=1;
+        ctx.beginPath(); ctx.moveTo(a1,ys.top); ctx.lineTo(a1,ys.bottom); ctx.moveTo(a2,ys.top); ctx.lineTo(a2,ys.bottom); ctx.stroke();
+        ctx.setLineDash([]); ctx.fillStyle=hexA(cv('--rc-accent'),0.85); ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='center';
+        ctx.fillText(b[2], (a1+a2)/2, ys.top+16); ctx.restore(); }); }
+      var i1=labs.indexOf(BAND_FROM), i2=labs.indexOf(BAND_TO);
+      if(i1<0||i2<0) return;
+      ctx.save();
+      ctx.fillStyle=cv('--rc-band');
+      var x1=xs.getPixelForValue(i1), x2=xs.getPixelForValue(i2);
+      ctx.fillRect(x1, ys.top, x2-x1, ys.bottom-ys.top);
+      ctx.strokeStyle=hexA(cv('--rc-accent'),0.28); ctx.setLineDash([4,4]); ctx.lineWidth=1;
+      ctx.beginPath(); ctx.moveTo(x1,ys.top); ctx.lineTo(x1,ys.bottom);
+      ctx.moveTo(x2,ys.top); ctx.lineTo(x2,ys.bottom); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle=hexA(cv('--rc-accent'),0.85); ctx.font='700 11.5px Inter, sans-serif'; ctx.textAlign='center';
+      ctx.fillText(C.bandLabel, (x1+x2)/2, ys.top+16);
+      ctx.restore();
+    },
+    afterDatasetsDraw:function(chart){
+      var xs=chart.scales.x, ys=chart.scales.y, ctx=chart.ctx;
+      if(!xs||!ys) return;
+      var labs=chart.data.labels, data=chart.data.datasets[0].data;
+      var accent=cv('--rc-accent'), neg=cv('--rc-neg'), pos=cv('--rc-pos'), txt=cv('--rc-text2'), surf=cv('--rc-surface');
+      var narrow = (xs.width < 620);
+      function colOf(k){ return k==='acc'?accent : k==='neg'?neg : k==='pos'?pos : txt; }
+      if(C.hlines){ C.hlines.forEach(function(h){
+        var y=ys.getPixelForValue(h.v); if(y<ys.top||y>ys.bottom) return;
+        var a=h.frm?labs.indexOf(h.frm):0, b=h.to?labs.indexOf(h.to):labs.length-1;
+        if(h.frm&&a<0) a=0; if(h.to&&b<0) b=labs.length-1;
+        var xa=xs.getPixelForValue(a), xb=xs.getPixelForValue(b), col=colOf(h.c);
+        ctx.save(); ctx.strokeStyle=col; ctx.lineWidth=h.w||1.6; ctx.setLineDash(h.dash||[6,4]);
+        ctx.beginPath(); ctx.moveTo(xa,y); ctx.lineTo(xb,y); ctx.stroke(); ctx.setLineDash([]);
+        if(h.t){ ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='right'; ctx.fillStyle=col;
+          ctx.fillText(h.t, xb-2, y+(h.below?15:-6)); }
+        ctx.restore(); }); }
+      if(C.extra){ C.extra.forEach(function(e,k){ if(!e.end) return;
+        var d=chart.data.datasets[k+1].data, j=d.length-1; while(j>0 && (d[j]===null||d[j]===undefined)) j--;
+        if(j<0||d[j]===null) return;
+        ctx.save(); ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='right'; ctx.fillStyle=colOf(e.c);
+        ctx.fillText(e.end, xs.getPixelForValue(j)-4, ys.getPixelForValue(d[j])+(e.dy||-8)); ctx.restore(); }); }
+      ctx.save();
+      labs.forEach(function(l,i){
+        var m=MARKS[l]; if(!m) return;
+        var col = m.c==='acc'?accent : m.c==='neg'?neg : m.c==='pos'?pos : txt;
+        var x=xs.getPixelForValue(i), y=ys.getPixelForValue(data[i]);
+        ctx.beginPath(); ctx.arc(x,y,5.5,0,Math.PI*2); ctx.fillStyle=col; ctx.fill();
+        ctx.strokeStyle=surf; ctx.lineWidth=2; ctx.stroke();
+        if(narrow) return;
+        ctx.fillStyle=col; ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif';
+        ctx.textAlign = (i > labs.length*0.82) ? 'right' : (i < labs.length*0.08 ? 'left' : 'center');
+        ctx.fillText(m.t, x, y + m.dy);
+      });
+      ctx.restore();
+    }
+  };
+
+  var chart=null, currentRange=C.start;
+  function buildChart(){
+    if (typeof Chart==='undefined'){ console.error('Chart.js not loaded'); return; }
+    var el=document.getElementById(C.id); if(!el) return;
+    if(chart){ try{chart.destroy();}catch(e){} chart=null; }
+
+    var r=RANGES[currentRange];
+    var i1=0,i2=SERIES.length-1,i;
+    for(i=0;i<SERIES.length;i++){ if(SERIES[i][0]===r.from) i1=i; if(SERIES[i][0]===r.to) i2=i; }
+    var slice=SERIES.slice(i1,i2+1);
+    var labels=slice.map(function(d){return d[0];});
+    var vals=slice.map(function(d){return d[1];});
+    var more=(C.extra||[]).map(function(e){
+      var c0 = e.c==='acc'?cv('--rc-accent') : e.c==='neg'?cv('--rc-neg') : e.c==='pos'?cv('--rc-pos') : cv('--rc-text2');
+      return { label:e.label, data:e.data.slice(i1,i2+1), borderColor:c0, borderWidth:e.w||1.6, borderDash:e.dash||[],
+               stepped:!!e.stepped, tension:e.stepped?0:.3, pointRadius:0, pointHoverRadius:0, fill:false, spanGaps:false }; });
+
+    var text=cv('--rc-text'), tsec=cv('--rc-text2'), grid=cv('--rc-grid'), accent=cv('--rc-accent');
+
+    chart=new Chart(el,{
+      type:'line',
+      plugins:[anno],
+      data:{ labels:labels, datasets:[{
+        label:C.label, data:vals,
+        borderColor:accent, backgroundColor:hexA(accent,0.13),
+        borderWidth:3.2, tension:.3, pointRadius:0, pointHoverRadius:6, fill:true
+      }].concat(more)},
+      options:{
+        responsive:true, maintainAspectRatio:false,
+        layout:{ padding:{ top:30, right:16, bottom:4, left:4 } },
+        animation:{ duration:1000, easing:'easeOutQuart' },
+        interaction:{ mode:'index', intersect:false },
+        plugins:{
+          legend:{ display:false },
+          tooltip:{ enabled:true, padding:12, cornerRadius:8,
+            titleFont:{size:13,family:'Inter'}, bodyFont:{size:13,family:'Noto Sans KR'},
+            callbacks:{
+              label:function(c){
+                if(c.datasetIndex>0) return c.parsed.y===null ? '' : ' '+c.dataset.label+' '+c.parsed.y.toLocaleString(undefined,{maximumFractionDigits:2})+(C.unit||'');
+                if(C.ref){ var q=(c.parsed.y/C.ref-1)*100;
+                  return ' '+C.tip+' '+c.parsed.y.toLocaleString(undefined,{maximumFractionDigits:2})+'  ('+C.refLabel+' 대비 '+(q>=0?'+':'')+q.toFixed(1)+'%)'; }
+                if(C.unit) return ' '+C.tip+' '+(c.parsed.y>0?'+':'')+c.parsed.y.toFixed(2)+C.unit;
+                return ' '+C.tip+' '+c.parsed.y.toLocaleString()+'  ('+(C.peakLabel||'정점 대비')+' '+(c.parsed.y/PEAK*100).toFixed(1)+'%)';
+              },
+              afterLabel:function(c){ if(c.datasetIndex>0) return ''; var m=MARKS[c.label]; return m ? ' ▸ '+m.t.replace(/\s\d[\d,]*.*$/,'') : ''; }
+            } }
+        },
+        scales:{
+          x:{ ticks:{color:tsec,font:{family:'Inter',size:11.5},maxRotation:0,autoSkip:true,maxTicksLimit:12},
+              grid:{color:grid} },
+          y:{ beginAtZero:false, suggestedMin:C.suggestedMin,
+              title:{display:true,text:C.ylabel||C.label,color:tsec,font:{family:'Noto Sans KR',size:13}},
+              ticks:{color:tsec,font:{family:'Inter',size:12},callback:function(v){return v.toLocaleString();}},
+              grid:{color:grid} }
+        }
+      }
+    });
+  }
+
+  function setRange(kind,btn){
+    currentRange=kind;
+    try{ buildChart(); }catch(e){ if(window.console) console.error('buildChart', e); }
+    try{
+      var g=(btn&&btn.closest)?btn.closest('.rng'):null;
+      var bs=g?g.querySelectorAll('button'):[];
+      for(var i=0;i<bs.length;i++) bs[i].classList.remove('on');
+      if(btn&&btn.classList) btn.classList.add('on');
+      var rn=document.getElementById(C.id+'-note');
+      if(rn && RANGES[kind]) rn.innerHTML = RANGES[kind].note;
+    }catch(e){ if(window.console) console.error('setRange ui', e); }
+  }
+
+  RC[C.id] = { build:buildChart, setRange:setRange, chart:function(){ return chart; } };
+  try{ var _n=document.getElementById(C.id+'-note'); if(_n) _n.innerHTML = RANGES[currentRange].note; }catch(e){}
+  try{ new MutationObserver(function(){ buildChart(); }).observe(document.documentElement,{attributes:true,attributeFilter:['class']}); }catch(e){}
+  if(document.readyState==='complete'){ buildChart(); }
+  else { window.addEventListener('load', buildChart); }
+  setTimeout(function(){ if(!chart) buildChart(); }, 400);
+})();
+</script>
 <div class="kbp"><div class="s">클라이맥스 상승에서 확정한다</div><div><p>큰 상승은 가속 상승 뒤에 천장을 만드는 일이 많다. 그 이유는 이렇다. 대형 기관은 많은 물량을 받아 줄 매수자가 필요하다. 그 매수자는 주가가 빠르게 오를 때 몰린다. 그래서 가속 상승은 물량이 강한 손에서 약한 손으로 넘어가는 구간이다. 경고 신호는 아래와 같다.</p></div></div>
 <p class="kb-cap">표 11. 강세 매도의 경고 신호: 후반 베이스와 가속 상승</p>
 <div class="tblwrap"><table><thead><tr><th style="width:150px">신호</th><th>기준</th></tr></thead><tbody>
@@ -1049,6 +3066,187 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 <tr><td><b>고정손절 (back stop)</b></td><td>수익 구간에 진입하면 손절선을 <b>매수가 이상</b>, 대개 평균 수익 자리에 걸어 둔다</td></tr>
 <tr><td><b>본전치기 또는 그 이상 (breakeven or better)</b></td><td>상승하던 50일선이 매수가까지 올라오면 50일선을 손절선으로 쓴다. 종가로 본다</td></tr>
 </tbody></table></div>
+<div class="panel rc">
+      <div class="panel-head">
+        <div>
+          <h3>손절선은 내려가지 않고 계단처럼 올라간다</h3>
+          <p>붉은 계단이 손절선이다. 50달러에 샀고 위험은 5%다. 수익이 위험의 3배가 되면 손절을 본전으로 올린다. 수익이 평균 수익(10%로 가정)의 2배가 되면 평균 수익 자리로 올린다. 50일선이 그 위로 올라오면 50일선이 손절선이 된다.</p>
+        </div>
+        <div class="rng" role="group" aria-label="기간 선택">
+        </div>
+      </div>
+      <div class="chart-container rc-box" role="img" aria-label="손절선은 내려가지 않고 계단처럼 올라간다">
+        <canvas id="fTrail"></canvas>
+      </div>
+      <p class="note" id="fTrail-note"></p>
+      <div class="srcline">
+        <span class="lbl">출처</span>
+        <span>개념도 · 실제 종목이 아니다 · 『챔피언처럼 생각하고 거래하라』 3장 · 9장 그림 9-13의 장면</span>
+      </div>
+    </div>
+<script>
+/* 랠리 차트 — scripts/lib/rally_chart.py (kospi-dotcom-1998-2000 첫 차트의 정본 그리기) */
+window.RC = window.RC || {};
+(function(){
+  var C = {"id": "fTrail", "series": [["51일", 49.76], ["52일", 49.97], ["53일", 50.15], ["54일", 50.26], ["55일", 50.29], ["56일", 50.24], ["57일", 50.16], ["58일", 50.07], ["59일", 50.02], ["60일", 50.02], ["61일", 50.0], ["62일", 50.62], ["63일", 51.17], ["64일", 51.7], ["65일", 52.18], ["66일", 52.59], ["67일", 52.97], ["68일", 53.35], ["69일", 53.76], ["70일", 54.23], ["71일", 54.8], ["72일", 55.43], ["73일", 56.11], ["74일", 56.78], ["75일", 57.41], ["76일", 57.5], ["77일", 57.54], ["78일", 57.07], ["79일", 56.57], ["80일", 56.1], ["81일", 55.68], ["82일", 55.32], ["83일", 54.99], ["84일", 54.66], ["85일", 54.3], ["86일", 53.87], ["87일", 54.19], ["88일", 54.44], ["89일", 54.66], ["90일", 54.89], ["91일", 55.17], ["92일", 55.53], ["93일", 55.98], ["94일", 56.49], ["95일", 57.02], ["96일", 57.54], ["97일", 58.01], ["98일", 58.43], ["99일", 58.79], ["100일", 59.15], ["101일", 60.0], ["102일", 59.73], ["103일", 59.99], ["104일", 60.32], ["105일", 60.68], ["106일", 61.01], ["107일", 61.29], ["108일", 61.47], ["109일", 61.56], ["110일", 61.58], ["111일", 61.58], ["112일", 61.6], ["113일", 61.68], ["114일", 61.83], ["115일", 62.05], ["116일", 62.29], ["117일", 62.51], ["118일", 62.68], ["119일", 62.78], ["120일", 62.82], ["121일", 62.84], ["122일", 62.89], ["123일", 63.01], ["124일", 63.23], ["125일", 63.54], ["126일", 63.91], ["127일", 64.27], ["128일", 64.59], ["129일", 64.84], ["130일", 65.01], ["131일", 65.1], ["132일", 65.15], ["133일", 65.21], ["134일", 65.31], ["135일", 65.48], ["136일", 65.7], ["137일", 65.94], ["138일", 66.16], ["139일", 66.3], ["140일", 66.35], ["141일", 66.31], ["142일", 66.21], ["143일", 66.09], ["144일", 66.01], ["145일", 66.02], ["146일", 66.12], ["147일", 66.31], ["148일", 66.54], ["149일", 66.77], ["150일", 66.95], ["151일", 67.06], ["152일", 67.12], ["153일", 67.16], ["154일", 67.21], ["155일", 67.31], ["156일", 67.51], ["157일", 67.78], ["158일", 68.11], ["159일", 68.43], ["160일", 68.7], ["161일", 68.88], ["162일", 68.95], ["163일", 68.93], ["164일", 68.87], ["165일", 68.8], ["166일", 68.79], ["167일", 68.52], ["168일", 68.32], ["169일", 68.17], ["170일", 68.01], ["171일", 67.81], ["172일", 67.53], ["173일", 67.19], ["174일", 66.81], ["175일", 66.44], ["176일", 66.12], ["177일", 65.91], ["178일", 65.8], ["179일", 65.78], ["180일", 65.8], ["181일", 65.81], ["182일", 65.57], ["183일", 65.25], ["184일", 64.85], ["185일", 64.39], ["186일", 63.94], ["187일", 63.52], ["188일", 63.16], ["189일", 62.86], ["190일", 62.6], ["191일", 62.33]], "peak": 69, "marks": {"61일": {"t": "① 매수 50 · 손절 47.50", "dy": -16, "c": "acc"}, "76일": {"t": "② 57.50(위험의 3배) → 손절 50", "dy": -14, "c": "pos"}, "101일": {"t": "③ 60(평균 수익의 2배) → 손절 55", "dy": -34, "c": "pos"}, "105일": {"t": "④ 이제 50일선이 손절선", "dy": 46, "c": "neg"}, "175일": {"t": "50일선 아래 종가 → 판다", "dy": 30, "c": "neg"}}, "ranges": {"all": {"from": "51일", "to": "191일", "note": ""}}, "bandFrom": null, "bandTo": null, "bandLabel": "", "label": "가격", "tip": "가격", "start": "all", "suggestedMin": 44, "extra": [{"label": "손절선", "data": [null, null, null, null, null, null, null, null, null, null, 47.5, 47.5, 47.5, 47.5, 47.5, 47.5, 47.5, 47.5, 47.5, 47.5, 47.5, 47.5, 47.5, 47.5, 47.5, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 55, 55, 55, 55, 55, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null], "c": "neg", "dash": [], "w": 2.8, "stepped": true}, {"label": "손절선(50일선)", "data": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 55.16, 55.38, 55.6, 55.83, 56.06, 56.29, 56.52, 56.74, 56.95, 57.16, 57.35, 57.55, 57.74, 57.92, 58.1, 58.28, 58.44, 58.59, 58.73, 58.85, 58.98, 59.1, 59.24, 59.39, 59.56, 59.73, 59.92, 60.12, 60.32, 60.54, 60.76, 61.0, 61.23, 61.47, 61.7, 61.93, 62.15, 62.36, 62.57, 62.76, 62.94, 63.11, 63.27, 63.44, 63.6, 63.75, 63.89, 64.04, 64.18, 64.32, 64.45, 64.58, 64.71, 64.85, 64.99, 65.13, 65.27, 65.42, 65.57, 65.71, 65.84, 65.97, 66.09, 66.2, 66.31, 66.42, 66.52, 66.61, 66.69, 66.76, 66.82, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null], "c": "neg", "dash": [], "w": 2.8}, {"label": "50일선", "data": [48.16, 48.21, 48.26, 48.32, 48.39, 48.45, 48.51, 48.56, 48.62, 48.67, 48.72, 48.79, 48.87, 48.95, 49.05, 49.16, 49.27, 49.39, 49.51, 49.64, 49.78, 49.92, 50.08, 50.25, 50.44, 50.62, 50.81, 50.99, 51.15, 51.3, 51.45, 51.58, 51.71, 51.83, 51.94, 52.05, 52.17, 52.29, 52.42, 52.54, 52.67, 52.81, 52.95, 53.09, 53.25, 53.42, 53.59, 53.78, 53.97, 54.16, 54.36, 54.56, 54.76, 54.96, 55.16, 55.38, 55.6, 55.83, 56.06, 56.29, 56.52, 56.74, 56.95, 57.16, 57.35, 57.55, 57.74, 57.92, 58.1, 58.28, 58.44, 58.59, 58.73, 58.85, 58.98, 59.1, 59.24, 59.39, 59.56, 59.73, 59.92, 60.12, 60.32, 60.54, 60.76, 61.0, 61.23, 61.47, 61.7, 61.93, 62.15, 62.36, 62.57, 62.76, 62.94, 63.11, 63.27, 63.44, 63.6, 63.75, 63.89, 64.04, 64.18, 64.32, 64.45, 64.58, 64.71, 64.85, 64.99, 65.13, 65.27, 65.42, 65.57, 65.71, 65.84, 65.97, 66.09, 66.2, 66.31, 66.42, 66.52, 66.61, 66.69, 66.76, 66.82, 66.87, 66.9, 66.92, 66.94, 66.96, 66.97, 66.98, 66.98, 66.97, 66.95, 66.91, 66.87, 66.81, 66.74, 66.66, 66.58], "c": "txt", "dash": [2, 4], "w": 1.6, "end": "50일선", "dy": -10}], "ref": 50, "refLabel": "매수가"};
+  var SERIES = C.series, PEAK = C.peak, MARKS = C.marks, RANGES = C.ranges;
+  var BAND_FROM = C.bandFrom, BAND_TO = C.bandTo;
+  function cv(n){ var el=document.getElementById(C.id); var r=(el&&el.closest('.rc'))||document.documentElement;
+    return getComputedStyle(r).getPropertyValue(n).trim(); }
+  function hexA(h,a){
+    h=(h||'').trim(); if(h.charAt(0)!=='#') return h;
+    if(h.length===4) h='#'+h[1]+h[1]+h[2]+h[2]+h[3]+h[3];
+    var n=parseInt(h.slice(1),16);
+    return 'rgba('+((n>>16)&255)+','+((n>>8)&255)+','+(n&255)+','+a+')';
+  }
+
+  var anno = {
+    id:'anno',
+    beforeDatasetsDraw:function(chart){
+      var xs=chart.scales.x, ys=chart.scales.y, ctx=chart.ctx;
+      if(!xs||!ys) return;
+      var labs=chart.data.labels;
+      if(C.bands){ C.bands.forEach(function(b){
+        var j1=labs.indexOf(b[0]), j2=labs.indexOf(b[1]); if(j1<0||j2<0) return;
+        ctx.save(); ctx.fillStyle=cv('--rc-band');
+        var a1=xs.getPixelForValue(j1), a2=xs.getPixelForValue(j2);
+        ctx.fillRect(a1, ys.top, a2-a1, ys.bottom-ys.top);
+        ctx.strokeStyle=hexA(cv('--rc-accent'),0.28); ctx.setLineDash([4,4]); ctx.lineWidth=1;
+        ctx.beginPath(); ctx.moveTo(a1,ys.top); ctx.lineTo(a1,ys.bottom); ctx.moveTo(a2,ys.top); ctx.lineTo(a2,ys.bottom); ctx.stroke();
+        ctx.setLineDash([]); ctx.fillStyle=hexA(cv('--rc-accent'),0.85); ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='center';
+        ctx.fillText(b[2], (a1+a2)/2, ys.top+16); ctx.restore(); }); }
+      var i1=labs.indexOf(BAND_FROM), i2=labs.indexOf(BAND_TO);
+      if(i1<0||i2<0) return;
+      ctx.save();
+      ctx.fillStyle=cv('--rc-band');
+      var x1=xs.getPixelForValue(i1), x2=xs.getPixelForValue(i2);
+      ctx.fillRect(x1, ys.top, x2-x1, ys.bottom-ys.top);
+      ctx.strokeStyle=hexA(cv('--rc-accent'),0.28); ctx.setLineDash([4,4]); ctx.lineWidth=1;
+      ctx.beginPath(); ctx.moveTo(x1,ys.top); ctx.lineTo(x1,ys.bottom);
+      ctx.moveTo(x2,ys.top); ctx.lineTo(x2,ys.bottom); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle=hexA(cv('--rc-accent'),0.85); ctx.font='700 11.5px Inter, sans-serif'; ctx.textAlign='center';
+      ctx.fillText(C.bandLabel, (x1+x2)/2, ys.top+16);
+      ctx.restore();
+    },
+    afterDatasetsDraw:function(chart){
+      var xs=chart.scales.x, ys=chart.scales.y, ctx=chart.ctx;
+      if(!xs||!ys) return;
+      var labs=chart.data.labels, data=chart.data.datasets[0].data;
+      var accent=cv('--rc-accent'), neg=cv('--rc-neg'), pos=cv('--rc-pos'), txt=cv('--rc-text2'), surf=cv('--rc-surface');
+      var narrow = (xs.width < 620);
+      function colOf(k){ return k==='acc'?accent : k==='neg'?neg : k==='pos'?pos : txt; }
+      if(C.hlines){ C.hlines.forEach(function(h){
+        var y=ys.getPixelForValue(h.v); if(y<ys.top||y>ys.bottom) return;
+        var a=h.frm?labs.indexOf(h.frm):0, b=h.to?labs.indexOf(h.to):labs.length-1;
+        if(h.frm&&a<0) a=0; if(h.to&&b<0) b=labs.length-1;
+        var xa=xs.getPixelForValue(a), xb=xs.getPixelForValue(b), col=colOf(h.c);
+        ctx.save(); ctx.strokeStyle=col; ctx.lineWidth=h.w||1.6; ctx.setLineDash(h.dash||[6,4]);
+        ctx.beginPath(); ctx.moveTo(xa,y); ctx.lineTo(xb,y); ctx.stroke(); ctx.setLineDash([]);
+        if(h.t){ ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='right'; ctx.fillStyle=col;
+          ctx.fillText(h.t, xb-2, y+(h.below?15:-6)); }
+        ctx.restore(); }); }
+      if(C.extra){ C.extra.forEach(function(e,k){ if(!e.end) return;
+        var d=chart.data.datasets[k+1].data, j=d.length-1; while(j>0 && (d[j]===null||d[j]===undefined)) j--;
+        if(j<0||d[j]===null) return;
+        ctx.save(); ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='right'; ctx.fillStyle=colOf(e.c);
+        ctx.fillText(e.end, xs.getPixelForValue(j)-4, ys.getPixelForValue(d[j])+(e.dy||-8)); ctx.restore(); }); }
+      ctx.save();
+      labs.forEach(function(l,i){
+        var m=MARKS[l]; if(!m) return;
+        var col = m.c==='acc'?accent : m.c==='neg'?neg : m.c==='pos'?pos : txt;
+        var x=xs.getPixelForValue(i), y=ys.getPixelForValue(data[i]);
+        ctx.beginPath(); ctx.arc(x,y,5.5,0,Math.PI*2); ctx.fillStyle=col; ctx.fill();
+        ctx.strokeStyle=surf; ctx.lineWidth=2; ctx.stroke();
+        if(narrow) return;
+        ctx.fillStyle=col; ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif';
+        ctx.textAlign = (i > labs.length*0.82) ? 'right' : (i < labs.length*0.08 ? 'left' : 'center');
+        ctx.fillText(m.t, x, y + m.dy);
+      });
+      ctx.restore();
+    }
+  };
+
+  var chart=null, currentRange=C.start;
+  function buildChart(){
+    if (typeof Chart==='undefined'){ console.error('Chart.js not loaded'); return; }
+    var el=document.getElementById(C.id); if(!el) return;
+    if(chart){ try{chart.destroy();}catch(e){} chart=null; }
+
+    var r=RANGES[currentRange];
+    var i1=0,i2=SERIES.length-1,i;
+    for(i=0;i<SERIES.length;i++){ if(SERIES[i][0]===r.from) i1=i; if(SERIES[i][0]===r.to) i2=i; }
+    var slice=SERIES.slice(i1,i2+1);
+    var labels=slice.map(function(d){return d[0];});
+    var vals=slice.map(function(d){return d[1];});
+    var more=(C.extra||[]).map(function(e){
+      var c0 = e.c==='acc'?cv('--rc-accent') : e.c==='neg'?cv('--rc-neg') : e.c==='pos'?cv('--rc-pos') : cv('--rc-text2');
+      return { label:e.label, data:e.data.slice(i1,i2+1), borderColor:c0, borderWidth:e.w||1.6, borderDash:e.dash||[],
+               stepped:!!e.stepped, tension:e.stepped?0:.3, pointRadius:0, pointHoverRadius:0, fill:false, spanGaps:false }; });
+
+    var text=cv('--rc-text'), tsec=cv('--rc-text2'), grid=cv('--rc-grid'), accent=cv('--rc-accent');
+
+    chart=new Chart(el,{
+      type:'line',
+      plugins:[anno],
+      data:{ labels:labels, datasets:[{
+        label:C.label, data:vals,
+        borderColor:accent, backgroundColor:hexA(accent,0.13),
+        borderWidth:3.2, tension:.3, pointRadius:0, pointHoverRadius:6, fill:true
+      }].concat(more)},
+      options:{
+        responsive:true, maintainAspectRatio:false,
+        layout:{ padding:{ top:30, right:16, bottom:4, left:4 } },
+        animation:{ duration:1000, easing:'easeOutQuart' },
+        interaction:{ mode:'index', intersect:false },
+        plugins:{
+          legend:{ display:false },
+          tooltip:{ enabled:true, padding:12, cornerRadius:8,
+            titleFont:{size:13,family:'Inter'}, bodyFont:{size:13,family:'Noto Sans KR'},
+            callbacks:{
+              label:function(c){
+                if(c.datasetIndex>0) return c.parsed.y===null ? '' : ' '+c.dataset.label+' '+c.parsed.y.toLocaleString(undefined,{maximumFractionDigits:2})+(C.unit||'');
+                if(C.ref){ var q=(c.parsed.y/C.ref-1)*100;
+                  return ' '+C.tip+' '+c.parsed.y.toLocaleString(undefined,{maximumFractionDigits:2})+'  ('+C.refLabel+' 대비 '+(q>=0?'+':'')+q.toFixed(1)+'%)'; }
+                if(C.unit) return ' '+C.tip+' '+(c.parsed.y>0?'+':'')+c.parsed.y.toFixed(2)+C.unit;
+                return ' '+C.tip+' '+c.parsed.y.toLocaleString()+'  ('+(C.peakLabel||'정점 대비')+' '+(c.parsed.y/PEAK*100).toFixed(1)+'%)';
+              },
+              afterLabel:function(c){ if(c.datasetIndex>0) return ''; var m=MARKS[c.label]; return m ? ' ▸ '+m.t.replace(/\s\d[\d,]*.*$/,'') : ''; }
+            } }
+        },
+        scales:{
+          x:{ ticks:{color:tsec,font:{family:'Inter',size:11.5},maxRotation:0,autoSkip:true,maxTicksLimit:12},
+              grid:{color:grid} },
+          y:{ beginAtZero:false, suggestedMin:C.suggestedMin,
+              title:{display:true,text:C.ylabel||C.label,color:tsec,font:{family:'Noto Sans KR',size:13}},
+              ticks:{color:tsec,font:{family:'Inter',size:12},callback:function(v){return v.toLocaleString();}},
+              grid:{color:grid} }
+        }
+      }
+    });
+  }
+
+  function setRange(kind,btn){
+    currentRange=kind;
+    try{ buildChart(); }catch(e){ if(window.console) console.error('buildChart', e); }
+    try{
+      var g=(btn&&btn.closest)?btn.closest('.rng'):null;
+      var bs=g?g.querySelectorAll('button'):[];
+      for(var i=0;i<bs.length;i++) bs[i].classList.remove('on');
+      if(btn&&btn.classList) btn.classList.add('on');
+      var rn=document.getElementById(C.id+'-note');
+      if(rn && RANGES[kind]) rn.innerHTML = RANGES[kind].note;
+    }catch(e){ if(window.console) console.error('setRange ui', e); }
+  }
+
+  RC[C.id] = { build:buildChart, setRange:setRange, chart:function(){ return chart; } };
+  try{ var _n=document.getElementById(C.id+'-note'); if(_n) _n.innerHTML = RANGES[currentRange].note; }catch(e){}
+  try{ new MutationObserver(function(){ buildChart(); }).observe(document.documentElement,{attributes:true,attributeFilter:['class']}); }catch(e){}
+  if(document.readyState==='complete'){ buildChart(); }
+  else { window.addEventListener('load', buildChart); }
+  setTimeout(function(){ if(!chart) buildChart(); }, 400);
+})();
+</script>
 <div class="kbp"><div class="s">20%가 손실로 끝나서는 안 된다</div><div><p>핵심은 이익이 손실로 바뀌는 일을 구조적으로 막는 것이다. 손절이 7%인데 20%까지 상승했던 포지션이 손실로 끝나는 일은 없어야 한다.</p></div></div>
 <div class="kbp"><div class="s">이야기꾼은 비중으로 지킨다</div><div><p>이야기꾼의 5일선 보험료가 비슷한 역할을 한다. 다만 미너비니는 손절선을 올려서 지킨다. 이야기꾼은 비중을 줄여서 지킨다.</p></div></div>
 
