@@ -406,6 +406,13 @@ html,body{overflow-x:hidden}
   html body .site-bar-in{padding:9px 14px 7px}
 }
 /* BAR:END */
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
+
 /* SEARCH:BEGIN */
 .srch-btn{position:fixed;top:auto;bottom:18px;right:68px;z-index:130;width:42px;height:42px;border-radius:50%;
   background:var(--surface,#F6F7F9);border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text,#0f172a);
@@ -444,6 +451,14 @@ html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in 
 @media(max-width:760px){.srch-box{top:12px} html body .site-srch>a.srch-nav{padding:8px 8px;font-size:12px}}
 @media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
 /* SEARCH:END */
+
+.kbp{margin:14px 0}
+.kbp>.s{font-weight:700;font-size:.92em;color:var(--text-secondary,#6e6e73);margin:0 0 3px}
+.kbp>div>p{margin:0 0 8px}
+.kbp ol{padding-left:1.4em;margin:6px 0 10px}
+.kb-note{font-size:.88em;color:var(--text-secondary,#6e6e73);line-height:1.7;margin:4px 0}
+.kb-cap{font-weight:700;margin:20px 0 6px}
+.pclaim .kb-t{font-weight:800;margin-top:12px}
 /*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
@@ -798,60 +813,54 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 <header class="phead">
 <div class="eyebrow">아카이브 · 금리 기초</div>
 <h1>금리는 돈의 가격이다</h1>
-<p class="pauth">2026년 8월 5일 정리 · 갱신 2026년 11월 3일 · 원자료 유튜브 지식인초대석 EP.38·39(전사본 보관) · FRED GS10 월평균 1953년 4월부터 2026년 10월까지 · 고정 자료</p>
-<!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#금리는-돈의-가격이고-가격은-수요와-공급으로-정해진다-금리가-먼저가-아니">금리는 돈의 가격이고 가격은 수요와 공급으로 정해진다. 금리가 먼저가 아니라 성장에 대한 믿음이 먼저다</a></li><li><a href="#채권은-중도해지가-안-되는-정기예금이라-금리가-상승하면-값이-하락한다">채권은 중도해지가 안 되는 정기예금이라 금리가 상승하면 값이 하락한다</a></li><li><a href="#미-10년물-금리는-실질금리-기대-인플레이션-기간-프리미엄-3개-층의-합">미 10년물 금리는 실질금리·기대 인플레이션·기간 프리미엄 3개 층의 합이다</a></li><li><a href="#과거-사례를-상승한-방식-4가지와-하락한-방식-2가지로-구분하면-주식에-">과거 사례를 상승한 방식 4가지와 하락한 방식 2가지로 구분하면 주식에 우호적인 상승은 하나뿐이다</a></li><li><a href="#실전에서-층을-가리는-방법은-4가지다-가장-경계할-조합은-금리는-상승하는">실전에서 층을 가리는 방법은 4가지다. 가장 경계할 조합은 금리는 상승하는데 물가는 조용하고 입찰이 부진할 때다</a></li><li><a href="#이야기꾼과-이은택이-같은-금리를-반대로-읽는-이유가-이-층-구분이다">이야기꾼과 이은택이 같은 금리를 반대로 읽는 이유가 이 층 구분이다</a></li><li><a href="#금리가-역전돼도-자금이-전부-유출되지는-않는다-환율에-묶이기-때문이다">금리가 역전돼도 자금이 전부 유출되지는 않는다. 환율에 묶이기 때문이다</a></li><li><a href="#아직-불확실한-곳은-어디인가">아직 불확실한 곳은 어디인가</a></li><li><a href="#그래서-금리는-얼마나-상승했나-보다-무엇이-끌어올렸나-로-읽는다">그래서 금리는 「얼마나 상승했나」보다 「무엇이 끌어올렸나」로 읽는다</a></li><li><a href="#apx">원문 상세표</a></li></ol></div><!--TOC:END--></header>
+<p class="pauth">2026년 8월 5일 정리 · 갱신 2026년 11월 19일 · 원자료 유튜브 지식인초대석 EP.38·39(전사본 보관) · FRED GS10 월평균 1953년 4월부터 2026년 10월까지 · FRED DGS10 일별 2026년 11월 17일까지</p>
+<!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#금리가-먼저가-아니라-성장에-대한-믿음이-먼저다">금리가 먼저가 아니라 성장에 대한 믿음이 먼저다</a></li><li><a href="#금리가-상승하면-채권-가격은-하락한다">금리가 상승하면 채권 가격은 하락한다</a></li><li><a href="#미-10년물-금리는-3개-층의-합이다">미 10년물 금리는 3개 층의 합이다</a></li><li><a href="#상승-4가지-가운데-주식에-우호적인-것은-1가지뿐이다">상승 4가지 가운데 주식에 우호적인 것은 1가지뿐이다</a></li><li><a href="#층을-가리는-방법은-4가지다">층을 가리는 방법은 4가지다</a></li><li><a href="#이야기꾼과-이은택의-금리-읽기도-이-층-구분으로-본다">이야기꾼과 이은택의 금리 읽기도 이 층 구분으로 본다</a></li><li><a href="#금리가-역전돼도-자금은-환율에-묶인다">금리가 역전돼도 자금은 환율에 묶인다</a></li><li><a href="#그래서-금리는-얼마나-상승했나-보다-무엇이-끌어올렸나-로-읽는다">그래서 금리는 「얼마나 상승했나」보다 「무엇이 끌어올렸나」로 읽는다</a></li><li><a href="#이-글의-한계">이 글의 한계</a></li><li><a href="#이-글의-용어">이 글의 용어</a></li><li><a href="#apx">원문 상세표</a></li></ol></div><!--TOC:END--></header>
+
+<p>미 10년물 금리는 2026년 9월 30일에 종가로 지난 20년의 고점 5.26%를 넘었다. 그 뒤 가장 높았던 날은 10월 5일의 5.31%다. 2026년 11월 17일에는 5.10%다.</p>
+<p>같은 숫자를 두고 읽기는 갈린다. 이야기꾼은 10월 초가 금리 정점일 가능성이 커지고 있다고 본다. 그리고 그 뒤의 금리 하락을 공황의 전조로 읽는다. 반대로 시장에는 「금리가 내리면 주식에 좋다」는 말이 돈다. 그래서 이 글은 미 10년물 금리를 3개 층으로 나눠, 1953년 이후 사례 10개에서 층마다 주식에 준 뜻을 확인했다.</p>
+<p>결론부터 말하면, 금리의 방향만으로는 주식을 읽을 수 없었다. 상승 4가지 가운데 주식에 우호적인 것은 성장이 끌어올린 1가지뿐이다. 문제는 금리 하락도 뜻이 갈린다는 점이다. 공포가 끌어내린 하락에서는 주가도 같이 급락했다.</p>
 
 <!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div>
-<p>금리는 돈의 가격이고 가격은 수요와 공급으로 정해진다. 금리가 먼저가 아니라 성장에 대한 믿음이 먼저다.
-미국 10년물 국채금리는 실질금리·기대 인플레이션·기간 프리미엄 3개 층의 합이다. 같은 금리 상승도 어느 층이 움직였는지에 따라 주식에 주는 뜻이 반대다.
-1953년 이후의 사례를 구분하면 주식에 우호적인 상승은 성장이 끌어올린 것 1가지뿐이다. 가장 경계할 것은 국채 공급이 끌어올린 상승이다.
-그래서 금리는 「얼마나 상승했나」보다 「무엇이 끌어올렸나」로 읽는다.</p>
+<p class="kb-t">1. 정의: 금리는 돈의 가격</p><p>가격은 수요와 공급으로 정해진다. 금리가 먼저가 아니라 성장에 대한 믿음이 먼저다.</p>
+<p class="kb-t">2. 구조: 미 10년물 금리는 3개 층의 합</p><p>실질금리 · 기대 인플레이션 · 기간 프리미엄이다.</p>
+<p class="kb-t">3. 사례: 주식에 우호적인 상승은 1가지뿐</p><p>성장이 끌어올린 상승이다. 가장 경계할 것은 국채 공급이 끌어올린 상승이다.</p>
+<p class="kb-t">4. 읽는 법: 「무엇이 끌어올렸나」</p><p>주가 · BEI · 국채 입찰 뉴스를 같이 놓고 움직인 층을 가린다.</p>
 </div><!--PCLAIM:END-->
 
-<!--LEAD:BEGIN--><details class="lead"><summary>펼치기 · 문제 · 왜 지금 · 반론 · 이 글의 입장</summary>
-<p>무엇이 문제인가. 이 사이트는 매일 미 10년물 금리를 적는다. 매일의 숫자를 읽으려면 먼저 정해 둘 것이 있다.
+<h2 id="금리가-먼저가-아니라-성장에-대한-믿음이-먼저다">금리가 먼저가 아니라 성장에 대한 믿음이 먼저다</h2>
+
+<div class="kbp"><div class="s">이 글이 정하는 것</div><div><p>이 사이트는 매일 미 10년물 금리를 적는다. 매일의 숫자를 읽으려면 먼저 정해 둘 것이 있다.
 금리가 무엇의 값인지, 상승하면 왜 채권 가격이 하락하는지, 같은 4%대가 왜 어떤 때는 주식에 우호적이고 어떤 때는 부담인지다.
-이 글은 오건영(신한 프리미어패스파인더 단장)의 강의 2편을 바탕으로 그 개념을 정한다. 그리고 미 10년물 금리를 움직이는 3개 층을 과거 사례로 확인한다.</p>
+이 글은 오건영(신한 프리미어패스파인더 단장)의 강의 2편을 바탕으로 그 개념을 정한다.</p></div></div>
 
-<p>왜 지금인가. 2026년 10월 미 10년물 금리 월평균은 5.13%다. 1953년 이후 최고는 1981년 9월의 15.32%, 최저는 2020년 7월의 0.62%였다.
-이야기꾼은 장기채 금리 상승을 중공황 금리 프로세스의 1단계로 읽는다. 이은택(KB)은 역사적 기준의 급등에는 아직 못 미친다고 읽는다. 같은 숫자를 두고 읽기가 달라지는 이유가 이 글의 층 구분이다.</p>
+<div class="kbp"><div class="s">금리는 돈의 가격</div><div><p>오건영의 첫 문장이 이 글 전체의 출발점이다. 금리는 돈의 가격이다. 가격은 수요와 공급으로 정해진다.
+사업을 하려면 원가를 알아야 마진을 계산할 수 있다. 돈으로 투자하려면 돈의 가격을 알아야 한다.</p></div></div>
 
-<p>반론은 무엇인가. 「금리가 오르면 주식에 나쁘다」를 규칙으로 쓰는 쪽이 있다. 이 글의 사례 표에서는 성장이 끌어올린 상승 때 주식도 같이 상승했다.
-반대로 「금리가 내리면 주식에 좋다」로 읽는 쪽이 있다. 리먼과 코로나의 금리 하락은 주가 급락과 함께 온 하락이었다.
-금리 방향 하나로는 어느 쪽도 맞지 않는다. 어느 층이 움직였는지를 가려야 한다.</p>
-
-<p>이 글의 입장은 무엇인가. 학습 자료다. 개념과 과거 사례만 정한다. 시황 판단은 하지 않는다.
-아래에서 금리의 정의와, 금리가 상승하면 채권 가격이 하락하는 관계를 먼저 놓는다. 그다음 미 10년물 금리의 3개 층을 정한다. GS10 자료로 상승 4가지·하락 2가지를 구분한다.
-마지막에 실전에서 층을 가리는 방법과 환율의 대목을 적는다.
-매매 판단은 <a href="rates-crashes.html">금리 5%와 공황</a>·<a href="fed-kospi.html">연준 기준금리와 코스피</a>처럼 자료로 확인한 글에서 한다.</p>
-</details><!--LEAD:END-->
-<h2 id="금리는-돈의-가격이고-가격은-수요와-공급으로-정해진다-금리가-먼저가-아니">금리는 돈의 가격이고 가격은 수요와 공급으로 정해진다. 금리가 먼저가 아니라 성장에 대한 믿음이 먼저다</h2>
-
-<p>오건영의 첫 문장이 이 글 전체의 출발점이다. 금리는 돈의 가격이고 가격은 수요와 공급으로 정해진다.
-사업을 하려면 원가를 알아야 마진을 계산할 수 있다. 돈으로 투자하려면 돈의 가격을 알아야 한다.</p>
-
-<p>수요와 공급으로 읽으면 긴 역사가 한 줄로 정리된다. 한국의 1980년대와 1990년대는 공장만 지어도 수익을 내던 시절이었다. 그래서 자금 수요가 폭발했고, 고성장·고금리였다.
+<div class="kbp"><div class="s">수요와 공급으로 읽은 한국의 금리</div><div><p>수요와 공급으로 읽으면 긴 역사가 한 줄로 정리된다. 한국의 1980년대와 1990년대는 공장만 지어도 수익을 내던 시절이었다. 그래서 자금 수요가 폭발했다. 고성장·고금리였다.
 외환위기 이후에는 살아남은 기업들이 대출 자체를 줄였다. 자금 수요가 줄어 저성장·저금리가 됐다.
-금리가 먼저가 아니라 성장에 대한 믿음이 먼저다.</p>
+금리가 먼저가 아니라 성장에 대한 믿음이 먼저다.</p></div></div>
 
-<p>위기의 금리는 다른 원리로 움직인다. 평시의 금리가 성장의 값이라면 위기의 금리는 불신의 값이다.
+<div class="kbp"><div class="s">위기의 금리는 불신의 값</div><div><p>위기의 금리는 다른 원리로 움직인다. 평시의 금리가 성장의 값이라면 위기의 금리는 불신의 값이다.
 리먼 파산 직후 금융기관끼리 서로를 믿지 못하게 되자 자금 공급이 급격히 줄었다. 한국의 1년 정기예금 금리가 7%를 넘었다.
-같은 금리 급등이라도 원인이 성장인지 불신인지에 따라 뜻이 반대다. 이 구분이 아래 3개 층의 핵심이기도 하다.</p>
+같은 금리 급등이라도 원인이 성장인지 불신인지에 따라 뜻이 반대다. 이 구분이 아래 3개 층의 핵심이기도 하다.</p></div></div>
 
-<h2 id="채권은-중도해지가-안-되는-정기예금이라-금리가-상승하면-값이-하락한다">채권은 중도해지가 안 되는 정기예금이라 금리가 상승하면 값이 하락한다</h2>
+<h2 id="금리가-상승하면-채권-가격은-하락한다">금리가 상승하면 채권 가격은 하락한다</h2>
 
-<p>오건영의 비유가 가장 정확하다. 채권은 중도해지가 안 되는 정기예금이다.
+<div class="kbp"><div class="s">채권은 중도해지가 안 되는 정기예금</div><div><p>오건영의 비유가 가장 정확하다. 채권은 중도해지가 안 되는 정기예금이다.
 10년 만기 3% 예금에 가입한 다음 날 신규 금리가 5%로 상승했다고 하자. 해지가 안 되므로, 이 예금을 남에게 넘기려면 덜 받는 이자만큼 값을 낮춰야 한다.
-반대로 신규 금리가 1%로 하락하면 내 3%짜리는 프리미엄을 받고 넘길 수 있다.</p>
+반대로 신규 금리가 1%로 하락하면 내 3%짜리는 프리미엄을 받고 넘길 수 있다.</p></div></div>
 
-<p>그래서 금리가 상승하면 채권 가격은 하락하고 금리가 하락하면 채권 가격은 상승한다. 이 반대 관계는 규칙이 아니라 산수다.
+<div class="kbp"><div class="s">반대 관계는 산수</div><div><p>그래서 금리가 상승하면 채권 가격은 하락한다. 금리가 하락하면 채권 가격은 상승한다. 이 반대 관계는 규칙이 아니라 산수다.
 거꾸로 읽으면 이 사이트에서 매일 보는 문장이 된다. 채권을 매도하려는 사람이 많으면 값이 하락해 금리가 상승한다. 매수하려는 사람이 많으면 값이 상승해 금리가 하락한다.
-미 10년물 금리는 이렇게 거래로 결정되는 값이다. 누가 정하는 값이 아니다.</p>
+미 10년물 금리는 이렇게 거래로 결정되는 값이다. 누가 정하는 값이 아니다.</p></div></div>
 
-<h2 id="미-10년물-금리는-실질금리-기대-인플레이션-기간-프리미엄-3개-층의-합">미 10년물 금리는 실질금리·기대 인플레이션·기간 프리미엄 3개 층의 합이다</h2>
+<h2 id="미-10년물-금리는-3개-층의-합이다">미 10년물 금리는 3개 층의 합이다</h2>
 
-<p>그렇다면 그 거래에서 사람들은 무엇을 계산하고 있는가. 미 10년물 금리는 대략 3개 층의 합으로 나눠 볼 수 있다. 각 층이 무엇의 값이고 어디서 관측하는지를 놓았다.</p>
+<div class="kbp"><div class="s">실질금리 · 기대 인플레이션 · 기간 프리미엄</div><div><p>그렇다면 그 거래에서 사람들은 무엇을 계산하고 있을까? 미 10년물 금리는 대략 3개 층의 합으로 나눠 볼 수 있다.
+미 10년물 금리 ≈ 실질금리 + 기대 인플레이션 + 기간 프리미엄이다. 3개 층은 함께 움직이기도 하고 따로 움직이기도 한다.
+아래 표는 각 층이 무엇의 값이고 어디서 관측하는지를 놓은 것이다.</p></div></div>
 
+<p class="kb-cap">표 1. 미 10년물 금리의 3개 층: 층마다 관측하는 곳이 다르다</p>
 <div class="tblwrap"><table class="tw"><thead><tr><th>층</th><th>무엇의 값인가</th><th>어디서 관측하나</th></tr></thead>
 <tbody>
 <tr><td>① 실질금리</td><td>물가를 뺀 진짜 이자, 성장 기대의 값. 성장이 강하면 투자처가 많아, 채권은 이자를 더 줘야 매수자가 생긴다</td><td>TIPS(물가연동국채) 금리</td></tr>
@@ -859,106 +868,145 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 <tr><td>③ 기간 프리미엄</td><td>10년을 묶어두는 불확실성의 값. 재정적자로 국채 공급이 쏟아지거나, 물가 전망이 흔들리거나, 연준이 매입하지 않으면 상승한다</td><td>모형 추정(뉴욕 연준 ACM 등)</td></tr>
 </tbody></table></div>
 
-<p>첫 줄을 읽으면 이렇다. 실질금리는 물가를 뺀 진짜 이자로 성장 기대의 값이다. TIPS 금리에서 읽는다.
-미 10년물 금리 ≈ 실질금리 + 기대 인플레이션 + 기간 프리미엄이다. 3개 층은 함께 움직이기도 하고 따로 움직이기도 한다.</p>
+<div class="kbp"><div class="s">첫 줄: 실질금리는 성장의 값</div><div><p>첫 줄을 보자. 실질금리는 물가를 뺀 진짜 이자다. 실질금리는 성장 기대의 값이다. TIPS 금리에서 읽는다.
+성장이 강하면 투자처가 많다. 그래서 채권은 이자를 더 줘야 매수자가 생긴다.</p></div></div>
 
-<h2 id="과거-사례를-상승한-방식-4가지와-하락한-방식-2가지로-구분하면-주식에-">과거 사례를 상승한 방식 4가지와 하락한 방식 2가지로 구분하면 주식에 우호적인 상승은 하나뿐이다</h2>
+<h2 id="상승-4가지-가운데-주식에-우호적인-것은-1가지뿐이다">상승 4가지 가운데 주식에 우호적인 것은 1가지뿐이다</h2>
 
-<p>금리가 상승하고 하락하는 원리를 과거에 실제로 있었던 일로 본다. 아래 숫자는 전부 이 사이트가 보관한 FRED 미 10년물 금리 월평균(GS10)에서 읽은 값이다. 사례의 달만 손으로 정했다.</p>
+<div class="kbp"><div class="s">사례 10개: 상승 4가지 · 하락 2가지</div><div><p>금리가 상승하고 하락하는 원리를 과거에 실제로 있었던 일로 본다. 사례는 상승한 방식 4가지와 하락한 방식 2가지다.
+아래 숫자는 전부 이 사이트가 보관한 FRED 미 10년물 금리 월평균(GS10)에서 읽은 값이다.
+1953년 이후 월평균의 최고는 1981년 9월의 15.32%다. 최저는 2020년 7월의 0.62%다. 2026년 10월 월평균은 5.13%다.</p></div></div>
+<p class="kb-note">※ 사례의 달만 손으로 정했다. 값은 실행할 때 GS10 자료에서 읽는다.</p>
 
-<p>㉮ 물가가 끌어올린 상승, 1970년대 오일쇼크와 2021년부터 2023년까지다.
+<div class="kbp"><div class="s">㉮ 물가가 끌어올린 상승: 오일쇼크</div><div><p>㉮는 물가가 끌어올린 상승이다. 1970년대 오일쇼크가 그 전형이다.
 1972년 1월 5.95%였던 미 10년물 금리는 2차례 오일쇼크를 지나며 1981년 9월 15.32%까지 상승했다.
 유가가 물가를 밀고 물가가 임금을 밀고 임금이 다시 물가를 미는 악순환이었다. 채권 투자자는 10년 뒤 원리금의 실질 가치가 계속 줄어들 것으로 봤다.
-② 기대 인플레이션 층이 금리를 끌고 간 전형이다. 이 상승은 볼커 연준이 기준금리를 20%까지 인상해 물가 기대 자체를 꺾고서야 끝났다.
-같은 구조가 최근에 반복됐다. 코로나 직후 풀린 돈과 공급망 마비로 물가가 9%까지 급등했다. 그러자 2020년 7월 0.62%였던 금리가 2023년 10월 4.80%까지 상승했다.
+② 기대 인플레이션 층이 금리를 끌고 간 전형이다. 이 상승은 볼커 연준이 기준금리를 20%까지 인상해 물가 기대 자체를 꺾고서야 끝났다.</p></div></div>
+
+<div class="kbp"><div class="s">㉮′ 같은 구조의 반복: 인플레 쇼크</div><div><p>같은 구조가 최근에 반복됐다. 코로나 직후 풀린 돈과 공급망 마비로 물가가 9%까지 급등했다. 그러자 2020년 7월 0.62%였던 금리가 2023년 10월 4.80%까지 상승했다.
 상승폭은 4.2%p다. 이 상승기에 채권 투자자들이 입은 손실이 「채권은 안전자산」이라는 통념이 틀렸음을 보여 줬다.
-위 비유로 옮기면 0.62%짜리 중도해지 불가 예금을 들고 있는데 신규 금리가 4.80%가 된 것이다.</p>
+위 비유로 옮기면 0.62%짜리 중도해지 불가 예금을 들고 있는데 신규 금리가 4.80%가 된 것이다.</p></div></div>
 
-<p>㉯ 연준의 말이 끌어올린 상승, 1994년 채권 대학살과 2013년 테이퍼 탠트럼이다.
-1994년 그린스펀 연준이 예고 없이 인상을 시작하자 미 10년물 금리는 1993년 10월 5.33%에서 1994년 11월 7.96%로 상승했다. 시장이 채권 대학살이라 부른 해다.
-2013년에는 버냉키 의장이 채권 매입(QE)을 줄이겠다고 말만 했다. 그런데도 금리가 2013년 4월 1.76%에서 2013년 12월 2.90%로 상승했다. 테이퍼 탠트럼(긴축 발작)이다.
-2가지 사례에서 연준은 장기금리를 직접 움직이지 않았다. 연준이 정하는 것은 하루 만기 기준금리뿐이다.
+<div class="kbp"><div class="s">㉯ 연준의 말이 끌어올린 상승: 1994년</div><div><p>㉯는 연준의 말이 끌어올린 상승이다. 1994년 그린스펀 연준이 예고 없이 인상을 시작했다.
+미 10년물 금리는 1993년 10월 5.33%에서 1994년 11월 7.96%로 상승했다. 시장이 채권 대학살이라 부른 해다.</p></div></div>
+
+<div class="kbp"><div class="s">㉯′ 말만으로: 2013년 테이퍼 탠트럼</div><div><p>2013년에는 버냉키 의장이 채권 매입(QE)을 줄이겠다고 말만 했다. 그런데도 금리가 2013년 4월 1.76%에서 2013년 12월 2.90%로 상승했다. 테이퍼 탠트럼(긴축 발작)이다.</p></div></div>
+
+<div class="kbp"><div class="s">움직인 것은 연준에 대한 기대</div><div><p>2가지 사례에서 연준은 장기금리를 직접 움직이지 않았다. 연준이 정하는 것은 하루 만기 기준금리뿐이다.
 미 10년물 금리는 앞으로 연준이 어디까지 갈 것인가에 대한 시장의 기대가 다시 계산되면서 움직였다.
-최대 매수자인 연준이 매입을 줄인다는 신호는 ③ 기간 프리미엄까지 함께 끌어올린다.</p>
+최대 매수자인 연준이 매입을 줄인다는 신호는 ③ 기간 프리미엄까지 함께 끌어올린다.</p></div></div>
 
-<p>㉰ 국가부채가 끌어올린 상승, 2023년 가을의 5% 터치다.
+<div class="kbp"><div class="s">㉰ 국가부채가 끌어올린 상승: 2023년 가을</div><div><p>㉰는 국가부채가 끌어올린 상승이다. 2023년 가을의 5% 터치가 그 사례다.
 물가가 이미 꺾이던 2023년 하반기에 금리가 2023년 4월 3.46%에서 2023년 10월 월평균 4.80%까지 다시 상승했다. 장중에는 5%를 기록했다. 물가 때문이 아니었다.
-8월에 피치가 미국 신용등급을 강등했다. 재무부가 재정적자를 메우려 국채 발행 확대를 발표한 직후였다. 성장도 물가도 아닌 공급 물량이 금리를 끌어올렸다.
-③ 기간 프리미엄 단독 상승의 교과서 사례다. 재무부가 11월에 장기물 발행 비중을 줄이자 금리가 바로 꺾인 것이 역으로 증명이다.
-2025년 4월에도 같은 층이 움직였다. 관세 발표 직후 주식이 급락하는 동안 국채도 함께 매도됐다(2025년 4월 4.28%에서 2025년 5월 4.42%).
-위기에 자금이 국채로 몰리는 평소 흐름과 반대라 「Sell America」로 불렸다. 오건영이 말한 미국의 평판 손상이 채권 가격에 나타난 것이다.</p>
+8월에 피치가 미국 신용등급을 강등했다. 재무부가 재정적자를 메우려 국채 발행 확대를 발표한 직후였다. 성장도 물가도 아닌 공급 물량이 금리를 끌어올렸다.</p></div></div>
 
-<p>㉱ 성장이 끌어올린 상승, 유일하게 주식에 우호적인 상승이다.
+<div class="kbp"><div class="s">③ 기간 프리미엄 단독 상승</div><div><p>③ 기간 프리미엄 단독 상승의 교과서 사례다. 재무부가 11월에 장기물 발행 비중을 줄이자 금리가 바로 꺾인 것이 역으로 증명이다.</p></div></div>
+
+<div class="kbp"><div class="s">㉰′ Sell America: 2025년 4월</div><div><p>2025년 4월에도 같은 층이 움직였다. 관세 발표 직후 주식이 급락하는 동안 국채도 함께 매도됐다(2025년 4월 4.28%에서 2025년 5월 4.42%).
+위기에 자금이 국채로 몰리는 평소 흐름과 반대라 「Sell America」로 불렸다. 오건영이 말한 미국의 평판 손상이 채권 가격에 나타난 것이다.</p></div></div>
+
+<div class="kbp"><div class="s">㉱ 성장이 끌어올린 상승: 유일하게 주식에 우호적</div><div><p>㉱는 성장이 끌어올린 상승이다. 유일하게 주식에 우호적인 상승이다.
 경기 회복기 초입에는 금리와 주가가 함께 상승하는 구간이 반복된다. 2016년 7월 1.50%에서 2018년 10월 3.15%까지의 상승과 2020년 말부터 2021년 초까지가 그렇다.
-투자처가 늘어 채권 수요가 줄어드는 경우다. ① 실질금리가 움직인 것이고, 주식에 우호적이다.
-이은택이 ISM 제조업지수(미국 공장 경기를 묻는 조사)를 들어 경기사이클은 확장 중이라고 하는 것은 최근 금리 수준을 ㉱로 읽을 여지가 있다는 주장이다.</p>
+투자처가 늘어 채권 수요가 줄어드는 경우다. ① 실질금리가 움직인 것이다. 그래서 주식에 우호적이다.
+이은택이 ISM 제조업지수(미국 공장 경기를 묻는 조사)를 들어 경기사이클은 확장 중이라고 하는 것은 최근 금리 수준을 ㉱로 읽을 여지가 있다는 주장이다.</p></div></div>
 
-<p>㉲ 무서워서 하락한 하락, 2008년 리먼과 2020년 코로나다.
+<div class="kbp"><div class="s">㉲ 무서워서 하락한 하락: 리먼 · 코로나</div><div><p>㉲는 무서워서 하락한 하락이다. 2008년 리먼과 2020년 코로나가 그렇다.
 리먼 파산 전후 미 10년물 금리는 2008년 4월 3.68%에서 2008년 12월 2.42%로 급락했다. 코로나 때는 2020년 1월 1.76%에서 2020년 7월 0.62%까지 하락했다.
 투자자들이 위험자산을 매도하고 가장 안전한 국채로 옮겨 간 것이다. 금리가 하락하면서 주가도 같이 급락했다. 주식에 불리한 금리 하락이다.
-이 구간의 금리 하락을 「금리가 내려서 주식에 좋다」로 읽으면 손실을 본다.</p>
+이 구간의 금리 하락을 「금리가 내려서 주식에 좋다」로 읽으면 손실을 본다.</p></div></div>
 
-<p>㉳ 기대로 하락한 하락, 2019년 보험적 인하다.
+<div class="kbp"><div class="s">㉳ 기대로 하락한 하락: 2019년 보험적 인하</div><div><p>㉳는 기대로 하락한 하락이다. 2019년 보험적 인하가 그렇다.
 연준이 경기 확장을 지키려 미리 인하한다던 2019년, 미 10년물 금리는 2018년 11월 3.12%에서 2019년 8월 1.63%까지 하락했다. 주가는 신고가를 기록했다.
-침체 없이 할인율만 하락한, 주식에 우호적인 하락이다. ㉲와 ㉳를 구분하는 질문은 하나다. 금리가 하락하는 이유가 공포인가 여유인가.</p>
+침체 없이 할인율만 하락한, 주식에 우호적인 하락이다. ㉲와 ㉳를 구분하는 질문은 하나다. 금리가 하락하는 이유가 공포인가 여유인가.</p></div></div>
 
-<p>10개 사례를 한 표에 놓는다. 금리 궤적은 GS10 월평균이고 마지막 열이 그때 주식에 무엇이었는지다.</p>
-
+<p>10개 사례를 한 표에 놓는다. 금리 궤적은 GS10 월평균이다. 마지막 열은 그때 주식에 무엇이었는지다.</p>
+<p class="kb-cap">표 2. 사례 10개: 주식에 우호적인 상승은 ㉱뿐이다</p>
 <div class="tblwrap"><table class="tw"><thead><tr><th>사례</th><th class="n">금리 궤적(GS10)</th><th class="n">변화</th><th>움직인 층</th><th class="n">주식에는</th></tr></thead>
 <tbody><tr><td>㉮ 오일쇼크 1972~81</td><td class="n">5.95% → 15.32%</td><td class="n">+9.37%p</td><td>② 기대 인플레이션</td><td class="n bad">최악, 10년 횡보</td></tr><tr><td>㉮′ 인플레 쇼크 2020~23</td><td class="n">0.62% → 4.80%</td><td class="n">+4.18%p</td><td>② + ①</td><td class="n bad">2022년 하락장</td></tr><tr><td>㉯ 채권 대학살 1994</td><td class="n">5.33% → 7.96%</td><td class="n">+2.63%p</td><td>연준 기대 재계산</td><td class="n ">횡보 후 회복</td></tr><tr><td>㉯′ 테이퍼 탠트럼 2013</td><td class="n">1.76% → 2.90%</td><td class="n">+1.14%p</td><td>③ QE 매수자 이탈</td><td class="n ">신흥국이 타격</td></tr><tr><td>㉰ 5% 터치 2023 가을</td><td class="n">3.46% → 4.80%</td><td class="n">+1.34%p</td><td>③ 국채 공급</td><td class="n bad">3개월 조정</td></tr><tr><td>㉰′ Sell America 2025.4</td><td class="n">4.28% → 4.42%</td><td class="n">+0.14%p</td><td>③ 신뢰 손상</td><td class="n bad">주식·채권 동반 하락</td></tr><tr><td>㉱ 회복기 2016~18</td><td class="n">1.50% → 3.15%</td><td class="n">+1.65%p</td><td>① 실질금리</td><td class="n good">동행 상승</td></tr><tr><td>㉲ 리먼 2008</td><td class="n">3.68% → 2.42%</td><td class="n">-1.26%p</td><td>질로의 도피</td><td class="n bad">동반 폭락</td></tr><tr><td>㉲′ 코로나 2020</td><td class="n">1.76% → 0.62%</td><td class="n">-1.14%p</td><td>질로의 도피</td><td class="n bad">동반 폭락</td></tr><tr><td>㉳ 보험적 인하 2019</td><td class="n">3.12% → 1.63%</td><td class="n">-1.49%p</td><td>연준 여유 인하</td><td class="n good">신고가</td></tr></tbody></table></div>
 
-<p>첫 줄을 읽으면 이렇다. 오일쇼크 구간에 미 10년물 금리는 5.95%에서 15.32%로 9.37%p 상승했다. 움직인 층은 기대 인플레이션이었다. 주식은 10년을 횡보했다.
-같은 금리 상승도 같은 금리 하락도 어느 층이 움직였는지에 따라 주식에 주는 뜻이 반대다.</p>
+<div class="kbp"><div class="s">같은 상승도 층에 따라 반대</div><div><p>첫 줄을 보자. 오일쇼크 구간에 미 10년물 금리는 5.95%에서 15.32%로 9.37%p 상승했다. 움직인 층은 기대 인플레이션이었다. 주식은 10년을 횡보했다.
+같은 금리 상승도 같은 금리 하락도 어느 층이 움직였는지에 따라 주식에 주는 뜻이 반대다.</p></div></div>
 
-<h2 id="실전에서-층을-가리는-방법은-4가지다-가장-경계할-조합은-금리는-상승하는">실전에서 층을 가리는 방법은 4가지다. 가장 경계할 조합은 금리는 상승하는데 물가는 조용하고 입찰이 부진할 때다</h2>
+<h2 id="층을-가리는-방법은-4가지다">층을 가리는 방법은 4가지다</h2>
 
-<p>매일의 금리를 볼 때 같이 놓을 것은 주가, BEI, 국채 입찰 뉴스다. BEI란 시장이 기대하는 앞으로의 물가 상승률이다. 그 조합으로 어느 층이 움직였는지를 확인한다.</p>
-<ul>
-<li>① 금리가 상승하는데 주가도 상승하면 실질금리, 즉 성장이다(㉱).</li>
-<li>② 금리가 상승하는데 BEI(기대 인플레이션)도 상승하면 물가다(㉮).</li>
-<li>③ 금리가 상승하는데 물가 지표는 조용하고 국채 입찰 부진과 재정적자 뉴스가 겹치면 기간 프리미엄이다(㉰). 가장 경계할 조합이다.</li>
-<li>④ 금리가 하락하는데 주가도 하락하면 공포에 의한 하락이다(㉲). 매수 신호가 아니다.</li>
-</ul>
+<div class="kbp"><div class="s">같이 놓을 것: 주가 · BEI · 입찰 뉴스</div><div><p>매일의 금리를 볼 때 같이 놓을 것은 주가, BEI, 국채 입찰 뉴스다. BEI란 시장이 기대하는 앞으로의 물가 상승률이다. 그 조합으로 어느 층이 움직였는지를 확인한다.</p>
+<ol>
+<li>금리가 상승하는데 주가도 상승하면 실질금리, 즉 성장이다(㉱).</li>
+<li>금리가 상승하는데 BEI(기대 인플레이션)도 상승하면 물가다(㉮).</li>
+<li>금리가 상승하는데 물가 지표는 조용하고 국채 입찰 부진과 재정적자 뉴스가 겹치면 기간 프리미엄이다(㉰). 가장 경계할 조합이다.</li>
+<li>금리가 하락하는데 주가도 하락하면 공포에 의한 하락이다(㉲). 매수 신호가 아니다.</li>
+</ol></div></div>
 
-<div class="note"><p>이렇게 읽으면 안 된다. 이 글은 개념을 익히는 곳이다. 여기 나온 비유는 방향을 잡는 데 쓴다. 매매 판단은 자료로 확인한 글들에서 한다.</p></div>
+<div class="kbp"><div class="s">가장 경계할 조합</div><div><p>가장 경계할 조합은 3번째다. 금리는 상승하는데 물가는 조용하고 입찰이 부진할 때다.</p></div></div>
+<p class="kb-note">※ 이 글은 개념을 익히는 곳이다. 여기 나온 비유는 방향을 잡는 데 쓴다. 매매 판단은 자료로 확인한 글들에서 한다.</p>
 
-<h2 id="이야기꾼과-이은택이-같은-금리를-반대로-읽는-이유가-이-층-구분이다">이야기꾼과 이은택이 같은 금리를 반대로 읽는 이유가 이 층 구분이다</h2>
+<h2 id="이야기꾼과-이은택의-금리-읽기도-이-층-구분으로-본다">이야기꾼과 이은택의 금리 읽기도 이 층 구분으로 본다</h2>
 
-<p>이 사이트의 논쟁에 대입하면 이렇다. 이야기꾼은 장기채 금리 상승을 중공황 금리 프로세스의 1단계로 읽는다. 이은택(KB)은 역사적 기준의 급등, 즉 「10~20년래 고점 돌파」에는 아직 못 미친다고 읽는다.
-같은 숫자를 두고 읽기가 달라지는 이유가 바로 이 층 구분이다. ① 성장이 끌어올린 금리라면 시장과 동행할 수 있다. ③ 공급과 불신이 끌어올린 금리라면 이은택의 표현대로 「자산시장의 중력」이 된다.
-<a href="peak-debate.html">반도체 정점 논쟁</a>의 반증 조건 ②(미국 장기 금리의 직전 고점 돌파)를 지켜볼 때 「얼마나 상승했나」와 함께 「무엇이 끌어올렸나」를 같이 봐야 하는 이유다.</p>
+<div class="kbp"><div class="s">이야기꾼: 금리 하락은 공황의 전조</div><div><p>이야기꾼은 장기채 금리 상승을 중공황 금리 프로세스의 1단계로 읽는다. 2026년 11월 7일 주간 리포트(W45)에는 「아무래도 10월초 금리 정점으로 결론날 가능성이 점점 커지고 있다」고 적었다.
+그가 보는 금리 하락은 ㉲다. 「투자자들이 위험을 느껴 위험 자산인 주식을 팔고 안전자산인 채권으로 이동할때 장기채 금리 하락이 발생한다」는 것이다.</p></div></div>
 
-<h2 id="금리가-역전돼도-자금이-전부-유출되지는-않는다-환율에-묶이기-때문이다">금리가 역전돼도 자금이 전부 유출되지는 않는다. 환율에 묶이기 때문이다</h2>
+<div class="kbp"><div class="s">이은택: 10~20년래 고점 돌파</div><div><p>이은택(KB)이 보는 버블 붕괴의 1번 조건은 「10~20년래 고점 돌파」다. 미 10년물 금리는 2026년 9월 30일에 종가로 지난 20년의 고점 5.26%를 넘었다.
+이은택은 2026년 10월 19일에 「이 가운데 1번 조건은 이미 일부 충족됐다」고 적었다. 그가 더 중요하게 보는 것은 2번 조건인 추세적 인플레다.</p></div></div>
 
-<p>금리가 대내적인 돈의 가격이라면 환율은 다른 나라가 우리 원화를 보는 가격이다. 오건영이 짚은 대목 중 실전에 바로 쓰이는 것 3가지만 남긴다.</p>
+<div class="kbp"><div class="s">층 구분이 가르는 것</div><div><p>같은 숫자를 두고 읽기가 달라지는 이유가 바로 이 층 구분이다. ① 성장이 끌어올린 금리라면 시장과 동행할 수 있다. ③ 공급과 불신이 끌어올린 금리라면 이은택의 표현대로 「자산시장의 중력」이 된다.
+<a href="peak-debate.html">반도체 정점 논쟁</a>의 반증 조건 ②(미국 장기 금리의 직전 고점 돌파)를 지켜볼 때 「얼마나 상승했나」와 함께 「무엇이 끌어올렸나」를 같이 봐야 하는 이유다.</p></div></div>
 
-<p>금리가 역전돼도 자금이 전부 유출되지는 않는다. 이유는 3가지다. 글로벌 자금은 국가별 배분 비중이 정해져 있다. 직접투자는 단기간에 회수할 수 없다.
-무엇보다 환율에 묶인다. 1,100원에 들어온 자금이 1,370원에 나가면 환차손이 금리 차이를 넘어선다.</p>
+<div class="kbp"><div class="s">하락도 층으로 읽는다</div><div><p>KB증권은 「2027년 자산시장 전략」(2026년 11월 10일)에서 금리 하락도 층으로 나눠 읽었다. 「향후 단기금리 기대는 내려가더라도 기간 프리미엄이 하락 폭을 제한한다」는 것이다.
+다시 말해서, 연준에 대한 기대가 끌어내리는 몫과 ③ 기간 프리미엄이 받치는 몫을 따로 본 것이다.</p></div></div>
 
-<p>달러는 여전히 안전자산이다. 이유는 달러 부채다. 전 세계가 달러로 대출을 받고 있다. 그래서 위기가 오면 모두가 부채를 상환하려고 동시에 달러를 매수한다.
-미국발 위기인데도 달러가 강세가 되는 이유다. 리먼 때 원달러 1,600원, 코로나 때도 같은 구조였다. 안전자산은 역사 속에서 만들어진다. 누가 지정하는 것이 아니다.</p>
+<h2 id="금리가-역전돼도-자금은-환율에-묶인다">금리가 역전돼도 자금은 환율에 묶인다</h2>
 
-<p>기축통화의 딜레마도 있다. 통화가 세계에 쓰이려면 해외에 풀려야 하고(무역 적자), 신뢰를 얻으려면 흑자여야 한다.
-서로 모순인 이 2가지를 미국은 동시에 충족했다. 세계의 공장 역할을 하는 중국은 구조적으로 반대편에 있다. 위안화가 달러를 대체한다는 주장이 반복해서 나오고 반복해서 무산되는 이유다.</p>
+<div class="kbp"><div class="s">환율은 원화의 대외 가격</div><div><p>금리가 대내적인 돈의 가격이라면 환율은 다른 나라가 우리 원화를 보는 가격이다. 오건영이 짚은 대목 중 실전에 바로 쓰이는 것 3가지만 남긴다.</p></div></div>
 
-<h2 id="아직-불확실한-곳은-어디인가">아직 불확실한 곳은 어디인가</h2>
+<div class="kbp"><div class="s">역전돼도 전부 유출되지 않는다</div><div><p>금리가 역전돼도 자금이 전부 유출되지는 않는다. 그 이유는 이렇다. 글로벌 자금은 국가별 배분 비중이 정해져 있다. 직접투자는 단기간에 회수할 수 없다.
+무엇보다 환율에 묶인다. 1,100원에 들어온 자금이 1,370원에 나가면 환차손이 금리 차이를 넘어선다.</p></div></div>
 
-<ul>
+<div class="kbp"><div class="s">달러는 여전히 안전자산</div><div><p>달러는 여전히 안전자산이다. 이유는 달러 부채다. 전 세계가 달러로 대출을 받고 있다. 그래서 위기가 오면 모두가 부채를 상환하려고 동시에 달러를 매수한다.
+미국발 위기인데도 달러가 강세가 되는 이유다. 리먼 때 원달러 1,600원, 코로나 때도 같은 구조였다. 안전자산은 역사 속에서 만들어진다. 누가 지정하는 것이 아니다.</p></div></div>
+
+<div class="kbp"><div class="s">기축통화의 딜레마</div><div><p>기축통화의 딜레마도 있다. 통화가 세계에 쓰이려면 해외에 풀려야 하고(무역 적자), 신뢰를 얻으려면 흑자여야 한다.
+서로 모순인 이 2가지를 미국은 동시에 충족했다. 세계의 공장 역할을 하는 중국은 구조적으로 반대편에 있다. 위안화가 달러를 대체한다는 주장이 반복해서 나오고 반복해서 무산되는 이유다.</p></div></div>
+
+<h2 id="그래서-금리는-얼마나-상승했나-보다-무엇이-끌어올렸나-로-읽는다">그래서 금리는 「얼마나 상승했나」보다 「무엇이 끌어올렸나」로 읽는다</h2>
+
+<p>결론적으로 금리는 방향보다 무엇이 끌어올렸는지로 읽는다. 정리하면 아래와 같다.</p>
+<ol>
+<li>금리는 돈의 가격이다. 성장에 대한 믿음이 먼저다.</li>
+<li>상승 4가지 가운데 주식에 우호적인 것은 성장이 끌어올린 1가지뿐이다.</li>
+<li>하락 2가지 가운데 공포의 하락은 매수 신호가 아니다.</li>
+</ol>
+
+<div class="kbp"><div class="s">시장의 2가지 말에 대한 답</div><div><p>「금리가 오르면 주식에 나쁘다」를 규칙으로 쓰는 쪽이 있다. 이 글의 사례 표에서는 성장이 끌어올린 상승 때 주식도 같이 상승했다.
+반대로 「금리가 내리면 주식에 좋다」로 읽는 쪽이 있다. 리먼과 코로나의 금리 하락은 주가 급락과 함께 온 하락이었다.
+금리 방향 하나로는 어느 쪽도 맞지 않는다. 그래서 매일의 금리를 볼 때는 주가·BEI·입찰 뉴스를 같이 놓고 어느 층이 움직였는지를 먼저 확인한다.</p></div></div>
+
+<div class="kbp"><div class="s">이 글은 학습 자료</div><div><p>이 글은 학습 자료다. 개념과 과거 사례만 정한다. 시황 판단은 하지 않는다. 금리 전망도 하지 않는다.
+매매 판단은 <a href="rates-crashes.html">금리 5%와 공황</a>·<a href="fed-kospi.html">연준 기준금리와 코스피</a>처럼 자료로 확인한 글에서 한다.</p></div></div>
+
+<div class="kbp"><div class="s">실전 페이지와 만나는 곳</div><div><p>이 학습이 실전 페이지들과 만나는 대목은 이렇다. 금리의 3개 층은 <a href="rates-crashes.html">금리 5%와 공황</a>과 반도체 정점 논쟁의 반증 조건 ②를 읽는 기준이 된다.
+채권 가격과 금리의 반대 관계는 회사채 청약과 CDS를 왜 지켜봐야 하는지 설명해 준다. 달러 부채의 원리는 위기 때 원화가 왜 약세가 되는지를 설명한다. <a href="dollar-kospi.html">달러와 코스피</a>의 배경이다.
+2026년 10월 월평균 5.13%가 어느 층의 움직임인지는 그 글들에서 본다.</p></div></div>
+
+<h2 id="이-글의-한계">이 글의 한계</h2>
+
+<ol>
 <li>3개 층의 분해는 근사다. 실질금리와 기대 인플레이션은 TIPS로 관측한다. 기간 프리미엄은 모형 추정값이라 모형마다 다르다. 이 글은 층의 값을 계산하지 않았다. 사례로만 확인한다.</li>
+<li>사례는 10개다. 방식마다 1~2개뿐이라 경향으로만 본다.</li>
 <li>사례의 달은 손으로 정했다. 시작과 끝을 옮기면 변화 폭이 달라진다. 값은 GS10 월평균이라 장중 고점(2023년 10월의 5%)과 다르다.</li>
 <li>「주식에는」 열은 그때의 사후 서술이다. 계산값이 아니다. 같은 층이 움직여도 다음에 같은 결과가 온다는 뜻은 아니다.</li>
 <li>오건영의 말은 자동자막 전사를 다듬어 요지만 옮겼다. 직접 인용은 최소화했다. 뜻이 훼손됐을 수 있는 대목은 전사본에서 확인한다.</li>
 <li>지금의 금리가 어느 층의 움직임인지는 자료로 확인한 글에서 판정한다. 이 글은 판정하지 않는다.</li>
-</ul>
+</ol>
 
-<h2 id="그래서-금리는-얼마나-상승했나-보다-무엇이-끌어올렸나-로-읽는다">그래서 금리는 「얼마나 상승했나」보다 「무엇이 끌어올렸나」로 읽는다</h2>
+<h2 id="이-글의-용어">이 글의 용어</h2>
 
-<div class="claim"><p>금리는 돈의 가격이고 성장에 대한 믿음이 먼저다. 미 10년물 금리는 3개 층의 합이다. 상승 4가지 가운데 주식에 우호적인 것은 성장이 끌어올린 1가지뿐이다. 하락 2가지 가운데 공포의 하락은 매수 신호가 아니다.
-그래서 매일의 금리를 볼 때는 주가·BEI·입찰 뉴스를 같이 놓고 어느 층이 움직였는지를 먼저 확인한다.</p></div>
-
-<p>이 학습이 실전 페이지들과 만나는 대목은 이렇다. 금리의 3개 층은 <a href="rates-crashes.html">금리 5%와 공황</a>과 반도체 정점 논쟁의 반증 조건 ②를 읽는 기준이 된다.
-채권 가격과 금리의 반대 관계는 회사채 청약과 CDS를 왜 지켜봐야 하는지 설명해 준다. 달러 부채의 원리는 위기 때 원화가 왜 약세가 되는지를 설명한다. <a href="dollar-kospi.html">달러와 코스피</a>의 배경이다.
-2026년 10월 월평균 5.13%가 어느 층의 움직임인지는 그 글들에서 본다.</p>
+<p>미 10년물 금리는 만기 10년 미국 국채의 금리다. 이 글의 사례 값은 FRED GS10 월평균이다. 지금 값과 지난 20년의 고점은 FRED DGS10 일별 종가다.</p>
+<p>실질금리는 물가를 뺀 금리다. TIPS(물가연동국채) 금리로 관측한다.</p>
+<p>기대 인플레이션은 시장이 기대하는 앞으로 10년의 물가 상승률이다. 미 10년물 금리에서 TIPS 금리를 뺀 값(BEI)으로 관측한다.</p>
+<p>기간 프리미엄은 10년을 묶어 두는 불확실성에 대한 보상이다. 직접 관측되지 않아 모형으로 추정한다(뉴욕 연준 ACM 등).</p>
+<p>지난 20년의 고점은 최근 12개월을 뺀 지난 20년 동안 미 10년물 금리가 기록한 가장 높은 종가다. 지금은 2007년 6월 12일의 5.26%다.</p>
+<p>보험적 인하는 침체가 오기 전에 연준이 경기 확장을 지키려 미리 하는 인하다. 사례 ㉳가 그렇다.</p>
+<p class="kb-note">※ 사례 이름 ㉮~㉳는 이 글이 붙인 것이다. ′가 붙은 것은 같은 방식의 다른 사례다.</p>
 
 <h2 id="apx">원문 상세표</h2>
 <p>본문에서 요약한 표와 강의 2부의 실행 지침, 자료의 원본이다. 여기에 그대로 싣는다. 제목을 누르면 접었다 펼 수 있다.</p>
@@ -980,7 +1028,7 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 
 <details class="apx" open><summary>자료와 계산 방법</summary>
 <ul>
-<li>유튜브 지식인초대석 EP.38 「금리, 환율 미치도록 쉽게 설명한다」(26분) · EP.39 「적은 돈을 큰 돈으로 불리는 가장 확실한 투자 전략」(20분), 오건영(신한 프리미어패스파인더). 자동자막을 다듬어 요지만 옮겼다. 직접 인용은 최소화했다.</li>
+<li>유튜브 지식인초대석 EP.38 「금리, 환율 미치도록 쉽게 설명해드립니다」(26분) · EP.39 「적은 돈을 큰 돈으로 불리는 가장 확실한 투자 전략」(20분), 오건영(신한 프리미어패스파인더). 자동자막을 다듬어 요지만 옮겼다. 직접 인용은 최소화했다.</li>
 <li>금리 층 해설과 사례 분류는 사이트 자체 작성이다. 사례 표의 숫자는 FRED GS10(미 10년물 금리 월평균, 1953년 4월부터 2026년 10월까지)에서 실행 시점에 읽는다. 사례의 달만 생성기에 적혀 있고 값은 손으로 적지 않는다.</li>
 <li>변화 열은 끝 달 값에서 시작 달 값을 뺀 %p 다. 자료가 없는 달은 「없다」로 찍는다.</li>
 <li>고정 자료라 원자료가 바뀔 때만 다시 계산한다.</li>
@@ -988,7 +1036,7 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 </details>
 
 </div>
-<div class="wrap"><!--TOPICNEWS:BEGIN--><style id="tnewscss">.tnews{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 10px;margin:34px 0 10px}.tnews h3{margin:0 0 10px;font-size:1.02rem}.tnews table{width:100%;border-collapse:collapse;font-size:.9rem}.tnews td{padding:5px 8px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}.tnews td.d{white-space:nowrap;color:var(--text-secondary)}.tnews p.cap{margin:10px 0 8px;font-size:.8rem;color:var(--text-secondary);line-height:1.6}</style><div class="tnews"><h3>관련 뉴스</h3><p class="cap">제목에 검색어가 실제로 들어간 기사만 골랐다. 제목을 누르면 원문으로 간다.</p><p class="cap">국내: 「미국 국채 금리」 로 찾았다.</p><div class="tblwrap"><table><tbody><tr><td class="d">Wed, 18 Nov</td><td class="d">연합뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE0xTjdDNU1oQ0FOZGtaLWdSTjJhZ1JlTW00UkZ6YjdqWkdoWlZpMzJLSEw1M3FQVm9PNlAzM01MbGJFWjZXUFhfMWI3TGNSSngzYk1GTXJQbk1oaFU?oc=5" target="_blank" rel="noopener nofollow">증시 따라 오르내린 국고채 금리…3년물 연 3.736%(종합)</a></td></tr><tr><td class="d">Tue, 17 Nov</td><td class="d">글로벌이코노믹</td><td><a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxOVUxFQXFZQ0pheFE4ZjlCN1NQd0ItREJ2ZFpVSHRtVnFqTW9OdzA5UDJhNkREOV9Md3gyTklPTU9pTHBlbGZKYTk0dW5FdWhyZVZ0RWdrcTVpanNfU3FVZm1hOTdubWloUnJMRGdkSWxySE9oRDFhUUdkaERKcFN3NVNjdFhqcGg4?oc=5" target="_blank" rel="noopener nofollow">美 국채금리 혼조…12월 빅스텝 가능성 4%</a></td></tr><tr><td class="d">Wed, 18 Nov</td><td class="d">연합인포맥스</td><td><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTFBpV3NoZDNiUGhPcnA4SlhBaDVFTXNGcWpaRi1mdGZRdV9ZMk0zSG5neDBpU2hxWTRWcTUtUU5LeGh2SXlnNnl6bnRzelZ6MEdBUXNvMTIyNDJOcDY2M2xTNFpPZGZEQUhIQTdnODNBSzc?oc=5" target="_blank" rel="noopener nofollow">나스닥100 선물, 엔비디아 호실적에 반등…美 국채금리↑</a></td></tr><tr><td class="d">Tue, 17 Nov</td><td class="d">한국경제</td><td><a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE1rd056clhrVXI0TXg1bzI3clRYeWlTeWpqd29neXo1cmlEMGhCMWVLY0lqUVc2X05xeHE5WnhlRjZid19uZ3hIMEFMcldjbVRoc1Q5ZG1NRm9yUQ?oc=5" target="_blank" rel="noopener nofollow">금값 1년 만에 최저…美 국채금리·달러 강세 직격</a></td></tr><tr><td class="d">Fri, 30 Oct</td><td class="d">조선일보</td><td><a href="https://news.google.com/rss/articles/CBMiiwFBVV95cUxPOC10MVpkOWRaRnJoV2d6djRNRkY3aVNCZW81UXlub1VwbUFHcVhPRk1QXy1Ld1hVLUFFUmtTY2JCM0dWakFrdUxkN2MteEY2QkZWeDJoaUNDMnNSc2lIbGJQeHktMkJIeHo5V1ZNZ3ltNkZobUY4U1Rla3JjRXdISmdiV0pIN1dNY0Vr?oc=5" target="_blank" rel="noopener nofollow">미국 국채 금리 5%대…은퇴 자금으로 매수해야 할까?</a></td></tr><tr><td class="d">Mon, 16 Nov</td><td class="d">Investing.com 한국어</td><td><a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1XYjhMWTZNaHRUZXpNdENfVUhMaTJ4dHlFdlg1LTNDZEFDa2hwYUYyTEZYM3NrdWpnaDJWWmVrS201YWpFNWV1anRDendkcko5STJNOFlZM0N2VTN6cDdZMUg5bG01T2s?oc=5" target="_blank" rel="noopener nofollow">미 국채 금리, 1개월 최고치 부근서 숨 고르기…연준 신호 주시</a></td></tr></tbody></table></div><p class="cap">해외: 「US Treasury yields」 로 찾았다. 이 글의 소재가 외국이라 함께 본다.</p><div class="tblwrap"><table><tbody><tr><td class="d">Wed, 18 Nov</td><td class="d">CNBC</td><td><a href="https://news.google.com/rss/articles/CBMib0FVX3lxTE9Hc0tPVG9tRHRYTVBHa2ZvTWQ2ODQ4NTJONXdHLTU4dGJmVjNvMTRFLWpDNG1OdmVIWk5INUxFV2V0dzZpNDUxWWVDNi1XVGtxa19jYkQ0OEFLeTJnQkJLOGxCeExfbUNmWVhtWkh3Y9IBdEFVX3lxTE1OTTltQng1Ukh2QnI2TkdkUGI5VWpLYi1Nb0VDS1A2d0xyOFpZTHN4dnIwbUlRS09sZWlTY1gzNkxJYVpqdWEteW5lbjJTZW5neXRGZkpWbEc0VEwyTkZDVVJUNlRjb0lPVkVKMGpNZ3FvdTFP?oc=5" target="_blank" rel="noopener nofollow">Treasury yields hold steady as investors look ahead to Fed minutes</a></td></tr><tr><td class="d">Tue, 17 Nov</td><td class="d">WSJ</td><td><a href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxQTWhaSXdja0FJbTdibG5fb3BEQWpTMzNmbTVUNkhtN2haanZFaWxtd3EzNVJUa2tkcW12NUhHMVRiUkhydS02b1JEeWphTEdRRHVUVjZZdzJnLVo5RE84d3B1NmJIYTZfWmpwMXVHSUlzSm9ra05ILTg3dUE1bHo3dUNCWU5Fbm1PSHJhek93N0JxMURmdUc5c3JwbUwyTG93TGJNbFJhX0R4UzctRVpiaTcxek16MnFRX09ocjhQWDJqNE0?oc=5" target="_blank" rel="noopener nofollow">U.S. Treasury, Eurozone Bond Yields Edge Lower</a></td></tr><tr><td class="d">Tue, 17 Nov</td><td class="d">CNBC</td><td><a href="https://news.google.com/rss/articles/CBMid0FVX3lxTE4xcWR1OGh2RVFmcDRsR1JtUDJUVFhqWFVjQ3R2V1ZjSFpqWmNtRXQweHFac0UxYllNRzJ2akQ0R2Q3dTFpTkhGeWFMS3d4MFNIX1pMWW5oUWxyQzh2bV8zcG91MlVCNm5kNlVXN3dmMG1pVWYycHFR0gF8QVVfeXFMTlpoUmZfei1Qbjl3OU9tR3A4MmlvbXNIR3FXa1JaRW5CMm5qQmgwcVBRMlFGa1BFc243bG5vR1hJVjBhYVJvMDVmNmstX2M3ME93cjZUbXc5dE5IWHJ5bndwRlJOLUNBTDBEY08tTUVMdG12c0VpemV3VUQtSw?oc=5" target="_blank" rel="noopener nofollow">Treasury yields moderate as investors parse retail sales data</a></td></tr><tr><td class="d">Mon, 16 Nov</td><td class="d">WSJ</td><td><a href="https://news.google.com/rss/articles/CBMisAFBVV95cUxPT0dsM2ttY3ctRTRCZzZPRzE4aG1RNzBCeUQzUEFRbGk1VzRqZGF4Z2J6NFFXVExyX0xROFU1bWFGc3U5ZXpWR21YQmh6S096RXVFS25wcjY4QmxDTUJhdkh5eG51UjVrRVlfZHBpX0pKZkJMOFI4eVVvV1BvSWxIOWQ3aFZId2xOcXJXeGI2SlZvd0RqUUhzT2NVck1jQ3VKLUNXSEFaYXhuNzVtbm1vaQ?oc=5" target="_blank" rel="noopener nofollow">Treasury Yields Fall, German Bunds’ Tick Higher</a></td></tr><tr><td class="d">Tue, 29 Sep</td><td class="d">Financial Times</td><td><a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxOc3ZpSzBpNDlDRVpTcFpkQVFuRXFTdEJKQWdrU1RkVkQ4eWxRY3UxYS1PeTBCaGQwZmNMOUdTcU1WeC1SOGp2OG1fU2VRUTBMSFVTd1ZDRHJybnlIcnZ1bW1YM3dqazluakIxS0h0VGFMUWZwTXJTaURtaDB3R1dNNkpUM3A?oc=5" target="_blank" rel="noopener nofollow">US 30-year Treasury yield hits highest since 2002</a></td></tr><tr><td class="d">Thu, 24 Sep</td><td class="d">Axios</td><td><a href="https://news.google.com/rss/articles/CBMickFVX3lxTE9KR09CcUNkLXdlajBEdjVCWWlmLVo1aWVDYXlJbkhQTkFKcUFnQXQwUXphazNFOVZUQWpNcWNuLTZxU2plMHcwT1RfcFhvd2FQR2ZwOUdEa2NyRWlpRnVfdGVDYXVBcjh3YkVVSWJhdGd6UQ?oc=5" target="_blank" rel="noopener nofollow">Why Treasury yields are ripping higher</a></td></tr></tbody></table></div><p class="cap">출처 구글 뉴스 · 2026-11-18 기준. 뉴스는 이 글의 분석과 별개이며, 내용이 서로 다를 수 있다.</p></div><!--TOPICNEWS:END--><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="rates-century.html">미국 금리 100년</a> 여기서 배운 세 층으로 100년 궤적을 읽는 페이지다. 금본위제 이탈 2번이 기대인플레를 어떻게 움직였는지가 보인다.</p><p><a href="rates-crashes.html">금리 5%와 공황</a> 여기서 배운 '금리의 세 층'으로 실제 73년 데이터를 검증한 것이 그 페이지이다.</p><p><a href="fed-kospi.html">연준 기준금리와 코스피</a> 기초를 마쳤다면: 기준금리와 코스피 45년, 그리고 이야기꾼 3가설 검증.</p></div><!--RELATED:END--><!--GLOSSARY:BEGIN--><style id="glocss">.glo{margin:34px 0 8px}.glo h3{font-size:1.02rem;margin:0 0 12px}.glo dl{margin:0;font-size:.9rem;line-height:1.62}.glo dt{font-weight:800;margin-top:10px}.glo dd{margin:2px 0 0 0;color:var(--text-secondary,#555)}</style><div class="glo"><h3>용어 설명</h3><dl><dt>10년물</dt><dd>만기가 10년인 국채. 정부가 10년 뒤에 상환하기로 하고 발행한 채권이고, 그 금리가 '10년물 금리'다. 주택담보대출 같은 장기 금리의 기준이 되어 세계에서 가장 많이 인용된다.</dd><dt>회사채</dt><dd>기업이 자금을 조달하려고 발행한 채권. 국가보다 부도 위험이 커서 국채보다 금리가 높다. Aaa 는 신용평가사 무디스가 매기는 가장 높은 등급이다.</dd><dt>ISM</dt><dd>Institute for Supply Management(미국 공급관리협회)의 제조업 구매관리자지수(PMI). 구매 담당자에게 '지난달보다 나아졌나'를 묻는 설문이라 50이 기준이고 위면 확장, 아래면 위축이다. 설문이라 주가가 섞이지 않는다. 계절조정 값은 매년 초 수정된다.</dd><dt>기준금리</dt><dd>중앙은행이 정하는 초단기 금리. 미국의 연준 기준금리(federal funds rate)가 세계 금리의 기준이 된다.</dd><dt>10년물 국채금리</dt><dd>시장이 정하는 장기 금리. 이 사이트의 시대 구분(인플레 시대·디플레 시대)은 미국 10년물 국채금리의 사상 최고(1981년 9월)와 사상 최저(2020년 7월)로 구분한다.</dd><dt>기간 프리미엄</dt><dd>장기채를 오래 보유하는 위험에 붙는 추가 금리. 물가·성장이 조용한데 금리가 상승하면 이 층이 움직인 것이다.</dd><dt>BEI</dt><dd>Break-Even Inflation(기대 인플레이션). 명목 국채 금리에서 물가연동채 금리를 뺀 값. "시장이 앞으로 물가가 이만큼 상승할 것으로 보고 있다"는 뜻이다.</dd><dt>QE·QT</dt><dd>QE(양적완화)는 연준이 채권을 매입해 유동성을 공급하는 것이다. QT(양적긴축)는 만기 채권을 재투자하지 않아 유동성을 흡수하는 것이다.</dd></dl><p style="font-size:.8rem;color:var(--text-secondary,#777);margin-top:12px">이 글에 나온 용어만 실었다.</p></div><!--GLOSSARY:END--></div>
+<div class="wrap"><!--TOPICNEWS:BEGIN--><style id="tnewscss">.tnews{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 10px;margin:34px 0 10px}.tnews h3{margin:0 0 10px;font-size:1.02rem}.tnews table{width:100%;border-collapse:collapse;font-size:.9rem}.tnews td{padding:5px 8px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}.tnews td.d{white-space:nowrap;color:var(--text-secondary)}.tnews p.cap{margin:10px 0 8px;font-size:.8rem;color:var(--text-secondary);line-height:1.6}</style><div class="tnews"><h3>관련 뉴스</h3><p class="cap">제목에 검색어가 실제로 들어간 기사만 골랐다. 제목을 누르면 원문으로 간다.</p><p class="cap">국내: 「미국 국채 금리」 로 찾았다.</p><div class="tblwrap"><table><tbody><tr><td class="d">Wed, 18 Nov</td><td class="d">연합뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE0xTjdDNU1oQ0FOZGtaLWdSTjJhZ1JlTW00UkZ6YjdqWkdoWlZpMzJLSEw1M3FQVm9PNlAzM01MbGJFWjZXUFhfMWI3TGNSSngzYk1GTXJQbk1oaFU?oc=5" target="_blank" rel="noopener nofollow">증시 따라 오르내린 국고채 금리…3년물 연 3.736%(종합)</a></td></tr><tr><td class="d">Tue, 17 Nov</td><td class="d">글로벌이코노믹</td><td><a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxOVUxFQXFZQ0pheFE4ZjlCN1NQd0ItREJ2ZFpVSHRtVnFqTW9OdzA5UDJhNkREOV9Md3gyTklPTU9pTHBlbGZKYTk0dW5FdWhyZVZ0RWdrcTVpanNfU3FVZm1hOTdubWloUnJMRGdkSWxySE9oRDFhUUdkaERKcFN3NVNjdFhqcGg4?oc=5" target="_blank" rel="noopener nofollow">美 국채금리 혼조…12월 빅스텝 가능성 4%</a></td></tr><tr><td class="d">Wed, 18 Nov</td><td class="d">연합인포맥스</td><td><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTFBpV3NoZDNiUGhPcnA4SlhBaDVFTXNGcWpaRi1mdGZRdV9ZMk0zSG5neDBpU2hxWTRWcTUtUU5LeGh2SXlnNnl6bnRzelZ6MEdBUXNvMTIyNDJOcDY2M2xTNFpPZGZEQUhIQTdnODNBSzc?oc=5" target="_blank" rel="noopener nofollow">나스닥100 선물, 엔비디아 호실적에 반등…美 국채금리↑</a></td></tr><tr><td class="d">Tue, 17 Nov</td><td class="d">한국경제</td><td><a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE1rd056clhrVXI0TXg1bzI3clRYeWlTeWpqd29neXo1cmlEMGhCMWVLY0lqUVc2X05xeHE5WnhlRjZid19uZ3hIMEFMcldjbVRoc1Q5ZG1NRm9yUQ?oc=5" target="_blank" rel="noopener nofollow">금값 1년 만에 최저…美 국채금리·달러 강세 직격</a></td></tr><tr><td class="d">Fri, 30 Oct</td><td class="d">조선일보</td><td><a href="https://news.google.com/rss/articles/CBMiiwFBVV95cUxPOC10MVpkOWRaRnJoV2d6djRNRkY3aVNCZW81UXlub1VwbUFHcVhPRk1QXy1Ld1hVLUFFUmtTY2JCM0dWakFrdUxkN2MteEY2QkZWeDJoaUNDMnNSc2lIbGJQeHktMkJIeHo5V1ZNZ3ltNkZobUY4U1Rla3JjRXdISmdiV0pIN1dNY0Vr?oc=5" target="_blank" rel="noopener nofollow">미국 국채 금리 5%대…은퇴 자금으로 매수해야 할까?</a></td></tr><tr><td class="d">Mon, 16 Nov</td><td class="d">Investing.com 한국어</td><td><a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1XYjhMWTZNaHRUZXpNdENfVUhMaTJ4dHlFdlg1LTNDZEFDa2hwYUYyTEZYM3NrdWpnaDJWWmVrS201YWpFNWV1anRDendkcko5STJNOFlZM0N2VTN6cDdZMUg5bG01T2s?oc=5" target="_blank" rel="noopener nofollow">미 국채 금리, 1개월 최고치 부근서 숨 고르기…연준 신호 주시</a></td></tr></tbody></table></div><p class="cap">해외: 「US Treasury yields」 로 찾았다. 이 글의 소재가 외국이라 함께 본다.</p><div class="tblwrap"><table><tbody><tr><td class="d">Wed, 18 Nov</td><td class="d">CNBC</td><td><a href="https://news.google.com/rss/articles/CBMib0FVX3lxTE9Hc0tPVG9tRHRYTVBHa2ZvTWQ2ODQ4NTJONXdHLTU4dGJmVjNvMTRFLWpDNG1OdmVIWk5INUxFV2V0dzZpNDUxWWVDNi1XVGtxa19jYkQ0OEFLeTJnQkJLOGxCeExfbUNmWVhtWkh3Y9IBdEFVX3lxTE1OTTltQng1Ukh2QnI2TkdkUGI5VWpLYi1Nb0VDS1A2d0xyOFpZTHN4dnIwbUlRS09sZWlTY1gzNkxJYVpqdWEteW5lbjJTZW5neXRGZkpWbEc0VEwyTkZDVVJUNlRjb0lPVkVKMGpNZ3FvdTFP?oc=5" target="_blank" rel="noopener nofollow">Treasury yields hold steady as investors look ahead to Fed minutes</a></td></tr><tr><td class="d">Tue, 17 Nov</td><td class="d">WSJ</td><td><a href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxQTWhaSXdja0FJbTdibG5fb3BEQWpTMzNmbTVUNkhtN2haanZFaWxtd3EzNVJUa2tkcW12NUhHMVRiUkhydS02b1JEeWphTEdRRHVUVjZZdzJnLVo5RE84d3B1NmJIYTZfWmpwMXVHSUlzSm9ra05ILTg3dUE1bHo3dUNCWU5Fbm1PSHJhek93N0JxMURmdUc5c3JwbUwyTG93TGJNbFJhX0R4UzctRVpiaTcxek16MnFRX09ocjhQWDJqNE0?oc=5" target="_blank" rel="noopener nofollow">U.S. Treasury, Eurozone Bond Yields Edge Lower</a></td></tr><tr><td class="d">Tue, 17 Nov</td><td class="d">CNBC</td><td><a href="https://news.google.com/rss/articles/CBMid0FVX3lxTE4xcWR1OGh2RVFmcDRsR1JtUDJUVFhqWFVjQ3R2V1ZjSFpqWmNtRXQweHFac0UxYllNRzJ2akQ0R2Q3dTFpTkhGeWFMS3d4MFNIX1pMWW5oUWxyQzh2bV8zcG91MlVCNm5kNlVXN3dmMG1pVWYycHFR0gF8QVVfeXFMTlpoUmZfei1Qbjl3OU9tR3A4MmlvbXNIR3FXa1JaRW5CMm5qQmgwcVBRMlFGa1BFc243bG5vR1hJVjBhYVJvMDVmNmstX2M3ME93cjZUbXc5dE5IWHJ5bndwRlJOLUNBTDBEY08tTUVMdG12c0VpemV3VUQtSw?oc=5" target="_blank" rel="noopener nofollow">Treasury yields moderate as investors parse retail sales data</a></td></tr><tr><td class="d">Mon, 16 Nov</td><td class="d">WSJ</td><td><a href="https://news.google.com/rss/articles/CBMisAFBVV95cUxPT0dsM2ttY3ctRTRCZzZPRzE4aG1RNzBCeUQzUEFRbGk1VzRqZGF4Z2J6NFFXVExyX0xROFU1bWFGc3U5ZXpWR21YQmh6S096RXVFS25wcjY4QmxDTUJhdkh5eG51UjVrRVlfZHBpX0pKZkJMOFI4eVVvV1BvSWxIOWQ3aFZId2xOcXJXeGI2SlZvd0RqUUhzT2NVck1jQ3VKLUNXSEFaYXhuNzVtbm1vaQ?oc=5" target="_blank" rel="noopener nofollow">Treasury Yields Fall, German Bunds’ Tick Higher</a></td></tr><tr><td class="d">Tue, 29 Sep</td><td class="d">Financial Times</td><td><a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxOc3ZpSzBpNDlDRVpTcFpkQVFuRXFTdEJKQWdrU1RkVkQ4eWxRY3UxYS1PeTBCaGQwZmNMOUdTcU1WeC1SOGp2OG1fU2VRUTBMSFVTd1ZDRHJybnlIcnZ1bW1YM3dqazluakIxS0h0VGFMUWZwTXJTaURtaDB3R1dNNkpUM3A?oc=5" target="_blank" rel="noopener nofollow">US 30-year Treasury yield hits highest since 2002</a></td></tr><tr><td class="d">Thu, 24 Sep</td><td class="d">Axios</td><td><a href="https://news.google.com/rss/articles/CBMickFVX3lxTE9KR09CcUNkLXdlajBEdjVCWWlmLVo1aWVDYXlJbkhQTkFKcUFnQXQwUXphazNFOVZUQWpNcWNuLTZxU2plMHcwT1RfcFhvd2FQR2ZwOUdEa2NyRWlpRnVfdGVDYXVBcjh3YkVVSWJhdGd6UQ?oc=5" target="_blank" rel="noopener nofollow">Why Treasury yields are ripping higher</a></td></tr></tbody></table></div><p class="cap">출처 구글 뉴스 · 2026-11-18 기준. 뉴스는 이 글의 분석과 별개이며, 내용이 서로 다를 수 있다.</p></div><!--TOPICNEWS:END--><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="rates-century.html">미국 금리 100년</a> 여기서 배운 세 층으로 100년 궤적을 읽는 페이지다. 금본위제 이탈 2번이 기대인플레를 어떻게 움직였는지가 보인다.</p><p><a href="rates-crashes.html">금리 5%와 공황</a> 여기서 배운 '금리의 세 층'으로 실제 73년 데이터를 검증한 것이 그 페이지이다.</p><p><a href="fed-kospi.html">연준 기준금리와 코스피</a> 기초를 마쳤다면: 기준금리와 코스피 45년, 그리고 이야기꾼 3가설 검증.</p></div><!--RELATED:END--><!--GLOSSARY:BEGIN--><style id="glocss">.glo{margin:34px 0 8px}.glo h3{font-size:1.02rem;margin:0 0 12px}.glo dl{margin:0;font-size:.9rem;line-height:1.62}.glo dt{font-weight:800;margin-top:10px}.glo dd{margin:2px 0 0 0;color:var(--text-secondary,#555)}</style><div class="glo"><h3>용어 설명</h3><dl><dt>추세</dt><dd>가격이 한 방향으로 꾸준히 움직이는 것. 중간에 등락이 있어도 전체로 위를 향하면 상승 추세다. 보통 이동평균선이 상승하는지 하락하는지로 판단한다.</dd><dt>10년물</dt><dd>만기가 10년인 국채. 정부가 10년 뒤에 상환하기로 하고 발행한 채권이고, 그 금리가 '10년물 금리'다. 주택담보대출 같은 장기 금리의 기준이 되어 세계에서 가장 많이 인용된다.</dd><dt>회사채</dt><dd>기업이 자금을 조달하려고 발행한 채권. 국가보다 부도 위험이 커서 국채보다 금리가 높다. Aaa 는 신용평가사 무디스가 매기는 가장 높은 등급이다.</dd><dt>ISM</dt><dd>Institute for Supply Management(미국 공급관리협회)의 제조업 구매관리자지수(PMI). 구매 담당자에게 '지난달보다 나아졌나'를 묻는 설문이라 50이 기준이고 위면 확장, 아래면 위축이다. 설문이라 주가가 섞이지 않는다. 계절조정 값은 매년 초 수정된다.</dd><dt>기준금리</dt><dd>중앙은행이 정하는 초단기 금리. 미국의 연준 기준금리(federal funds rate)가 세계 금리의 기준이 된다.</dd><dt>10년물 국채금리</dt><dd>시장이 정하는 장기 금리. 이 사이트의 시대 구분(인플레 시대·디플레 시대)은 미국 10년물 국채금리의 사상 최고(1981년 9월)와 사상 최저(2020년 7월)로 구분한다.</dd><dt>기간 프리미엄</dt><dd>장기채를 오래 보유하는 위험에 붙는 추가 금리. 물가·성장이 조용한데 금리가 상승하면 이 층이 움직인 것이다.</dd><dt>BEI</dt><dd>Break-Even Inflation(기대 인플레이션). 명목 국채 금리에서 물가연동채 금리를 뺀 값. "시장이 앞으로 물가가 이만큼 상승할 것으로 보고 있다"는 뜻이다.</dd><dt>QE·QT</dt><dd>QE(양적완화)는 연준이 채권을 매입해 유동성을 공급하는 것이다. QT(양적긴축)는 만기 채권을 재투자하지 않아 유동성을 흡수하는 것이다.</dd></dl><p style="font-size:.8rem;color:var(--text-secondary,#777);margin-top:12px">이 글에 나온 용어만 실었다.</p></div><!--GLOSSARY:END--></div>
 <footer><p>본 자료는 정보 제공·교육 목적이며 투자 권유가 아니다.
 나는 투자 전문가가 아니며, 투자의 최종 판단과 책임은 투자자 본인에게 있다.</p></footer>
 
