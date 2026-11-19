@@ -504,7 +504,30 @@ h2[id],h3[id],[id]:target{scroll-margin-top:92px}
 .ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
 .ptoc a:hover{border-bottom-color:var(--text-secondary)}
 @media(min-width:900px){.ptoc ol{columns:2;column-gap:30px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*//* PAPER:BEGIN */
+/*TOCCSS:END*/</style><link rel="stylesheet" href="vendor/fonts.css"><style id="RC">
+/* ── 랠리 차트 (scripts/lib/rally_chart.py) — kospi-dotcom 첫 차트의 정본 ── */
+html.theme-light .rc{--rc-accent:#B7791F;--rc-band:rgba(183,121,31,0.07);--rc-grid:rgba(0,0,0,0.06);--rc-neg:#D62839;--rc-pos:#0F8A53;
+  --rc-text:#14171C;--rc-text2:#697180;--rc-surface:#FFFFFF}
+html.theme-dark .rc{--rc-accent:#F0B429;--rc-band:rgba(240,180,41,0.055);--rc-grid:rgba(255,255,255,0.05);--rc-neg:#FF4D5E;--rc-pos:#2FBF71;
+  --rc-text:#E9ECEF;--rc-text2:#8b929c;--rc-surface:#111317}
+.rc .rc-box{position:relative;height:min(60vh,540px);min-height:420px;max-width:var(--w-chart,1100px);margin-left:auto;margin-right:auto}
+@media (max-width:900px){.rc .rc-box{height:400px}}
+@media print{.rc .rc-box{height:440px}}
+
+/* ── 랠리 차트 그릇 — kospi-dotcom 페이지의 .panel · .rng · .srcline 꼴 (scripts/lib/rally_chart.py) ── */
+.rc.panel{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:30px 32px 26px;margin:18px 0 26px}
+.rc .panel-head{display:flex;justify-content:space-between;align-items:flex-end;gap:22px;flex-wrap:wrap;margin-bottom:22px}
+.rc .panel-head h3{margin:0;font-size:1.05rem;font-weight:800;line-height:1.45}
+.rc .panel-head p{color:var(--text-secondary);font-size:.95rem;margin-top:6px;max-width:640px}
+.rc .rng{display:flex;gap:8px;flex-wrap:wrap}
+.rc .rng:empty{display:none}
+.rc .rng button{font-family:inherit;font-size:13.5px;font-weight:600;padding:9px 15px;border-radius:10px;border:1px solid var(--border);background:transparent;color:var(--text-secondary);cursor:pointer;transition:all .18s}
+.rc .rng button.on{background:var(--accent);border-color:var(--accent);color:var(--onAccent)}
+.rc p.note:empty{display:none}
+.rc .srcline{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:14px;padding-top:13px;border-top:1px dashed var(--border);font-size:12.5px;color:var(--text-secondary);line-height:1.65}
+.rc .srcline .lbl{font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:11px;color:var(--text-secondary)}
+@media (max-width:640px){.rc.panel{padding:22px 18px 20px}}
+/* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
 :root{
@@ -832,7 +855,12 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style><link rel="stylesheet" href="vendor/fonts.css"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
+/* PAPER:END */</style>
+<script src="vendor/chart-4.4.7.umd.min.js"></script>
+<!-- CHARTTHEME:BEGIN -->
+<script src="chart-theme.js?v=78def56d"></script>
+<!-- CHARTTHEME:END -->
+<!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-watch.html">바닥 추적</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="macro-timeline.html">거시 이벤트 연대기</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="minervini-x.html">마크 미너비니 X 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-psk-holdings.html">피에스케이홀딩스</a><a href="stock-samsung-sdi.html">삼성SDI</a><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-nhn.html">NHN</a><a href="stock-kolmar.html">한국콜마</a><a href="stock-cosmax.html">코스맥스</a><a href="stock-pharmaresearch.html">파마리서치</a><a href="stock-jyp.html">JYP Ent.</a><a href="stock-sm-ent.html">에스엠</a><a href="stock-yg-ent.html">와이지엔터테인먼트</a></div></div><div class="site-group"><button class="here" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a class="here" href="marks.html">하워드 막스의 방법론</a><a href="marks-glossary.html">사이클 용어사전</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a><a href="cycle-rope.html">사이클과 규칙</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><span class="nav-h sub">시장 국면</span><a href="kosdaq-seasonality.html">해와 달의 코스닥</a><a href="kospi-bottom.html">코스피 바닥 판별</a><a href="sp500-ftd.html">S&P 500 팔로스루 데이</a><a href="kospi-ftd.html">팔로스루 데이</a><a href="kospi-panics.html">코스피 역대 공황</a><a href="rally-angle.html">상승 각도</a><a href="kospi-seasonality-down.html">해와 달의 코스피 · 역편</a><a href="kospi-drivers.html">코스피 선행 변수</a><a href="kospi-seasonality.html">해와 달의 코스피</a><a href="breadth-concentration.html">신고가 쏠림</a><a href="kospi-analog.html">닮은 과거</a><a href="audition-history.html">오디션 히스토리</a><a href="disparity-archive.html">두 버블의 이격도</a><a href="stage-analysis.html">와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리</a><span class="nav-h sub">신용과 청산</span><a href="credit-lag.html">미 은행 대출 태도와 가산금리</a><a href="us-credit-spread.html">미국 신용스프레드</a><a href="deleveraging.html">강제청산</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="sentiment.html">빚과 현금</a><span class="nav-h sub">수급과 폭락</span><a href="flow-quadrant.html">개인 수급 사분면</a><a href="foreign-flow.html">외국인 수급</a><a href="flow-extremes.html">개인과 외국인의 대량 매매</a><a href="flow-crashes.html">폭락의 구조</a><span class="nav-h sub">금리와 통화</span><a href="rate-crash-primer.html">금리-공황 프로세스 읽기</a><a href="nikkei-rates.html">닛케이와 미국 금리</a><a href="kospi-spx-gap.html">코스피와 S&P 500</a><a href="rate-crash-process.html">금리-공황 프로세스</a><a href="gold-rates.html">금리와 금값</a><a href="treasury-trust.html">미국 국채 바이백</a><a href="inflation-playbook.html">인플레 시대의 자산</a><a href="rates-century.html">미국 금리 100년</a><a href="liquidity.html">미국 유동성</a><a href="fed-kospi.html">연준 기준금리와 코스피</a><a href="rates-101.html">금리 기초</a><a href="rates-crashes.html">금리 5%와 공황</a><a href="dollar-kospi.html">달러와 코스피</a><span class="nav-h sub">경기와 수출</span><a href="jp-cci-kospi.html">일본 소비심리와 코스피</a><a href="us-elections.html">미국 선거와 증시</a><a href="export-kospi.html">수출과 코스피</a><a href="cli-kospi.html">OECD CLI 와 코스피</a><a href="ism-kospi.html">ISM 과 코스피</a><a href="jeoji-kospi.html">제오지산수</a><span class="nav-h sub">개별 종목</span><a href="memory-price.html">D램 가격과 삼성전자</a><a href="leadlag.html">하이닉스의 선행과 후행</a><a href="samsung-long.html">삼성전자 27년</a></div></div><div class="site-group"><button class="" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 153계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a href="data-kr-rates.html">한국 금리</a><a href="data-us-market.html">미국 시장</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a href="data-fx.html">환율·원자재·암호</a><a href="data-macro.html">재정·거시</a><a href="data-world.html">세계 증시</a></div></div><div class="site-srch"><a class="srch-nav" href="#search" role="button">검색</a></div><!-- NAV:END --></nav>
@@ -861,6 +889,188 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 <div class="kbp"><div class="s">현재 위치를 안다</div><div><p>막스의 출발점은 거시적 미래를 알 수 없다는 확신이다. 남보다 더 잘 아는 사람이 거의 없다. 거시 예측으로 오래 이긴 투자자도 없다.</p><p>그의 말로는 이렇다. 「우리가 어디로 가고 있는지는 절대 알 수 없지만, 우리의 현재 위치에 대해서는 더 잘 알아야 한다.」(18장, 원문 285쪽)</p></div></div>
 <div class="kbp"><div class="s">병 속을 아는 사람</div><div><p>그렇다고 아무것도 모르는 것은 아니다. 병에 검은 공 70개와 흰 공 30개가 있다고 하자. 이것을 아는 사람도 다음 공의 색은 모른다. 그래도 그는 우위가 있다.</p><p>그의 문장으로는 이렇다. 「뛰어난 투자자들은 다른 사람들처럼 미래에 무슨 일이 일어날지 정확히 알 수는 없어도 미래의 경향에 대해 평균 이상의 이해를 갖고 있다.」(18장, 원문 33쪽)</p></div></div>
 <div class="kbp"><div class="s">위치가 확률을 바꾼다</div><div><p>위치가 중요한 이유는 확률이다. 「사이클 안의 포지션이 바뀌면 확률도 변한다.」(원문 40쪽)</p><p>사이클의 위치가 유리하면 다음 1년의 수익률 분포가 통째로 오른쪽으로 옮겨 간다. 불리하면 왼쪽으로 옮겨 간다. 다음 공의 색은 여전히 모른다. 그러나 병 속을 아는 사람이 이긴다.</p></div></div>
+<div class="panel rc">
+      <div class="panel-head">
+        <div>
+          <h3>위치가 확률을 바꾼다: 다음 1년 수익률의 분포가 통째로 옮겨 간다</h3>
+          <p>가로는 다음 1년 수익률, 세로는 그 수익률이 나올 가능성이다. 사이클의 위치가 유리하면 분포가 오른쪽으로 옮겨 간다. 불리하면 왼쪽으로 옮겨 간다. 다음 공의 색은 어느 쪽이든 모른다.</p>
+        </div>
+        <div class="rng" role="group" aria-label="기간 선택">
+        </div>
+      </div>
+      <div class="chart-container rc-box" role="img" aria-label="위치가 확률을 바꾼다: 다음 1년 수익률의 분포가 통째로 옮겨 간다">
+        <canvas id="mPos"></canvas>
+      </div>
+      <p class="note" id="mPos-note"></p>
+      <div class="srcline">
+        <span class="lbl">출처</span>
+        <span>개념도 · 막스의 그림을 따른 것 · 평균(중립 +8% · 유리 +18% · 불리 −2%)과 퍼짐(표준편차 15%)은 예시다</span>
+      </div>
+    </div>
+<script>
+/* 랠리 차트 — scripts/lib/rally_chart.py (kospi-dotcom-1998-2000 첫 차트의 정본 그리기) */
+window.RC = window.RC || {};
+(function(){
+  var C = {"id": "mPos", "series": [["-40%", 0.02], ["-38%", 0.02], ["-36%", 0.04], ["-34%", 0.05], ["-32%", 0.08], ["-30%", 0.11], ["-28%", 0.15], ["-26%", 0.2], ["-24%", 0.27], ["-22%", 0.36], ["-20%", 0.47], ["-18%", 0.59], ["-16%", 0.74], ["-14%", 0.91], ["-12%", 1.09], ["-10%", 1.29], ["-8%", 1.51], ["-6%", 1.72], ["-4%", 1.93], ["-2%", 2.13], ["0%", 2.31], ["+2%", 2.46], ["+4%", 2.57], ["+6%", 2.64], ["+8%", 2.66], ["+10%", 2.64], ["+12%", 2.57], ["+14%", 2.46], ["+16%", 2.31], ["+18%", 2.13], ["+20%", 1.93], ["+22%", 1.72], ["+24%", 1.51], ["+26%", 1.29], ["+28%", 1.09], ["+30%", 0.91], ["+32%", 0.74], ["+34%", 0.59], ["+36%", 0.47], ["+38%", 0.36], ["+40%", 0.27], ["+42%", 0.2], ["+44%", 0.15], ["+46%", 0.11], ["+48%", 0.08], ["+50%", 0.05], ["+52%", 0.04], ["+54%", 0.02], ["+56%", 0.02], ["+58%", 0.01], ["+60%", 0.01]], "peak": 2.659615202676218, "marks": {"+8%": {"t": "중립", "dy": -14, "c": "acc"}}, "ranges": {"all": {"from": "-40%", "to": "+60%", "note": ""}}, "bandFrom": null, "bandTo": null, "bandLabel": "", "label": "가능성", "tip": "가능성", "start": "all", "suggestedMin": 0, "extra": [{"label": "유리한 위치", "data": [0.0, 0.0, 0.0, 0.01, 0.01, 0.02, 0.02, 0.04, 0.05, 0.08, 0.11, 0.15, 0.2, 0.27, 0.36, 0.47, 0.59, 0.74, 0.91, 1.09, 1.29, 1.51, 1.72, 1.93, 2.13, 2.31, 2.46, 2.57, 2.64, 2.66, 2.64, 2.57, 2.46, 2.31, 2.13, 1.93, 1.72, 1.51, 1.29, 1.09, 0.91, 0.74, 0.59, 0.47, 0.36, 0.27, 0.2, 0.15, 0.11, 0.08, 0.05], "c": "pos", "dash": [6, 4], "w": 2.2, "end": "유리한 위치 → 오른쪽", "at": "+30%", "dy": -10}, {"label": "불리한 위치", "data": [0.11, 0.15, 0.2, 0.27, 0.36, 0.47, 0.59, 0.74, 0.91, 1.09, 1.29, 1.51, 1.72, 1.93, 2.13, 2.31, 2.46, 2.57, 2.64, 2.66, 2.64, 2.57, 2.46, 2.31, 2.13, 1.93, 1.72, 1.51, 1.29, 1.09, 0.91, 0.74, 0.59, 0.47, 0.36, 0.27, 0.2, 0.15, 0.11, 0.08, 0.05, 0.04, 0.02, 0.02, 0.01, 0.01, 0.0, 0.0, 0.0, 0.0, 0.0], "c": "neg", "dash": [6, 4], "w": 2.2, "end": "← 불리한 위치 → 왼쪽", "at": "-16%", "dy": -10}], "ylabel": "가능성", "ctChips": true};
+  var SERIES = C.series, PEAK = C.peak, MARKS = C.marks, RANGES = C.ranges;
+  var BAND_FROM = C.bandFrom, BAND_TO = C.bandTo;
+  function cv(n){ var el=document.getElementById(C.id); var r=(el&&el.closest('.rc'))||document.documentElement;
+    return getComputedStyle(r).getPropertyValue(n).trim(); }
+  function hexA(h,a){
+    h=(h||'').trim(); if(h.charAt(0)!=='#') return h;
+    if(h.length===4) h='#'+h[1]+h[1]+h[2]+h[2]+h[3]+h[3];
+    var n=parseInt(h.slice(1),16);
+    return 'rgba('+((n>>16)&255)+','+((n>>8)&255)+','+(n&255)+','+a+')';
+  }
+
+  var anno = {
+    id:'anno',
+    beforeDatasetsDraw:function(chart){
+      var xs=chart.scales.x, ys=chart.scales.y, ctx=chart.ctx;
+      if(!xs||!ys) return;
+      var labs=chart.data.labels;
+      if(C.bands){ C.bands.forEach(function(b){
+        var j1=labs.indexOf(b[0]), j2=labs.indexOf(b[1]); if(j1<0||j2<0) return;
+        ctx.save(); ctx.fillStyle=cv('--rc-band');
+        var a1=xs.getPixelForValue(j1), a2=xs.getPixelForValue(j2);
+        ctx.fillRect(a1, ys.top, a2-a1, ys.bottom-ys.top);
+        ctx.strokeStyle=hexA(cv('--rc-accent'),0.28); ctx.setLineDash([4,4]); ctx.lineWidth=1;
+        ctx.beginPath(); ctx.moveTo(a1,ys.top); ctx.lineTo(a1,ys.bottom); ctx.moveTo(a2,ys.top); ctx.lineTo(a2,ys.bottom); ctx.stroke();
+        ctx.setLineDash([]); ctx.fillStyle=hexA(cv('--rc-accent'),0.85); ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='center';
+        ctx.fillText(b[2], (a1+a2)/2, ys.top+16); ctx.restore(); }); }
+      var i1=labs.indexOf(BAND_FROM), i2=labs.indexOf(BAND_TO);
+      if(i1<0||i2<0) return;
+      ctx.save();
+      ctx.fillStyle=cv('--rc-band');
+      var x1=xs.getPixelForValue(i1), x2=xs.getPixelForValue(i2);
+      ctx.fillRect(x1, ys.top, x2-x1, ys.bottom-ys.top);
+      ctx.strokeStyle=hexA(cv('--rc-accent'),0.28); ctx.setLineDash([4,4]); ctx.lineWidth=1;
+      ctx.beginPath(); ctx.moveTo(x1,ys.top); ctx.lineTo(x1,ys.bottom);
+      ctx.moveTo(x2,ys.top); ctx.lineTo(x2,ys.bottom); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle=hexA(cv('--rc-accent'),0.85); ctx.font='700 11.5px Inter, sans-serif'; ctx.textAlign='center';
+      ctx.fillText(C.bandLabel, (x1+x2)/2, ys.top+16);
+      ctx.restore();
+    },
+    afterDatasetsDraw:function(chart){
+      var xs=chart.scales.x, ys=chart.scales.y, ctx=chart.ctx;
+      if(!xs||!ys) return;
+      var labs=chart.data.labels, data=chart.data.datasets[0].data;
+      var accent=cv('--rc-accent'), neg=cv('--rc-neg'), pos=cv('--rc-pos'), txt=cv('--rc-text2'), surf=cv('--rc-surface');
+      var narrow = (xs.width < 620);
+      function colOf(k){ return k==='acc'?accent : k==='neg'?neg : k==='pos'?pos : txt; }
+      if(C.hlines){ C.hlines.forEach(function(h){
+        var y=ys.getPixelForValue(h.v); if(y<ys.top||y>ys.bottom) return;
+        var a=h.frm?labs.indexOf(h.frm):0, b=h.to?labs.indexOf(h.to):labs.length-1;
+        if(h.frm&&a<0) a=0; if(h.to&&b<0) b=labs.length-1;
+        var xa=xs.getPixelForValue(a), xb=xs.getPixelForValue(b), col=colOf(h.c);
+        ctx.save(); ctx.strokeStyle=col; ctx.lineWidth=h.w||1.6; ctx.setLineDash(h.dash||[6,4]);
+        ctx.beginPath(); ctx.moveTo(xa,y); ctx.lineTo(xb,y); ctx.stroke(); ctx.setLineDash([]);
+        if(h.t){ ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='right'; ctx.fillStyle=col;
+          ctx.fillText(h.t, xb-2, y+(h.below?15:-6)); }
+        ctx.restore(); }); }
+      if(C.extra){ C.extra.forEach(function(e,k){ if(!e.end) return;
+        var d=chart.data.datasets[k+1].data, j=d.length-1; while(j>0 && (d[j]===null||d[j]===undefined)) j--;
+        if(e.at){ var ja=labs.indexOf(e.at); if(ja>=0 && d[ja]!==null && d[ja]!==undefined) j=ja; }
+        if(j<0||d[j]===null) return;
+        ctx.save(); ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign=e.at?'center':'right'; ctx.fillStyle=colOf(e.c);
+        ctx.fillText(e.end, xs.getPixelForValue(j)-(e.at?0:4), ys.getPixelForValue(d[j])+(e.dy||-8)); ctx.restore(); }); }
+      ctx.save();
+      labs.forEach(function(l,i){
+        var m=MARKS[l]; if(!m) return;
+        var col = m.c==='acc'?accent : m.c==='neg'?neg : m.c==='pos'?pos : txt;
+        var x=xs.getPixelForValue(i), y=ys.getPixelForValue(data[i]);
+        ctx.beginPath(); ctx.arc(x,y,5.5,0,Math.PI*2); ctx.fillStyle=col; ctx.fill();
+        ctx.strokeStyle=surf; ctx.lineWidth=2; ctx.stroke();
+        if(narrow) return;
+        ctx.fillStyle=col; ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif';
+        ctx.textAlign = (i > labs.length*0.82) ? 'right' : (i < labs.length*0.08 ? 'left' : 'center');
+        ctx.fillText(m.t, x, y + m.dy);
+      });
+      ctx.restore();
+    }
+  };
+
+  var chart=null, currentRange=C.start;
+  function buildChart(){
+    if (typeof Chart==='undefined'){ console.error('Chart.js not loaded'); return; }
+    var el=document.getElementById(C.id); if(!el) return;
+    if(chart){ try{chart.destroy();}catch(e){} chart=null; }
+
+    var r=RANGES[currentRange];
+    var i1=0,i2=SERIES.length-1,i;
+    for(i=0;i<SERIES.length;i++){ if(SERIES[i][0]===r.from) i1=i; if(SERIES[i][0]===r.to) i2=i; }
+    var slice=SERIES.slice(i1,i2+1);
+    var labels=slice.map(function(d){return d[0];});
+    var vals=slice.map(function(d){return d[1];});
+    var more=(C.extra||[]).map(function(e){
+      var c0 = e.c==='acc'?cv('--rc-accent') : e.c==='neg'?cv('--rc-neg') : e.c==='pos'?cv('--rc-pos') : cv('--rc-text2');
+      return { label:e.label, data:e.data.slice(i1,i2+1), borderColor:c0, borderWidth:e.w||1.6, borderDash:e.dash||[],
+               stepped:!!e.stepped, tension:e.stepped?0:.3, pointRadius:0, pointHoverRadius:0, fill:false, spanGaps:false }; });
+
+    var text=cv('--rc-text'), tsec=cv('--rc-text2'), grid=cv('--rc-grid'), accent=cv('--rc-accent');
+
+    chart=new Chart(el,{
+      type:'line',
+      plugins:[anno],
+      data:{ labels:labels, datasets:[{
+        label:C.label, data:vals,
+        borderColor:accent, backgroundColor:hexA(accent,0.13),
+        borderWidth:3.2, tension:.3, pointRadius:0, pointHoverRadius:6, fill:true
+      }].concat(more)},
+      options:{
+        responsive:true, maintainAspectRatio:false, ctChips:C.ctChips,
+        layout:{ padding:{ top:30, right:16, bottom:4, left:4 } },
+        animation:{ duration:1000, easing:'easeOutQuart' },
+        interaction:{ mode:'index', intersect:false },
+        plugins:{
+          legend:{ display:false },
+          tooltip:{ enabled:true, padding:12, cornerRadius:8,
+            titleFont:{size:13,family:'Inter'}, bodyFont:{size:13,family:'Noto Sans KR'},
+            callbacks:{
+              label:function(c){
+                if(c.datasetIndex>0) return c.parsed.y===null ? '' : ' '+c.dataset.label+' '+c.parsed.y.toLocaleString(undefined,{maximumFractionDigits:2})+(C.unit||'');
+                if(C.ref){ var q=(c.parsed.y/C.ref-1)*100;
+                  return ' '+C.tip+' '+c.parsed.y.toLocaleString(undefined,{maximumFractionDigits:2})+'  ('+C.refLabel+' 대비 '+(q>=0?'+':'')+q.toFixed(1)+'%)'; }
+                if(C.unit) return ' '+C.tip+' '+(c.parsed.y>0?'+':'')+c.parsed.y.toFixed(2)+C.unit;
+                return ' '+C.tip+' '+c.parsed.y.toLocaleString()+'  ('+(C.peakLabel||'정점 대비')+' '+(c.parsed.y/PEAK*100).toFixed(1)+'%)';
+              },
+              afterLabel:function(c){ if(c.datasetIndex>0) return ''; var m=MARKS[c.label]; return m ? ' ▸ '+m.t.replace(/\s\d[\d,]*.*$/,'') : ''; }
+            } }
+        },
+        scales:{
+          x:{ ticks:{color:tsec,font:{family:'Inter',size:11.5},maxRotation:0,autoSkip:true,maxTicksLimit:12},
+              grid:{color:grid} },
+          y:{ beginAtZero:false, suggestedMin:C.suggestedMin,
+              title:{display:true,text:C.ylabel||C.label,color:tsec,font:{family:'Noto Sans KR',size:13}},
+              ticks:{color:tsec,font:{family:'Inter',size:12},callback:function(v){return v.toLocaleString();}},
+              grid:{color:grid} }
+        }
+      }
+    });
+  }
+
+  function setRange(kind,btn){
+    currentRange=kind;
+    try{ buildChart(); }catch(e){ if(window.console) console.error('buildChart', e); }
+    try{
+      var g=(btn&&btn.closest)?btn.closest('.rng'):null;
+      var bs=g?g.querySelectorAll('button'):[];
+      for(var i=0;i<bs.length;i++) bs[i].classList.remove('on');
+      if(btn&&btn.classList) btn.classList.add('on');
+      var rn=document.getElementById(C.id+'-note');
+      if(rn && RANGES[kind]) rn.innerHTML = RANGES[kind].note;
+    }catch(e){ if(window.console) console.error('setRange ui', e); }
+  }
+
+  RC[C.id] = { build:buildChart, setRange:setRange, chart:function(){ return chart; } };
+  try{ var _n=document.getElementById(C.id+'-note'); if(_n) _n.innerHTML = RANGES[currentRange].note; }catch(e){}
+  try{ new MutationObserver(function(){ buildChart(); }).observe(document.documentElement,{attributes:true,attributeFilter:['class']}); }catch(e){}
+  if(document.readyState==='complete'){ buildChart(); }
+  else { window.addEventListener('load', buildChart); }
+  setTimeout(function(){ if(!chart) buildChart(); }, 400);
+})();
+</script>
 <div class="kbp"><div class="s">시간을 쓸 곳은 3곳</div><div><p>시간을 쓸 곳은 3곳이다. 1) 알기 쉬운 것(산업과 기업)을 남보다 더 안다. 2) 그 값을 안다. 3) 지금 속한 환경을 이해하고 그에 맞춰 포트폴리오의 공격과 방어를 조정한다.</p><p>앞의 2가지가 가치투자이고 3번째가 이 책이다. 「키워드는 '조정'이다.」(원문 30쪽) 「싸게 샀을 때는 공격적이어야 하지만 비싸게 샀을 때는 후퇴해야 한다.」(원문 30쪽, 2017년 9월 메모 「또다시?」)</p></div></div>
 <div class="kbp"><div class="s">예측을 수반하지 않는다</div><div><p>이 사이트가 전망을 쓰지 않고 예상을 쓰는 규칙이 여기와 같다. 13장의 한 문장이 그것을 가장 짧게 말한다. 「이 모든 것들이 중요하지만 그 어떤 것도 예측을 수반하지 않는다.」(13장)</p></div></div>
 
@@ -869,6 +1079,188 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 <div class="kbp"><div class="s">추세선과 그 둘레의 선</div><div><p>고객이 지금 어디쯤인지 물으면 막스는 종이에 2개의 선을 그린다. 왼쪽 아래에서 오른쪽 위로 가는 추세선과 그 둘레를 오르내리는 선이다. 「사이클은 오르내리고 시계추는 좌우로 흔들린다.」(원문 47쪽)</p><p>그 그림에 마크 트웨인의 말을 붙인다. 역사는 그대로 반복되지 않지만 그 흐름은 반복된다. 막스는 그가 진짜 그 말을 했다는 증거는 없다고 덧붙인다.</p></div></div>
 <div class="kbp"><div class="s">중간을 지나 반대쪽 극단까지</div><div><p>평균으로 돌아가는 힘은 강하다. 그러나 그것은 이야기의 절반이다. 「사이클은 가운데 지점에 오래 머무르지 않는다.」(원문 51~52쪽)</p><p>극단에서 돌아온 움직임은 중간을 지나 반대쪽 극단까지 간다. 시장은 저평가에서 적정 가격으로 와서 거기서 멈추는 일이 거의 없다.</p></div></div>
 <div class="kbp"><div class="s">멀리 갈수록 되돌림이 격렬하다</div><div><p>그래서 멀리 갈수록 되돌림이 격렬하다. 「상승 뒤에는 단순한 조정이 따라오고, 강세 시장 뒤에는 약세 시장이 온다. 하지만 붐과 거품 뒤에는 훨씬 더 해로운 파멸과 폭락, 패닉이 따라온다.」(원문 52~53쪽)</p></div></div>
+<div class="panel rc">
+      <div class="panel-head">
+        <div>
+          <h3>사이클은 평균에서 멈추지 않는다: 코스피는 24개월 평균을 지나 반대쪽 극단까지 간다</h3>
+          <p>코스피 월말 종가가 24개월 이동평균보다 몇 % 위나 아래에 있는지를 1991년부터 그렸다. 0선(평균)으로 돌아온 코스피는 거기서 멈추지 않았다. 대부분 반대쪽으로 크게 넘어갔다.</p>
+        </div>
+        <div class="rng" role="group" aria-label="기간 선택">
+        </div>
+      </div>
+      <div class="chart-container rc-box" role="img" aria-label="사이클은 평균에서 멈추지 않는다: 코스피는 24개월 평균을 지나 반대쪽 극단까지 간다">
+        <canvas id="mCycle"></canvas>
+      </div>
+      <p class="note" id="mCycle-note"></p>
+      <div class="srcline">
+        <span class="lbl">출처</span>
+        <span>KRX · 네이버 코스피 일봉(1990~)의 월말 종가로 계산</span>
+      </div>
+    </div>
+<script>
+/* 랠리 차트 — scripts/lib/rally_chart.py (kospi-dotcom-1998-2000 첫 차트의 정본 그리기) */
+window.RC = window.RC || {};
+(function(){
+  var C = {"id": "mCycle", "series": [["1991.12", -12.0], ["1992.01", -0.69], ["1992.02", -9.24], ["1992.03", -8.83], ["1992.04", -6.96], ["1992.05", -12.03], ["1992.06", -14.58], ["1992.07", -20.23], ["1992.08", -11.7], ["1992.09", -18.92], ["1992.10", -2.38], ["1992.11", 5.43], ["1992.12", 7.96], ["1993.01", 6.45], ["1993.02", 2.29], ["1993.03", 6.03], ["1993.04", 14.17], ["1993.05", 17.94], ["1993.06", 16.31], ["1993.07", 13.27], ["1993.08", 3.3], ["1993.09", 11.59], ["1993.10", 16.12], ["1993.11", 24.18], ["1993.12", 30.5], ["1994.01", 40.15], ["1994.02", 33.64], ["1994.03", 24.16], ["1994.04", 27.87], ["1994.05", 29.43], ["1994.06", 25.83], ["1994.07", 22.24], ["1994.08", 21.83], ["1994.09", 31.74], ["1994.10", 35.19], ["1994.11", 28.68], ["1994.12", 20.94], ["1995.01", 7.61], ["1995.02", 1.77], ["1995.03", 5.73], ["1995.04", 0.95], ["1995.05", -1.29], ["1995.06", -0.63], ["1995.07", 2.75], ["1995.08", -0.53], ["1995.09", 5.67], ["1995.10", 5.36], ["1995.11", -1.48], ["1995.12", -6.63], ["1996.01", -6.79], ["1996.02", -9.28], ["1996.03", -7.04], ["1996.04", 3.98], ["1996.05", -4.12], ["1996.06", -12.76], ["1996.07", -11.89], ["1996.08", -15.59], ["1996.09", -13.69], ["1996.10", -15.87], ["1996.11", -18.0], ["1996.12", -25.17], ["1997.01", -20.28], ["1997.02", -20.56], ["1997.03", -19.46], ["1997.04", -15.57], ["1997.05", -8.57], ["1997.06", -9.26], ["1997.07", -10.67], ["1997.08", -13.48], ["1997.09", -18.06], ["1997.10", -38.71], ["1997.11", -45.35], ["1997.12", -48.11], ["1998.01", -20.33], ["1998.02", -20.14], ["1998.03", -29.63], ["1998.04", -36.2], ["1998.05", -47.83], ["1998.06", -51.55], ["1998.07", -42.29], ["1998.08", -46.08], ["1998.09", -44.11], ["1998.10", -25.36], ["1998.11", -14.59], ["1998.12", 7.06], ["1999.01", 9.76], ["1999.02", 1.16], ["1999.03", 20.98], ["1999.04", 46.5], ["1999.05", 43.52], ["1999.06", 70.27], ["1999.07", 83.41], ["1999.08", 74.06], ["1999.09", 52.95], ["1999.10", 48.36], ["1999.11", 69.98], ["1999.12", 67.57], ["2000.01", 50.01], ["2000.02", 29.35], ["2000.03", 31.19], ["2000.04", 8.44], ["2000.05", 6.75], ["2000.06", 16.09], ["2000.07", -2.29], ["2000.08", -6.73], ["2000.09", -18.33], ["2000.10", -31.9], ["2000.11", -32.81], ["2000.12", -33.21], ["2001.01", -18.42], ["2001.02", -23.92], ["2001.03", -30.78], ["2001.04", -22.87], ["2001.05", -17.65], ["2001.06", -18.63], ["2001.07", -24.11], ["2001.08", -21.81], ["2001.09", -29.7], ["2001.10", -19.73], ["2001.11", -1.75], ["2001.12", 8.16], ["2002.01", 18.13], ["2002.02", 29.56], ["2002.03", 41.19], ["2002.04", 31.78], ["2002.05", 24.07], ["2002.06", 16.3], ["2002.07", 12.34], ["2002.08", 14.86], ["2002.09", 0.61], ["2002.10", 1.6], ["2002.11", 10.24], ["2002.12", -5.29], ["2003.01", -10.53], ["2003.02", -13.0], ["2003.03", -19.07], ["2003.04", -9.58], ["2003.05", -4.57], ["2003.06", 0.46], ["2003.07", 5.86], ["2003.08", 11.2], ["2003.09", 0.79], ["2003.10", 11.41], ["2003.11", 12.36], ["2003.12", 13.63], ["2004.01", 18.24], ["2004.02", 22.65], ["2004.03", 22.35], ["2004.04", 19.76], ["2004.05", 11.52], ["2004.06", 8.74], ["2004.07", 1.66], ["2004.08", 10.67], ["2004.09", 13.77], ["2004.10", 12.62], ["2004.11", 17.43], ["2004.12", 18.06], ["2005.01", 20.65], ["2005.02", 27.82], ["2005.03", 19.34], ["2005.04", 10.84], ["2005.05", 16.03], ["2005.06", 18.57], ["2005.07", 28.2], ["2005.08", 23.06], ["2005.09", 35.34], ["2005.10", 26.18], ["2005.11", 38.22], ["2005.12", 43.33], ["2006.01", 42.06], ["2006.02", 36.38], ["2006.03", 32.56], ["2006.04", 35.36], ["2006.05", 23.12], ["2006.06", 18.66], ["2006.07", 16.4], ["2006.08", 18.89], ["2006.09", 18.21], ["2006.10", 15.42], ["2006.11", 18.82], ["2006.12", 16.83], ["2007.01", 9.2], ["2007.02", 12.26], ["2007.03", 13.23], ["2007.04", 17.81], ["2007.05", 26.98], ["2007.06", 27.25], ["2007.07", 37.66], ["2007.08", 30.33], ["2007.09", 32.63], ["2007.10", 37.17], ["2007.11", 24.52], ["2007.12", 22.22], ["2008.01", 4.04], ["2008.02", 8.62], ["2008.03", 7.16], ["2008.04", 13.59], ["2008.05", 13.67], ["2008.06", 1.81], ["2008.07", -3.79], ["2008.08", -11.33], ["2008.09", -13.07], ["2008.10", -32.76], ["2008.11", -34.4], ["2008.12", -30.91], ["2009.01", -28.23], ["2009.02", -33.75], ["2009.03", -24.34], ["2009.04", -13.72], ["2009.05", -11.34], ["2009.06", -10.87], ["2009.07", 0.86], ["2009.08", 3.89], ["2009.09", 10.01], ["2009.10", 5.33], ["2009.11", 4.68], ["2009.12", 13.92], ["2010.01", 8.55], ["2010.02", 8.38], ["2010.03", 15.09], ["2010.04", 18.69], ["2010.05", 12.52], ["2010.06", 16.36], ["2010.07", 19.97], ["2010.08", 17.94], ["2010.09", 25.25], ["2010.10", 23.28], ["2010.11", 21.94], ["2010.12", 28.15], ["2011.01", 26.33], ["2011.02", 15.79], ["2011.03", 23.03], ["2011.04", 25.52], ["2011.05", 20.51], ["2011.06", 16.23], ["2011.07", 16.48], ["2011.08", 1.99], ["2011.09", -4.21], ["2011.10", 2.58], ["2011.11", -1.37], ["2011.12", -2.85], ["2012.01", 3.27], ["2012.02", 6.18], ["2012.03", 4.6], ["2012.04", 2.4], ["2012.05", -5.17], ["2012.06", -4.94], ["2012.07", -3.76], ["2012.08", -2.91], ["2012.09", 1.46], ["2012.10", -2.87], ["2012.11", -1.87], ["2012.12", 1.5], ["2013.01", -0.06], ["2013.02", 3.04], ["2013.03", 2.16], ["2013.04", 0.56], ["2013.05", 2.77], ["2013.06", -3.81], ["2013.07", -0.73], ["2013.08", -0.19], ["2013.09", 2.97], ["2013.10", 4.4], ["2013.11", 4.72], ["2013.12", 2.6], ["2014.01", -0.95], ["2014.02", 1.14], ["2014.03", 1.49], ["2014.04", 0.31], ["2014.05", 1.68], ["2014.06", 1.73], ["2014.07", 5.05], ["2014.08", 4.31], ["2014.09", 1.82], ["2014.10", -1.1], ["2014.11", -0.38], ["2014.12", -3.49], ["2015.01", -1.77], ["2015.02", 0.16], ["2015.03", 2.87], ["2015.04", 6.84], ["2015.05", 5.97], ["2015.06", 3.48], ["2015.07", 1.04], ["2015.08", -3.41], ["2015.09", -2.28], ["2015.10", 1.04], ["2015.11", -0.71], ["2015.12", -2.14], ["2016.01", -4.54], ["2016.02", -4.18], ["2016.03", -0.25], ["2016.04", -0.4], ["2016.05", -0.91], ["2016.06", -1.5], ["2016.07", 0.92], ["2016.08", 1.92], ["2016.09", 2.32], ["2016.10", 0.45], ["2016.11", -0.79], ["2016.12", 1.12], ["2017.01", 2.92], ["2017.02", 3.89], ["2017.03", 7.04], ["2017.04", 9.1], ["2017.05", 15.57], ["2017.06", 16.99], ["2017.07", 16.64], ["2017.08", 13.75], ["2017.09", 14.27], ["2017.10", 19.25], ["2017.11", 15.92], ["2017.12", 14.38], ["2018.01", 17.48], ["2018.02", 10.04], ["2018.03", 9.94], ["2018.04", 11.97], ["2018.05", 6.99], ["2018.06", 2.04], ["2018.07", 0.18], ["2018.08", 0.86], ["2018.09", 1.18], ["2018.10", -12.38], ["2018.11", -9.67], ["2018.12", -12.09], ["2019.01", -5.27], ["2019.02", -5.85], ["2019.03", -8.17], ["2019.04", -5.47], ["2019.05", -11.93], ["2019.06", -7.66], ["2019.07", -11.66], ["2019.08", -13.51], ["2019.09", -8.77], ["2019.10", -7.11], ["2019.11", -6.24], ["2019.12", -0.81], ["2020.01", -3.55], ["2020.02", -8.79], ["2020.03", -18.38], ["2020.04", -8.4], ["2020.05", -3.8], ["2020.06", 0.36], ["2020.07", 7.18], ["2020.08", 10.83], ["2020.09", 10.94], ["2020.10", 7.54], ["2020.11", 21.73], ["2020.12", 32.82], ["2021.01", 35.55], ["2021.02", 35.13], ["2021.03", 34.98], ["2021.04", 36.43], ["2021.05", 36.0], ["2021.06", 37.11], ["2021.07", 30.52], ["2021.08", 27.73], ["2021.09", 20.5], ["2021.10", 14.98], ["2021.11", 8.57], ["2021.12", 12.47], ["2022.01", -0.25], ["2022.02", -0.02], ["2022.03", 0.59], ["2022.04", -2.8], ["2022.05", -4.08], ["2022.06", -16.97], ["2022.07", -13.0], ["2022.08", -12.46], ["2022.09", -23.48], ["2022.10", -18.6], ["2022.11", -12.1], ["2022.12", -19.74], ["2023.01", -12.24], ["2023.02", -11.89], ["2023.03", -8.74], ["2023.04", -6.91], ["2023.05", -3.15], ["2023.06", -2.52], ["2023.07", 0.99], ["2023.08", -0.92], ["2023.09", -3.51], ["2023.10", -9.81], ["2023.11", 0.88], ["2023.12", 6.22], ["2024.01", 0.17], ["2024.02", 6.1], ["2024.03", 10.3], ["2024.04", 8.12], ["2024.05", 5.97], ["2024.06", 11.59], ["2024.07", 9.92], ["2024.08", 5.75], ["2024.09", 1.81], ["2024.10", -0.08], ["2024.11", -3.97], ["2024.12", -6.43], ["2025.01", -1.98], ["2025.02", -1.57], ["2025.03", -3.58], ["2025.04", -0.74], ["2025.05", 4.54], ["2025.06", 18.06], ["2025.07", 23.53], ["2025.08", 20.07], ["2025.09", 27.14], ["2025.10", 48.3], ["2025.11", 38.86], ["2025.12", 45.68], ["2026.01", 73.78], ["2026.02", 97.83], ["2026.03", 55.34], ["2026.04", 93.22], ["2026.05", 131.68], ["2026.06", 117.62], ["2026.07", 62.67], ["2026.08", 61.33], ["2026.09", 55.26], ["2026.10", 26.33], ["2026.11", 10.54]], "peak": 131.68066299512887, "marks": {"2026.05": {"t": "2026.05 +132%", "dy": -14, "c": "pos"}, "1999.07": {"t": "1999.07 +83%", "dy": -14, "c": "pos"}, "2005.12": {"t": "2005.12 +43%", "dy": -14, "c": "pos"}, "1998.06": {"t": "1998.06 -52%", "dy": 24, "c": "neg"}, "2008.11": {"t": "2008.11 -34%", "dy": 24, "c": "neg"}, "2000.12": {"t": "2000.12 -33%", "dy": 24, "c": "neg"}, "2026.11": {"t": "지금 +11%", "dy": -14, "c": "acc"}}, "ranges": {"all": {"from": "1991.12", "to": "2026.11", "note": ""}}, "bandFrom": null, "bandTo": null, "bandLabel": "", "label": "24개월 평균 대비", "tip": "24개월 평균 대비", "start": "all", "suggestedMin": -63.54899643248285, "hlines": [{"v": 0, "t": "", "c": "txt", "dash": [2, 4], "w": 1.4}], "unit": "%", "ylabel": "24개월 평균 대비(%)"};
+  var SERIES = C.series, PEAK = C.peak, MARKS = C.marks, RANGES = C.ranges;
+  var BAND_FROM = C.bandFrom, BAND_TO = C.bandTo;
+  function cv(n){ var el=document.getElementById(C.id); var r=(el&&el.closest('.rc'))||document.documentElement;
+    return getComputedStyle(r).getPropertyValue(n).trim(); }
+  function hexA(h,a){
+    h=(h||'').trim(); if(h.charAt(0)!=='#') return h;
+    if(h.length===4) h='#'+h[1]+h[1]+h[2]+h[2]+h[3]+h[3];
+    var n=parseInt(h.slice(1),16);
+    return 'rgba('+((n>>16)&255)+','+((n>>8)&255)+','+(n&255)+','+a+')';
+  }
+
+  var anno = {
+    id:'anno',
+    beforeDatasetsDraw:function(chart){
+      var xs=chart.scales.x, ys=chart.scales.y, ctx=chart.ctx;
+      if(!xs||!ys) return;
+      var labs=chart.data.labels;
+      if(C.bands){ C.bands.forEach(function(b){
+        var j1=labs.indexOf(b[0]), j2=labs.indexOf(b[1]); if(j1<0||j2<0) return;
+        ctx.save(); ctx.fillStyle=cv('--rc-band');
+        var a1=xs.getPixelForValue(j1), a2=xs.getPixelForValue(j2);
+        ctx.fillRect(a1, ys.top, a2-a1, ys.bottom-ys.top);
+        ctx.strokeStyle=hexA(cv('--rc-accent'),0.28); ctx.setLineDash([4,4]); ctx.lineWidth=1;
+        ctx.beginPath(); ctx.moveTo(a1,ys.top); ctx.lineTo(a1,ys.bottom); ctx.moveTo(a2,ys.top); ctx.lineTo(a2,ys.bottom); ctx.stroke();
+        ctx.setLineDash([]); ctx.fillStyle=hexA(cv('--rc-accent'),0.85); ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='center';
+        ctx.fillText(b[2], (a1+a2)/2, ys.top+16); ctx.restore(); }); }
+      var i1=labs.indexOf(BAND_FROM), i2=labs.indexOf(BAND_TO);
+      if(i1<0||i2<0) return;
+      ctx.save();
+      ctx.fillStyle=cv('--rc-band');
+      var x1=xs.getPixelForValue(i1), x2=xs.getPixelForValue(i2);
+      ctx.fillRect(x1, ys.top, x2-x1, ys.bottom-ys.top);
+      ctx.strokeStyle=hexA(cv('--rc-accent'),0.28); ctx.setLineDash([4,4]); ctx.lineWidth=1;
+      ctx.beginPath(); ctx.moveTo(x1,ys.top); ctx.lineTo(x1,ys.bottom);
+      ctx.moveTo(x2,ys.top); ctx.lineTo(x2,ys.bottom); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle=hexA(cv('--rc-accent'),0.85); ctx.font='700 11.5px Inter, sans-serif'; ctx.textAlign='center';
+      ctx.fillText(C.bandLabel, (x1+x2)/2, ys.top+16);
+      ctx.restore();
+    },
+    afterDatasetsDraw:function(chart){
+      var xs=chart.scales.x, ys=chart.scales.y, ctx=chart.ctx;
+      if(!xs||!ys) return;
+      var labs=chart.data.labels, data=chart.data.datasets[0].data;
+      var accent=cv('--rc-accent'), neg=cv('--rc-neg'), pos=cv('--rc-pos'), txt=cv('--rc-text2'), surf=cv('--rc-surface');
+      var narrow = (xs.width < 620);
+      function colOf(k){ return k==='acc'?accent : k==='neg'?neg : k==='pos'?pos : txt; }
+      if(C.hlines){ C.hlines.forEach(function(h){
+        var y=ys.getPixelForValue(h.v); if(y<ys.top||y>ys.bottom) return;
+        var a=h.frm?labs.indexOf(h.frm):0, b=h.to?labs.indexOf(h.to):labs.length-1;
+        if(h.frm&&a<0) a=0; if(h.to&&b<0) b=labs.length-1;
+        var xa=xs.getPixelForValue(a), xb=xs.getPixelForValue(b), col=colOf(h.c);
+        ctx.save(); ctx.strokeStyle=col; ctx.lineWidth=h.w||1.6; ctx.setLineDash(h.dash||[6,4]);
+        ctx.beginPath(); ctx.moveTo(xa,y); ctx.lineTo(xb,y); ctx.stroke(); ctx.setLineDash([]);
+        if(h.t){ ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='right'; ctx.fillStyle=col;
+          ctx.fillText(h.t, xb-2, y+(h.below?15:-6)); }
+        ctx.restore(); }); }
+      if(C.extra){ C.extra.forEach(function(e,k){ if(!e.end) return;
+        var d=chart.data.datasets[k+1].data, j=d.length-1; while(j>0 && (d[j]===null||d[j]===undefined)) j--;
+        if(e.at){ var ja=labs.indexOf(e.at); if(ja>=0 && d[ja]!==null && d[ja]!==undefined) j=ja; }
+        if(j<0||d[j]===null) return;
+        ctx.save(); ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign=e.at?'center':'right'; ctx.fillStyle=colOf(e.c);
+        ctx.fillText(e.end, xs.getPixelForValue(j)-(e.at?0:4), ys.getPixelForValue(d[j])+(e.dy||-8)); ctx.restore(); }); }
+      ctx.save();
+      labs.forEach(function(l,i){
+        var m=MARKS[l]; if(!m) return;
+        var col = m.c==='acc'?accent : m.c==='neg'?neg : m.c==='pos'?pos : txt;
+        var x=xs.getPixelForValue(i), y=ys.getPixelForValue(data[i]);
+        ctx.beginPath(); ctx.arc(x,y,5.5,0,Math.PI*2); ctx.fillStyle=col; ctx.fill();
+        ctx.strokeStyle=surf; ctx.lineWidth=2; ctx.stroke();
+        if(narrow) return;
+        ctx.fillStyle=col; ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif';
+        ctx.textAlign = (i > labs.length*0.82) ? 'right' : (i < labs.length*0.08 ? 'left' : 'center');
+        ctx.fillText(m.t, x, y + m.dy);
+      });
+      ctx.restore();
+    }
+  };
+
+  var chart=null, currentRange=C.start;
+  function buildChart(){
+    if (typeof Chart==='undefined'){ console.error('Chart.js not loaded'); return; }
+    var el=document.getElementById(C.id); if(!el) return;
+    if(chart){ try{chart.destroy();}catch(e){} chart=null; }
+
+    var r=RANGES[currentRange];
+    var i1=0,i2=SERIES.length-1,i;
+    for(i=0;i<SERIES.length;i++){ if(SERIES[i][0]===r.from) i1=i; if(SERIES[i][0]===r.to) i2=i; }
+    var slice=SERIES.slice(i1,i2+1);
+    var labels=slice.map(function(d){return d[0];});
+    var vals=slice.map(function(d){return d[1];});
+    var more=(C.extra||[]).map(function(e){
+      var c0 = e.c==='acc'?cv('--rc-accent') : e.c==='neg'?cv('--rc-neg') : e.c==='pos'?cv('--rc-pos') : cv('--rc-text2');
+      return { label:e.label, data:e.data.slice(i1,i2+1), borderColor:c0, borderWidth:e.w||1.6, borderDash:e.dash||[],
+               stepped:!!e.stepped, tension:e.stepped?0:.3, pointRadius:0, pointHoverRadius:0, fill:false, spanGaps:false }; });
+
+    var text=cv('--rc-text'), tsec=cv('--rc-text2'), grid=cv('--rc-grid'), accent=cv('--rc-accent');
+
+    chart=new Chart(el,{
+      type:'line',
+      plugins:[anno],
+      data:{ labels:labels, datasets:[{
+        label:C.label, data:vals,
+        borderColor:accent, backgroundColor:hexA(accent,0.13),
+        borderWidth:3.2, tension:.3, pointRadius:0, pointHoverRadius:6, fill:true
+      }].concat(more)},
+      options:{
+        responsive:true, maintainAspectRatio:false, ctChips:C.ctChips,
+        layout:{ padding:{ top:30, right:16, bottom:4, left:4 } },
+        animation:{ duration:1000, easing:'easeOutQuart' },
+        interaction:{ mode:'index', intersect:false },
+        plugins:{
+          legend:{ display:false },
+          tooltip:{ enabled:true, padding:12, cornerRadius:8,
+            titleFont:{size:13,family:'Inter'}, bodyFont:{size:13,family:'Noto Sans KR'},
+            callbacks:{
+              label:function(c){
+                if(c.datasetIndex>0) return c.parsed.y===null ? '' : ' '+c.dataset.label+' '+c.parsed.y.toLocaleString(undefined,{maximumFractionDigits:2})+(C.unit||'');
+                if(C.ref){ var q=(c.parsed.y/C.ref-1)*100;
+                  return ' '+C.tip+' '+c.parsed.y.toLocaleString(undefined,{maximumFractionDigits:2})+'  ('+C.refLabel+' 대비 '+(q>=0?'+':'')+q.toFixed(1)+'%)'; }
+                if(C.unit) return ' '+C.tip+' '+(c.parsed.y>0?'+':'')+c.parsed.y.toFixed(2)+C.unit;
+                return ' '+C.tip+' '+c.parsed.y.toLocaleString()+'  ('+(C.peakLabel||'정점 대비')+' '+(c.parsed.y/PEAK*100).toFixed(1)+'%)';
+              },
+              afterLabel:function(c){ if(c.datasetIndex>0) return ''; var m=MARKS[c.label]; return m ? ' ▸ '+m.t.replace(/\s\d[\d,]*.*$/,'') : ''; }
+            } }
+        },
+        scales:{
+          x:{ ticks:{color:tsec,font:{family:'Inter',size:11.5},maxRotation:0,autoSkip:true,maxTicksLimit:12},
+              grid:{color:grid} },
+          y:{ beginAtZero:false, suggestedMin:C.suggestedMin,
+              title:{display:true,text:C.ylabel||C.label,color:tsec,font:{family:'Noto Sans KR',size:13}},
+              ticks:{color:tsec,font:{family:'Inter',size:12},callback:function(v){return v.toLocaleString();}},
+              grid:{color:grid} }
+        }
+      }
+    });
+  }
+
+  function setRange(kind,btn){
+    currentRange=kind;
+    try{ buildChart(); }catch(e){ if(window.console) console.error('buildChart', e); }
+    try{
+      var g=(btn&&btn.closest)?btn.closest('.rng'):null;
+      var bs=g?g.querySelectorAll('button'):[];
+      for(var i=0;i<bs.length;i++) bs[i].classList.remove('on');
+      if(btn&&btn.classList) btn.classList.add('on');
+      var rn=document.getElementById(C.id+'-note');
+      if(rn && RANGES[kind]) rn.innerHTML = RANGES[kind].note;
+    }catch(e){ if(window.console) console.error('setRange ui', e); }
+  }
+
+  RC[C.id] = { build:buildChart, setRange:setRange, chart:function(){ return chart; } };
+  try{ var _n=document.getElementById(C.id+'-note'); if(_n) _n.innerHTML = RANGES[currentRange].note; }catch(e){}
+  try{ new MutationObserver(function(){ buildChart(); }).observe(document.documentElement,{attributes:true,attributeFilter:['class']}); }catch(e){}
+  if(document.readyState==='complete'){ buildChart(); }
+  else { window.addEventListener('load', buildChart); }
+  setTimeout(function(){ if(!chart) buildChart(); }, 400);
+})();
+</script>
 <div class="kbp"><div class="s">사건이 다음 사건을 부른다</div><div><p>사건은 뒤따르는 것이 아니다. 「각각의 사건이 다음 사건을 야기하는 것으로 보아야 한다.」(원문 54~55쪽)</p><p>호황은 몇 년이 걸린다. 불황은 화물열차처럼 온다. 셸던 스톤의 말로는 풍선의 공기는 들어갈 때보다 빠질 때가 빠르다.</p></div></div>
 <div class="kbp"><div class="s">사람이 끼어 있다</div><div><p>사이클이 기계처럼 규칙적이지 않은 이유는 사람이 끼어 있기 때문이다. 「사람은 꾸준함과 거리가 있다.」(원문 48쪽)</p><p>규칙적이었다면 수익도 없었을 것이다. 「큰 이익은 다른 사람들보다 현상을 더 잘 보는 데서 오기 때문이다.」(원문 70~71쪽) 그래서 우리 표의 승률이 100%가 아닌 것은 결함이 아니라 수익의 조건이다.</p></div></div>
 <div class="kbp"><div class="s">세부는 다르고 주제는 같다</div><div><p>모든 호황과 불황에 공통된 주제가 있다. 「과도한 낙관주의는 위험하며, 위험회피는 안전한 시장을 위한 필수 요소이고, 지나치게 관대한 자본시장은 우둔한 금융으로 이어져 참가자들에게 위험을 초래한다.」(원문 61~62쪽)</p><p>세부는 매번 다르다. 주제는 매번 같다. 사이클을 듣는다는 것은 그 반복을 알아보는 것이다.</p></div></div>
@@ -885,6 +1277,188 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 <div class="kbp"><div class="s">사이클의 과장은 심리에서</div><div><p>사이클이 지나치게 오르고 지나치게 내리는 것은 대부분 심리의 과장 때문이다. 심리는 시계추처럼 흔들린다.</p></div></div>
 <div class="kbp"><div class="s">축들은 함께 움직인다</div><div><p>탐욕과 공포, 낙관과 비관, 위험수용과 위험회피, 신뢰와 회의, 미래 가치에 대한 믿음과 현재 가치의 고집, 매수의 조급함과 매도의 패닉. 이 축들은 같은 방향으로 함께 움직인다.</p></div></div>
 <div class="kbp"><div class="s">평균은 기준이 아니다</div><div><p>막스가 계산했다. 1970년부터 2016년까지 47년 동안 S&amp;P500의 연간 수익률이 정상이라 할 8~12% 안에 든 해는 3번뿐이었다. 47년 중 13년은 +30% 이상이거나 −10% 이하였다. 평균은 기준이 아니다.</p></div></div>
+<div class="panel rc">
+      <div class="panel-head">
+        <div>
+          <h3>시계추는 중간에 머물지 않는다: S&P 500의 해마다 등락률은 8~12% 안에 거의 들지 않았다</h3>
+          <p>1970~2016년 47년 가운데 등락률이 8~12% 안에 든 해는 4번이다. +30% 이상이거나 −10% 이하인 해는 10번이다. 이 차트는 배당을 뺀 지수 등락률이라 막스의 수치(3번 · 13년)와 조금 다르다.</p>
+        </div>
+        <div class="rng" role="group" aria-label="기간 선택">
+        </div>
+      </div>
+      <div class="chart-container rc-box" role="img" aria-label="시계추는 중간에 머물지 않는다: S&P 500의 해마다 등락률은 8~12% 안에 거의 들지 않았다">
+        <canvas id="mPend"></canvas>
+      </div>
+      <p class="note" id="mPend-note"></p>
+      <div class="srcline">
+        <span class="lbl">출처</span>
+        <span>S&P 500 연말 종가로 계산(FinanceDataReader 일봉) · 1970~2025년 · 음영 = 막스가 본 47년(1970~2016)</span>
+      </div>
+    </div>
+<script>
+/* 랠리 차트 — scripts/lib/rally_chart.py (kospi-dotcom-1998-2000 첫 차트의 정본 그리기) */
+window.RC = window.RC || {};
+(function(){
+  var C = {"id": "mPend", "series": [["1970", 0.1], ["1971", 10.79], ["1972", 15.63], ["1973", -17.37], ["1974", -29.72], ["1975", 31.55], ["1976", 19.15], ["1977", -11.5], ["1978", 1.06], ["1979", 12.31], ["1980", 25.77], ["1981", -9.73], ["1982", 14.76], ["1983", 17.27], ["1984", 1.4], ["1985", 26.33], ["1986", 14.62], ["1987", 2.03], ["1988", 12.4], ["1989", 27.25], ["1990", -6.56], ["1991", 26.31], ["1992", 4.46], ["1993", 7.06], ["1994", -1.54], ["1995", 34.11], ["1996", 20.26], ["1997", 31.01], ["1998", 26.67], ["1999", 19.53], ["2000", -10.14], ["2001", -13.04], ["2002", -23.37], ["2003", 26.38], ["2004", 8.99], ["2005", 3.0], ["2006", 13.62], ["2007", 3.53], ["2008", -38.49], ["2009", 23.45], ["2010", 12.78], ["2011", -0.0], ["2012", 13.41], ["2013", 29.6], ["2014", 11.39], ["2015", -0.73], ["2016", 9.54], ["2017", 19.42], ["2018", -6.24], ["2019", 28.88], ["2020", 16.26], ["2021", 26.89], ["2022", -19.44], ["2023", 24.23], ["2024", 23.31], ["2025", 16.39]], "peak": 34.11065386374028, "marks": {"2008": {"t": "2008 -38%", "dy": 24, "c": "neg"}, "1974": {"t": "1974 -30%", "dy": 24, "c": "neg"}, "1995": {"t": "1995 +34%", "dy": -14, "c": "pos"}, "1975": {"t": "1975 +32%", "dy": -14, "c": "pos"}}, "ranges": {"all": {"from": "1970", "to": "2025", "note": ""}}, "bandFrom": null, "bandTo": null, "bandLabel": "", "label": "연간 등락률", "tip": "연간 등락률", "start": "all", "suggestedMin": null, "hlines": [{"v": 12, "t": "12%", "c": "acc", "dash": [], "w": 1.6}, {"v": 8, "t": "8% · 정상 범위", "c": "acc", "dash": [], "w": 1.6, "below": true}, {"v": 30, "t": "+30%", "c": "txt", "dash": [2, 4], "w": 1.2}, {"v": -10, "t": "−10%", "c": "txt", "dash": [2, 4], "w": 1.2, "below": true}], "bands": [["1970", "2016", ""]], "unit": "%", "ylabel": "연간 등락률(%)"};
+  var SERIES = C.series, PEAK = C.peak, MARKS = C.marks, RANGES = C.ranges;
+  var BAND_FROM = C.bandFrom, BAND_TO = C.bandTo;
+  function cv(n){ var el=document.getElementById(C.id); var r=(el&&el.closest('.rc'))||document.documentElement;
+    return getComputedStyle(r).getPropertyValue(n).trim(); }
+  function hexA(h,a){
+    h=(h||'').trim(); if(h.charAt(0)!=='#') return h;
+    if(h.length===4) h='#'+h[1]+h[1]+h[2]+h[2]+h[3]+h[3];
+    var n=parseInt(h.slice(1),16);
+    return 'rgba('+((n>>16)&255)+','+((n>>8)&255)+','+(n&255)+','+a+')';
+  }
+
+  var anno = {
+    id:'anno',
+    beforeDatasetsDraw:function(chart){
+      var xs=chart.scales.x, ys=chart.scales.y, ctx=chart.ctx;
+      if(!xs||!ys) return;
+      var labs=chart.data.labels;
+      if(C.bands){ C.bands.forEach(function(b){
+        var j1=labs.indexOf(b[0]), j2=labs.indexOf(b[1]); if(j1<0||j2<0) return;
+        ctx.save(); ctx.fillStyle=cv('--rc-band');
+        var a1=xs.getPixelForValue(j1), a2=xs.getPixelForValue(j2);
+        ctx.fillRect(a1, ys.top, a2-a1, ys.bottom-ys.top);
+        ctx.strokeStyle=hexA(cv('--rc-accent'),0.28); ctx.setLineDash([4,4]); ctx.lineWidth=1;
+        ctx.beginPath(); ctx.moveTo(a1,ys.top); ctx.lineTo(a1,ys.bottom); ctx.moveTo(a2,ys.top); ctx.lineTo(a2,ys.bottom); ctx.stroke();
+        ctx.setLineDash([]); ctx.fillStyle=hexA(cv('--rc-accent'),0.85); ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='center';
+        ctx.fillText(b[2], (a1+a2)/2, ys.top+16); ctx.restore(); }); }
+      var i1=labs.indexOf(BAND_FROM), i2=labs.indexOf(BAND_TO);
+      if(i1<0||i2<0) return;
+      ctx.save();
+      ctx.fillStyle=cv('--rc-band');
+      var x1=xs.getPixelForValue(i1), x2=xs.getPixelForValue(i2);
+      ctx.fillRect(x1, ys.top, x2-x1, ys.bottom-ys.top);
+      ctx.strokeStyle=hexA(cv('--rc-accent'),0.28); ctx.setLineDash([4,4]); ctx.lineWidth=1;
+      ctx.beginPath(); ctx.moveTo(x1,ys.top); ctx.lineTo(x1,ys.bottom);
+      ctx.moveTo(x2,ys.top); ctx.lineTo(x2,ys.bottom); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle=hexA(cv('--rc-accent'),0.85); ctx.font='700 11.5px Inter, sans-serif'; ctx.textAlign='center';
+      ctx.fillText(C.bandLabel, (x1+x2)/2, ys.top+16);
+      ctx.restore();
+    },
+    afterDatasetsDraw:function(chart){
+      var xs=chart.scales.x, ys=chart.scales.y, ctx=chart.ctx;
+      if(!xs||!ys) return;
+      var labs=chart.data.labels, data=chart.data.datasets[0].data;
+      var accent=cv('--rc-accent'), neg=cv('--rc-neg'), pos=cv('--rc-pos'), txt=cv('--rc-text2'), surf=cv('--rc-surface');
+      var narrow = (xs.width < 620);
+      function colOf(k){ return k==='acc'?accent : k==='neg'?neg : k==='pos'?pos : txt; }
+      if(C.hlines){ C.hlines.forEach(function(h){
+        var y=ys.getPixelForValue(h.v); if(y<ys.top||y>ys.bottom) return;
+        var a=h.frm?labs.indexOf(h.frm):0, b=h.to?labs.indexOf(h.to):labs.length-1;
+        if(h.frm&&a<0) a=0; if(h.to&&b<0) b=labs.length-1;
+        var xa=xs.getPixelForValue(a), xb=xs.getPixelForValue(b), col=colOf(h.c);
+        ctx.save(); ctx.strokeStyle=col; ctx.lineWidth=h.w||1.6; ctx.setLineDash(h.dash||[6,4]);
+        ctx.beginPath(); ctx.moveTo(xa,y); ctx.lineTo(xb,y); ctx.stroke(); ctx.setLineDash([]);
+        if(h.t){ ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='right'; ctx.fillStyle=col;
+          ctx.fillText(h.t, xb-2, y+(h.below?15:-6)); }
+        ctx.restore(); }); }
+      if(C.extra){ C.extra.forEach(function(e,k){ if(!e.end) return;
+        var d=chart.data.datasets[k+1].data, j=d.length-1; while(j>0 && (d[j]===null||d[j]===undefined)) j--;
+        if(e.at){ var ja=labs.indexOf(e.at); if(ja>=0 && d[ja]!==null && d[ja]!==undefined) j=ja; }
+        if(j<0||d[j]===null) return;
+        ctx.save(); ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign=e.at?'center':'right'; ctx.fillStyle=colOf(e.c);
+        ctx.fillText(e.end, xs.getPixelForValue(j)-(e.at?0:4), ys.getPixelForValue(d[j])+(e.dy||-8)); ctx.restore(); }); }
+      ctx.save();
+      labs.forEach(function(l,i){
+        var m=MARKS[l]; if(!m) return;
+        var col = m.c==='acc'?accent : m.c==='neg'?neg : m.c==='pos'?pos : txt;
+        var x=xs.getPixelForValue(i), y=ys.getPixelForValue(data[i]);
+        ctx.beginPath(); ctx.arc(x,y,5.5,0,Math.PI*2); ctx.fillStyle=col; ctx.fill();
+        ctx.strokeStyle=surf; ctx.lineWidth=2; ctx.stroke();
+        if(narrow) return;
+        ctx.fillStyle=col; ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif';
+        ctx.textAlign = (i > labs.length*0.82) ? 'right' : (i < labs.length*0.08 ? 'left' : 'center');
+        ctx.fillText(m.t, x, y + m.dy);
+      });
+      ctx.restore();
+    }
+  };
+
+  var chart=null, currentRange=C.start;
+  function buildChart(){
+    if (typeof Chart==='undefined'){ console.error('Chart.js not loaded'); return; }
+    var el=document.getElementById(C.id); if(!el) return;
+    if(chart){ try{chart.destroy();}catch(e){} chart=null; }
+
+    var r=RANGES[currentRange];
+    var i1=0,i2=SERIES.length-1,i;
+    for(i=0;i<SERIES.length;i++){ if(SERIES[i][0]===r.from) i1=i; if(SERIES[i][0]===r.to) i2=i; }
+    var slice=SERIES.slice(i1,i2+1);
+    var labels=slice.map(function(d){return d[0];});
+    var vals=slice.map(function(d){return d[1];});
+    var more=(C.extra||[]).map(function(e){
+      var c0 = e.c==='acc'?cv('--rc-accent') : e.c==='neg'?cv('--rc-neg') : e.c==='pos'?cv('--rc-pos') : cv('--rc-text2');
+      return { label:e.label, data:e.data.slice(i1,i2+1), borderColor:c0, borderWidth:e.w||1.6, borderDash:e.dash||[],
+               stepped:!!e.stepped, tension:e.stepped?0:.3, pointRadius:0, pointHoverRadius:0, fill:false, spanGaps:false }; });
+
+    var text=cv('--rc-text'), tsec=cv('--rc-text2'), grid=cv('--rc-grid'), accent=cv('--rc-accent');
+
+    chart=new Chart(el,{
+      type:'line',
+      plugins:[anno],
+      data:{ labels:labels, datasets:[{
+        label:C.label, data:vals,
+        borderColor:accent, backgroundColor:hexA(accent,0.13),
+        borderWidth:3.2, tension:.3, pointRadius:0, pointHoverRadius:6, fill:true
+      }].concat(more)},
+      options:{
+        responsive:true, maintainAspectRatio:false, ctChips:C.ctChips,
+        layout:{ padding:{ top:30, right:16, bottom:4, left:4 } },
+        animation:{ duration:1000, easing:'easeOutQuart' },
+        interaction:{ mode:'index', intersect:false },
+        plugins:{
+          legend:{ display:false },
+          tooltip:{ enabled:true, padding:12, cornerRadius:8,
+            titleFont:{size:13,family:'Inter'}, bodyFont:{size:13,family:'Noto Sans KR'},
+            callbacks:{
+              label:function(c){
+                if(c.datasetIndex>0) return c.parsed.y===null ? '' : ' '+c.dataset.label+' '+c.parsed.y.toLocaleString(undefined,{maximumFractionDigits:2})+(C.unit||'');
+                if(C.ref){ var q=(c.parsed.y/C.ref-1)*100;
+                  return ' '+C.tip+' '+c.parsed.y.toLocaleString(undefined,{maximumFractionDigits:2})+'  ('+C.refLabel+' 대비 '+(q>=0?'+':'')+q.toFixed(1)+'%)'; }
+                if(C.unit) return ' '+C.tip+' '+(c.parsed.y>0?'+':'')+c.parsed.y.toFixed(2)+C.unit;
+                return ' '+C.tip+' '+c.parsed.y.toLocaleString()+'  ('+(C.peakLabel||'정점 대비')+' '+(c.parsed.y/PEAK*100).toFixed(1)+'%)';
+              },
+              afterLabel:function(c){ if(c.datasetIndex>0) return ''; var m=MARKS[c.label]; return m ? ' ▸ '+m.t.replace(/\s\d[\d,]*.*$/,'') : ''; }
+            } }
+        },
+        scales:{
+          x:{ ticks:{color:tsec,font:{family:'Inter',size:11.5},maxRotation:0,autoSkip:true,maxTicksLimit:12},
+              grid:{color:grid} },
+          y:{ beginAtZero:false, suggestedMin:C.suggestedMin,
+              title:{display:true,text:C.ylabel||C.label,color:tsec,font:{family:'Noto Sans KR',size:13}},
+              ticks:{color:tsec,font:{family:'Inter',size:12},callback:function(v){return v.toLocaleString();}},
+              grid:{color:grid} }
+        }
+      }
+    });
+  }
+
+  function setRange(kind,btn){
+    currentRange=kind;
+    try{ buildChart(); }catch(e){ if(window.console) console.error('buildChart', e); }
+    try{
+      var g=(btn&&btn.closest)?btn.closest('.rng'):null;
+      var bs=g?g.querySelectorAll('button'):[];
+      for(var i=0;i<bs.length;i++) bs[i].classList.remove('on');
+      if(btn&&btn.classList) btn.classList.add('on');
+      var rn=document.getElementById(C.id+'-note');
+      if(rn && RANGES[kind]) rn.innerHTML = RANGES[kind].note;
+    }catch(e){ if(window.console) console.error('setRange ui', e); }
+  }
+
+  RC[C.id] = { build:buildChart, setRange:setRange, chart:function(){ return chart; } };
+  try{ var _n=document.getElementById(C.id+'-note'); if(_n) _n.innerHTML = RANGES[currentRange].note; }catch(e){}
+  try{ new MutationObserver(function(){ buildChart(); }).observe(document.documentElement,{attributes:true,attributeFilter:['class']}); }catch(e){}
+  if(document.readyState==='complete'){ buildChart(); }
+  else { window.addEventListener('load', buildChart); }
+  setTimeout(function(){ if(!chart) buildChart(); }, 400);
+})();
+</script>
 <div class="kbp"><div class="s">중도에 머무르는 일이 거의 없다</div><div><p>현실 세계의 일은 보통 꽤 좋은 것과 그렇게 좋지는 않은 것 사이에서 움직인다. 투자의 세계는 다르다.</p><p>「시계추는 한쪽 극단에서 다른 쪽 극단으로 달리고, '중도'에 머무르는 일이 거의 없다.」(원문 144~145쪽) 「처음에는 부정하고, 그다음에는 항복한다.」(원문 144~145쪽)</p></div></div>
 <div class="kbp"><div class="s">시장이 실적보다 크게 움직이는 이유</div><div><p>심리가 좋을 때는 나쁜 소식이 간과된다. 모든 것이 유리하게 해석된다. 몇 달 몇 년 부진했을 때는 좋아질 가능성이 잊힌다.</p><p>그것이 시장이 실적보다 크게 움직이는 이유다. 「가격 변화는 펀더멘털 변화를 과장하고 부풀린다.」(원문 260~263쪽) 「투자자의 합리적인 행동은 예외적인 것이지 법칙이 아니다.」(원문 260~263쪽)</p></div></div>
 <div class="kbp"><div class="s">하락기에는 반대가 온다</div><div><p>하락기에는 그 반대가 온다. 「욕심은 사라지고 공포만 남았다.」(원문 316쪽) 낙관은 사라지고 비관만 남는다. 위험수용은 사라지고 위험회피만 남는다.</p></div></div>
@@ -903,6 +1477,188 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 <h2 id="신용-창구는-활짝-열리고-쾅-닫힌다">신용 창구는 활짝 열리고 쾅 닫힌다</h2>
 <div class="kbp"><div class="s">경제보다 이익, 이익보다 주가</div><div><p>경제는 추세에서 몇 %p 벗어날 뿐이다. 이익은 2가지 레버리지(영업, 재무) 때문에 그보다 크게 움직인다. 주가는 그보다 더 크게 움직인다. 막스는 그 이유를 신용에서 찾는다.</p><p>「경제가 약간 변동하면 이익은 꽤 크게 변동하는 반면, 대출 창구는 활짝 열리고 쾅 닫힌다.」(9장)</p></div></div>
 <div class="kbp"><div class="s">창구는 순식간에 바뀐다</div><div><p>창구의 비유는 이렇다. 「가끔은 열려 있고, 가끔은 닫혀 있다.」 그리고 「창구는 활짝 열린 상태에서 닫힌 상태로 순식간에 바뀔 수 있다는 사실을 늘 명심해야 한다.」(원문 197~198쪽)</p></div></div>
+<div class="panel rc">
+      <div class="panel-head">
+        <div>
+          <h3>신용 창구는 활짝 열리고 쾅 닫힌다: 하이일드 스프레드는 위기 때 몇 달 만에 치솟았다</h3>
+          <p>미국 하이일드 회사채 금리와 국채 금리의 차이(OAS)를 월평균으로 그렸다. 차이가 좁으면 창구가 열린 것이다. 위기가 오면 이 차이가 몇 달 만에 몇 배로 벌어졌다.</p>
+        </div>
+        <div class="rng" role="group" aria-label="기간 선택">
+        </div>
+      </div>
+      <div class="chart-container rc-box" role="img" aria-label="신용 창구는 활짝 열리고 쾅 닫힌다: 하이일드 스프레드는 위기 때 몇 달 만에 치솟았다">
+        <canvas id="mCredit"></canvas>
+      </div>
+      <p class="note" id="mCredit-note"></p>
+      <div class="srcline">
+        <span class="lbl">출처</span>
+        <span>ICE BofA 미국 하이일드 OAS · FRED BAMLH0A0HYM2 · 월평균</span>
+      </div>
+    </div>
+<script>
+/* 랠리 차트 — scripts/lib/rally_chart.py (kospi-dotcom-1998-2000 첫 차트의 정본 그리기) */
+window.RC = window.RC || {};
+(function(){
+  var C = {"id": "mCredit", "series": [["1996.12", 3.13], ["1997.01", 3.03], ["1997.02", 2.95], ["1997.03", 2.7], ["1997.04", 2.89], ["1997.05", 2.73], ["1997.06", 2.62], ["1997.07", 2.72], ["1997.08", 2.54], ["1997.09", 2.59], ["1997.10", 2.61], ["1997.11", 2.86], ["1997.12", 2.89], ["1998.01", 3.02], ["1998.02", 2.92], ["1998.03", 2.83], ["1998.04", 2.85], ["1998.05", 3.0], ["1998.06", 3.24], ["1998.07", 3.34], ["1998.08", 3.96], ["1998.09", 5.61], ["1998.10", 6.43], ["1998.11", 5.7], ["1998.12", 5.54], ["1999.01", 5.55], ["1999.02", 5.31], ["1999.03", 5.24], ["1999.04", 5.04], ["1999.05", 4.7], ["1999.06", 4.67], ["1999.07", 4.8], ["1999.08", 4.82], ["1999.09", 5.04], ["1999.10", 5.0], ["1999.11", 5.08], ["1999.12", 4.77], ["2000.01", 4.78], ["2000.02", 4.9], ["2000.03", 5.37], ["2000.04", 5.85], ["2000.05", 5.9], ["2000.06", 6.14], ["2000.07", 6.12], ["2000.08", 6.36], ["2000.09", 6.45], ["2000.10", 7.29], ["2000.11", 8.09], ["2000.12", 9.01], ["2001.01", 8.46], ["2001.02", 7.61], ["2001.03", 7.92], ["2001.04", 8.5], ["2001.05", 7.69], ["2001.06", 8.06], ["2001.07", 8.26], ["2001.08", 8.05], ["2001.09", 9.24], ["2001.10", 9.8], ["2001.11", 8.79], ["2001.12", 8.29], ["2002.01", 8.15], ["2002.02", 8.1], ["2002.03", 7.33], ["2002.04", 7.16], ["2002.05", 7.03], ["2002.06", 7.98], ["2002.07", 9.36], ["2002.08", 9.79], ["2002.09", 9.85], ["2002.10", 10.68], ["2002.11", 9.65], ["2002.12", 8.96], ["2003.01", 8.18], ["2003.02", 8.43], ["2003.03", 8.04], ["2003.04", 7.02], ["2003.05", 6.64], ["2003.06", 6.34], ["2003.07", 5.86], ["2003.08", 5.82], ["2003.09", 5.36], ["2003.10", 4.92], ["2003.11", 4.62], ["2003.12", 4.28], ["2004.01", 3.94], ["2004.02", 4.26], ["2004.03", 4.4], ["2004.04", 3.98], ["2004.05", 4.25], ["2004.06", 4.07], ["2004.07", 4.01], ["2004.08", 4.08], ["2004.09", 3.87], ["2004.10", 3.73], ["2004.11", 3.29], ["2004.12", 3.1], ["2005.01", 3.2], ["2005.02", 3.05], ["2005.03", 2.98], ["2005.04", 3.78], ["2005.05", 4.23], ["2005.06", 3.9], ["2005.07", 3.49], ["2005.08", 3.37], ["2005.09", 3.64], ["2005.10", 3.58], ["2005.11", 3.62], ["2005.12", 3.65], ["2006.01", 3.55], ["2006.02", 3.33], ["2006.03", 3.25], ["2006.04", 3.06], ["2006.05", 3.02], ["2006.06", 3.28], ["2006.07", 3.37], ["2006.08", 3.42], ["2006.09", 3.43], ["2006.10", 3.25], ["2006.11", 3.14], ["2006.12", 3.0], ["2007.01", 2.76], ["2007.02", 2.62], ["2007.03", 2.86], ["2007.04", 2.74], ["2007.05", 2.57], ["2007.06", 2.61], ["2007.07", 3.35], ["2007.08", 4.31], ["2007.09", 4.42], ["2007.10", 4.16], ["2007.11", 5.31], ["2007.12", 5.69], ["2008.01", 6.8], ["2008.02", 7.25], ["2008.03", 8.08], ["2008.04", 7.39], ["2008.05", 6.69], ["2008.06", 6.73], ["2008.07", 7.75], ["2008.08", 8.2], ["2008.09", 9.19], ["2008.10", 14.94], ["2008.11", 17.96], ["2008.12", 20.31], ["2009.01", 16.73], ["2009.02", 16.54], ["2009.03", 17.84], ["2009.04", 15.6], ["2009.05", 12.51], ["2009.06", 10.81], ["2009.07", 10.27], ["2009.08", 8.97], ["2009.09", 8.45], ["2009.10", 7.76], ["2009.11", 7.56], ["2009.12", 6.94], ["2010.01", 6.23], ["2010.02", 6.73], ["2010.03", 6.12], ["2010.04", 5.59], ["2010.05", 6.5], ["2010.06", 7.02], ["2010.07", 6.78], ["2010.08", 6.76], ["2010.09", 6.42], ["2010.10", 6.01], ["2010.11", 5.87], ["2010.12", 5.55], ["2011.01", 5.12], ["2011.02", 4.66], ["2011.03", 4.84], ["2011.04", 4.66], ["2011.05", 4.85], ["2011.06", 5.49], ["2011.07", 5.43], ["2011.08", 6.99], ["2011.09", 7.68], ["2011.10", 7.91], ["2011.11", 7.61], ["2011.12", 7.52], ["2012.01", 6.84], ["2012.02", 6.24], ["2012.03", 5.96], ["2012.04", 6.13], ["2012.05", 6.31], ["2012.06", 6.77], ["2012.07", 6.36], ["2012.08", 5.92], ["2012.09", 5.61], ["2012.10", 5.49], ["2012.11", 5.71], ["2012.12", 5.34], ["2013.01", 4.92], ["2013.02", 4.99], ["2013.03", 4.8], ["2013.04", 4.76], ["2013.05", 4.38], ["2013.06", 5.06], ["2013.07", 4.82], ["2013.08", 4.75], ["2013.09", 4.64], ["2013.10", 4.55], ["2013.11", 4.32], ["2013.12", 4.09], ["2014.01", 3.97], ["2014.02", 4.03], ["2014.03", 3.81], ["2014.04", 3.71], ["2014.05", 3.75], ["2014.06", 3.47], ["2014.07", 3.65], ["2014.08", 3.97], ["2014.09", 4.06], ["2014.10", 4.51], ["2014.11", 4.46], ["2014.12", 5.08], ["2015.01", 5.29], ["2015.02", 4.71], ["2015.03", 4.66], ["2015.04", 4.63], ["2015.05", 4.51], ["2015.06", 4.66], ["2015.07", 5.11], ["2015.08", 5.66], ["2015.09", 5.87], ["2015.10", 6.2], ["2015.11", 6.14], ["2015.12", 6.87], ["2016.01", 7.63], ["2016.02", 8.23], ["2016.03", 6.98], ["2016.04", 6.62], ["2016.05", 6.26], ["2016.06", 6.1], ["2016.07", 5.65], ["2016.08", 5.3], ["2016.09", 5.15], ["2016.10", 4.74], ["2016.11", 4.89], ["2016.12", 4.28], ["2017.01", 4.01], ["2017.02", 3.85], ["2017.03", 3.9], ["2017.04", 3.91], ["2017.05", 3.74], ["2017.06", 3.75], ["2017.07", 3.69], ["2017.08", 3.83], ["2017.09", 3.72], ["2017.10", 3.49], ["2017.11", 3.68], ["2017.12", 3.6], ["2018.01", 3.35], ["2018.02", 3.54], ["2018.03", 3.64], ["2018.04", 3.47], ["2018.05", 3.47], ["2018.06", 3.45], ["2018.07", 3.59], ["2018.08", 3.45], ["2018.09", 3.34], ["2018.10", 3.52], ["2018.11", 4.02], ["2018.12", 4.76], ["2019.01", 4.57], ["2019.02", 4.13], ["2019.03", 4.01], ["2019.04", 3.78], ["2019.05", 4.06], ["2019.06", 4.21], ["2019.07", 4.0], ["2019.08", 4.29], ["2019.09", 3.94], ["2019.10", 4.1], ["2019.11", 4.05], ["2019.12", 3.72], ["2020.01", 3.6], ["2020.02", 3.92], ["2020.03", 7.85], ["2020.04", 8.14], ["2020.05", 7.29], ["2020.06", 6.07], ["2020.07", 5.7], ["2020.08", 5.12], ["2020.09", 5.26], ["2020.10", 5.05], ["2020.11", 4.53], ["2020.12", 4.04], ["2021.01", 3.78], ["2021.02", 3.53], ["2021.03", 3.55], ["2021.04", 3.27], ["2021.05", 3.33], ["2021.06", 3.17], ["2021.07", 3.17], ["2021.08", 3.32], ["2021.09", 3.12], ["2021.10", 3.15], ["2021.11", 3.22], ["2021.12", 3.27], ["2022.01", 3.22], ["2022.02", 3.65], ["2022.03", 3.79], ["2022.04", 3.65], ["2022.05", 4.49], ["2022.06", 4.87], ["2022.07", 5.3], ["2022.08", 4.53], ["2022.09", 4.99], ["2022.10", 5.0], ["2022.11", 4.68], ["2022.12", 4.58], ["2023.01", 4.34], ["2023.02", 4.2], ["2023.03", 4.69], ["2023.04", 4.57], ["2023.05", 4.69], ["2023.06", 4.29], ["2023.07", 3.94], ["2023.08", 3.9], ["2023.09", 3.89], ["2023.10", 4.36], ["2023.11", 3.99], ["2023.12", 3.57], ["2024.01", 3.55], ["2024.02", 3.36], ["2024.03", 3.18], ["2024.04", 3.23], ["2024.05", 3.12], ["2024.06", 3.2], ["2024.07", 3.16], ["2024.08", 3.37], ["2024.09", 3.26], ["2024.10", 2.93], ["2024.11", 2.7], ["2024.12", 2.76], ["2025.01", 2.72], ["2025.02", 2.71], ["2025.03", 3.17], ["2025.04", 4.03], ["2025.05", 3.35], ["2025.06", 3.13], ["2025.07", 2.89], ["2025.08", 2.9], ["2025.09", 2.79], ["2025.10", 2.92], ["2025.11", 3.08], ["2025.12", 2.89], ["2026.01", 2.74], ["2026.02", 2.92], ["2026.03", 3.19], ["2026.04", 2.93], ["2026.05", 2.77], ["2026.06", 2.73], ["2026.07", 2.74], ["2026.08", 2.7], ["2026.09", 2.76], ["2026.10", 3.22], ["2026.11", 3.35]], "peak": 20.309545454545454, "marks": {"2008.12": {"t": "2008.12 20.3%", "dy": -14, "c": "neg"}, "2002.10": {"t": "2002.10 10.7%", "dy": -14, "c": "neg"}, "2016.02": {"t": "2016.02 8.2%", "dy": -14, "c": "neg"}, "2020.04": {"t": "2020.04 8.1%", "dy": -14, "c": "neg"}, "1997.08": {"t": "1997.08 2.5%", "dy": 24, "c": "pos"}, "2007.05": {"t": "2007.05 2.6%", "dy": 24, "c": "pos"}, "2026.11": {"t": "지금 3.3%", "dy": -14, "c": "acc"}}, "ranges": {"all": {"from": "1996.12", "to": "2026.11", "note": ""}}, "bandFrom": null, "bandTo": null, "bandLabel": "", "label": "하이일드 스프레드", "tip": "하이일드 스프레드", "start": "all", "suggestedMin": 0, "unit": "%", "ylabel": "하이일드 스프레드(%)"};
+  var SERIES = C.series, PEAK = C.peak, MARKS = C.marks, RANGES = C.ranges;
+  var BAND_FROM = C.bandFrom, BAND_TO = C.bandTo;
+  function cv(n){ var el=document.getElementById(C.id); var r=(el&&el.closest('.rc'))||document.documentElement;
+    return getComputedStyle(r).getPropertyValue(n).trim(); }
+  function hexA(h,a){
+    h=(h||'').trim(); if(h.charAt(0)!=='#') return h;
+    if(h.length===4) h='#'+h[1]+h[1]+h[2]+h[2]+h[3]+h[3];
+    var n=parseInt(h.slice(1),16);
+    return 'rgba('+((n>>16)&255)+','+((n>>8)&255)+','+(n&255)+','+a+')';
+  }
+
+  var anno = {
+    id:'anno',
+    beforeDatasetsDraw:function(chart){
+      var xs=chart.scales.x, ys=chart.scales.y, ctx=chart.ctx;
+      if(!xs||!ys) return;
+      var labs=chart.data.labels;
+      if(C.bands){ C.bands.forEach(function(b){
+        var j1=labs.indexOf(b[0]), j2=labs.indexOf(b[1]); if(j1<0||j2<0) return;
+        ctx.save(); ctx.fillStyle=cv('--rc-band');
+        var a1=xs.getPixelForValue(j1), a2=xs.getPixelForValue(j2);
+        ctx.fillRect(a1, ys.top, a2-a1, ys.bottom-ys.top);
+        ctx.strokeStyle=hexA(cv('--rc-accent'),0.28); ctx.setLineDash([4,4]); ctx.lineWidth=1;
+        ctx.beginPath(); ctx.moveTo(a1,ys.top); ctx.lineTo(a1,ys.bottom); ctx.moveTo(a2,ys.top); ctx.lineTo(a2,ys.bottom); ctx.stroke();
+        ctx.setLineDash([]); ctx.fillStyle=hexA(cv('--rc-accent'),0.85); ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='center';
+        ctx.fillText(b[2], (a1+a2)/2, ys.top+16); ctx.restore(); }); }
+      var i1=labs.indexOf(BAND_FROM), i2=labs.indexOf(BAND_TO);
+      if(i1<0||i2<0) return;
+      ctx.save();
+      ctx.fillStyle=cv('--rc-band');
+      var x1=xs.getPixelForValue(i1), x2=xs.getPixelForValue(i2);
+      ctx.fillRect(x1, ys.top, x2-x1, ys.bottom-ys.top);
+      ctx.strokeStyle=hexA(cv('--rc-accent'),0.28); ctx.setLineDash([4,4]); ctx.lineWidth=1;
+      ctx.beginPath(); ctx.moveTo(x1,ys.top); ctx.lineTo(x1,ys.bottom);
+      ctx.moveTo(x2,ys.top); ctx.lineTo(x2,ys.bottom); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle=hexA(cv('--rc-accent'),0.85); ctx.font='700 11.5px Inter, sans-serif'; ctx.textAlign='center';
+      ctx.fillText(C.bandLabel, (x1+x2)/2, ys.top+16);
+      ctx.restore();
+    },
+    afterDatasetsDraw:function(chart){
+      var xs=chart.scales.x, ys=chart.scales.y, ctx=chart.ctx;
+      if(!xs||!ys) return;
+      var labs=chart.data.labels, data=chart.data.datasets[0].data;
+      var accent=cv('--rc-accent'), neg=cv('--rc-neg'), pos=cv('--rc-pos'), txt=cv('--rc-text2'), surf=cv('--rc-surface');
+      var narrow = (xs.width < 620);
+      function colOf(k){ return k==='acc'?accent : k==='neg'?neg : k==='pos'?pos : txt; }
+      if(C.hlines){ C.hlines.forEach(function(h){
+        var y=ys.getPixelForValue(h.v); if(y<ys.top||y>ys.bottom) return;
+        var a=h.frm?labs.indexOf(h.frm):0, b=h.to?labs.indexOf(h.to):labs.length-1;
+        if(h.frm&&a<0) a=0; if(h.to&&b<0) b=labs.length-1;
+        var xa=xs.getPixelForValue(a), xb=xs.getPixelForValue(b), col=colOf(h.c);
+        ctx.save(); ctx.strokeStyle=col; ctx.lineWidth=h.w||1.6; ctx.setLineDash(h.dash||[6,4]);
+        ctx.beginPath(); ctx.moveTo(xa,y); ctx.lineTo(xb,y); ctx.stroke(); ctx.setLineDash([]);
+        if(h.t){ ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='right'; ctx.fillStyle=col;
+          ctx.fillText(h.t, xb-2, y+(h.below?15:-6)); }
+        ctx.restore(); }); }
+      if(C.extra){ C.extra.forEach(function(e,k){ if(!e.end) return;
+        var d=chart.data.datasets[k+1].data, j=d.length-1; while(j>0 && (d[j]===null||d[j]===undefined)) j--;
+        if(e.at){ var ja=labs.indexOf(e.at); if(ja>=0 && d[ja]!==null && d[ja]!==undefined) j=ja; }
+        if(j<0||d[j]===null) return;
+        ctx.save(); ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign=e.at?'center':'right'; ctx.fillStyle=colOf(e.c);
+        ctx.fillText(e.end, xs.getPixelForValue(j)-(e.at?0:4), ys.getPixelForValue(d[j])+(e.dy||-8)); ctx.restore(); }); }
+      ctx.save();
+      labs.forEach(function(l,i){
+        var m=MARKS[l]; if(!m) return;
+        var col = m.c==='acc'?accent : m.c==='neg'?neg : m.c==='pos'?pos : txt;
+        var x=xs.getPixelForValue(i), y=ys.getPixelForValue(data[i]);
+        ctx.beginPath(); ctx.arc(x,y,5.5,0,Math.PI*2); ctx.fillStyle=col; ctx.fill();
+        ctx.strokeStyle=surf; ctx.lineWidth=2; ctx.stroke();
+        if(narrow) return;
+        ctx.fillStyle=col; ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif';
+        ctx.textAlign = (i > labs.length*0.82) ? 'right' : (i < labs.length*0.08 ? 'left' : 'center');
+        ctx.fillText(m.t, x, y + m.dy);
+      });
+      ctx.restore();
+    }
+  };
+
+  var chart=null, currentRange=C.start;
+  function buildChart(){
+    if (typeof Chart==='undefined'){ console.error('Chart.js not loaded'); return; }
+    var el=document.getElementById(C.id); if(!el) return;
+    if(chart){ try{chart.destroy();}catch(e){} chart=null; }
+
+    var r=RANGES[currentRange];
+    var i1=0,i2=SERIES.length-1,i;
+    for(i=0;i<SERIES.length;i++){ if(SERIES[i][0]===r.from) i1=i; if(SERIES[i][0]===r.to) i2=i; }
+    var slice=SERIES.slice(i1,i2+1);
+    var labels=slice.map(function(d){return d[0];});
+    var vals=slice.map(function(d){return d[1];});
+    var more=(C.extra||[]).map(function(e){
+      var c0 = e.c==='acc'?cv('--rc-accent') : e.c==='neg'?cv('--rc-neg') : e.c==='pos'?cv('--rc-pos') : cv('--rc-text2');
+      return { label:e.label, data:e.data.slice(i1,i2+1), borderColor:c0, borderWidth:e.w||1.6, borderDash:e.dash||[],
+               stepped:!!e.stepped, tension:e.stepped?0:.3, pointRadius:0, pointHoverRadius:0, fill:false, spanGaps:false }; });
+
+    var text=cv('--rc-text'), tsec=cv('--rc-text2'), grid=cv('--rc-grid'), accent=cv('--rc-accent');
+
+    chart=new Chart(el,{
+      type:'line',
+      plugins:[anno],
+      data:{ labels:labels, datasets:[{
+        label:C.label, data:vals,
+        borderColor:accent, backgroundColor:hexA(accent,0.13),
+        borderWidth:3.2, tension:.3, pointRadius:0, pointHoverRadius:6, fill:true
+      }].concat(more)},
+      options:{
+        responsive:true, maintainAspectRatio:false, ctChips:C.ctChips,
+        layout:{ padding:{ top:30, right:16, bottom:4, left:4 } },
+        animation:{ duration:1000, easing:'easeOutQuart' },
+        interaction:{ mode:'index', intersect:false },
+        plugins:{
+          legend:{ display:false },
+          tooltip:{ enabled:true, padding:12, cornerRadius:8,
+            titleFont:{size:13,family:'Inter'}, bodyFont:{size:13,family:'Noto Sans KR'},
+            callbacks:{
+              label:function(c){
+                if(c.datasetIndex>0) return c.parsed.y===null ? '' : ' '+c.dataset.label+' '+c.parsed.y.toLocaleString(undefined,{maximumFractionDigits:2})+(C.unit||'');
+                if(C.ref){ var q=(c.parsed.y/C.ref-1)*100;
+                  return ' '+C.tip+' '+c.parsed.y.toLocaleString(undefined,{maximumFractionDigits:2})+'  ('+C.refLabel+' 대비 '+(q>=0?'+':'')+q.toFixed(1)+'%)'; }
+                if(C.unit) return ' '+C.tip+' '+(c.parsed.y>0?'+':'')+c.parsed.y.toFixed(2)+C.unit;
+                return ' '+C.tip+' '+c.parsed.y.toLocaleString()+'  ('+(C.peakLabel||'정점 대비')+' '+(c.parsed.y/PEAK*100).toFixed(1)+'%)';
+              },
+              afterLabel:function(c){ if(c.datasetIndex>0) return ''; var m=MARKS[c.label]; return m ? ' ▸ '+m.t.replace(/\s\d[\d,]*.*$/,'') : ''; }
+            } }
+        },
+        scales:{
+          x:{ ticks:{color:tsec,font:{family:'Inter',size:11.5},maxRotation:0,autoSkip:true,maxTicksLimit:12},
+              grid:{color:grid} },
+          y:{ beginAtZero:false, suggestedMin:C.suggestedMin,
+              title:{display:true,text:C.ylabel||C.label,color:tsec,font:{family:'Noto Sans KR',size:13}},
+              ticks:{color:tsec,font:{family:'Inter',size:12},callback:function(v){return v.toLocaleString();}},
+              grid:{color:grid} }
+        }
+      }
+    });
+  }
+
+  function setRange(kind,btn){
+    currentRange=kind;
+    try{ buildChart(); }catch(e){ if(window.console) console.error('buildChart', e); }
+    try{
+      var g=(btn&&btn.closest)?btn.closest('.rng'):null;
+      var bs=g?g.querySelectorAll('button'):[];
+      for(var i=0;i<bs.length;i++) bs[i].classList.remove('on');
+      if(btn&&btn.classList) btn.classList.add('on');
+      var rn=document.getElementById(C.id+'-note');
+      if(rn && RANGES[kind]) rn.innerHTML = RANGES[kind].note;
+    }catch(e){ if(window.console) console.error('setRange ui', e); }
+  }
+
+  RC[C.id] = { build:buildChart, setRange:setRange, chart:function(){ return chart; } };
+  try{ var _n=document.getElementById(C.id+'-note'); if(_n) _n.innerHTML = RANGES[currentRange].note; }catch(e){}
+  try{ new MutationObserver(function(){ buildChart(); }).observe(document.documentElement,{attributes:true,attributeFilter:['class']}); }catch(e){}
+  if(document.readyState==='complete'){ buildChart(); }
+  else { window.addEventListener('load', buildChart); }
+  setTimeout(function(){ if(!chart) buildChart(); }, 400);
+})();
+</script>
 <div class="kbp"><div class="s">순자산과 유동성은 다르다</div><div><p>창구가 중요한 이유는 롤오버다. 기업은 부채를 갚지 않고 연장한다. 창구가 닫히면 아무리 건실한 기업도 만기에 새로 못 빌려 부도가 난다. 순자산과 유동성은 다르다.</p></div></div>
 <div class="kbp"><div class="s">과정은 늘 같다</div><div><p>과정은 단순하다. 그리고 늘 같다. 「호황으로 대출이 늘면서 잘못된 대출로 인해 큰 손실이 발생하고 결국 대출기관이 더 이상 대출을 하지 않게 되면서 호황은 끝이 난다. 이 상황은 계속 반복된다.」(원문 203쪽)</p><p>「최악의 대출은 최고의 시기에 이루어진다.」(9장, 『이코노미스트』 재인용) 그래서 위기의 원인을 찾을 때는 「비디오를 몇 달 혹은 몇 년 전으로 되감아야 한다.」(원문 209쪽)</p></div></div>
 <div class="kbp"><div class="s">누가 카드를 쥐는가</div><div><p>누가 카드를 쥐는가가 국면을 말해 준다. 「신용 창구가 열려 있을 때 카드를 쥐고 있는 것은 대출기관이나 투자자가 아니라 바로 대출자이다.」(원문 222~223쪽)</p><p>닫히면 반대다. 자본을 가진 쪽이 엄격한 기준과 높은 수익률을 요구할 수 있다. 그것이 안전마진이다. 「신용 사이클의 닫힌 국면은 다른 어떤 요인보다도 더 저가 매수의 가능성을 높여준다.」(9장)</p></div></div>
@@ -941,6 +1697,188 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 <div class="kbp"><div class="s">바닥은 지나서만 안다</div><div><p>바닥은 무엇인가. 「바닥은 패닉에 빠진 마지막 보유자가 매도한 날 또는 매도자가 매수자에 비해 우위에 선 마지막 날로 볼 수 있다.」(원문 319~320쪽) 바닥은 지나서만 안다. 네온사인이 켜지지 않는다.</p></div></div>
 <div class="kbp"><div class="s">바닥을 기다려 사지 않는다</div><div><p>그래서 막스는 바닥을 기다려 사는 것에 반대한다. 「패배를 인정하는 매도자로부터 원하는 것을 대량 매수할 수 있는 때는 일반적으로 시장이 미끄러지는 동안이다.」(원문 319~320쪽)</p></div></div>
 <div class="kbp"><div class="s">떨어지는 칼날의 속마음</div><div><p>'떨어지는 칼날은 잡지 않는다'는 말의 속마음을 그는 이렇게 옮긴다. 하락이 멈추기도 전에 사서 손실을 볼까 봐 무섭다는 것이다. 그러나 상황이 안정되면 싼 매물은 사라진다.</p><p>2008년 9월 15일부터 15주 동안 오크트리는 한 주에 5억 달러 이상을 샀다.</p></div></div>
+<div class="panel rc">
+      <div class="panel-head">
+        <div>
+          <h3>바닥은 지나서만 안다: 리먼 파산 뒤 15주가 지나고도 바닥은 10주 뒤에 왔다</h3>
+          <p>막스의 오크트리는 2008년 9월 15일부터 15주 동안 한 주에 5억 달러 이상을 샀다. 이 차트는 그때의 미국 주식시장(S&P 500)이다. 15주가 끝날 때까지 바닥은 오지 않았다. 바닥은 시장이 미끄러지는 동안 지나서야 확인됐다.</p>
+        </div>
+        <div class="rng" role="group" aria-label="기간 선택">
+        </div>
+      </div>
+      <div class="chart-container rc-box" role="img" aria-label="바닥은 지나서만 안다: 리먼 파산 뒤 15주가 지나고도 바닥은 10주 뒤에 왔다">
+        <canvas id="mBottom"></canvas>
+      </div>
+      <p class="note" id="mBottom-note"></p>
+      <div class="srcline">
+        <span class="lbl">출처</span>
+        <span>S&P 500 일봉(FinanceDataReader) · 2008-06 ~ 2009-12</span>
+      </div>
+    </div>
+<script>
+/* 랠리 차트 — scripts/lib/rally_chart.py (kospi-dotcom-1998-2000 첫 차트의 정본 그리기) */
+window.RC = window.RC || {};
+(function(){
+  var C = {"id": "mBottom", "series": [["2008-06-02", 1385.67], ["2008-06-03", 1377.65], ["2008-06-04", 1377.2], ["2008-06-05", 1404.05], ["2008-06-06", 1360.68], ["2008-06-09", 1361.76], ["2008-06-10", 1358.44], ["2008-06-11", 1335.49], ["2008-06-12", 1339.87], ["2008-06-13", 1360.03], ["2008-06-16", 1360.14], ["2008-06-17", 1350.93], ["2008-06-18", 1337.81], ["2008-06-19", 1342.83], ["2008-06-20", 1317.93], ["2008-06-23", 1318.0], ["2008-06-24", 1314.29], ["2008-06-25", 1321.97], ["2008-06-26", 1283.15], ["2008-06-27", 1278.38], ["2008-06-30", 1280.0], ["2008-07-01", 1284.91], ["2008-07-02", 1261.52], ["2008-07-03", 1262.9], ["2008-07-07", 1252.31], ["2008-07-08", 1273.7], ["2008-07-09", 1244.69], ["2008-07-10", 1253.39], ["2008-07-11", 1239.49], ["2008-07-14", 1228.3], ["2008-07-15", 1214.91], ["2008-07-16", 1245.36], ["2008-07-17", 1260.32], ["2008-07-18", 1260.68], ["2008-07-21", 1260.0], ["2008-07-22", 1277.0], ["2008-07-23", 1282.19], ["2008-07-24", 1252.54], ["2008-07-25", 1257.76], ["2008-07-28", 1234.37], ["2008-07-29", 1263.2], ["2008-07-30", 1284.26], ["2008-07-31", 1267.38], ["2008-08-01", 1260.31], ["2008-08-04", 1249.01], ["2008-08-05", 1284.88], ["2008-08-06", 1289.19], ["2008-08-07", 1266.07], ["2008-08-08", 1296.32], ["2008-08-11", 1305.32], ["2008-08-12", 1289.59], ["2008-08-13", 1285.83], ["2008-08-14", 1292.93], ["2008-08-15", 1298.2], ["2008-08-18", 1278.6], ["2008-08-19", 1266.69], ["2008-08-20", 1274.54], ["2008-08-21", 1277.72], ["2008-08-22", 1292.2], ["2008-08-25", 1266.84], ["2008-08-26", 1271.51], ["2008-08-27", 1281.66], ["2008-08-28", 1300.68], ["2008-08-29", 1282.83], ["2008-09-02", 1277.58], ["2008-09-03", 1274.98], ["2008-09-04", 1236.83], ["2008-09-05", 1242.31], ["2008-09-08", 1267.79], ["2008-09-09", 1224.51], ["2008-09-10", 1232.04], ["2008-09-11", 1249.05], ["2008-09-12", 1251.7], ["2008-09-15", 1192.7], ["2008-09-16", 1213.6], ["2008-09-17", 1156.39], ["2008-09-18", 1206.51], ["2008-09-19", 1255.08], ["2008-09-22", 1207.09], ["2008-09-23", 1188.22], ["2008-09-24", 1185.87], ["2008-09-25", 1209.18], ["2008-09-26", 1213.27], ["2008-09-29", 1106.42], ["2008-09-30", 1166.36], ["2008-10-01", 1161.06], ["2008-10-02", 1114.28], ["2008-10-03", 1099.23], ["2008-10-06", 1056.89], ["2008-10-07", 996.23], ["2008-10-08", 984.94], ["2008-10-09", 909.92], ["2008-10-10", 899.22], ["2008-10-13", 1003.35], ["2008-10-14", 998.01], ["2008-10-15", 907.84], ["2008-10-16", 946.43], ["2008-10-17", 940.55], ["2008-10-20", 985.4], ["2008-10-21", 955.05], ["2008-10-22", 896.78], ["2008-10-23", 908.11], ["2008-10-24", 876.77], ["2008-10-27", 848.92], ["2008-10-28", 940.51], ["2008-10-29", 930.09], ["2008-10-30", 954.09], ["2008-10-31", 968.75], ["2008-11-03", 966.3], ["2008-11-04", 1005.75], ["2008-11-05", 952.77], ["2008-11-06", 904.88], ["2008-11-07", 930.99], ["2008-11-10", 919.21], ["2008-11-11", 898.95], ["2008-11-12", 852.3], ["2008-11-13", 911.29], ["2008-11-14", 873.29], ["2008-11-17", 850.75], ["2008-11-18", 859.12], ["2008-11-19", 806.58], ["2008-11-20", 752.44], ["2008-11-21", 800.03], ["2008-11-24", 851.81], ["2008-11-25", 857.39], ["2008-11-26", 887.68], ["2008-11-28", 896.24], ["2008-12-01", 816.21], ["2008-12-02", 848.81], ["2008-12-03", 870.74], ["2008-12-04", 845.22], ["2008-12-05", 876.07], ["2008-12-08", 909.7], ["2008-12-09", 888.67], ["2008-12-10", 899.24], ["2008-12-11", 873.59], ["2008-12-12", 879.73], ["2008-12-15", 868.57], ["2008-12-16", 913.18], ["2008-12-17", 904.42], ["2008-12-18", 885.28], ["2008-12-19", 887.88], ["2008-12-22", 871.63], ["2008-12-23", 863.16], ["2008-12-24", 868.15], ["2008-12-26", 872.8], ["2008-12-29", 869.42], ["2008-12-30", 890.64], ["2008-12-31", 903.25], ["2009-01-02", 931.8], ["2009-01-05", 927.45], ["2009-01-06", 934.7], ["2009-01-07", 906.65], ["2009-01-08", 909.73], ["2009-01-09", 890.35], ["2009-01-12", 870.26], ["2009-01-13", 871.79], ["2009-01-14", 842.62], ["2009-01-15", 843.74], ["2009-01-16", 850.12], ["2009-01-20", 805.22], ["2009-01-21", 840.24], ["2009-01-22", 827.5], ["2009-01-23", 831.95], ["2009-01-26", 836.57], ["2009-01-27", 845.71], ["2009-01-28", 874.09], ["2009-01-29", 845.14], ["2009-01-30", 825.88], ["2009-02-02", 825.44], ["2009-02-03", 838.51], ["2009-02-04", 832.23], ["2009-02-05", 845.85], ["2009-02-06", 868.6], ["2009-02-09", 869.89], ["2009-02-10", 827.16], ["2009-02-11", 833.74], ["2009-02-12", 835.19], ["2009-02-13", 826.84], ["2009-02-17", 789.17], ["2009-02-18", 788.42], ["2009-02-19", 778.94], ["2009-02-20", 770.05], ["2009-02-23", 743.33], ["2009-02-24", 773.14], ["2009-02-25", 764.9], ["2009-02-26", 752.83], ["2009-02-27", 735.09], ["2009-03-02", 700.82], ["2009-03-03", 696.33], ["2009-03-04", 712.87], ["2009-03-05", 682.55], ["2009-03-06", 683.38], ["2009-03-09", 676.53], ["2009-03-10", 719.6], ["2009-03-11", 721.36], ["2009-03-12", 750.74], ["2009-03-13", 756.55], ["2009-03-16", 753.89], ["2009-03-17", 778.12], ["2009-03-18", 794.35], ["2009-03-19", 784.04], ["2009-03-20", 768.54], ["2009-03-23", 822.92], ["2009-03-24", 806.12], ["2009-03-25", 813.88], ["2009-03-26", 832.86], ["2009-03-27", 815.94], ["2009-03-30", 787.53], ["2009-03-31", 797.87], ["2009-04-01", 811.08], ["2009-04-02", 834.38], ["2009-04-03", 842.5], ["2009-04-06", 835.48], ["2009-04-07", 815.55], ["2009-04-08", 825.16], ["2009-04-09", 856.56], ["2009-04-13", 858.73], ["2009-04-14", 841.5], ["2009-04-15", 852.06], ["2009-04-16", 865.3], ["2009-04-17", 869.6], ["2009-04-20", 832.39], ["2009-04-21", 850.08], ["2009-04-22", 843.55], ["2009-04-23", 851.92], ["2009-04-24", 866.23], ["2009-04-27", 857.51], ["2009-04-28", 855.16], ["2009-04-29", 873.64], ["2009-04-30", 872.81], ["2009-05-01", 877.52], ["2009-05-04", 907.24], ["2009-05-05", 903.8], ["2009-05-06", 919.53], ["2009-05-07", 907.39], ["2009-05-08", 929.23], ["2009-05-11", 909.24], ["2009-05-12", 908.35], ["2009-05-13", 883.92], ["2009-05-14", 893.07], ["2009-05-15", 882.88], ["2009-05-18", 909.71], ["2009-05-19", 908.13], ["2009-05-20", 903.47], ["2009-05-21", 888.33], ["2009-05-22", 887.0], ["2009-05-26", 910.33], ["2009-05-27", 893.06], ["2009-05-28", 906.83], ["2009-05-29", 919.14], ["2009-06-01", 942.87], ["2009-06-02", 944.74], ["2009-06-03", 931.76], ["2009-06-04", 942.46], ["2009-06-05", 940.09], ["2009-06-08", 939.14], ["2009-06-09", 942.43], ["2009-06-10", 939.15], ["2009-06-11", 944.89], ["2009-06-12", 946.21], ["2009-06-15", 923.72], ["2009-06-16", 911.97], ["2009-06-17", 910.71], ["2009-06-18", 918.37], ["2009-06-19", 921.23], ["2009-06-22", 893.04], ["2009-06-23", 895.1], ["2009-06-24", 900.94], ["2009-06-25", 920.26], ["2009-06-26", 918.9], ["2009-06-29", 927.23], ["2009-06-30", 919.32], ["2009-07-01", 923.33], ["2009-07-02", 896.42], ["2009-07-06", 898.72], ["2009-07-07", 881.03], ["2009-07-08", 879.56], ["2009-07-09", 882.68], ["2009-07-10", 879.13], ["2009-07-13", 901.05], ["2009-07-14", 905.84], ["2009-07-15", 932.68], ["2009-07-16", 940.74], ["2009-07-17", 940.38], ["2009-07-20", 951.13], ["2009-07-21", 954.58], ["2009-07-22", 954.07], ["2009-07-23", 976.29], ["2009-07-24", 979.26], ["2009-07-27", 982.18], ["2009-07-28", 979.62], ["2009-07-29", 975.15], ["2009-07-30", 986.75], ["2009-07-31", 987.48], ["2009-08-03", 1002.63], ["2009-08-04", 1005.65], ["2009-08-05", 1002.72], ["2009-08-06", 997.08], ["2009-08-07", 1010.48], ["2009-08-10", 1007.1], ["2009-08-11", 994.35], ["2009-08-12", 1005.81], ["2009-08-13", 1012.73], ["2009-08-14", 1004.09], ["2009-08-17", 979.73], ["2009-08-18", 989.67], ["2009-08-19", 996.46], ["2009-08-20", 1007.37], ["2009-08-21", 1026.13], ["2009-08-24", 1025.57], ["2009-08-25", 1028.0], ["2009-08-26", 1028.12], ["2009-08-27", 1030.98], ["2009-08-28", 1028.93], ["2009-08-31", 1020.62], ["2009-09-01", 998.04], ["2009-09-02", 994.75], ["2009-09-03", 1003.24], ["2009-09-04", 1016.4], ["2009-09-08", 1025.39], ["2009-09-09", 1033.37], ["2009-09-10", 1044.14], ["2009-09-11", 1042.73], ["2009-09-14", 1049.34], ["2009-09-15", 1052.63], ["2009-09-16", 1068.76], ["2009-09-17", 1065.49], ["2009-09-18", 1068.3], ["2009-09-21", 1064.66], ["2009-09-22", 1071.66], ["2009-09-23", 1060.87], ["2009-09-24", 1050.78], ["2009-09-25", 1044.38], ["2009-09-28", 1062.98], ["2009-09-29", 1060.61], ["2009-09-30", 1057.08], ["2009-10-01", 1029.85], ["2009-10-02", 1025.21], ["2009-10-05", 1040.46], ["2009-10-06", 1054.72], ["2009-10-07", 1057.58], ["2009-10-08", 1065.48], ["2009-10-09", 1071.49], ["2009-10-12", 1076.19], ["2009-10-13", 1073.19], ["2009-10-14", 1092.02], ["2009-10-15", 1096.56], ["2009-10-16", 1087.68], ["2009-10-19", 1097.91], ["2009-10-20", 1091.06], ["2009-10-21", 1081.4], ["2009-10-22", 1092.91], ["2009-10-23", 1079.6], ["2009-10-26", 1066.95], ["2009-10-27", 1063.41], ["2009-10-28", 1042.63], ["2009-10-29", 1066.11], ["2009-10-30", 1036.19], ["2009-11-02", 1042.88], ["2009-11-03", 1045.41], ["2009-11-04", 1046.5], ["2009-11-05", 1066.63], ["2009-11-06", 1069.3], ["2009-11-09", 1093.08], ["2009-11-10", 1093.01], ["2009-11-11", 1098.51], ["2009-11-12", 1087.24], ["2009-11-13", 1093.48], ["2009-11-16", 1109.3], ["2009-11-17", 1110.32], ["2009-11-18", 1109.8], ["2009-11-19", 1094.9], ["2009-11-20", 1091.38], ["2009-11-23", 1106.24], ["2009-11-24", 1105.65], ["2009-11-25", 1110.63], ["2009-11-27", 1091.49], ["2009-11-30", 1095.63], ["2009-12-01", 1108.86], ["2009-12-02", 1109.24], ["2009-12-03", 1099.92], ["2009-12-04", 1105.98], ["2009-12-07", 1103.25], ["2009-12-08", 1091.94], ["2009-12-09", 1095.95], ["2009-12-10", 1102.35], ["2009-12-11", 1106.41], ["2009-12-14", 1114.11], ["2009-12-15", 1107.93], ["2009-12-16", 1109.18], ["2009-12-17", 1096.08], ["2009-12-18", 1102.47], ["2009-12-21", 1114.05], ["2009-12-22", 1118.02], ["2009-12-23", 1120.59], ["2009-12-24", 1126.48], ["2009-12-28", 1127.78], ["2009-12-29", 1126.2], ["2009-12-30", 1126.42], ["2009-12-31", 1115.1]], "peak": 1404.05, "marks": {"2008-09-15": {"t": "리먼 파산 2008-09-15", "dy": -22, "c": "acc"}, "2008-12-29": {"t": "15주 뒤 869", "dy": -24, "c": "txt"}, "2009-03-09": {"t": "바닥 2009-03-09 · 677", "dy": 24, "c": "neg"}}, "ranges": {"all": {"from": "2008-06-02", "to": "2009-12-31", "note": ""}}, "bandFrom": "2008-09-15", "bandTo": "2008-12-29", "bandLabel": "리먼 파산 뒤 15주", "label": "S&P 500", "tip": "S&P 500", "start": "all", "suggestedMin": null, "ref": 1192.7, "refLabel": "리먼 파산일"};
+  var SERIES = C.series, PEAK = C.peak, MARKS = C.marks, RANGES = C.ranges;
+  var BAND_FROM = C.bandFrom, BAND_TO = C.bandTo;
+  function cv(n){ var el=document.getElementById(C.id); var r=(el&&el.closest('.rc'))||document.documentElement;
+    return getComputedStyle(r).getPropertyValue(n).trim(); }
+  function hexA(h,a){
+    h=(h||'').trim(); if(h.charAt(0)!=='#') return h;
+    if(h.length===4) h='#'+h[1]+h[1]+h[2]+h[2]+h[3]+h[3];
+    var n=parseInt(h.slice(1),16);
+    return 'rgba('+((n>>16)&255)+','+((n>>8)&255)+','+(n&255)+','+a+')';
+  }
+
+  var anno = {
+    id:'anno',
+    beforeDatasetsDraw:function(chart){
+      var xs=chart.scales.x, ys=chart.scales.y, ctx=chart.ctx;
+      if(!xs||!ys) return;
+      var labs=chart.data.labels;
+      if(C.bands){ C.bands.forEach(function(b){
+        var j1=labs.indexOf(b[0]), j2=labs.indexOf(b[1]); if(j1<0||j2<0) return;
+        ctx.save(); ctx.fillStyle=cv('--rc-band');
+        var a1=xs.getPixelForValue(j1), a2=xs.getPixelForValue(j2);
+        ctx.fillRect(a1, ys.top, a2-a1, ys.bottom-ys.top);
+        ctx.strokeStyle=hexA(cv('--rc-accent'),0.28); ctx.setLineDash([4,4]); ctx.lineWidth=1;
+        ctx.beginPath(); ctx.moveTo(a1,ys.top); ctx.lineTo(a1,ys.bottom); ctx.moveTo(a2,ys.top); ctx.lineTo(a2,ys.bottom); ctx.stroke();
+        ctx.setLineDash([]); ctx.fillStyle=hexA(cv('--rc-accent'),0.85); ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='center';
+        ctx.fillText(b[2], (a1+a2)/2, ys.top+16); ctx.restore(); }); }
+      var i1=labs.indexOf(BAND_FROM), i2=labs.indexOf(BAND_TO);
+      if(i1<0||i2<0) return;
+      ctx.save();
+      ctx.fillStyle=cv('--rc-band');
+      var x1=xs.getPixelForValue(i1), x2=xs.getPixelForValue(i2);
+      ctx.fillRect(x1, ys.top, x2-x1, ys.bottom-ys.top);
+      ctx.strokeStyle=hexA(cv('--rc-accent'),0.28); ctx.setLineDash([4,4]); ctx.lineWidth=1;
+      ctx.beginPath(); ctx.moveTo(x1,ys.top); ctx.lineTo(x1,ys.bottom);
+      ctx.moveTo(x2,ys.top); ctx.lineTo(x2,ys.bottom); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle=hexA(cv('--rc-accent'),0.85); ctx.font='700 11.5px Inter, sans-serif'; ctx.textAlign='center';
+      ctx.fillText(C.bandLabel, (x1+x2)/2, ys.top+16);
+      ctx.restore();
+    },
+    afterDatasetsDraw:function(chart){
+      var xs=chart.scales.x, ys=chart.scales.y, ctx=chart.ctx;
+      if(!xs||!ys) return;
+      var labs=chart.data.labels, data=chart.data.datasets[0].data;
+      var accent=cv('--rc-accent'), neg=cv('--rc-neg'), pos=cv('--rc-pos'), txt=cv('--rc-text2'), surf=cv('--rc-surface');
+      var narrow = (xs.width < 620);
+      function colOf(k){ return k==='acc'?accent : k==='neg'?neg : k==='pos'?pos : txt; }
+      if(C.hlines){ C.hlines.forEach(function(h){
+        var y=ys.getPixelForValue(h.v); if(y<ys.top||y>ys.bottom) return;
+        var a=h.frm?labs.indexOf(h.frm):0, b=h.to?labs.indexOf(h.to):labs.length-1;
+        if(h.frm&&a<0) a=0; if(h.to&&b<0) b=labs.length-1;
+        var xa=xs.getPixelForValue(a), xb=xs.getPixelForValue(b), col=colOf(h.c);
+        ctx.save(); ctx.strokeStyle=col; ctx.lineWidth=h.w||1.6; ctx.setLineDash(h.dash||[6,4]);
+        ctx.beginPath(); ctx.moveTo(xa,y); ctx.lineTo(xb,y); ctx.stroke(); ctx.setLineDash([]);
+        if(h.t){ ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign='right'; ctx.fillStyle=col;
+          ctx.fillText(h.t, xb-2, y+(h.below?15:-6)); }
+        ctx.restore(); }); }
+      if(C.extra){ C.extra.forEach(function(e,k){ if(!e.end) return;
+        var d=chart.data.datasets[k+1].data, j=d.length-1; while(j>0 && (d[j]===null||d[j]===undefined)) j--;
+        if(e.at){ var ja=labs.indexOf(e.at); if(ja>=0 && d[ja]!==null && d[ja]!==undefined) j=ja; }
+        if(j<0||d[j]===null) return;
+        ctx.save(); ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif'; ctx.textAlign=e.at?'center':'right'; ctx.fillStyle=colOf(e.c);
+        ctx.fillText(e.end, xs.getPixelForValue(j)-(e.at?0:4), ys.getPixelForValue(d[j])+(e.dy||-8)); ctx.restore(); }); }
+      ctx.save();
+      labs.forEach(function(l,i){
+        var m=MARKS[l]; if(!m) return;
+        var col = m.c==='acc'?accent : m.c==='neg'?neg : m.c==='pos'?pos : txt;
+        var x=xs.getPixelForValue(i), y=ys.getPixelForValue(data[i]);
+        ctx.beginPath(); ctx.arc(x,y,5.5,0,Math.PI*2); ctx.fillStyle=col; ctx.fill();
+        ctx.strokeStyle=surf; ctx.lineWidth=2; ctx.stroke();
+        if(narrow) return;
+        ctx.fillStyle=col; ctx.font='700 11.5px Inter, "Noto Sans KR", sans-serif';
+        ctx.textAlign = (i > labs.length*0.82) ? 'right' : (i < labs.length*0.08 ? 'left' : 'center');
+        ctx.fillText(m.t, x, y + m.dy);
+      });
+      ctx.restore();
+    }
+  };
+
+  var chart=null, currentRange=C.start;
+  function buildChart(){
+    if (typeof Chart==='undefined'){ console.error('Chart.js not loaded'); return; }
+    var el=document.getElementById(C.id); if(!el) return;
+    if(chart){ try{chart.destroy();}catch(e){} chart=null; }
+
+    var r=RANGES[currentRange];
+    var i1=0,i2=SERIES.length-1,i;
+    for(i=0;i<SERIES.length;i++){ if(SERIES[i][0]===r.from) i1=i; if(SERIES[i][0]===r.to) i2=i; }
+    var slice=SERIES.slice(i1,i2+1);
+    var labels=slice.map(function(d){return d[0];});
+    var vals=slice.map(function(d){return d[1];});
+    var more=(C.extra||[]).map(function(e){
+      var c0 = e.c==='acc'?cv('--rc-accent') : e.c==='neg'?cv('--rc-neg') : e.c==='pos'?cv('--rc-pos') : cv('--rc-text2');
+      return { label:e.label, data:e.data.slice(i1,i2+1), borderColor:c0, borderWidth:e.w||1.6, borderDash:e.dash||[],
+               stepped:!!e.stepped, tension:e.stepped?0:.3, pointRadius:0, pointHoverRadius:0, fill:false, spanGaps:false }; });
+
+    var text=cv('--rc-text'), tsec=cv('--rc-text2'), grid=cv('--rc-grid'), accent=cv('--rc-accent');
+
+    chart=new Chart(el,{
+      type:'line',
+      plugins:[anno],
+      data:{ labels:labels, datasets:[{
+        label:C.label, data:vals,
+        borderColor:accent, backgroundColor:hexA(accent,0.13),
+        borderWidth:3.2, tension:.3, pointRadius:0, pointHoverRadius:6, fill:true
+      }].concat(more)},
+      options:{
+        responsive:true, maintainAspectRatio:false, ctChips:C.ctChips,
+        layout:{ padding:{ top:30, right:16, bottom:4, left:4 } },
+        animation:{ duration:1000, easing:'easeOutQuart' },
+        interaction:{ mode:'index', intersect:false },
+        plugins:{
+          legend:{ display:false },
+          tooltip:{ enabled:true, padding:12, cornerRadius:8,
+            titleFont:{size:13,family:'Inter'}, bodyFont:{size:13,family:'Noto Sans KR'},
+            callbacks:{
+              label:function(c){
+                if(c.datasetIndex>0) return c.parsed.y===null ? '' : ' '+c.dataset.label+' '+c.parsed.y.toLocaleString(undefined,{maximumFractionDigits:2})+(C.unit||'');
+                if(C.ref){ var q=(c.parsed.y/C.ref-1)*100;
+                  return ' '+C.tip+' '+c.parsed.y.toLocaleString(undefined,{maximumFractionDigits:2})+'  ('+C.refLabel+' 대비 '+(q>=0?'+':'')+q.toFixed(1)+'%)'; }
+                if(C.unit) return ' '+C.tip+' '+(c.parsed.y>0?'+':'')+c.parsed.y.toFixed(2)+C.unit;
+                return ' '+C.tip+' '+c.parsed.y.toLocaleString()+'  ('+(C.peakLabel||'정점 대비')+' '+(c.parsed.y/PEAK*100).toFixed(1)+'%)';
+              },
+              afterLabel:function(c){ if(c.datasetIndex>0) return ''; var m=MARKS[c.label]; return m ? ' ▸ '+m.t.replace(/\s\d[\d,]*.*$/,'') : ''; }
+            } }
+        },
+        scales:{
+          x:{ ticks:{color:tsec,font:{family:'Inter',size:11.5},maxRotation:0,autoSkip:true,maxTicksLimit:12},
+              grid:{color:grid} },
+          y:{ beginAtZero:false, suggestedMin:C.suggestedMin,
+              title:{display:true,text:C.ylabel||C.label,color:tsec,font:{family:'Noto Sans KR',size:13}},
+              ticks:{color:tsec,font:{family:'Inter',size:12},callback:function(v){return v.toLocaleString();}},
+              grid:{color:grid} }
+        }
+      }
+    });
+  }
+
+  function setRange(kind,btn){
+    currentRange=kind;
+    try{ buildChart(); }catch(e){ if(window.console) console.error('buildChart', e); }
+    try{
+      var g=(btn&&btn.closest)?btn.closest('.rng'):null;
+      var bs=g?g.querySelectorAll('button'):[];
+      for(var i=0;i<bs.length;i++) bs[i].classList.remove('on');
+      if(btn&&btn.classList) btn.classList.add('on');
+      var rn=document.getElementById(C.id+'-note');
+      if(rn && RANGES[kind]) rn.innerHTML = RANGES[kind].note;
+    }catch(e){ if(window.console) console.error('setRange ui', e); }
+  }
+
+  RC[C.id] = { build:buildChart, setRange:setRange, chart:function(){ return chart; } };
+  try{ var _n=document.getElementById(C.id+'-note'); if(_n) _n.innerHTML = RANGES[currentRange].note; }catch(e){}
+  try{ new MutationObserver(function(){ buildChart(); }).observe(document.documentElement,{attributes:true,attributeFilter:['class']}); }catch(e){}
+  if(document.readyState==='complete'){ buildChart(); }
+  else { window.addEventListener('load', buildChart); }
+  setTimeout(function(){ if(!chart) buildChart(); }, 400);
+})();
+</script>
 <div class="kbp"><div class="s">그 사이에 무엇을 했는가</div><div><p>2년을 합치면 별것 아닌 결과가 된다. 레버리지론 지수(100→71→103)는 2008년에 하락했고 2009년에 회복했다. 그 사이에 무엇을 했는가가 전부다.</p><p>「하락 후 시장을 탈출해서 사이클 반등에 참여하지 못하는 것은 투자에서 가장 치명적인 죄악이다.」(13장) 「정말 끔찍한 것은 바닥에서 팔아치워 하락 변동의 기회를 영구적인 손실로 날려버리는 것이다.」(원문 322~323쪽)</p></div></div>
 <div class="kbp"><div class="s">마지막 보유자의 매도를 본다</div><div><p>이 사이트의 <a href="deleveraging.html">강제청산</a>과 <a href="sentiment.html">빚과 현금</a>이 그 마지막 보유자의 매도를 집계한다. 반대매매 급증일 뒤 60영업일은 8번 중 7번 상승으로 끝났다. 그것이 그 실측이다.</p></div></div>
 
