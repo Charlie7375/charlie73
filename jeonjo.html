@@ -622,6 +622,9 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 .paper p,.paper li{font-size:clamp(15.5px,1.85vw,16.5px);line-height:1.85;
   letter-spacing:-.004em}
 .paper p{margin:0 0 13px}
+/* 본문 바로 아래의 번호·글머리 목록(결론 · 이 글의 한계). 전역 초기화(* {padding:0})가 들여쓰기를 지워
+   번호가 본문 왼쪽 선 밖으로 나갔다(2026-11-19 minervini 11·12절). 요지 문단(.kbp) 안 목록과 같은 1.4em. 클래스 붙은 목록(ol.refs 등)은 제 규칙을 쓴다 */
+.paper>ol:not([class]),.paper>ul:not([class]){padding-left:1.4em;margin:6px 0 14px}
 .paper p.note{font-size:15px;color:var(--text2,#6e6e73);padding-left:14px;
   border-left:2px solid var(--rule);line-height:1.75}
 
