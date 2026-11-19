@@ -103,6 +103,14 @@ h2.sec{font-size:1.25rem;font-weight:700;margin-top:44px;letter-spacing:-.02em}
 footer{margin-top:48px;border-top:1px solid var(--border);padding-top:22px;color:var(--text-secondary);font-size:.82rem;line-height:1.7}
 .toggle{position:fixed;top:18px;right:18px;width:42px;height:42px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:18px;z-index:120}
 @media(max-width:720px){.cp-kpi{grid-template-columns:repeat(2,1fr)}}
+
+.kbp{margin:14px 0}
+.kbp>.s{font-weight:700;font-size:.92em;color:var(--text-secondary,#6e6e73);margin:0 0 3px}
+.kbp>div>p{margin:0 0 8px}
+.kbp ol,.kbp ul{padding-left:1.4em;margin:6px 0 10px}
+.kb-note{font-size:.88em;color:var(--text-secondary,#6e6e73);line-height:1.7;margin:4px 0}
+.kb-cap{font-weight:700;margin:20px 0 6px}
+.pclaim .kb-t{font-weight:800;margin-top:12px}
 /* DESIGN:BEGIN */
 /* ── 숫자는 항상 고정폭 — 매일 바뀌는 값에 칸이 흔들리지 않게 ── */
 body{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
@@ -344,53 +352,7 @@ html,body{overflow-x:hidden}
   html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
   html body .site-bar-in{padding:9px 14px 7px}
 }
-/* BAR:END */
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
-
-/* SEARCH:BEGIN */
-.srch-btn{position:fixed;top:auto;bottom:18px;right:68px;z-index:130;width:42px;height:42px;border-radius:50%;
-  background:var(--surface,#F6F7F9);border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text,#0f172a);
-  cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;
-  box-shadow:0 2px 14px rgba(0,0,0,.10);transition:transform .12s,box-shadow .12s}
-.srch-btn:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(0,0,0,.16)}
-.srch-btn:focus-visible,.srch-in:focus-visible,.srch-r a:focus-visible{outline:2px solid var(--accent,#2563eb);outline-offset:2px}
-.srch-bg{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.38);display:none}
-.srch-bg.on{display:block}
-.srch-box{position:fixed;z-index:201;top:72px;left:50%;transform:translateX(-50%);width:min(680px,calc(100vw - 24px));
-  max-height:calc(100vh - 96px);max-height:calc(100dvh - 96px);display:none;flex-direction:column;
-  background:var(--bg,#fff);color:var(--text,#0f172a);border:1px solid var(--border,rgba(15,23,42,.12));
-  border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.28);overflow:hidden}
-.srch-box.on{display:flex}
-.srch-top{display:flex;gap:8px;align-items:center;padding:12px 14px;border-bottom:1px solid var(--border,rgba(15,23,42,.12))}
-.srch-in{flex:1;min-width:0;font:inherit;font-size:16px;padding:9px 11px;border-radius:9px;
-  border:1px solid var(--border,rgba(15,23,42,.12));background:var(--surface,#F6F7F9);color:var(--text,#0f172a)}
-.srch-x{font:inherit;font-size:13px;padding:8px 10px;border-radius:9px;border:0;background:none;color:var(--text2,#6e6e73);cursor:pointer}
-.srch-meta{padding:8px 16px 0;font-size:12.5px;color:var(--text2,#6e6e73)}
-.srch-r{list-style:none;margin:0;padding:6px 8px 12px;overflow-y:auto;overscroll-behavior:contain}
-.srch-r li{margin:0}
-.srch-r a{display:block;padding:10px 10px;border-radius:9px;color:inherit;text-decoration:none}
-.srch-r a:hover,.srch-r a.cur{background:var(--surface,#F6F7F9)}
-.srch-k{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;padding:1px 6px;border-radius:5px;
-  margin-right:6px;vertical-align:1px;border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text2,#6e6e73)}
-.srch-t{font-weight:700;font-size:14.5px;line-height:1.4}
-.srch-h{font-size:13px;color:var(--text2,#6e6e73);margin-top:2px;line-height:1.4}
-.srch-s{font-size:13px;line-height:1.55;margin-top:4px;color:var(--text,#0f172a);opacity:.86}
-.srch-s mark,.srch-h mark,.srch-t mark{background:rgba(37,99,235,.18);color:inherit;border-radius:3px;padding:0 1px}
-/* 상단 메뉴 «검색» — 드롭다운 버튼(.site-group>button)과 같은 글자로.
-   ⚠ site-group 이 아니라 site-srch 로 감싼다 — 상단바 토글 JS 가 site-group 마다 버튼을 찾다 오류가 났다(2026-10-06). */
-html body .site-srch{position:relative;display:flex;align-items:center}
-html body .site-srch>a.srch-nav{display:flex;align-items:center;font-size:13px;font-weight:600;letter-spacing:-.01em;
-  line-height:normal;color:var(--text-secondary,#475569);padding:8px 12px;border-radius:9px;text-decoration:none}
-html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in srgb,var(--text) 6%,transparent)}
-@media(max-width:760px){.srch-box{top:12px} html body .site-srch>a.srch-nav{padding:8px 8px;font-size:12px}}
-@media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
-/* SEARCH:END */
-/*TOCCSS:BEGIN*/
+/* BAR:END *//*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
 /* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
@@ -735,7 +697,46 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style><link rel="stylesheet" href="vendor/fonts.css"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
+/* PAPER:END */
+/* SEARCH:BEGIN */
+.srch-btn{position:fixed;top:auto;bottom:18px;right:68px;z-index:130;width:42px;height:42px;border-radius:50%;
+  background:var(--surface,#F6F7F9);border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text,#0f172a);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;
+  box-shadow:0 2px 14px rgba(0,0,0,.10);transition:transform .12s,box-shadow .12s}
+.srch-btn:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(0,0,0,.16)}
+.srch-btn:focus-visible,.srch-in:focus-visible,.srch-r a:focus-visible{outline:2px solid var(--accent,#2563eb);outline-offset:2px}
+.srch-bg{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.38);display:none}
+.srch-bg.on{display:block}
+.srch-box{position:fixed;z-index:201;top:72px;left:50%;transform:translateX(-50%);width:min(680px,calc(100vw - 24px));
+  max-height:calc(100vh - 96px);max-height:calc(100dvh - 96px);display:none;flex-direction:column;
+  background:var(--bg,#fff);color:var(--text,#0f172a);border:1px solid var(--border,rgba(15,23,42,.12));
+  border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.28);overflow:hidden}
+.srch-box.on{display:flex}
+.srch-top{display:flex;gap:8px;align-items:center;padding:12px 14px;border-bottom:1px solid var(--border,rgba(15,23,42,.12))}
+.srch-in{flex:1;min-width:0;font:inherit;font-size:16px;padding:9px 11px;border-radius:9px;
+  border:1px solid var(--border,rgba(15,23,42,.12));background:var(--surface,#F6F7F9);color:var(--text,#0f172a)}
+.srch-x{font:inherit;font-size:13px;padding:8px 10px;border-radius:9px;border:0;background:none;color:var(--text2,#6e6e73);cursor:pointer}
+.srch-meta{padding:8px 16px 0;font-size:12.5px;color:var(--text2,#6e6e73)}
+.srch-r{list-style:none;margin:0;padding:6px 8px 12px;overflow-y:auto;overscroll-behavior:contain}
+.srch-r li{margin:0}
+.srch-r a{display:block;padding:10px 10px;border-radius:9px;color:inherit;text-decoration:none}
+.srch-r a:hover,.srch-r a.cur{background:var(--surface,#F6F7F9)}
+.srch-k{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;padding:1px 6px;border-radius:5px;
+  margin-right:6px;vertical-align:1px;border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text2,#6e6e73)}
+.srch-t{font-weight:700;font-size:14.5px;line-height:1.4}
+.srch-h{font-size:13px;color:var(--text2,#6e6e73);margin-top:2px;line-height:1.4}
+.srch-s{font-size:13px;line-height:1.55;margin-top:4px;color:var(--text,#0f172a);opacity:.86}
+.srch-s mark,.srch-h mark,.srch-t mark{background:rgba(37,99,235,.18);color:inherit;border-radius:3px;padding:0 1px}
+/* 상단 메뉴 «검색» — 드롭다운 버튼(.site-group>button)과 같은 글자로.
+   ⚠ site-group 이 아니라 site-srch 로 감싼다 — 상단바 토글 JS 가 site-group 마다 버튼을 찾다 오류가 났다(2026-10-06). */
+html body .site-srch{position:relative;display:flex;align-items:center}
+html body .site-srch>a.srch-nav{display:flex;align-items:center;font-size:13px;font-weight:600;letter-spacing:-.01em;
+  line-height:normal;color:var(--text-secondary,#475569);padding:8px 12px;border-radius:9px;text-decoration:none}
+html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in srgb,var(--text) 6%,transparent)}
+@media(max-width:760px){.srch-box{top:12px} html body .site-srch>a.srch-nav{padding:8px 8px;font-size:12px}}
+@media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
+/* SEARCH:END */
+</style><link rel="stylesheet" href="vendor/fonts.css"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-watch.html">바닥 추적</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="macro-timeline.html">거시 이벤트 연대기</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="minervini-x.html">마크 미너비니 X 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-psk-holdings.html">피에스케이홀딩스</a><a href="stock-samsung-sdi.html">삼성SDI</a><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-nhn.html">NHN</a><a href="stock-kolmar.html">한국콜마</a><a href="stock-cosmax.html">코스맥스</a><a href="stock-pharmaresearch.html">파마리서치</a><a href="stock-jyp.html">JYP Ent.</a><a href="stock-sm-ent.html">에스엠</a><a href="stock-yg-ent.html">와이지엔터테인먼트</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="marks.html">하워드 막스의 방법론</a><a href="marks-glossary.html">사이클 용어사전</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a><a href="cycle-rope.html">사이클과 규칙</a></div></div><div class="site-group"><button class="here" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><span class="nav-h sub">시장 국면</span><a href="kosdaq-seasonality.html">해와 달의 코스닥</a><a href="kospi-bottom.html">코스피 바닥 판별</a><a href="sp500-ftd.html">S&P 500 팔로스루 데이</a><a href="kospi-ftd.html">팔로스루 데이</a><a href="kospi-panics.html">코스피 역대 공황</a><a href="rally-angle.html">상승 각도</a><a href="kospi-seasonality-down.html">해와 달의 코스피 · 역편</a><a href="kospi-drivers.html">코스피 선행 변수</a><a href="kospi-seasonality.html">해와 달의 코스피</a><a href="breadth-concentration.html">신고가 쏠림</a><a href="kospi-analog.html">닮은 과거</a><a class="here" href="audition-history.html">오디션 히스토리</a><a href="disparity-archive.html">두 버블의 이격도</a><a href="stage-analysis.html">와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리</a><span class="nav-h sub">신용과 청산</span><a href="credit-lag.html">미 은행 대출 태도와 가산금리</a><a href="us-credit-spread.html">미국 신용스프레드</a><a href="deleveraging.html">강제청산</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="sentiment.html">빚과 현금</a><span class="nav-h sub">수급과 폭락</span><a href="flow-quadrant.html">개인 수급 사분면</a><a href="foreign-flow.html">외국인 수급</a><a href="flow-extremes.html">개인과 외국인의 대량 매매</a><a href="flow-crashes.html">폭락의 구조</a><span class="nav-h sub">금리와 통화</span><a href="rate-crash-primer.html">금리-공황 프로세스 읽기</a><a href="nikkei-rates.html">닛케이와 미국 금리</a><a href="kospi-spx-gap.html">코스피와 S&P 500</a><a href="rate-crash-process.html">금리-공황 프로세스</a><a href="gold-rates.html">금리와 금값</a><a href="treasury-trust.html">미국 국채 바이백</a><a href="inflation-playbook.html">인플레 시대의 자산</a><a href="rates-century.html">미국 금리 100년</a><a href="liquidity.html">미국 유동성</a><a href="fed-kospi.html">연준 기준금리와 코스피</a><a href="rates-101.html">금리 기초</a><a href="rates-crashes.html">금리 5%와 공황</a><a href="dollar-kospi.html">달러와 코스피</a><span class="nav-h sub">경기와 수출</span><a href="jp-cci-kospi.html">일본 소비심리와 코스피</a><a href="us-elections.html">미국 선거와 증시</a><a href="export-kospi.html">수출과 코스피</a><a href="cli-kospi.html">OECD CLI 와 코스피</a><a href="ism-kospi.html">ISM 과 코스피</a><a href="jeoji-kospi.html">제오지산수</a><span class="nav-h sub">개별 종목</span><a href="memory-price.html">D램 가격과 삼성전자</a><a href="leadlag.html">하이닉스의 선행과 후행</a><a href="samsung-long.html">삼성전자 27년</a></div></div><div class="site-group"><button class="" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 153계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a href="data-kr-rates.html">한국 금리</a><a href="data-us-market.html">미국 시장</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a href="data-fx.html">환율·원자재·암호</a><a href="data-macro.html">재정·거시</a><a href="data-world.html">세계 증시</a></div></div><div class="site-srch"><a class="srch-nav" href="#search" role="button">검색</a></div><!-- NAV:END --></nav>
@@ -743,18 +744,17 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 <div class="wrap paper">
 <header class="phead"><!--phead:unified--><div class="eyebrow">아카이브 · 오디션 히스토리</div>
 <h1>오디션 피라미딩 히스토리<br>2025~2026</h1>
-<p class="pauth">2025-04 ~ 2026-06 체크포인트 · 고정 자료 · 시장 데이터로 갱신되지 않는다</p><!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>순위 표 상위의 교체가 곧 주도업종의 교체였다. 마지막 교체에서는 대형 반도체가 코스닥 소형주 자리를 차지했다. 코스피 정점도 그 무렵이었다. 이 글은 지난 후보를 그대로 남겨 둔 기록으로 숏리스트의 그 뒤를 계산했다. 숏리스트는 다음 체크포인트까지 4번 중 3번 유니버스 전체보다 더 상승했다. 사례는 이 사이클 1번이다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#깔때기-대상에서-숏리스트까지">깔때기: 대상에서 숏리스트까지</a></li><li><a href="#숏리스트는-그-뒤에-어떻게-됐나">숏리스트는 그 뒤에 어떻게 됐나?</a></li><li><a href="#전체를-관통하는-것">전체를 관통하는 것</a></li><li><a href="#아직-불확실한-곳은-어디인가">아직 불확실한 곳은 어디인가</a></li></ol></div><!--TOC:END--></header>
-<div class="intro"><b>이 글을 읽기 전에 알아 둘 말</b>
-<p>오디션 피라미딩은 이야기꾼 시나리오투자법의 종목 고르기 방법이다. 조건에 못 미치는 종목을 걸러 내고 남은 종목을 후보로 둔다.</p>
-<p>기준일은 구간을 계산하기 시작하는 날이다. 이 글의 기준일은 2025년 4월 9일이다. 그달 코스피가 가장 낮았던 날이다.
-체크포인트는 기준일에서 3개월씩 늘린 날이다. 이 글은 3·6·9·12·15개월 체크포인트 5개를 본다. 그날이 휴장일이면 직전 거래일을 쓴다.</p>
-<p>유니버스는 그 시점 시가총액 1조 원 이상인 코스피·코스닥 종목이다. 누적 상승률은 기준일 종가 대비 체크포인트 종가의 상승률이다.
-생존율은 유니버스 가운데 누적 상승률이 플러스인 종목의 비율이다. 블록의 '생존(＋)' 칸이 이것이다.</p>
-<p>각 블록은 그 체크포인트의 누적 상승률 순위다. 상위 15는 1위부터 15위까지다. <span class="new">NEW</span>는 직전 체크포인트의 상위 15에 없다가 새로 들어온 종목이다. 줄을 그은 종목은 상위 15에서 빠진 종목이다.</p>
-<p>주도업종(<span class="lead">✦</span>)은 그 시점 업종별 중앙 수익률 상위 3개 업종이다. 업종마다 4종목 이상이어야 한다.
-3MC는 P 가격 · D 수급 · V 재무 3가지 크로스다. 그 시점에 볼 수 있던 자료로 판정했다. 3MC 글자 위에 마우스를 올리면 근거가 보인다.
-숏리스트는 주도업종에 속하면서 3MC 3개를 모두 충족한 종목이다. 강의가 말하는 마지막 후보다.</p>
-<p>같은 기준일에서 계산하는 것이 핵심이다. 구간이 길어질수록 우연히 한 번 상승한 종목은 밀려난다. 추세를 탄 종목만 남는다.</p></div>
+<p class="pauth">2025-04 ~ 2026-06 체크포인트 · 고정 자료 · 시장 데이터로 갱신되지 않는다</p></header>
+<!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#깔때기-대상에서-숏리스트까지">깔때기: 대상에서 숏리스트까지</a></li><li><a href="#숏리스트는-그-뒤에-어떻게-됐나">숏리스트는 그 뒤에 어떻게 됐나</a></li><li><a href="#전체를-관통하는-것">전체를 관통하는 것</a></li><li><a href="#결론-순위-표-상위의-교체가-곧-주도업종의-교체였다">결론: 순위 표 상위의 교체가 곧 주도업종의 교체였다</a></li><li><a href="#이-글의-한계">이 글의 한계</a></li><li><a href="#이-글의-용어">이 글의 용어</a></li></ol></div><!--TOC:END--><p>오디션은 조건에 못 미치는 종목을 걸러내는 방식이다. 강의는 구간을 늘려 가며 다시 검증하라고 한다.</p>
+<p>그래서 이 글은 2025년 4월 저점을 기준일로 두고 구간을 3개월씩 늘려 가며 누적 상승률 상위가 어떻게 바뀌는지를 봤다. 그 위에 강의의 2차 스크리닝인 주도업종 필터와 3MC를 그 시점 기준으로 얹어 숏리스트가 몇 개 남는지까지 봤다.</p>
+<p>결론부터 말하면, 순위 표 상위의 교체가 곧 주도업종의 교체였다. 마지막 교체에서는 대형 반도체가 상위를 차지했다. 문제는 그 무렵이 코스피 정점이었다는 점이다.</p>
+
+<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div>
+<p class="kb-t">1. 교체: 순위 상위가 곧 주도업종</p><p>주도업종도 그때마다 바뀌었다.</p>
+<p class="kb-t">2. 마지막 교체: 대형 반도체</p><p>코스닥 소형주 자리를 차지했다. 코스피 정점도 그 무렵이었다.</p>
+<p class="kb-t">3. 숏리스트: 4번 중 3번</p><p>다음 체크포인트까지 유니버스 전체보다 더 상승했다.</p>
+<p class="kb-t">4. 3MC: 상승률 1위를 고르지 않는다</p><p>사례는 이 사이클 1번이다.</p>
+</div><!--PCLAIM:END-->
 
 <div class="tl">
 
@@ -883,54 +883,75 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 </div>
 
 <h2 id="깔때기-대상에서-숏리스트까지" class="sec">깔때기: 대상에서 숏리스트까지</h2>
-<p class="cp-filt">아래 표는 체크포인트마다 대상 종목이 좁혀지는 과정이다. 순서는 플러스 → 상위 15 → 주도업종 → 3MC 3개 → 숏리스트다. 강의의 순서 그대로다.</p>
+<p class="kb-note">※ 아래 표는 체크포인트마다 대상 종목이 좁혀지는 과정이다. 순서는 플러스 → 상위 15 → 주도업종 → 3MC 3개 → 숏리스트다. 강의의 순서 그대로다.</p>
+<p class="kb-cap">표 1. 대상에서 숏리스트까지 좁혀지는 과정</p>
 <div class="tblwrap"><table class="funnel"><thead><tr><th>시점</th><th>대상</th><th>플러스</th><th>상위 15 중 주도업종</th><th>상위 15 중 3MC 3개</th><th>플러스 전체 3MC 3개</th><th>숏리스트<br>(주도업종 + 3MC 3개)</th><th>주도업종 + 3MC 2개 이상</th></tr></thead>
 <tbody><tr><td>2025-07-09</td><td>295</td><td>279 (95%)</td><td>7</td><td>2</td><td>11</td><td><b>4</b></td><td>24</td></tr><tr><td>2025-10-02</td><td>300</td><td>278 (93%)</td><td>5</td><td>0</td><td>11</td><td><b>2</b></td><td>11</td></tr><tr><td>2026-01-09</td><td>312</td><td>289 (93%)</td><td>6</td><td>1</td><td>17</td><td><b>9</b></td><td>26</td></tr><tr><td>2026-04-09</td><td>345</td><td>325 (94%)</td><td>10</td><td>0</td><td>2</td><td><b>1</b></td><td>10</td></tr><tr><td>2026-06-30</td><td>311</td><td>276 (89%)</td><td>14</td><td>0</td><td>1</td><td><b>0</b></td><td>7</td></tr></tbody></table></div>
-<p class="cp-filt">첫 줄을 읽으면 이렇다. 2025년 7월 9일 대상은 295종목이다. 그 가운데 플러스가 279개다. 상위 15 가운데 주도업종에 속한 종목은 7개다. 상위 15 가운데 3MC 3개를 모두 충족한 종목은 2개다. 숏리스트는 4개다. 체크포인트 5개 중 4개에서 숏리스트가 나왔다.</p>
+<div class="kbp"><div class="s">첫 줄 읽기</div><div><p>첫 줄을 읽으면 이렇다. 2025년 7월 9일 대상은 295종목이다. 그 가운데 플러스가 279개다. 상위 15 가운데 주도업종에 속한 종목은 7개다. 상위 15 가운데 3MC 3개를 모두 충족한 종목은 2개다. 숏리스트는 4개다. 체크포인트 5개 중 4개에서 숏리스트가 나왔다.</p></div></div>
 
 <h2 id="숏리스트는-그-뒤에-어떻게-됐나" class="sec">숏리스트는 그 뒤에 어떻게 됐나?</h2>
-<p class="cp-filt">오디션이 맞았는지는 고른 종목의 그 뒤로 확인한다. 아래 표는 체크포인트마다 숏리스트 종목이 그 뒤에 얼마나 움직였는지다.
+<p class="kb-note">※ 오디션이 맞았는지는 고른 종목의 그 뒤로 확인한다. 아래 표는 체크포인트마다 숏리스트 종목이 그 뒤에 얼마나 움직였는지다.
 같은 구간의 상위 15와 유니버스 전체를 옆에 놓았다. 값은 모두 종목별 상승률의 중앙값이다.
 다음 시점에 시가총액 1조 원 아래로 빠진 종목도 그대로 넣었다.</p>
+<p class="kb-cap">표 2. 숏리스트의 그 뒤: 상위 15 · 유니버스 전체와 비교</p>
 <div class="tblwrap"><table class="funnel"><thead><tr><th rowspan="2">시점</th><th rowspan="2">숏리스트</th><th colspan="3">다음 체크포인트까지</th><th colspan="3">15개월 시점까지</th></tr>
 <tr><th>숏리스트</th><th>상위 15</th><th>유니버스</th><th>숏리스트</th><th>상위 15</th><th>유니버스</th></tr></thead>
 <tbody><tr><td>2025-07-09</td><td>4개</td><td><b>0%</b></td><td>+2%</td><td>−1%</td><td><b>+5%</b></td><td>+40%</td><td>+8%</td></tr><tr><td>2025-10-02</td><td>2개</td><td><b>+16%</b></td><td>+14%</td><td>+5%</td><td><b>+96%</b></td><td>+34%</td><td>+9%</td></tr><tr><td>2026-01-09</td><td>9개</td><td><b>+34%</b></td><td>−9%</td><td>+13%</td><td><b>+54%</b></td><td>−28%</td><td>+1%</td></tr><tr><td>2026-04-09</td><td>1개</td><td><b>−46%</b></td><td>−19%</td><td>−14%</td><td><b>−46%</b></td><td>−19%</td><td>−14%</td></tr></tbody></table></div>
-<p class="cp-filt">숏리스트가 나온 체크포인트는 4개다. 그 가운데 3개에서 숏리스트의 다음 체크포인트까지 상승률 중앙값이 유니버스 전체보다 높았다. 15개월 시점까지로 넓히면 4개 가운데 2개다. 같은 비교에서 상위 15는 다음 체크포인트까지 4개 가운데 2개에서 유니버스 전체보다 높았다. 숏리스트는 체크포인트마다 몇 개에 그친다. 그래서 이 비교는 경향으로만 읽는다. 사례는 이 사이클 1번이다.</p>
+<div class="kbp"><div class="s">숏리스트의 그 뒤</div><div><p>숏리스트가 나온 체크포인트는 4개다. 그 가운데 3개에서 숏리스트의 다음 체크포인트까지 상승률 중앙값이 유니버스 전체보다 높았다. 15개월 시점까지로 넓히면 4개 가운데 2개다. 같은 비교에서 상위 15는 다음 체크포인트까지 4개 가운데 2개에서 유니버스 전체보다 높았다. 숏리스트는 체크포인트마다 몇 개에 그친다. 그래서 이 비교는 경향으로만 읽는다. 사례는 이 사이클 1번이다.</p></div></div>
 
 <h2 id="전체를-관통하는-것" class="sec">전체를 관통하는 것</h2>
-<div class="explain">
-<p>1. 오디션은 시간이 검증한다. 3개월 시점 상위 15 가운데 9개월 시점에도 상위 15에 남은 종목은 2개다.
+<div class="kbp"><div class="s">시간이 검증한다</div><div><p>1. 오디션은 시간이 검증한다. 3개월 시점 상위 15 가운데 9개월 시점에도 상위 15에 남은 종목은 2개다.
 6개월 시점에 새로 들어와 12개월 시점까지 남은 종목은 로보티즈·원익홀딩스다.
-강의가 구간을 늘려 가며 다시 검증하라고 한 이유가 이 표에 그대로 나온다.</p>
-<p>2. 주도업종은 실제로 교체된다. 상승률 상위는 3개월 시점에 전력·금융·방산, 6개월 시점에 로봇·바이오·조선이었다.
+강의가 구간을 늘려 가며 다시 검증하라고 한 이유가 이 표에 그대로 나온다.</p></div></div>
+<div class="kbp"><div class="s">주도업종은 교체된다</div><div><p>2. 주도업종은 실제로 교체된다. 상승률 상위는 3개월 시점에 전력·금융·방산, 6개월 시점에 로봇·바이오·조선이었다.
 9개월과 12개월 시점에는 코스닥 소형 성장주가, 15개월 시점에는 대형 반도체가 상위를 차지했다. 순위 표 상단의 교체가 곧 업종 교체의 신호였다.
-업종 중앙값으로 고른 주도업종 3개도 3개월 시점 증권, 금융, 금속에서 15개월 시점 전기·전자, 의료·정밀기기, 기계·장비로 바뀌었다.</p>
-<p>3. 생존율 90%는 정점을 알려 주지 않았다. 생존율은 체크포인트 5개 중 4개에서 90%를 넘었다(3개월 95%, 6개월 93%, 9개월 93%, 12개월 94%). 그 사이 코스피는 3,134에서 5,778로 상승했다. 정점에 가장 가까운 15개월 시점의 생존율은 89%였다.
-생존율이 90%를 넘으면 오디션이 걸러 내는 종목이 거의 없다. 선별 도구가 작동하지 않는다는 뜻이다. 그때는 종목보다 국면을 봐야 한다.</p>
-<p>4. 시총 상위 대형주가 상승률 상위를 가장 많이 차지한 것은 마지막 구간이다. 시총 상위 10 종목 가운데 상승률 상위 15에 든 종목은 3개월 시점부터 차례로 1개·1개·2개·1개·3개다.
+업종 중앙값으로 고른 주도업종 3개도 3개월 시점 증권, 금융, 금속에서 15개월 시점 전기·전자, 의료·정밀기기, 기계·장비로 바뀌었다.</p></div></div>
+<div class="kbp"><div class="s">생존율</div><div><p>3. 생존율 90%는 정점을 알려 주지 않았다. 생존율은 체크포인트 5개 중 4개에서 90%를 넘었다(3개월 95%, 6개월 93%, 9개월 93%, 12개월 94%). 그 사이 코스피는 3,134에서 5,778로 상승했다. 정점에 가장 가까운 15개월 시점의 생존율은 89%였다.
+생존율이 90%를 넘으면 오디션이 걸러 내는 종목이 거의 없다. 선별 도구가 작동하지 않는다는 뜻이다. 그때는 종목보다 국면을 봐야 한다.</p></div></div>
+<div class="kbp"><div class="s">대형주가 상위로</div><div><p>4. 시총 상위 대형주가 상승률 상위를 가장 많이 차지한 것은 마지막 구간이다. 시총 상위 10 종목 가운데 상승률 상위 15에 든 종목은 3개월 시점부터 차례로 1개·1개·2개·1개·3개다.
 마지막 15개월 시점에는 SK스퀘어(3위)·삼성전기(4위)·SK하이닉스(6위)가 들었다. 시총 1,888.7조의 SK하이닉스는 기준일부터 1,506% 상승했다.
 이 글은 이것을, 소형주가 하던 움직임을 대형주가 이어받으면 더 들어올 자금이 적다는 신호로 읽는다.
-코스피는 2026년 6월 22일에 9,115로 정점을 기록했다. 7월 코스피 저점은 6월 고점보다 39% 낮았다. SK하이닉스는 2026년 11월 17일까지 고점 대비 62% 하락했다.</p>
-<p>5. 3MC는 상승률 1위를 고르지 않는다. 상위 15 가운데 3MC 3개를 모두 충족한 종목은 3개월 시점부터 차례로 2개 · 0개 · 1개 · 0개 · 0개였다.
-상승률 순위의 맨 위 종목과 3MC 3개를 모두 충족한 종목은 서로 다르다. 강의가 「많이 오른 다음에 오피를 하면 안 된다」고 한 것과 같은 방향이다.</p>
-</div>
-<p class="note">⚠ 2026-09-24 정정. 앞서 이 글은 "생존율이 90%를 넘으면 위험하다, 실제로 그 직후가 정점이었다"고 적었다. 생존율은 3개월 시점부터 90%를 넘었다. 코스피는 그 뒤 정점까지 191% 더 상승했다.
+코스피는 2026년 6월 22일에 9,115로 정점을 기록했다. 7월 코스피 저점은 6월 고점보다 39% 낮았다. SK하이닉스는 2026년 11월 17일까지 고점 대비 62% 하락했다.</p></div></div>
+<div class="kbp"><div class="s">3MC와 상승률 1위</div><div><p>5. 3MC는 상승률 1위를 고르지 않는다. 상위 15 가운데 3MC 3개를 모두 충족한 종목은 3개월 시점부터 차례로 2개 · 0개 · 1개 · 0개 · 0개였다.
+상승률 순위의 맨 위 종목과 3MC 3개를 모두 충족한 종목은 서로 다르다. 강의가 「많이 오른 다음에 오피를 하면 안 된다」고 한 것과 같은 방향이다.</p></div></div>
+<p class="kb-note">※ 2026-09-24 정정. 앞서 이 글은 "생존율이 90%를 넘으면 위험하다, 실제로 그 직후가 정점이었다"고 적었다. 생존율은 3개월 시점부터 90%를 넘었다. 코스피는 그 뒤 정점까지 191% 더 상승했다.
 "교체가 멈춘 시점이 상승 사이클의 종료였다"도 자료와 달랐다. 상위 15에 새로 들어온 종목은 구간마다 8개·10개·9개·9개였다. 마지막 구간까지 교체가 이어졌다.
 9개월 시점의 '대형주는 순위에서 사라졌다'도 달랐다. SK하이닉스가 14위였다. 3개월 시점의 주도로 적었던 조선은 상위 15에 없었다. 이 4곳을 자료에 맞게 수정했다.</p>
 
-<h2 id="아직-불확실한-곳은-어디인가" class="sec">아직 불확실한 곳은 어디인가</h2>
-<div class="explain" style="border-left-color:#f59e0b">
-<p>업종은 지금 판의 분류다. 한투 종목 마스터(2026년 11월 18일 판)는 지금 시점의 분류다. 체크포인트 당시의 분류가 아니다.
+<h2 id="결론-순위-표-상위의-교체가-곧-주도업종의-교체였다">결론: 순위 표 상위의 교체가 곧 주도업종의 교체였다</h2>
+<p>결론적으로 오디션은 시간이 검증했다. 정리하면 아래와 같다.</p>
+<ol>
+<li>구간이 길어질수록 우연히 한 번 상승한 종목은 밀려났다.</li>
+<li>순위 표 상단의 교체가 곧 업종 교체의 신호였다.</li>
+<li>상승률 순위의 맨 위 종목과 3MC 3개를 모두 충족한 종목은 서로 달랐다.</li>
+</ol>
+<p>이 글은 다음 주도업종을 전망하지 않는다. 지나간 사이클 1번의 기록이다.</p>
+
+<h2 id="이-글의-한계" class="sec">이 글의 한계</h2>
+<ol>
+<li>업종은 지금 판의 분류다. 한투 종목 마스터(2026년 11월 18일 판)는 지금 시점의 분류다. 체크포인트 당시의 분류가 아니다.
 그 시점에 업종이 달랐던 종목이 있을 수 있다. KRX 분류라 지주회사는 금융으로, 타이어와 화장품은 화학으로 분류된다.
-강의가 말하는 주도업종(방산·태양광·폐배터리 같은 테마)보다 범위가 넓다. 테마는 이 페이지에 얹지 않았다.</p>
-<p>3MC는 그 시점에 볼 수 있던 자료로 판정했다. 재무 대상만 지금 기준이다. P 가격은 그날의 240일선과 2022년 이후 고점으로 판정했다.
+강의가 말하는 주도업종(방산·태양광·폐배터리 같은 테마)보다 범위가 넓다. 테마는 이 페이지에 얹지 않았다.</li>
+<li>3MC는 그 시점에 볼 수 있던 자료로 판정했다. 재무 대상만 지금 기준이다. P 가격은 그날의 240일선과 2022년 이후 고점으로 판정했다.
 D 수급은 기준일 다음 날부터 그날까지의 외국인·기관 순매수 금액으로 판정했다. V 재무는 Y년 결산을 Y+1년 4월부터만 썼다.
 유니버스(시총 1조 이상)도 그 시점 시총으로 골랐다. 다만 재무 자료는 오디션 유니버스를 위해 받은 340종목에만 있다. 그 밖의 종목은 V를 '자료 없음'으로 둔다.
-품절주(대주주+외국인 90% 초과)는 지분 자료가 없어 판정하지 않는다.</p>
-<p>사후 관점이다. 지금은 정점이 어디였는지 알고 보지만 당시에는 몰랐다. 강의도 같은 취지로 「과거는 정답을 알고 역추적한 것이고, 지금은 정답을 모른 채 추진하는 것」이라고 구분한다. 이 페이지의 쓸모는 예측이 아니라 패턴의 학습이다.</p>
-<p>시총 1조 기준은 각 시점 기준이다. 그래서 나중에 1조를 넘긴 종목은 초기 체크포인트에 없고 뒤 구간에서 갑자기 등장한다. 오류가 아니라 강의의 스크리닝 방식 그대로다.</p>
-<p>사례가 1개 사이클이다. 2025년 4월 저점부터 2026년 6월 정점까지 1번의 상승이다. 대형 반도체가 상위를 차지한 때가 정점 부근이었다는 것도 이 사이클 1번의 관찰이다. 규칙으로 쓰려면 다른 사이클에서 같은 표를 다시 확인해야 한다.</p>
-</div>
+품절주(대주주+외국인 90% 초과)는 지분 자료가 없어 판정하지 않는다.</li>
+<li>사후 관점이다. 지금은 정점이 어디였는지 알고 보지만 당시에는 몰랐다. 강의도 같은 취지로 「과거는 정답을 알고 역추적한 것이고, 지금은 정답을 모른 채 추진하는 것」이라고 구분한다. 이 페이지의 쓸모는 예측이 아니라 패턴의 학습이다.</li>
+<li>시총 1조 기준은 각 시점 기준이다. 그래서 나중에 1조를 넘긴 종목은 초기 체크포인트에 없고 뒤 구간에서 갑자기 등장한다. 오류가 아니라 강의의 스크리닝 방식 그대로다.</li>
+<li>사례가 1개 사이클이다. 2025년 4월 저점부터 2026년 6월 정점까지 1번의 상승이다. 대형 반도체가 상위를 차지한 때가 정점 부근이었다는 것도 이 사이클 1번의 관찰이다. 규칙으로 쓰려면 다른 사이클에서 같은 표를 다시 확인해야 한다.</li>
+</ol>
+
+<h2 id="이-글의-용어">이 글의 용어</h2>
+<p>오디션 피라미딩은 이야기꾼 시나리오투자법의 종목 고르기 방법이다. 조건에 못 미치는 종목을 걸러 내고 남은 종목을 후보로 둔다.</p>
+<p>기준일은 구간을 계산하기 시작하는 날이다. 이 글의 기준일은 2025년 4월 9일이다. 그달 코스피가 가장 낮았던 날이다.
+체크포인트는 기준일에서 3개월씩 늘린 날이다. 이 글은 3·6·9·12·15개월 체크포인트 5개를 본다. 그날이 휴장일이면 직전 거래일을 쓴다.</p>
+<p>유니버스는 그 시점 시가총액 1조 원 이상인 코스피·코스닥 종목이다. 누적 상승률은 기준일 종가 대비 체크포인트 종가의 상승률이다.
+생존율은 유니버스 가운데 누적 상승률이 플러스인 종목의 비율이다. 블록의 '생존(＋)' 칸이 이것이다.</p>
+<p>각 블록은 그 체크포인트의 누적 상승률 순위다. 상위 15는 1위부터 15위까지다. <span class="new">NEW</span>는 직전 체크포인트의 상위 15에 없다가 새로 들어온 종목이다. 줄을 그은 종목은 상위 15에서 빠진 종목이다.</p>
+<p>주도업종(<span class="lead">✦</span>)은 그 시점 업종별 중앙 수익률 상위 3개 업종이다. 업종마다 4종목 이상이어야 한다.
+3MC는 P 가격 · D 수급 · V 재무 3가지 크로스다. 그 시점에 볼 수 있던 자료로 판정했다. 3MC 글자 위에 마우스를 올리면 근거가 보인다.
+숏리스트는 주도업종에 속하면서 3MC 3개를 모두 충족한 종목이다. 강의가 말하는 마지막 후보다.</p>
+<p>같은 기준일에서 계산하는 것이 핵심이다. 구간이 길어질수록 우연히 한 번 상승한 종목은 밀려난다. 추세를 탄 종목만 남는다.</p>
 
 <div class="wrap"><!--TOPICNEWS:BEGIN--><style id="tnewscss">.tnews{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 10px;margin:34px 0 10px}.tnews h3{margin:0 0 10px;font-size:1.02rem}.tnews table{width:100%;border-collapse:collapse;font-size:.9rem}.tnews td{padding:5px 8px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}.tnews td.d{white-space:nowrap;color:var(--text-secondary)}.tnews p.cap{margin:10px 0 8px;font-size:.8rem;color:var(--text-secondary);line-height:1.6}</style><div class="tnews"><h3>관련 뉴스</h3><p class="cap">제목에 검색어가 실제로 들어간 기사만 골랐다. 제목을 누르면 원문으로 간다.</p><p class="cap">국내: 「코스피 주도주 교체」 로 찾았다.</p><div class="tblwrap"><table><tbody><tr><td class="d">Fri, 23 Oct</td><td class="d">매일경제</td><td><a href="https://news.google.com/rss/articles/CBMiVEFVX3lxTE5VcE5tTnQzMFN3cmgzSTdyQkFhOUQ0Q3hxNVYxUHNocG9HcmpIMWIzeXF6S3pZOWJsa19GUDNCSzByUDkxN3VILTV2Wnc4WGlQdGZ2Vg?oc=5" target="_blank" rel="noopener nofollow">반도체, 주도주 복귀냐 교체냐</a></td></tr><tr><td class="d">Wed, 05 Aug</td><td class="d">뉴스인</td><td><a href="https://news.google.com/rss/articles/CBMia0FVX3lxTE9Pd3ZDbmplSVNPV05SY0FZNHJ2M2huOVZRWjZwRjQ3ZmhpR3k1VEJQMVpIWTBZQ2t0YWNjVUlpR3RmY1JoaXB5OVFGTmxKX0NST3owX1lPenhuNmZ0LVpXVE4wbmVRSzZwOEd3?oc=5" target="_blank" rel="noopener nofollow">반도체 조정에 바이오·콘텐츠 강세…증권가 "주도주 교체 아닌 순환매, 대형주 비중 유지"</a></td></tr><tr><td class="d">Thu, 14 May</td><td class="d">스마트투데이</td><td><a href="https://news.google.com/rss/articles/CBMiX0FVX3lxTFBaU1ZLVHVCU0lQRWxPNWlzcTRkQkt2Vno0MWdJbTBDMEVMbmZRS0dSdmYwMHV0X0xQT1pndEtDdk1MdHB2S3VBeFlqaU0zV0s0R29aMnNaTkVDOVlFZkdR?oc=5" target="_blank" rel="noopener nofollow">"코스피 올해 목표지수 1만500, 주도주 교체 없다"</a></td></tr><tr><td class="d">Mon, 20 Apr</td><td class="d">조선일보</td><td><a href="https://news.google.com/rss/articles/CBMigAFBVV95cUxQS25kLUlMeHJ4U2tNRkF0MVczUXN3d1ZUVkVBVUtqOWZPd185cXlmQlMycnBpdlJGc1pmWDVPVFQzX0tadWhYYWxHakRFVnVhZnpEMjlyUGRUaTdFU0lTYWs4WW82ZGQ4Y19ITlhZeUtTTXB1cTNRRXYxM1JtOE5hQg?oc=5" target="_blank" rel="noopener nofollow">동학 개미 스승 박세익 “코스피 주도주, 반도체에서 ‘이것’으로 바뀐다”</a></td></tr><tr><td class="d">Thu, 05 Nov</td><td class="d">뉴스퀘스트</td><td><a href="https://news.google.com/rss/articles/CBMib0FVX3lxTE9PcWQ2eVVpNEFvSkV1QlVTOFp3ME4waENuRVFVcDFEM05xSGtFQlQyQ1Y1c2JJaTJOTTdha0MwNGx6RnBKczkxdlVxYk5sa3lJSm9MMUYtb1k4M3Ywa2JrU0tmRU9TeE9kS2Q3Qm80MA?oc=5" target="_blank" rel="noopener nofollow">[박정식의 국내 주식시황] 美 '블루 쓰나미'에 증시 주도주 교체…코스닥이 더 뛸까</a></td></tr><tr><td class="d">Tue, 23 Sep</td><td class="d">경기일보</td><td><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE1JaDdLdVJZbVNYLUcwWnM1S2lxVy02UjNKMXQyN09WYTZ0WDV4ZXdhUVMxZmJZeUdQRGlzMENCTzZjWmJKMnpvUmppTjJVRV9EZnBoRG5qN29sOGc?oc=5" target="_blank" rel="noopener nofollow">주도주 교체되나?…'금반지' 뜨자 '조방원' 흔들 [한양경제]</a></td></tr></tbody></table></div><p class="cap">출처 구글 뉴스 · 2026-11-18 기준. 뉴스는 이 글의 분석과 별개이며, 내용이 서로 다를 수 있다.</p></div><!--TOPICNEWS:END--><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="audition.html">오디션 피라미딩</a> 이 복기의 '지금' 오늘의 생존자 순위와 후보 폭이 그 페이지이다.</p><p><a href="breadth-concentration.html">신고가 쏠림</a> 주도주 교체가 끝나갈 때의 공통 증상: 신고가 폭이 좁아지고 무게만 남는 모양을 수치로 본다.</p></div><!--RELATED:END--><!--GLOSSARY:BEGIN--><style id="glocss">.glo{margin:34px 0 8px}.glo h3{font-size:1.02rem;margin:0 0 12px}.glo dl{margin:0;font-size:.9rem;line-height:1.62}.glo dt{font-weight:800;margin-top:10px}.glo dd{margin:2px 0 0 0;color:var(--text-secondary,#555)}</style><div class="glo"><h3>용어 설명</h3><dl><dt>국면</dt><dd>시장이 지금 어느 상태에 있는가를 가리키는 말. 몇 개 단계로 구분하고, 한 단계는 여러 달에서 몇 해까지 이어진다고 본다. 하루하루의 등락이 아니라 그 등락이 놓인 큰 흐름을 가리킨다.</dd><dt>추세</dt><dd>가격이 한 방향으로 꾸준히 움직이는 것. 중간에 등락이 있어도 전체로 위를 향하면 상승 추세다. 보통 이동평균선이 상승하는지 하락하는지로 판단한다.</dd><dt>수급</dt><dd>누가 매수하고 누가 매도하는가. 개인·외국인·기관 3개 주체로 구분해 본다. 같은 가격이라도 누가 매수했는지에 따라 다음이 달라진다고 보는 관점이다.</dd><dt>순매수</dt><dd>매수 금액에서 매도 금액을 뺀 것. 플러스면 순매수, 마이너스면 순매도다.</dd><dt>중앙값</dt><dd>중앙값은 크기순으로 늘어놓았을 때 가운데 값이다. 평균과 달리 아주 크거나 작은 값 몇 개에 끌려가지 않아서, 「보통은 어느 정도인가」를 볼 때 쓴다.</dd></dl><p style="font-size:.8rem;color:var(--text-secondary,#777);margin-top:12px">이 글에 나온 용어만 실었다.</p></div><!--GLOSSARY:END--></div>
 <footer><p>본 자료는 정보 제공·교육 목적이며 투자 권유가 아니다. 투자의 최종 판단과 책임은 투자자 본인에게 있다. ·
@@ -981,7 +1002,6 @@ D 수급은 기준일 다음 날부터 그날까지의 외국인·기관 순매�
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
-<!--SEARCH:BEGIN--><button class="srch-btn" type="button" aria-label="아카이브·원자료 검색 (단축키 /)" title="아카이브·원자료 검색 (/)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></button><script src="search.js?v=8509ea17c1" defer></script><!--SEARCH:END-->
 <button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 <!--TOCJS:BEGIN--><script>
 /* 목차 클릭 보정 — 2026-08-24
@@ -1010,4 +1030,5 @@ D 수급은 기준일 다음 날부터 그날까지의 외국인·기관 순매�
     }
   });
 })();
-</script><!--TOCJS:END--></body></html>
+</script><!--TOCJS:END--><!--SEARCH:BEGIN--><button class="srch-btn" type="button" aria-label="아카이브·원자료 검색 (단축키 /)" title="아카이브·원자료 검색 (/)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></button><script src="search.js?v=8509ea17c1" defer></script><!--SEARCH:END-->
+</body></html>
