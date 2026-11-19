@@ -406,71 +406,12 @@ html,body{overflow-x:hidden}
   html body .site-bar-in{padding:9px 14px 7px}
 }
 /* BAR:END */
-/* ── 닷컴 대시보드 형식 (scripts/dotcom_panel.py) ── */
-/* 값은 kospi-dotcom-1998-2000.html 에서 그대로 옮겼다 — 눈맛의 정본이다 */
-html.theme-light{--chart-accent:#B7791F;--chart-pos:#0F8A53;--chart-neg:#D62839;--chart-mute:#8a8f98;
-  --chart-grid:rgba(0,0,0,0.06);--chart-band:rgba(183,121,31,0.07)}
-html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;--chart-mute:#9aa3ad;
-  --chart-grid:rgba(255,255,255,0.05);--chart-band:rgba(240,180,41,0.055)}
-.panel{background:var(--surface);border:1px solid var(--border);border-radius:20px;
-  padding:30px 32px 26px;margin:22px 0}
-.panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap}
-.panel-head h3{font-size:1.08rem;font-weight:700;letter-spacing:-.02em;margin:0}
-.panel figure{margin:14px 0 0}
-.panel .cbox{position:relative;height:min(60vh,540px);min-height:420px}
-.panel-head p{color:var(--text-secondary);font-size:.95rem;margin:6px 0 0;max-width:640px}
-.rng{display:inline-flex;gap:6px;flex-shrink:0}
-.rng button{font:600 12px/1 'Noto Sans KR',sans-serif;padding:8px 12px;border-radius:9px;
-  background:transparent;border:1px solid var(--border);color:var(--text-secondary);cursor:pointer;
-  transition:background .18s,color .18s,border-color .18s}
-.rng button:hover{background:var(--surface2,var(--bg));color:var(--text)}
-.rng button.on{background:var(--chart-accent);border-color:var(--chart-accent);color:#fff}
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:12px;margin:16px 0 4px}
-.kpi{background:var(--bg);border:1px solid var(--border);border-radius:13px;padding:15px 16px;
-  transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s,border-color .25s}
-.kpi:hover{transform:translateY(-5px);box-shadow:0 14px 30px rgba(0,0,0,.12);
-  border-color:color-mix(in srgb,var(--chart-accent) 40%,var(--border))}
-.kpi .k{font-size:11.5px;font-weight:700;letter-spacing:.05em;color:var(--text-secondary)}
-.kpi .v{font-size:1.45rem;font-weight:800;letter-spacing:-.03em;margin-top:5px}
-.kpi .s{font-size:11.5px;color:var(--text-secondary);margin-top:3px;line-height:1.5}
-.kpi.hl .v{color:var(--chart-accent)}
-.kpi .v.neg{color:var(--chart-neg)}
-.srcline{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:baseline;margin-top:14px;
-  padding-top:12px;border-top:1px solid var(--border);font-size:12px;
-  color:var(--text-secondary);line-height:1.6}
-.srcline .lbl{font-weight:800;letter-spacing:.06em;color:var(--chart-accent);flex-shrink:0}
-.srcline a{color:var(--chart-accent);font-weight:700;text-decoration:none}
-.srcline a:hover{text-decoration:underline}
-.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
-.reveal.visible{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
-@media(max-width:720px){.panel{padding:22px 16px 18px}.panel .cbox{min-height:320px}}
-/*TOCCSS:BEGIN*/
-/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
-
-/* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
-   원인은 상단바다. .site-bar 가 position:sticky · 높이 78px 로 화면 맨 위를 덮는데
-   앵커로 이동하면 제목이 정확히 그 아래에 깔린다. 그래서 독자는 제목을 못 보고
-   그 다음 문단부터 보게 된다. 눌러 간 곳과 보이는 글이 어긋나는 것이 이 때문이다.
-   scroll-margin-top 이 0 이었다. 78 에 여백 14 를 더해 92 로 둔다.
-   ⚠ 상단바 높이를 바꾸면 이 값도 같이 바꾼다. 측정: .site-bar 의 getBoundingClientRect().height */
-h2[id],h3[id],[id]:target{scroll-margin-top:92px}
-@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
- margin:22px 0 24px;background:var(--surface);text-align:left}
-.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
- color:var(--text-secondary);margin-bottom:7px;text-align:left}
-.ptoc ol{margin:0;padding-left:28px;line-height:1.8}   /* 28px — «10.» 같은 2자리 번호가 상자·옆 단으로 넘어가지 않게(2026-11-11 kospi-bottom 13절에서 2번째 단의 «13.»이 1번째 단 글자와 겹쳤다) */
-.ptoc li{font-size:.9rem}
-.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
-.ptoc a:hover{border-bottom-color:var(--text-secondary)}
-@media(min-width:900px){.ptoc ol{columns:2;column-gap:30px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*/</style><link rel="stylesheet" href="vendor/fonts.css"><style id="freqcss">
-.freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
- padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
- border:1px solid currentColor;opacity:.85}
-.freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
-.freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 
 /* SEARCH:BEGIN */
 .srch-btn{position:fixed;top:auto;bottom:18px;right:68px;z-index:130;width:42px;height:42px;border-radius:50%;
@@ -510,6 +451,80 @@ html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in 
 @media(max-width:760px){.srch-box{top:12px} html body .site-srch>a.srch-nav{padding:8px 8px;font-size:12px}}
 @media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
 /* SEARCH:END */
+
+/* ── 닷컴 대시보드 형식 (scripts/dotcom_panel.py) ── */
+/* 값은 kospi-dotcom-1998-2000.html 에서 그대로 옮겼다 — 눈맛의 정본이다 */
+html.theme-light{--chart-accent:#B7791F;--chart-pos:#0F8A53;--chart-neg:#D62839;--chart-mute:#8a8f98;
+  --chart-grid:rgba(0,0,0,0.06);--chart-band:rgba(183,121,31,0.07)}
+html.theme-dark{--chart-accent:#F0B429;--chart-pos:#2FBF71;--chart-neg:#FF4D5E;--chart-mute:#9aa3ad;
+  --chart-grid:rgba(255,255,255,0.05);--chart-band:rgba(240,180,41,0.055)}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:20px;
+  padding:30px 32px 26px;margin:22px 0}
+.panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap}
+.panel-head h3{font-size:1.08rem;font-weight:700;letter-spacing:-.02em;margin:0}
+.panel figure{margin:14px 0 0}
+.panel .cbox{position:relative;height:min(60vh,540px);min-height:420px}
+.panel-head p{color:var(--text-secondary);font-size:.95rem;margin:6px 0 0;max-width:640px}
+.rng{display:inline-flex;gap:6px;flex-shrink:0}
+.rng button{font:600 12px/1 'Noto Sans KR',sans-serif;padding:8px 12px;border-radius:9px;
+  background:transparent;border:1px solid var(--border);color:var(--text-secondary);cursor:pointer;
+  transition:background .18s,color .18s,border-color .18s}
+.rng button:hover{background:var(--surface2,var(--bg));color:var(--text)}
+.rng button.on{background:var(--chart-accent);border-color:var(--chart-accent);color:#fff}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:12px;margin:16px 0 4px}
+.kpi{background:var(--bg);border:1px solid var(--border);border-radius:13px;padding:15px 16px;
+  transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s,border-color .25s}
+.kpi:hover{transform:translateY(-5px);box-shadow:0 14px 30px rgba(0,0,0,.12);
+  border-color:color-mix(in srgb,var(--chart-accent) 40%,var(--border))}
+.kpi .k{font-size:11.5px;font-weight:700;letter-spacing:.05em;color:var(--text-secondary)}
+.kpi .v{font-size:1.45rem;font-weight:800;letter-spacing:-.03em;margin-top:5px}
+.kpi .s{font-size:11.5px;color:var(--text-secondary);margin-top:3px;line-height:1.5}
+.kpi.hl .v{color:var(--chart-accent)}
+.kpi .v.neg{color:var(--chart-neg)}
+.srcline{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:baseline;margin-top:14px;
+  padding-top:12px;border-top:1px solid var(--border);font-size:12px;
+  color:var(--text-secondary);line-height:1.6}
+.srcline .lbl{font-weight:800;letter-spacing:.06em;color:var(--chart-accent);flex-shrink:0}
+.srcline a{color:var(--chart-accent);font-weight:700;text-decoration:none}
+.srcline a:hover{text-decoration:underline}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+@media(max-width:720px){.panel{padding:22px 16px 18px}.panel .cbox{min-height:320px}}
+
+.kbp{margin:14px 0}
+.kbp>.s{font-weight:700;font-size:.92em;color:var(--text-secondary,#6e6e73);margin:0 0 3px}
+.kbp>div>p{margin:0 0 8px}
+.kbp ol,.kbp ul{padding-left:1.4em;margin:6px 0 10px}
+.kb-note{font-size:.88em;color:var(--text-secondary,#6e6e73);line-height:1.7;margin:4px 0}
+.kb-cap{font-weight:700;margin:20px 0 6px}
+.pclaim .kb-t{font-weight:800;margin-top:12px}
+/*TOCCSS:BEGIN*/
+/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
+
+/* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
+   원인은 상단바다. .site-bar 가 position:sticky · 높이 78px 로 화면 맨 위를 덮는데
+   앵커로 이동하면 제목이 정확히 그 아래에 깔린다. 그래서 독자는 제목을 못 보고
+   그 다음 문단부터 보게 된다. 눌러 간 곳과 보이는 글이 어긋나는 것이 이 때문이다.
+   scroll-margin-top 이 0 이었다. 78 에 여백 14 를 더해 92 로 둔다.
+   ⚠ 상단바 높이를 바꾸면 이 값도 같이 바꾼다. 측정: .site-bar 의 getBoundingClientRect().height */
+h2[id],h3[id],[id]:target{scroll-margin-top:92px}
+@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
+ margin:22px 0 24px;background:var(--surface);text-align:left}
+.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
+ color:var(--text-secondary);margin-bottom:7px;text-align:left}
+.ptoc ol{margin:0;padding-left:28px;line-height:1.8}   /* 28px — «10.» 같은 2자리 번호가 상자·옆 단으로 넘어가지 않게(2026-11-11 kospi-bottom 13절에서 2번째 단의 «13.»이 1번째 단 글자와 겹쳤다) */
+.ptoc li{font-size:.9rem}
+.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
+.ptoc a:hover{border-bottom-color:var(--text-secondary)}
+@media(min-width:900px){.ptoc ol{columns:2;column-gap:30px}.ptoc li{break-inside:avoid}}
+/*TOCCSS:END*/</style><link rel="stylesheet" href="vendor/fonts.css"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><style id="freqcss">
+.freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
+ padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
+ border:1px solid currentColor;opacity:.85}
+.freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
+.freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
 /* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
@@ -836,7 +851,7 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
   .paper p.note{padding-left:11px}
 }
 /* PAPER:END */</style>
-<!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
+</head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-watch.html">바닥 추적</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="macro-timeline.html">거시 이벤트 연대기</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="minervini-x.html">마크 미너비니 X 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-psk-holdings.html">피에스케이홀딩스</a><a href="stock-samsung-sdi.html">삼성SDI</a><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-nhn.html">NHN</a><a href="stock-kolmar.html">한국콜마</a><a href="stock-cosmax.html">코스맥스</a><a href="stock-pharmaresearch.html">파마리서치</a><a href="stock-jyp.html">JYP Ent.</a><a href="stock-sm-ent.html">에스엠</a><a href="stock-yg-ent.html">와이지엔터테인먼트</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="marks.html">하워드 막스의 방법론</a><a href="marks-glossary.html">사이클 용어사전</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a><a href="cycle-rope.html">사이클과 규칙</a></div></div><div class="site-group"><button class="here" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><span class="nav-h sub">시장 국면</span><a href="kosdaq-seasonality.html">해와 달의 코스닥</a><a href="kospi-bottom.html">코스피 바닥 판별</a><a href="sp500-ftd.html">S&P 500 팔로스루 데이</a><a href="kospi-ftd.html">팔로스루 데이</a><a href="kospi-panics.html">코스피 역대 공황</a><a href="rally-angle.html">상승 각도</a><a href="kospi-seasonality-down.html">해와 달의 코스피 · 역편</a><a href="kospi-drivers.html">코스피 선행 변수</a><a href="kospi-seasonality.html">해와 달의 코스피</a><a href="breadth-concentration.html">신고가 쏠림</a><a href="kospi-analog.html">닮은 과거</a><a href="audition-history.html">오디션 히스토리</a><a href="disparity-archive.html">두 버블의 이격도</a><a href="stage-analysis.html">와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리</a><span class="nav-h sub">신용과 청산</span><a href="credit-lag.html">미 은행 대출 태도와 가산금리</a><a href="us-credit-spread.html">미국 신용스프레드</a><a href="deleveraging.html">강제청산</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="sentiment.html">빚과 현금</a><span class="nav-h sub">수급과 폭락</span><a href="flow-quadrant.html">개인 수급 사분면</a><a href="foreign-flow.html">외국인 수급</a><a href="flow-extremes.html">개인과 외국인의 대량 매매</a><a href="flow-crashes.html">폭락의 구조</a><span class="nav-h sub">금리와 통화</span><a href="rate-crash-primer.html">금리-공황 프로세스 읽기</a><a href="nikkei-rates.html">닛케이와 미국 금리</a><a href="kospi-spx-gap.html">코스피와 S&P 500</a><a href="rate-crash-process.html">금리-공황 프로세스</a><a href="gold-rates.html">금리와 금값</a><a href="treasury-trust.html">미국 국채 바이백</a><a href="inflation-playbook.html">인플레 시대의 자산</a><a href="rates-century.html">미국 금리 100년</a><a href="liquidity.html">미국 유동성</a><a href="fed-kospi.html">연준 기준금리와 코스피</a><a href="rates-101.html">금리 기초</a><a href="rates-crashes.html">금리 5%와 공황</a><a href="dollar-kospi.html">달러와 코스피</a><span class="nav-h sub">경기와 수출</span><a href="jp-cci-kospi.html">일본 소비심리와 코스피</a><a href="us-elections.html">미국 선거와 증시</a><a href="export-kospi.html">수출과 코스피</a><a href="cli-kospi.html">OECD CLI 와 코스피</a><a href="ism-kospi.html">ISM 과 코스피</a><a href="jeoji-kospi.html">제오지산수</a><span class="nav-h sub">개별 종목</span><a class="here" href="memory-price.html">D램 가격과 삼성전자</a><a href="leadlag.html">하이닉스의 선행과 후행</a><a href="samsung-long.html">삼성전자 27년</a></div></div><div class="site-group"><button class="" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 153계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a href="data-kr-rates.html">한국 금리</a><a href="data-us-market.html">미국 시장</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a href="data-fx.html">환율·원자재·암호</a><a href="data-macro.html">재정·거시</a><a href="data-world.html">세계 증시</a></div></div><div class="site-srch"><a class="srch-nav" href="#search" role="button">검색</a></div><!-- NAV:END --></nav>
@@ -845,44 +860,173 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 <header class="phead">
 <div class="eyebrow">아카이브 · D램 가격과 삼성전자</div>
 <h1>D램 값의 첫 반등 발표는 삼성전자 바닥보다 7~18개월 늦다</h1>
-<p class="pauth">갱신 2026년 11월 18일 · 자료 1993년 1월~2026년 10월 · 406개월 · 한국은행 ECOS · 월 1회 갱신</p>
-<!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#수출물가지수는-값이-아니라-지수이고-전년비-부호가-바뀐-첫-발표를-신호로">수출물가지수는 값이 아니라 지수이고, 전년비 부호가 바뀐 첫 발표를 신호로 삼는다</a></li><li><a href="#값이-전년보다-상승했다는-첫-발표-8번-그때-삼성전자는-이미-바닥을-7개">값이 전년보다 상승했다는 첫 발표 8번, 그때 삼성전자는 이미 바닥을 7개월 이상 지나 있었다</a></li><li><a href="#값이-전년보다-하락했다는-첫-발표-7번-그-뒤-12개월은-7번-중-6번-">값이 전년보다 하락했다는 첫 발표 7번, 그 뒤 12개월은 7번 중 6번 플러스였다</a></li><li><a href="#시차-상관도-주가가-앞선다고-말한다-다만-몇-개월인지는-구간마다-다르다">시차 상관도 주가가 앞선다고 말한다. 다만 몇 개월인지는 구간마다 다르다</a></li><li><a href="#값이-전년보다-30-넘게-하락한-달에-매수한-삼성전자는-114번-중-89">값이 전년보다 30% 넘게 하락한 달에 매수한 삼성전자는 114번 중 89번 1년 뒤 플러스였다</a></li><li><a href="#2026년-10월에-값은-7-2-상승하고-주가는-5-7-상승했다">2026년 10월에 값은 7.2% 상승하고 주가는 5.7% 상승했다</a></li><li><a href="#통계청도-코스피를-선행종합지수의-구성지표로-쓴다-주가가-실물을-앞선다는-">통계청도 코스피를 선행종합지수의 구성지표로 쓴다. 주가가 실물을 앞선다는 것은 새 발견이 아니다</a></li><li><a href="#아직-불확실한-곳은-어디인가">아직 불확실한 곳은 어디인가</a></li><li><a href="#그래서-d램-값은-국면을-확인하는-데-쓰고-매매-시점은-주가에서-읽는다-">그래서 D램 값은 국면을 확인하는 데 쓰고 매매 시점은 주가에서 읽는다. 지금은 값이 전년보다 219% 높고, 주가는 정점 뒤 5개월째다</a></li><li><a href="#apx">원문 상세표</a></li></ol></div><!--TOC:END--></header>
+<p class="pauth">갱신 2026년 11월 19일 · 자료 1993년 1월~2026년 10월 · 406개월 · 한국은행 ECOS · 월 1회 갱신</p>
+<!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#값이-늦는-이유는-공급의-시간에-있다">값이 늦는 이유는 공급의 시간에 있다</a></li><li><a href="#값이-전년보다-상승했다는-첫-발표-8번-그때-삼성전자는-이미-바닥을-7개">값이 전년보다 상승했다는 첫 발표 8번, 그때 삼성전자는 이미 바닥을 7개월 이상 지나 있었다</a></li><li><a href="#값이-전년보다-하락했다는-첫-발표-7번-그-뒤-12개월은-7번-중-6번-">값이 전년보다 하락했다는 첫 발표 7번, 그 뒤 12개월은 7번 중 6번 플러스였다</a></li><li><a href="#시차-상관도-주가가-앞선다고-말한다-다만-몇-개월인지는-구간마다-다르다">시차 상관도 주가가 앞선다고 말한다. 다만 몇 개월인지는 구간마다 다르다</a></li><li><a href="#값이-전년보다-30-넘게-하락한-달에-매수한-삼성전자는-114번-중-89">값이 전년보다 30% 넘게 하락한 달에 매수한 삼성전자는 114번 중 89번 1년 뒤 플러스였다</a></li><li><a href="#2026년-10월에-값은-7-2-상승하고-주가는-5-7-상승했다">2026년 10월에 값은 7.2% 상승하고 주가는 5.7% 상승했다</a></li><li><a href="#통계청도-코스피를-선행종합지수의-구성지표로-쓴다-주가가-실물을-앞선다는-">통계청도 코스피를 선행종합지수의 구성지표로 쓴다. 주가가 실물을 앞선다는 것은 새 발견이 아니다</a></li><li><a href="#그래서-d램-값은-국면을-확인하는-데-쓰고-매매-시점은-주가에서-읽는다-">그래서 D램 값은 국면을 확인하는 데 쓰고 매매 시점은 주가에서 읽는다. 지금은 값이 전년보다 219% 높고, 주가는 정점 뒤 5개월째다</a></li><li><a href="#이-글의-한계">이 글의 한계</a></li><li><a href="#이-글의-용어">이 글의 용어</a></li><li><a href="#apx">원문 상세표</a></li></ol></div><!--TOC:END--></header>
+
+<p>2026년 10월 D램 수출물가지수는 309.97로 전년보다 219% 높다.
+삼성전자는 2026년 6월 월말 334,000원에서 2026년 11월 18일 194,700원으로 41.7% 하락했다.
+D램 값은 상승하고 주가는 하락하는 중이다.</p>
+<p>뉴스는 매달 D램 값을 전한다. 값이 상승하면 삼성전자 실적이 좋아진다고 쓴다. 그런데 주가가 값보다 먼저 움직인다면 값을 보고 매수하는 것은 늦다. 그래서 이 글은 「D램 값이 전년보다 상승했다」는 첫 발표와 「하락했다」는 첫 발표 때 삼성전자가 어디에 있었는지를 2001년 이후 전부 계산했다.</p>
+<p>결론부터 말하면, 값이 주가를 이끄는 것이 아니라 주가가 값을 앞선다. 문제는 몇 개월 앞서는지가 구간마다 다르다는 점이다. 그래서 값이 하락했다는 첫 발표를 기다리면 늦다. 과거 6번의 예로는 그 발표가 삼성전자 정점에서 짧게는 3개월, 길게는 15개월 지난 뒤에 나왔다.</p>
 
 <!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div>
-<p>D램 값이 전년보다 상승했다는 첫 발표는 2001년 이후 8번 있었다.
-그 발표 달에 삼성전자는 바닥에서 짧게는 7개월, 길게는 18개월 지나 있었다. 바닥에서 최소 35%, 최대 136% 상승한 뒤였다.
-발표 뒤 12개월 동안 삼성전자는 8번 중 4번 하락했다. 가장 나쁜 경우는 26% 하락이었다.
-값이 하락했다는 첫 발표 7번 가운데 6번은 삼성전자 정점에서 짧게는 3개월, 길게는 15개월 지난 뒤에 나왔다. 발표 뒤 12개월 동안 삼성전자는 7번 중 6번 상승했다.
-값은 국면을 확인하는 데 쓰고 매매 시점은 주가에서 읽는다.
-지금 D램 값은 전년보다 219% 높다. 삼성전자는 2026년 6월 정점에서 42% 하락했다. 정점 뒤 5개월째다.</p>
+<p class="kb-t">1. 값 상승 첫 발표 8번: 바닥보다 늦었다</p><p>그 발표 달에 삼성전자는 바닥에서 짧게는 7개월, 길게는 18개월 지나 있었다. 발표 뒤 12개월 동안 삼성전자는 8번 중 4번 하락했다.</p>
+<p class="kb-t">2. 값 하락 첫 발표 7번: 정점보다 늦었다</p><p>발표 뒤 12개월 동안 삼성전자는 7번 중 6번 상승했다.</p>
+<p class="kb-t">3. 쓰는 법: 국면은 값, 시점은 주가</p><p>값은 국면을 확인하는 데 쓰고 매매 시점은 주가에서 읽는다.</p>
+<p class="kb-t">4. 지금: 정점 뒤 5개월째</p><p>지금 D램 값은 전년보다 219% 높다. 삼성전자는 2026년 6월 정점에서 42% 하락했다.</p>
 </div><!--PCLAIM:END-->
 
-<!--LEAD:BEGIN--><details class="lead"><summary>펼치기 · 문제 · 왜 지금 · 반론 · 이 글의 입장</summary>
-<p>무엇이 문제인가. D램 값이 상승하면 삼성전자를 매수해야 하는가.
-뉴스는 매달 D램 값을 전한다. 값이 상승하면 삼성전자 실적이 좋아진다고 쓴다.
-그런데 주가가 값보다 먼저 움직인다면 값을 보고 매수하는 것은 늦다.
-이 글은 독자가 실제로 볼 수 있는 신호를 중심에 놓는다.
-「D램 값이 전년보다 상승했다」는 첫 발표와 「하락했다」는 첫 발표다.
-그 달에 삼성전자가 어디에 있었는지를 2001년 이후 전부 계산했다.</p>
+<h2 id="값이-늦는-이유는-공급의-시간에-있다">값이 늦는 이유는 공급의 시간에 있다</h2>
 
-<p>왜 지금인가. 2026년 10월 D램 수출물가지수는 309.97로 전년보다 219% 높다.
-삼성전자는 2026년 6월 월말 334,000원에서 2026년 11월 18일 194,700원으로 41.7% 하락했다.
-D램 값은 상승하고 주가는 하락하는 중이다.
-값이 하락했다는 첫 발표를 기다리면 늦다. 과거 6번의 예로는 그 발표가 삼성전자 정점에서 짧게는 3개월, 길게는 15개월 지난 뒤에 나왔다.</p>
+<div class="kbp"><div class="s">공급의 시간</div><div><p>값이 왜 늦는지는 공급의 시간에 있다.
+반도체 공장은 짓기 시작해서 양산까지 몇 년이 걸린다. 큰 회사 3곳이 같은 시기에 같은 결정을 내린다.
+호황에 짓기 시작한 공장이 불황에 양산된다. 값의 사이클은 그렇게 만들어진다.
+주가는 그 순서를 미리 반영한다.
+하워드 막스는 부동산 사이클의 같은 대목을 「크레인이 하늘을 가득 채운다」고 썼다(『투자와 마켓 사이클의 법칙』 11장).</p></div></div>
 
-<p>반론은 무엇인가. 시장조사기관과 증권사는 분기마다 D램 계약가격 전망을 낸다. 그 값이 상승하는 동안은 메모리 주식을 좋게 본다.
+<div class="panel" data-reveal><div class="panel-head"><div><h3>메모리 수출물가와 삼성전자, 1993년 이후</h3></div><div class="rng" role="group" aria-label="기간 선택"><button class="on" onclick="mpRange(&#39;g1&#39;,0,this)">전체 1993~</button><button onclick="mpRange(&#39;g1&#39;,1,this)">2015~</button><button onclick="mpRange(&#39;g1&#39;,2,this)">2023~</button></div></div><div class="kpis"><div class="kpi hl"><div class="k">지금 D램</div><div class="v">310.0</div><div class="s">2026년 10월 · 2020=100</div></div><div class="kpi"><div class="k">5년 바닥 대비</div><div class="v">+526%</div><div class="s">2023년 8월 49.51 이후</div></div><div class="kpi hl"><div class="k">최근 10년 백분위</div><div class="v">100%</div><div class="s">10년 구간 안의 위치</div></div><div class="kpi"><div class="k">시스템반도체</div><div class="v">88.7</div><div class="s">2023년 8월 이후 83~96</div></div></div><figure class="fig"><div class="cbox" style="height:400px"><canvas id="g1"></canvas></div><figcaption><span class="freq m">월간</span>굵은 황금색이 D램, 회색이 플래시메모리, 초록 점선이 시스템반도체다. 3개 모두 왼쪽 축을 쓰고, 2020년을 100으로 놓은 지수다. 파랑은 삼성전자 월말 종가다. 오른쪽 축을 쓰고 단위는 천원이다.</figcaption></figure><p class="panel-cap rngnote" style="margin-top:12px">1993년부터 전 구간이다. 그 앞은 월별 관측이 아니라 잘라 냈다.</p><div class="srcline"><span class="lbl">출처</span><span>한국은행 ECOS 402Y016 수출물가지수(품목별) · 달러 기준 · yfinance</span><a href="https://ecos.bok.or.kr/" target="_blank" rel="noopener">ECOS &#8599;</a></div></div>
+
+<h2 id="값이-전년보다-상승했다는-첫-발표-8번-그때-삼성전자는-이미-바닥을-7개">값이 전년보다 상승했다는 첫 발표 8번, 그때 삼성전자는 이미 바닥을 7개월 이상 지나 있었다</h2>
+
+<p class="kb-note">※ 첫 플러스 8번을 전수조사했다.
+표의 열은 차례로 신호 달, 그 앞에 마이너스가 이어진 기간, 삼성전자 바닥에서 발표 달까지 걸린 개월 수다.
+그 뒤는 바닥에서 발표 달까지 상승한 비율, 발표 달 월말에 매수한 뒤 12개월 등락률, 그 12개월 안의 최대 하락폭이다.</p>
+
+<p class="kb-cap">표 1. 값이 전년보다 상승했다는 첫 발표와 삼성전자 바닥</p>
+<div class="tblwrap"><table class="tw"><thead><tr><th>첫 플러스</th><th class="n">그 앞 마이너스</th><th>삼성전자 바닥</th>
+<th class="n">바닥에서 상승한 폭</th><th class="n">발표 뒤 12개월</th><th class="n">그 안의 최대 하락폭</th></tr></thead>
+<tbody><tr><td>2002년 7월</td><td class="n">21개월</td><td>2001년 9월<br><span class="dim">11개월 앞</span></td><td class="n">+136%</td><td class="n">+31%</td><td class="n">-16%</td></tr><tr><td>2003년 8월</td><td class="n">7개월</td><td>2003년 2월<br><span class="dim">7개월 앞</span></td><td class="n">+40%</td><td class="n">+17%</td><td class="n">+0%</td></tr><tr><td>2006년 9월</td><td class="n">22개월</td><td>2005년 4월<br><span class="dim">18개월 앞</span></td><td class="n">+35%</td><td class="n">-10%</td><td class="n">-12%</td></tr><tr><td>2009년 10월</td><td class="n">32개월</td><td>2008년 12월<br><span class="dim">11개월 앞</span></td><td class="n">+60%</td><td class="n">+15%</td><td class="n">+0%</td></tr><tr><td>2013년 1월</td><td class="n">26개월</td><td>2011년 8월<br><span class="dim">18개월 앞</span></td><td class="n">+108%</td><td class="n">-13%</td><td class="n">-17%</td></tr><tr><td>2017년 1월</td><td class="n">24개월</td><td>2015년 8월<br><span class="dim">18개월 앞</span></td><td class="n">+76%</td><td class="n">+22%</td><td class="n">+0%</td></tr><tr><td>2021년 4월</td><td class="n">29개월</td><td>2020년 3월<br><span class="dim">14개월 앞</span></td><td class="n">+69%</td><td class="n">-16%</td><td class="n">-16%</td></tr><tr><td>2024년 1월</td><td class="n">21개월</td><td>2022년 9월<br><span class="dim">17개월 앞</span></td><td class="n">+38%</td><td class="n">-26%</td><td class="n">-29%</td></tr></tbody></table></div>
+
+<div class="kbp"><div class="s">첫 줄 읽기</div><div><p>첫 줄을 읽으면 이렇다. 2002년 7월 값이 21개월 만에 전년보다 상승했다.
+그때 삼성전자는 2001년 9월 바닥 뒤 11개월 동안 136% 상승한 뒤였다.
+발표 뒤 12개월 동안 삼성전자는 31% 상승했다.</p></div></div>
+
+<div class="kbp"><div class="s">바닥은 발표보다 앞</div><div><p>8번 모두에서 바닥은 발표보다 앞에 있었다. 가장 짧은 것이 7개월, 가장 긴 것이 18개월이다.
+발표 달에 삼성전자는 이미 최소 35%, 최대 136% 상승한 뒤였다.
+발표 뒤 12개월 동안 삼성전자는 8번 중 4번 하락했다. 12개월 등락률의 중앙값은 2% 상승, 가장 나쁜 경우는 26% 하락이었다.
+값이 상승했다는 발표를 보고 매수했다면 8번 중 4번은 1년 뒤 손실이었다는 뜻이다.</p></div></div>
+
+<div class="kbp"><div class="s">그때 볼 수 있었던 것과 예외</div><div><p>표의 바닥 달은 지나고 나서 안 것이다. 그때는 몰랐다.
+다만 발표 달에 삼성전자가 바닥에서 35% 이상 상승한 뒤였다는 것은 그때도 볼 수 있었다.
+예외에는 이름을 붙여 둔다. 발표 뒤 12개월 안에 그 바닥보다 더 낮은 바닥이 온 것은 1번, 2024년 1월이다.
+가장 최근의 첫 플러스가 그 예외다. 발표 뒤 삼성전자는 52,400원까지 하락했다. 2022년 9월 바닥보다 낮은 값이다.</p></div></div>
+
+<h2 id="값이-전년보다-하락했다는-첫-발표-7번-그-뒤-12개월은-7번-중-6번-">값이 전년보다 하락했다는 첫 발표 7번, 그 뒤 12개월은 7번 중 6번 플러스였다</h2>
+
+<p class="kb-note">※ 첫 마이너스 7번을 같은 형식으로 놓았다. 이번 표의 기준은 삼성전자의 정점과 정점에서 하락한 폭이다.</p>
+
+<p class="kb-cap">표 2. 값이 전년보다 하락했다는 첫 발표와 삼성전자 정점</p>
+<div class="tblwrap"><table class="tw"><thead><tr><th>첫 마이너스</th><th class="n">그 앞 플러스</th><th>삼성전자 정점</th>
+<th class="n">정점에서 하락한 폭</th><th class="n">발표 뒤 12개월</th><th class="n">그 안의 최대 하락폭</th></tr></thead>
+<tbody><tr><td>2003년 1월</td><td class="n">6개월</td><td>2002년 11월<br><span class="dim">3개월 앞</span></td><td class="n">-28%</td><td class="n">+95%</td><td class="n">+0%</td></tr><tr><td>2004년 11월</td><td class="n">15개월</td><td>2004년 3월<br><span class="dim">9개월 앞</span></td><td class="n">-21%</td><td class="n">+46%</td><td class="n">+0%</td></tr><tr><td>2010년 11월</td><td class="n">13개월</td><td>발표 뒤에도 신고가</td><td class="n">+0%</td><td class="n">+11%</td><td class="n">-22%</td></tr><tr><td>2015년 1월</td><td class="n">24개월</td><td>2013년 11월<br><span class="dim">15개월 앞</span></td><td class="n">-9%</td><td class="n">-13%</td><td class="n">-20%</td></tr><tr><td>2018년 11월</td><td class="n">22개월</td><td>2017년 10월<br><span class="dim">14개월 앞</span></td><td class="n">-30%</td><td class="n">+44%</td><td class="n">+0%</td></tr><tr><td>2022년 4월</td><td class="n">12개월</td><td>2021년 2월<br><span class="dim">15개월 앞</span></td><td class="n">-18%</td><td class="n">+6%</td><td class="n">-21%</td></tr><tr><td>2025년 4월</td><td class="n">15개월</td><td>2024년 7월<br><span class="dim">10개월 앞</span></td><td class="n">-33%</td><td class="n">+464%</td><td class="n">+0%</td></tr></tbody></table></div>
+
+<div class="kbp"><div class="s">이번 사이클</div><div><p>마지막 줄이 이번 사이클이다. 2025년 4월 값이 15개월 만에 전년보다 하락했다.
+삼성전자는 2024년 7월 정점 뒤 10개월 동안 33% 하락한 뒤였다.
+발표 뒤 12개월 동안 삼성전자는 464% 상승했다.</p></div></div>
+
+<div class="kbp"><div class="s">정점은 발표보다 앞</div><div><p>7번 중 6번은 정점이 발표보다 짧게는 3개월, 길게는 15개월 앞에 있었다. 발표 달에 삼성전자는 이미 최소 9%, 최대 33% 하락한 뒤였다.
+발표 뒤 12개월 동안 삼성전자는 7번 중 6번 상승했다. 12개월 등락률의 중앙값은 44% 상승, 가장 나쁜 경우는 13% 하락이었다.
+값이 하락했다는 발표를 매도 신호로 읽었다면 7번 중 6번 그 뒤 1년의 상승을 놓쳤다.</p></div></div>
+
+<div class="kbp"><div class="s">예외</div><div><p>예외에도 이름을 붙인다.
+정점이 발표 앞에 없었던 것은 1번, 2010년 11월이다. 그때 삼성전자는 발표 뒤에도 신고가를 이어 갔다.
+발표 뒤 12개월이 마이너스였던 것은 1번, 2015년 1월이다.
+마이너스가 한 달로 끝난 것은 1번, 2025년 4월이다. 값은 다음 달 바로 전년보다 높아졌다. 그 뒤 18개월 연속 전년보다 높다.</p></div></div>
+
+<h2 id="시차-상관도-주가가-앞선다고-말한다-다만-몇-개월인지는-구간마다-다르다">시차 상관도 주가가 앞선다고 말한다. 다만 몇 개월인지는 구간마다 다르다</h2>
+
+<p class="kb-note">※ 발표를 집계하기 전에 쓰던 기준이 시차 상관이다.
+시차를 −12개월부터 12개월까지 옮기며 D램 전년비와 삼성전자 전년비의 상관계수를 계산했다.
+시차가 음수면 삼성전자가 먼저 움직였다는 뜻이다.</p>
+
+<div class="panel" data-reveal><div class="panel-head"><div><h3>시차 프로파일, 값과 주가 중 무엇이 먼저인가</h3></div></div><figure class="fig"><div class="cbox" style="height:330px"><canvas id="g2"></canvas></div><figcaption><span class="freq m">월간</span>가로축이 시차, 세로축이 상관계수다. 왼쪽(황금색)이 삼성전자가 먼저 움직인 경우다. 막대가 3개월 앞에서 가장 높다.</figcaption></figure><p class="panel-cap rngnote" style="margin-top:12px">시차가 음수면 삼성전자가 먼저 움직였다는 뜻이다.</p><div class="srcline"><span class="lbl">출처</span><span>한국은행 ECOS · yfinance, 전년비끼리의 상관계수</span></div></div>
+
+<div class="kbp"><div class="s">구간마다 다른 시차</div><div><p>막대는 3개월 앞에서 0.729로 가장 높다. 같은 달의 상관계수는 0.656이다.
+막대가 0의 왼쪽에서 높다는 것은 삼성전자가 먼저 움직였다는 뜻이다.
+다만 구간을 3개로 나누면 상관이 가장 높은 시차가 달라진다. 2001년부터 2010년까지는 2개월 앞(r 0.67), 2011년부터 2020년까지는 10개월 앞(r 0.59), 2021년부터 2026년까지는 2개월 앞(r 0.90)에서 상관이 가장 높았다.
+전년비 대신 전월비로 계산하면 최대 상관이 1개월 앞 r 0.31로 훨씬 약하다.
+전년비는 이웃한 달이 11개월을 공유하므로 매달의 새 움직임보다 긴 사이클의 모양을 크게 반영한다.
+주가가 먼저라는 방향은 3개 구간에서 같다. 몇 개월 먼저인지는 구간마다 다르다. 그래서 이 글은 상관계수를 중심 기준으로 쓰지 않는다.</p></div></div>
+
+<div class="panel" data-reveal><div class="panel-head"><div><h3>D램 전년비와 삼성전자 전년비</h3></div><div class="rng" role="group" aria-label="기간 선택"><button class="on" onclick="mpRange(&#39;g3&#39;,0,this)">전체</button><button onclick="mpRange(&#39;g3&#39;,1,this)">2015~</button></div></div><figure class="fig"><div class="cbox" style="height:360px"><canvas id="g3"></canvas></div><figcaption><span class="freq m">월간</span>황금색이 D램, 파랑이 삼성전자다. 2개 모두 전년 같은 달 대비 변화율이다.</figcaption></figure><p class="panel-cap rngnote" style="margin-top:12px">2개 선은 같은 방향으로 움직인다. 삼성전자 선이 먼저 방향을 바꾼다.</p><div class="srcline"><span class="lbl">출처</span><span>한국은행 ECOS · yfinance</span></div></div>
+
+<h2 id="값이-전년보다-30-넘게-하락한-달에-매수한-삼성전자는-114번-중-89">값이 전년보다 30% 넘게 하락한 달에 매수한 삼성전자는 114번 중 89번 1년 뒤 플러스였다</h2>
+
+<p class="kb-note">※ 부호가 바뀐 달만이 아니라 값의 수준별로도 집계했다.
+D램 전년비를 4개 구간으로 구분했다. 그 달의 값이 발표된 달 월말에 삼성전자를 매수해 12개월 보유한 등락률을 집계했다.
+표본은 매달 겹쳐 집계한 것이라 이웃한 달이 11개월을 공유한다.
+그래서 시작 달을 1월에서 12월까지 바꿔 12가지 중앙값의 범위를 함께 적었다.</p>
+
+<p class="kb-cap">표 3. D램 전년비 구간별 삼성전자 12개월 등락률</p>
+<div class="tblwrap"><table class="tw"><thead><tr><th>D램 전년비</th><th class="n">표본</th><th class="n">플러스 횟수</th>
+<th class="n">중앙값</th><th class="n">최악</th><th class="n">시작월 12가지 중앙값</th></tr></thead>
+<tbody><tr><td>−30% 이하</td><td class="n">114</td><td class="n">89번 (78%)</td><td class="n">+27.9%</td><td class="n">-24.7%</td><td class="n">+12.3% ~ +42.9%</td></tr><tr><td>−30~0%</td><td class="n">66</td><td class="n">46번 (70%)</td><td class="n">+12.2%</td><td class="n">-32.2%</td><td class="n">-14.5% ~ +28.1%</td></tr><tr><td>0~+50%</td><td class="n">91</td><td class="n">34번 (37%)</td><td class="n">-4.2%</td><td class="n">-29.9%</td><td class="n">-9.4% ~ +10.3%</td></tr><tr class="hl"><td>+50% 이상 ★ 지금</td><td class="n">26</td><td class="n">20번 (77%)</td><td class="n">+7.0%</td><td class="n">-15.1%</td><td class="n">-1.6% ~ +36.2%</td></tr></tbody></table></div>
+
+<div class="kbp"><div class="s">30% 넘게 하락한 달</div><div><p>첫 줄을 읽으면 이렇다. 값이 전년보다 30% 넘게 하락한 달은 114번 있었다. 그때 매수한 삼성전자는 89번 1년 뒤 플러스였다.
+12개월 등락률의 중앙값은 27.9% 상승, 가장 나쁜 경우는 24.7% 하락이었다.
+시작 달을 바꿔도 12가지 중앙값은 모두 플러스였다. 가장 낮은 것이 12.3%, 가장 높은 것이 42.9%다.</p></div></div>
+
+<div class="kbp"><div class="s">지금의 구간</div><div><p>0%부터 50%까지의 구간은 시작 달에 따라 중앙값의 부호가 바뀐다. 가장 낮은 것이 −9.4%, 가장 높은 것이 10.3%다. 그래서 이 구간의 성적은 한쪽으로 단정할 수 없다.
+지금은 50% 이상 구간에 있다. 이 구간의 표본 26번 가운데 20번이 플러스였다. 가장 나쁜 경우는 15.1% 하락이었다.
+2026년 10월의 219%는 그 칸 안에서도 가장 높은 축이다.</p></div></div>
+
+<h2 id="2026년-10월에-값은-7-2-상승하고-주가는-5-7-상승했다">2026년 10월에 값은 7.2% 상승하고 주가는 5.7% 상승했다</h2>
+
+<p class="kb-note">※ 최근 3개월을 월말 기준으로 나란히 놓았다.</p>
+
+<p class="kb-cap">표 4. 최근 3개월 D램 수출물가와 삼성전자</p>
+<div class="tblwrap"><table class="tw"><thead><tr><th>시점</th><th class="n">D램 수출물가</th><th class="n">전월비</th><th class="n">삼성전자</th><th class="n">전월비</th></tr></thead>
+<tbody><tr><td>2026년 8월</td><td class="n">282.77</td><td class="n">+2.9%</td><td class="n">239,500원</td><td class="n">-8.8%</td></tr><tr><td>2026년 9월</td><td class="n">289.16</td><td class="n">+2.3%</td><td class="n">261,000원</td><td class="n">+9.0%</td></tr><tr><td>2026년 10월</td><td class="n">309.97</td><td class="n">+7.2%</td><td class="n">276,000원</td><td class="n">+5.7%</td></tr></tbody></table></div>
+
+<div class="kbp"><div class="s">최근 3개월</div><div><p>마지막 줄을 읽으면 이렇다. 2026년 10월 D램 값은 289.16에서 309.97로 7.2% 상승했다. 삼성전자는 261,000원에서 276,000원으로 5.7% 상승했다.
+같은 달에 D램 값은 하락하지 않았다는 뜻이다.
+2023년 8월 이후 시스템반도체 수출물가는 83부터 96까지의 범위에 머물렀다.</p></div></div>
+
+<h2 id="통계청도-코스피를-선행종합지수의-구성지표로-쓴다-주가가-실물을-앞선다는-">통계청도 코스피를 선행종합지수의 구성지표로 쓴다. 주가가 실물을 앞선다는 것은 새 발견이 아니다</h2>
+
+<div class="kbp"><div class="s">통계 당국의 전제</div><div><p>통계청 선행종합지수의 구성지표 7개 가운데 1개가 코스피다.
+주가가 실물 경기를 앞서 움직인다는 것은 통계 당국이 지수 설계에 넣어 둔 전제다.
+이 글은 그 전제를 D램 값과 삼성전자라는 한 짝에서 확인한 것이다.</p></div></div>
+
+<div class="kbp"><div class="s">다른 글에서도 같았다</div><div><p>이 사이트의 다른 글에서도 같은 모양을 확인했다.
+<a href="export-kospi.html">수출과 코스피</a>에서 코스피는 수출 전년비보다 먼저 움직였다. <a href="cli-kospi.html">OECD 경기선행지수와 코스피</a>에서도 선행지수는 코스피보다 먼저 움직이지 않았다.
+주가는 실물 지표의 발표를 기다리지 않는다.</p></div></div>
+
+<h2 id="그래서-d램-값은-국면을-확인하는-데-쓰고-매매-시점은-주가에서-읽는다-">그래서 D램 값은 국면을 확인하는 데 쓰고 매매 시점은 주가에서 읽는다. 지금은 값이 전년보다 219% 높고, 주가는 정점 뒤 5개월째다</h2>
+
+<p>결론적으로 값이 상승했다는 첫 발표는 삼성전자 바닥보다 짧게는 7개월, 길게는 18개월 늦었다. 하락했다는 첫 발표 7번 가운데 6번은 정점보다 짧게는 3개월, 길게는 15개월 늦었다.
+값을 보고 매수했다면 8번 중 4번은 1년 뒤 손실이었다. 값을 보고 매도했다면 7번 중 6번은 그 뒤 1년의 상승을 놓쳤다.
+그래서 값은 지금이 어느 국면인지를 확인하는 데 쓰고, 매수·매도 시점은 주가 자체에서 읽는다.</p>
+
+<div class="kbp"><div class="s">지금과 조건</div><div><p>지금 D램 값은 전년보다 219% 높다. 수준별 표의 50% 이상 구간이다.
+삼성전자는 2026년 6월 월말 334,000원에서 2026년 11월 18일 194,700원으로 42% 하락했다. 정점 뒤 5개월째다.
+2026년 6월이 정점인지는 지금은 알 수 없다.
+예상은 조건으로 적는다. 값이 전년보다 하락했다는 첫 발표가 나오면, 과거 6번의 예로는 그때 삼성전자가 정점에서 짧게는 3개월, 길게는 15개월 지난 시점이다.
+그 발표를 기다리지 않고 볼 것은 주가 자체다. <a href="bottom-top.html">바닥·천장 추적</a>의 팔로스루 데이(FTD, 바닥을 지났다는 상승 확인 신호)와 <a href="stock-samsung.html">삼성전자</a>의 스테이지가 그 일을 한다.</p></div></div>
+
+<div class="kbp"><div class="s">반론에 대한 답</div><div><p>반론은 이렇다. 시장조사기관과 증권사는 분기마다 D램 계약가격 전망을 낸다. 그 값이 상승하는 동안은 메모리 주식을 좋게 본다.
 이야기꾼은 <a href="peak-debate.html">반도체 정점 논쟁</a>에서 1차 정점은 맞다고 본다. 값이 상승하는 중에도 주가가 먼저 하락할 수 있다는 것이다.
 이 글의 앞 판은 「주가가 3개월 먼저」라고 단정했다. 구간을 나눠 계산하면 시차가 달라졌다.
-2001년부터 2010년까지는 2개월 앞(r 0.67), 2011년부터 2020년까지는 10개월 앞(r 0.59), 2021년부터 2026년까지는 2개월 앞(r 0.90)에서 상관이 가장 높았다.</p>
+2001년부터 2010년까지는 2개월 앞(r 0.67), 2011년부터 2020년까지는 10개월 앞(r 0.59), 2021년부터 2026년까지는 2개월 앞(r 0.90)에서 상관이 가장 높았다.
+이 글의 답은 이렇다. 값이 상승하는 동안 주가가 먼저 하락하는 것은 이 글의 결론과 맞는다. 그래서 값은 국면을 확인하는 데 쓰고 매매 시점은 주가에서 읽는다.
+이 글은 이번 정점이 언제였는지 전망하지 않는다.</p></div></div>
 
-<p>이 글의 입장은 무엇인가. 값이 주가를 이끄는 것이 아니라 주가가 값을 앞선다. 다만 몇 개월 앞서는지는 구간마다 다르다.
-그래서 상관계수 대신 발표라는 사건을 집계한다. 상관계수란 두 값이 얼마나 같이 움직이는지를 −1부터 1까지의 수로 나타낸 값이다.
-값이 상승했다는 첫 발표 8번에 삼성전자는 바닥에서 짧게는 7개월, 길게는 18개월 지나 있었다. 하락했다는 첫 발표 7번 가운데 6번은 삼성전자가 이미 정점을 지나 하락한 뒤였다.
-아래에서 지수의 뜻과 신호의 정의를 먼저 정한다. 그다음 2개 발표 표를 놓고 시차 상관과 값의 수준별 성적으로 뒷받침한 뒤 2026년 10월을 대조한다.</p>
-</details><!--LEAD:END-->
-<h2 id="수출물가지수는-값이-아니라-지수이고-전년비-부호가-바뀐-첫-발표를-신호로">수출물가지수는 값이 아니라 지수이고, 전년비 부호가 바뀐 첫 발표를 신호로 삼는다</h2>
+<h2 id="이-글의-한계">이 글의 한계</h2>
 
-<p>먼저 단위다. 이 글의 D램 값은 한국은행 수출물가지수의 D램 품목이다.
+<ol>
+<li>표본이 첫 플러스 8번, 첫 마이너스 7번이다. 그 안의 반도체 사이클은 4번 또는 5번이다. 규칙이라 부르지 않고 관찰로 둔다.</li>
+<li>6개월 규칙은 이 글이 정한 것이다. 3개월로 줄이면 첫 플러스가 9번, 첫 마이너스가 10번이 된다. 12개월로 늘리면 각각 7번과 6번이 된다.
+3개월 규칙에서만 들어오는 첫 플러스는 2000년 5월(발표 뒤 12개월 동안 48% 하락)이다. 결론의 방향은 3개 규칙에서 같다. 자세한 표는 원문 상세표에 있다.</li>
+<li>지수는 가격이 아니다. 수준을 서로 비교할 수 없다. 변화율만 읽는다. 트렌드포스가 내는 D램 현물·계약 가격과는 측정 대상이 다르다. 두 자료를 대조해 본 적도 없다.</li>
+<li>한국은행이 조사하는 것은 계약 시점의 수출 계약가격이다. 통관단가나 특정 제품의 현물가격과 다르다.</li>
+<li>전년비 0%부터 50%까지의 구간은 「좋아지기 시작하는 구간」과 같지 않다. 상승률이 100%에서 30%로 둔화된 달도 이 칸에 들어간다. 값의 수준·상승률·상승률의 방향은 서로 다른 것이다.</li>
+
+<li>이 판정을 철회하는 조건. 앞으로 사이클 2번에서 값의 첫 플러스가 삼성전자 바닥보다 먼저 나오거나, 첫 마이너스가 정점보다 먼저 나오면 「주가가 먼저」라는 판정을 철회한다.</li>
+</ol>
+
+<h2 id="이-글의-용어">이 글의 용어</h2>
+
+<p>이 글의 D램 값은 한국은행 수출물가지수의 D램 품목이다.
 2020년을 100으로 놓은 지수다. 한국이 실제로 수출한 물량의 계약 가격으로 계산한다.
 D램 1개가 몇 달러인지는 이 자료로 알 수 없다. 변화율만 읽는다.
 통화는 달러 기준을 쓴다. 원화 기준을 쓰면 환율 변화가 값의 변화처럼 보인다.</p>
@@ -893,142 +1037,9 @@ D램 1개가 몇 달러인지는 이 자료로 알 수 없다. 변화율만 읽�
 
 <p>신호는 2가지다. 전년비가 6개월 이상 마이너스였다가 처음 0 이상으로 올라선 달을 첫 플러스라 부른다. 제목의 첫 반등 발표가 이것이다.
 6개월 이상 플러스였다가 처음 마이너스가 된 달을 첫 마이너스라 부른다.
-6개월을 두는 이유는 한 분기의 흔들림을 걸러 내기 위해서다. 3개월이나 12개월로 바꾸면 어떻게 되는지는 불확실한 곳에 적었다.</p>
+6개월을 두는 이유는 한 분기의 흔들림을 걸러 내기 위해서다. 3개월이나 12개월로 바꾸면 어떻게 되는지는 이 글의 한계에 적었다.</p>
 
-<p>값이 왜 늦는지는 공급의 시간에 있다.
-반도체 공장은 짓기 시작해서 양산까지 몇 년이 걸린다. 큰 회사 3곳이 같은 시기에 같은 결정을 내린다.
-호황에 짓기 시작한 공장이 불황에 양산된다. 값의 사이클은 그렇게 만들어진다.
-주가는 그 순서를 미리 반영한다.
-하워드 막스는 부동산 사이클의 같은 대목을 「크레인이 하늘을 가득 채운다」고 썼다(『투자와 마켓 사이클의 법칙』 11장).</p>
-
-<div class="panel" data-reveal><div class="panel-head"><div><h3>메모리 수출물가와 삼성전자, 1993년 이후</h3></div><div class="rng" role="group" aria-label="기간 선택"><button class="on" onclick="mpRange(&#39;g1&#39;,0,this)">전체 1993~</button><button onclick="mpRange(&#39;g1&#39;,1,this)">2015~</button><button onclick="mpRange(&#39;g1&#39;,2,this)">2023~</button></div></div><div class="kpis"><div class="kpi hl"><div class="k">지금 D램</div><div class="v">310.0</div><div class="s">2026년 10월 · 2020=100</div></div><div class="kpi"><div class="k">5년 바닥 대비</div><div class="v">+526%</div><div class="s">2023년 8월 49.51 이후</div></div><div class="kpi hl"><div class="k">최근 10년 백분위</div><div class="v">100%</div><div class="s">10년 구간 안의 위치</div></div><div class="kpi"><div class="k">시스템반도체</div><div class="v">88.7</div><div class="s">2023년 8월 이후 83~96</div></div></div><figure class="fig"><div class="cbox" style="height:400px"><canvas id="g1"></canvas></div><figcaption><span class="freq m">월간</span>굵은 황금색이 D램, 회색이 플래시메모리, 초록 점선이 시스템반도체다. 3개 모두 왼쪽 축을 쓰고, 2020년을 100으로 놓은 지수다. 파랑은 삼성전자 월말 종가다. 오른쪽 축을 쓰고 단위는 천원이다.</figcaption></figure><p class="panel-cap rngnote" style="margin-top:12px">1993년부터 전 구간이다. 그 앞은 월별 관측이 아니라 잘라 냈다.</p><div class="srcline"><span class="lbl">출처</span><span>한국은행 ECOS 402Y016 수출물가지수(품목별) · 달러 기준 · yfinance</span><a href="https://ecos.bok.or.kr/" target="_blank" rel="noopener">ECOS &#8599;</a></div></div>
-
-<h2 id="값이-전년보다-상승했다는-첫-발표-8번-그때-삼성전자는-이미-바닥을-7개">값이 전년보다 상승했다는 첫 발표 8번, 그때 삼성전자는 이미 바닥을 7개월 이상 지나 있었다</h2>
-
-<p>첫 플러스 8번을 전수조사했다.
-표의 열은 차례로 신호 달, 그 앞에 마이너스가 이어진 기간, 삼성전자 바닥에서 발표 달까지 걸린 개월 수다.
-그 뒤는 바닥에서 발표 달까지 상승한 비율, 발표 달 월말에 매수한 뒤 12개월 등락률, 그 12개월 안의 최대 하락폭이다.</p>
-
-<div class="tblwrap"><table class="tw"><thead><tr><th>첫 플러스</th><th class="n">그 앞 마이너스</th><th>삼성전자 바닥</th>
-<th class="n">바닥에서 상승한 폭</th><th class="n">발표 뒤 12개월</th><th class="n">그 안의 최대 하락폭</th></tr></thead>
-<tbody><tr><td>2002년 7월</td><td class="n">21개월</td><td>2001년 9월<br><span class="dim">11개월 앞</span></td><td class="n">+136%</td><td class="n">+31%</td><td class="n">-16%</td></tr><tr><td>2003년 8월</td><td class="n">7개월</td><td>2003년 2월<br><span class="dim">7개월 앞</span></td><td class="n">+40%</td><td class="n">+17%</td><td class="n">+0%</td></tr><tr><td>2006년 9월</td><td class="n">22개월</td><td>2005년 4월<br><span class="dim">18개월 앞</span></td><td class="n">+35%</td><td class="n">-10%</td><td class="n">-12%</td></tr><tr><td>2009년 10월</td><td class="n">32개월</td><td>2008년 12월<br><span class="dim">11개월 앞</span></td><td class="n">+60%</td><td class="n">+15%</td><td class="n">+0%</td></tr><tr><td>2013년 1월</td><td class="n">26개월</td><td>2011년 8월<br><span class="dim">18개월 앞</span></td><td class="n">+108%</td><td class="n">-13%</td><td class="n">-17%</td></tr><tr><td>2017년 1월</td><td class="n">24개월</td><td>2015년 8월<br><span class="dim">18개월 앞</span></td><td class="n">+76%</td><td class="n">+22%</td><td class="n">+0%</td></tr><tr><td>2021년 4월</td><td class="n">29개월</td><td>2020년 3월<br><span class="dim">14개월 앞</span></td><td class="n">+69%</td><td class="n">-16%</td><td class="n">-16%</td></tr><tr><td>2024년 1월</td><td class="n">21개월</td><td>2022년 9월<br><span class="dim">17개월 앞</span></td><td class="n">+38%</td><td class="n">-26%</td><td class="n">-29%</td></tr></tbody></table></div>
-
-<p>첫 줄을 읽으면 이렇다. 2002년 7월 값이 21개월 만에 전년보다 상승했다.
-그때 삼성전자는 2001년 9월 바닥 뒤 11개월 동안 136% 상승한 뒤였다.
-발표 뒤 12개월 동안 삼성전자는 31% 상승했다.</p>
-
-<p>8번 모두에서 바닥은 발표보다 앞에 있었다. 가장 짧은 것이 7개월, 가장 긴 것이 18개월이다.
-발표 달에 삼성전자는 이미 최소 35%, 최대 136% 상승한 뒤였다.
-발표 뒤 12개월 동안 삼성전자는 8번 중 4번 하락했다. 12개월 등락률의 중앙값은 2% 상승, 가장 나쁜 경우는 26% 하락이었다.
-값이 상승했다는 발표를 보고 매수했다면 8번 중 4번은 1년 뒤 손실이었다는 뜻이다.</p>
-
-<p>표의 바닥 달은 지나고 나서 안 것이다. 그때는 몰랐다.
-다만 발표 달에 삼성전자가 바닥에서 35% 이상 상승한 뒤였다는 것은 그때도 볼 수 있었다.
-예외에는 이름을 붙여 둔다. 발표 뒤 12개월 안에 그 바닥보다 더 낮은 바닥이 온 것은 1번, 2024년 1월이다.
-가장 최근의 첫 플러스가 그 예외다. 발표 뒤 삼성전자는 52,400원까지 하락했다. 2022년 9월 바닥보다 낮은 값이다.</p>
-
-<h2 id="값이-전년보다-하락했다는-첫-발표-7번-그-뒤-12개월은-7번-중-6번-">값이 전년보다 하락했다는 첫 발표 7번, 그 뒤 12개월은 7번 중 6번 플러스였다</h2>
-
-<p>첫 마이너스 7번을 같은 형식으로 놓았다. 이번 표의 기준은 삼성전자의 정점과 정점에서 하락한 폭이다.</p>
-
-<div class="tblwrap"><table class="tw"><thead><tr><th>첫 마이너스</th><th class="n">그 앞 플러스</th><th>삼성전자 정점</th>
-<th class="n">정점에서 하락한 폭</th><th class="n">발표 뒤 12개월</th><th class="n">그 안의 최대 하락폭</th></tr></thead>
-<tbody><tr><td>2003년 1월</td><td class="n">6개월</td><td>2002년 11월<br><span class="dim">3개월 앞</span></td><td class="n">-28%</td><td class="n">+95%</td><td class="n">+0%</td></tr><tr><td>2004년 11월</td><td class="n">15개월</td><td>2004년 3월<br><span class="dim">9개월 앞</span></td><td class="n">-21%</td><td class="n">+46%</td><td class="n">+0%</td></tr><tr><td>2010년 11월</td><td class="n">13개월</td><td>발표 뒤에도 신고가</td><td class="n">+0%</td><td class="n">+11%</td><td class="n">-22%</td></tr><tr><td>2015년 1월</td><td class="n">24개월</td><td>2013년 11월<br><span class="dim">15개월 앞</span></td><td class="n">-9%</td><td class="n">-13%</td><td class="n">-20%</td></tr><tr><td>2018년 11월</td><td class="n">22개월</td><td>2017년 10월<br><span class="dim">14개월 앞</span></td><td class="n">-30%</td><td class="n">+44%</td><td class="n">+0%</td></tr><tr><td>2022년 4월</td><td class="n">12개월</td><td>2021년 2월<br><span class="dim">15개월 앞</span></td><td class="n">-18%</td><td class="n">+6%</td><td class="n">-21%</td></tr><tr><td>2025년 4월</td><td class="n">15개월</td><td>2024년 7월<br><span class="dim">10개월 앞</span></td><td class="n">-33%</td><td class="n">+464%</td><td class="n">+0%</td></tr></tbody></table></div>
-
-<p>마지막 줄이 이번 사이클이다. 2025년 4월 값이 15개월 만에 전년보다 하락했다.
-삼성전자는 2024년 7월 정점 뒤 10개월 동안 33% 하락한 뒤였다.
-발표 뒤 12개월 동안 삼성전자는 464% 상승했다.</p>
-
-<p>7번 중 6번은 정점이 발표보다 짧게는 3개월, 길게는 15개월 앞에 있었다. 발표 달에 삼성전자는 이미 최소 9%, 최대 33% 하락한 뒤였다.
-발표 뒤 12개월 동안 삼성전자는 7번 중 6번 상승했다. 12개월 등락률의 중앙값은 44% 상승, 가장 나쁜 경우는 13% 하락이었다.
-값이 하락했다는 발표를 매도 신호로 읽었다면 7번 중 6번 그 뒤 1년의 상승을 놓쳤다.</p>
-
-<p>예외에도 이름을 붙인다.
-정점이 발표 앞에 없었던 것은 1번, 2010년 11월이다. 그때 삼성전자는 발표 뒤에도 신고가를 이어 갔다.
-발표 뒤 12개월이 마이너스였던 것은 1번, 2015년 1월이다.
-마이너스가 한 달로 끝난 것은 1번, 2025년 4월이다. 값은 다음 달 바로 전년보다 높아졌다. 그 뒤 18개월 연속 전년보다 높다.</p>
-
-<h2 id="시차-상관도-주가가-앞선다고-말한다-다만-몇-개월인지는-구간마다-다르다">시차 상관도 주가가 앞선다고 말한다. 다만 몇 개월인지는 구간마다 다르다</h2>
-
-<p>발표를 집계하기 전에 쓰던 기준이 시차 상관이다.
-시차를 −12개월부터 12개월까지 옮기며 D램 전년비와 삼성전자 전년비의 상관계수를 계산했다.
-시차가 음수면 삼성전자가 먼저 움직였다는 뜻이다.</p>
-
-<div class="panel" data-reveal><div class="panel-head"><div><h3>시차 프로파일, 값과 주가 중 무엇이 먼저인가</h3></div></div><figure class="fig"><div class="cbox" style="height:330px"><canvas id="g2"></canvas></div><figcaption><span class="freq m">월간</span>가로축이 시차, 세로축이 상관계수다. 왼쪽(황금색)이 삼성전자가 먼저 움직인 경우다. 막대가 3개월 앞에서 가장 높다.</figcaption></figure><p class="panel-cap rngnote" style="margin-top:12px">시차가 음수면 삼성전자가 먼저 움직였다는 뜻이다.</p><div class="srcline"><span class="lbl">출처</span><span>한국은행 ECOS · yfinance, 전년비끼리의 상관계수</span></div></div>
-
-<p>막대는 3개월 앞에서 0.729로 가장 높다. 같은 달의 상관계수는 0.656이다.
-막대가 0의 왼쪽에서 높다는 것은 삼성전자가 먼저 움직였다는 뜻이다.
-다만 구간을 3개로 나누면 상관이 가장 높은 시차가 달라진다. 2001년부터 2010년까지는 2개월 앞(r 0.67), 2011년부터 2020년까지는 10개월 앞(r 0.59), 2021년부터 2026년까지는 2개월 앞(r 0.90)에서 상관이 가장 높았다.
-전년비 대신 전월비로 계산하면 최대 상관이 1개월 앞 r 0.31로 훨씬 약하다.
-전년비는 이웃한 달이 11개월을 공유하므로 매달의 새 움직임보다 긴 사이클의 모양을 크게 반영한다.
-주가가 먼저라는 방향은 3개 구간에서 같다. 몇 개월 먼저인지는 구간마다 다르다. 그래서 이 글은 상관계수를 중심 기준으로 쓰지 않는다.</p>
-
-<div class="panel" data-reveal><div class="panel-head"><div><h3>D램 전년비와 삼성전자 전년비</h3></div><div class="rng" role="group" aria-label="기간 선택"><button class="on" onclick="mpRange(&#39;g3&#39;,0,this)">전체</button><button onclick="mpRange(&#39;g3&#39;,1,this)">2015~</button></div></div><figure class="fig"><div class="cbox" style="height:360px"><canvas id="g3"></canvas></div><figcaption><span class="freq m">월간</span>황금색이 D램, 파랑이 삼성전자다. 2개 모두 전년 같은 달 대비 변화율이다.</figcaption></figure><p class="panel-cap rngnote" style="margin-top:12px">2개 선은 같은 방향으로 움직인다. 삼성전자 선이 먼저 방향을 바꾼다.</p><div class="srcline"><span class="lbl">출처</span><span>한국은행 ECOS · yfinance</span></div></div>
-
-<h2 id="값이-전년보다-30-넘게-하락한-달에-매수한-삼성전자는-114번-중-89">값이 전년보다 30% 넘게 하락한 달에 매수한 삼성전자는 114번 중 89번 1년 뒤 플러스였다</h2>
-
-<p>부호가 바뀐 달만이 아니라 값의 수준별로도 집계했다.
-D램 전년비를 4개 구간으로 구분했다. 그 달의 값이 발표된 달 월말에 삼성전자를 매수해 12개월 보유한 등락률을 집계했다.
-표본은 매달 겹쳐 집계한 것이라 이웃한 달이 11개월을 공유한다.
-그래서 시작 달을 1월에서 12월까지 바꿔 12가지 중앙값의 범위를 함께 적었다.</p>
-
-<div class="tblwrap"><table class="tw"><thead><tr><th>D램 전년비</th><th class="n">표본</th><th class="n">플러스 횟수</th>
-<th class="n">중앙값</th><th class="n">최악</th><th class="n">시작월 12가지 중앙값</th></tr></thead>
-<tbody><tr><td>−30% 이하</td><td class="n">114</td><td class="n">89번 (78%)</td><td class="n">+27.9%</td><td class="n">-24.7%</td><td class="n">+12.3% ~ +42.9%</td></tr><tr><td>−30~0%</td><td class="n">66</td><td class="n">46번 (70%)</td><td class="n">+12.2%</td><td class="n">-32.2%</td><td class="n">-14.5% ~ +28.1%</td></tr><tr><td>0~+50%</td><td class="n">91</td><td class="n">34번 (37%)</td><td class="n">-4.2%</td><td class="n">-29.9%</td><td class="n">-9.4% ~ +10.3%</td></tr><tr class="hl"><td>+50% 이상 ★ 지금</td><td class="n">26</td><td class="n">20번 (77%)</td><td class="n">+7.0%</td><td class="n">-15.1%</td><td class="n">-1.6% ~ +36.2%</td></tr></tbody></table></div>
-
-<p>첫 줄을 읽으면 이렇다. 값이 전년보다 30% 넘게 하락한 달은 114번 있었다. 그때 매수한 삼성전자는 89번 1년 뒤 플러스였다.
-12개월 등락률의 중앙값은 27.9% 상승, 가장 나쁜 경우는 24.7% 하락이었다.
-시작 달을 바꿔도 12가지 중앙값은 모두 플러스였다. 가장 낮은 것이 12.3%, 가장 높은 것이 42.9%다.</p>
-
-<p>0%부터 50%까지의 구간은 시작 달에 따라 중앙값의 부호가 바뀐다. 가장 낮은 것이 −9.4%, 가장 높은 것이 10.3%다. 그래서 이 구간의 성적은 한쪽으로 단정할 수 없다.
-지금은 50% 이상 구간에 있다. 이 구간의 표본 26번 가운데 20번이 플러스였다. 가장 나쁜 경우는 15.1% 하락이었다.
-2026년 10월의 219%는 그 칸 안에서도 가장 높은 축이다.</p>
-
-<h2 id="2026년-10월에-값은-7-2-상승하고-주가는-5-7-상승했다">2026년 10월에 값은 7.2% 상승하고 주가는 5.7% 상승했다</h2>
-
-<p>최근 3개월을 월말 기준으로 나란히 놓았다.</p>
-
-<div class="tblwrap"><table class="tw"><thead><tr><th>시점</th><th class="n">D램 수출물가</th><th class="n">전월비</th><th class="n">삼성전자</th><th class="n">전월비</th></tr></thead>
-<tbody><tr><td>2026년 8월</td><td class="n">282.77</td><td class="n">+2.9%</td><td class="n">239,500원</td><td class="n">-8.8%</td></tr><tr><td>2026년 9월</td><td class="n">289.16</td><td class="n">+2.3%</td><td class="n">261,000원</td><td class="n">+9.0%</td></tr><tr><td>2026년 10월</td><td class="n">309.97</td><td class="n">+7.2%</td><td class="n">276,000원</td><td class="n">+5.7%</td></tr></tbody></table></div>
-
-<p>마지막 줄을 읽으면 이렇다. 2026년 10월 D램 값은 289.16에서 309.97로 7.2% 상승했다. 삼성전자는 261,000원에서 276,000원으로 5.7% 상승했다.
-같은 달에 D램 값은 하락하지 않았다는 뜻이다.
-2023년 8월 이후 시스템반도체 수출물가는 83부터 96까지의 범위에 머물렀다.</p>
-
-<h2 id="통계청도-코스피를-선행종합지수의-구성지표로-쓴다-주가가-실물을-앞선다는-">통계청도 코스피를 선행종합지수의 구성지표로 쓴다. 주가가 실물을 앞선다는 것은 새 발견이 아니다</h2>
-
-<p>통계청 선행종합지수의 구성지표 7개 가운데 1개가 코스피다.
-주가가 실물 경기를 앞서 움직인다는 것은 통계 당국이 지수 설계에 넣어 둔 전제다.
-이 글은 그 전제를 D램 값과 삼성전자라는 한 짝에서 확인한 것이다.</p>
-
-<p>이 사이트의 다른 글에서도 같은 모양을 확인했다.
-<a href="export-kospi.html">수출과 코스피</a>에서 코스피는 수출 전년비보다 먼저 움직였다. <a href="cli-kospi.html">OECD 경기선행지수와 코스피</a>에서도 선행지수는 코스피보다 먼저 움직이지 않았다.
-주가는 실물 지표의 발표를 기다리지 않는다.</p>
-
-<h2 id="아직-불확실한-곳은-어디인가">아직 불확실한 곳은 어디인가</h2>
-
-<ul>
-<li>표본이 첫 플러스 8번, 첫 마이너스 7번이다. 그 안의 반도체 사이클은 4번 또는 5번이다. 규칙이라 부르지 않고 관찰로 둔다.</li>
-<li>6개월 규칙은 이 글이 정한 것이다. 3개월로 줄이면 첫 플러스가 9번, 첫 마이너스가 10번이 된다. 12개월로 늘리면 각각 7번과 6번이 된다.
-3개월 규칙에서만 들어오는 첫 플러스는 2000년 5월(발표 뒤 12개월 동안 48% 하락)이다. 결론의 방향은 3개 규칙에서 같다. 자세한 표는 원문 상세표에 있다.</li>
-<li>지수는 가격이 아니다. 수준을 서로 비교할 수 없다. 변화율만 읽는다. 트렌드포스가 내는 D램 현물·계약 가격과는 측정 대상이 다르다. 두 자료를 대조해 본 적도 없다.</li>
-<li>한국은행이 조사하는 것은 계약 시점의 수출 계약가격이다. 통관단가나 특정 제품의 현물가격과 다르다.</li>
-<li>전년비 0%부터 50%까지의 구간은 「좋아지기 시작하는 구간」과 같지 않다. 상승률이 100%에서 30%로 둔화된 달도 이 칸에 들어간다. 값의 수준·상승률·상승률의 방향은 서로 다른 것이다.</li>
-
-<li>이 판정을 철회하는 조건. 앞으로 사이클 2번에서 값의 첫 플러스가 삼성전자 바닥보다 먼저 나오거나, 첫 마이너스가 정점보다 먼저 나오면 「주가가 먼저」라는 판정을 철회한다.</li>
-</ul>
-
-<h2 id="그래서-d램-값은-국면을-확인하는-데-쓰고-매매-시점은-주가에서-읽는다-">그래서 D램 값은 국면을 확인하는 데 쓰고 매매 시점은 주가에서 읽는다. 지금은 값이 전년보다 219% 높고, 주가는 정점 뒤 5개월째다</h2>
-
-<div class="claim"><p>값이 상승했다는 첫 발표는 삼성전자 바닥보다 짧게는 7개월, 길게는 18개월 늦었다. 하락했다는 첫 발표 7번 가운데 6번은 정점보다 짧게는 3개월, 길게는 15개월 늦었다.
-값을 보고 매수했다면 8번 중 4번은 1년 뒤 손실이었다. 값을 보고 매도했다면 7번 중 6번은 그 뒤 1년의 상승을 놓쳤다.
-그래서 값은 지금이 어느 국면인지를 확인하는 데 쓰고, 매수·매도 시점은 주가 자체에서 읽는다.</p></div>
-
-<p>지금 D램 값은 전년보다 219% 높다. 수준별 표의 50% 이상 구간이다.
-삼성전자는 2026년 6월 월말 334,000원에서 2026년 11월 18일 194,700원으로 42% 하락했다. 정점 뒤 5개월째다.
-2026년 6월이 정점인지는 지금은 알 수 없다.
-예상은 조건으로 적는다. 값이 전년보다 하락했다는 첫 발표가 나오면, 과거 6번의 예로는 그때 삼성전자가 정점에서 짧게는 3개월, 길게는 15개월 지난 시점이다.
-그 발표를 기다리지 않고 볼 것은 주가 자체다. <a href="bottom-top.html">바닥·천장 추적</a>의 팔로스루 데이(FTD, 바닥을 지났다는 상승 확인 신호)와 <a href="stock-samsung.html">삼성전자</a>의 스테이지가 그 일을 한다.</p>
+<p>상관계수는 두 값이 얼마나 같이 움직이는지를 −1부터 1까지의 수로 나타낸 값이다.</p>
 
 <!--STORY:BEGIN--><style id="storycss">.story{margin:26px 0 8px;padding:16px 20px;border:1px solid var(--border,#d9d9de);border-left:4px solid var(--accent,#2563eb);border-radius:10px;background:var(--surface,#fafafa)}.story .h{font-weight:800;font-size:.95em;margin-bottom:6px}.story .h span{font-weight:400;color:var(--text-secondary,#6e6e73);margin-left:8px;font-size:.88em}.story p{margin:6px 0;line-height:1.75}.story .src{font-size:.82em;color:var(--text-secondary,#6e6e73);margin-top:8px}</style><div class="story"><div class="h">이야기꾼은 이렇게 읽는다<span>W42 · 2026-10-17</span></div><p>「이번주 삼전닉스를 폭락시킨 4F² 기술은 최근 기술이 아니다. 이미 1980년대부터 제안됐다.」 「메모리 반도체는 기술 개발보다 양산에서 수율을 확보하고 제조 비용을 낮추는 것이 100배는 더 중요하다.」 「현재 CXMT의 범용 DRAM 수율도 40% 정도에 불과한 것으로 알려져 있다.」 이야기꾼은 CXMT의 4F² 발표를 「그냥 기술 마케팅일 뿐이다」라고 적었다. 「실제 양산은 1년이 넘게 걸릴 수도 있다.」</p><p>「CXMT 가 주장한대로 기술력에서 삼전닉스에 근접했다면 지금 CXMT 주가는 폭등했을 것이다.」 수율과 양산 일정은 이 사이트가 받지 않는 자료다. 이 사이트의 메모리 가격 자료는 월별 수출물가다.</p><p class="src">출처 이야기꾼 주간 시투 보고서 W42(2026-10-17). 「」 안은 그의 문장 그대로다. 전조현상 28종의 판정은 <a href="jeonjo.html">중공황 전조현상</a>에, 정점 논쟁은 <a href="peak-debate.html">반도체 정점 논쟁</a>에 있다.</p></div><!--STORY:END-->
 <h2 id="apx">원문 상세표</h2>
@@ -1109,6 +1120,7 @@ D램 전년비를 4개 구간으로 구분했다. 그 달의 값이 발표된 �
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
+<!--SEARCH:BEGIN--><button class="srch-btn" type="button" aria-label="아카이브·원자료 검색 (단축키 /)" title="아카이브·원자료 검색 (/)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></button><script src="search.js?v=8509ea17c1" defer></script><!--SEARCH:END-->
 <script src="vendor/chart-4.4.1.umd.js"></script>
 <!-- CHARTTHEME:BEGIN -->
 <script src="chart-theme.js?v=78def56d"></script>
@@ -1302,8 +1314,7 @@ function mpRange(id,n,btn){
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mpBuild);
 else mpBuild();
 setTimeout(mpBuild,400);
-</script><!--SEARCH:BEGIN--><button class="srch-btn" type="button" aria-label="아카이브·원자료 검색 (단축키 /)" title="아카이브·원자료 검색 (/)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></button><script src="search.js?v=8509ea17c1" defer></script><!--SEARCH:END-->
-<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
+</script><button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 <!--TOCJS:BEGIN--><script>
 /* 목차 클릭 보정 — 2026-08-24
    ⚠ 해시가 이미 그 값이면 브라우저가 클릭을 무시한다. 스크롤을 내린 뒤
