@@ -24,7 +24,8 @@ body{font-family:'Inter','Noto Sans KR',-apple-system,sans-serif;background:var(
 .site-group>button .cv{font-size:9px;opacity:.55;transition:transform .2s}
 .site-group.on>button .cv{transform:rotate(180deg)}
 .site-group>button.here{color:var(--accent, #0071e3)}
-.site-dd{position:absolute;top:calc(100% + 8px);right:0;min-width:248px;padding:8px;
+/* ★ 2026-09-14 — 펼침 메뉴 폭을 화면 안으로 묶는다(가로 넘침은 apply_layout 의 html,body{overflow-x:hidden} 이 자른다) */
+.site-dd{position:absolute;top:calc(100% + 8px);right:0;min-width:248px;max-width:calc(100vw - 24px);padding:8px;
   background:var(--surface, var(--bg));border:1px solid var(--border);border-radius:14px;
   box-shadow:0 18px 44px rgba(0,0,0,.16);opacity:0;visibility:hidden;transform:translateY(-6px);
   transition:opacity .18s,transform .18s,visibility .18s}
@@ -312,7 +313,63 @@ a.card:focus-visible,.lst-i:focus-visible{
 .site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
   background:color-mix(in srgb,var(--text) 6%,transparent)}
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/*NAVCSS:END*//* BAR:BEGIN */
+/*NAVCSS:END*/
+.dim{color:var(--mut,#94a3b8)}
+.b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
+  font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
+/* 판정 5색(b-on 로즈·b-wa 앰버·b-ob 슬레이트·b-sf 에메랄드·b-rf 회색)과 겹치지 않는 색을 쓴다.
+   기존 배지처럼 다크 대응 없이 한 색으로 양쪽에서 읽히게 채도를 높인다. */
+.b-pri{background:#4f46e5;color:#fff}
+.b-upd{background:#c7d2fe;color:#312e81}   /* b-pri 의 옅은 형제 — 둘 다 인디고 계열로 묶어
+                                              「강의 대조」 어휘임을 드러낸다. 윤곽선은 라이트
+                                              모드에서 대비 2.56 이라 채움으로 바꿨다. */
+.bg{display:inline-block;min-width:44px;text-align:center;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:800;color:#fff}
+.b-on{background:#e11d48}.b-wa{background:#f59e0b}.b-ob{background:#64748b}.b-sf{background:#059669}.b-rf{background:#94a3b8}
+.gr{display:inline-block;font-size:.68rem;font-weight:800;padding:1px 6px;border-radius:5px;margin-left:6px;
+  color:#e11d48;background:color-mix(in srgb,#e11d48 13%,transparent);vertical-align:middle}
+.chg{font-size:.7rem;font-weight:700;color:var(--accent);margin-left:6px;white-space:nowrap}
+.star{color:#e11d48;font-weight:800}
+td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
+td.no .back{display:inline-block;margin-top:4px;padding-left:8px;border-left:2px solid var(--line,#cbd5e1);color:var(--text)}
+.chl{margin:12px 0 0 18px;font-size:.92rem;line-height:1.9}
+.g1box{margin-top:12px;font-size:.9rem;line-height:1.85;color:var(--text-secondary)}
+.g1box ol{margin:8px 0 0 20px} .g1box li{color:var(--text);font-weight:600}
+.stats5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px}
+@media(max-width:720px){.stats5{grid-template-columns:repeat(2,1fr)}}
+
+/* 주차별 히스토리 */
+.hist{position:relative;padding-left:26px;margin-top:18px}
+.hist::before{content:'';position:absolute;left:7px;top:14px;bottom:14px;width:2px;background:var(--border)}
+.hw{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:20px 22px;margin-bottom:16px}
+.hw::before{content:'';position:absolute;left:-24px;top:26px;width:12px;height:12px;border-radius:50%;
+  background:var(--border);border:3px solid var(--bg)}
+.hw.cur{border-color:color-mix(in srgb,var(--accent) 45%,var(--border));
+  box-shadow:0 1px 14px color-mix(in srgb,var(--accent) 10%,transparent)}
+.hw.cur::before{background:var(--accent)}
+.hh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.hwk{font-size:1.02rem;font-weight:900;letter-spacing:-.02em}
+.hdt{font-size:.82rem;color:var(--text-secondary);font-variant-numeric:tabular-nums}
+.hnow{font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:999px;color:#fff;background:var(--accent)}
+.htitle{margin-top:8px;font-size:1.12rem;font-weight:800;letter-spacing:-.02em;line-height:1.4}
+.htone{margin-top:6px;font-size:.86rem;color:var(--text-secondary);font-style:italic}
+.hpills{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
+.hp{font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.hp.on{color:#e11d48;background:color-mix(in srgb,#e11d48 12%,transparent)}
+.hp.wa{color:#b45309;background:color-mix(in srgb,#f59e0b 15%,transparent)}
+.hp.ob{color:#475569;background:color-mix(in srgb,#64748b 14%,transparent)}
+.hp.sf{color:#047857;background:color-mix(in srgb,#059669 13%,transparent)}
+.hp.g1{color:#fff;background:#e11d48}
+.hbody{margin-top:13px;font-size:.93rem;line-height:1.78;color:var(--text-secondary)}
+.hbody b{color:var(--text)}
+.hchg{margin-top:14px;padding-top:12px;border-top:1px dashed var(--border)}
+.hct{font-size:.76rem;font-weight:800;letter-spacing:.02em;color:var(--accent);text-transform:none}
+.hchg ul{margin:8px 0 0 16px;font-size:.87rem;line-height:1.85;color:var(--text-secondary)}
+.hchg li b{color:var(--text)}
+.hchg .ar{white-space:nowrap}
+.to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
+@media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
+/* BAR:BEGIN */
 /* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
    flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
 html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
@@ -356,85 +413,6 @@ html,body{overflow-x:hidden}
  color:var(--accent);margin-bottom:5px}
 .pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 
-.dim{color:var(--mut,#94a3b8)}
-.b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
-  font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
-/* 판정 5색(b-on 로즈·b-wa 앰버·b-ob 슬레이트·b-sf 에메랄드·b-rf 회색)과 겹치지 않는 색을 쓴다.
-   기존 배지처럼 다크 대응 없이 한 색으로 양쪽에서 읽히게 채도를 높인다. */
-.b-pri{background:#4f46e5;color:#fff}
-.b-upd{background:#c7d2fe;color:#312e81}   /* b-pri 의 옅은 형제 — 둘 다 인디고 계열로 묶어
-                                              「강의 대조」 어휘임을 드러낸다. 윤곽선은 라이트
-                                              모드에서 대비 2.56 이라 채움으로 바꿨다. */
-.bg{display:inline-block;min-width:44px;text-align:center;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:800;color:#fff}
-.b-on{background:#e11d48}.b-wa{background:#f59e0b}.b-ob{background:#64748b}.b-sf{background:#059669}.b-rf{background:#94a3b8}
-.gr{display:inline-block;font-size:.68rem;font-weight:800;padding:1px 6px;border-radius:5px;margin-left:6px;
-  color:#e11d48;background:color-mix(in srgb,#e11d48 13%,transparent);vertical-align:middle}
-.chg{font-size:.7rem;font-weight:700;color:var(--accent);margin-left:6px;white-space:nowrap}
-.star{color:#e11d48;font-weight:800}
-td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
-.chl{margin:12px 0 0 18px;font-size:.92rem;line-height:1.9}
-.g1box{margin-top:12px;font-size:.9rem;line-height:1.85;color:var(--text-secondary)}
-.g1box ol{margin:8px 0 0 20px} .g1box li{color:var(--text);font-weight:600}
-.stats5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px}
-@media(max-width:720px){.stats5{grid-template-columns:repeat(2,1fr)}}
-
-/* 주차별 히스토리 */
-.hist{position:relative;padding-left:26px;margin-top:18px}
-.hist::before{content:'';position:absolute;left:7px;top:14px;bottom:14px;width:2px;background:var(--border)}
-.hw{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:14px;
-  padding:20px 22px;margin-bottom:16px}
-.hw::before{content:'';position:absolute;left:-24px;top:26px;width:12px;height:12px;border-radius:50%;
-  background:var(--border);border:3px solid var(--bg)}
-.hw.cur{border-color:color-mix(in srgb,var(--accent) 45%,var(--border));
-  box-shadow:0 1px 14px color-mix(in srgb,var(--accent) 10%,transparent)}
-.hw.cur::before{background:var(--accent)}
-.hh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.hwk{font-size:1.02rem;font-weight:900;letter-spacing:-.02em}
-.hdt{font-size:.82rem;color:var(--text-secondary);font-variant-numeric:tabular-nums}
-.hnow{font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:999px;color:#fff;background:var(--accent)}
-.htitle{margin-top:8px;font-size:1.12rem;font-weight:800;letter-spacing:-.02em;line-height:1.4}
-.htone{margin-top:6px;font-size:.86rem;color:var(--text-secondary);font-style:italic}
-.hpills{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
-.hp{font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
-.hp.on{color:#e11d48;background:color-mix(in srgb,#e11d48 12%,transparent)}
-.hp.wa{color:#b45309;background:color-mix(in srgb,#f59e0b 15%,transparent)}
-.hp.ob{color:#475569;background:color-mix(in srgb,#64748b 14%,transparent)}
-.hp.sf{color:#047857;background:color-mix(in srgb,#059669 13%,transparent)}
-.hp.g1{color:#fff;background:#e11d48}
-.hbody{margin-top:13px;font-size:.93rem;line-height:1.78;color:var(--text-secondary)}
-.hbody b{color:var(--text)}
-.hchg{margin-top:14px;padding-top:12px;border-top:1px dashed var(--border)}
-.hct{font-size:.76rem;font-weight:800;letter-spacing:.02em;color:var(--accent);text-transform:none}
-.hchg ul{margin:8px 0 0 16px;font-size:.87rem;line-height:1.85;color:var(--text-secondary)}
-.hchg li b{color:var(--text)}
-.hchg .ar{white-space:nowrap}
-.to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
-@media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
-
-.scn{margin:6px auto 26px;max-width:1100px}
-.scn svg{width:100%;height:auto;display:block}
-.scn .px{fill:none;stroke:var(--accent,#0071e3);stroke-width:2.4;stroke-linejoin:round;stroke-linecap:round}
-.scn .ma{fill:none;stroke:var(--text3,#86868b);stroke-width:2;stroke-dasharray:1 5;stroke-linecap:round}
-.scn .zn{opacity:.10}
-.scn .lb{font:600 12px 'Nanum Gothic',AppleGothic,sans-serif;fill:var(--text2,#6e6e73)}
-.scn .num{font:700 11px 'Nanum Gothic',AppleGothic,sans-serif;fill:#fff}
-.scn .cap{font:500 11.5px 'Nanum Gothic',AppleGothic,sans-serif;fill:var(--text3,#86868b)}
-.scn .ttl{font:700 14px 'Nanum Gothic',AppleGothic,sans-serif;fill:var(--text,#1d1d1f)}
-.scn .wt{font:700 12px 'Nanum Gothic',AppleGothic,sans-serif;fill:var(--text2,#6e6e73)}
-.scn .gl{stroke:var(--border,rgba(0,0,0,.10));stroke-width:1}
-
-/* ── 이 페이지만의 규칙 ──
-   두 폭 체계(데이터 1440 / 산문 660)는 **표와 차트가 데이터일 때** 성립한다.
-   방법론은 표조차 개념 정리라서 데이터층이 없다. 전폭으로 두면
-   제목은 왼쪽 끝, 본문은 화면 한가운데가 되어 **같은 문단이 2개로 갈라져 보인다.**
-   그래서 여기는 한 단짜리 문서로 잡는다. */
-html body .wrap{max-width:min(58em,100%)!important;padding-left:24px!important;padding-right:24px!important}
-html body .explain{max-width:none!important;margin-left:0!important;margin-right:0!important}
-.scn{max-width:none;margin-left:0;margin-right:0}
-table{width:100%}
-h2{margin-top:52px;font-size:23px;letter-spacing:-.02em;padding-bottom:8px;border-bottom:2px solid var(--border)}
-h3{letter-spacing:-.015em}
-.sub{max-width:none}
 /* SEARCH:BEGIN */
 .srch-btn{position:fixed;top:auto;bottom:18px;right:68px;z-index:130;width:42px;height:42px;border-radius:50%;
   background:var(--surface,#F6F7F9);border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text,#0f172a);
@@ -473,6 +451,39 @@ html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in 
 @media(max-width:760px){.srch-box{top:12px} html body .site-srch>a.srch-nav{padding:8px 8px;font-size:12px}}
 @media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
 /* SEARCH:END */
+
+.scn{margin:6px auto 26px;max-width:1100px}
+.scn svg{width:100%;height:auto;display:block}
+.scn .px{fill:none;stroke:var(--accent,#0071e3);stroke-width:2.4;stroke-linejoin:round;stroke-linecap:round}
+.scn .ma{fill:none;stroke:var(--text3,#86868b);stroke-width:2;stroke-dasharray:1 5;stroke-linecap:round}
+.scn .zn{opacity:.10}
+.scn .lb{font:600 12px 'Nanum Gothic',AppleGothic,sans-serif;fill:var(--text2,#6e6e73)}
+.scn .num{font:700 11px 'Nanum Gothic',AppleGothic,sans-serif;fill:#fff}
+.scn .cap{font:500 11.5px 'Nanum Gothic',AppleGothic,sans-serif;fill:var(--text3,#86868b)}
+.scn .ttl{font:700 14px 'Nanum Gothic',AppleGothic,sans-serif;fill:var(--text,#1d1d1f)}
+.scn .wt{font:700 12px 'Nanum Gothic',AppleGothic,sans-serif;fill:var(--text2,#6e6e73)}
+.scn .gl{stroke:var(--border,rgba(0,0,0,.10));stroke-width:1}
+
+/* ── 이 페이지만의 규칙 ──
+   두 폭 체계(데이터 1440 / 산문 660)는 **표와 차트가 데이터일 때** 성립한다.
+   방법론은 표조차 개념 정리라서 데이터층이 없다. 전폭으로 두면
+   제목은 왼쪽 끝, 본문은 화면 한가운데가 되어 **같은 문단이 2개로 갈라져 보인다.**
+   그래서 여기는 한 단짜리 문서로 잡는다. */
+html body .wrap{max-width:min(58em,100%)!important;padding-left:24px!important;padding-right:24px!important}
+html body .explain{max-width:none!important;margin-left:0!important;margin-right:0!important}
+.scn{max-width:none;margin-left:0;margin-right:0}
+table{width:100%}
+h2{margin-top:52px;font-size:23px;letter-spacing:-.02em;padding-bottom:8px;border-bottom:2px solid var(--border)}
+h3{letter-spacing:-.015em}
+.sub{max-width:none}
+
+.kbp{margin:14px 0}
+.kbp>.s{font-weight:700;font-size:.92em;color:var(--text-secondary,#6e6e73);margin:0 0 3px}
+.kbp>div>p{margin:0 0 8px}
+.kbp ol,.kbp ul{padding-left:1.4em;margin:6px 0 10px}
+.kb-note{font-size:.88em;color:var(--text-secondary,#6e6e73);line-height:1.7;margin:4px 0}
+.kb-cap{font-weight:700;margin:20px 0 6px}
+.pclaim .kb-t{font-weight:800;margin-top:12px}
 /*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
@@ -828,90 +839,76 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 <div class="eyebrow">방법론 · 하워드 막스</div>
 <h1>하워드 막스의 사이클 방법론</h1>
 <p class="pauth">하워드 막스 공개 메모 · 2018년 책 · 고정 자료</p>
-<!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#미래는-모르고-위치는-안다">미래는 모르고 위치는 안다</a></li><li><a href="#사이클은-평균에서-멈추지-않는다">사이클은 평균에서 멈추지 않는다</a></li><li><a href="#심리의-시계추">심리의 시계추</a></li><li><a href="#리스크에-대한-태도-이-책에서-가장-중요한-장">리스크에 대한 태도, 이 책에서 가장 중요한 장</a></li><li><a href="#신용-창구는-활짝-열리고-쾅-닫힌다">신용 창구는 활짝 열리고 쾅 닫힌다</a></li><li><a href="#시장의-온도를-확인하는-표">시장의 온도를 확인하는 표</a></li><li><a href="#강세장의-3단계와-바닥의-정의">강세장의 3단계와 바닥의 정의</a></li><li><a href="#이번에는-다르다-와-빼야-할-낱말">「이번에는 다르다」와 빼야 할 낱말</a></li><li><a href="#한계">한계</a></li><li><a href="#이야기꾼과-갈리는-곳-이-사이트에-옮긴다면">이야기꾼과 갈리는 곳, 이 사이트에 옮긴다면</a></li><li><a href="#출처">출처</a></li></ol></div><!--TOC:END--></header>
+<!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#미래는-모르고-위치는-안다">미래는 모르고 위치는 안다</a></li><li><a href="#사이클은-평균에서-멈추지-않는다">사이클은 평균에서 멈추지 않는다</a></li><li><a href="#심리의-시계추">심리의 시계추</a></li><li><a href="#리스크에-대한-태도-이-책에서-가장-중요한-장">리스크에 대한 태도: 이 책에서 가장 중요한 장</a></li><li><a href="#신용-창구는-활짝-열리고-쾅-닫힌다">신용 창구는 활짝 열리고 쾅 닫힌다</a></li><li><a href="#시장의-온도를-확인하는-표">시장의 온도를 확인하는 표</a></li><li><a href="#강세장의-3단계와-바닥의-정의">강세장의 3단계와 바닥의 정의</a></li><li><a href="#이번에는-다르다-와-빼야-할-낱말">「이번에는 다르다」와 빼야 할 낱말</a></li><li><a href="#극단에서만-맞을-수-있다">극단에서만 맞을 수 있다</a></li><li><a href="#이야기꾼과-다른-한-곳-이-사이트에-옮긴다면">이야기꾼과 다른 한 곳, 이 사이트에 옮긴다면</a></li><li><a href="#결론-미래-대신-위치를-평균-대신-극단을-본다">결론: 미래 대신 위치를, 평균 대신 극단을 본다</a></li><li><a href="#이-글의-한계">이 글의 한계</a></li><li><a href="#이-글의-용어">이 글의 용어</a></li></ol></div><!--TOC:END--></header>
+
+<p>하워드 막스는 1990년부터 오크트리 고객에게 메모를 보냈다. 2018년에는 그 메모의 생각을 『투자와 마켓 사이클의 법칙』으로 묶었다. 이 책의 주제는 사이클이다.</p>
+<p>시장에는 '미래를 맞혀야 돈을 번다'는 말이 있다. 막스는 미래를 알 수 없다고 본다. 그래서 이 글은 그가 미래 대신 무엇을 보는지를 위치, 심리, 리스크, 신용의 순서로 정리했다.</p>
+<p>결론부터 말하면, 막스의 방법은 지금 사이클의 어디에 서 있는지를 확인하는 것이다. 위치가 확률을 바꾸기 때문이다. 문제는 그 위치가 극단에서만 분명하다는 점이다.</p>
+<p class="kb-note">※ 고안은 하워드 막스다. 아래 설명은 이 사이트의 말이다. 「」 안의 문장만 그의 것이다. 인용은 책의 마지막 장인 18장에서 가져왔다. 그 장은 저자가 책 전체에서 「주요한 관찰점」만 골라 다시 실은 장이다. 그래서 괄호 안 쪽수는 종이책의 원래 자리다. 낱말은 <a href="marks-glossary.html">사이클 용어사전</a>에 있다.</p>
 
 <!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div>
-<p>막스의 방법은 미래를 맞히는 것이 아니다. 지금 사이클의 어디에 서 있는지를 확인하는 것이다.
-그의 말로는 이렇다. 「우리가 어디로 가고 있는지는 절대 알 수 없지만, 우리의 현재 위치에 대해서는 더 잘 알아야 한다.」(18장, 원문 285쪽)
-<a href="methodology.html">이야기꾼의 방법론</a>과 같은 게임이다. 국면을 먼저 보고, 예측하지 않고, 공격과 방어의 비중을 조정한다.
-갈리는 곳은 1곳이다. 막스는 가격이 가치보다 낮으면 바닥을 기다리지 않고 사고, 더 떨어지면 더 산다. 이야기꾼은 신호가 확인된 뒤에 단계로 들어간다.
-이 페이지는 정리이고, 이 사이트에 무엇을 옮길지는 마지막 절에 미정으로 두었다.</p>
+<p class="kb-t">1. 위치: 미래는 모르고 위치는 안다</p><p>사이클의 위치가 다음 1년 수익률의 분포를 옮긴다. 다음 공의 색은 몰라도 병 속을 아는 사람이 이긴다.</p>
+<p class="kb-t">2. 심리: 시계추는 중간에 머물지 않는다</p><p>탐욕과 공포가 같은 방향으로 함께 흔들린다. 그래서 가격은 펀더멘털보다 크게 움직인다.</p>
+<p class="kb-t">3. 리스크: 위험은 낮다고 느낄 때 높다</p><p>투자자가 위험을 편안하게 느끼는 것이 하락의 가장 큰 징조다.</p>
+<p class="kb-t">4. 신용: 창구는 활짝 열리고 쾅 닫힌다</p><p>닫힌 국면이 저가 매수의 가능성을 가장 크게 높인다.</p>
+<p class="kb-t">5. 이야기꾼과 다른 한 곳: 바닥을 기다리는가</p><p>막스는 가치보다 싸면 사고 더 떨어지면 더 산다. 이야기꾼은 신호를 확인한 뒤 단계로 들어간다.</p>
 </div><!--PCLAIM:END-->
 
-<p>고안은 하워드 막스다. 아래 설명은 이 사이트의 말이고 「」 안의 문장만 그의 것이다.
-인용은 책의 마지막 장인 18장에서 가져왔다. 그 장은 저자가 책 전체에서 「주요한 관찰점」만 골라 다시 실은 장이라, 괄호 안 쪽수는 종이책의 원래 자리다.
-출처는 그가 1990년부터 고객에게 보낸 메모와 2018년 책 『투자와 마켓 사이클의 법칙』(이주영 옮김)이다. 낱말은 <a href="marks-glossary.html">사이클 용어사전</a>에 있다.</p>
+<h2 id="미래는-모르고-위치는-안다">미래는 모르고 위치는 안다</h2>
+<div class="kbp"><div class="s">현재 위치를 안다</div><div><p>막스의 출발점은 거시적 미래를 알 수 없다는 확신이다. 남보다 더 잘 아는 사람이 거의 없다. 거시 예측으로 오래 이긴 투자자도 없다.</p><p>그의 말로는 이렇다. 「우리가 어디로 가고 있는지는 절대 알 수 없지만, 우리의 현재 위치에 대해서는 더 잘 알아야 한다.」(18장, 원문 285쪽)</p></div></div>
+<div class="kbp"><div class="s">병 속을 아는 사람</div><div><p>그렇다고 아무것도 모르는 것은 아니다. 병에 검은 공 70개와 흰 공 30개가 있다고 하자. 이것을 아는 사람도 다음 공의 색은 모른다. 그래도 그는 우위가 있다.</p><p>그의 문장으로는 이렇다. 「뛰어난 투자자들은 다른 사람들처럼 미래에 무슨 일이 일어날지 정확히 알 수는 없어도 미래의 경향에 대해 평균 이상의 이해를 갖고 있다.」(18장, 원문 33쪽)</p></div></div>
+<div class="kbp"><div class="s">위치가 확률을 바꾼다</div><div><p>위치가 중요한 이유는 확률이다. 「사이클 안의 포지션이 바뀌면 확률도 변한다.」(원문 40쪽)</p><p>사이클의 위치가 유리하면 다음 1년의 수익률 분포가 통째로 오른쪽으로 옮겨 간다. 불리하면 왼쪽으로 옮겨 간다. 다음 공의 색은 여전히 모른다. 그러나 병 속을 아는 사람이 이긴다.</p></div></div>
+<div class="kbp"><div class="s">시간을 쓸 곳은 3곳</div><div><p>시간을 쓸 곳은 3곳이다. 1) 알기 쉬운 것(산업과 기업)을 남보다 더 안다. 2) 그 값을 안다. 3) 지금 속한 환경을 이해하고 그에 맞춰 포트폴리오의 공격과 방어를 조정한다.</p><p>앞의 2가지가 가치투자이고 3번째가 이 책이다. 「키워드는 '조정'이다.」(원문 30쪽) 「싸게 샀을 때는 공격적이어야 하지만 비싸게 샀을 때는 후퇴해야 한다.」(원문 30쪽, 2017년 9월 메모 「또다시?」)</p></div></div>
+<div class="kbp"><div class="s">예측을 수반하지 않는다</div><div><p>이 사이트가 전망을 쓰지 않고 예상을 쓰는 규칙이 여기와 같다. 13장의 한 문장이 그것을 가장 짧게 말한다. 「이 모든 것들이 중요하지만 그 어떤 것도 예측을 수반하지 않는다.」(13장)</p></div></div>
 
-<h2 id="미래는-모르고-위치는-안다" style="margin-top:34px">미래는 모르고 위치는 안다</h2>
-<p>막스의 출발점은 거시적 미래를 알 수 없다는 확신이다. 남보다 더 잘 아는 사람이 거의 없고, 거시 예측으로 오래 이긴 투자자도 없다.
-그렇다고 아무것도 모르는 것은 아니다. 병에 검은 공 70개와 흰 공 30개가 있다는 것을 아는 사람은 다음 공이 무슨 색인지 모른다. 그래도 그는 우위가 있다.
-그의 문장으로는 이렇다. 「뛰어난 투자자들은 다른 사람들처럼 미래에 무슨 일이 일어날지 정확히 알 수는 없어도 미래의 경향에 대해 평균 이상의 이해를 갖고 있다.」(18장, 원문 33쪽)</p>
-<p>위치가 왜 중요한가. 위치가 확률을 바꾸기 때문이다. 「사이클 안의 포지션이 바뀌면 확률도 변한다.」(원문 40쪽)
-사이클의 위치가 유리하면 다음 1년의 수익률 분포가 통째로 오른쪽으로 옮겨 가고, 불리하면 왼쪽으로 옮겨 간다. 다음 공의 색은 여전히 모른다. 그러나 병 속을 아는 사람이 이긴다.</p>
-<p>시간을 쓸 곳은 3곳이다. 알기 쉬운 것(산업과 기업)을 남보다 더 안다. 그 값을 안다. 그리고 지금 속한 환경을 이해하고 그에 맞춰 포트폴리오의 공격과 방어를 조정한다.
-앞의 2가지가 가치투자이고 3번째가 이 책이다. 「키워드는 '조정'이다.」(원문 30쪽) 「싸게 샀을 때는 공격적이어야 하지만 비싸게 샀을 때는 후퇴해야 한다.」(원문 30쪽, 2017년 9월 메모 「또다시?」)
-이 사이트가 전망을 쓰지 않고 예상을 쓰는 규칙이 여기와 같다. 13장의 한 문장이 그것을 가장 짧게 말한다. 「이 모든 것들이 중요하지만 그 어떤 것도 예측을 수반하지 않는다.」(13장)</p>
-
-<h2 id="사이클은-평균에서-멈추지-않는다" style="margin-top:44px">사이클은 평균에서 멈추지 않는다</h2>
-<p>사이클에는 시작도 끝도 없다. 좋은 질문은 「언제 시작됐나」가 아니라 「얼마나 멀리 왔나」다.
-막스는 고객이 지금 어디쯤인지 물으면 종이에 두 선을 그린다. 왼쪽 아래에서 오른쪽 위로 가는 추세선과 그 둘레를 오르내리는 선이다. 「사이클은 오르내리고 시계추는 좌우로 흔들린다.」(원문 47쪽)
-그 그림에 마크 트웨인의 말을 붙인다. 역사는 그대로 반복되지 않지만 그 흐름은 반복된다. 그가 진짜 그 말을 했다는 증거는 없다고 막스가 덧붙인다.</p>
-<p>평균으로 돌아가는 힘은 강하다. 그러나 그것은 이야기의 절반이다. 「사이클은 가운데 지점에 오래 머무르지 않는다.」(원문 51~52쪽)
-극단에서 돌아온 움직임은 중간을 지나 반대쪽 극단까지 간다. 시장은 저평가에서 적정 가격으로 와서 거기서 멈추는 일이 거의 없다.
-그래서 멀리 갈수록 되돌림이 격렬하다. 「상승 뒤에는 단순한 조정이 따라오고, 강세 시장 뒤에는 약세 시장이 온다. 하지만 붐과 거품 뒤에는 훨씬 더 해로운 파멸과 폭락, 패닉이 따라온다.」(원문 52~53쪽)</p>
-<p>사건은 뒤따르는 것이 아니다. 「각각의 사건이 다음 사건을 야기하는 것으로 보아야 한다.」(원문 54~55쪽)
-호황은 몇 년이 걸리고 불황은 화물열차처럼 온다. 셸던 스톤의 말로 풍선의 공기는 들어갈 때보다 빠질 때가 빠르다.
-왜 사이클이 기계처럼 규칙적이지 않은가. 사람이 끼어 있기 때문이다. 「사람은 꾸준함과 거리가 있다.」(원문 48쪽)
-그리고 규칙적이었다면 수익도 없었을 것이다. 「큰 이익은 다른 사람들보다 현상을 더 잘 보는 데서 오기 때문이다.」(원문 70~71쪽)
-그래서 우리 표의 승률이 100%가 아닌 것은 결함이 아니라 수익의 조건이다.</p>
-<p>모든 호황과 불황을 관통하는 주제는 있다. 「과도한 낙관주의는 위험하며, 위험회피는 안전한 시장을 위한 필수 요소이고, 지나치게 관대한 자본시장은 우둔한 금융으로 이어져 참가자들에게 위험을 초래한다.」(원문 61~62쪽)
-세부는 매번 다르다. 주제는 매번 같다. 사이클을 듣는다는 것은 그 반복을 알아보는 것이다.</p>
+<h2 id="사이클은-평균에서-멈추지-않는다">사이클은 평균에서 멈추지 않는다</h2>
+<div class="kbp"><div class="s">얼마나 멀리 왔나</div><div><p>사이클에는 시작도 끝도 없다. 좋은 질문은 「언제 시작됐나」가 아니라 「얼마나 멀리 왔나」다.</p></div></div>
+<div class="kbp"><div class="s">추세선과 그 둘레의 선</div><div><p>고객이 지금 어디쯤인지 물으면 막스는 종이에 2개의 선을 그린다. 왼쪽 아래에서 오른쪽 위로 가는 추세선과 그 둘레를 오르내리는 선이다. 「사이클은 오르내리고 시계추는 좌우로 흔들린다.」(원문 47쪽)</p><p>그 그림에 마크 트웨인의 말을 붙인다. 역사는 그대로 반복되지 않지만 그 흐름은 반복된다. 막스는 그가 진짜 그 말을 했다는 증거는 없다고 덧붙인다.</p></div></div>
+<div class="kbp"><div class="s">중간을 지나 반대쪽 극단까지</div><div><p>평균으로 돌아가는 힘은 강하다. 그러나 그것은 이야기의 절반이다. 「사이클은 가운데 지점에 오래 머무르지 않는다.」(원문 51~52쪽)</p><p>극단에서 돌아온 움직임은 중간을 지나 반대쪽 극단까지 간다. 시장은 저평가에서 적정 가격으로 와서 거기서 멈추는 일이 거의 없다.</p></div></div>
+<div class="kbp"><div class="s">멀리 갈수록 되돌림이 격렬하다</div><div><p>그래서 멀리 갈수록 되돌림이 격렬하다. 「상승 뒤에는 단순한 조정이 따라오고, 강세 시장 뒤에는 약세 시장이 온다. 하지만 붐과 거품 뒤에는 훨씬 더 해로운 파멸과 폭락, 패닉이 따라온다.」(원문 52~53쪽)</p></div></div>
+<div class="kbp"><div class="s">사건이 다음 사건을 부른다</div><div><p>사건은 뒤따르는 것이 아니다. 「각각의 사건이 다음 사건을 야기하는 것으로 보아야 한다.」(원문 54~55쪽)</p><p>호황은 몇 년이 걸린다. 불황은 화물열차처럼 온다. 셸던 스톤의 말로는 풍선의 공기는 들어갈 때보다 빠질 때가 빠르다.</p></div></div>
+<div class="kbp"><div class="s">사람이 끼어 있다</div><div><p>사이클이 기계처럼 규칙적이지 않은 이유는 사람이 끼어 있기 때문이다. 「사람은 꾸준함과 거리가 있다.」(원문 48쪽)</p><p>규칙적이었다면 수익도 없었을 것이다. 「큰 이익은 다른 사람들보다 현상을 더 잘 보는 데서 오기 때문이다.」(원문 70~71쪽) 그래서 우리 표의 승률이 100%가 아닌 것은 결함이 아니라 수익의 조건이다.</p></div></div>
+<div class="kbp"><div class="s">세부는 다르고 주제는 같다</div><div><p>모든 호황과 불황에 공통된 주제가 있다. 「과도한 낙관주의는 위험하며, 위험회피는 안전한 시장을 위한 필수 요소이고, 지나치게 관대한 자본시장은 우둔한 금융으로 이어져 참가자들에게 위험을 초래한다.」(원문 61~62쪽)</p><p>세부는 매번 다르다. 주제는 매번 같다. 사이클을 듣는다는 것은 그 반복을 알아보는 것이다.</p></div></div>
+<p>막스의 문장을 이 사이트의 글과 나란히 놓으면 아래와 같다.</p>
+<p class="kb-cap">표 1. 막스의 문장과 이 사이트에서 같은 것</p>
 <div class="tblwrap"><table><thead><tr><th style="width:44%">막스의 문장</th><th>이 사이트에서 같은 것</th></tr></thead><tbody>
 <tr><td>평균으로 돌아오고 멈추지 않는다</td><td><a href="jeoji-kospi.html">제오지산수</a>의 이격도가 −20%에서 0으로 오고 +20%까지 간다</td></tr>
 <tr><td>사건이 다음 사건을 야기한다</td><td><a href="leadlag.html">하이닉스의 선행과 후행</a>, <a href="export-kospi.html">수출과 코스피</a>의 순서</td></tr>
-<tr><td>붐과 거품 뒤에는 파멸과 폭락이 온다</td><td><a href="kospi-analog.html">닮은 과거</a>의 급등 3번과 그 뒤 36개월 낙폭</td></tr>
+<tr><td>붐과 거품 뒤에는 파멸과 폭락이 온다</td><td><a href="kospi-analog.html">닮은 과거</a>의 급등 3번과 그 뒤 36개월의 하락</td></tr>
 <tr><td>불황은 화물열차처럼 온다</td><td><a href="deleveraging.html">강제청산</a>의 하루 6% 청산</td></tr>
 </tbody></table></div>
 
-<h2 id="심리의-시계추" style="margin-top:44px">심리의 시계추</h2>
-<p>사이클이 지나치게 오르고 지나치게 내리는 것은 대부분 심리의 과장 때문이다. 심리는 시계추처럼 흔들린다.
-탐욕과 공포, 낙관과 비관, 위험수용과 위험회피, 신뢰와 회의, 미래 가치에 대한 믿음과 현재 가치의 고집, 매수의 조급함과 매도의 패닉. 이 축들은 같은 방향으로 함께 움직인다.
-막스가 계산했다. 1970년부터 2016년까지 47년 동안 S&amp;P500의 연간 수익률이 정상이라 할 8~12% 안에 든 해는 3번뿐이었다. 47년 중 13년은 +30% 이상이거나 −10% 이하였다. 평균은 기준이 아니다.</p>
-<p>현실 세계의 일은 보통 꽤 좋은 것과 그렇게 좋지는 않은 것 사이에서 움직인다. 투자의 세계는 다르다.
-「시계추는 한쪽 극단에서 다른 쪽 극단으로 달리고, '중도'에 머무르는 일이 거의 없다.」(원문 144~145쪽) 「처음에는 부정하고, 그다음에는 항복한다.」(원문 144~145쪽)
-심리가 장밋빛일 때는 나쁜 소식이 간과되고 모든 것이 유리하게 해석된다. 몇 달 몇 년 나빴을 때는 좋아질 가능성이 잊힌다.
-그것이 시장이 실적보다 크게 움직이는 이유다. 「가격 변화는 펀더멘털 변화를 과장하고 부풀린다.」(원문 260~263쪽) 「투자자의 합리적인 행동은 예외적인 것이지 법칙이 아니다.」(원문 260~263쪽)</p>
-<p>하락기에 그 반대가 온다. 「욕심은 사라지고 공포만 남았다.」(원문 316쪽) 낙관은 사라지고 비관만, 위험수용은 사라지고 위험회피만 남는다.
-이 사이트의 <a href="sentiment-daily.html">투자심리 3종</a>과 <a href="flow-extremes.html">개인의 대량 매매</a>가 그 시계추를 매일 찍는다. 시계추는 중간에 잠깐만 머문다.</p>
+<h2 id="심리의-시계추">심리의 시계추</h2>
+<div class="kbp"><div class="s">사이클의 과장은 심리에서</div><div><p>사이클이 지나치게 오르고 지나치게 내리는 것은 대부분 심리의 과장 때문이다. 심리는 시계추처럼 흔들린다.</p></div></div>
+<div class="kbp"><div class="s">축들은 함께 움직인다</div><div><p>탐욕과 공포, 낙관과 비관, 위험수용과 위험회피, 신뢰와 회의, 미래 가치에 대한 믿음과 현재 가치의 고집, 매수의 조급함과 매도의 패닉. 이 축들은 같은 방향으로 함께 움직인다.</p></div></div>
+<div class="kbp"><div class="s">평균은 기준이 아니다</div><div><p>막스가 계산했다. 1970년부터 2016년까지 47년 동안 S&amp;P500의 연간 수익률이 정상이라 할 8~12% 안에 든 해는 3번뿐이었다. 47년 중 13년은 +30% 이상이거나 −10% 이하였다. 평균은 기준이 아니다.</p></div></div>
+<div class="kbp"><div class="s">중도에 머무르는 일이 거의 없다</div><div><p>현실 세계의 일은 보통 꽤 좋은 것과 그렇게 좋지는 않은 것 사이에서 움직인다. 투자의 세계는 다르다.</p><p>「시계추는 한쪽 극단에서 다른 쪽 극단으로 달리고, '중도'에 머무르는 일이 거의 없다.」(원문 144~145쪽) 「처음에는 부정하고, 그다음에는 항복한다.」(원문 144~145쪽)</p></div></div>
+<div class="kbp"><div class="s">시장이 실적보다 크게 움직이는 이유</div><div><p>심리가 좋을 때는 나쁜 소식이 간과된다. 모든 것이 유리하게 해석된다. 몇 달 몇 년 부진했을 때는 좋아질 가능성이 잊힌다.</p><p>그것이 시장이 실적보다 크게 움직이는 이유다. 「가격 변화는 펀더멘털 변화를 과장하고 부풀린다.」(원문 260~263쪽) 「투자자의 합리적인 행동은 예외적인 것이지 법칙이 아니다.」(원문 260~263쪽)</p></div></div>
+<div class="kbp"><div class="s">하락기에는 반대가 온다</div><div><p>하락기에는 그 반대가 온다. 「욕심은 사라지고 공포만 남았다.」(원문 316쪽) 낙관은 사라지고 비관만 남는다. 위험수용은 사라지고 위험회피만 남는다.</p></div></div>
+<div class="kbp"><div class="s">이 사이트의 시계추</div><div><p>이 사이트의 <a href="sentiment-daily.html">투자심리 3종</a>과 <a href="flow-extremes.html">개인의 대량 매매</a>가 그 시계추를 매일 찍는다. 시계추는 중간에 잠깐만 머문다.</p></div></div>
 
-<h2 id="리스크에-대한-태도-이-책에서-가장-중요한-장" style="margin-top:44px">리스크에 대한 태도, 이 책에서 가장 중요한 장</h2>
-<p>「사이클에서 리스크에 대한 태도가 어디쯤 있는지 가늠해보는 것은 어쩌면 이 책에서 가장 중요한 부분일지도 모른다.」(원문 153쪽) 막스 자신의 말이다.
-위험한 자산일수록 수익이 높다는 그래프는 오독이다. 더 높은 수익이 확실하다면 처음부터 위험하지 않은 것이다. 바른 읽기는 더 위험해 보이는 투자는 더 높은 수익을 약속하는 것처럼 보여야 한다는 것이다.
-사람은 위험을 싫어하고 그래서 보상을 요구한다. 그 요구가 시장을 안전하게 유지한다.</p>
-<p>호황이 되면 요구가 준다. 주의를 덜 기울이고, 분석을 생략하고, 안전마진 없이 사고, 프리미엄을 요구하지 않는다.
-「어리석은 투자가 나쁜 시기보다 좋은 시기에 이루어진다는 것은 놀랄 일이 아니다.」(원문 162~164쪽)
-그래서 이 책에서 가장 유명한 문장이 나온다. 「위험은 투자자들이 낮다고 느낄 때 높은 것이다.」(8장) 그리고 한 줄 더. 「광범위한 위험수용, 즉 투자자가 위험을 편안하게 느끼는 현상은 시장 하락의 가장 큰 징조이다.」(원문 162~164쪽)</p>
-<p>반대쪽 극단은 이렇다. 「패닉 상태에서 사람들은 엄청난 기회를 놓칠까봐 걱정해야 할 시간에 손실을 없게 하려고 시간을 100퍼센트 사용한다.」(원문 188쪽)
-「매수하기에 가장 안전한(그리고 가장 보상이 큰) 시기는 대개 모두가 희망이 없다고 확신할 때이다.」(원문 188쪽)
-고점에서는 한계가 없어 보이던 위험수용이 바닥에서는 전혀 없다. 그래서 「가장 신중해야 할 때 가장 기꺼이 매수하고, 가장 공격적이어야 할 때 가장 매수를 꺼린다는 뜻이기도 하다.」(원문 190~192쪽) 뛰어난 투자자는 이것을 알고 반대로 하려고 애쓴다.</p>
-<p>계량한 사례가 있다. 1998년 중반 수익률 20% 이상 채권의 잔액은 125억 달러였다. LTCM이 무너지고 1년 뒤 387억, 2002년 스캔들 뒤 1,056억, 2004년 봄 162억이었다.
-펀더멘털은 그만큼 흔들리지 않았다. 심리가 그만큼 흔들렸다. 이 사이트의 <a href="credit-spread.html">신용스프레드</a>가 기록하는 것이 그 기울기다.</p>
+<h2 id="리스크에-대한-태도-이-책에서-가장-중요한-장">리스크에 대한 태도: 이 책에서 가장 중요한 장</h2>
+<div class="kbp"><div class="s">막스가 꼽은 가장 중요한 부분</div><div><p>「사이클에서 리스크에 대한 태도가 어디쯤 있는지 가늠해보는 것은 어쩌면 이 책에서 가장 중요한 부분일지도 모른다.」(원문 153쪽) 막스 자신의 말이다.</p></div></div>
+<div class="kbp"><div class="s">위험과 수익 그래프의 바른 읽기</div><div><p>위험한 자산일수록 수익이 높다는 그래프는 오독이다. 더 높은 수익이 확실하다면 처음부터 위험하지 않은 것이다. 바른 읽기는 이렇다. 더 위험해 보이는 투자는 더 높은 수익을 약속하는 것처럼 보여야 한다.</p></div></div>
+<div class="kbp"><div class="s">보상 요구가 시장을 지킨다</div><div><p>사람은 위험을 싫어한다. 그래서 보상을 요구한다. 그 요구가 시장을 안전하게 유지한다.</p></div></div>
+<div class="kbp"><div class="s">호황에는 요구가 준다</div><div><p>호황이 되면 요구가 준다. 주의를 덜 기울인다. 분석을 생략한다. 안전마진 없이 산다. 프리미엄을 요구하지 않는다.</p><p>「어리석은 투자가 나쁜 시기보다 좋은 시기에 이루어진다는 것은 놀랄 일이 아니다.」(원문 162~164쪽)</p></div></div>
+<div class="kbp"><div class="s">위험은 낮다고 느낄 때 높다</div><div><p>그래서 이 책에서 가장 유명한 문장이 나온다. 「위험은 투자자들이 낮다고 느낄 때 높은 것이다.」(8장)</p><p>그리고 한 줄 더 있다. 「광범위한 위험수용, 즉 투자자가 위험을 편안하게 느끼는 현상은 시장 하락의 가장 큰 징조이다.」(원문 162~164쪽)</p></div></div>
+<div class="kbp"><div class="s">반대쪽 극단</div><div><p>반대쪽 극단은 이렇다. 「패닉 상태에서 사람들은 엄청난 기회를 놓칠까봐 걱정해야 할 시간에 손실을 없게 하려고 시간을 100퍼센트 사용한다.」(원문 188쪽)</p><p>「매수하기에 가장 안전한(그리고 가장 보상이 큰) 시기는 대개 모두가 희망이 없다고 확신할 때이다.」(원문 188쪽)</p></div></div>
+<div class="kbp"><div class="s">가장 신중해야 할 때 가장 기꺼이</div><div><p>고점에서는 한계가 없어 보이던 위험수용이 바닥에서는 전혀 없다. 그래서 「가장 신중해야 할 때 가장 기꺼이 매수하고, 가장 공격적이어야 할 때 가장 매수를 꺼린다는 뜻이기도 하다.」(원문 190~192쪽) 뛰어난 투자자는 이것을 알고 반대로 하려고 애쓴다.</p></div></div>
+<div class="kbp"><div class="s">펀더멘털이 아니라 심리가 흔들렸다</div><div><p>계량한 사례가 있다. 수익률 20% 이상 채권의 잔액을 시점별로 정리하면 아래와 같다.</p><p>1998년 중반 125억 달러 → LTCM이 무너지고 1년 뒤 387억 달러 → 2002년 스캔들 뒤 1,056억 달러 → 2004년 봄 162억 달러.</p><p>펀더멘털은 그만큼 흔들리지 않았다. 심리가 그만큼 흔들렸다. 이 사이트의 <a href="credit-spread.html">신용스프레드</a>가 기록하는 것이 그 기울기다.</p></div></div>
 
-<h2 id="신용-창구는-활짝-열리고-쾅-닫힌다" style="margin-top:44px">신용 창구는 활짝 열리고 쾅 닫힌다</h2>
-<p>경제는 추세에서 몇 %p 벗어날 뿐이다. 이익은 두 레버리지(영업, 재무) 때문에 그보다 크게 움직인다. 주가는 그보다 더 크게 움직인다. 막스는 그 이유를 신용에서 찾는다.
-「경제가 약간 변동하면 이익은 꽤 크게 변동하는 반면, 대출 창구는 활짝 열리고 쾅 닫힌다.」(9장)
-창구의 비유는 이렇다. 「가끔은 열려 있고, 가끔은 닫혀 있다.」 그리고 「창구는 활짝 열린 상태에서 닫힌 상태로 순식간에 바뀔 수 있다는 사실을 늘 명심해야 한다.」(원문 197~198쪽)</p>
-<p>창구가 중요한 이유는 롤오버다. 기업은 부채를 갚지 않고 연장한다. 창구가 닫히면 아무리 건실한 기업도 만기에 새로 못 빌려 부도가 난다. 순자산과 유동성은 다르다.
-과정은 단순하고 늘 같다. 「호황으로 대출이 늘면서 잘못된 대출로 인해 큰 손실이 발생하고 결국 대출기관이 더 이상 대출을 하지 않게 되면서 호황은 끝이 난다. 이 상황은 계속 반복된다.」(원문 203쪽)
-「최악의 대출은 최고의 시기에 이루어진다.」(9장, 『이코노미스트』 재인용) 그래서 위기의 원인을 찾을 때는 「비디오를 몇 달 혹은 몇 년 전으로 되감아야 한다.」(원문 209쪽)</p>
-<p>누가 카드를 쥐는가가 국면을 말해 준다. 「신용 창구가 열려 있을 때 카드를 쥐고 있는 것은 대출기관이나 투자자가 아니라 바로 대출자이다.」(원문 222~223쪽)
-닫히면 반대다. 자본을 가진 쪽이 엄격한 기준과 높은 수익률을 요구할 수 있고, 그것이 안전마진이다. 「신용 사이클의 닫힌 국면은 다른 어떤 요인보다도 더 저가 매수의 가능성을 높여준다.」(9장)
-부실채권의 기회는 2가지가 겹칠 때 온다. 장작(무분별한 신용 확대)과 점화장치(침체, 경색, 외부 사건).
-이 사이트의 <a href="liquidity.html">미국 유동성</a>과 <a href="credit-spread.html">신용스프레드와 코스피</a>가 그 창구를 본다.</p>
+<h2 id="신용-창구는-활짝-열리고-쾅-닫힌다">신용 창구는 활짝 열리고 쾅 닫힌다</h2>
+<div class="kbp"><div class="s">경제보다 이익, 이익보다 주가</div><div><p>경제는 추세에서 몇 %p 벗어날 뿐이다. 이익은 2가지 레버리지(영업, 재무) 때문에 그보다 크게 움직인다. 주가는 그보다 더 크게 움직인다. 막스는 그 이유를 신용에서 찾는다.</p><p>「경제가 약간 변동하면 이익은 꽤 크게 변동하는 반면, 대출 창구는 활짝 열리고 쾅 닫힌다.」(9장)</p></div></div>
+<div class="kbp"><div class="s">창구는 순식간에 바뀐다</div><div><p>창구의 비유는 이렇다. 「가끔은 열려 있고, 가끔은 닫혀 있다.」 그리고 「창구는 활짝 열린 상태에서 닫힌 상태로 순식간에 바뀔 수 있다는 사실을 늘 명심해야 한다.」(원문 197~198쪽)</p></div></div>
+<div class="kbp"><div class="s">순자산과 유동성은 다르다</div><div><p>창구가 중요한 이유는 롤오버다. 기업은 부채를 갚지 않고 연장한다. 창구가 닫히면 아무리 건실한 기업도 만기에 새로 못 빌려 부도가 난다. 순자산과 유동성은 다르다.</p></div></div>
+<div class="kbp"><div class="s">과정은 늘 같다</div><div><p>과정은 단순하다. 그리고 늘 같다. 「호황으로 대출이 늘면서 잘못된 대출로 인해 큰 손실이 발생하고 결국 대출기관이 더 이상 대출을 하지 않게 되면서 호황은 끝이 난다. 이 상황은 계속 반복된다.」(원문 203쪽)</p><p>「최악의 대출은 최고의 시기에 이루어진다.」(9장, 『이코노미스트』 재인용) 그래서 위기의 원인을 찾을 때는 「비디오를 몇 달 혹은 몇 년 전으로 되감아야 한다.」(원문 209쪽)</p></div></div>
+<div class="kbp"><div class="s">누가 카드를 쥐는가</div><div><p>누가 카드를 쥐는가가 국면을 말해 준다. 「신용 창구가 열려 있을 때 카드를 쥐고 있는 것은 대출기관이나 투자자가 아니라 바로 대출자이다.」(원문 222~223쪽)</p><p>닫히면 반대다. 자본을 가진 쪽이 엄격한 기준과 높은 수익률을 요구할 수 있다. 그것이 안전마진이다. 「신용 사이클의 닫힌 국면은 다른 어떤 요인보다도 더 저가 매수의 가능성을 높여준다.」(9장)</p></div></div>
+<div class="kbp"><div class="s">장작과 점화장치</div><div><p>부실채권의 기회는 2가지가 겹칠 때 온다. 장작(무분별한 신용 확대)과 점화장치(침체, 경색, 외부 사건)다.</p><p>이 사이트의 <a href="liquidity.html">미국 유동성</a>과 <a href="credit-spread.html">신용스프레드와 코스피</a>가 그 창구를 본다.</p></div></div>
 
-<h2 id="시장의-온도를-확인하는-표" style="margin-top:44px">시장의 온도를 확인하는 표</h2>
-<p>막스는 시장이 어디쯤인지 묻는 고객에게 두 열짜리 표를 준다. 지금 시장을 가장 잘 설명하는 쪽에 표시하라. 왼쪽에 표시가 많으면 지갑을 지켜라.
-이 표는 예측이 아니라 관찰이고, 매일이 아니라 극단에서 쓰는 도구다. 오른쪽 열에 이 사이트에서 그 행을 계산하는 페이지를 붙였다. 없는 것은 없다고 적었다.</p>
+<h2 id="시장의-온도를-확인하는-표">시장의 온도를 확인하는 표</h2>
+<div class="kbp"><div class="s">왼쪽이 많으면 지갑을 지켜라</div><div><p>막스는 시장이 어디쯤인지 묻는 고객에게 2열짜리 표를 준다. 지금 시장을 가장 잘 설명하는 쪽에 표시하라는 것이다. 왼쪽에 표시가 많으면 지갑을 지켜야 한다.</p></div></div>
+<div class="kbp"><div class="s">극단에서 쓰는 관찰 도구</div><div><p>이 표는 예측이 아니라 관찰이다. 그리고 매일이 아니라 극단에서 쓰는 도구다. 오른쪽 열에는 이 사이트에서 그 행을 계산하는 페이지를 붙였다. 없는 것은 없다고 적었다.</p></div></div>
+<p class="kb-cap">표 2. 시장의 온도 표: 17행 가운데 13행은 이 사이트가 이미 계산한다</p>
 <div class="tblwrap"><table><thead><tr><th style="width:22%">항목</th><th style="width:26%">왼쪽 (지갑을 지켜라)</th><th style="width:26%">오른쪽 (공격할 때)</th><th>이 사이트의 계량</th></tr></thead><tbody>
 <tr><td>경제</td><td>활기찬</td><td>부진한</td><td><a href="cli-kospi.html">CLI</a> · <a href="ism-kospi.html">ISM</a> · <a href="export-kospi.html">수출</a>의 방향</td></tr>
 <tr><td>전망</td><td>긍정적</td><td>부정적</td><td><a href="experts.html">전문가 의견 추적</a></td></tr>
@@ -928,60 +925,76 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 <tr><td>최근 실적</td><td>강함</td><td>약함</td><td><a href="stage-analysis.html">와인스타인 스테이지</a></td></tr>
 <tr><td>자산가격</td><td>높음</td><td>낮음</td><td><a href="jeoji-kospi.html">이격도</a> · <a href="disparity-3.html">3종 이격도</a></td></tr>
 <tr><td>예상 수익률</td><td>낮음</td><td>높음</td><td>각 아카이브 표의 12개월 중앙값</td></tr>
-<tr><td>리스크</td><td>높음</td><td>낮음</td><td>각 아카이브 표의 최대 낙폭</td></tr>
+<tr><td>리스크</td><td>높음</td><td>낮음</td><td>각 아카이브 표의 MDD</td></tr>
 <tr><td>필요한 특징</td><td>신중과 절제</td><td>공격성</td><td><a href="audition.html">오디션 피라미딩</a>의 단계</td></tr>
 </tbody></table></div>
-<p>18행 가운데 13행은 이미 계산하고 있고 5행은 자료가 없다. 이것을 첫 화면에 「왼쪽 몇 개」로 찍는 것이 마지막 절의 후보 1번이다.
-표를 읽을 때 잊지 말 것이 하나 있다. 고점과 바닥은 한 줄이 아니라 여러 줄이 함께 켜진다. 「주목해야 할 점은 최고조에 달한 심리, 최대로 완화된 신용 가용성, 최고 수준의 가격, 최소의 잠재수익률, 최대 리스크가 동시에 이루어지며 이러한 극단은 대개 매수의 마지막 발작과 함께 일어난다는 것이다.」(원문 277쪽)</p>
+<div class="kbp"><div class="s">17행 가운데 4행은 자료가 없다</div><div><p>표의 17행 가운데 13행은 이미 계산하고 있다. 4행은 자료가 없다. 이것을 첫 화면에 「왼쪽 몇 개」로 찍는 것이 10절 후보 1번이다.</p></div></div>
+<p class="kb-note">※ 이 단락은 2026-11-19에 고쳤다. 옛 판은 '18행 가운데 13행은 계산하고 5행은 자료가 없다'고 적었다. 표에 실린 행은 17행이고 자료가 없는 행은 4행이다. 책의 원래 표에는 행이 더 있다. 이 글은 이 사이트의 자료와 견줄 수 있는 17행을 옮겼다.</p>
+<div class="kbp"><div class="s">극단에서는 여러 줄이 함께 켜진다</div><div><p>표를 읽을 때 잊지 말 것이 하나 있다. 고점과 바닥은 한 줄이 아니라 여러 줄이 함께 켜진다.</p><p>「주목해야 할 점은 최고조에 달한 심리, 최대로 완화된 신용 가용성, 최고 수준의 가격, 최소의 잠재수익률, 최대 리스크가 동시에 이루어지며 이러한 극단은 대개 매수의 마지막 발작과 함께 일어난다는 것이다.」(원문 277쪽)</p></div></div>
 
-<h2 id="강세장의-3단계와-바닥의-정의" style="margin-top:44px">강세장의 3단계와 바닥의 정의</h2>
-<p>1970년대 초 나이 든 투자자가 막스에게 준 선물이다. 1단계, 통찰력 있는 소수만 좋아질 거라 믿을 때. 2단계, 대부분이 개선을 깨달을 때. 3단계, 모두가 영원히 나아질 거라 결론지을 때.
-3단계의 모습은 이렇다. 「나무는 하늘 끝까지 자라지 않지만 이 단계에 있는 투자자들은 나무가 끝까지 자랄 것처럼 행동한다.」(원문 266~267쪽)
-더 짧은 판이 12장에 있다. 「현명한 사람이 처음에 하는 일을 바보는 마지막에 한다.」(12장)</p>
-<p>바닥은 무엇인가. 「바닥은 패닉에 빠진 마지막 보유자가 매도한 날 또는 매도자가 매수자에 비해 우위에 선 마지막 날로 볼 수 있다.」(원문 319~320쪽) 지나서만 안다. 네온사인이 켜지지 않는다.
-그래서 막스는 바닥을 기다려 사는 것에 반대한다. 「패배를 인정하는 매도자로부터 원하는 것을 대량 매수할 수 있는 때는 일반적으로 시장이 미끄러지는 동안이다.」(원문 319~320쪽)
-떨어지는 칼날은 잡지 않는다는 말의 속마음을 그는 이렇게 옮긴다. 하락이 멈추기도 전에 사서 손실을 볼까 봐 무섭다는 것이다. 그러나 상황이 안정되면 싼 매물은 사라진다.
-2008년 9월 15일부터 15주 동안 오크트리는 한 주에 5억 달러 이상을 샀다.</p>
-<p>2년을 합치면 별것 아닌 결과가 된다. 레버리지론 지수는 2008년에 100이 71이 됐고 2009년에 103이 됐다. 그 사이에 무엇을 했는가가 전부다.
-「하락 후 시장을 탈출해서 사이클 반등에 참여하지 못하는 것은 투자에서 가장 치명적인 죄악이다.」(13장) 「정말 끔찍한 것은 바닥에서 팔아치워 하락 변동의 기회를 영구적인 손실로 날려버리는 것이다.」(원문 322~323쪽)
-이 사이트의 <a href="deleveraging.html">강제청산</a>과 <a href="sentiment.html">빚과 현금</a>이 그 마지막 보유자의 매도를 집계한다. 반대매매 급증일 뒤 60영업일이 8번 중 7번 올랐다는 것이 그 실측이다.</p>
+<h2 id="강세장의-3단계와-바닥의-정의">강세장의 3단계와 바닥의 정의</h2>
+<div class="kbp"><div class="s">강세장의 3단계</div><div><p>1970년대 초 나이 든 투자자가 막스에게 준 선물이다. 1단계는 통찰력 있는 소수만 좋아질 거라 믿을 때다. 2단계는 대부분이 개선을 깨달을 때다. 3단계는 모두가 영원히 나아질 거라 결론지을 때다.</p></div></div>
+<div class="kbp"><div class="s">3단계의 모습</div><div><p>3단계의 모습은 이렇다. 「나무는 하늘 끝까지 자라지 않지만 이 단계에 있는 투자자들은 나무가 끝까지 자랄 것처럼 행동한다.」(원문 266~267쪽)</p><p>더 짧은 판이 12장에 있다. 「현명한 사람이 처음에 하는 일을 바보는 마지막에 한다.」(12장)</p></div></div>
+<div class="kbp"><div class="s">바닥은 지나서만 안다</div><div><p>바닥은 무엇인가. 「바닥은 패닉에 빠진 마지막 보유자가 매도한 날 또는 매도자가 매수자에 비해 우위에 선 마지막 날로 볼 수 있다.」(원문 319~320쪽) 바닥은 지나서만 안다. 네온사인이 켜지지 않는다.</p></div></div>
+<div class="kbp"><div class="s">바닥을 기다려 사지 않는다</div><div><p>그래서 막스는 바닥을 기다려 사는 것에 반대한다. 「패배를 인정하는 매도자로부터 원하는 것을 대량 매수할 수 있는 때는 일반적으로 시장이 미끄러지는 동안이다.」(원문 319~320쪽)</p></div></div>
+<div class="kbp"><div class="s">떨어지는 칼날의 속마음</div><div><p>'떨어지는 칼날은 잡지 않는다'는 말의 속마음을 그는 이렇게 옮긴다. 하락이 멈추기도 전에 사서 손실을 볼까 봐 무섭다는 것이다. 그러나 상황이 안정되면 싼 매물은 사라진다.</p><p>2008년 9월 15일부터 15주 동안 오크트리는 한 주에 5억 달러 이상을 샀다.</p></div></div>
+<div class="kbp"><div class="s">그 사이에 무엇을 했는가</div><div><p>2년을 합치면 별것 아닌 결과가 된다. 레버리지론 지수(100→71→103)는 2008년에 하락했고 2009년에 회복했다. 그 사이에 무엇을 했는가가 전부다.</p><p>「하락 후 시장을 탈출해서 사이클 반등에 참여하지 못하는 것은 투자에서 가장 치명적인 죄악이다.」(13장) 「정말 끔찍한 것은 바닥에서 팔아치워 하락 변동의 기회를 영구적인 손실로 날려버리는 것이다.」(원문 322~323쪽)</p></div></div>
+<div class="kbp"><div class="s">마지막 보유자의 매도를 본다</div><div><p>이 사이트의 <a href="deleveraging.html">강제청산</a>과 <a href="sentiment.html">빚과 현금</a>이 그 마지막 보유자의 매도를 집계한다. 반대매매 급증일 뒤 60영업일은 8번 중 7번 상승으로 끝났다. 그것이 그 실측이다.</p></div></div>
 
-<h2 id="이번에는-다르다-와-빼야-할-낱말" style="margin-top:44px">「이번에는 다르다」와 빼야 할 낱말</h2>
-<p>고점에서 사람들은 가격이 기준에서 벗어나도 되는 이유를 쉽게 찾는다. 「이유에 대한 설명은 주로 '이번에는 다르다.'라는 말로 시작한다.」(원문 292~294쪽) 막스는 그것을 불길한 신호라 부른다.
-왜 규칙이 유예되지 않는가. 사이클이 물리 법칙이 아니라 사람의 결정이기 때문이다. 「사람들은 과학적으로 결정하지 않는다.」(원문 393~395쪽) 상황이 잘 풀릴 때는 상승 가능성을 과장하고 안 풀릴 때는 하락 위험을 과장한다. 그래서 추세를 극단까지 끌고 간다.</p>
-<p>그래서 어휘가 바뀐다. 「인간의 감정은 필연적으로 자산가격(심지어 가치 있는 자산까지도)을 극단적이고 지속 불가능한 수준으로 가져다 놓는다.」(원문 250~251쪽)
-사이클의 필연성을 믿는다면 지적인 투자자의 어휘에서 빼야 할 말이 있다. 절대, 항상, 영원히, 할 수 없다, 아닐 것이다, 그럴 것이다, 해야만 한다.
-이 사이트의 선언 검사(check_declared)가 아카이브마다 금지어로 막는 낱말이 그 목록이다.</p>
+<h2 id="이번에는-다르다-와-빼야-할-낱말">「이번에는 다르다」와 빼야 할 낱말</h2>
+<div class="kbp"><div class="s">불길한 신호</div><div><p>고점에서 사람들은 가격이 기준에서 벗어나도 되는 이유를 쉽게 찾는다. 「이유에 대한 설명은 주로 '이번에는 다르다.'라는 말로 시작한다.」(원문 292~294쪽) 막스는 그것을 불길한 신호라 부른다.</p></div></div>
+<div class="kbp"><div class="s">사람은 과학적으로 결정하지 않는다</div><div><p>규칙이 유예되지 않는 이유는 사이클이 물리 법칙이 아니라 사람의 결정이기 때문이다. 「사람들은 과학적으로 결정하지 않는다.」(원문 393~395쪽)</p><p>상황이 잘 풀릴 때는 상승 가능성을 과장한다. 안 풀릴 때는 하락 위험을 과장한다. 그래서 추세를 극단까지 끌고 간다.</p></div></div>
+<div class="kbp"><div class="s">어휘에서 빼야 할 말</div><div><p>그래서 어휘가 바뀐다. 「인간의 감정은 필연적으로 자산가격(심지어 가치 있는 자산까지도)을 극단적이고 지속 불가능한 수준으로 가져다 놓는다.」(원문 250~251쪽)</p><p>사이클의 필연성을 믿는다면 지적인 투자자의 어휘에서 빼야 할 말이 있다. 절대, 항상, 영원히, 할 수 없다, 아닐 것이다, 그럴 것이다, 해야만 한다. 이 사이트도 아카이브마다 이 말을 쓰지 않도록 검사한다.</p></div></div>
 
-<h2 id="한계" style="margin-top:44px">한계</h2>
-<p>막스가 15장에서 스스로 못 박은 것이다. 극단에서만 맞을 수 있다. 「극단을 발견하고 이용하는 것이 우리가 바랄 수 있는 최고의 상태이다.」(원문 361~365쪽)
-중간에서는 가격과 가치의 관계가 명백하지 않아 구별이 어렵고 수익성도 낮다. 내일이나 다음 달을 맞히려는 잦은 판단을 그는 약삭빠른 행동이라 부른다.
-「투자 결과를 현저히 높일 만큼 그렇게 세세히, 충분히, 자주 또는 지속적으로 옳게 상황을 구별할 수 있는 사람은 아무도 없다.」(원문 361~365쪽) 그가 옳았던 판단은 48년 동안 4~5번이었다.</p>
-<p>포지셔닝의 성공 비결을 그는 (a) 위치를 신중히 분석하고 (b) 그 결과 공격성을 높이며 (c) 그것이 옳다고 증명되는 것, 3가지로 나눈다. 그리고 (c)는 통제 밖이라고 못 박는다.
-「옳은 것으로 증명되는 일은 항상 일어나는 것이 아니며, 이는 상황을 잘 추론하는 숙련된 투자자들에게도 마찬가지이다.」(원문 340~342쪽)
-가장 가능성 높은 일이 오랫동안 안 일어날 수 있다. 시대에 지나치게 앞선 것은 틀린 것과 다르지 않다. 그래서 그는 자기 결론이 80%도 맞을 거라 생각하지 않는다고 썼다. 번스타인의 말로 장을 닫는다. 비결은 살아남는 것이다.</p>
-<p>그리고 사이클은 끝나지 않는다. 「극단을 향해 나아가는 사람들의 움직임은 결코 멈추지 않을 것이다.」(원문 399쪽) 「경제와 시장은 과거에 한번도 일직선으로 움직인 적이 없었고, 앞으로도 그럴 것이다.」(17장)
-그것이 이 사이트가 매일 같은 표를 다시 찍는 이유다.</p>
+<h2 id="극단에서만-맞을-수-있다">극단에서만 맞을 수 있다</h2>
+<div class="kbp"><div class="s">막스가 스스로 그은 한계</div><div><p>막스가 15장에서 스스로 못 박은 것이다. 극단에서만 맞을 수 있다. 「극단을 발견하고 이용하는 것이 우리가 바랄 수 있는 최고의 상태이다.」(원문 361~365쪽)</p></div></div>
+<div class="kbp"><div class="s">중간에서는 구별이 어렵다</div><div><p>중간에서는 가격과 가치의 관계가 명백하지 않다. 그래서 구별이 어렵고 수익성도 낮다. 내일이나 다음 달을 맞히려는 잦은 판단을 그는 약삭빠른 행동이라 부른다.</p><p>「투자 결과를 현저히 높일 만큼 그렇게 세세히, 충분히, 자주 또는 지속적으로 옳게 상황을 구별할 수 있는 사람은 아무도 없다.」(원문 361~365쪽) 그가 옳았던 판단은 48년 동안 4~5번이었다.</p></div></div>
+<div class="kbp"><div class="s">옳다고 증명되는 것은 통제 밖</div><div><p>포지셔닝의 성공 비결을 그는 3가지로 나눈다. (a) 위치를 신중히 분석한다. (b) 그 결과 공격성을 높인다. (c) 그것이 옳다고 증명된다. 그리고 (c)는 통제 밖이라고 못 박는다.</p><p>「옳은 것으로 증명되는 일은 항상 일어나는 것이 아니며, 이는 상황을 잘 추론하는 숙련된 투자자들에게도 마찬가지이다.」(원문 340~342쪽)</p></div></div>
+<div class="kbp"><div class="s">비결은 살아남는 것</div><div><p>가장 가능성 높은 일이 오랫동안 안 일어날 수 있다. 시대에 지나치게 앞선 것은 틀린 것과 다르지 않다. 그래서 그는 자기 결론이 80%도 맞을 거라 생각하지 않는다고 썼다. 번스타인의 말로 장을 닫는다. 비결은 살아남는 것이다.</p></div></div>
+<div class="kbp"><div class="s">사이클은 끝나지 않는다</div><div><p>그리고 사이클은 끝나지 않는다. 「극단을 향해 나아가는 사람들의 움직임은 결코 멈추지 않을 것이다.」(원문 399쪽) 「경제와 시장은 과거에 한번도 일직선으로 움직인 적이 없었고, 앞으로도 그럴 것이다.」(17장)</p><p>그것이 이 사이트가 매일 같은 표를 다시 찍는 이유다.</p></div></div>
 
-<h2 id="이야기꾼과-갈리는-곳-이-사이트에-옮긴다면" style="margin-top:44px">이야기꾼과 갈리는 곳, 이 사이트에 옮긴다면</h2>
-<p>같은 것이 3가지다. 국면을 먼저 본다. 예측하지 않는다. 공격과 방어의 비중을 조정한다.
-다른 것은 1가지다. 막스는 바닥을 기다리지 않고 가치 아래에서 사고 더 떨어지면 더 산다. 이야기꾼은 신호가 확인된 뒤에 소액으로 들어가 단계로 늘린다.
-어느 쪽이 옳으냐가 아니라 다른 것을 견디는 사람의 게임이다. 막스는 마진콜 없는 자기 자본으로 반년을 견디고, 이야기꾼은 단계로 견딘다. 케인스의 말을 막스가 옮긴 대로 「시장은 투자자들이 지불 능력을 갖고 있는 기간보다 더 오랫동안 비이성적으로 움직일 수 있다.」(13장)</p>
-<p>이 페이지에서 사이트로 옮길 만한 것을 후보로 적어 둔다. 적용 여부는 모두 미정이고 정하는 것은 사람이다.</p>
+<h2 id="이야기꾼과-다른-한-곳-이-사이트에-옮긴다면">이야기꾼과 다른 한 곳, 이 사이트에 옮긴다면</h2>
+<div class="kbp"><div class="s">같은 것은 3가지</div><div><p>같은 것이 3가지다. 국면을 먼저 본다. 예측하지 않는다. 공격과 방어의 비중을 조정한다.</p></div></div>
+<div class="kbp"><div class="s">다른 것은 1가지</div><div><p>다른 것은 1가지다. 막스는 바닥을 기다리지 않고 가치 아래에서 산다. 더 떨어지면 더 산다. 이야기꾼은 신호가 확인된 뒤에 소액으로 들어가 단계로 늘린다.</p></div></div>
+<div class="kbp"><div class="s">견디는 방식의 차이</div><div><p>어느 쪽이 옳으냐의 문제가 아니다. 다른 것을 견디는 사람의 게임이다. 막스는 마진콜 없는 자기 자본으로 반년을 견딘다. 이야기꾼은 단계로 견딘다.</p><p>케인스의 말을 막스가 옮긴 대로다. 「시장은 투자자들이 지불 능력을 갖고 있는 기간보다 더 오랫동안 비이성적으로 움직일 수 있다.」(13장)</p></div></div>
+<p>이 페이지에서 사이트로 옮길 만한 것을 후보로 적어 둔다. 적용 여부는 모두 미정이다. 정하는 것은 사람이다.</p>
+<p class="kb-cap">표 3. 이 사이트에 옮길 후보 7가지: 적용은 모두 미정</p>
 <div class="tblwrap"><table><thead><tr><th style="width:6%">번호</th><th style="width:34%">후보</th><th>어디에</th><th style="width:12%">적용</th></tr></thead><tbody>
-<tr><td>1</td><td>온도표를 첫 화면 상태판으로. 18행 중 왼쪽이 몇 개인지를 매일 집계한다</td><td><a href="bottom-top.html">바닥·천장 추적 분석</a></td><td>미정</td></tr>
+<tr><td>1</td><td>온도표를 첫 화면 상태판으로. 17행 중 왼쪽이 몇 개인지를 매일 집계한다</td><td><a href="bottom-top.html">바닥·천장 추적 분석</a></td><td>미정</td></tr>
 <tr><td>2</td><td>신용스프레드를 자본시장선의 기울기로 설명한다. 좁아진 것은 회사가 튼튼해진 게 아니라 투자자가 위험 한 단위에 받으려는 값이 준 것</td><td><a href="credit-spread.html">신용스프레드와 코스피</a></td><td>미정</td></tr>
 <tr><td>3</td><td>불확실 절의 표준 문장. 발행 2년째 디폴트 규칙의 소멸, 48년 동안 4~5번, 효과가 없을 때까지만 효과가 있다</td><td>아카이브 전편의 아직 불확실한 곳</td><td>미정</td></tr>
-<tr><td>4</td><td>장작과 점화장치. 청산일만 세지 말고 앞선 신용융자 증가율 열을 붙인다</td><td><a href="flow-crashes.html">폭락의 구조</a> · <a href="deleveraging.html">강제청산</a></td><td>미정</td></tr>
+<tr><td>4</td><td>장작과 점화장치. 청산일만 보지 말고 앞선 신용융자 증가율 열을 붙인다</td><td><a href="flow-crashes.html">폭락의 구조</a> · <a href="deleveraging.html">강제청산</a></td><td>미정</td></tr>
 <tr><td>5</td><td>절대, 항상, 영원히, 할 수 없다, 아닐 것이다, 그럴 것이다, 해야만 한다를 본문에서 막는 검사</td><td>집필 검사기</td><td>미정</td></tr>
 <tr><td>6</td><td>이름 붙은 낙관(뉴 노멀, 대 안정기, 5,000피)의 제목 빈도를 집계한다</td><td>관련 뉴스 절</td><td>미정</td></tr>
 <tr><td>7</td><td>판단마다 「몇 년 뒤의 내가 지금을 돌아보며 뭐라 할까」 한 줄</td><td>판단 문서</td><td>미정</td></tr>
 </tbody></table></div>
 
-<h2 id="출처" style="margin-top:44px">출처</h2>
-<p>하워드 막스가 1990년부터 오크트리 고객에게 보낸 메모(오크트리 홈페이지에 공개)와 2018년 책 『투자와 마켓 사이클의 법칙』(이주영 옮김, 홍춘욱 감수, 비즈니스북스).
-「」 안의 문장은 그 책의 18장 「사이클의 핵심」에 저자가 모아 실은 문단에서 한 문장씩 옮겼고 괄호의 쪽수는 종이책 원래 자리다. 장만 적은 것은 그 장의 문장이다. 나머지 설명은 이 사이트의 말이다.
-책의 찾아보기에 실린 낱말은 <a href="marks-glossary.html">사이클 용어사전</a>에 우리 말로 풀어 두었다. 장별 노트는 볼트 안에 있고 사이트에 올리지 않는다.</p>
+<h2 id="결론-미래-대신-위치를-평균-대신-극단을-본다">결론: 미래 대신 위치를, 평균 대신 극단을 본다</h2>
+<p>결론적으로 막스의 방법은 3가지로 정리된다.</p>
+<ol>
+<li>미래를 맞히지 않는다. 지금 사이클의 위치를 확인하고 그에 맞춰 공격과 방어를 조정한다.</li>
+<li>위치는 심리, 리스크에 대한 태도, 신용 창구로 읽는다. 이 3가지는 극단에서 함께 켜진다.</li>
+<li>판단은 극단에서만 한다. 중간에서는 막스도 구별이 어렵다고 썼다.</li>
+</ol>
+<div class="kbp"><div class="s">'떨어지는 칼날은 잡지 마라'는 말에 대한 답</div><div><p>막스는 바닥을 기다리면 싼 매물이 사라진다고 본다. 다만 그는 마진콜 없는 자기 자본으로 견딘다. 이 조건이 없으면 같은 방법을 쓸 수 없다.</p></div></div>
+<p>이 글은 매매를 권하지 않는다. 지금 사이클이 어디인지도 전망하지 않는다.</p>
+
+<h2 id="이-글의-한계">이 글의 한계</h2>
+<ol>
+<li>이 글은 책 1권과 공개 메모의 요약이다. 인용은 18장에 모인 문장에서 가져왔다.</li>
+<li>막스의 사례는 미국 채권과 부실채권 시장에서 나왔다. 한국 주식시장에 그대로 옮기려면 따로 확인해야 한다.</li>
+<li>온도 표 17행 가운데 4행은 이 사이트에 자료가 없다.</li>
+<li>이 사이트에 무엇을 옮길지는 정하지 않았다.</li>
+</ol>
+
+<h2 id="이-글의-용어">이 글의 용어</h2>
+<p>사이클은 경제, 이익, 심리, 신용이 평균을 지나 반대쪽 극단까지 오르내리는 움직임이다. 시작과 끝이 없다.</p>
+<p>심리의 시계추는 탐욕과 공포 같은 대립 감정이 한쪽 극단에서 다른 쪽 극단으로 흔들리는 것이다. 중간에 오래 머물지 않는다.</p>
+<p>신용 창구는 대출기관과 자본시장이 돈을 빌려주려는 정도다. 창구가 열리면 대출자가 카드를 쥔다. 창구가 닫히면 자본을 가진 쪽이 카드를 쥔다.</p>
+<p>시장의 온도 표는 시장의 상태를 왼쪽(지갑을 지켜라)과 오른쪽(공격할 때)으로 나눠 표시하는 표다. 예측이 아니라 관찰이다.</p>
+<p class="kb-note">※ 더 많은 낱말은 <a href="marks-glossary.html">사이클 용어사전</a>에 우리 말로 풀어 두었다. 책의 찾아보기에서 고른 말이다.</p>
+<p class="kb-note">※ 출처는 하워드 막스가 1990년부터 오크트리 고객에게 보낸 메모(오크트리 홈페이지에 공개)와 2018년 책 『투자와 마켓 사이클의 법칙』(이주영 옮김, 홍춘욱 감수, 비즈니스북스)이다.</p>
+<p class="kb-note">※ 「」 안의 문장은 그 책의 18장 「사이클의 핵심」에 저자가 모아 실은 문단에서 한 문장씩 옮겼다. 괄호의 쪽수는 종이책 원래 자리다. 장만 적은 것은 그 장의 문장이다. 나머지 설명은 이 사이트의 말이다. 장별 노트는 사이트에 올리지 않는다.</p>
 </div>
 <div class="wrap"><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="methodology.html">이야기꾼의 방법론</a> 같은 게임의 우리 쪽 원전이다. 국면을 먼저 보고 예측하지 않는 것은 같고, 바닥을 기다리느냐에서 갈린다.</p><p><a href="credit-spread.html">신용스프레드와 코스피</a> 막스의 리스크 태도와 신용 창구를 한국 자료로 확인한 페이지다. 스프레드가 곧 자본시장선의 기울기다.</p><p><a href="bottom-top.html">바닥·천장 추적 분석</a> 막스의 온도표를 매일 찍는다면 이 페이지가 자리다. 후보 1번.</p><p><a href="sentiment.html">빚과 현금</a> 시계추의 한국판 계량이다. 신용융자와 예탁금이 위험수용과 위험회피를 집계한다.</p><p><a href="marks-glossary.html">사이클 용어사전</a> 이 페이지의 낱말 97개를 찾아보기 순서로 푼 곳이다. 뜻은 이 사이트의 말, 쪽수는 종이책.</p></div><!--RELATED:END--></div>
 <footer>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.
