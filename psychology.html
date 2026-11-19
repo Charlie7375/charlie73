@@ -24,7 +24,8 @@ body{font-family:'Inter','Noto Sans KR',-apple-system,sans-serif;background:var(
 .site-group>button .cv{font-size:9px;opacity:.55;transition:transform .2s}
 .site-group.on>button .cv{transform:rotate(180deg)}
 .site-group>button.here{color:var(--accent, #0071e3)}
-.site-dd{position:absolute;top:calc(100% + 8px);right:0;min-width:248px;padding:8px;
+/* ★ 2026-09-14 — 펼침 메뉴 폭을 화면 안으로 묶는다(가로 넘침은 apply_layout 의 html,body{overflow-x:hidden} 이 자른다) */
+.site-dd{position:absolute;top:calc(100% + 8px);right:0;min-width:248px;max-width:calc(100vw - 24px);padding:8px;
   background:var(--surface, var(--bg));border:1px solid var(--border);border-radius:14px;
   box-shadow:0 18px 44px rgba(0,0,0,.16);opacity:0;visibility:hidden;transform:translateY(-6px);
   transition:opacity .18s,transform .18s,visibility .18s}
@@ -312,7 +313,63 @@ a.card:focus-visible,.lst-i:focus-visible{
 .site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
   background:color-mix(in srgb,var(--text) 6%,transparent)}
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/*NAVCSS:END*//* BAR:BEGIN */
+/*NAVCSS:END*/
+.dim{color:var(--mut,#94a3b8)}
+.b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
+  font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
+/* 판정 5색(b-on 로즈·b-wa 앰버·b-ob 슬레이트·b-sf 에메랄드·b-rf 회색)과 겹치지 않는 색을 쓴다.
+   기존 배지처럼 다크 대응 없이 한 색으로 양쪽에서 읽히게 채도를 높인다. */
+.b-pri{background:#4f46e5;color:#fff}
+.b-upd{background:#c7d2fe;color:#312e81}   /* b-pri 의 옅은 형제 — 둘 다 인디고 계열로 묶어
+                                              「강의 대조」 어휘임을 드러낸다. 윤곽선은 라이트
+                                              모드에서 대비 2.56 이라 채움으로 바꿨다. */
+.bg{display:inline-block;min-width:44px;text-align:center;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:800;color:#fff}
+.b-on{background:#e11d48}.b-wa{background:#f59e0b}.b-ob{background:#64748b}.b-sf{background:#059669}.b-rf{background:#94a3b8}
+.gr{display:inline-block;font-size:.68rem;font-weight:800;padding:1px 6px;border-radius:5px;margin-left:6px;
+  color:#e11d48;background:color-mix(in srgb,#e11d48 13%,transparent);vertical-align:middle}
+.chg{font-size:.7rem;font-weight:700;color:var(--accent);margin-left:6px;white-space:nowrap}
+.star{color:#e11d48;font-weight:800}
+td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
+td.no .back{display:inline-block;margin-top:4px;padding-left:8px;border-left:2px solid var(--line,#cbd5e1);color:var(--text)}
+.chl{margin:12px 0 0 18px;font-size:.92rem;line-height:1.9}
+.g1box{margin-top:12px;font-size:.9rem;line-height:1.85;color:var(--text-secondary)}
+.g1box ol{margin:8px 0 0 20px} .g1box li{color:var(--text);font-weight:600}
+.stats5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px}
+@media(max-width:720px){.stats5{grid-template-columns:repeat(2,1fr)}}
+
+/* 주차별 히스토리 */
+.hist{position:relative;padding-left:26px;margin-top:18px}
+.hist::before{content:'';position:absolute;left:7px;top:14px;bottom:14px;width:2px;background:var(--border)}
+.hw{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:20px 22px;margin-bottom:16px}
+.hw::before{content:'';position:absolute;left:-24px;top:26px;width:12px;height:12px;border-radius:50%;
+  background:var(--border);border:3px solid var(--bg)}
+.hw.cur{border-color:color-mix(in srgb,var(--accent) 45%,var(--border));
+  box-shadow:0 1px 14px color-mix(in srgb,var(--accent) 10%,transparent)}
+.hw.cur::before{background:var(--accent)}
+.hh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.hwk{font-size:1.02rem;font-weight:900;letter-spacing:-.02em}
+.hdt{font-size:.82rem;color:var(--text-secondary);font-variant-numeric:tabular-nums}
+.hnow{font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:999px;color:#fff;background:var(--accent)}
+.htitle{margin-top:8px;font-size:1.12rem;font-weight:800;letter-spacing:-.02em;line-height:1.4}
+.htone{margin-top:6px;font-size:.86rem;color:var(--text-secondary);font-style:italic}
+.hpills{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
+.hp{font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.hp.on{color:#e11d48;background:color-mix(in srgb,#e11d48 12%,transparent)}
+.hp.wa{color:#b45309;background:color-mix(in srgb,#f59e0b 15%,transparent)}
+.hp.ob{color:#475569;background:color-mix(in srgb,#64748b 14%,transparent)}
+.hp.sf{color:#047857;background:color-mix(in srgb,#059669 13%,transparent)}
+.hp.g1{color:#fff;background:#e11d48}
+.hbody{margin-top:13px;font-size:.93rem;line-height:1.78;color:var(--text-secondary)}
+.hbody b{color:var(--text)}
+.hchg{margin-top:14px;padding-top:12px;border-top:1px dashed var(--border)}
+.hct{font-size:.76rem;font-weight:800;letter-spacing:.02em;color:var(--accent);text-transform:none}
+.hchg ul{margin:8px 0 0 16px;font-size:.87rem;line-height:1.85;color:var(--text-secondary)}
+.hchg li b{color:var(--text)}
+.hchg .ar{white-space:nowrap}
+.to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
+@media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
+/* BAR:BEGIN */
 /* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
    flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
 html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
@@ -356,105 +413,6 @@ html,body{overflow-x:hidden}
  color:var(--accent);margin-bottom:5px}
 .pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 
-.dim{color:var(--mut,#94a3b8)}
-.b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
-  font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
-/* 판정 5색(b-on 로즈·b-wa 앰버·b-ob 슬레이트·b-sf 에메랄드·b-rf 회색)과 겹치지 않는 색을 쓴다.
-   기존 배지처럼 다크 대응 없이 한 색으로 양쪽에서 읽히게 채도를 높인다. */
-.b-pri{background:#4f46e5;color:#fff}
-.b-upd{background:#c7d2fe;color:#312e81}   /* b-pri 의 옅은 형제 — 둘 다 인디고 계열로 묶어
-                                              「강의 대조」 어휘임을 드러낸다. 윤곽선은 라이트
-                                              모드에서 대비 2.56 이라 채움으로 바꿨다. */
-.bg{display:inline-block;min-width:44px;text-align:center;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:800;color:#fff}
-.b-on{background:#e11d48}.b-wa{background:#f59e0b}.b-ob{background:#64748b}.b-sf{background:#059669}.b-rf{background:#94a3b8}
-.gr{display:inline-block;font-size:.68rem;font-weight:800;padding:1px 6px;border-radius:5px;margin-left:6px;
-  color:#e11d48;background:color-mix(in srgb,#e11d48 13%,transparent);vertical-align:middle}
-.chg{font-size:.7rem;font-weight:700;color:var(--accent);margin-left:6px;white-space:nowrap}
-.star{color:#e11d48;font-weight:800}
-td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
-.chl{margin:12px 0 0 18px;font-size:.92rem;line-height:1.9}
-.g1box{margin-top:12px;font-size:.9rem;line-height:1.85;color:var(--text-secondary)}
-.g1box ol{margin:8px 0 0 20px} .g1box li{color:var(--text);font-weight:600}
-.stats5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px}
-@media(max-width:720px){.stats5{grid-template-columns:repeat(2,1fr)}}
-
-/* 주차별 히스토리 */
-.hist{position:relative;padding-left:26px;margin-top:18px}
-.hist::before{content:'';position:absolute;left:7px;top:14px;bottom:14px;width:2px;background:var(--border)}
-.hw{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:14px;
-  padding:20px 22px;margin-bottom:16px}
-.hw::before{content:'';position:absolute;left:-24px;top:26px;width:12px;height:12px;border-radius:50%;
-  background:var(--border);border:3px solid var(--bg)}
-.hw.cur{border-color:color-mix(in srgb,var(--accent) 45%,var(--border));
-  box-shadow:0 1px 14px color-mix(in srgb,var(--accent) 10%,transparent)}
-.hw.cur::before{background:var(--accent)}
-.hh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.hwk{font-size:1.02rem;font-weight:900;letter-spacing:-.02em}
-.hdt{font-size:.82rem;color:var(--text-secondary);font-variant-numeric:tabular-nums}
-.hnow{font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:999px;color:#fff;background:var(--accent)}
-.htitle{margin-top:8px;font-size:1.12rem;font-weight:800;letter-spacing:-.02em;line-height:1.4}
-.htone{margin-top:6px;font-size:.86rem;color:var(--text-secondary);font-style:italic}
-.hpills{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
-.hp{font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
-.hp.on{color:#e11d48;background:color-mix(in srgb,#e11d48 12%,transparent)}
-.hp.wa{color:#b45309;background:color-mix(in srgb,#f59e0b 15%,transparent)}
-.hp.ob{color:#475569;background:color-mix(in srgb,#64748b 14%,transparent)}
-.hp.sf{color:#047857;background:color-mix(in srgb,#059669 13%,transparent)}
-.hp.g1{color:#fff;background:#e11d48}
-.hbody{margin-top:13px;font-size:.93rem;line-height:1.78;color:var(--text-secondary)}
-.hbody b{color:var(--text)}
-.hchg{margin-top:14px;padding-top:12px;border-top:1px dashed var(--border)}
-.hct{font-size:.76rem;font-weight:800;letter-spacing:.02em;color:var(--accent);text-transform:none}
-.hchg ul{margin:8px 0 0 16px;font-size:.87rem;line-height:1.85;color:var(--text-secondary)}
-.hchg li b{color:var(--text)}
-.hchg .ar{white-space:nowrap}
-.to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
-@media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
-/*TOCCSS:BEGIN*/
-/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
-
-/* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
-   원인은 상단바다. .site-bar 가 position:sticky · 높이 78px 로 화면 맨 위를 덮는데
-   앵커로 이동하면 제목이 정확히 그 아래에 깔린다. 그래서 독자는 제목을 못 보고
-   그 다음 문단부터 보게 된다. 눌러 간 곳과 보이는 글이 어긋나는 것이 이 때문이다.
-   scroll-margin-top 이 0 이었다. 78 에 여백 14 를 더해 92 로 둔다.
-   ⚠ 상단바 높이를 바꾸면 이 값도 같이 바꾼다. 측정: .site-bar 의 getBoundingClientRect().height */
-h2[id],h3[id],[id]:target{scroll-margin-top:92px}
-@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
- margin:22px 0 24px;background:var(--surface);text-align:left}
-.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
- color:var(--text-secondary);margin-bottom:7px;text-align:left}
-.ptoc ol{margin:0;padding-left:28px;line-height:1.8}   /* 28px — «10.» 같은 2자리 번호가 상자·옆 단으로 넘어가지 않게(2026-11-11 kospi-bottom 13절에서 2번째 단의 «13.»이 1번째 단 글자와 겹쳤다) */
-.ptoc li{font-size:.9rem}
-.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
-.ptoc a:hover{border-bottom-color:var(--text-secondary)}
-@media(min-width:900px){.ptoc ol{columns:2;column-gap:30px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*/</style>
-<style id="MASTERS">
-.paper .mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(146px,1fr));
-  gap:16px;margin:18px 0 6px}
-.paper .mp{margin:0;text-align:center}
-.paper .mp img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:10px;
-  filter:grayscale(1) contrast(1.04);display:block}
-.paper .mp .ini{width:100%;aspect-ratio:3/4;border-radius:10px;display:flex;
-  align-items:center;justify-content:center;font-size:30px;font-weight:800;
-  letter-spacing:-.04em;color:var(--text2,#6e6e73);
-  background:color-mix(in srgb,var(--text,#1d1d1f) 7%,transparent)}
-.paper .mp figcaption{margin-top:7px;font-size:12.5px;line-height:1.5;text-align:center}
-.paper .mp figcaption b{display:block;font-size:13.5px}
-.paper .mp .sm{display:block;font-size:11.5px;color:var(--text2,#6e6e73)}
-.paper .mp .cred{display:block;margin-top:3px;font-size:10.5px;color:var(--muted,#9ca3af);
-  line-height:1.4;word-break:keep-all}
-.paper .mcard{margin:26px 0;padding:0 0 0 18px;border-left:3px solid var(--accent,#1161c4)}
-.paper .mcard h3{margin:0 0 4px;font-size:1.06em}
-.paper .mcard .who{margin:0 0 10px;font-size:12.5px;color:var(--text2,#6e6e73)}
-.paper .q{margin:12px 0;padding:2px 0 2px 16px;border-left:2px solid var(--muted,#cbd5e1);
-  font-size:.97em;line-height:1.75}
-.paper .q .src{display:block;margin-top:5px;font-size:.85em;color:var(--text2,#6e6e73)}
-.paper .link{margin-top:10px;padding-top:9px;border-top:1px dashed var(--rule,#e3e3e6);
-  font-size:12.8px;color:var(--text2,#6e6e73)}
-.paper .link b{color:var(--text,#1d1d1f)}
 /* SEARCH:BEGIN */
 .srch-btn{position:fixed;top:auto;bottom:18px;right:68px;z-index:130;width:42px;height:42px;border-radius:50%;
   background:var(--surface,#F6F7F9);border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text,#0f172a);
@@ -493,6 +451,61 @@ html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in 
 @media(max-width:760px){.srch-box{top:12px} html body .site-srch>a.srch-nav{padding:8px 8px;font-size:12px}}
 @media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
 /* SEARCH:END */
+/*TOCCSS:BEGIN*/
+/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
+
+/* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
+   원인은 상단바다. .site-bar 가 position:sticky · 높이 78px 로 화면 맨 위를 덮는데
+   앵커로 이동하면 제목이 정확히 그 아래에 깔린다. 그래서 독자는 제목을 못 보고
+   그 다음 문단부터 보게 된다. 눌러 간 곳과 보이는 글이 어긋나는 것이 이 때문이다.
+   scroll-margin-top 이 0 이었다. 78 에 여백 14 를 더해 92 로 둔다.
+   ⚠ 상단바 높이를 바꾸면 이 값도 같이 바꾼다. 측정: .site-bar 의 getBoundingClientRect().height */
+h2[id],h3[id],[id]:target{scroll-margin-top:92px}
+@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
+ margin:22px 0 24px;background:var(--surface);text-align:left}
+.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
+ color:var(--text-secondary);margin-bottom:7px;text-align:left}
+.ptoc ol{margin:0;padding-left:28px;line-height:1.8}   /* 28px — «10.» 같은 2자리 번호가 상자·옆 단으로 넘어가지 않게(2026-11-11 kospi-bottom 13절에서 2번째 단의 «13.»이 1번째 단 글자와 겹쳤다) */
+.ptoc li{font-size:.9rem}
+.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
+.ptoc a:hover{border-bottom-color:var(--text-secondary)}
+@media(min-width:900px){.ptoc ol{columns:2;column-gap:30px}.ptoc li{break-inside:avoid}}
+/*TOCCSS:END*/</style><link rel="stylesheet" href="vendor/fonts.css">
+<style id="MASTERS">
+.paper .mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(146px,1fr));
+  gap:16px;margin:18px 0 6px}
+.paper .mp{margin:0;text-align:center}
+.paper .mp img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:10px;
+  filter:grayscale(1) contrast(1.04);display:block}
+.paper .mp .ini{width:100%;aspect-ratio:3/4;border-radius:10px;display:flex;
+  align-items:center;justify-content:center;font-size:30px;font-weight:800;
+  letter-spacing:-.04em;color:var(--text2,#6e6e73);
+  background:color-mix(in srgb,var(--text,#1d1d1f) 7%,transparent)}
+.paper .mp figcaption{margin-top:7px;font-size:12.5px;line-height:1.5;text-align:center}
+.paper .mp figcaption b{display:block;font-size:13.5px}
+.paper .mp .sm{display:block;font-size:11.5px;color:var(--text2,#6e6e73)}
+.paper .mp .cred{display:block;margin-top:3px;font-size:10.5px;color:var(--muted,#9ca3af);
+  line-height:1.4;word-break:keep-all}
+.paper .mcard{margin:26px 0;padding:0 0 0 18px;border-left:3px solid var(--accent,#1161c4)}
+.paper .mcard h3{margin:0 0 4px;font-size:1.06em}
+.paper .mcard .who{margin:0 0 10px;font-size:12.5px;color:var(--text2,#6e6e73)}
+.paper .q{margin:12px 0;padding:2px 0 2px 16px;border-left:2px solid var(--muted,#cbd5e1);
+  font-size:.97em;line-height:1.75}
+.paper .q .src{display:block;margin-top:5px;font-size:.85em;color:var(--text2,#6e6e73)}
+.paper .link{margin-top:10px;padding-top:9px;border-top:1px dashed var(--rule,#e3e3e6);
+  font-size:12.8px;color:var(--text2,#6e6e73)}
+.paper .link b{color:var(--text,#1d1d1f)}
+</style>
+
+<style id="KB">
+.kbp{margin:14px 0}
+.kbp>.s{font-weight:700;font-size:.92em;color:var(--text-secondary,#6e6e73);margin:0 0 3px}
+.kbp>div>p{margin:0 0 8px}
+.kbp ol,.kbp ul{padding-left:1.4em;margin:6px 0 10px}
+.kb-note{font-size:.88em;color:var(--text-secondary,#6e6e73);line-height:1.7;margin:4px 0}
+.kb-cap{font-weight:700;margin:20px 0 6px}
+.pclaim .kb-t{font-weight:800;margin-top:12px}
 /* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
@@ -818,7 +831,8 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style><link rel="stylesheet" href="vendor/fonts.css"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
+/* PAPER:END */</style>
+<!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-watch.html">바닥 추적</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="macro-timeline.html">거시 이벤트 연대기</a><a href="peak-debate.html">반도체 정점 논쟁</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="minervini-x.html">마크 미너비니 X 추적</a><a href="foreign-share.html">외국인 비중</a><a href="disparity-3.html">코스피·하닉·삼전 이격도</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-psk-holdings.html">피에스케이홀딩스</a><a href="stock-samsung-sdi.html">삼성SDI</a><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-nhn.html">NHN</a><a href="stock-kolmar.html">한국콜마</a><a href="stock-cosmax.html">코스맥스</a><a href="stock-pharmaresearch.html">파마리서치</a><a href="stock-jyp.html">JYP Ent.</a><a href="stock-sm-ent.html">에스엠</a><a href="stock-yg-ent.html">와이지엔터테인먼트</a></div></div><div class="site-group"><button class="here" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="marks.html">하워드 막스의 방법론</a><a href="marks-glossary.html">사이클 용어사전</a><a href="masters.html">대가의 투자법</a><a class="here" href="psychology.html">투자심리</a><a href="cycle-rope.html">사이클과 규칙</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><span class="nav-h sub">시장 국면</span><a href="kosdaq-seasonality.html">해와 달의 코스닥</a><a href="kospi-bottom.html">코스피 바닥 판별</a><a href="sp500-ftd.html">S&P 500 팔로스루 데이</a><a href="kospi-ftd.html">팔로스루 데이</a><a href="kospi-panics.html">코스피 역대 공황</a><a href="rally-angle.html">상승 각도</a><a href="kospi-seasonality-down.html">해와 달의 코스피 · 역편</a><a href="kospi-drivers.html">코스피 선행 변수</a><a href="kospi-seasonality.html">해와 달의 코스피</a><a href="breadth-concentration.html">신고가 쏠림</a><a href="kospi-analog.html">닮은 과거</a><a href="audition-history.html">오디션 히스토리</a><a href="disparity-archive.html">두 버블의 이격도</a><a href="stage-analysis.html">와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리</a><span class="nav-h sub">신용과 청산</span><a href="credit-lag.html">미 은행 대출 태도와 가산금리</a><a href="us-credit-spread.html">미국 신용스프레드</a><a href="deleveraging.html">강제청산</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="sentiment.html">빚과 현금</a><span class="nav-h sub">수급과 폭락</span><a href="flow-quadrant.html">개인 수급 사분면</a><a href="foreign-flow.html">외국인 수급</a><a href="flow-extremes.html">개인과 외국인의 대량 매매</a><a href="flow-crashes.html">폭락의 구조</a><span class="nav-h sub">금리와 통화</span><a href="rate-crash-primer.html">금리-공황 프로세스 읽기</a><a href="nikkei-rates.html">닛케이와 미국 금리</a><a href="kospi-spx-gap.html">코스피와 S&P 500</a><a href="rate-crash-process.html">금리-공황 프로세스</a><a href="gold-rates.html">금리와 금값</a><a href="treasury-trust.html">미국 국채 바이백</a><a href="inflation-playbook.html">인플레 시대의 자산</a><a href="rates-century.html">미국 금리 100년</a><a href="liquidity.html">미국 유동성</a><a href="fed-kospi.html">연준 기준금리와 코스피</a><a href="rates-101.html">금리 기초</a><a href="rates-crashes.html">금리 5%와 공황</a><a href="dollar-kospi.html">달러와 코스피</a><span class="nav-h sub">경기와 수출</span><a href="jp-cci-kospi.html">일본 소비심리와 코스피</a><a href="us-elections.html">미국 선거와 증시</a><a href="export-kospi.html">수출과 코스피</a><a href="cli-kospi.html">OECD CLI 와 코스피</a><a href="ism-kospi.html">ISM 과 코스피</a><a href="jeoji-kospi.html">제오지산수</a><span class="nav-h sub">개별 종목</span><a href="memory-price.html">D램 가격과 삼성전자</a><a href="leadlag.html">하이닉스의 선행과 후행</a><a href="samsung-long.html">삼성전자 27년</a></div></div><div class="site-group"><button class="" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 153계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a href="data-kr-rates.html">한국 금리</a><a href="data-us-market.html">미국 시장</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a href="data-fx.html">환율·원자재·암호</a><a href="data-macro.html">재정·거시</a><a href="data-world.html">세계 증시</a></div></div><div class="site-srch"><a class="srch-nav" href="#search" role="button">검색</a></div><!-- NAV:END --></nav>
@@ -828,20 +842,24 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 <div class="eyebrow">방법론 · 투자심리</div>
 <h1>투자심리</h1>
 <p class="pauth">행동재무학 원논문 · 이야기꾼 강의 · 고정 자료 · 시장 데이터로 갱신되지 않는다</p>
-<!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#왜-알면서도-못-하는가">왜 알면서도 못 하는가?</a></li><li><a href="#투자자를-무너뜨리는-8가지">투자자를 무너뜨리는 8가지</a></li><li><a href="#액티브-투자의-한계">액티브 투자의 한계</a></li><li><a href="#감정을-다스려도-전제가-틀리면-진다-구조를-읽는-태도">감정을 다스려도 전제가 틀리면 진다. 구조를 읽는 태도</a></li><li><a href="#그래서-무엇을-할-것인가">그래서 무엇을 할 것인가</a></li><li><a href="#출처">출처</a></li></ol></div><!--TOC:END--></header>
+<!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#왜-알면서도-못-하는가">왜 알면서도 못 하는가</a></li><li><a href="#투자자를-무너뜨리는-10가지">투자자를 무너뜨리는 10가지</a></li><li><a href="#액티브-투자의-한계">액티브 투자의 한계</a></li><li><a href="#감정을-다스려도-전제가-틀리면-진다-구조를-읽는-태도">감정을 다스려도 전제가 틀리면 진다. 구조를 읽는 태도</a></li><li><a href="#그래서-무엇을-할-것인가">그래서 무엇을 할 것인가</a></li><li><a href="#결론-의지가-아니라-장치로-막는다">결론: 의지가 아니라 장치로 막는다</a></li><li><a href="#이-글의-한계">이 글의 한계</a></li><li><a href="#출처">출처</a></li></ol></div><!--TOC:END--></header>
 
-<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>결론은 통제가 아니라 설계다. 자기 비합리성을 의지로 이기려 하면 진다. 대신 비합리성이 끼어들 틈을 없애는 시스템을 만든다. 사전에 적고 숫자로 못 박고 덜 보는 것이다.</p></div><!--PCLAIM:END-->
+<p>방법이 아무리 좋아도 실행하는 것은 뇌다. 그 뇌가 주식 투자에는 반대로 설계돼 있다.</p>
+<p>시장에는 '원칙만 알면 된다'는 말이 있다. 행동재무학이 밝힌 것은 반대다. 그래서 이 글은 투자자를 무너뜨리는 편향 10가지와 그것을 막는 장치 5가지를 정리했다.</p>
+<p>결론부터 말하면, 사람은 이익의 기쁨보다 손실의 고통을 2~2.5배 크게 느낀다. 그래서 이익 난 주식은 빨리 팔고 손실 난 주식은 오래 든다. 문제는 이것이 의지로 바뀌지 않는다는 점이다.</p>
 
-<p>방법이 아무리 좋아도 실행하는 것은 뇌이고, 그 뇌가 반대로 설계돼 있다. 무엇이 무너뜨리는지, 그리고 무엇으로 막는지를 정리했다.</p>
-
-<p>사람은 이익의 기쁨보다 손실의 고통을 2~2.5배 크게 느낀다. 그래서 이익 난 주식은 빨리 팔고 손실 난 주식은 오래 든다(처분 효과)다. 모든 대가가 반대로 하라고 한 바로 그것이다. 손절 규칙·포지션 사이징·20주선은 통찰이 아니라 이 기본값을 덮어쓰는 배선 공사다.</p>
+<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div>
+<p class="kb-t">1. 손실 회피: 손실의 고통이 2~2.5배 크다</p><p>같은 크기라도 잃는 고통이 버는 기쁨보다 크다.</p>
+<p class="kb-t">2. 처분 효과: 가장 비싼 편향</p><p>수익은 짧게, 손실은 길게 가져간다. 모든 대가가 반대로 하라고 한 바로 그것이다.</p>
+<p class="kb-t">3. 전제: 감정을 다스려도 전제가 틀리면 진다</p><p>마음을 평온하게 유지해도 전략의 전제가 틀리면 손실을 피할 수 없다.</p>
+<p class="kb-t">4. 설계: 의지가 아니라 장치로 막는다</p><p>손절 규칙·포지션 사이징·20주선은 이 기본값을 덮어쓰는 배선 공사다.</p>
+</div><!--PCLAIM:END-->
 
 <div class="mgrid" style="max-width:340px"><figure class="mp"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Daniel_Kahneman_%283283955327%29_%28cropped%29.jpg/330px-Daniel_Kahneman_%283283955327%29_%28cropped%29.jpg" alt="대니얼 카너먼" loading="lazy"><figcaption>대니얼 카너먼<span class="sm">1934~2024</span><span class="cred">사진 nrkbeta · CC BY-SA 2.0 · <a href="https://commons.wikimedia.org/wiki/File:Daniel_Kahneman_(3283955327)_(cropped).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span></figcaption></figure><figure class="mp"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Richard_Thaler_Chatham.jpg/330px-Richard_Thaler_Chatham.jpg" alt="리처드 세일러" loading="lazy"><figcaption>리처드 세일러<span class="sm">1945~</span><span class="cred">사진 Chatham House · CC BY 2.0 · <a href="https://commons.wikimedia.org/wiki/File:Richard_Thaler_Chatham.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span></figcaption></figure></div>
 
 <h2 id="왜-알면서도-못-하는가">왜 알면서도 못 하는가?</h2>
 
-<p><a href="masters.html">대가들</a>의 방법은 어렵지 않다. 어려운 것은 그대로 하는 것이다.
-행동재무학이 밝힌 것은 이건다. 사람의 뇌가 주식 투자에 불리하게 설계돼 있다.</p>
+<div class="kbp"><div class="s">뇌가 반대로 설계돼 있다</div><div><p><a href="masters.html">대가들</a>의 방법은 어렵지 않다. 어려운 것은 그대로 하는 것이다. 행동재무학이 밝힌 것은 이것이다. 사람의 뇌가 주식 투자에 불리하게 설계돼 있다.</p></div></div>
 
 <div class="mcard"><h3>대니얼 카너먼: 전망 이론</h3><p class="who">Daniel Kahneman · 1934~2024</p><p>1979년 아모스 트버스키와 함께 발표한 전망 이론(Prospect Theory)이 행동경제학의 출발점이다. 2002년 노벨경제학상을 받았다 (트버스키는 1996년 작고해 수상하지 못했다).</p>
      <div class="q">사람은 이익에서 얻는 기쁨보다 <b>손실에서 느끼는 고통을 약 2~2.5배 크게</b> 느낀다.
@@ -850,42 +868,31 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
      <p>또 하나. 인간의 뇌는 빠르고 직관적인 시스템 1에 기본으로 의존한다. 느리고 논리적인 시스템 2는 잘 켜지지 않는다. 그래서 앵커링·가용성 휴리스틱·사후확신 편향에 쉽게 빠진다.</p></div><div class="mcard"><h3>리처드 세일러: 심리적 회계</h3><p class="who">Richard Thaler · 1945~</p><p>2017년 노벨경제학상. 심리적 회계(mental accounting)는 같은 돈을 출처에 따라 다르게 취급하는 습관이다. "이건 번 돈이니까 좀 잃어도 돼"가 그것이다.</p>
      <p>투자에서는 계좌를 종목별로 쪼개서 생각하는 형태로 나타난다. 전체 포트폴리오가 아니라 이 종목 하나의 손익에 매달리게 되고, 그래서 손실 난 종목만 붙들고 이익 난 종목을 판다.</p></div>
 
-<h2 id="투자자를-무너뜨리는-8가지">투자자를 무너뜨리는 8가지</h2>
+<h2 id="투자자를-무너뜨리는-10가지">투자자를 무너뜨리는 10가지</h2>
 
 <figure class="fig"><div class="tblwrap"><table class="tw">
 <thead><tr><th>편향</th><th>무엇인가</th><th>어떻게 무너지나</th><th class="n">출처</th></tr></thead>
 <tbody><tr><td><b>처분 효과</b><br><span class="sm">Disposition Effect</span></td><td>이익 난 주식은 <b>빨리 팔고</b>, 손실 난 주식은 <b>오래 들고</b> 있는다</td><td>"조금이라도 벌었을 때 확정하자"와 "언젠간 돌아오겠지"가 동시에 작동한다. 결과적으로 <b>수익은 짧게, 손실은 길게</b> 정확히 반대로 해야 하는 것을 한다.<br><span class="sm"><b>일상.</b> 중고차나 집을 팔 때 <b>내가 산 값</b>보다 낮으면 못 판다. 시장 가격은 내 매입가를 모르는데도 그렇다.</span></td><td class="n sm">Shefrin &amp; Statman (1985) · Odean (1998)</td></tr><tr><td><b>손실 회피</b><br><span class="sm">Loss Aversion</span></td><td>같은 크기라도 <b>손실의 고통이 이익의 기쁨보다 2~2.5배</b> 크다</td><td>그래서 손절을 못 한다. 손실을 확정하는 순간의 고통이 너무 커서 미루는 쪽을 택한다. <b>미루는 것도 결정</b>인데 그렇게 느껴지지 않는다.<br><span class="sm"><b>일상.</b> 길에서 1만원을 주운 날의 기쁨보다 <b>1만원을 잃어버린 날의 짜증</b>이 훨씬 오래간다. 무료 체험을 해지 못 해 계속 결제되는 것도 같은 심리다. 해지는 "잃는 것"처럼 느껴진다.</span></td><td class="n sm">Kahneman &amp; Tversky (1979)</td></tr><tr><td><b>앵커링</b><br><span class="sm">Anchoring</span></td><td>처음 본 숫자에 <b>판단이 묶인다</b></td><td><b>내 매수가</b>가 가장 흔한 닻이다. 시장은 내 매수가를 모르는데, 나는 그 숫자를 기준으로 싸다·비싸다를 판단한다.<br><span class="sm"><b>일상.</b> "정가 10만원 → 5만원"이 그냥 5만원짜리보다 싸 보다. 연봉 협상에서 <b>먼저 부른 쪽의 숫자</b>가 결과를 좌우하는 것도 같은 이치다.</span></td><td class="n sm">Tversky &amp; Kahneman (1974)</td></tr><tr><td><b>가용성 휴리스틱</b><br><span class="sm">Availability Heuristic</span></td><td><b>쉽게 떠오르는 것</b>을 더 자주 일어나는 일로 착각한다</td><td>최근에 크게 오른 종목, 뉴스에 많이 나온 테마가 실제보다 유망해 보다. <b>기억의 선명함이 확률로 둔갑</b>한다.<br><span class="sm"><b>일상.</b> 항공기 사고 뉴스를 본 주에는 비행이 무섭다. 통계로는 자동차가 훨씬 위험한데도요. 로또를 사는 이유도 <b>당첨자 인터뷰가 기억에 남아서</b>다.</span></td><td class="n sm">Tversky &amp; Kahneman (1973)</td></tr><tr><td><b>사후확신 편향</b><br><span class="sm">Hindsight Bias</span></td><td>지나고 나서 <b>"그럴 줄 알았다"</b>고 느낀다</td><td>이게 위험한 이유는 학습을 막기 때문이다. 예측이 틀렸던 기억이 "사실 알고 있었다"로 덧칠되면, 같은 실수를 다시 한다.<br><span class="sm"><b>일상.</b> 경기가 끝난 뒤 "저 팀 질 줄 알았어"라고 말한다. 경기 전에 물었다면 반반이라고 했을 텐데요.</span></td><td class="n sm">Fischhoff (1975)</td></tr><tr><td><b>확증 편향</b><br><span class="sm">Confirmation Bias</span></td><td><b>내 생각에 맞는 정보만</b> 눈에 들어온다</td><td>산 뒤에 그 종목의 호재만 읽게 된다. 반대 의견은 "저 사람은 모른다"로 처리된다. <b>보유가 판단을 바꾼다.</b><br><span class="sm"><b>일상.</b> 유튜브·뉴스 추천이 내 성향에 맞춰지면서 세상이 다 내 생각 같아 보다. 알고리즘이 확증 편향을 <b>자동화</b>해 준 셈이다.</span></td><td class="n sm">Wason (1960) · Nickerson (1998)</td></tr><tr><td><b>과신</b><br><span class="sm">Overconfidence</span></td><td>자기 판단의 정확도를 <b>실제보다 높게</b> 본다</td><td>거래 빈도가 늘고, 분산이 줄고, 레버리지가 커진다. 남성 투자자가 여성보다 <b>45% 더 자주 거래하고 수익률은 낮았다</b>는 연구가 있다.<br><span class="sm"><b>일상.</b> 운전자의 <b>93%가 자기 실력이 평균 이상</b>이라고 답했다(미국 표본). 산술적으로 불가능한 숫자다.</span></td><td class="n sm">Svenson (1981) · Barber &amp; Odean (2001)</td></tr><tr><td><b>군집 행동</b><br><span class="sm">Herding</span></td><td>남들이 사니까 <b>산다</b></td><td>코스톨라니의 <b>부화뇌동 투자자</b>이고, 소로스의 <b>편향</b>이 만들어지는 방식이며, 템플턴이 말한 <b>도취</b>의 재료다.<br><span class="sm"><b>일상.</b> 줄이 긴 식당이 맛있어 보다. 실제로는 <b>앞사람도 줄을 보고 섰을</b> 수 있다. 정보가 아니라 <b>남의 행동</b>을 보고 판단하는 연쇄가 정보 폭포(information cascade)다.</span></td><td class="n sm">Banerjee (1992) · Bikhchandani et al. (1992)</td></tr><tr><td><b>심리적 회계</b><br><span class="sm">Mental Accounting</span></td><td>같은 돈을 <b>출처에 따라 다르게</b> 취급하다</td><td>전체 포트폴리오가 아니라 <b>이 종목 하나</b>의 손익에 매달리게 된다. 그래서 손실 난 종목만 붙들고 이익 난 종목을 판다.<br><span class="sm"><b>일상.</b> 보너스로 받은 돈은 쉽게 쓴다. "이건 원래 없던 돈"이라고 계좌를 나눠 놓기 때문이다. 같은 100만원인데도요.</span></td><td class="n sm">Thaler (1985, 1999)</td></tr><tr><td><b>근시안적 손실회피</b><br><span class="sm">Myopic Loss Aversion</span></td><td><b>자주 확인할수록</b> 손실이 더 아프게 느껴진다</td><td>평가 주기가 짧을수록 손실을 볼 확률이 높아지고, 그래서 위험자산을 덜 갖게 된다. <b>주식 프리미엄 퍼즐</b>의 유력한 설명이다.<br><span class="sm"><b>일상.</b> 체중을 매일 계산하면 늘 오르내려 스트레스를 받지만, <b>한 달에 한 번</b> 계산하면 추세만 보다. 계좌도 같다.</span></td><td class="n sm">Benartzi &amp; Thaler (1995)</td></tr></tbody></table></div>
-<figcaption>맨 아래 군집 행동이 앞의 일곱을 한 방향으로 정렬시킬 때
+<figcaption>8번째 군집 행동이 앞의 7가지를 한 방향으로 정렬시킬 때
 <a href="masters.html">소로스</a>가 말한 편향이 되고, 템플턴이 말한 도취가 된다.</figcaption></figure>
 
-<div class="verdict">
-<p>처분 효과가 가장 비싸다. 이익 난 주식은 빨리 팔고 손실 난 주식은 오래 든다.
-수익은 짧게, 손실은 길게. 모든 대가가 반대로 하라고 한 바로 그것을
-사람은 기본값으로 하게 돼 있다.</p>
-<p>미너비니의 손절, 오닐의 −7~8%, 이야기꾼의 20주선은 전부
-이 기본값을 덮어쓰기 위한 장치다. 통찰이 아니라 배선 공사다.</p>
-</div>
+<div class="kbp"><div class="s">처분 효과가 가장 비싸다</div><div><p>처분 효과가 가장 비싸다. 이익 난 주식은 빨리 팔고 손실 난 주식은 오래 든다. 수익은 짧게, 손실은 길게 가져가는 것이다. 모든 대가가 반대로 하라고 한 바로 그것을 사람은 기본값으로 하게 돼 있다.</p></div></div>
+<div class="kbp"><div class="s">통찰이 아니라 배선 공사</div><div><p>미너비니의 손절, 오닐의 −7~8%, 이야기꾼의 20주선은 전부 이 기본값을 덮어쓰기 위한 장치다. 통찰이 아니라 배선 공사다.</p></div></div>
 
 <h2 id="액티브-투자의-한계">액티브 투자의 한계</h2>
 
-<p>펀드매니저의 성과도 상당 부분 무작위에 가깝고, 지수를 이기기는 매우 어렵다.
-이것을 인정하는 것이 출발점이다. "나는 다르다"가 템플턴이 말한 가장 비싼 네 단어의 개인판이다.</p>
+<div class="kbp"><div class="s">지수를 이기기는 어렵다</div><div><p>펀드매니저의 성과도 상당 부분 무작위에 가깝다. 그래서 지수를 이기기는 매우 어렵다. 이것을 인정하는 것이 출발점이다. "나는 다르다"가 템플턴이 말한 가장 비싼 네 단어의 개인판이다.</p></div></div>
 
 <h2 id="감정을-다스려도-전제가-틀리면-진다-구조를-읽는-태도">감정을 다스려도 전제가 틀리면 진다. 구조를 읽는 태도</h2>
 
-<p>위의 8가지는 마음의 문제다. 월스트리트 채권 트레이딩 현장을 기록한 이용준의 『인사이더 인사이트』(2025)는 거기서 한 걸음 더 간다.
-프롤로그의 결론은 마음을 평온하게 유지해도 전략의 전제가 틀리면 손실을 피할 수 없다는 것이다.
-2장에서 그가 본 프로의 우위는 미래를 맞히는 능력이 아니다. 조건이 바뀌었을 때 돈이 어느 통로로 움직이는지 읽는 능력이다.</p>
+<div class="kbp"><div class="s">전제가 틀리면 진다</div><div><p>위의 10가지는 마음의 문제다. 월스트리트 채권 트레이딩 현장을 기록한 이용준의 『인사이더 인사이트』(2025)는 거기서 한 걸음 더 간다. 프롤로그의 결론은 마음을 평온하게 유지해도 전략의 전제가 틀리면 손실을 피할 수 없다는 것이다.</p><p>2장에서 그가 본 프로의 우위는 미래를 맞히는 능력이 아니다. 조건이 바뀌었을 때 돈이 어느 통로로 움직이는지 읽는 능력이다. 이 사이트의 자리와 닿는 곳은 아래 5곳이다.</p></div></div>
 
-<p>이 사이트의 자리와 닿는 곳이 5곳이다. 첫째, 「모른다」는 말은 무능이 아니라 위험 관리다. 방향은 몰라도 손실 한도는 정할 수 있고, 확신의 크기와 베팅의 크기를 일치시켜야 한다(10장).
-<a href="bottom-top.html">바닥·천장 추적 분석</a>이 판정마다 확신도를 따로 적는 이유다.
-둘째, 단기 상승을 노리고 샀다가 내리면 「장기 투자」라고 이름을 바꾸는 행동은 처분 효과의 다른 얼굴이다. 가설과 시간축을 바꿔 손실 인정을 미루면 위험 관리는 불가능해진다(4장).</p>
+<div class="kbp"><div class="s">1) 「모른다」는 위험 관리다</div><div><p>「모른다」는 말은 무능이 아니라 위험 관리다. 방향은 몰라도 손실 한도는 정할 수 있다. 그리고 확신의 크기와 베팅의 크기를 일치시켜야 한다(10장). <a href="bottom-top.html">바닥·천장 추적 분석</a>이 판정마다 확신도를 따로 적는 이유다.</p></div></div>
+<div class="kbp"><div class="s">2) 손실 종목의 이름을 바꾸지 않는다</div><div><p>단기 상승을 노리고 샀다가 내리면 「장기 투자」라고 이름을 바꾸는 행동은 처분 효과의 다른 얼굴이다. 가설과 시간축을 바꿔 손실 인정을 미루면 위험 관리는 불가능해진다(4장).</p></div></div>
 
-<p>셋째, 위기는 외부 충격과 취약한 구조의 결합이다. 13장의 변동성 매도 상품 XIV는 평온한 날의 작은 수익이 반복되자 위험이 사라진 듯한 착각을 만들었다. 2018년 하루 만에 대부분의 가치를 잃었다.
-<a href="deleveraging.html">강제청산</a>과 <a href="flow-crashes.html">폭락의 구조</a>가 청산일과 레버리지를 같이 보는 이유가 이것이다.
-넷째, 시장이 기능하지 않을 때도 포지션을 통제할 수 있는가를 평상시 수익률은 묻지 않는다. 현금, 손실 한도, 헤지 창구는 위기가 시작된 뒤에는 만들기 어렵다(12장).
-다섯째, 좋은 판단과 좋은 결과는 같은 말이 아니다. 결과만 보고 판단의 질을 평가하면 운을 실력으로 오해한다(3장).
-이 사이트의 검증 로그가 「그때는 몰랐다」를 따로 적는 이유다.</p>
+<div class="kbp"><div class="s">3) 위기는 충격과 구조의 결합</div><div><p>위기는 외부 충격과 취약한 구조의 결합이다. 13장의 변동성 매도 상품 XIV는 평온한 날의 작은 수익이 반복되자 위험이 사라진 듯한 착각을 만들었다. 그리고 2018년 하루 만에 대부분의 가치를 잃었다. <a href="deleveraging.html">강제청산</a>과 <a href="flow-crashes.html">폭락의 구조</a>가 청산일과 레버리지를 같이 보는 이유가 이것이다.</p></div></div>
+<div class="kbp"><div class="s">4) 시장이 멈출 때의 통제</div><div><p>평상시 수익률은 시장이 기능하지 않을 때도 포지션을 통제할 수 있는가를 묻지 않는다. 현금, 손실 한도, 헤지 창구는 위기가 시작된 뒤에는 만들기 어렵다(12장).</p></div></div>
+<div class="kbp"><div class="s">5) 좋은 판단과 좋은 결과는 다르다</div><div><p>좋은 판단과 좋은 결과는 같은 말이 아니다. 결과만 보고 판단의 질을 평가하면 운을 실력으로 오해한다(3장). 이 사이트의 검증 로그가 「그때는 몰랐다」를 따로 적는 이유다.</p></div></div>
 
 <figure class="fig"><div class="tblwrap"><table class="tw">
 <thead><tr><th>책이 남기는 질문(에필로그)</th><th>이 사이트에서 답하는 자리</th></tr></thead>
@@ -901,63 +908,75 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 <h2 id="그래서-무엇을-할-것인가">그래서 무엇을 할 것인가</h2>
 <div class="mcard"><h3>사전 부검 (pre-mortem)</h3><p>사기 전에 "이 투자가 실패했다고 치고, 왜 실패했을까"를 적어 둔다</p><p class="link">실패 시나리오를 미리 글로 남기면 사후확신 편향이 끼어들 틈이 줄어든다. 손절 기준이 자연히 따라 나온다. 적어 둔 이유가 현실이 되면 파는 것이다.</p></div><div class="mcard"><h3>매수가를 잊는다</h3><p>"오늘 이 가격이라면 살 것인가"만 묻는다</p><p class="link">앵커링을 끊는 가장 단순한 방법이다. 내 매수가는 시장과 무관한 숫자다. 지금 사지 않을 종목이라면, 이미 갖고 있어도 파는 것이 일관된다.</p></div><div class="mcard"><h3>차트를 덜 본다</h3><p>자주 볼수록 손실을 자주 확인하게 된다</p><p class="link">손실 회피는 확인 횟수에 비례해 작동한다. 매일 보면 매일 아픈다. 기계적 원칙을 세우고 정해진 때에만 본다.</p></div><div class="mcard"><h3>규칙을 숫자로 못 박는다</h3><p>판단이 아니라 규칙으로 만든다</p><p class="link">오닐의 −7~8% 손절, 미너비니의 포지션 사이징, 이야기꾼의 20주선이 모두 같은 장치다. 그 순간의 감정이 개입할 틈을 없애는 것이 목적이다.</p></div><div class="mcard"><h3>기록한다</h3><p>살 때의 이유를 적어 둔다</p><p class="link">매수 사유가 소멸하면 파는 것이 이야기꾼 매도 1원칙이다. 적어 두지 않으면 사유가 소멸했는지조차 알 수 없다.</p></div>
 
-<div class="callout">
-<p>결론은 통제가 아니라 설계다.
-자기 비합리성을 의지로 이기려 하면 진다. 대신 비합리성이 끼어들 틈을 없애는 시스템을 만든다.
-사전에 적고, 숫자로 못 박고, 덜 보는 것. <a href="masters.html">대가들</a>이 각자의 언어로 같은 말을 했다.</p>
-</div>
+<div class="kbp"><div class="s">통제가 아니라 설계</div><div><p>결론은 통제가 아니라 설계다. 자기 비합리성을 의지로 이기려 하면 진다. 대신 비합리성이 끼어들 틈을 없애는 시스템을 만든다. 사전에 적고, 숫자로 못 박고, 덜 보는 것이다. <a href="masters.html">대가들</a>이 각자의 언어로 같은 말을 했다.</p></div></div>
+
+<h2 id="결론-의지가-아니라-장치로-막는다">결론: 의지가 아니라 장치로 막는다</h2>
+<p>결론적으로 투자심리의 요지는 3가지다.</p>
+<ol>
+<li>사람은 이익의 기쁨보다 손실의 고통을 2~2.5배 크게 느낀다.</li>
+<li>그래서 이익 난 주식은 빨리 팔고 손실 난 주식은 오래 든다. 처분 효과가 가장 비싼 편향이다.</li>
+<li>이것은 의지로 바뀌지 않는다. 사전에 적고, 숫자로 못 박고, 덜 보는 장치로 막는다.</li>
+</ol>
+<p>이 글은 매매를 권하지 않는다. 시장의 심리가 다음에 어디로 갈지도 전망하지 않는다.</p>
+
+<h2 id="이-글의-한계">이 글의 한계</h2>
+<ol>
+<li>편향의 크기(손실 회피 2~2.5배 등)는 실험과 미국 계좌 연구에서 나온 값이다. 한국 투자자에게 같은 크기인지는 따로 확인하지 않았다.</li>
+<li>편향 10가지는 행동재무학의 대표 항목을 고른 것이다. 전부가 아니다.</li>
+<li>『인사이더 인사이트』는 풀어 쓰고 장만 붙였다. 문장을 옮기지 않았다.</li>
+</ol>
 
 <h2 id="출처">출처</h2>
 <ol class="refs">
 <li>Kahneman, D. &amp; Tversky, A. (1979). Prospect Theory: An Analysis of Decision under Risk.
-<i>Econometrica</i> 47(2), 263: 291. 손실 회피와 전망 이론의 원논문.
+<i>Econometrica</i> 47(2), 263–291. 손실 회피와 전망 이론의 원논문.
 <a href="https://www.jstor.org/stable/1914185" target="_blank" rel="noopener">JSTOR</a></li>
 
 <li>Tversky, A. &amp; Kahneman, D. (1974). Judgment under Uncertainty: Heuristics and Biases.
-<i>Science</i> 185(4157), 1124: 1131. 앵커링·가용성 휴리스틱.
+<i>Science</i> 185(4157), 1124–1131. 앵커링·가용성 휴리스틱.
 <a href="https://www.science.org/doi/10.1126/science.185.4157.1124" target="_blank" rel="noopener">Science</a></li>
 
 <li>Tversky, A. &amp; Kahneman, D. (1973). Availability: A Heuristic for Judging Frequency and Probability.
-<i>Cognitive Psychology</i> 5(2), 207: 232.</li>
+<i>Cognitive Psychology</i> 5(2), 207–232.</li>
 
 <li>Shefrin, H. &amp; Statman, M. (1985). The Disposition to Sell Winners Too Early and Ride Losers Too Long.
-<i>Journal of Finance</i> 40(3), 777: 790. 처분 효과를 처음 이름 붙인 논문.
+<i>Journal of Finance</i> 40(3), 777–790. 처분 효과를 처음 이름 붙인 논문.
 <a href="https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.1985.tb05002.x" target="_blank" rel="noopener">Wiley</a></li>
 
 <li>Odean, T. (1998). Are Investors Reluctant to Realize Their Losses?
-<i>Journal of Finance</i> 53(5), 1775: 1798. 실제 계좌 1만 개로 처분 효과를 실증.
+<i>Journal of Finance</i> 53(5), 1775–1798. 실제 계좌 1만 개로 처분 효과를 실증.
 <a href="https://onlinelibrary.wiley.com/doi/10.1111/0022-1082.00072" target="_blank" rel="noopener">Wiley</a></li>
 
 <li>Barber, B. &amp; Odean, T. (2001). Boys Will Be Boys: Gender, Overconfidence, and Common Stock Investment.
-<i>Quarterly Journal of Economics</i> 116(1), 261: 292. 남성이 45% 더 자주 거래하고 수익률은 낮았다.
+<i>Quarterly Journal of Economics</i> 116(1), 261–292. 남성이 45% 더 자주 거래하고 수익률은 낮았다.
 <a href="https://academic.oup.com/qje/article/116/1/261/1939000" target="_blank" rel="noopener">Oxford</a></li>
 
 <li>Barber, B. &amp; Odean, T. (2000). Trading Is Hazardous to Your Wealth.
-<i>Journal of Finance</i> 55(2), 773: 806. 거래가 잦을수록 수익률이 낮았다.
+<i>Journal of Finance</i> 55(2), 773–806. 거래가 잦을수록 수익률이 낮았다.
 <a href="https://onlinelibrary.wiley.com/doi/10.1111/0022-1082.00226" target="_blank" rel="noopener">Wiley</a></li>
 
 <li>Benartzi, S. &amp; Thaler, R. (1995). Myopic Loss Aversion and the Equity Premium Puzzle.
-<i>Quarterly Journal of Economics</i> 110(1), 73: 92. 자주 볼수록 위험자산을 덜 갖는다.
+<i>Quarterly Journal of Economics</i> 110(1), 73–92. 자주 볼수록 위험자산을 덜 갖는다.
 <a href="https://academic.oup.com/qje/article/110/1/73/1928158" target="_blank" rel="noopener">Oxford</a></li>
 
-<li>Thaler, R. (1985). Mental Accounting and Consumer Choice. <i>Marketing Science</i> 4(3), 199: 214.
+<li>Thaler, R. (1985). Mental Accounting and Consumer Choice. <i>Marketing Science</i> 4(3), 199–214.
 · Thaler, R. (1999). Mental Accounting Matters. <i>Journal of Behavioral Decision Making</i> 12(3).</li>
 
 <li>Svenson, O. (1981). Are We All Less Risky and More Skillful Than Our Fellow Drivers?
-<i>Acta Psychologica</i> 47(2), 143: 148. 운전자 93%가 자기 실력이 평균 이상이라 답했다.</li>
+<i>Acta Psychologica</i> 47(2), 143–148. 운전자 93%가 자기 실력이 평균 이상이라 답했다.</li>
 
 <li>Fischhoff, B. (1975). Hindsight ≠ Foresight.
-<i>Journal of Experimental Psychology: Human Perception and Performance</i> 1(3), 288: 299.</li>
+<i>Journal of Experimental Psychology: Human Perception and Performance</i> 1(3), 288–299.</li>
 
 <li>이용준 (2025). 『인사이더 인사이트』. 에프엔미디어. 월스트리트 채권 트레이딩 현장의 인물과 사건으로 예측보다 구조, 확신보다 위험 관리를 말한 책.
 본문을 옮기지 않았고 장 번호만 붙였다. 독서 노트는 볼트에 있다.</li>
 
 <li>Wason, P. (1960). On the Failure to Eliminate Hypotheses in a Conceptual Task.
-<i>Quarterly Journal of Experimental Psychology</i> 12(3), 129: 140.
+<i>Quarterly Journal of Experimental Psychology</i> 12(3), 129–140.
 · Nickerson, R. (1998). Confirmation Bias: A Ubiquitous Phenomenon in Many Guises.
 <i>Review of General Psychology</i> 2(2).</li>
 
-<li>Banerjee, A. (1992). A Simple Model of Herd Behavior. <i>QJE</i> 107(3), 797: 817.
+<li>Banerjee, A. (1992). A Simple Model of Herd Behavior. <i>QJE</i> 107(3), 797–817.
 · Bikhchandani, Hirshleifer &amp; Welch (1992). A Theory of Fads, Fashion, Custom, and Cultural Change
 as Informational Cascades. <i>Journal of Political Economy</i> 100(5).</li>
 
@@ -967,7 +986,7 @@ as Informational Cascades. <i>Journal of Political Economy</i> 100(5).</li>
 <li>이야기꾼의 시나리오 투자 전략. 전조현상 5개 카테고리 중 투자심리 항목. 회원 자료.</li>
 </ol>
 
-<p class="note">인물 사진은 위키미디어 공용의 CC 라이선스 이미지이며 저작자와 라이선스를 표기했다. 이야기꾼의 시나리오 투자 전략은 회원 자료라 출처만 밝히고 원문은 싣지 않았다.</p>
+<p class="kb-note">※ 인물 사진은 위키미디어 공용의 CC 라이선스 이미지이며 저작자와 라이선스를 표기했다. 이야기꾼의 시나리오 투자 전략은 회원 자료라 출처만 밝히고 원문은 싣지 않았다.</p>
 
 <div class="disclaimer">
 <p>주의. 옮긴 것이지 그대로 하면 된다는 뜻이 아니다.
