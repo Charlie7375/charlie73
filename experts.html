@@ -313,63 +313,7 @@ a.card:focus-visible,.lst-i:focus-visible{
 .site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
   background:color-mix(in srgb,var(--text) 6%,transparent)}
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/*NAVCSS:END*/
-.dim{color:var(--mut,#94a3b8)}
-.b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
-  font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
-/* 판정 5색(b-on 로즈·b-wa 앰버·b-ob 슬레이트·b-sf 에메랄드·b-rf 회색)과 겹치지 않는 색을 쓴다.
-   기존 배지처럼 다크 대응 없이 한 색으로 양쪽에서 읽히게 채도를 높인다. */
-.b-pri{background:#4f46e5;color:#fff}
-.b-upd{background:#c7d2fe;color:#312e81}   /* b-pri 의 옅은 형제 — 둘 다 인디고 계열로 묶어
-                                              「강의 대조」 어휘임을 드러낸다. 윤곽선은 라이트
-                                              모드에서 대비 2.56 이라 채움으로 바꿨다. */
-.bg{display:inline-block;min-width:44px;text-align:center;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:800;color:#fff}
-.b-on{background:#e11d48}.b-wa{background:#f59e0b}.b-ob{background:#64748b}.b-sf{background:#059669}.b-rf{background:#94a3b8}
-.gr{display:inline-block;font-size:.68rem;font-weight:800;padding:1px 6px;border-radius:5px;margin-left:6px;
-  color:#e11d48;background:color-mix(in srgb,#e11d48 13%,transparent);vertical-align:middle}
-.chg{font-size:.7rem;font-weight:700;color:var(--accent);margin-left:6px;white-space:nowrap}
-.star{color:#e11d48;font-weight:800}
-td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
-td.no .back{display:inline-block;margin-top:4px;padding-left:8px;border-left:2px solid var(--line,#cbd5e1);color:var(--text)}
-.chl{margin:12px 0 0 18px;font-size:.92rem;line-height:1.9}
-.g1box{margin-top:12px;font-size:.9rem;line-height:1.85;color:var(--text-secondary)}
-.g1box ol{margin:8px 0 0 20px} .g1box li{color:var(--text);font-weight:600}
-.stats5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px}
-@media(max-width:720px){.stats5{grid-template-columns:repeat(2,1fr)}}
-
-/* 주차별 히스토리 */
-.hist{position:relative;padding-left:26px;margin-top:18px}
-.hist::before{content:'';position:absolute;left:7px;top:14px;bottom:14px;width:2px;background:var(--border)}
-.hw{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:14px;
-  padding:20px 22px;margin-bottom:16px}
-.hw::before{content:'';position:absolute;left:-24px;top:26px;width:12px;height:12px;border-radius:50%;
-  background:var(--border);border:3px solid var(--bg)}
-.hw.cur{border-color:color-mix(in srgb,var(--accent) 45%,var(--border));
-  box-shadow:0 1px 14px color-mix(in srgb,var(--accent) 10%,transparent)}
-.hw.cur::before{background:var(--accent)}
-.hh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.hwk{font-size:1.02rem;font-weight:900;letter-spacing:-.02em}
-.hdt{font-size:.82rem;color:var(--text-secondary);font-variant-numeric:tabular-nums}
-.hnow{font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:999px;color:#fff;background:var(--accent)}
-.htitle{margin-top:8px;font-size:1.12rem;font-weight:800;letter-spacing:-.02em;line-height:1.4}
-.htone{margin-top:6px;font-size:.86rem;color:var(--text-secondary);font-style:italic}
-.hpills{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
-.hp{font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
-.hp.on{color:#e11d48;background:color-mix(in srgb,#e11d48 12%,transparent)}
-.hp.wa{color:#b45309;background:color-mix(in srgb,#f59e0b 15%,transparent)}
-.hp.ob{color:#475569;background:color-mix(in srgb,#64748b 14%,transparent)}
-.hp.sf{color:#047857;background:color-mix(in srgb,#059669 13%,transparent)}
-.hp.g1{color:#fff;background:#e11d48}
-.hbody{margin-top:13px;font-size:.93rem;line-height:1.78;color:var(--text-secondary)}
-.hbody b{color:var(--text)}
-.hchg{margin-top:14px;padding-top:12px;border-top:1px dashed var(--border)}
-.hct{font-size:.76rem;font-weight:800;letter-spacing:.02em;color:var(--accent);text-transform:none}
-.hchg ul{margin:8px 0 0 16px;font-size:.87rem;line-height:1.85;color:var(--text-secondary)}
-.hchg li b{color:var(--text)}
-.hchg .ar{white-space:nowrap}
-.to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
-@media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
-/* BAR:BEGIN */
+/*NAVCSS:END*//* BAR:BEGIN */
 /* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
    flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
 html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
@@ -452,6 +396,69 @@ html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in 
 @media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
 /* SEARCH:END */
 
+/* KB 판 (2026-11-20) */
+.kbp{margin:14px 0}
+.kbp>.s{font-weight:700;font-size:.92em;color:var(--text-secondary,#6e6e73);margin:0 0 3px}
+.kbp>div>p{margin:0 0 8px}
+.kb-note{font-size:.88em;color:var(--text-secondary,#6e6e73);line-height:1.7;margin:4px 0}
+.kb-cap{font-weight:700;margin:18px 0 6px}
+.pclaim .kb-t{font-weight:800;margin-top:12px}
+.dim{color:var(--mut,#94a3b8)}
+.b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
+  font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
+/* 판정 5색(b-on 로즈·b-wa 앰버·b-ob 슬레이트·b-sf 에메랄드·b-rf 회색)과 겹치지 않는 색을 쓴다.
+   기존 배지처럼 다크 대응 없이 한 색으로 양쪽에서 읽히게 채도를 높인다. */
+.b-pri{background:#4f46e5;color:#fff}
+.b-upd{background:#c7d2fe;color:#312e81}   /* b-pri 의 옅은 형제 — 둘 다 인디고 계열로 묶어
+                                              「강의 대조」 어휘임을 드러낸다. 윤곽선은 라이트
+                                              모드에서 대비 2.56 이라 채움으로 바꿨다. */
+.bg{display:inline-block;min-width:44px;text-align:center;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:800;color:#fff}
+.b-on{background:#e11d48}.b-wa{background:#f59e0b}.b-ob{background:#64748b}.b-sf{background:#059669}.b-rf{background:#94a3b8}
+.gr{display:inline-block;font-size:.68rem;font-weight:800;padding:1px 6px;border-radius:5px;margin-left:6px;
+  color:#e11d48;background:color-mix(in srgb,#e11d48 13%,transparent);vertical-align:middle}
+.chg{font-size:.7rem;font-weight:700;color:var(--accent);margin-left:6px;white-space:nowrap}
+.star{color:#e11d48;font-weight:800}
+td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
+td.no .back{display:inline-block;margin-top:4px;padding-left:8px;border-left:2px solid var(--line,#cbd5e1);color:var(--text)}
+.chl{margin:12px 0 0 18px;font-size:.92rem;line-height:1.9}
+.g1box{margin-top:12px;font-size:.9rem;line-height:1.85;color:var(--text-secondary)}
+.g1box ol{margin:8px 0 0 20px} .g1box li{color:var(--text);font-weight:600}
+.stats5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px}
+@media(max-width:720px){.stats5{grid-template-columns:repeat(2,1fr)}}
+
+/* 주차별 히스토리 */
+.hist{position:relative;padding-left:26px;margin-top:18px}
+.hist::before{content:'';position:absolute;left:7px;top:14px;bottom:14px;width:2px;background:var(--border)}
+.hw{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:20px 22px;margin-bottom:16px}
+.hw::before{content:'';position:absolute;left:-24px;top:26px;width:12px;height:12px;border-radius:50%;
+  background:var(--border);border:3px solid var(--bg)}
+.hw.cur{border-color:color-mix(in srgb,var(--accent) 45%,var(--border));
+  box-shadow:0 1px 14px color-mix(in srgb,var(--accent) 10%,transparent)}
+.hw.cur::before{background:var(--accent)}
+.hh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.hwk{font-size:1.02rem;font-weight:900;letter-spacing:-.02em}
+.hdt{font-size:.82rem;color:var(--text-secondary);font-variant-numeric:tabular-nums}
+.hnow{font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:999px;color:#fff;background:var(--accent)}
+.htitle{margin-top:8px;font-size:1.12rem;font-weight:800;letter-spacing:-.02em;line-height:1.4}
+.htone{margin-top:6px;font-size:.86rem;color:var(--text-secondary);font-style:italic}
+.hpills{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
+.hp{font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.hp.on{color:#e11d48;background:color-mix(in srgb,#e11d48 12%,transparent)}
+.hp.wa{color:#b45309;background:color-mix(in srgb,#f59e0b 15%,transparent)}
+.hp.ob{color:#475569;background:color-mix(in srgb,#64748b 14%,transparent)}
+.hp.sf{color:#047857;background:color-mix(in srgb,#059669 13%,transparent)}
+.hp.g1{color:#fff;background:#e11d48}
+.hbody{margin-top:13px;font-size:.93rem;line-height:1.78;color:var(--text-secondary)}
+.hbody b{color:var(--text)}
+.hchg{margin-top:14px;padding-top:12px;border-top:1px dashed var(--border)}
+.hct{font-size:.76rem;font-weight:800;letter-spacing:.02em;color:var(--accent);text-transform:none}
+.hchg ul{margin:8px 0 0 16px;font-size:.87rem;line-height:1.85;color:var(--text-secondary)}
+.hchg li b{color:var(--text)}
+.hchg .ar{white-space:nowrap}
+.to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
+@media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
+
 /* 전문가 의견 — 타임라인 */
 .cchart{margin:10px 0 28px}
 .cbox{position:relative;width:100%;height:340px}
@@ -488,6 +495,14 @@ body.showclip .xrow.clip{display:flex}
 .xday.hide{display:none}
 .xcov td.n,.xcov th.n{text-align:right;font-variant-numeric:tabular-nums}
 @media(max-width:600px){.xwho{flex:0 0 100%}.xsum{margin-left:0}}
+
+/* KB 판 (2026-11-20) */
+.kbp{margin:14px 0}
+.kbp>.s{font-weight:700;font-size:.92em;color:var(--text-secondary,#6e6e73);margin:0 0 3px}
+.kbp>div>p{margin:0 0 8px}
+.kb-note{font-size:.88em;color:var(--text-secondary,#6e6e73);line-height:1.7;margin:4px 0}
+.kb-cap{font-weight:700;margin:18px 0 6px}
+.pclaim .kb-t{font-weight:800;margin-top:12px}
 /*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
@@ -844,111 +859,68 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 <div class="wrap paper">
 <header class="phead"><!--phead:unified--><div class="eyebrow">판단 · 전문가 의견 추적</div>
 <h1>전문가 의견 추적</h1>
-<p class="sub">국내 시장 전문가 다섯 분이 언제 무슨 이야기를 했는지를 날짜순으로 쌓아 둔 곳이다.
-가장 최근 것이 맨 위에 온다.
-각 발언 옆에는 그날의 코스피 종가가 붙어 있다.
-지수가 6,500일 때 한 말인지 9,000일 때 한 말인지가 같이 보여야
-나중에 누가 맞았는지를 따져볼 수 있기 때문이다.</p>
-<p class="pauth">기준일 2026-11-20 · 유튜브·블로그 공개 피드 · 2026-05~ · 주 1회 갱신</p><!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>전문가들의 결론은 전고점은 시도할 수 있고 그 이상은 다음 텀이라는 데 모인다. 핵심은 다운사이클에서 이익률을 지키는가이다. TSMC 는 메모리 다운턴마다 해냈고 하이닉스는 못 했다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#이-페이지를-어떻게-쓰나">이 페이지를 어떻게 쓰나?</a></li><li><a href="#일부러-하지-않은-것-강세-약세-판정">일부러 하지 않은 것: 강세·약세 판정</a></li><li><a href="#대신-무엇을-분석했나-방향-말고-화제">대신 무엇을 분석했나? 방향 말고 '화제'</a></li><li><a href="#관심의-총량-주간-발언량과-코스피">관심의 총량: 주간 발언량과 코스피</a></li><li><a href="#무엇이-화두였나-주제어-점유율">무엇이 화두였나? 주제어 점유율</a></li><li><a href="#누구를-얼마나-담고-있나">누구를, 얼마나 담고 있나?</a></li><li><a href="#발언-타임라인">발언 타임라인</a></li></ol></div><!--TOC:END--></header>
+<p class="pauth">기준일 2026-11-20 · 유튜브·블로그 공개 피드 · 2026-05~ · 주 1회 갱신</p></header>
+<!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#이-페이지를-어떻게-쓰나">이 페이지를 어떻게 쓰나</a></li><li><a href="#일부러-하지-않은-것-강세-약세-판정">일부러 하지 않은 것: 강세 · 약세 판정</a></li><li><a href="#대신-무엇을-분석했나-방향-말고-화제">대신 무엇을 분석했나: 방향 말고 화제</a></li><li><a href="#관심의-총량-주간-발언량과-코스피">관심의 총량: 주간 발언량과 코스피</a></li><li><a href="#무엇이-화두였나-주제어-점유율">무엇이 화두였나: 주제어 점유율</a></li><li><a href="#누구를-얼마나-담고-있나">누구를, 얼마나 담고 있나</a></li><li><a href="#발언-타임라인">발언 타임라인</a></li><li><a href="#결론-방향은-원본에서-화제와-발언량은-이-페이지에서">결론: 방향은 원본에서, 화제와 발언량은 이 페이지에서</a></li><li><a href="#이-글의-한계">이 글의 한계</a></li><li><a href="#이-글의-용어">이 글의 용어</a></li></ol></div><!--TOC:END--><p>국내 시장 전문가 6인이 2026년 5월 1일부터 2026년 11월 20일까지 한 발언 1,660건을 날짜순으로 쌓았다. 발언마다 그날의 코스피 종가를 붙였다.</p>
+<p>전문가의 말은 많다. 하지만 그 말이 나온 때의 지수는 잘 남지 않는다. 지수가 6,500일 때의 말인지 9,000일 때의 말인지가 같이 보여야 나중에 누가 맞았는지를 확인할 수 있다. 그래서 이 페이지는 발언과 종가를 나란히 둔다.</p>
+<p>결론부터 말하면, 이 페이지는 강세 · 약세를 판정하지 않는다. 문제는 제목만으로는 방향을 정할 수 없다는 점이다. 그래서 방향 대신 화제와 발언 건수를 본다.</p>
+
+<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div>
+<p class="kb-t">1. 모아 둔 것: 발언 1,660건</p><p>본편은 1,567건이다.</p>
+<p class="kb-t">2. 방향은 판정하지 않는다</p><p>제목만으로는 정할 수 없다.</p>
+<p class="kb-t">3. 화제는 방향이 아니다</p><p>'폭락'이 많아도 방향이 아니다.</p>
+</div><!--PCLAIM:END-->
 
 <div class="sec">
-<div class="explain">
 <h2 id="이-페이지를-어떻게-쓰나">이 페이지를 어떻게 쓰나?</h2>
-<p>모아 둔 것. 2026-05-01부터 2026-11-20까지 다섯 분의 발언 1,660건이다.
-그중 1,567건이 본편이고, 나머지는 하이라이트나 복습본 같은 짧은 클립이라
-기본으로 접어 두었다(맨 아래에서 펼칠 수 있다).</p>
-<p>주말 방송에는 직전 거래일 종가를 붙였다.
-토요일 고정 코너가 많은데 토요일엔 장이 열리지 않아 종가가 없기 때문이다.</p>
+<div class="kbp"><div class="s">모아 둔 것</div><div><p>2026년 5월 1일부터 2026년 11월 20일까지 6인의 발언 1,660건을 모았다. 그중 1,567건이 본편이다. 나머지는 하이라이트나 복습본 같은 짧은 클립이다. 클립은 기본으로 접어 두었다(맨 아래에서 펼칠 수 있다).</p></div></div>
+<div class="kbp"><div class="s">주말 방송은 직전 거래일 종가</div><div><p>주말 방송에는 직전 거래일 종가를 붙였다. 토요일 고정 코너가 많다. 토요일에는 장이 열리지 않아 종가가 없다.</p></div></div>
 
-<h2 id="일부러-하지-않은-것-강세-약세-판정">일부러 하지 않은 것: 강세·약세 판정</h2>
-<p>표에 "이 사람은 상승을 봤다 / 하락을 봤다" 칸을 넣지 않았다.
-넣으려면 1,660건의 방향을 일일이 정해야 하는데,
-제목만 보고는 정할 수 없기 때문이다.</p>
-<p>예를 들어 "화투판에서 딸 자신 있나요?"라는 제목이 있다.
-겁을 주는 이야기일까요, 지금이 기회라는 이야기일까요?
-제목만으로는 알 수 없다. 유튜브 제목은 원래 클릭을 끌려고 세게 쓰기 때문이다.</p>
-<p>그런데도 기계적으로 분류하면 어떻게 될까요.
-표는 그럴듯해 보이는데 내용은 엉터리가 된다.
-그리고 한번 틀린 채로 쌓이면 나중에 되돌릴 수 없다.
-그래서 방향 칸은 비워 두었다.
-영상 요약을 보고 사람이 직접 채우는 몫으로 남겨 둔 것이다.</p>
+<h2 id="일부러-하지-않은-것-강세-약세-판정">일부러 하지 않은 것: 강세 · 약세 판정</h2>
+<div class="kbp"><div class="s">방향 칸은 없다</div><div><p>표에 '이 사람은 상승을 봤다 / 하락을 봤다' 칸을 넣지 않았다. 넣으려면 1,660건의 방향을 일일이 정해야 한다. 그런데 제목만 보고는 정할 수 없다.</p></div></div>
+<div class="kbp"><div class="s">제목은 세게 쓴다</div><div><p>예를 들어 「화투판에서 딸 자신 있나요?」라는 제목이 있다. 겁을 주는 말일까, 지금이 기회라는 말일까? 제목만으로는 알 수 없다. 유튜브 제목은 원래 클릭을 끌려고 세게 쓰기 때문이다.</p></div></div>
+<div class="kbp"><div class="s">기계 분류는 엉터리가 된다</div><div><p>그런데도 기계적으로 분류하면 어떻게 될까? 표는 그럴듯해 보이지만 내용은 엉터리가 된다. 그리고 일단 틀린 채로 쌓이면 나중에 되돌릴 수 없다. 그래서 방향 칸은 비워 두었다. 영상 요약을 보고 사람이 직접 채우는 몫이다.</p></div></div>
 
-<h2 id="대신-무엇을-분석했나-방향-말고-화제">대신 무엇을 분석했나? 방향 말고 '화제'</h2>
-<p>여기에 중요한 구분이 하나 있다.
-"어느 방향인가"와 "무엇에 대해 말하는가"는 다르다.</p>
-<p>제목에 '폭락'이라는 말이 있으면,
-그 사람이 폭락에 대해 이야기하고 있다는 사실만큼은 확실하다.
-폭락을 경고하는 건지 "그런 걱정은 과하다"고 반박하는 건지는 모르지만,
-폭락이 화제였다는 것은 틀림없다.</p>
-<p>그래서 제목만으로도 정직하게 알 수 있는 2가지만 뽑았다.
-얼마나 자주 말하는가(아래 ①)와
-무엇을 말하는가(아래 ②)이다.</p>
-</div>
+<h2 id="대신-무엇을-분석했나-방향-말고-화제">대신 무엇을 분석했나: 방향 말고 화제</h2>
+<div class="kbp"><div class="s">방향과 화제는 다르다</div><div><p>여기에 중요한 구분이 있다. '어느 방향인가'와 '무엇에 대해 말하는가'는 다르다.</p></div></div>
+<div class="kbp"><div class="s">'폭락'이 화제였다는 것은 확실하다</div><div><p>제목에 '폭락'이라는 말이 있으면 그 사람이 폭락에 대해 이야기한다는 사실만큼은 확실하다. 폭락을 경고하는지, '그런 걱정은 과하다'고 반박하는지는 모른다. 하지만 폭락이 화제였다는 것은 틀림없다.</p></div></div>
+<div class="kbp"><div class="s">제목으로 알 수 있는 2가지</div><div><p>그래서 제목만으로도 정직하게 알 수 있는 2가지만 뽑았다. 얼마나 자주 말하는가와 무엇을 말하는가다.</p></div></div>
 </div>
 
 <div class="sec">
 <h2 id="관심의-총량-주간-발언량과-코스피">관심의 총량: 주간 발언량과 코스피</h2>
-<p class="sub">전문가들이 얼마나 자주 입을 여는가는 시장이 얼마나 술렁이는지를 보여 준다.
-지수가 크게 흔들리면 방송이 늘고, 조용하면 줄어든다.
-막대의 높이가 그 주의 발언 건수이고, 색깔은 사람별로 나눈 것이다.
-점선은 같은 기간의 코스피 지수이다(눈금은 오른쪽).</p>
+<div class="kbp"><div class="s">발언 건수는 시장의 술렁임</div><div><p>전문가들이 얼마나 자주 입을 여는가는 시장이 얼마나 술렁이는지를 보여 준다. 지수가 크게 흔들리면 방송이 는다. 조용하면 준다. 아래 그림을 보자. 막대의 높이가 그 주의 발언 건수다. 색깔은 사람별로 나눈 것이다. 점선은 같은 기간의 코스피 지수다(눈금은 오른쪽).</p></div></div>
+
 <div class="cchart"><div class="cbox"><canvas id="xw"></canvas></div></div><script>(window.__XCH=window.__XCH||[]).push({"id": "xw", "t": "주간 발언량과 코스피 — 6인 합산", "l": ["04/27", "05/04", "05/11", "05/18", "05/25", "06/01", "06/08", "06/15", "06/22", "06/29", "07/06", "07/13", "07/20", "07/27", "08/03", "08/10", "08/17", "08/24", "08/31", "09/07", "09/14", "09/21", "09/28", "10/05", "10/12", "10/19", "10/26", "11/02", "11/09", "11/16"], "f": ["2026-04-27 주 (월요일 기준)", "2026-05-04 주 (월요일 기준)", "2026-05-11 주 (월요일 기준)", "2026-05-18 주 (월요일 기준)", "2026-05-25 주 (월요일 기준)", "2026-06-01 주 (월요일 기준)", "2026-06-08 주 (월요일 기준)", "2026-06-15 주 (월요일 기준)", "2026-06-22 주 (월요일 기준)", "2026-06-29 주 (월요일 기준)", "2026-07-06 주 (월요일 기준)", "2026-07-13 주 (월요일 기준)", "2026-07-20 주 (월요일 기준)", "2026-07-27 주 (월요일 기준)", "2026-08-03 주 (월요일 기준)", "2026-08-10 주 (월요일 기준)", "2026-08-17 주 (월요일 기준)", "2026-08-24 주 (월요일 기준)", "2026-08-31 주 (월요일 기준)", "2026-09-07 주 (월요일 기준)", "2026-09-14 주 (월요일 기준)", "2026-09-21 주 (월요일 기준)", "2026-09-28 주 (월요일 기준)", "2026-10-05 주 (월요일 기준)", "2026-10-12 주 (월요일 기준)", "2026-10-19 주 (월요일 기준)", "2026-10-26 주 (월요일 기준)", "2026-11-02 주 (월요일 기준)", "2026-11-09 주 (월요일 기준)", "2026-11-16 주 (월요일 기준)"], "d": [{"label": "증시각도기", "data": [6, 22, 24, 23, 27, 21, 22, 24, 26, 23, 25, 25, 24, 27, 24, 20, 19, 20, 16, 18, 15, 18, 19, 14, 21, 18, 17, 21, 18, 13], "type": "bar", "backgroundColor": "#d21f3c", "borderWidth": 0}, {"label": "박세익", "data": [4, 15, 21, 19, 15, 17, 19, 19, 18, 18, 20, 19, 41, 41, 40, 40, 38, 40, 42, 40, 42, 34, 32, 37, 40, 41, 41, 41, 43, 28], "type": "bar", "backgroundColor": "#1161c4", "borderWidth": 0}, {"label": "이은택", "data": [0, 1, 0, 0, 0, 4, 7, 4, 7, 5, 4, 3, 4, 4, 2, 3, 4, 5, 3, 4, 4, 1, 2, 2, 2, 2, 1, 3, 4, 0], "type": "bar", "backgroundColor": "#b45309", "borderWidth": 0}, {"label": "윤지호", "data": [2, 2, 5, 3, 3, 1, 2, 0, 0, 0, 0, 1, 0, 3, 0, 2, 2, 1, 0, 0, 0, 2, 2, 0, 1, 0, 1, 1, 0, 0], "type": "bar", "backgroundColor": "#4c7a34", "borderWidth": 0}, {"label": "김효진", "data": [0, 0, 0, 2, 1, 0, 2, 1, 1, 1, 0, 1, 1, 1, 3, 2, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 2, 0, 0], "type": "bar", "backgroundColor": "#7a3fa0", "borderWidth": 0}, {"label": "3.3캠퍼스", "data": [2, 2, 5, 2, 3, 1, 0, 0, 0, 0, 0, 1, 0, 2, 2, 2, 2, 1, 0, 0, 0, 2, 0, 0, 0, 0, 1, 1, 0, 0], "type": "bar", "backgroundColor": "#0f7b8a", "borderWidth": 0}, {"label": "코스피", "data": [6598.87, 7498.0, 7493.18, 7847.71, 8476.15, 8160.59, 8123.62, 9052.42, 8411.21, 8088.34, 7475.94, 6820.6, 6690.62, 6595.45, 6258.77, 6977.94, 6912.95, 6788.88, 6687.21, 6909.91, 6894.23, 7080.92, 7003.74, 6625.93, 5668.05, 5550.3, 5730.74, 5059.69, 5290.53, 4869.96], "yAxisID": "y1", "type": "line", "borderColor": "rgba(110,110,115,.9)", "borderWidth": 2, "pointRadius": 0, "tension": 0.25, "borderDash": [4, 3]}], "st": true, "yt": "발언 수(건)", "k": "bar", "u": " 건"});</script>
-<div class="explain">
-<p>가장 많았던 주는 76건(07-27 주),
-가장 적었던 주는 12건(04-27 주)이다.</p>
-<p>여기서 주의하실 점이 있다.
-발언이 많아진다고 해서 앞으로 무슨 일이 생긴다는 뜻이 아니다.
-순서가 반대이다. 시장이 먼저 흔들리고, 그 다음에 방송이 늘어난다.</p>
-<p>그러니 이 차트는 "신호"가 아니라 "그때 분위기가 어땠나"를 보는 용도이다.
-막대가 유난히 높은 주의 코멘트일수록
-앞을 내다본 말이 아니라 이미 벌어진 일에 대한 반응일 가능성이 크다.</p>
-</div>
+<div class="kbp"><div class="s">가장 많은 주 76건, 가장 적은 주 12건</div><div><p>가장 많았던 주는 76건(7월 27일 주)이다. 가장 적었던 주는 12건(4월 27일 주)이다.</p></div></div>
+<div class="kbp"><div class="s">발언은 시장 뒤에 온다</div><div><p>여기서 주의할 점이 있다. 발언이 많아진다고 앞으로 무슨 일이 생긴다는 뜻이 아니다. 순서가 반대다. 시장이 먼저 흔들리고, 그 다음에 방송이 는다.</p></div></div>
+<div class="kbp"><div class="s">신호가 아니라 분위기</div><div><p>그래서 이 차트는 신호가 아니라 그때의 분위기를 보는 용도다. 막대가 유난히 높은 주의 코멘트일수록 앞을 내다본 말이 아니라 이미 벌어진 일에 대한 반응일 가능성이 크다.</p></div></div>
 </div>
 
 <div class="sec">
-<h2 id="무엇이-화두였나-주제어-점유율">무엇이 화두였나? 주제어 점유율</h2>
-<p class="sub">그 주에 나온 제목 100개 중 몇 개에 그 단어가 들어 있었나를 나타낸다.
-예를 들어 '반도체'가 40%라면, 그 주 발언 10개 중 4개가 반도체 이야기였다는 뜻이다.
-다시 말씀드리지만 방향이 아니라 화제이다.</p>
+<h2 id="무엇이-화두였나-주제어-점유율">무엇이 화두였나: 주제어 점유율</h2>
+<div class="kbp"><div class="s">점유율이란</div><div><p>그 주에 나온 제목 100개 중 몇 개에 그 단어가 들어 있었나를 나타낸다. 예를 들어 '반도체'가 40%면 그 주 발언 10개 중 4개가 반도체 이야기였다는 뜻이다. 다시 말하지만 방향이 아니라 화제다.</p></div></div>
+
 <div class="cchart"><div class="cbox"><canvas id="xt"></canvas></div></div><script>(window.__XCH=window.__XCH||[]).push({"id": "xt", "t": "주제어 점유율 — 제목에 그 말이 등장한 비율(%)", "l": ["04/27", "05/04", "05/11", "05/18", "05/25", "06/01", "06/08", "06/15", "06/22", "06/29", "07/06", "07/13", "07/20", "07/27", "08/03", "08/10", "08/17", "08/24", "08/31", "09/07", "09/14", "09/21", "09/28", "10/05", "10/12", "10/19", "10/26", "11/02", "11/09", "11/16"], "f": ["2026-04-27 주 (월요일 기준)", "2026-05-04 주 (월요일 기준)", "2026-05-11 주 (월요일 기준)", "2026-05-18 주 (월요일 기준)", "2026-05-25 주 (월요일 기준)", "2026-06-01 주 (월요일 기준)", "2026-06-08 주 (월요일 기준)", "2026-06-15 주 (월요일 기준)", "2026-06-22 주 (월요일 기준)", "2026-06-29 주 (월요일 기준)", "2026-07-06 주 (월요일 기준)", "2026-07-13 주 (월요일 기준)", "2026-07-20 주 (월요일 기준)", "2026-07-27 주 (월요일 기준)", "2026-08-03 주 (월요일 기준)", "2026-08-10 주 (월요일 기준)", "2026-08-17 주 (월요일 기준)", "2026-08-24 주 (월요일 기준)", "2026-08-31 주 (월요일 기준)", "2026-09-07 주 (월요일 기준)", "2026-09-14 주 (월요일 기준)", "2026-09-21 주 (월요일 기준)", "2026-09-28 주 (월요일 기준)", "2026-10-05 주 (월요일 기준)", "2026-10-12 주 (월요일 기준)", "2026-10-19 주 (월요일 기준)", "2026-10-26 주 (월요일 기준)", "2026-11-02 주 (월요일 기준)", "2026-11-09 주 (월요일 기준)", "2026-11-16 주 (월요일 기준)"], "d": [{"label": "폭락·조정", "data": [0.0, 2.5, 16.0, 12.8, 4.3, 18.6, 23.1, 8.3, 34.6, 19.1, 12.2, 26.5, 10.0, 36.8, 15.9, 10.4, 6.2, 13.6, 8.1, 11.1, 9.7, 8.9, 0.0, 13.0, 20.3, 16.1, 15.0, 13.2, 16.9, 14.6], "borderColor": "#d21f3c", "backgroundColor": "transparent", "borderWidth": 2, "pointRadius": 0, "tension": 0.3}, {"label": "바닥·반등", "data": [16.7, 10.0, 10.0, 4.3, 2.2, 2.3, 13.5, 6.2, 0.0, 10.6, 10.2, 8.2, 10.0, 11.8, 2.9, 10.4, 3.1, 7.6, 3.2, 6.3, 4.8, 0.0, 7.1, 5.6, 4.7, 17.7, 13.3, 14.7, 9.2, 4.9], "borderColor": "#1161c4", "backgroundColor": "transparent", "borderWidth": 2, "pointRadius": 0, "tension": 0.3}, {"label": "반도체", "data": [16.7, 32.5, 26.0, 12.8, 26.1, 16.3, 26.9, 41.7, 25.0, 38.3, 32.7, 40.8, 31.4, 27.6, 24.6, 19.4, 17.2, 9.1, 16.1, 9.5, 16.1, 16.1, 16.1, 14.8, 14.1, 11.3, 16.7, 13.2, 4.6, 4.9], "borderColor": "#b45309", "backgroundColor": "transparent", "borderWidth": 2, "pointRadius": 0, "tension": 0.3}, {"label": "금리·환율", "data": [8.3, 2.5, 14.0, 8.5, 10.9, 9.3, 11.5, 20.8, 1.9, 10.6, 12.2, 2.0, 0.0, 10.5, 10.1, 11.9, 21.9, 19.7, 16.1, 15.9, 27.4, 7.1, 23.2, 16.7, 3.1, 9.7, 6.7, 5.9, 9.2, 4.9], "borderColor": "#4c7a34", "backgroundColor": "transparent", "borderWidth": 2, "pointRadius": 0, "tension": 0.3}, {"label": "주도주", "data": [0.0, 0.0, 4.0, 0.0, 0.0, 2.3, 0.0, 6.2, 3.8, 12.8, 2.0, 2.0, 0.0, 1.3, 0.0, 1.5, 1.6, 0.0, 1.6, 0.0, 4.8, 0.0, 1.8, 1.9, 1.6, 3.2, 1.7, 1.5, 0.0, 0.0], "borderColor": "#7a3fa0", "backgroundColor": "transparent", "borderWidth": 2, "pointRadius": 0, "tension": 0.3}, {"label": "AI·빅테크", "data": [0.0, 12.5, 14.0, 12.8, 28.3, 11.6, 11.5, 12.5, 13.5, 19.1, 20.4, 12.2, 8.6, 9.2, 10.1, 10.4, 17.2, 16.7, 6.5, 9.5, 14.5, 12.5, 10.7, 9.3, 6.2, 9.7, 13.3, 17.6, 23.1, 19.5], "borderColor": "#0f7b8a", "backgroundColor": "transparent", "borderWidth": 2, "pointRadius": 0, "tension": 0.3}], "st": false, "yt": "비율(%)", "k": "line", "u": "%"});</script>
-<div class="explain">
-<p>읽는 법. 선이 올라간다는 것은 그 주제가 많이 언급됐다는 뜻일 뿐이다.
-사람들 의견이 그쪽으로 기울었다는 뜻이 아니다.
-'폭락·조정' 선이 치솟은 주에도 실제 내용은 "지금이 바닥이다"일 수 있다.</p>
-<p>이번 구간이 그 증거이다. '폭락·조정' 점유율이 가장 높았던 두 주는
-07/27 주(37%, 코스피 6,595)와 06/22 주(35%, 코스피 8,411)이다.
-그런데 이 구간의 코스피 고점은 06/15 주
-(9,052), 저점은 11/16 주
-(4,870)였다.
-같은 단어가 천장 근처에서도, 바닥 근처에서도 똑같이 치솟았다는 뜻이다.
-'폭락' 이야기가 많아지는 것은 방향의 신호가 아니라 변동성의 신호이다.
-방향을 알고 싶으면 제목을 세지 말고 아래에서 원본을 여라.</p>
-</div>
+<div class="kbp"><div class="s">읽는 법</div><div><p>곡선이 올라간다는 것은 그 주제가 많이 언급됐다는 뜻일 뿐이다. 사람들 의견이 그쪽으로 기울었다는 뜻이 아니다. '폭락 · 조정' 곡선이 치솟은 주에도 실제 내용은 '지금이 바닥이다'일 수 있다.</p></div></div>
+<div class="kbp"><div class="s">상위 2주의 위치</div><div><p>이번 구간이 그 증거다. '폭락 · 조정' 점유율이 가장 높았던 2주는 7월 27일 주(점유율 37%, 코스피 6,595, 고점 대비 -27%), 6월 22일 주(점유율 35%, 코스피 8,411, 고점 대비 -7%)다. 이 구간의 코스피 고점은 6월 15일 주(9,052)다. 점유율 상위 2주의 위치는 고점 대비 -7%와 -27%로 서로 다른 국면이었다. 같은 단어가 국면을 가리지 않고 치솟았다는 뜻이다. 다시 말해서, '폭락' 이야기가 많아지는 것은 방향의 신호가 아니라 변동성의 신호다. 방향을 알고 싶으면 아래에서 원본을 연다.</p></div></div>
+<p class="kb-note">※ 2026년 11월 20일 판에서 바로잡았다. 옛 판은 '폭락' 화제가 '천장 근처에서도, 바닥 근처에서도' 치솟았다고 적었다. 그 뒤 11월에 더 낮은 저점이 나와 지금은 맞지 않는다. 그래서 고점 대비 위치로 바꿨다. 옛 판의 '다섯 분'도 지금은 6인이다.</p>
 </div>
 
 <div class="sec">
 <h2 id="누구를-얼마나-담고-있나">누구를, 얼마나 담고 있나?</h2>
+<p class="kb-cap">표 1. 인물별 수집 건수</p>
 <div class="tblwrap"><table class="xcov">
 <thead><tr><th>인물</th><th class="n">전체</th><th class="n">본편</th><th class="n">기간</th></tr></thead>
 <tbody><tr><td><b>증시각도기</b><br><span style="font-size:11.5px;color:var(--text2)">곽상준 · 증시각도기TV</span></td><td class="n">610</td><td class="n">573</td><td class="n">05-01~11-20</td></tr><tr><td><b>박세익</b><br><span style="font-size:11.5px;color:var(--text2)">체슬리투자자문 전무 · 체슬리TV</span></td><td class="n">905</td><td class="n">850</td><td class="n">05-01~11-20</td></tr><tr><td><b>이은택</b><br><span style="font-size:11.5px;color:var(--text2)">KB증권 · 이그전 블로그</span></td><td class="n">85</td><td class="n">85</td><td class="n">05-04~11-12</td></tr><tr><td><b>윤지호</b><br><span style="font-size:11.5px;color:var(--text2)">리서치센터장 출신 · 삼쩜삼캠퍼스 등</span></td><td class="n">34</td><td class="n">33</td><td class="n">05-01~11-06</td></tr><tr><td><b>김효진</b><br><span style="font-size:11.5px;color:var(--text2)">신영증권 이코노미스트</span></td><td class="n">26</td><td class="n">26</td><td class="n">05-19~11-03</td></tr><tr><td><b>3.3캠퍼스</b><br><span style="font-size:11.5px;color:var(--text2)">삼쩜삼캠퍼스 · 여러 게스트</span></td><td class="n">29</td><td class="n">28</td><td class="n">05-01~11-06</td></tr></tbody></table></div>
-<div class="explain">
-<p>건수가 사람마다 크게 다르다. 이건 실력이나 영향력과 아무 상관이 없다.</p>
-<p>증시각도기·박세익 두 분은 본인 채널이나 고정 코너가 있어 거의 매일 잡힌다.
-반면 윤지호·김효진 두 분은 개인 채널이 없어,
-다른 채널에 출연하면서 제목에 이름이 뜰 때만 걸린다.</p>
-<p>그래서 건수가 적다고 발언이 적었다는 뜻이 아니다.
-제가 못 잡은 것일 뿐이다.
-이 표는 자랑하려고 둔 게 아니라, 이 페이지가 무엇을 놓치고 있는지를 먼저 밝히려고 둔 것이다.</p>
-</div>
+<div class="kbp"><div class="s">건수 차이는 실력과 무관</div><div><p>건수가 사람마다 크게 다르다. 이것은 실력이나 영향력과 아무 상관이 없다.</p></div></div>
+<div class="kbp"><div class="s">채널이 있으면 매일 잡힌다</div><div><p>증시각도기 · 박세익 2인은 본인 채널이나 고정 코너가 있다. 그래서 거의 매일 잡힌다. 반면 윤지호 · 김효진 2인은 개인 채널이 없다. 다른 채널에 출연하면서 제목에 이름이 뜰 때만 잡힌다.</p></div></div>
+<div class="kbp"><div class="s">놓친 것을 먼저 밝힌다</div><div><p>그래서 건수가 적다고 발언이 적었다는 뜻이 아니다. 이 사이트가 못 잡은 것일 뿐이다. 이 표는 이 페이지가 무엇을 놓치고 있는지를 먼저 밝히려고 둔 것이다.</p></div></div>
 </div>
 
 <div class="sec">
 <h2 id="발언-타임라인">발언 타임라인</h2>
-<p class="sub">맨 위가 가장 최근이다. 제목을 누르면 원본 영상이나 글로 간다.<br>
-위쪽 이름 버튼을 누르면 그 사람 것만 본다.
-검색창에 '반도체'처럼 단어를 넣으면 그 말이 든 것만 남는다.
-하이라이트·복습본 같은 짧은 클립은 접어 두었는데,
-체크박스를 누르면 같이 보인다.</p>
+<div class="kbp"><div class="s">읽는 법</div><div><p>맨 위가 가장 최근이다. 제목을 누르면 원본 영상이나 글로 간다. 위쪽 이름 버튼을 누르면 그 사람 것만 본다. 검색창에 '반도체'처럼 단어를 넣으면 그 말이 든 것만 남는다. 하이라이트 · 복습본 같은 짧은 클립은 접어 두었다. 체크박스를 누르면 같이 보인다.</p></div></div>
+
 <div class="xf"><button class="on" data-p="all">전체</button><button data-p="증시각도기">증시각도기</button><button data-p="박세익">박세익</button><button data-p="이은택">이은택</button><button data-p="윤지호">윤지호</button><button data-p="김효진">김효진</button><button data-p="3.3캠퍼스">3.3캠퍼스</button></div>
 <div class="xtools">
   <input type="search" id="xq" placeholder="제목·채널 검색" aria-label="검색">
@@ -959,14 +931,28 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 </div>
 
 <div class="sec">
-<div class="disclaimer">
-<p>출처. 유튜브 채널 공개 피드(증시각도기TV, 체슬리TV, 삼프로TV, 3.3캠퍼스)와
-네이버 블로그 이그전 RSS. 제목·게시일·링크는 공개된 원본 그대로이며 본문은 옮기지 않았다.
-코스피 종가는 별도 수집분이다.</p>
-<p>한계. 여러 사람이 나오는 채널에서는 제목이나 설명에 이름이 적혀 있어야만 잡힌다.
-그래서 빠진 발언이 있다. 강세·약세 판정은 비어 있다.
-이 페이지는 투자 판단을 대신하지 않는다. 참고 자료로만 보기 바란다.</p>
-</div>
+<h2 id="결론-방향은-원본에서-화제와-발언량은-이-페이지에서">결론: 방향은 원본에서, 화제와 발언량은 이 페이지에서</h2>
+<p>결론적으로 이 페이지는 발언의 기록이다. 정리하면 아래와 같다.</p>
+<ol>
+<li>6인의 발언 1,660건을 그날의 코스피 종가와 함께 쌓았다.</li>
+<li>강세 · 약세는 판정하지 않는다. 제목만으로는 방향을 정할 수 없다.</li>
+<li>'폭락' 화제는 방향이 아니라 변동성의 신호다.</li>
+</ol>
+<p>이 페이지는 투자 판단을 대신하지 않는다. 전문가의 다음 발언도 전망하지 않는다.</p>
+
+<h2 id="이-글의-한계">이 글의 한계</h2>
+<ol>
+<li>여러 사람이 나오는 채널에서는 제목이나 설명에 이름이 있어야만 잡힌다. 그래서 놓친 발언이 있다.</li>
+<li>강세 · 약세 판정은 비어 있다. 사람이 채우는 몫이다.</li>
+<li>화제는 제목의 낱말로만 집계했다. 본문은 보지 않았다.</li>
+<li>출처는 공개 원본이다. 유튜브 채널 공개 피드(증시각도기TV · 체슬리TV · 삼프로TV · 3.3캠퍼스)와 네이버 블로그 이그전 RSS다. 제목 · 게시일 · 링크는 원본 그대로다. 본문은 옮기지 않았다. 코스피 종가는 별도 수집분이다.</li>
+</ol>
+
+<h2 id="이-글의-용어">이 글의 용어</h2>
+<p>본편은 클립이 아닌 발언이다.</p>
+<p>클립은 하이라이트나 복습본 같은 짧은 영상이다.</p>
+<p>주제어 점유율은 그 주 제목 가운데 그 주제어가 든 제목의 비율이다.</p>
+<p>주간 발언 건수는 월요일 기준으로 그 주의 발언 수다.</p>
 </div>
 </div>
 <div class="wrap"><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="minervini-x.html">마크 미너비니 X 추적</a> 해외 쪽 한 사람을 같은 방식으로 쌓는 페이지다. 원문과 번역, 그 뒤 시장.</p></div><!--RELATED:END--></div>
