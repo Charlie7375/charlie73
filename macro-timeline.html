@@ -41,6 +41,13 @@ h2.sec{font-size:19px;margin:34px 0 14px}
 .inf p{font-size:13.5px;color:var(--text-secondary)}
 .inf a{color:var(--accent)}
 .note{font-size:12.5px;color:var(--text-secondary);margin-top:26px;padding-top:14px;border-top:1px solid var(--border)}
+/* KB 판 (2026-11-20) */
+.kbp{margin:14px 0}
+.kbp>.s{font-weight:700;font-size:.92em;color:var(--text-secondary,#6e6e73);margin:0 0 3px}
+.kbp>div>p{margin:0 0 8px}
+.kb-note{font-size:.88em;color:var(--text-secondary,#6e6e73);line-height:1.7;margin:4px 0}
+h3.kb{font-size:16px;margin:22px 0 6px}
+.pclaim .kb-t{font-weight:800;margin-top:12px}
 @media(max-width:640px){.wrap{padding:24px 14px 60px}}
 
 /* ── 사이트 공통 상단바 v2 ── */
@@ -321,53 +328,7 @@ html,body{overflow-x:hidden}
   html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
   html body .site-bar-in{padding:9px 14px 7px}
 }
-/* BAR:END */
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
-
-/* SEARCH:BEGIN */
-.srch-btn{position:fixed;top:auto;bottom:18px;right:68px;z-index:130;width:42px;height:42px;border-radius:50%;
-  background:var(--surface,#F6F7F9);border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text,#0f172a);
-  cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;
-  box-shadow:0 2px 14px rgba(0,0,0,.10);transition:transform .12s,box-shadow .12s}
-.srch-btn:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(0,0,0,.16)}
-.srch-btn:focus-visible,.srch-in:focus-visible,.srch-r a:focus-visible{outline:2px solid var(--accent,#2563eb);outline-offset:2px}
-.srch-bg{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.38);display:none}
-.srch-bg.on{display:block}
-.srch-box{position:fixed;z-index:201;top:72px;left:50%;transform:translateX(-50%);width:min(680px,calc(100vw - 24px));
-  max-height:calc(100vh - 96px);max-height:calc(100dvh - 96px);display:none;flex-direction:column;
-  background:var(--bg,#fff);color:var(--text,#0f172a);border:1px solid var(--border,rgba(15,23,42,.12));
-  border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.28);overflow:hidden}
-.srch-box.on{display:flex}
-.srch-top{display:flex;gap:8px;align-items:center;padding:12px 14px;border-bottom:1px solid var(--border,rgba(15,23,42,.12))}
-.srch-in{flex:1;min-width:0;font:inherit;font-size:16px;padding:9px 11px;border-radius:9px;
-  border:1px solid var(--border,rgba(15,23,42,.12));background:var(--surface,#F6F7F9);color:var(--text,#0f172a)}
-.srch-x{font:inherit;font-size:13px;padding:8px 10px;border-radius:9px;border:0;background:none;color:var(--text2,#6e6e73);cursor:pointer}
-.srch-meta{padding:8px 16px 0;font-size:12.5px;color:var(--text2,#6e6e73)}
-.srch-r{list-style:none;margin:0;padding:6px 8px 12px;overflow-y:auto;overscroll-behavior:contain}
-.srch-r li{margin:0}
-.srch-r a{display:block;padding:10px 10px;border-radius:9px;color:inherit;text-decoration:none}
-.srch-r a:hover,.srch-r a.cur{background:var(--surface,#F6F7F9)}
-.srch-k{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;padding:1px 6px;border-radius:5px;
-  margin-right:6px;vertical-align:1px;border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text2,#6e6e73)}
-.srch-t{font-weight:700;font-size:14.5px;line-height:1.4}
-.srch-h{font-size:13px;color:var(--text2,#6e6e73);margin-top:2px;line-height:1.4}
-.srch-s{font-size:13px;line-height:1.55;margin-top:4px;color:var(--text,#0f172a);opacity:.86}
-.srch-s mark,.srch-h mark,.srch-t mark{background:rgba(37,99,235,.18);color:inherit;border-radius:3px;padding:0 1px}
-/* 상단 메뉴 «검색» — 드롭다운 버튼(.site-group>button)과 같은 글자로.
-   ⚠ site-group 이 아니라 site-srch 로 감싼다 — 상단바 토글 JS 가 site-group 마다 버튼을 찾다 오류가 났다(2026-10-06). */
-html body .site-srch{position:relative;display:flex;align-items:center}
-html body .site-srch>a.srch-nav{display:flex;align-items:center;font-size:13px;font-weight:600;letter-spacing:-.01em;
-  line-height:normal;color:var(--text-secondary,#475569);padding:8px 12px;border-radius:9px;text-decoration:none}
-html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in srgb,var(--text) 6%,transparent)}
-@media(max-width:760px){.srch-box{top:12px} html body .site-srch>a.srch-nav{padding:8px 8px;font-size:12px}}
-@media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
-/* SEARCH:END */
-/*TOCCSS:BEGIN*/
+/* BAR:END *//*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
 /* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
@@ -715,7 +676,46 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style><link rel="stylesheet" href="vendor/fonts.css"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
+/* PAPER:END */
+/* SEARCH:BEGIN */
+.srch-btn{position:fixed;top:auto;bottom:18px;right:68px;z-index:130;width:42px;height:42px;border-radius:50%;
+  background:var(--surface,#F6F7F9);border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text,#0f172a);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;
+  box-shadow:0 2px 14px rgba(0,0,0,.10);transition:transform .12s,box-shadow .12s}
+.srch-btn:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(0,0,0,.16)}
+.srch-btn:focus-visible,.srch-in:focus-visible,.srch-r a:focus-visible{outline:2px solid var(--accent,#2563eb);outline-offset:2px}
+.srch-bg{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.38);display:none}
+.srch-bg.on{display:block}
+.srch-box{position:fixed;z-index:201;top:72px;left:50%;transform:translateX(-50%);width:min(680px,calc(100vw - 24px));
+  max-height:calc(100vh - 96px);max-height:calc(100dvh - 96px);display:none;flex-direction:column;
+  background:var(--bg,#fff);color:var(--text,#0f172a);border:1px solid var(--border,rgba(15,23,42,.12));
+  border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.28);overflow:hidden}
+.srch-box.on{display:flex}
+.srch-top{display:flex;gap:8px;align-items:center;padding:12px 14px;border-bottom:1px solid var(--border,rgba(15,23,42,.12))}
+.srch-in{flex:1;min-width:0;font:inherit;font-size:16px;padding:9px 11px;border-radius:9px;
+  border:1px solid var(--border,rgba(15,23,42,.12));background:var(--surface,#F6F7F9);color:var(--text,#0f172a)}
+.srch-x{font:inherit;font-size:13px;padding:8px 10px;border-radius:9px;border:0;background:none;color:var(--text2,#6e6e73);cursor:pointer}
+.srch-meta{padding:8px 16px 0;font-size:12.5px;color:var(--text2,#6e6e73)}
+.srch-r{list-style:none;margin:0;padding:6px 8px 12px;overflow-y:auto;overscroll-behavior:contain}
+.srch-r li{margin:0}
+.srch-r a{display:block;padding:10px 10px;border-radius:9px;color:inherit;text-decoration:none}
+.srch-r a:hover,.srch-r a.cur{background:var(--surface,#F6F7F9)}
+.srch-k{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;padding:1px 6px;border-radius:5px;
+  margin-right:6px;vertical-align:1px;border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text2,#6e6e73)}
+.srch-t{font-weight:700;font-size:14.5px;line-height:1.4}
+.srch-h{font-size:13px;color:var(--text2,#6e6e73);margin-top:2px;line-height:1.4}
+.srch-s{font-size:13px;line-height:1.55;margin-top:4px;color:var(--text,#0f172a);opacity:.86}
+.srch-s mark,.srch-h mark,.srch-t mark{background:rgba(37,99,235,.18);color:inherit;border-radius:3px;padding:0 1px}
+/* 상단 메뉴 «검색» — 드롭다운 버튼(.site-group>button)과 같은 글자로.
+   ⚠ site-group 이 아니라 site-srch 로 감싼다 — 상단바 토글 JS 가 site-group 마다 버튼을 찾다 오류가 났다(2026-10-06). */
+html body .site-srch{position:relative;display:flex;align-items:center}
+html body .site-srch>a.srch-nav{display:flex;align-items:center;font-size:13px;font-weight:600;letter-spacing:-.01em;
+  line-height:normal;color:var(--text-secondary,#475569);padding:8px 12px;border-radius:9px;text-decoration:none}
+html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in srgb,var(--text) 6%,transparent)}
+@media(max-width:760px){.srch-box{top:12px} html body .site-srch>a.srch-nav{padding:8px 8px;font-size:12px}}
+@media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
+/* SEARCH:END */
+</style><link rel="stylesheet" href="vendor/fonts.css"><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-watch.html">바닥 추적</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a></div></div><div class="site-group"><button class="here" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a class="here" href="macro-timeline.html">거시 이벤트 연대기</a><a href="supply-analysis.html">수급 심층 분석</a><a href="experts.html">전문가 의견 추적</a><a href="minervini-x.html">마크 미너비니 X 추적</a><a href="foreign-share.html">외국인 비중</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-psk-holdings.html">피에스케이홀딩스</a><a href="stock-samsung-sdi.html">삼성SDI</a><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-nhn.html">NHN</a><a href="stock-kolmar.html">한국콜마</a><a href="stock-cosmax.html">코스맥스</a><a href="stock-pharmaresearch.html">파마리서치</a><a href="stock-jyp.html">JYP Ent.</a><a href="stock-sm-ent.html">에스엠</a><a href="stock-yg-ent.html">와이지엔터테인먼트</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="marks.html">하워드 막스의 방법론</a><a href="marks-glossary.html">사이클 용어사전</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a><a href="cycle-rope.html">사이클과 규칙</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><span class="nav-h sub">경기와 수출</span><a href="china-import-prices.html">중국산 수입물가와 주가</a><a href="jp-cci-kospi.html">일본 소비심리와 코스피</a><a href="us-elections.html">미국 선거와 증시</a><a href="export-kospi.html">수출과 코스피</a><a href="cli-kospi.html">OECD CLI 와 코스피</a><a href="ism-kospi.html">ISM 과 코스피</a><a href="jeoji-kospi.html">제오지산수</a><span class="nav-h sub">시장 국면</span><a href="kosdaq-seasonality.html">해와 달의 코스닥</a><a href="kospi-bottom.html">코스피 바닥 판별</a><a href="sp500-ftd.html">S&P 500 팔로스루 데이</a><a href="kospi-ftd.html">팔로스루 데이</a><a href="kospi-panics.html">코스피 역대 공황</a><a href="rally-angle.html">상승 각도</a><a href="kospi-seasonality-down.html">해와 달의 코스피 · 역편</a><a href="kospi-drivers.html">코스피 선행 변수</a><a href="kospi-seasonality.html">해와 달의 코스피</a><a href="breadth-concentration.html">신고가 쏠림</a><a href="kospi-analog.html">닮은 과거</a><a href="audition-history.html">오디션 히스토리</a><a href="disparity-archive.html">두 버블의 이격도</a><a href="stage-analysis.html">와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리</a><span class="nav-h sub">신용과 청산</span><a href="credit-lag.html">미 은행 대출 태도와 가산금리</a><a href="us-credit-spread.html">미국 신용스프레드</a><a href="deleveraging.html">강제청산</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="sentiment.html">빚과 현금</a><span class="nav-h sub">수급과 폭락</span><a href="flow-quadrant.html">개인 수급 사분면</a><a href="foreign-flow.html">외국인 수급</a><a href="flow-extremes.html">개인과 외국인의 대량 매매</a><a href="flow-crashes.html">폭락의 구조</a><span class="nav-h sub">금리와 통화</span><a href="rate-crash-primer.html">금리-공황 프로세스 읽기</a><a href="nikkei-rates.html">닛케이와 미국 금리</a><a href="kospi-spx-gap.html">코스피와 S&P 500</a><a href="rate-crash-process.html">금리-공황 프로세스</a><a href="gold-rates.html">금리와 금값</a><a href="treasury-trust.html">미국 국채 바이백</a><a href="inflation-playbook.html">인플레 시대의 자산</a><a href="rates-century.html">미국 금리 100년</a><a href="liquidity.html">미국 유동성</a><a href="fed-kospi.html">연준 기준금리와 코스피</a><a href="rates-101.html">금리 기초</a><a href="rates-crashes.html">금리 5%와 공황</a><a href="dollar-kospi.html">달러와 코스피</a><span class="nav-h sub">개별 종목</span><a href="memory-price.html">D램 가격과 삼성전자</a><a href="leadlag.html">하이닉스의 선행과 후행</a><a href="samsung-long.html">삼성전자 27년</a></div></div><div class="site-group"><button class="" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 153계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a href="data-kr-rates.html">한국 금리</a><a href="data-us-market.html">미국 시장</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a href="data-fx.html">환율·원자재·암호</a><a href="data-macro.html">재정·거시</a><a href="data-world.html">세계 증시</a></div></div><div class="site-srch"><a class="srch-nav" href="#search" role="button">검색</a></div><!-- NAV:END --></nav>
@@ -723,13 +723,21 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 <div class="wrap paper">
 <header class="phead"><!--phead:unified--><div class="eyebrow">판단 · 거시 이벤트 연대기</div>
 <h1>거시 이벤트 연대기 — 2025-04 ~ 현재</h1>
-<p class="sub">기준 2026-10-27 · 이벤트 37건 · 사건은 사람이 고르고, 수치(코스피·미10년물·연준 상단·CPI)는 생성기가 원자료에서 매일 다시 붙인다</p>
+<!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#타임라인-최신이-위">타임라인: 최신이 위</a></li><li><a href="#2026년-9월-1일의-추론-중공황-전조와-맞대-보았다">2026년 9월 1일의 추론: 중공황 전조와 맞대 보았다</a></li><li><a href="#결론-사건을-한-줄로-세우면-버블-사이클의-순서가-보인다">결론: 사건을 한 줄로 세우면 버블 사이클의 순서가 보인다</a></li><li><a href="#이-글의-한계">이 글의 한계</a></li><li><a href="#이-글의-용어">이 글의 용어</a></li></ol></div><!--TOC:END--><p>2025년 4월 소공황 저점부터 2026년 10월 26일까지 거시 사건 37건을 날짜 순서대로 세웠다. 코스피는 그 사이 종가 기준 2,294에서 9,115까지 상승했다. 지금은 4,870에 있다.</p>
+<p>사건마다 시장의 해석은 그때그때 달랐다. 그래서 이 페이지는 사건을 한 줄로 세우고 그날의 수치를 붙였다. 사건은 사람이 고른다. 수치는 원자료에서 매일 다시 붙인다.</p>
+<p>결론부터 말하면, 사건을 한 줄로 세우면 교과서적 버블 사이클이 보인다. 문제는 다음 단계가 언제냐다. 이 페이지는 그 시점을 전망하지 않는다.</p>
+<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div>
+<p class="kb-t">1. 흐름: 인하 3번 뒤 코스피 4.0배</p><p>저점에서 고점까지 14개월이다. 그 뒤 물가가 다시 상승했다.</p>
+<p class="kb-t">2. 인플레 시대의 인하는 버블을 키웠다</p><p>디플레 시대 규칙과 반대로 작동했다.</p>
+<p class="kb-t">3. 판단은 그때의 날짜로 남긴다</p><p>추론 절은 2026년 9월 1일의 판단이다.</p>
+</div><!--PCLAIM:END-->
+<p class="sub">기준 2026-10-27 · 사건 37건</p>
 <p class="pauth">기준일 2026-11-20 · 이벤트는 판단 문서(macro_timeline.json) · 수치는 코스피·미10년물·연준·CPI 원자료 · 매일 갱신</p></header>
 <div class="stale">⚠ 마지막 이벤트가 25일 전이다 — 연대기가 뒤처져 있다. 최근 사건을 추가해야 한다.</div>
 <div class="stats"><div class="st"><div class="sk">기간</div><div class="sv">2025-04 ~ 2026-10-26</div></div><div class="st"><div class="sk">코스피</div><div class="sv">2,294 → 9,115 → 4,870</div></div><div class="st"><div class="sk">연준 상단</div><div class="sv">4.50% → 3.75% (지금 4.00%)</div></div><div class="st"><div class="sk">미 CPI</div><div class="sv">2.3% → 3.7% (2026-09)</div></div><div class="st"><div class="sk">미 10년물</div><div class="sv">5.04%</div></div><div class="st"><div class="sk">한은 기준금리</div><div class="sv">2.50% → 3.00%</div></div></div>
 <div class="legend"><span class="lg" style="--c:#2563eb">연준</span><span class="lg" style="--c:#0ea5e9">한국</span><span class="lg" style="--c:#111827">시장</span><span class="lg" style="--c:#ef4444">전조</span><span class="lg" style="--c:#8b5cf6">지정학·정책</span><span class="lg" style="--c:#f59e0b">판단</span></div>
-<p class="note">이 페이지에 자주 나오는 말 둘. 분산일은 기관이 파는 날이고, FTD는 바닥을 지났다는 상승 확인 신호다.</p>
-<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>2025년 4월 저점부터 17개월의 사건을 한 줄에 세우면 교과서적 버블 사이클이 보인다. 3번의 인하가 코스피를 4배로 밀어올렸고, 물가가 3퍼센트대로 돌아오자 각국이 차례로 금리를 올리기 시작했다. 이야기꾼과 이그전은 같은 날 '인상이 곧 공황은 아니다'에 섰다. 갈림길의 관문은 9월 미국 물가 하나로 좁혀졌다.</p></div><!--PCLAIM:END--><h2 class="sec">타임라인: 최신이 위</h2>
+<div class="kbp"><div class="s">사건은 사람이, 수치는 원자료에서</div><div><p>이 페이지는 판단 문서다. 사건 선정과 추론은 사람이 쓴다. 카드의 수치는 생성기가 원자료에서 매일 다시 붙인다. 수치는 그 날짜 이하의 마지막 값이다. 그때 시장이 알던 마지막 값이라야 사건과 국면이 맞기 때문이다.</p></div></div>
+<h2 id="타임라인-최신이-위" class="sec">타임라인: 최신이 위</h2>
 <div class="tl"><div class="tmark"><span>2026년 10월</span></div>
 <div class="tev" style="--c:#ef4444"><div class="tdot"></div><div class="tcard"><div class="thead"><span class="tdate">2026-10-26</span><span class="tgroup">전조</span></div><h3>메타 최대 950억불 주식 발행 계획: 보통주·전환우선주 약 350억불, 2027년 1분기부터 무의결권 C주 600억불 수시 매각</h3><p>메타가 AI 투자 자금으로 최대 950억불의 주식 발행 계획을 냈다(S-3ASR·424B5 공시). 즉시 몫은 보통주 약 225억불과 의무전환 우선주 약 125억불이다. 나머지 약 600억불은 의결권이 없는 새 C주가 거래를 시작한 뒤(2027년 1분기 예정) 시장에서 수시로 판다. 같은 날 앤트로픽 S-1 이 나왔다. 이야기꾼은 「메타 악재가 앤트로픽 호재를 누르지는 못했다」로 읽었고, 그날 나스닥은 0.83% 상승했다(이야기꾼). 이야기꾼의 중공황 전조 19번 '주식 공급 과잉'(대형 IPO·락업 해제) 쪽에 놓이는 사건이다.</p><div class="tjz"><span class="tjzk">제오지산수</span>제 54.5 · 오 101.5 · 지 +3.4% · 산 103.4 · 수 +93.7%</div><div class="tfoot"><span class="tnum">코스피 5,469 · 미10y 5.00% · 연준 4.00% · CPI 3.7%(전월)</span><span class="tsrc">SEC EDGAR 메타(CIK 1326801) S-3ASR·424B5 2026-10-26 · Bloomberg 10/26 · 이야기꾼 회원방 10/27</span></div></div></div>
 <div class="tev" style="--c:#111827"><div class="tdot"></div><div class="tcard"><div class="thead"><span class="tdate">2026-10-26</span><span class="tgroup">시장</span></div><h3>앤트로픽 S-1 공시: 10만불 이상 고객 11,900곳, 클라우드 3사 최소 약정 2,694억불, 3분기 매출과 공모 규모는 빈칸</h3><p>앤트로픽이 SEC 에 상장 신고서(S-1)를 냈다. 분기 매출은 2026년 1분기 47.3억불에서 2분기 115.6억불로 144% 증가했고, 2분기 영업이익률이 처음 플러스(+8%)가 됐다. 최근 12개월 매출 10만불 이상 고객은 1년 사이 950곳에서 11,900곳으로 늘었다. 앤트로픽이 구글(1,145억불)·아마존(1,100억불)·마이크로소프트(449억불)에 지불하기로 한 최소 약정은 클라우드 3사 쪽에서 보면 확정된 매출이다. 이야기꾼은 10/27 「당분간 AI 고점론은 다소 잦아들 것」, 「딱 내년 4월까지만」으로 읽었다. 보도된 3분기 매출 168억불은 공시에 없다. 공급 쪽은 <a href="jeonjo.html">중공황 전조현상</a> 19번.</p><div class="tjz"><span class="tjzk">제오지산수</span>제 54.5 · 오 101.5 · 지 +3.4% · 산 103.4 · 수 +93.7%</div><div class="tfoot"><span class="tnum">코스피 5,469 · 미10y 5.00% · 연준 4.00% · CPI 3.7%(전월)</span><span class="tsrc">SEC EDGAR 0001628280-26-067168 (S-1, 2026-10-26) · 이야기꾼 회원방 10/27</span></div></div></div>
@@ -785,11 +793,45 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 <div class="tmark"><span>2025년 4월</span></div>
 <div class="tev" style="--c:#111827"><div class="tdot"></div><div class="tcard"><div class="thead"><span class="tdate">2025-04-09</span><span class="tgroup">시장</span></div><h3>코스피 연중 저점 2,284.72 · 같은 날 '트럼프 풋'</h3><p>관세 90일 유예로 미국 FC 가 8주 만에 진화됐다. 미 10년물은 4/11 4.48%까지 급등(관세發 채권 투매), 달러는 초약세. 이 저점이 이후 17개월 랠리의 출발점이 된다.</p><div class="tjz"><span class="tjzk">제오지산수</span>제 48.7 · 오 99.4 · 지 +4.0% · 산 101.1 · 수 +2.4%</div><div class="tfoot"><span class="tnum">코스피 2,294 · 미10y 4.34% · 연준 4.50% · CPI 2.3%</span><span class="tsrc">주간리포트 2025 W15 · KRX_코스피지수_OHLC_일별</span></div></div></div>
 <div class="tev" style="--c:#8b5cf6"><div class="tdot"></div><div class="tcard"><div class="thead"><span class="tdate">2025-04-02</span><span class="tgroup">지정학·정책</span></div><h3>트럼프 상호관세 폭탄: 글로벌 소공황 개시</h3><p>미국 증시 베이스5가 무너지며 소공황이 시작됐다. 코스피는 탄핵 인용으로 상대적으로 선방했지만 외국인은 한 주에만 10조를 투매했다.</p><div class="tjz"><span class="tjzk">제오지산수</span>제 48.7 · 오 99.4 · 지 +4.0% · 산 101.1 · 수 +2.4%</div><div class="tfoot"><span class="tnum">코스피 2,506 · 미10y 4.20% · 연준 4.50% · CPI 2.3%</span><span class="tsrc">주간리포트 2025 W14</span></div></div></div></div>
-<h2 class="sec">추론: 중공황 전조와 맞대 본다</h2>
-<div class="inf"><h3>① 흐름 자체가 교과서적 버블 사이클이다</h3><p>인하 셋(2025-09·10·12) + QT 중단 + 스텔스 QE → 코스피 2,285(2025-04)에서 9,386(2026-06)까지 17개월 ×4.1배 → 물가 2.3%→3%대 중반 재상승 → 인상 도미노(호주 2월 → 유로존 6월 → 한국 7·8월 → 미국 9월?). 이야기꾼의 인플레 시대 금리 프로세스(7/10)로 읽으면 1단계(장기채 상승)가 진행됐고 2단계(연준 인상)의 문 앞이다. 강의 원전의 다섯 단계 중 아직 신용경색(3단계)은 오지 않았다. CDS·SOFR 은 경고 수준이지 발화 수준이 아니다.</p></div><div class="inf"><h3>② 2025-09의 인하는 '불길'했는데, 공황 대신 급등이 왔다</h3><p>디플레 시대 규칙(선제적 인하 → 공황)이 틀린 게 아니라 시대가 바뀐 것이다. 인플레 시대의 인하는 유동성 → 버블 가속으로 작동했다. 1998·2019년의 보험적 인하와 같은 유형: 그리고 두 경우 모두 인하 뒤 1년 안팎의 마지막 랠리가 왔고, 그 다음이 공황이었다. 이야기꾼이 W50(2025-12)에서 "2019년과 1998년을 무섭게 재현하고 있다"고 적은 그대로다.</p></div><div class="inf"><h3>③ 중공황 전조 대조: 켜진 것과 안 켜진 것</h3><p>켜졌다: 신용융자(GDP 대비 1999·2007을 '훌쩍' 초과) · 주식 공급 과잉(SpaceX·CXMT·하닉 ADR: 1997-10 TSMC ADR → 3년 뒤 중공황 패턴) · 장단기 금리차 · 레버리지 강제청산(SA펀드 = 2021 아케고스 재현) · 이격도 고점 하락. 안 켜졌다: 국채금리 10~20년래 고점 돌파(이그전: 130년간 버블 붕괴 3회의 공통 트리거) · CPI 8%대(이야기꾼: 2022-01의 조건) · 신용경색 본격화. 전조 28종 점검은 <a href='jeonjo.html'>중공황 전조현상</a>이 매주 점검한다. 8/1 기준 점등 14 · 1급 점등 8.</p></div><div class="inf"><h3>④ 그래서 지금: 갈림길의 관문은 9월 CPI 하나로 좁혀졌다</h3><p>이야기꾼('CPI 3%대라 인상이 곧 공황은 아니다 · 10월부터 마지막 랠리')과 이그전('워시는 데이터 디펜던트 · Core Sticky 1.8% · 관건은 9월 CPI')이 같은 지표 앞에 서 있다. 9월 CPI 가 낮으면: 인상 유예 또는 '소나기' 인상 → 중간선거 통계(1954년 이래 선거 후 1년 하락 0회)와 1998년 아날로그(8월 FC → 12개월 +22%)가 가리키는 마지막 랠리. 높으면: 워시의 진퇴양난, 프로세스 2단계 조기 진입. 감시 순서는 이렇다: 9월 CPI → 9/16 FOMC → 미 10년물 5%(블룸버그 66% 전망) → 크레딧(엔비디아·오라클 CDS). 판단의 궤적은 <a href='bottom-top.html'>바닥·천장 추적</a>에 쌓는다.</p></div>
-<div class="note">이 페이지는 <b>판단 문서</b>다 — 이벤트 선정과 추론은 <code>05_opinions/macro_timeline.json</code> 에서 사람이 관리하고
-기계는 수치만 붙인다. 전조 28종의 주간 점검은 <a href="jeonjo.html">중공황 전조현상</a>,
-일별 바닥 판정은 <a href="bottom-top.html">바닥·천장 추적</a>에 있다.</div>
+<h2 id="2026년-9월-1일의-추론-중공황-전조와-맞대-보았다" class="sec">2026년 9월 1일의 추론: 중공황 전조와 맞대 보았다</h2>
+<div class="kbp"><div class="s">2026년 9월 1일의 판단</div><div><p>이 절은 2026년 9월 1일에 쓴 추론이다. 문장은 다듬었지만 판단은 그때 것 그대로다. 그 뒤의 사건은 위 타임라인에 있다.</p></div></div>
+<h3 class="kb">흐름 자체가 교과서적 버블 사이클이다</h3>
+<div class="kbp"><div class="s">인하 3번 → 코스피 4.0배</div><div><p>연준은 2025년 9월 · 10월 · 12월에 3번 인하했다. QT도 멈췄다. 스텔스 QE가 뒤를 이었다. 그 사이 코스피는 종가 기준 2,294(2025년 4월 9일)에서 9,115(2026년 6월 22일)까지 14개월 만에 4.0배가 됐다.</p><p>그 뒤 물가가 2.3%에서 3%대 중반으로 다시 상승했다. 그러자 각국의 인상이 차례로 이어졌다. 호주 2월 → 유로존 6월 → 한국 7·8월 → 미국 9월(그때 예상)의 순서다.</p></div></div>
+<div class="kbp"><div class="s">1단계는 진행, 2단계는 문 앞</div><div><p>이야기꾼의 인플레 시대 금리 프로세스(7월 10일)로 읽으면 1단계(장기채 상승)는 진행됐다. 2단계(연준 인상)는 문 앞이었다. 강의 원전의 5단계 가운데 신용경색(3단계)은 아직 오지 않았다. CDS와 SOFR은 경고 수준이었지 발화 수준이 아니었다.</p></div></div>
+<h3 class="kb">2025년 9월의 인하는 '불길'했는데, 공황 대신 급등이 왔다</h3>
+<div class="kbp"><div class="s">규칙이 아니라 시대가 바뀌었다</div><div><p>디플레 시대 규칙(선제적 인하 → 공황)이 틀린 것이 아니다. 시대가 바뀐 것이다. 인플레 시대의 인하는 유동성을 늘려 버블을 가속했다.</p></div></div>
+<div class="kbp"><div class="s">1998년 · 2019년과 같은 유형</div><div><p>1998년과 2019년의 보험적 인하와 같은 유형이다. 2번 모두 인하 뒤 1년 안팎의 마지막 랠리가 왔다. 그 다음이 공황이었다. 이야기꾼은 W50(2025년 12월)에서 「2019년과 1998년을 무섭게 재현하고 있다」고 적었다.</p></div></div>
+<h3 class="kb">중공황 전조 대조: 켜진 것과 안 켜진 것</h3>
+<div class="kbp"><div class="s">켜진 것</div><div><p>켜진 것은 이렇다. 신용융자는 GDP 대비로 1999년과 2007년을 「훌쩍」 넘었다. 주식 공급 과잉이 왔다(SpaceX · CXMT · 하닉 ADR). 1997년 10월 TSMC ADR 뒤 3년 만에 중공황이 온 패턴이다. 장단기 금리차도 켜졌다. 레버리지 강제청산(SA펀드)은 2021년 아케고스의 재현이었다. 이격도 고점도 하락했다.</p></div></div>
+<div class="kbp"><div class="s">안 켜진 것</div><div><p>안 켜진 것은 이렇다. 국채금리는 아직 10~20년 만의 최고치를 넘지 않았다. 이그전은 이것을 130년 동안 버블이 꺼진 3번의 공통 트리거로 본다. CPI는 8%대가 아니었다. 이야기꾼은 이것을 2022년 1월의 조건으로 든다. 신용경색도 본격화하지 않았다.</p></div></div>
+<div class="kbp"><div class="s">8월 1일 기준 점등 14종 · 1급 8종</div><div><p>전조 28종은 <a href="jeonjo.html">중공황 전조현상</a>이 매주 점검한다. 8월 1일 기준으로 점등 14종 · 1급 점등 8종이었다.</p></div></div>
+<h3 class="kb">2026년 9월 초: 갈림길의 관문은 9월 CPI였다</h3>
+<div class="kbp"><div class="s">같은 지표 앞의 이야기꾼과 이그전</div><div><p>이야기꾼과 이그전은 같은 지표 앞에 서 있었다. 이야기꾼은 「CPI 3%대라 인상이 곧 공황은 아니다 · 10월부터 마지막 랠리」로 읽었다. 이그전은 「워시는 데이터 디펜던트 · Core Sticky 1.8% · 관건은 9월 CPI」로 읽었다.</p></div></div>
+<div class="kbp"><div class="s">9월 CPI가 낮으면, 높으면</div><div><p>9월 CPI가 낮으면 인상 유예나 '소나기' 인상이 된다. 그러면 마지막 랠리 쪽이다. 근거는 중간선거 통계(1954년 이래 선거 뒤 1년 하락 0번)와 1998년 아날로그(8월 FC → 12개월 +22%)다. 9월 CPI가 높으면 워시의 진퇴양난이다. 그러면 프로세스 2단계에 일찍 들어간다.</p></div></div>
+<div class="kbp"><div class="s">감시 순서</div><div><p>감시 순서는 이렇다. 9월 CPI → 9월 16일 FOMC → 미 10년물 5%(블룸버그 66% 전망) → 크레딧(엔비디아 · 오라클 CDS). 판단의 궤적은 <a href="bottom-top.html">바닥·천장 추적</a>에 쌓는다.</p></div></div>
+<p class="kb-note">※ 2026년 11월 20일 판에서 바로잡았다. 옛 판은 코스피 상승을 장중 값으로 '2,285에서 9,386까지 17개월 ×4.1배'라고 적었다. 이 페이지 위의 요약 칸은 종가를 쓴다. 그래서 종가로 맞췄다. 기간은 저점에서 고점까지의 개월 수다.</p>
+
+<h2 id="결론-사건을-한-줄로-세우면-버블-사이클의-순서가-보인다" class="sec">결론: 사건을 한 줄로 세우면 버블 사이클의 순서가 보인다</h2>
+<p>결론적으로 이 페이지는 사건의 순서를 남긴다. 정리하면 아래와 같다.</p>
+<ol>
+<li>인하 3번과 유동성 공급 뒤 코스피는 14개월 만에 4.0배가 됐다.</li>
+<li>인플레 시대의 인하는 공황이 아니라 급등으로 이어졌다. 디플레 시대 규칙과 반대다.</li>
+<li>2026년 9월 1일의 판단은 9월 CPI를 관문으로 보았다. 그 뒤의 사건은 타임라인에 쌓는다.</li>
+</ol>
+<p>'인하는 공황의 신호'라는 말은 디플레 시대의 규칙이다. 이 페이지는 매매를 권하지 않는다. 다음 단계의 시점도 전망하지 않는다.</p>
+<p>전조 28종의 주간 점검은 <a href="jeonjo.html">중공황 전조현상</a>에 있다. 일별 바닥 판정은 <a href="bottom-top.html">바닥·천장 추적</a>에 있다.</p>
+<h2 id="이-글의-한계" class="sec">이 글의 한계</h2>
+<ol>
+<li>사건은 이 사이트가 골랐다. 고르지 않은 사건이 있다.</li>
+<li>추론 절은 2026년 9월 1일의 판단이다. 그 뒤의 사건으로 다시 쓰지 않았다.</li>
+<li>수치는 그 날짜 이하의 마지막 값이다. 발표가 늦는 지표는 몇 주 전 값일 수 있다.</li>
+<li>사이클 1번의 기록이다. 통계로 일반화할 수 없다.</li>
+</ol>
+<h2 id="이-글의-용어" class="sec">이 글의 용어</h2>
+<p>분산일은 기관이 매도하는 날이다.</p>
+<p>FTD는 바닥을 지났다는 상승 확인 신호다.</p>
+<p>제오지산수는 경기지표 5개의 첫 글자를 모은 체크리스트다. 제는 ISM 제조업지수, 오는 OECD 경기선행지수, 지는 미국 GDP 성장률, 산은 미국 산업생산, 수는 한국 수출이다. 카드의 값은 그때 시장이 알던 마지막 값이다.</p>
+<p>판단 문서는 사람이 쓰는 기록이다. 생성기는 읽고 수치만 붙인다.</p>
 </div>
 
 <script>
@@ -833,6 +875,33 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
-<!--SEARCH:BEGIN--><button class="srch-btn" type="button" aria-label="아카이브·원자료 검색 (단축키 /)" title="아카이브·원자료 검색 (/)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></button><script src="search.js?v=8509ea17c1" defer></script><!--SEARCH:END-->
 <button class="toggle" onclick="__toggleTheme()">&#9728;</button>
+<!--TOCJS:BEGIN--><script>
+/* 목차 클릭 보정 — 2026-08-24
+   ⚠ 해시가 이미 그 값이면 브라우저가 클릭을 무시한다. 스크롤을 내린 뒤
+     같은 항목을 다시 누르면 아무 일도 일어나지 않는다(실측으로 확인).
+   ⚠ 그리고 상단바가 sticky 라 앵커로 가면 제목이 그 아래 깔린다.
+     CSS 의 scroll-margin-top 이 그것을 막는데, scrollIntoView 는 그 값을 존중한다.
+   → 해시에 기대지 않고 직접 옮긴다. */
+(function(){
+  function go(el){ if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); }
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest && e.target.closest('.ptoc a[href^="#"]');
+    if(!a) return;
+    var el = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
+    if(!el) return;
+    e.preventDefault();
+    go(el);
+    if(history.replaceState) history.replaceState(null,'',a.getAttribute('href'));
+  }, false);
+  /* 밖에서 #앵커로 들어온 경우에도 상단바 높이를 반영해 한 번 더 맞춘다 */
+  addEventListener('load', function(){
+    var h = location.hash;
+    if(h && h.length > 1){
+      var el = document.getElementById(decodeURIComponent(h.slice(1)));
+      if(el) setTimeout(function(){ el.scrollIntoView({block:'start'}); }, 120);
+    }
+  });
+})();
+</script><!--TOCJS:END--><!--SEARCH:BEGIN--><button class="srch-btn" type="button" aria-label="아카이브·원자료 검색 (단축키 /)" title="아카이브·원자료 검색 (/)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></button><script src="search.js?v=8509ea17c1" defer></script><!--SEARCH:END-->
 </body></html>
