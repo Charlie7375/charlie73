@@ -313,7 +313,63 @@ a.card:focus-visible,.lst-i:focus-visible{
 .site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
   background:color-mix(in srgb,var(--text) 6%,transparent)}
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/*NAVCSS:END*//* BAR:BEGIN */
+/*NAVCSS:END*/
+.dim{color:var(--mut,#94a3b8)}
+.b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
+  font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
+/* 판정 5색(b-on 로즈·b-wa 앰버·b-ob 슬레이트·b-sf 에메랄드·b-rf 회색)과 겹치지 않는 색을 쓴다.
+   기존 배지처럼 다크 대응 없이 한 색으로 양쪽에서 읽히게 채도를 높인다. */
+.b-pri{background:#4f46e5;color:#fff}
+.b-upd{background:#c7d2fe;color:#312e81}   /* b-pri 의 옅은 형제 — 둘 다 인디고 계열로 묶어
+                                              「강의 대조」 어휘임을 드러낸다. 윤곽선은 라이트
+                                              모드에서 대비 2.56 이라 채움으로 바꿨다. */
+.bg{display:inline-block;min-width:44px;text-align:center;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:800;color:#fff}
+.b-on{background:#e11d48}.b-wa{background:#f59e0b}.b-ob{background:#64748b}.b-sf{background:#059669}.b-rf{background:#94a3b8}
+.gr{display:inline-block;font-size:.68rem;font-weight:800;padding:1px 6px;border-radius:5px;margin-left:6px;
+  color:#e11d48;background:color-mix(in srgb,#e11d48 13%,transparent);vertical-align:middle}
+.chg{font-size:.7rem;font-weight:700;color:var(--accent);margin-left:6px;white-space:nowrap}
+.star{color:#e11d48;font-weight:800}
+td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
+td.no .back{display:inline-block;margin-top:4px;padding-left:8px;border-left:2px solid var(--line,#cbd5e1);color:var(--text)}
+.chl{margin:12px 0 0 18px;font-size:.92rem;line-height:1.9}
+.g1box{margin-top:12px;font-size:.9rem;line-height:1.85;color:var(--text-secondary)}
+.g1box ol{margin:8px 0 0 20px} .g1box li{color:var(--text);font-weight:600}
+.stats5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px}
+@media(max-width:720px){.stats5{grid-template-columns:repeat(2,1fr)}}
+
+/* 주차별 히스토리 */
+.hist{position:relative;padding-left:26px;margin-top:18px}
+.hist::before{content:'';position:absolute;left:7px;top:14px;bottom:14px;width:2px;background:var(--border)}
+.hw{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:20px 22px;margin-bottom:16px}
+.hw::before{content:'';position:absolute;left:-24px;top:26px;width:12px;height:12px;border-radius:50%;
+  background:var(--border);border:3px solid var(--bg)}
+.hw.cur{border-color:color-mix(in srgb,var(--accent) 45%,var(--border));
+  box-shadow:0 1px 14px color-mix(in srgb,var(--accent) 10%,transparent)}
+.hw.cur::before{background:var(--accent)}
+.hh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.hwk{font-size:1.02rem;font-weight:900;letter-spacing:-.02em}
+.hdt{font-size:.82rem;color:var(--text-secondary);font-variant-numeric:tabular-nums}
+.hnow{font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:999px;color:#fff;background:var(--accent)}
+.htitle{margin-top:8px;font-size:1.12rem;font-weight:800;letter-spacing:-.02em;line-height:1.4}
+.htone{margin-top:6px;font-size:.86rem;color:var(--text-secondary);font-style:italic}
+.hpills{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
+.hp{font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.hp.on{color:#e11d48;background:color-mix(in srgb,#e11d48 12%,transparent)}
+.hp.wa{color:#b45309;background:color-mix(in srgb,#f59e0b 15%,transparent)}
+.hp.ob{color:#475569;background:color-mix(in srgb,#64748b 14%,transparent)}
+.hp.sf{color:#047857;background:color-mix(in srgb,#059669 13%,transparent)}
+.hp.g1{color:#fff;background:#e11d48}
+.hbody{margin-top:13px;font-size:.93rem;line-height:1.78;color:var(--text-secondary)}
+.hbody b{color:var(--text)}
+.hchg{margin-top:14px;padding-top:12px;border-top:1px dashed var(--border)}
+.hct{font-size:.76rem;font-weight:800;letter-spacing:.02em;color:var(--accent);text-transform:none}
+.hchg ul{margin:8px 0 0 16px;font-size:.87rem;line-height:1.85;color:var(--text-secondary)}
+.hchg li b{color:var(--text)}
+.hchg .ar{white-space:nowrap}
+.to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
+@media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
+/* BAR:BEGIN */
 /* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
    flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
 html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
@@ -395,62 +451,6 @@ html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in 
 @media(max-width:760px){.srch-box{top:12px} html body .site-srch>a.srch-nav{padding:8px 8px;font-size:12px}}
 @media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
 /* SEARCH:END */
-
-.dim{color:var(--mut,#94a3b8)}
-.b-pri,.b-upd{display:inline-block;padding:2px 9px;border-radius:999px;
-  font-size:.74rem;font-weight:700;white-space:nowrap;vertical-align:2px}
-/* 판정 5색(b-on 로즈·b-wa 앰버·b-ob 슬레이트·b-sf 에메랄드·b-rf 회색)과 겹치지 않는 색을 쓴다.
-   기존 배지처럼 다크 대응 없이 한 색으로 양쪽에서 읽히게 채도를 높인다. */
-.b-pri{background:#4f46e5;color:#fff}
-.b-upd{background:#c7d2fe;color:#312e81}   /* b-pri 의 옅은 형제 — 둘 다 인디고 계열로 묶어
-                                              「강의 대조」 어휘임을 드러낸다. 윤곽선은 라이트
-                                              모드에서 대비 2.56 이라 채움으로 바꿨다. */
-.bg{display:inline-block;min-width:44px;text-align:center;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:800;color:#fff}
-.b-on{background:#e11d48}.b-wa{background:#f59e0b}.b-ob{background:#64748b}.b-sf{background:#059669}.b-rf{background:#94a3b8}
-.gr{display:inline-block;font-size:.68rem;font-weight:800;padding:1px 6px;border-radius:5px;margin-left:6px;
-  color:#e11d48;background:color-mix(in srgb,#e11d48 13%,transparent);vertical-align:middle}
-.chg{font-size:.7rem;font-weight:700;color:var(--accent);margin-left:6px;white-space:nowrap}
-.star{color:#e11d48;font-weight:800}
-td.no{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
-td.no .back{display:inline-block;margin-top:4px;padding-left:8px;border-left:2px solid var(--line,#cbd5e1);color:var(--text)}
-.chl{margin:12px 0 0 18px;font-size:.92rem;line-height:1.9}
-.g1box{margin-top:12px;font-size:.9rem;line-height:1.85;color:var(--text-secondary)}
-.g1box ol{margin:8px 0 0 20px} .g1box li{color:var(--text);font-weight:600}
-.stats5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px}
-@media(max-width:720px){.stats5{grid-template-columns:repeat(2,1fr)}}
-
-/* 주차별 히스토리 */
-.hist{position:relative;padding-left:26px;margin-top:18px}
-.hist::before{content:'';position:absolute;left:7px;top:14px;bottom:14px;width:2px;background:var(--border)}
-.hw{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:14px;
-  padding:20px 22px;margin-bottom:16px}
-.hw::before{content:'';position:absolute;left:-24px;top:26px;width:12px;height:12px;border-radius:50%;
-  background:var(--border);border:3px solid var(--bg)}
-.hw.cur{border-color:color-mix(in srgb,var(--accent) 45%,var(--border));
-  box-shadow:0 1px 14px color-mix(in srgb,var(--accent) 10%,transparent)}
-.hw.cur::before{background:var(--accent)}
-.hh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.hwk{font-size:1.02rem;font-weight:900;letter-spacing:-.02em}
-.hdt{font-size:.82rem;color:var(--text-secondary);font-variant-numeric:tabular-nums}
-.hnow{font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:999px;color:#fff;background:var(--accent)}
-.htitle{margin-top:8px;font-size:1.12rem;font-weight:800;letter-spacing:-.02em;line-height:1.4}
-.htone{margin-top:6px;font-size:.86rem;color:var(--text-secondary);font-style:italic}
-.hpills{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
-.hp{font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
-.hp.on{color:#e11d48;background:color-mix(in srgb,#e11d48 12%,transparent)}
-.hp.wa{color:#b45309;background:color-mix(in srgb,#f59e0b 15%,transparent)}
-.hp.ob{color:#475569;background:color-mix(in srgb,#64748b 14%,transparent)}
-.hp.sf{color:#047857;background:color-mix(in srgb,#059669 13%,transparent)}
-.hp.g1{color:#fff;background:#e11d48}
-.hbody{margin-top:13px;font-size:.93rem;line-height:1.78;color:var(--text-secondary)}
-.hbody b{color:var(--text)}
-.hchg{margin-top:14px;padding-top:12px;border-top:1px dashed var(--border)}
-.hct{font-size:.76rem;font-weight:800;letter-spacing:.02em;color:var(--accent);text-transform:none}
-.hchg ul{margin:8px 0 0 16px;font-size:.87rem;line-height:1.85;color:var(--text-secondary)}
-.hchg li b{color:var(--text)}
-.hchg .ar{white-space:nowrap}
-.to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
-@media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
 /*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
@@ -1040,7 +1040,7 @@ window.__qbRegister=function(){echarts.registerTheme('charlie', {"color": ["#d21
 </style><div class="vbox"><h4>개인은 정말 '떨어지면 사는가'</h4><p>위 사분면은 '한국 개인은 떨어지면 산다'를 전제로 읽는다. 그 전제가 이 종목에서도 맞는지 직접 계산했다.</p><p>하루 등락률과 그날 개인 순매수가 반대로 움직이는 정도를 계산하면 -0.46이다. 이 값이 0보다 작으면 '떨어지는 날에 개인이 샀다'는 뜻이고, 0보다 크면 그 반대이다.</p><p>같은 자료에서 연속 구간을 다시 뽑아 800번 계산해 보니 참값이 들어 있을 범위는 -0.56 ~ -0.34였다. 삼성전기에서도 그 습관이 확인된다. 범위가 전부 0보다 작으므로 '떨어지면 산다'는 방향은 우연으로 보기 어렵다.</p><p class="vlim">⚠ 관측치 421일로 계산했다. 개인 순매수 금액은 '순매수 주수 × 종가' 환산 근사이다. 방향이 맞다는 것과 그것이 수익으로 이어진다는 것은 다른 문제이다.</p></div><div class="vbox"><h4>큰 등락은 생각보다 자주 온다</h4><p>이 페이지의 이격도(주가가 이동평균선에서 얼마나 벌어졌는지 백분율로 나타낸 값)·추세템플릿은 '평소 범위'를 정해 놓고 그 밖을 이상하다고 판정한다. 그 '평소 범위'를 정규분포로 잡으면 위험을 작게 본다.</p><p>삼성전기의 하루 등락을 모아 보면 첨도가 12.4이다. 정규분포라면 3이다. 이 값이 클수록 '유난히 큰 하루'가 교과서 예상보다 자주 온다는 뜻이다.</p><p>실제로 평균에서 3표준편차 넘게 벗어난 날이 1193거래일 중 26일 있었다. 정규분포라면 3.2일이어야 한다. 8배이다.</p><p class="vlim">⚠ 그래서 '몇 표준편차'만으로 위험을 판단하지 않는다. 드물다고 계산된 일이 실제로는 드물지 않는다.</p></div><div class="vbox"><h4>여럿을 한꺼번에 볼 때의 함정</h4><p>이 사이트는 매일 23개 종목을 같은 방식으로 훑는다. 대상이 많아지면 아무 일이 없어도 그중 몇 개는 우연히 신호처럼 보인다. 주사위를 한 번 굴리면 6이 잘 안 나오지만 15번 굴리면 대개 한 번은 나온다.</p><p>삼성전기에서 '떨어지는데 개인도 파는 날'(3사분면)은 전체의 10.9%였다. 이 비율이라면 어느 날이든 23종목 중 평균 2.5개는 우연히 신호가 뜬다.</p><p>한 종목에 신호가 떴다는 사실만으로는 부족하다. 그날 몇 종목이 함께 걸렸는지를 같이 보아야 우연과 구별된다.</p><p class="vlim">⚠ 종목들은 서로 붙어 움직이므로 실제 '우연 개수'는 이보다 적다. 이 값은 넘지 않아야 할 상한으로 읽는다.</p></div>
 
 <h2 id="관련-기사">관련 기사</h2>
-<div class="tblwrap"><table><thead><tr><th class="n">날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Thu, 19 Nov</td><td>Chosunbiz</td><td><a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxPSGhIOUhrQWRmeXlHNVV4REx5N2piSHdCaXR6elFEbXRBNjdLRkM3TDZvZzFDa3RxamMtTXdPdHFLdlRXdDFOMUtqSWdCWlVWTDhRa194aWgyWXMtMzl0X19zVFpwY0VyZERUUTFIb3VLeTVzcWFDZldNNTZPQ0VKdC1rdzB2LWZf?oc=5" target="_blank" rel="noopener nofollow">KB證 &quot;삼성전기, 엔비디아와 협력 확대 공식 발표…기판 공급부족 심화 전망&quot;</a></td></tr><tr><td class="n">Thu, 19 Nov</td><td>Chosunbiz</td><td><a href="https://news.google.com/rss/articles/CBMiggFBVV95cUxObmttQ1diLWZmT1RDV29EOVZzOEV0Rmdxd2VMM0pFd01MNW9CN2oxNmJBaXJDSURFb0hFdGgxdElYYXMwYjdYbXEtRG41Q0NjUkR0SnJXeVpnemdHdV9yTk5ocm5heHNHOTBTM3RSaTlFLXUxWTRZWWpXY0FFTDluOFpB0gGWAUFVX3lxTFBjWURTUWs1aXdIaTJFTTJPY2tCSkRuZzlZOFlRTzQ2WExsazNtUDFFZU5GX29JZTY1cGt0RzNYbUhqSm9jLWZUTzdtZ0E0cjFrQUxKNnkyV0FUZXR1cnM0NnFNeTV2OWNGbmVEOURWVnI1c2x6UTYtbmttaE1jblowRUdVLVFfdl9EYjA4bGxjNWdPU3FLUQ?oc=5" target="_blank" rel="noopener nofollow">삼성전기·LG이노텍, 풀가동에도 이익은 2.7배 차이…‘AI 반도체 기판’ 비중이 성적표 갈랐다</a></td></tr><tr><td class="n">Fri, 20 Nov</td><td>연합뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE5PckhVMG1sdUNScDVoUlJHUmtPY3h6dGlCdzE2NXJVa2pqS3JLeHhicW9SbG51enYwSm1CczRNQVQzMEtpYUZsbGRzZTNucXdLck9JZTduZVBRSlnSAWBBVV95cUxQY1hVTEJ3cEhGcjctbGVoaUpNNnZjR2dadDZ0UlpsM1ozXzNRRlBkN2FwUWlFVVlPYTdaWWRsZ3dFZ3hPWDlUMXpNeW5wNVgySFl4VWJVWXpHMnVKTGZzYmw?oc=5" target="_blank" rel="noopener nofollow">세종시, 하반기 최우수 적극행정에 &#x27;삼성전기 투자유치&#x27;</a></td></tr><tr><td class="n">Thu, 19 Nov</td><td>뉴데일리 충청세종</td><td><a href="https://news.google.com/rss/articles/CBMiekFVX3lxTE5tUHpaSGhCX1pLRm9WbmdCRW9ZdGcxZHRyd1dtb3g4ZDRMMjdwREljSlVTQU5qR2sxSFNRUHVyaXd1ZmxvM01CSzZsQXpteko4aUpGeHRYcHgzZG9LODZyY2lXSXdJa2pjQkRHMFB2bXFfaXlVeUVIQlR30gF_QVVfeXFMTllPSk9uOFloejZ5VmltZ1pOZHJRMFBKb1N4VzRLaHRJLUJUWlpjSWpqZHY3U0c5aTgzckFlRWJtMHJGYjcwRTRHUnlrTTNQUHBSYWlib2FvNE15ZUVhRS1kM0pJMk1IczE1azdDR2Vrb1l4X3gzbS1NNFB1X0dPdw?oc=5" target="_blank" rel="noopener nofollow">세종시, 적행극정 최우수 &#x27;삼성전기 4.3조 투자 유치&#x27;</a></td></tr><tr><td class="n">Fri, 20 Nov</td><td>뉴스핌</td><td><a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTE9DZWY5anRmU0FibWY0M0JJU2tqWUtseGNRaGZUbWF0NUpraXp1aTFqdEdfODRLRVdFcXE4WDc2dEtLR2hwNFZYcmhQUURSYi1GR1RCT0VqTU1oYlp1?oc=5" target="_blank" rel="noopener nofollow">삼성전기 4.3조원 투자 유치 이끈 세종시 행정…적극행정 &#x27;최우수&#x27;</a></td></tr><tr><td class="n">Thu, 19 Nov</td><td>지디넷코리아</td><td><a href="https://news.google.com/rss/articles/CBMiVkFVX3lxTE5RQ283SVdGQWJXRHhkX0thZWpjNXRHbGZYSnRlYlFrcDVObEQ0NGZCS2RKVFQzcFRvb1JHNk40TEpHUGpYQnQ5eVJaU1lMdzB3NVpzTUJB?oc=5" target="_blank" rel="noopener nofollow">삼성전기, 차세대 모바일 AP용 기판 개발…&#x27;엑시노스&#x27;용 공급 재개</a></td></tr><tr><td class="n">Tue, 29 Sep</td><td>www.ebn.co.kr</td><td><a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTFBlcFNXMGpMbF9HNldpMDdpQkdidGxRVHZIRU1xR1pxUlZkbFVyOU5PNEtLZlkwbDl3TFJyUjZtTHpNR0t2aFRpeUVvN0RpYTQtUVJVTW5zVXN1UmZiTENnNHRfaGdQcFVE?oc=5" target="_blank" rel="noopener nofollow">트렌드포스 &quot;내년 HBM 가격 2배 넘게 뛴다…공급 부족 지속&quot;</a></td></tr><tr><td class="n">Fri, 03 Jul</td><td>아주경제</td><td><a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE9rM24yd0RGWVBJYjk3QzJ1aDlUS3diUVp1WFpIb1lzaFlnTTRDWXprX0dnTWNySTBwY3NqbTRVSnZOZ0U2NzVBZWFraW1TQ1dNcE9TYzZHay1VQdIBWEFVX3lxTE9qVWpQaFlHclh3OXJwb0dCSXVJVWVPeVB4VThGSUc1OXNGeWJHb1BsMWl4bGFZUEtWc3dxdUdXZWxIUkpDWU5SR0duNTFPci1QWkxTYXdMLXg?oc=5" target="_blank" rel="noopener nofollow">[NNA] 트렌드포스, 반도체 성숙 제품도 27년까지 가격 상승</a></td></tr><tr><td class="n">Mon, 06 Jul</td><td>연합뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE1IMXNOZEE5TU1wV0dySEVjdlpMMFQ4MWp5bi11Y1gxNkpiczA3b1FmVC1iY0JVVE1nTTd6ZENIQUlnUmdaUEdPcTR5N2dVSmRZTFBpczBobVozcUXSAWBBVV95cUxPSVJWMXk2Z3dfdEs1OUdrOWxoZFp0dkhJSUxmN2dHakN2QWFHOUk5MldOQzg1SFZyUk95alVBRHI4dExITi1XZklMMFdLd2psbFVFd1V3NWtOMWtSRVQxNkU?oc=5" target="_blank" rel="noopener nofollow">AI용 MLCC 품귀 조짐…트렌드포스 &quot;삼성전기·무라타 수주 증가&quot;</a></td></tr><tr><td class="n">Sat, 08 Aug</td><td>글로벌이코노믹</td><td><a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxNdlozcUpIRU1uXzBGNDF6cDNoSTk0TTZCM2NOdnJONXhETGQxTVpKTHVDMXRfOV9sYkdnSl9WOXpvS3E3REtSNFNSNG9TX1U0ZE5oOXJxWDRPeE1KdHozY1Q4WnAyNUktbV9lOEs3aDN5czN2XzFDTjVSRG5hS28xSmhkdFM?oc=5" target="_blank" rel="noopener nofollow">[김대호 진단] 반도체 열전 (32) 트렌드포스(集邦科技)... 메모리 풍향계 &quot;시세조사 1인자&quot;</a></td></tr><tr><td class="n">Tue, 13 Jan</td><td>연합뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE5NNkpkMmpub05zUzM4RC1DeTRKTWlzTWx4XzRSbUUxdVlXTzVYTG5UMzZyZjA5U1VBNzVVcGt6YXRDMmstRHNNRm13dkM4blJPX0tQLXBvSnhwVTjSAWBBVV95cUxPdklyZXhUVnU1bGFHQmltM0NmWXhlclZsem9JdXdJeENhbWNkQjg4emhtbG9EcHVBRHc3R2M4SVh5d0hPZ2VIYXBRcmxJOENWRGRlUTNVOWgtTTk5RmJ1dDc?oc=5" target="_blank" rel="noopener nofollow">트렌드포스 &quot;AI 수요에 8인치 파운드리 가격 5∼20%↑ 가능성&quot;</a></td></tr><tr><td class="n">Mon, 09 Feb</td><td>Chosunbiz</td><td><a href="https://news.google.com/rss/articles/CBMiggFBVV95cUxNN3A2dEFDWE84dXRTWklWMGJmczFvVjYzRzFTLU9kOGI3ek9TaEV0TFdmRWhPNFN2R3NaUnFTQWlWOEJEaG1RZmEwUnhCdUpMN0pVaC1laFhtX211YzdTWnNEZ0lQNF83WXpzSTdkZUc4YmFZUW8yWUIyd3NxY3pFRDl30gGWAUFVX3lxTFBsZTNWMFdSc0ZFUkhlTTFMUFYyelloQ01zMmdRNjAwd2hMbUJoUFdqd1RDMzhIaWU2RDQtRndhNnB1cUFITWg4TUFyZVpiV3NEMXhXMFpMcThPWmpGckRjcTMwUElCMzBUMmhOUVd5RnZaZnNNbDJhWFg4b3AtakZMTmlNUnAyU2diaFBkNVVvdHgwTUNkdw?oc=5" target="_blank" rel="noopener nofollow">트렌드포스 “올해 메모리 반도체 매출액 파운드리 2.5배 이상 전망”</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-11-20 기준. 「삼성전기」 로 찾았고 제목에 검색어가 실제로 들어간 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 별개이며, 내용이 서로 다를 수 있다.</p>
+<div class="tblwrap"><table><thead><tr><th class="n">날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Thu, 19 Nov</td><td>지디넷코리아</td><td><a href="https://news.google.com/rss/articles/CBMiVkFVX3lxTE5RQ283SVdGQWJXRHhkX0thZWpjNXRHbGZYSnRlYlFrcDVObEQ0NGZCS2RKVFQzcFRvb1JHNk40TEpHUGpYQnQ5eVJaU1lMdzB3NVpzTUJB?oc=5" target="_blank" rel="noopener nofollow">삼성전기, 차세대 모바일 AP용 기판 개발…&#x27;엑시노스&#x27;용 공급 재개</a></td></tr><tr><td class="n">Thu, 19 Nov</td><td>Chosunbiz</td><td><a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxPSGhIOUhrQWRmeXlHNVV4REx5N2piSHdCaXR6elFEbXRBNjdLRkM3TDZvZzFDa3RxamMtTXdPdHFLdlRXdDFOMUtqSWdCWlVWTDhRa194aWgyWXMtMzl0X19zVFpwY0VyZERUUTFIb3VLeTVzcWFDZldNNTZPQ0VKdC1rdzB2LWZf?oc=5" target="_blank" rel="noopener nofollow">KB證 &quot;삼성전기, 엔비디아와 협력 확대 공식 발표…기판 공급부족 심화 전망&quot;</a></td></tr><tr><td class="n">Fri, 20 Nov</td><td>뉴시스</td><td><a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE05bE5iZ0VBbml2N1RsQUtWMlpEakVPVlZHdXQ1WEJkUmtJX2lUY2hXY1F0WU5sMmY4TjZJUkJHU09JMlB3MXFITXRrbC1PYnh3cUxLY09sd05NRFB6VXM1ZdIBeEFVX3lxTE1kSXlhVTRJT0I0NFJaMGMtcGZFS0FLcVpEblVQSWs2ajE5VVhsQmdyUFpDYnVVOWtOOV9JTlJiYUVJb19NdGJ3cE5wN3U4djA0dHJCbDlrQmpxbHZ6ZnphUHdoZWRRUXBDOTRoZTlJeHFydHdaQkd2NQ?oc=5" target="_blank" rel="noopener nofollow">세종시 &#x27;삼성전기 4.3조 유치&#x27;, 하반기 적극행정 최우수</a></td></tr><tr><td class="n">Fri, 20 Nov</td><td>뉴스핌</td><td><a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTFBLYVdLV1lCZklZVzd0MnlPZXlkdk1SQ1ctVWI0cWtVTXBhbnYzem1kQi16a1JYaVpqX1VILXJHWExxYzVfVDVKUkVXd1Q4VXpseDFxWmxYbVB5OU1P?oc=5" target="_blank" rel="noopener nofollow">[특징주] 삼성전기 9% 급락…&#x27;S7&#x27; 줄줄이 하락세</a></td></tr><tr><td class="n">Thu, 19 Nov</td><td>서울경제</td><td><a href="https://news.google.com/rss/articles/CBMiUkFVX3lxTE9aVl8zdDdCbTNDc21pNjN3WFEwcU1waU5yVnBZRngzRzlRTzVVaEtTWS1OWmtTYmFRdkh5Y0Q4QzNLTmxMbXNCaUF2VGJoWXJXUVHSAVNBVV95cUxNS0l2YXNtMVZiTWFEWG4wOEVBUTJwOVVqckh1aTlSaXNEMjA3VFBXc1RDWUFMRU9pMHkyb3BTYUZCc2dLMEtMdXRVbHlFa2JsbGdCUQ?oc=5" target="_blank" rel="noopener nofollow">iM증권, 삼성전기 목표주가 29% 하향…“실적 아닌 밸류에이션 문제” [코주부]</a></td></tr><tr><td class="n">Thu, 19 Nov</td><td>한국경제</td><td><a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE5Zb05TLTNVTXc0bWxhZEVoOFR6aXdjVWw1RG1hdUdIQU5jb05mVTE5VzNkZWtZRzRkbDR1ZXlyUHRMNTh1MWVlbVVQODlzbFlZNU1UaXJ1emhJZw?oc=5" target="_blank" rel="noopener nofollow">[마감시황] 반도체 오후 반등에 코스피 5100선 회복… 삼성전기 9%↑</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-11-20 기준. 「삼성전기」 로 찾았고 제목에 검색어가 실제로 들어간 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 별개이며, 내용이 서로 다를 수 있다.</p>
 
 <h2 id="실적-dart">실적 (DART)</h2>
 
