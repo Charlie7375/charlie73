@@ -538,6 +538,8 @@ html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in 
 @media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
 /* SEARCH:END */
 
+
+
 .kbp{margin:14px 0}
 .kbp>.s{font-weight:700;font-size:.92em;color:var(--text-secondary,#6e6e73);margin:0 0 3px}
 .kbp>div>p{margin:0 0 8px}
@@ -545,6 +547,8 @@ html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in 
 .kb-note{font-size:.88em;color:var(--text-secondary,#6e6e73);line-height:1.7;margin:4px 0}
 .kb-cap{font-weight:700;margin:20px 0 6px}
 .pclaim .kb-t{font-weight:800;margin-top:12px}
+
+
 
 .kbp{margin:14px 0}
 .kbp>.s{font-weight:700;font-size:.92em;color:var(--text-secondary,#6e6e73);margin:0 0 3px}
@@ -1579,6 +1583,44 @@ var dpMarks={id:'dpMarks',afterDatasetsDraw:function(ch){
   ctx.restore();
 }};
 if(window.Chart) Chart.register(dpMarks);
+/* ⑤ 화살표 막대 (2026-11-21 us10y-breakouts 4절) — 막대 데이터셋에 arrow 를 주면
+   이웃한 칸끼리 한 덩어리(기간)로 묶어 옅은 띠로 깔고, 그 가운데 0선에서 값까지 화살표를 긋는다.
+   상승은 위 화살표, 하락은 아래 화살표다. 끝에 «▲ +20.4%» 꼴의 값을 붙인다.
+   축 칸에는 0선 위 «상승», 아래 «하락» 이름을 옅게 깐다. */
+var dpArrows={id:'dpArrows',afterDatasetsDraw:function(ch){
+  var g=ch.ctx, ca=ch.chartArea; g.save();
+  ch.data.datasets.forEach(function(ds,di){
+    if(!ds.dpArrow) return; var meta=ch.getDatasetMeta(di); if(meta.hidden) return;
+    var ys=ch.scales[ds.yAxisID||'y']; if(!ys) return;
+    var y0=ys.getPixelForValue(0), up=dpColor('up'), dn=dpColor('dn');
+    g.font='600 11px "Noto Sans KR",sans-serif'; g.textAlign='left';
+    if(ca.right-ca.left>=620){                 /* 좁은 화면에서는 첫 화살표 이름표와 겹친다 */
+    g.fillStyle=dpA(up,.55); g.fillText('▲ 상승', ca.left+6, Math.max(ys.top+12, y0-8));
+    g.fillStyle=dpA(dn,.55); g.fillText('▼ 하락', ca.left+6, Math.min(ys.bottom-4, y0+16)); }
+    var d=ds.data, els=meta.data, n=d.length, i=0;
+    while(i<n){
+      if(d[i]===null||d[i]===undefined){i++;continue;}
+      var j=i; while(j+1<n&&d[j+1]!==null&&d[j+1]!==undefined) j++;
+      var a=els[i], b=els[j]; if(!a||!b){i=j+1;continue;}
+      var x1=a.x-a.width/2, x2=b.x+b.width/2, xc=(x1+x2)/2;
+      var w=Math.max(9,Math.min(18,x2-x1)), v=d[i], isUp=v>=0;
+      var col=dpColor(ds.dpCols?ds.dpCols[i]:(isUp?'up':'dn'));
+      var len=Math.max(Math.abs(ys.getPixelForValue(v)-y0),8), tip=isUp?y0-len:y0+len;
+      var hh=Math.min(len,w*0.9), base=isUp?tip+hh:tip-hh, sw=Math.max(3,w*0.36);
+      g.fillStyle=col;
+      g.fillRect(xc-sw/2, Math.min(y0,base), sw, Math.abs(base-y0));
+      g.beginPath(); g.moveTo(xc-w/2,base); g.lineTo(xc+w/2,base); g.lineTo(xc,tip); g.closePath(); g.fill();
+      var t=(isUp?'▲ +':'▼ −')+Math.abs(v).toFixed(1)+'%';
+      g.font='700 11.5px Inter,"Noto Sans KR",sans-serif';
+      var tw=g.measureText(t).width, tx=xc;
+      g.textAlign='center';
+      if(tx+tw/2>ca.right){ tx=ca.right; g.textAlign='right'; }
+      if(tx-tw/2<ca.left){ tx=ca.left; g.textAlign='left'; }
+      g.fillText(t, tx, isUp?tip-6:tip+15);
+      i=j+1;
+    }
+  });
+  g.restore();}};
 /* ③ 스크롤 등장.
    ⚠⚠ 안전망이 본체다 (2026-08-08) — dollar-kospi 에서 `visible` 이 붙었는데도
    opacity 가 0 에 머물러 **패널 두 장이 통째로 안 보였다.** 원인을 특정하기 전에

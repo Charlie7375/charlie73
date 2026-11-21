@@ -538,6 +538,10 @@ html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in 
 @media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
 /* SEARCH:END */
 
+
+
+
+
 .kbp{margin:14px 0}
 .kbp>.s{font-weight:700;font-size:.92em;color:var(--text-secondary,#6e6e73);margin:0 0 3px}
 .kbp>div>p{margin:0 0 8px}
@@ -1245,6 +1249,44 @@ var dpMarks={id:'dpMarks',afterDatasetsDraw:function(ch){
   ctx.restore();
 }};
 if(window.Chart) Chart.register(dpMarks);
+/* ⑤ 화살표 막대 (2026-11-21 us10y-breakouts 4절) — 막대 데이터셋에 arrow 를 주면
+   이웃한 칸끼리 한 덩어리(기간)로 묶어 옅은 띠로 깔고, 그 가운데 0선에서 값까지 화살표를 긋는다.
+   상승은 위 화살표, 하락은 아래 화살표다. 끝에 «▲ +20.4%» 꼴의 값을 붙인다.
+   축 칸에는 0선 위 «상승», 아래 «하락» 이름을 옅게 깐다. */
+var dpArrows={id:'dpArrows',afterDatasetsDraw:function(ch){
+  var g=ch.ctx, ca=ch.chartArea; g.save();
+  ch.data.datasets.forEach(function(ds,di){
+    if(!ds.dpArrow) return; var meta=ch.getDatasetMeta(di); if(meta.hidden) return;
+    var ys=ch.scales[ds.yAxisID||'y']; if(!ys) return;
+    var y0=ys.getPixelForValue(0), up=dpColor('up'), dn=dpColor('dn');
+    g.font='600 11px "Noto Sans KR",sans-serif'; g.textAlign='left';
+    if(ca.right-ca.left>=620){                 /* 좁은 화면에서는 첫 화살표 이름표와 겹친다 */
+    g.fillStyle=dpA(up,.55); g.fillText('▲ 상승', ca.left+6, Math.max(ys.top+12, y0-8));
+    g.fillStyle=dpA(dn,.55); g.fillText('▼ 하락', ca.left+6, Math.min(ys.bottom-4, y0+16)); }
+    var d=ds.data, els=meta.data, n=d.length, i=0;
+    while(i<n){
+      if(d[i]===null||d[i]===undefined){i++;continue;}
+      var j=i; while(j+1<n&&d[j+1]!==null&&d[j+1]!==undefined) j++;
+      var a=els[i], b=els[j]; if(!a||!b){i=j+1;continue;}
+      var x1=a.x-a.width/2, x2=b.x+b.width/2, xc=(x1+x2)/2;
+      var w=Math.max(9,Math.min(18,x2-x1)), v=d[i], isUp=v>=0;
+      var col=dpColor(ds.dpCols?ds.dpCols[i]:(isUp?'up':'dn'));
+      var len=Math.max(Math.abs(ys.getPixelForValue(v)-y0),8), tip=isUp?y0-len:y0+len;
+      var hh=Math.min(len,w*0.9), base=isUp?tip+hh:tip-hh, sw=Math.max(3,w*0.36);
+      g.fillStyle=col;
+      g.fillRect(xc-sw/2, Math.min(y0,base), sw, Math.abs(base-y0));
+      g.beginPath(); g.moveTo(xc-w/2,base); g.lineTo(xc+w/2,base); g.lineTo(xc,tip); g.closePath(); g.fill();
+      var t=(isUp?'▲ +':'▼ −')+Math.abs(v).toFixed(1)+'%';
+      g.font='700 11.5px Inter,"Noto Sans KR",sans-serif';
+      var tw=g.measureText(t).width, tx=xc;
+      g.textAlign='center';
+      if(tx+tw/2>ca.right){ tx=ca.right; g.textAlign='right'; }
+      if(tx-tw/2<ca.left){ tx=ca.left; g.textAlign='left'; }
+      g.fillText(t, tx, isUp?tip-6:tip+15);
+      i=j+1;
+    }
+  });
+  g.restore();}};
 /* ③ 스크롤 등장.
    ⚠⚠ 안전망이 본체다 (2026-08-08) — dollar-kospi 에서 `visible` 이 붙었는데도
    opacity 가 0 에 머물러 **패널 두 장이 통째로 안 보였다.** 원인을 특정하기 전에
@@ -1290,7 +1332,7 @@ function ksBuild(){
     var labs=c.l.slice(i0,i1+1);
     var ds=c.d.map(function(d){
       var col=dpColor(Array.isArray(d.c)?d.c[0]:d.c);
-      var o={type:d.type,label:d.label,data:d.data.slice(i0,i1+1),yAxisID:d.yAxisID,
+      var o={type:d.type,label:d.label,data:d.data.slice(i0,i1+1),yAxisID:d.yAxisID||(c.split?'y':undefined),
              borderColor:col,borderWidth:d.w||3.0,pointRadius:0,pointHoverRadius:6,
              tension:.3,order:d.order||1,
              stack:c.stack?'t':undefined,spanGaps:d.spanGaps!==false};
@@ -1299,7 +1341,12 @@ function ksBuild(){
         o.backgroundColor=Array.isArray(d.c)
           ? d.c.slice(i0,i1+1).map(function(x){return dpA(dpColor(x),.78);})
           : dpA(col,.78);
-        o.borderWidth=0; o.borderRadius=3; }
+        o.borderWidth=0; o.borderRadius=3;
+        /* ★ 2026-11-21 — 긴 월별 선 위에 기간 막대를 얹을 때(us10y-breakouts) 칸 사이 틈을 없앤다.
+           full 이면 이웃한 달의 막대가 한 덩어리로 붙어 그 기간을 폭으로 보여 준다 */
+        if(d.full){ o.barPercentage=1; o.categoryPercentage=1; o.borderRadius=0; }
+        if(d.arrow){ o.dpArrow=true; o.dpCols=Array.isArray(d.c)?d.c.slice(i0,i1+1):null;
+          o.backgroundColor=o.dpCols?o.dpCols.map(function(x){return dpA(dpColor(x),.10);}):dpA(col,.10); } }
       else if(d.fill){ o.fill=true; o.backgroundColor=dpA(col, c.stack?0.55:0.13); }
       else { o.backgroundColor='transparent'; o.fill=false; }
       return o;});
@@ -1337,8 +1384,17 @@ function ksBuild(){
         ticks:{color:tx,font:{family:'Inter',size:12}},
         title:{display:!!c.y1t,text:c.y1t||'',color:tx,
           font:{family:'Noto Sans KR',size:12.5}}}; }
+    /* ★ 2026-11-21 — c.split=[위,아래] 이면 y1 을 아래 칸으로 떼어 y(위 칸) 밑에 쌓는다.
+       선과 막대가 한 칸에서 겹쳐 0선이 공중에 뜨는 것을 막는다(us10y-breakouts 4절). 0선은 진하게 긋는다. */
+    if(c.split&&sc.y1){
+      sc.y.stack='v'; sc.y.stackWeight=c.split[0];
+      sc.y1.stack='v'; sc.y1.stackWeight=c.split[1]; sc.y1.position='left'; sc.y1.offset=true;
+      sc.y1.grid={display:true,color:function(g){return g.tick&&g.tick.value===0?dpA(tx,0.6):grid;},
+                  lineWidth:function(g){return g.tick&&g.tick.value===0?1.4:1;}};
+      sc.y1.ticks.maxTicksLimit=7;
+      sc={y1:sc.y1,y:sc.y,x:sc.x}; }   /* 쌓기는 나중에 정의한 축이 위 칸이다 — y1 을 먼저 두어 아래 칸으로 */
     ksC[c.id]=new Chart(el,{type:c.k||'line',
-      plugins:c.bands?[bandPlugin,dpMarks]:[dpMarks],
+      plugins:(c.bands?[bandPlugin,dpMarks]:[dpMarks]).concat(c.d.some(function(x){return x.arrow;})?[dpArrows]:[]),
       data:{labels:labs,datasets:ds},
       options:{responsive:true,maintainAspectRatio:false,
         layout:{padding:{top:30,right:12,left:4,bottom:2}},
@@ -1347,6 +1403,11 @@ function ksBuild(){
                                :{mode:'index',intersect:false,axis:'x'},
         plugins:{legend:{display:c.leg!==false,position:'bottom',
             labels:{color:tx,boxWidth:14,boxHeight:8,usePointStyle:true,
+              /* 화살표 막대(arrow)는 띠가 옅어 범례 점이 안 보인다 — 붉은 삼각형으로 */
+              generateLabels:function(ch){var L=Chart.defaults.plugins.legend.labels.generateLabels(ch);
+                L.forEach(function(l){var d=ch.data.datasets[l.datasetIndex];
+                  if(d&&d.dpArrow){l.fillStyle=dpColor('up');l.strokeStyle=dpColor('up');l.pointStyle='triangle';}});
+                return L;},
               font:{family:'Noto Sans KR',size:12.5},padding:16}},
           tooltip:{enabled:true,padding:12,cornerRadius:8,
             titleFont:{size:13,family:'Inter'},bodyFont:{size:13,family:'Noto Sans KR'},
