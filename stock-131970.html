@@ -72,7 +72,7 @@ table.sortable thead th.sort-asc::after{border-bottom:5px solid var(--accent);op
 table.sortable thead th.sort-desc::after{border-top:5px solid var(--accent);opacity:1}
 tbody td{padding:10px;border-bottom:1px solid var(--border)} tbody tr:last-child td{border-bottom:none}
 td.c,th:nth-child(4),th:nth-child(8){text-align:center} td.n{text-align:right;font-variant-numeric:tabular-nums}
-td.nm{font-weight:600} td.pos{color:#059669} td.neg{color:#e11d48}
+td.nm{font-weight:600} td.nm a{color:inherit;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px} td.pos{color:#059669} td.neg{color:#e11d48}
 .rs{display:inline-block;min-width:34px;padding:2px 8px;border-radius:999px;font-weight:800;font-size:.82rem;color:#fff;background:var(--accent)}
 .gd{display:inline-block;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:6px}
 .g1{color:#fff;background:var(--accent)}
@@ -313,7 +313,89 @@ a.card:focus-visible,.lst-i:focus-visible{
 .site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
   background:color-mix(in srgb,var(--text) 6%,transparent)}
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/*NAVCSS:END*/
+/*NAVCSS:END*//* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+/* ⚠⚠ 2026-09-10 상수님 «작은 해상도에서는 제목을 누를 수 없네».
+   아카이브가 29장이 되면서 드롭다운이 1,254px 로 자랐다. 상단바는 sticky 라
+   드롭다운은 화면 위에서 72px 자리에 열리는데, 390px 화면의 보이는 높이가 915px 이니
+   **아래 411px 는 화면 밖이고 스크롤이 없어 닿을 방법이 아예 없었다.**
+   → 화면 높이만큼만 열고 넘치면 그 안에서 스크롤한다.
+   · dvh 를 뒤에 한 번 더 적는다 — 모바일 주소창이 접혔다 펴질 때 100vh 는 화면보다 크다.
+     dvh 를 모르는 브라우저는 앞줄(vh)만 읽고 지나간다.
+   · overscroll-behavior:contain — 목록 끝에서 계속 밀어도 뒤 본문이 따라 스크롤되지 않게.
+   · 120px 은 상단바(2줄, 96px)와 아래 여백 16px 이다. 아카이브·원자료는 메뉴 2번째 줄에
+     달려 있어 104px 자리에서 열린다 — 92px 로 뺐더니 12px 이 화면 밖으로 나갔다. */
+html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);
+  overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+
+/* ★ 2026-09-14 상수님 «가로 CSS 가 째지지 않게». 숨은 펼침 메뉴(visibility:hidden)가 자리를 차지해 375px 화면에서
+   scrollWidth 427 로 가로 스크롤이 생겼다(전 페이지). 메뉴 폭을 화면 안에 묶고 문서의 가로 넘침을 자른다.
+   ⚠ 상단바 CSS 를 전 페이지에 미치게 하는 자리는 **여기(CENTER)뿐**이다. nav2.py 를 고쳐도 원자료 장에만 닿는다. */
+html body .site-dd{max-width:calc(100vw - 24px)}
+html,body{overflow-x:hidden}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END */
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
+
+/* SEARCH:BEGIN */
+.srch-btn{position:fixed;top:auto;bottom:18px;right:68px;z-index:130;width:42px;height:42px;border-radius:50%;
+  background:var(--surface,#F6F7F9);border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text,#0f172a);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;
+  box-shadow:0 2px 14px rgba(0,0,0,.10);transition:transform .12s,box-shadow .12s}
+.srch-btn:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(0,0,0,.16)}
+.srch-btn:focus-visible,.srch-in:focus-visible,.srch-r a:focus-visible{outline:2px solid var(--accent,#2563eb);outline-offset:2px}
+.srch-bg{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.38);display:none}
+.srch-bg.on{display:block}
+.srch-box{position:fixed;z-index:201;top:72px;left:50%;transform:translateX(-50%);width:min(680px,calc(100vw - 24px));
+  max-height:calc(100vh - 96px);max-height:calc(100dvh - 96px);display:none;flex-direction:column;
+  background:var(--bg,#fff);color:var(--text,#0f172a);border:1px solid var(--border,rgba(15,23,42,.12));
+  border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.28);overflow:hidden}
+.srch-box.on{display:flex}
+.srch-top{display:flex;gap:8px;align-items:center;padding:12px 14px;border-bottom:1px solid var(--border,rgba(15,23,42,.12))}
+.srch-in{flex:1;min-width:0;font:inherit;font-size:16px;padding:9px 11px;border-radius:9px;
+  border:1px solid var(--border,rgba(15,23,42,.12));background:var(--surface,#F6F7F9);color:var(--text,#0f172a)}
+.srch-x{font:inherit;font-size:13px;padding:8px 10px;border-radius:9px;border:0;background:none;color:var(--text2,#6e6e73);cursor:pointer}
+.srch-meta{padding:8px 16px 0;font-size:12.5px;color:var(--text2,#6e6e73)}
+.srch-r{list-style:none;margin:0;padding:6px 8px 12px;overflow-y:auto;overscroll-behavior:contain}
+.srch-r li{margin:0}
+.srch-r a{display:block;padding:10px 10px;border-radius:9px;color:inherit;text-decoration:none}
+.srch-r a:hover,.srch-r a.cur{background:var(--surface,#F6F7F9)}
+.srch-k{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;padding:1px 6px;border-radius:5px;
+  margin-right:6px;vertical-align:1px;border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text2,#6e6e73)}
+.srch-t{font-weight:700;font-size:14.5px;line-height:1.4}
+.srch-h{font-size:13px;color:var(--text2,#6e6e73);margin-top:2px;line-height:1.4}
+.srch-s{font-size:13px;line-height:1.55;margin-top:4px;color:var(--text,#0f172a);opacity:.86}
+.srch-s mark,.srch-h mark,.srch-t mark{background:rgba(37,99,235,.18);color:inherit;border-radius:3px;padding:0 1px}
+/* 상단 메뉴 «검색» — 드롭다운 버튼(.site-group>button)과 같은 글자로.
+   ⚠ site-group 이 아니라 site-srch 로 감싼다 — 상단바 토글 JS 가 site-group 마다 버튼을 찾다 오류가 났다(2026-10-06). */
+html body .site-srch{position:relative;display:flex;align-items:center}
+html body .site-srch>a.srch-nav{display:flex;align-items:center;font-size:13px;font-weight:600;letter-spacing:-.01em;
+  line-height:normal;color:var(--text-secondary,#475569);padding:8px 12px;border-radius:9px;text-decoration:none}
+html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in srgb,var(--text) 6%,transparent)}
+@media(max-width:760px){.srch-box{top:12px} html body .site-srch>a.srch-nav{padding:8px 8px;font-size:12px}}
+@media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
+/* SEARCH:END */
+
 /* KB 판 (2026-11-20) */
 .kbp{margin:14px 0}
 .kbp>.s{font-weight:700;font-size:.92em;color:var(--text-secondary,#6e6e73);margin:0 0 3px}
@@ -376,88 +458,6 @@ td.no .back{display:inline-block;margin-top:4px;padding-left:8px;border-left:2px
 .hchg .ar{white-space:nowrap}
 .to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
 @media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
-/* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-/* ⚠⚠ 2026-09-10 상수님 «작은 해상도에서는 제목을 누를 수 없네».
-   아카이브가 29장이 되면서 드롭다운이 1,254px 로 자랐다. 상단바는 sticky 라
-   드롭다운은 화면 위에서 72px 자리에 열리는데, 390px 화면의 보이는 높이가 915px 이니
-   **아래 411px 는 화면 밖이고 스크롤이 없어 닿을 방법이 아예 없었다.**
-   → 화면 높이만큼만 열고 넘치면 그 안에서 스크롤한다.
-   · dvh 를 뒤에 한 번 더 적는다 — 모바일 주소창이 접혔다 펴질 때 100vh 는 화면보다 크다.
-     dvh 를 모르는 브라우저는 앞줄(vh)만 읽고 지나간다.
-   · overscroll-behavior:contain — 목록 끝에서 계속 밀어도 뒤 본문이 따라 스크롤되지 않게.
-   · 120px 은 상단바(2줄, 96px)와 아래 여백 16px 이다. 아카이브·원자료는 메뉴 2번째 줄에
-     달려 있어 104px 자리에서 열린다 — 92px 로 뺐더니 12px 이 화면 밖으로 나갔다. */
-html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);
-  overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
-
-/* ★ 2026-09-14 상수님 «가로 CSS 가 째지지 않게». 숨은 펼침 메뉴(visibility:hidden)가 자리를 차지해 375px 화면에서
-   scrollWidth 427 로 가로 스크롤이 생겼다(전 페이지). 메뉴 폭을 화면 안에 묶고 문서의 가로 넘침을 자른다.
-   ⚠ 상단바 CSS 를 전 페이지에 미치게 하는 자리는 **여기(CENTER)뿐**이다. nav2.py 를 고쳐도 원자료 장에만 닿는다. */
-html body .site-dd{max-width:calc(100vw - 24px)}
-html,body{overflow-x:hidden}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END */
-/* SEARCH:BEGIN */
-.srch-btn{position:fixed;top:auto;bottom:18px;right:68px;z-index:130;width:42px;height:42px;border-radius:50%;
-  background:var(--surface,#F6F7F9);border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text,#0f172a);
-  cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;
-  box-shadow:0 2px 14px rgba(0,0,0,.10);transition:transform .12s,box-shadow .12s}
-.srch-btn:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(0,0,0,.16)}
-.srch-btn:focus-visible,.srch-in:focus-visible,.srch-r a:focus-visible{outline:2px solid var(--accent,#2563eb);outline-offset:2px}
-.srch-bg{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.38);display:none}
-.srch-bg.on{display:block}
-.srch-box{position:fixed;z-index:201;top:72px;left:50%;transform:translateX(-50%);width:min(680px,calc(100vw - 24px));
-  max-height:calc(100vh - 96px);max-height:calc(100dvh - 96px);display:none;flex-direction:column;
-  background:var(--bg,#fff);color:var(--text,#0f172a);border:1px solid var(--border,rgba(15,23,42,.12));
-  border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.28);overflow:hidden}
-.srch-box.on{display:flex}
-.srch-top{display:flex;gap:8px;align-items:center;padding:12px 14px;border-bottom:1px solid var(--border,rgba(15,23,42,.12))}
-.srch-in{flex:1;min-width:0;font:inherit;font-size:16px;padding:9px 11px;border-radius:9px;
-  border:1px solid var(--border,rgba(15,23,42,.12));background:var(--surface,#F6F7F9);color:var(--text,#0f172a)}
-.srch-x{font:inherit;font-size:13px;padding:8px 10px;border-radius:9px;border:0;background:none;color:var(--text2,#6e6e73);cursor:pointer}
-.srch-meta{padding:8px 16px 0;font-size:12.5px;color:var(--text2,#6e6e73)}
-.srch-r{list-style:none;margin:0;padding:6px 8px 12px;overflow-y:auto;overscroll-behavior:contain}
-.srch-r li{margin:0}
-.srch-r a{display:block;padding:10px 10px;border-radius:9px;color:inherit;text-decoration:none}
-.srch-r a:hover,.srch-r a.cur{background:var(--surface,#F6F7F9)}
-.srch-k{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;padding:1px 6px;border-radius:5px;
-  margin-right:6px;vertical-align:1px;border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text2,#6e6e73)}
-.srch-t{font-weight:700;font-size:14.5px;line-height:1.4}
-.srch-h{font-size:13px;color:var(--text2,#6e6e73);margin-top:2px;line-height:1.4}
-.srch-s{font-size:13px;line-height:1.55;margin-top:4px;color:var(--text,#0f172a);opacity:.86}
-.srch-s mark,.srch-h mark,.srch-t mark{background:rgba(37,99,235,.18);color:inherit;border-radius:3px;padding:0 1px}
-/* 상단 메뉴 «검색» — 드롭다운 버튼(.site-group>button)과 같은 글자로.
-   ⚠ site-group 이 아니라 site-srch 로 감싼다 — 상단바 토글 JS 가 site-group 마다 버튼을 찾다 오류가 났다(2026-10-06). */
-html body .site-srch{position:relative;display:flex;align-items:center}
-html body .site-srch>a.srch-nav{display:flex;align-items:center;font-size:13px;font-weight:600;letter-spacing:-.01em;
-  line-height:normal;color:var(--text-secondary,#475569);padding:8px 12px;border-radius:9px;text-decoration:none}
-html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in srgb,var(--text) 6%,transparent)}
-@media(max-width:760px){.srch-box{top:12px} html body .site-srch>a.srch-nav{padding:8px 8px;font-size:12px}}
-@media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
-/* SEARCH:END */
-
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 /*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
@@ -501,12 +501,6 @@ details.fold>summary::-webkit-details-marker{display:none}
 details.fold>summary::before{content:'▸';font-size:.8rem;margin-right:8px;display:inline-block;transition:transform .18s}
 details.fold[open]>summary::before{transform:rotate(90deg)}
 @media(max-width:760px){.gl-lights{grid-template-columns:1fr}}
-</style><style id="freqcss">
-.freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
- padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
- border:1px solid currentColor;opacity:.85}
-.freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
-.freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
 /* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
@@ -835,8 +829,14 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style>
-<!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
+/* PAPER:END */</style><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><style id="freqcss">
+.freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
+ padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
+ border:1px solid currentColor;opacity:.85}
+.freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
+.freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
+</style>
+</head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="sp500.html">S&P 500</a><a href="nasdaq.html">나스닥</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-watch.html">바닥 추적</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a><a href="minervini-x.html">마크 미너비니 X 추적</a><a href="experts.html">전문가 의견 추적</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="macro-timeline.html">거시 이벤트 연대기</a><a href="supply-analysis.html">수급 심층 분석</a><a href="foreign-share.html">외국인 비중</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-psk-holdings.html">피에스케이홀딩스</a><a href="stock-samsung-sdi.html">삼성SDI</a><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-nhn.html">NHN</a><a href="stock-kolmar.html">한국콜마</a><a href="stock-cosmax.html">코스맥스</a><a href="stock-pharmaresearch.html">파마리서치</a><a href="stock-jyp.html">JYP Ent.</a><a href="stock-sm-ent.html">에스엠</a><a href="stock-yg-ent.html">와이지엔터테인먼트</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="marks.html">하워드 막스의 방법론</a><a href="marks-glossary.html">사이클 용어사전</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a><a href="cycle-rope.html">사이클과 규칙</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><span class="nav-h sub">시장 국면</span><a href="stabilization-fund.html">증안펀드와 코스피</a><a href="kosdaq-seasonality.html">해와 달의 코스닥</a><a href="kospi-bottom.html">코스피 바닥 판별</a><a href="sp500-ftd.html">S&P 500 팔로스루 데이</a><a href="kospi-ftd.html">팔로스루 데이</a><a href="kospi-panics.html">코스피 역대 공황</a><a href="rally-angle.html">상승 각도</a><a href="kospi-seasonality-down.html">해와 달의 코스피 · 역편</a><a href="kospi-drivers.html">코스피 선행 변수</a><a href="kospi-seasonality.html">해와 달의 코스피</a><a href="breadth-concentration.html">신고가 쏠림</a><a href="kospi-analog.html">닮은 과거</a><a href="audition-history.html">오디션 히스토리</a><a href="disparity-archive.html">두 버블의 이격도</a><a href="stage-analysis.html">와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리</a><span class="nav-h sub">금리와 통화</span><a href="rate-crash-inflation-2.html">인플레 시대 공황 2</a><a href="rate-crash-inflation.html">인플레 시대 금리-공황</a><a href="us10y-breakouts.html">미 10년물 금리 전고점 돌파</a><a href="us-panic-rates.html">미국 공황과 미 10년물 금리</a><a href="rate-crash-primer.html">금리-공황 프로세스 읽기</a><a href="nikkei-rates.html">닛케이와 미국 금리</a><a href="kospi-spx-gap.html">코스피와 S&P 500</a><a href="rate-crash-process.html">금리-공황 프로세스</a><a href="gold-rates.html">금리와 금값</a><a href="treasury-trust.html">미국 국채 바이백</a><a href="inflation-playbook.html">인플레 시대의 자산</a><a href="rates-century.html">미국 금리 100년</a><a href="liquidity.html">미국 유동성</a><a href="fed-kospi.html">연준 기준금리와 코스피</a><a href="rates-101.html">금리 기초</a><a href="rates-crashes.html">금리 5%와 공황</a><a href="dollar-kospi.html">달러와 코스피</a><span class="nav-h sub">경기와 수출</span><a href="china-import-prices.html">중국산 수입물가와 주가</a><a href="jp-cci-kospi.html">일본 소비심리와 코스피</a><a href="us-elections.html">미국 선거와 증시</a><a href="export-kospi.html">수출과 코스피</a><a href="cli-kospi.html">OECD CLI 와 코스피</a><a href="ism-kospi.html">ISM 과 코스피</a><a href="jeoji-kospi.html">제오지산수</a><span class="nav-h sub">신용과 청산</span><a href="credit-lag.html">미 은행 대출 태도와 가산금리</a><a href="us-credit-spread.html">미국 신용스프레드</a><a href="deleveraging.html">강제청산</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="sentiment.html">빚과 현금</a><span class="nav-h sub">수급과 폭락</span><a href="flow-quadrant.html">개인 수급 사분면</a><a href="foreign-flow.html">외국인 수급</a><a href="flow-extremes.html">개인과 외국인의 대량 매매</a><a href="flow-crashes.html">폭락의 구조</a><span class="nav-h sub">개별 종목</span><a href="memory-price.html">D램 가격과 삼성전자</a><a href="leadlag.html">하이닉스의 선행과 후행</a><a href="samsung-long.html">삼성전자 27년</a></div></div><div class="site-group"><button class="" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 155계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a href="data-kr-rates.html">한국 금리</a><a href="data-us-market.html">미국 시장</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a href="data-fx.html">환율·원자재·암호</a><a href="data-macro.html">재정·거시</a><a href="data-world.html">세계 증시</a></div></div><div class="site-srch"><a class="srch-nav" href="#search" role="button">검색</a></div><!-- NAV:END --></nav>
@@ -847,9 +847,9 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 <h1>두산테스나</h1>
 <p class="sub">후보에서 제외(마지막 2026-11-21) · 30일 동안 남긴다 · 코스닥</p>
 <p class="pauth">기준일 2026-11-20 · 두산테스나 일별 시세·투자자 매매동향(한투 KIS) · 매일 갱신</p>
-<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>두산테스나 후보 종목(오디션·RS)이다. 이 페이지는 이 종목이 매수 5원칙에 맞는지 매일 다시 판정한다. 추세는 20주선과의 거리로, 수급은 투자자별 누적 순매수로 판정한다. 재무는 분기 실적으로, 시장의 기대는 증권사 목표가로 본다. 관심종목이 아니라 오디션과 상대강도 표에서 들어오는 종목이다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#매수-5원칙-판정">매수 5원칙 판정</a></li><li><a href="#추세-20주선-추세-템플릿-vcp">추세: 20주선 · 추세 템플릿 · VCP</a></li><li><a href="#바닥-이야기꾼-바닥-7단계">바닥: 이야기꾼 바닥 7단계</a></li><li><a href="#수급-누가-사고-누가-팔았나">수급: 누가 사고 누가 팔았나?</a></li><li><a href="#개인-수급-사분면-nbsp-11-20-2분면-하락-개인-순매수">개인 수급 사분면 &nbsp;· 11/20 2분면 (하락 + 개인 순매수)</a></li><li><a href="#실적과-가치평가">실적과 가치평가</a></li><li><a href="#증권사-목표가">증권사 목표가</a></li><li><a href="#관련-기사">관련 기사</a></li><li><a href="#이-페이지의-전제를-검증합니다">이 페이지의 전제를 검증한다</a></li></ol></div><!--TOC:END--></header>
+</header>
 
-<!-- GLANCE:BEGIN --><div class="glance" id="한-눈에"><div class="gl-h">두산테스나 · 2026-11-20</div><div class="gl-lights"><div class="gl-l off"><span class="gl-dot"></span><div><div class="gl-n">가격</div><div class="gl-v">종가 <b>66,600</b> · 20주선 85,660 <b>아래</b></div></div></div><div class="gl-l on"><span class="gl-dot"></span><div><div class="gl-n">상대강도</div><div class="gl-v">60거래일 <b>-11.3%</b> · 코스피 -27.3% <b>이김</b></div></div></div><div class="gl-l off"><span class="gl-dot"></span><div><div class="gl-n">거래량</div><div class="gl-v">11/20 거래량 50일 평균의 <b>0.66배</b> · 1배 아래</div></div></div></div><p class="gl-one">두산테스나 신호 3개 가운데 충족 1개, 미충족 2개다. 미충족은 가격 · 거래량이다.</p><div class="gl-rec tblwrap"><table class="mini"><thead><tr><th>회복률</th><th>52주 고점</th><th>고점 → 저점</th><th>저점</th><th>오늘</th><th>하락폭의 회복</th><th>전고점까지</th></tr></thead><tbody><tr><td>두산테스나</td><td>190,100 <span class="dim">(5/14)</span></td><td class="neg">-72.8%</td><td>51,800 <span class="dim">(7/30)</span></td><td>66,600</td><td><b>11%</b></td><td>185.4%</td></tr></tbody></table></div><p class="gl-note">종목 줄의 가격은 종가와 주봉 20주 평균(이야기꾼의 생명선)을 견주고, 상대강도는 최근 60거래일 수익률이 코스피를 이겼는지, 거래량은 최근 거래일 거래량을 50일 평균으로 나눈 값이다. 종목 줄은 충족 개수만 적고 판정 낱말은 쓰지 않는다. 하락폭의 회복은 52주 고점에서 그 뒤 저점까지 하락한 폭 가운데 오늘까지 되찾은 비율이다.</p></div><!-- GLANCE:END -->
+<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>두산테스나 후보 종목(오디션·RS)이다. 이 페이지는 이 종목이 매수 5원칙에 맞는지 매일 다시 판정한다. 추세는 20주선과의 거리로, 수급은 투자자별 누적 순매수로 판정한다. 재무는 분기 실적으로, 시장의 기대는 증권사 목표가로 본다. 관심종목이 아니라 오디션과 상대강도 표에서 들어오는 종목이다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#매수-5원칙-판정">매수 5원칙 판정</a></li><li><a href="#추세-20주선-추세-템플릿-vcp">추세: 20주선 · 추세 템플릿 · VCP</a></li><li><a href="#바닥-이야기꾼-바닥-7단계">바닥: 이야기꾼 바닥 7단계</a></li><li><a href="#수급-누가-사고-누가-팔았나">수급: 누가 사고 누가 팔았나</a></li><li><a href="#개인-수급-사분면-nbsp-11-20-2분면-하락-개인-순매수">개인 수급 사분면 &nbsp;· 11/20 2분면 (하락 + 개인 순매수)</a></li><li><a href="#실적과-가치평가">실적과 가치평가</a></li><li><a href="#증권사-목표가">증권사 목표가</a></li><li><a href="#관련-기사">관련 기사</a></li><li><a href="#이-페이지의-전제를-검증합니다">이 페이지의 전제를 검증한다</a></li></ol></div><!--TOC:END--><!-- GLANCE:BEGIN --><div class="glance" id="한-눈에"><div class="gl-h">두산테스나 · 2026-11-20</div><div class="gl-lights"><div class="gl-l off"><span class="gl-dot"></span><div><div class="gl-n">가격</div><div class="gl-v">종가 <b>66,600</b> · 20주선 85,660 <b>아래</b></div></div></div><div class="gl-l on"><span class="gl-dot"></span><div><div class="gl-n">상대강도</div><div class="gl-v">60거래일 <b>-11.3%</b> · 코스피 -27.3% <b>이김</b></div></div></div><div class="gl-l off"><span class="gl-dot"></span><div><div class="gl-n">거래량</div><div class="gl-v">11/20 거래량 50일 평균의 <b>0.66배</b> · 1배 아래</div></div></div></div><p class="gl-one">두산테스나 신호 3개 가운데 충족 1개, 미충족 2개다. 미충족은 가격 · 거래량이다.</p><div class="gl-rec tblwrap"><table class="mini"><thead><tr><th>회복률</th><th>52주 고점</th><th>고점 → 저점</th><th>저점</th><th>오늘</th><th>하락폭의 회복</th><th>전고점까지</th></tr></thead><tbody><tr><td>두산테스나</td><td>190,100 <span class="dim">(5/14)</span></td><td class="neg">-72.8%</td><td>51,800 <span class="dim">(7/30)</span></td><td>66,600</td><td><b>11%</b></td><td>185.4%</td></tr></tbody></table></div><p class="gl-note">종목 줄의 가격은 종가와 주봉 20주 평균(이야기꾼의 생명선)을 견주고, 상대강도는 최근 60거래일 수익률이 코스피를 이겼는지, 거래량은 최근 거래일 거래량을 50일 평균으로 나눈 값이다. 종목 줄은 충족 개수만 적고 판정 낱말은 쓰지 않는다. 하락폭의 회복은 52주 고점에서 그 뒤 저점까지 하락한 폭 가운데 오늘까지 되찾은 비율이다.</p></div><!-- GLANCE:END -->
 
 <figure class="fig"><div class="tblwrap"><table class="tw">
 <thead><tr><th class="n">종가</th><th class="n">전일비</th><th class="n">시총</th><th class="n">52주 고점 대비</th><th class="n">PER(최근 4분기)</th><th class="n">오디션</th></tr></thead>
@@ -870,7 +870,7 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 <h2 id="매수-5원칙-판정">매수 5원칙 판정</h2>
 <figure class="fig"><div class="tblwrap"><table class="tw"><thead><tr><th class="n">판정</th><th>원칙</th><th>근거</th></tr></thead><tbody><tr><td class="n"><span class="mut"> </span></td><td><b>① 시나리오 모델 (M)</b></td><td>거시 국면. <a href="jeonjo.html">중공황 전조현상</a>·<a href="jeoji-kospi.html">제오지산수</a>에서 본다</td></tr><tr><td class="n"><span class="mut"> </span></td><td><b>② 초고성장 내러티브 (N)</b></td><td>메가트렌드·주도업종인가. 사람이 판단한다</td></tr><tr class="bad"><td class="n"><span class="no">✕</span></td><td><b>③ 재무 QVG</b></td><td>영업이익률 1.4%. 10% 이상을 기준으로 본다</td></tr><tr class="bad"><td class="n"><span class="no">✕</span></td><td><b>④ 수급 DS</b></td><td>최근 20일 외국인 +10만주 · 기관 -34만주. <b>쌍끌이</b>가 기준</td></tr><tr class="bad"><td class="n"><span class="no">✕</span></td><td><b>⑤ 추세 T</b></td><td><b>20주선 85,660원</b> · 종가 대비 −22.3%. 20주선 위여야 매수 구간</td></tr></tbody></table></div><figcaption>이야기꾼 <a href="methodology.html">매수 5원칙</a>. ①②는 기계가 판정할 수 없어 비워 둔다. 억지로 표시하면 근거 없는 확신이 된다.</figcaption></figure>
 
-<div class="verdict"><p>⚠ 지표가 서로 다른 말을 하는 곳 4군데</p><ul><li>목표가 상승여력 +140%인데 추세는 3/8이다.<br><span class="sm">목표가는 실적 전망을 반영하고 템플릿은 가격 흐름을 본다. 둘이 벌어져 있으면 어느 쪽이 먼저 틀렸는지를 봐야 한다.</span></li><li>VCP 수축 수열이 14.5% → 22.5% → 58.0%로 거꾸로 간다.<br><span class="sm">조정폭이 줄어야 매물 소진인데 오히려 커졌다. 베이스가 아니라 하락 국면의 모양이다.</span></li><li>영업이익률이 12.2% → 1.4% 로 한 분기에 10.8%p 무너졌다.<br><span class="sm">매출 감소보다 마진 붕괴가 먼저 나타나는 경우가 있다. 고정비가 큰 장비·소재 업종에서 흔하다.</span></li><li>최근 20일 외국인이 +10만주 샀는데 주가는 -34.3%이다.<br><span class="sm">외국인 매수가 가격을 못 받치고 있다. 패시브 유입이거나, 다른 쪽 매도가 더 큰 것이다.</span></li></ul><p class="note">사실을 대조한 것이지 매매 판단이 아니다. 어느 쪽이 맞는지는 이 페이지가 답하지 않는다.</p></div>
+<div class="verdict"><p>⚠ 지표가 서로 다른 말을 하는 곳 4군데</p><ul><li>목표가 상승여력 +134%인데 추세는 3/8이다.<br><span class="sm">목표가는 실적 전망을 반영하고 템플릿은 가격 흐름을 본다. 둘이 벌어져 있으면 어느 쪽이 먼저 틀렸는지를 봐야 한다.</span></li><li>VCP 수축 수열이 14.5% → 22.5% → 58.0%로 거꾸로 간다.<br><span class="sm">조정폭이 줄어야 매물 소진인데 오히려 커졌다. 베이스가 아니라 하락 국면의 모양이다.</span></li><li>영업이익률이 12.2% → 1.4% 로 한 분기에 10.8%p 무너졌다.<br><span class="sm">매출 감소보다 마진 붕괴가 먼저 나타나는 경우가 있다. 고정비가 큰 장비·소재 업종에서 흔하다.</span></li><li>최근 20일 외국인이 +10만주 샀는데 주가는 -34.3%이다.<br><span class="sm">외국인 매수가 가격을 못 받치고 있다. 패시브 유입이거나, 다른 쪽 매도가 더 큰 것이다.</span></li></ul><p class="note">사실을 대조한 것이지 매매 판단이 아니다. 어느 쪽이 맞는지는 이 페이지가 답하지 않는다.</p></div>
 
 <h2 id="추세-20주선-추세-템플릿-vcp">추세: 20주선 · 추세 템플릿 · VCP</h2>
 <figure class="fig"><div class="cbox"><canvas id="p1"></canvas></div><figcaption><span class="freq d">일간</span>20주선(빨강)이 이야기꾼의 생명선이다. 이 위에 있어야 매수 구간이다. 회색은 20일선, 주황은 20개월선이다.</figcaption></figure><script>(window.__ST=window.__ST||[]).push({"id": "p1", "t": "두산테스나 — 종가와 20일선 · 20주선 · 20개월선", "l": ["25-04-02", "25-04-03", "25-04-04", "25-04-07", "25-04-08", "25-04-09", "25-04-10", "25-04-11", "25-04-14", "25-04-15", "25-04-16", "25-04-17", "25-04-18", "25-04-21", "25-04-22", "25-04-23", "25-04-24", "25-04-25", "25-04-28", "25-04-29", "25-04-30", "25-05-02", "25-05-07", "25-05-08", "25-05-09", "25-05-12", "25-05-13", "25-05-14", "25-05-15", "25-05-16", "25-05-19", "25-05-20", "25-05-21", "25-05-22", "25-05-23", "25-05-26", "25-05-27", "25-05-28", "25-05-29", "25-05-30", "25-06-02", "25-06-04", "25-06-05", "25-06-09", "25-06-10", "25-06-11", "25-06-12", "25-06-13", "25-06-16", "25-06-17", "25-06-18", "25-06-19", "25-06-20", "25-06-23", "25-06-24", "25-06-25", "25-06-26", "25-06-27", "25-06-30", "25-07-01", "25-07-02", "25-07-03", "25-07-04", "25-07-07", "25-07-08", "25-07-09", "25-07-10", "25-07-11", "25-07-14", "25-07-15", "25-07-16", "25-07-17", "25-07-18", "25-07-21", "25-07-22", "25-07-23", "25-07-24", "25-07-25", "25-07-28", "25-07-29", "25-07-30", "25-07-31", "25-08-01", "25-08-04", "25-08-05", "25-08-06", "25-08-07", "25-08-08", "25-08-11", "25-08-12", "25-08-13", "25-08-14", "25-08-18", "25-08-19", "25-08-20", "25-08-21", "25-08-22", "25-08-25", "25-08-26", "25-08-27", "25-08-28", "25-08-29", "25-09-01", "25-09-02", "25-09-03", "25-09-04", "25-09-05", "25-09-08", "25-09-09", "25-09-10", "25-09-11", "25-09-12", "25-09-15", "25-09-16", "25-09-17", "25-09-18", "25-09-19", "25-09-22", "25-09-23", "25-09-24", "25-09-25", "25-09-26", "25-09-29", "25-09-30", "25-10-01", "25-10-02", "25-10-10", "25-10-13", "25-10-14", "25-10-15", "25-10-16", "25-10-17", "25-10-20", "25-10-21", "25-10-22", "25-10-23", "25-10-24", "25-10-27", "25-10-28", "25-10-29", "25-10-30", "25-10-31", "25-11-03", "25-11-04", "25-11-05", "25-11-06", "25-11-07", "25-11-10", "25-11-11", "25-11-12", "25-11-13", "25-11-14", "25-11-17", "25-11-18", "25-11-19", "25-11-20", "25-11-21", "25-11-24", "25-11-25", "25-11-26", "25-11-27", "25-11-28", "25-12-01", "25-12-02", "25-12-03", "25-12-04", "25-12-05", "25-12-08", "25-12-09", "25-12-10", "25-12-11", "25-12-12", "25-12-15", "25-12-16", "25-12-17", "25-12-18", "25-12-19", "25-12-22", "25-12-23", "25-12-24", "25-12-26", "25-12-29", "25-12-30", "26-01-02", "26-01-05", "26-01-06", "26-01-07", "26-01-08", "26-01-09", "26-01-12", "26-01-13", "26-01-14", "26-01-15", "26-01-16", "26-01-19", "26-01-20", "26-01-21", "26-01-22", "26-01-23", "26-01-26", "26-01-27", "26-01-28", "26-01-29", "26-01-30", "26-02-02", "26-02-03", "26-02-04", "26-02-05", "26-02-06", "26-02-09", "26-02-10", "26-02-11", "26-02-12", "26-02-13", "26-02-19", "26-02-20", "26-02-23", "26-02-24", "26-02-25", "26-02-26", "26-02-27", "26-03-03", "26-03-04", "26-03-05", "26-03-06", "26-03-09", "26-03-10", "26-03-11", "26-03-12", "26-03-13", "26-03-16", "26-03-17", "26-03-18", "26-03-19", "26-03-20", "26-03-23", "26-03-24", "26-03-25", "26-03-26", "26-03-27", "26-03-30", "26-03-31", "26-04-01", "26-04-02", "26-04-03", "26-04-06", "26-04-07", "26-04-08", "26-04-09", "26-04-10", "26-04-13", "26-04-14", "26-04-15", "26-04-16", "26-04-17", "26-04-20", "26-04-21", "26-04-22", "26-04-23", "26-04-24", "26-04-27", "26-04-28", "26-04-29", "26-04-30", "26-05-04", "26-05-06", "26-05-07", "26-05-08", "26-05-11", "26-05-12", "26-05-13", "26-05-14", "26-05-15", "26-05-18", "26-05-19", "26-05-20", "26-05-21", "26-05-22", "26-05-26", "26-05-27", "26-05-28", "26-05-29", "26-06-01", "26-06-02", "26-06-04", "26-06-05", "26-06-08", "26-06-09", "26-06-10", "26-06-11", "26-06-12", "26-06-15", "26-06-16", "26-06-17", "26-06-18", "26-06-19", "26-06-22", "26-06-23", "26-06-24", "26-06-25", "26-06-26", "26-06-29", "26-06-30", "26-07-01", "26-07-02", "26-07-03", "26-07-06", "26-07-07", "26-07-08", "26-07-09", "26-07-10", "26-07-13", "26-07-14", "26-07-15", "26-07-16", "26-07-20", "26-07-21", "26-07-22", "26-07-23", "26-07-24", "26-07-27", "26-07-28", "26-07-29", "26-07-30", "26-07-31", "26-08-03", "26-08-04", "26-08-05", "26-08-06", "26-08-07", "26-08-10", "26-08-11", "26-08-12", "26-08-13", "26-08-14", "26-08-18", "26-08-19", "26-08-20", "26-08-21", "26-08-24", "26-08-25", "26-08-26", "26-08-27", "26-08-28", "26-08-31", "26-09-01", "26-09-02", "26-09-03", "26-09-04", "26-09-07", "26-09-08", "26-09-09", "26-09-10", "26-09-11", "26-09-14", "26-09-15", "26-09-16", "26-09-17", "26-09-18", "26-09-21", "26-09-22", "26-09-23", "26-09-28", "26-09-29", "26-09-30", "26-10-01", "26-10-02", "26-10-06", "26-10-07", "26-10-08", "26-10-12", "26-10-13", "26-10-14", "26-10-15", "26-10-16", "26-10-19", "26-10-20", "26-10-21", "26-10-22", "26-10-23", "26-10-26", "26-10-27", "26-10-28", "26-10-29", "26-10-30", "26-11-02", "26-11-03", "26-11-04", "26-11-05", "26-11-06", "26-11-09", "26-11-10", "26-11-11", "26-11-12", "26-11-13", "26-11-16", "26-11-17", "26-11-18", "26-11-19", "26-11-20"], "yt": "원", "dp": 0, "u": "원", "xt": 12, "d": [{"label": "종가", "data": [25300, 24850, 24300, 22500, 22700, 22350, 23700, 23900, 24300, 24500, 23800, 24300, 23950, 23950, 23500, 24600, 24450, 24800, 24650, 25650, 25300, 25050, 25450, 25050, 24350, 25400, 25400, 25950, 25250, 23850, 23250, 23250, 23200, 22500, 22100, 22500, 22300, 23150, 23350, 27100, 27750, 27750, 27400, 27250, 27100, 29050, 28700, 28050, 27650, 28250, 28600, 28400, 28650, 27500, 29350, 29350, 28100, 28250, 26200, 25800, 25450, 26950, 27750, 29800, 29400, 27000, 27000, 27450, 26750, 27300, 27500, 30300, 28800, 28650, 27850, 27300, 27200, 27200, 35350, 34650, 33850, 32500, 31050, 31050, 31700, 31050, 33900, 36650, 36200, 34800, 35500, 36400, 35000, 34400, 34150, 34950, 35300, 36000, 36350, 35950, 35850, 36450, 34250, 34100, 34100, 34350, 34700, 35150, 37000, 37850, 39150, 38700, 39550, 39850, 38950, 40250, 39850, 41400, 41650, 41600, 40900, 40000, 39950, 39850, 42700, 44500, 45850, 49200, 45700, 53800, 53100, 49850, 49500, 48600, 48150, 47950, 48700, 50900, 49000, 50100, 51700, 50200, 52400, 50200, 47450, 48000, 45600, 47250, 46600, 47000, 47350, 44100, 46000, 44600, 43750, 43850, 40950, 41450, 42700, 44550, 43850, 44800, 45950, 45400, 45450, 44000, 44300, 44050, 43450, 43000, 43350, 43850, 42250, 41100, 44800, 43000, 42700, 45650, 44950, 46450, 47150, 51100, 53200, 54100, 53800, 56200, 52300, 52100, 50100, 49450, 49450, 50500, 51100, 51300, 52400, 52700, 51600, 53900, 54500, 59300, 60900, 68700, 68400, 67800, 62500, 65100, 64500, 62000, 60800, 64400, 61800, 65300, 63300, 62700, 65500, 64000, 64500, 66600, 68200, 70400, 68000, 63200, 54300, 61700, 68600, 63100, 62600, 64300, 64600, 68600, 72800, 82700, 87300, 91900, 102400, 103700, 104200, 103400, 100000, 108300, 101300, 101300, 102900, 97200, 94700, 93200, 92200, 91000, 86200, 88200, 87700, 97800, 97000, 100500, 111800, 111800, 108000, 124900, 125700, 122400, 122500, 129800, 131900, 130700, 132100, 140000, 134500, 144900, 156600, 144800, 182000, 190100, 177800, 173400, 162400, 165600, 170500, 171600, 178700, 164100, 153900, 157300, 156900, 149400, 147500, 135600, 120100, 125300, 135500, 152200, 175000, 163500, 150300, 146700, 142800, 134400, 142700, 125000, 119600, 119300, 115700, 117000, 116300, 112600, 101000, 107500, 106800, 103200, 91000, 90700, 99900, 92500, 87900, 96700, 86900, 80600, 81900, 80000, 83300, 76400, 81000, 66400, 55900, 51800, 64100, 64900, 67600, 69100, 66500, 63700, 70200, 73300, 84400, 84000, 84000, 78700, 76300, 82100, 76900, 75100, 79700, 79800, 83100, 81700, 80200, 78400, 78200, 74900, 74300, 82700, 81000, 83800, 89100, 83800, 83400, 74400, 78500, 78900, 86100, 95000, 93400, 93700, 90700, 96300, 97700, 105800, 106900, 120000, 109100, 125300, 123800, 133000, 126200, 120600, 114500, 110000, 102400, 112200, 103500, 101400, 95400, 97100, 105500, 96800, 90100, 90200, 80000, 81300, 68200, 60800, 62700, 67300, 76900, 73800, 76100, 68500, 66400, 72800, 76800, 66600], "borderColor": "#1161c4", "borderWidth": 2, "pointRadius": 0, "tension": 0.1}, {"label": "20일선", "data": [28315, 28120, 27908, 27585, 27315, 27005, 26808, 26488, 26195, 25950, 25642, 25358, 25042, 24780, 24548, 24348, 24182, 24112, 24095, 24102, 24102, 24112, 24170, 24298, 24380, 24532, 24618, 24720, 24768, 24735, 24708, 24655, 24618, 24545, 24475, 24370, 24262, 24180, 24115, 24188, 24310, 24445, 24542, 24652, 24790, 24972, 25138, 25242, 25362, 25582, 25850, 26108, 26380, 26630, 26992, 27335, 27625, 27880, 28022, 27958, 27842, 27802, 27820, 27948, 28062, 27960, 27875, 27845, 27800, 27752, 27698, 27792, 27800, 27858, 27782, 27680, 27635, 27582, 28040, 28482, 28902, 29180, 29345, 29408, 29522, 29725, 30070, 30530, 31002, 31378, 31778, 32082, 32392, 32680, 32995, 33378, 33782, 34222, 34272, 34338, 34438, 34635, 34795, 34948, 35068, 35232, 35272, 35198, 35238, 35390, 35572, 35688, 35915, 36188, 36428, 36692, 36920, 37190, 37455, 37738, 37990, 38168, 38452, 38740, 39170, 39678, 40235, 40938, 41372, 42170, 42868, 43425, 43922, 44360, 44820, 45205, 45648, 46122, 46490, 46915, 47455, 47965, 48588, 49105, 49342, 49518, 49505, 49408, 49452, 49112, 48825, 48538, 48362, 48162, 47942, 47738, 47350, 46878, 46562, 46285, 45892, 45622, 45300, 45060, 44960, 44760, 44695, 44535, 44378, 44178, 43978, 43965, 43778, 43602, 43655, 43612, 43700, 43910, 44022, 44118, 44282, 44598, 44960, 45395, 45812, 46422, 46822, 47225, 47558, 47880, 48185, 48518, 48960, 49470, 49850, 50335, 50780, 51192, 51670, 52312, 53000, 53880, 54640, 55325, 55760, 56205, 56815, 57310, 57845, 58592, 59210, 59950, 60560, 61130, 61785, 62350, 62995, 63630, 64315, 64870, 65225, 64950, 64245, 63940, 64245, 64145, 64050, 64165, 64355, 64565, 65115, 65985, 67185, 68645, 70490, 72475, 74460, 76300, 77890, 79785, 81450, 83355, 85785, 87560, 88865, 90370, 91850, 93185, 94265, 95245, 95990, 96745, 97230, 97660, 98130, 98535, 98725, 99800, 101085, 101790, 102850, 104275, 105725, 107400, 109270, 111610, 113725, 116420, 119940, 122770, 127485, 132100, 136140, 139785, 142315, 145005, 148130, 150465, 153115, 155200, 156770, 158145, 159395, 160330, 161100, 160880, 160160, 159180, 158125, 158495, 158145, 156815, 155440, 154105, 153125, 151565, 150175, 147845, 144890, 142650, 140740, 138725, 136695, 134855, 132530, 131125, 130460, 129355, 127130, 124055, 120300, 116750, 113630, 111130, 108335, 105645, 102605, 100355, 98540, 96395, 94660, 92130, 89110, 86070, 84225, 82095, 80135, 78430, 77205, 75855, 74370, 73410, 73235, 72600, 72455, 72360, 72080, 72185, 71865, 71800, 71735, 72405, 73765, 75260, 76065, 76740, 77270, 77560, 77950, 78900, 79440, 79965, 80200, 80190, 80160, 79945, 80055, 79895, 80355, 81350, 82035, 82730, 83110, 83840, 84715, 86085, 87520, 89775, 91515, 93645, 95785, 98245, 100100, 101940, 103495, 105275, 106470, 108135, 109005, 109325, 109425, 109595, 110335, 110360, 109980, 109200, 107855, 105920, 103875, 100650, 97595, 94310, 91845, 89505, 87585, 85510, 83710, 81740, 80405, 78665], "borderColor": "#9ca3af", "borderWidth": 1.4, "pointRadius": 0, "tension": 0.2}, {"label": "20주선", "data": [28555, 28532, 28505, 28388, 28398, 28380, 28448, 28458, 28342, 28352, 28318, 28342, 28325, 28298, 28275, 28330, 28322, 28340, 28185, 28235, 28218, 28205, 28165, 28145, 28110, 28138, 28138, 28165, 28130, 28060, 27930, 27930, 27928, 27892, 27872, 27655, 27645, 27688, 27698, 27885, 27630, 27630, 27612, 27480, 27472, 27570, 27552, 27520, 27420, 27450, 27468, 27458, 27470, 27245, 27338, 27338, 27275, 27282, 26835, 26815, 26798, 26872, 26912, 26738, 26718, 26598, 26598, 26620, 26450, 26478, 26488, 26628, 26552, 26558, 26518, 26490, 26485, 26485, 26738, 26702, 26662, 26595, 26522, 26562, 26595, 26562, 26705, 26842, 27342, 27272, 27308, 27352, 27888, 27858, 27845, 27885, 27902, 28508, 28525, 28505, 28500, 28530, 29045, 29038, 29038, 29050, 29068, 29585, 29678, 29720, 29785, 29762, 30488, 30502, 30458, 30522, 30502, 31355, 31368, 31365, 31330, 31285, 32090, 32085, 32228, 32318, 33505, 34610, 34435, 34840, 34805, 34642, 35748, 35702, 35680, 35670, 35708, 36850, 36755, 36810, 36890, 36815, 38002, 37892, 37755, 37782, 37662, 38612, 38580, 38600, 38618, 38455, 39368, 39298, 39255, 39260, 39115, 39815, 39878, 39970, 39935, 39982, 40840, 40812, 40815, 40742, 40758, 41600, 41570, 41548, 41565, 41590, 42150, 42092, 42278, 42188, 42172, 42622, 42588, 42662, 42698, 43432, 43538, 43582, 44508, 44628, 44432, 44422, 44322, 44972, 44972, 45025, 45055, 45065, 45950, 45965, 45910, 46025, 46055, 47085, 47165, 47555, 47540, 47510, 48642, 48772, 48742, 48618, 48558, 49778, 49648, 49822, 49722, 49692, 50742, 50668, 51600, 51705, 51785, 51895, 51775, 52442, 51998, 52368, 52712, 53432, 53408, 53492, 53508, 53708, 54838, 55332, 55562, 55792, 56318, 59222, 59248, 59208, 59038, 59452, 62312, 62312, 62392, 62108, 61982, 64595, 64545, 64485, 64245, 64345, 66490, 66995, 66955, 67130, 67695, 71070, 70880, 71725, 71765, 71600, 75532, 75898, 76002, 75942, 80412, 80808, 80532, 81052, 86525, 85935, 87795, 88200, 87585, 93550, 93000, 93160, 93405, 93460, 99890, 99160, 98650, 98820, 104100, 103725, 103630, 103035, 106315, 106575, 107085, 107920, 109060, 113845, 113185, 113005, 112810, 112390, 116485, 115600, 115330, 115315, 115135, 117850, 117815, 117630, 117050, 117375, 119515, 119335, 118725, 118710, 119170, 120395, 120165, 120605, 120115, 120715, 120780, 120685, 120850, 120505, 121125, 120395, 119870, 119665, 120280, 118405, 118540, 118615, 118485, 118345, 116440, 116595, 117150, 117130, 117130, 116330, 116210, 116500, 116240, 115585, 115815, 115820, 115985, 115915, 114335, 114245, 114235, 114070, 114040, 112055, 111970, 112110, 112375, 112110, 109745, 109295, 109500, 109520, 109880, 107385, 107305, 107320, 102965, 103245, 103315, 103720, 103775, 101195, 100650, 101460, 99785, 100245, 99905, 99625, 99320, 98040, 97660, 98150, 97715, 97610, 93630, 93715, 94135, 93700, 93365, 91155, 90645, 90710, 90055, 89685, 87035, 87265, 87745, 87590, 87705, 85755, 85650, 85970, 86170, 85660], "borderColor": "#d21f3c", "borderWidth": 1.8, "pointRadius": 0, "tension": 0.2}, {"label": "20개월선", "data": [38698, 38675, 38648, 38558, 38568, 38550, 38618, 38628, 38648, 38658, 38622, 38648, 38630, 38630, 38608, 38662, 38655, 38672, 38665, 38715, 38698, 37745, 37765, 37745, 37710, 37762, 37762, 37790, 37755, 37685, 37655, 37655, 37652, 37618, 37598, 37618, 37608, 37650, 37660, 37848, 36998, 36998, 36980, 36972, 36965, 37062, 37045, 37012, 36992, 37022, 37040, 37030, 37042, 36985, 37078, 37078, 37015, 37022, 36920, 35040, 35022, 35098, 35138, 35240, 35220, 35100, 35100, 35122, 35088, 35115, 35125, 35265, 35190, 35182, 35142, 35115, 35110, 35110, 35518, 35482, 35442, 35375, 33998, 33998, 34030, 33998, 34140, 34278, 34255, 34185, 34220, 34265, 34195, 34165, 34152, 34192, 34210, 34245, 34262, 34242, 34238, 34268, 33728, 33720, 33720, 33732, 33750, 33772, 33865, 33908, 33972, 33950, 33992, 34008, 33962, 34028, 34008, 34085, 34098, 34095, 34060, 34015, 34012, 34008, 34008, 34098, 34165, 34332, 34158, 34562, 34528, 34365, 34348, 34302, 34280, 34270, 34308, 34418, 34322, 34378, 34458, 34382, 34492, 34382, 34245, 34272, 34152, 34235, 34202, 34222, 34240, 34078, 34172, 34102, 34060, 34065, 33920, 33945, 34008, 34100, 34065, 34112, 33958, 33930, 33932, 33860, 33875, 33862, 33832, 33810, 33828, 33852, 33772, 33715, 33900, 33810, 33795, 33942, 33908, 33982, 34018, 34215, 34320, 34862, 34848, 34968, 34772, 34762, 34662, 34630, 34630, 34682, 34712, 34722, 34778, 34792, 34738, 34852, 34882, 35122, 35202, 35592, 35578, 35548, 36800, 36930, 36900, 36775, 36715, 36895, 36765, 36940, 36840, 36810, 36950, 36875, 36900, 37005, 37085, 37195, 37075, 38242, 37798, 38168, 38512, 38238, 38212, 38298, 38312, 38512, 38722, 39218, 39448, 39678, 40202, 40268, 40292, 40252, 40082, 40498, 40148, 40148, 43658, 43372, 43248, 43172, 43122, 43062, 42822, 42922, 42898, 43402, 43362, 43538, 44102, 44102, 43912, 44758, 44798, 44632, 44638, 45002, 45108, 45048, 50095, 50490, 50215, 50735, 51320, 50730, 52590, 52995, 52380, 52160, 51610, 51770, 52015, 52070, 52425, 51695, 51185, 51355, 57700, 57325, 57230, 56635, 55860, 56120, 56630, 57465, 58605, 58030, 57370, 57190, 56995, 56575, 56990, 56105, 55835, 55820, 55640, 55705, 55670, 59970, 59390, 59715, 59680, 59500, 58890, 58875, 59335, 58965, 58735, 59175, 58685, 58370, 58435, 58340, 58505, 58160, 58390, 57660, 57135, 56930, 57545, 59540, 59675, 59750, 59620, 59480, 59805, 59960, 60515, 60495, 60495, 60230, 60110, 60400, 60140, 60050, 60280, 60285, 60450, 60380, 60305, 62742, 62732, 62568, 62538, 62958, 62872, 63012, 63278, 63012, 62992, 62542, 62748, 62768, 63128, 63572, 63492, 63508, 63358, 63638, 63708, 67490, 67545, 68200, 67655, 68465, 68390, 68850, 68510, 68230, 67925, 67700, 67320, 67810, 67375, 67270, 66970, 67055, 67475, 67040, 66705, 69965, 69455, 69520, 68865, 68495, 68590, 68820, 69300, 69145, 69260, 68880, 68775, 69095, 69295, 68785], "borderColor": "#b45309", "borderWidth": 1.6, "pointRadius": 0, "tension": 0.2}]});</script>
@@ -1052,7 +1052,7 @@ window.__qbRegister=function(){echarts.registerTheme('charlie', {"color": ["#d21
 <p class="kb-cap">표 1. 가치평가: 최근 4분기와 지난해 실적</p>
 <div class="tblwrap"><table class="tw"><thead><tr><th>지표</th><th class="n">최근 4분기 · 2026년 3분기</th><th class="n">지난해 실적(KIS)</th></tr></thead><tbody><tr class="cur"><td><b>PER</b> <span class="dim">업종 관행</span></td><td class="n">24.1배</td><td class="n">34.9배</td></tr><tr><td>PBR</td><td class="n">2.72배</td><td class="n">2.92배</td></tr><tr><td>EV/EBIT</td><td class="n">39.9배</td><td class="n"> </td></tr><tr><td>ROE</td><td class="n">11.3%</td><td class="n"> </td></tr><tr><td>영업이익률</td><td class="n">9.9%</td><td class="n"> </td></tr><tr><td>순현금</td><td class="n">순현금 360억</td><td class="n"> </td></tr></tbody></table></div>
 <p>두산테스나의 분기말 PER은 2022년 1분기부터 17개 분기 동안 6.3배에서 680.9배 사이였다. 중앙값은 12.5배다. 지금 24.1배는 그 범위에서 낮은 쪽부터 71% 자리다.</p>
-<p>증권사 평균 목표가 159,778원은 최근 4분기 순이익의 57.9배에 해당한다. 증권사는 내년 예상 이익을 쓰므로 이 배수는 그 예상이 담긴 값이다.</p>
+<p>증권사 평균 목표가 156,000원은 최근 4분기 순이익의 56.5배에 해당한다. 증권사는 내년 예상 이익을 쓰므로 이 배수는 그 예상이 담긴 값이다.</p>
 <p class="kb-note">※ 최근 4분기 값은 DART 분기 실적(4분기는 연간에서 1~3분기를 뺀 값)과 KRX 보통주 시가총액으로 계산했다. 순이익은 연결 재무제표의 당기순이익이다. 지난해 실적 값은 KIS가 주는 PER·PBR이다(2026-11-20). 업종 묶음은 이 사이트가 사업 설명으로 나눴다. 목표주가와 적정가는 계산하지 않는다.</p>
 
 <h2 id="증권사-목표가">증권사 목표가</h2>
@@ -1060,23 +1060,23 @@ window.__qbRegister=function(){echarts.registerTheme('charlie', {"color": ["#d21
 <figure class="fig"><div class="tblwrap"><table class="tw">
 <thead><tr><th>구분</th><th class="n">값</th><th class="n">현재가 대비</th></tr></thead>
 <tbody>
-<tr class="cur"><td><b>평균 목표가</b></td><td class="n"><b>159,778원</b></td><td class="n good"><b>+140%</b></td></tr>
-<tr><td>중앙값</td><td class="n">157,000원</td><td class="n">+136%</td></tr>
+<tr class="cur"><td><b>평균 목표가</b></td><td class="n"><b>156,000원</b></td><td class="n good"><b>+134%</b></td></tr>
+<tr><td>중앙값</td><td class="n">153,500원</td><td class="n">+130%</td></tr>
 <tr><td>최고 / 최저</td><td class="n">200,000 / 130,000</td><td class="n">+200% / +95%</td></tr>
-<tr><td>매수 의견</td><td class="n">7 / 9건</td><td class="n">78%</td></tr>
+<tr><td>매수 의견</td><td class="n">6 / 8건</td><td class="n">75%</td></tr>
 </tbody></table></div>
-<figcaption>최근 6개월 9개 리포트. 출처 KIS <code>invest-opbysec</code>(TR FHKST663400C0).</figcaption></figure>
+<figcaption>최근 6개월 8개 리포트. 출처 KIS <code>invest-opbysec</code>(TR FHKST663400C0).</figcaption></figure>
 
 <figure class="fig"><div class="tblwrap"><table class="tw">
 <thead><tr><th>증권사</th><th class="n">날짜</th><th class="n">의견</th><th class="n">목표가</th><th class="n">현재가 대비</th></tr></thead>
-<tbody><tr><td>IBK투자</td><td class="n">2026-11-02</td><td class="n">매수</td><td class="n">143,000</td><td class="n">+115%</td></tr><tr><td>삼성</td><td class="n">2026-10-27</td><td class="n">BUY</td><td class="n good">130,000</td><td class="n">+95%</td></tr><tr><td>메리츠</td><td class="n">2026-10-12</td><td class="n">BUY</td><td class="n good">169,000</td><td class="n">+154%</td></tr><tr><td>한국투자</td><td class="n">2026-08-24</td><td class="n">매수</td><td class="n">157,000</td><td class="n">+136%</td></tr><tr><td>교보</td><td class="n">2026-08-20</td><td class="n">BUY</td><td class="n good">135,000</td><td class="n">+103%</td></tr><tr><td>메리츠</td><td class="n">2026-07-20</td><td class="n">BUY</td><td class="n good">164,000</td><td class="n">+146%</td></tr><tr><td>DB증권</td><td class="n">2026-06-29</td><td class="n">BUY</td><td class="n good">150,000</td><td class="n">+125%</td></tr><tr><td>메리츠</td><td class="n">2026-06-10</td><td class="n">BUY</td><td class="n good">200,000</td><td class="n">+200%</td></tr><tr><td>메리츠</td><td class="n">2026-05-26</td><td class="n">BUY</td><td class="n good">190,000</td><td class="n">+185%</td></tr></tbody></table></div>
+<tbody><tr><td>IBK투자</td><td class="n">2026-11-02</td><td class="n">매수</td><td class="n">143,000</td><td class="n">+115%</td></tr><tr><td>삼성</td><td class="n">2026-10-27</td><td class="n">BUY</td><td class="n good">130,000</td><td class="n">+95%</td></tr><tr><td>메리츠</td><td class="n">2026-10-12</td><td class="n">BUY</td><td class="n good">169,000</td><td class="n">+154%</td></tr><tr><td>한국투자</td><td class="n">2026-08-24</td><td class="n">매수</td><td class="n">157,000</td><td class="n">+136%</td></tr><tr><td>교보</td><td class="n">2026-08-20</td><td class="n">BUY</td><td class="n good">135,000</td><td class="n">+103%</td></tr><tr><td>메리츠</td><td class="n">2026-07-20</td><td class="n">BUY</td><td class="n good">164,000</td><td class="n">+146%</td></tr><tr><td>DB증권</td><td class="n">2026-06-29</td><td class="n">BUY</td><td class="n good">150,000</td><td class="n">+125%</td></tr><tr><td>메리츠</td><td class="n">2026-06-10</td><td class="n">BUY</td><td class="n good">200,000</td><td class="n">+200%</td></tr></tbody></table></div>
 <figcaption>최근 12건.</figcaption></figure>
 
 <p class="note">⚠ 목표가는 증권사의 의견이지 예측이 아니다.
 매수 의견 비율이 높은 것은 국내 리서치의 구조적 특성이기도 한다. 매도 리포트가 드물다. 목표가 자체보다 최근 방향(상향/하향)이 정보에 가깝다.</p>
 
 <h2 id="관련-기사">관련 기사</h2>
-<div class="tblwrap"><table><thead><tr><th class="n">날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Tue, 13 Oct</td><td>한국경제</td><td><a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE5OeENqTHYyRGFubmVEeGZJSnpYSnZRY3Z1bFhPeW42MnJGaWlYVnlFSHloelBxRHpybkxORmpnTlhveVpSZVJQdmZmbC1EaXJJMzBLR3dsX0wtZw?oc=5" target="_blank" rel="noopener nofollow">급락장 속 버티는 두산테스나…&quot;4분기부터 실적 반등할 것&quot;</a></td></tr><tr><td class="n">Tue, 13 Oct</td><td>아시아경제</td><td><a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE1GLTRXckRNRUM2WndTWDVVeW9vdE1JTFBSOWFsWFJTbTcyLTZLZjdLRkpIbGx6NWs0WXctc0VCa3VKZTVfUzBQX2RvaG1Jb1AzV3A0VU51eldOa21pd2FNcw?oc=5" target="_blank" rel="noopener nofollow">[클릭 e종목]&quot;두산테스나, &#x27;신제품&#x27; 효과로 실적 개선 기대&quot;</a></td></tr><tr><td class="n">Tue, 06 Oct</td><td>경제타임스</td><td><a href="https://news.google.com/rss/articles/CBMiWEFVX3lxTE9hVVF4ODhrMFZqOUM4a3NqS01kbkx1NDFjdmdMQmUzMjY0VzkxbHBKUXdUTHZEQXhkYk4wVHhFaVlKN0dOZ1VIQ1drLW9XYkNuUWE5TTJhNVU?oc=5" target="_blank" rel="noopener nofollow">엔비디아·애플 품은 두산테스나, 2027년 최대 실적</a></td></tr><tr><td class="n">Thu, 08 Oct</td><td>머니투데이</td><td><a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTFB4UVh6NlBib0o1YWZkZml1NDVpaHJHWjJseHpNYWowemJOdk4wQ0huNmpqbDhsYURWNWYyT29MM3lsOXh1MnozZG5TTWRBXzFFZGlTN2tIcUwycmstanhvY0tvTmx6LU5s0gFuQVVfeXFMTWZLWnZac0FST1FHX2JyTDhMSTBIV3dweXFOMldmRGtJUE02U1ZQdHFkY2FoSmM1YlN6RUlIbjdCdGVwekREWkZSX0JVUFhic0FuTnliOTJTNE1jcmdhSTNEQVg4R2tjTG1XS0cxVnc?oc=5" target="_blank" rel="noopener nofollow">[오늘 이 종목] 테슬라 AI 수주 가시화 · 후공정 수혜…두산테스나 &#x27;주목&#x27; - 머니투데이</a></td></tr><tr><td class="n">Tue, 06 Oct</td><td>주간동아</td><td><a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTE1CWFZVdFRzOXJiT3h1Sk9qVVBneEhlNk1kUGY2LTdZZmdzZVExZ3NCbnVERzN4N2ZNRmIwdXpqWTg1YnFnQ09VTlFEWkxsTnFPYURVcXRZZWFUMUs1T0xJaTE2c2FZOS15?oc=5" target="_blank" rel="noopener nofollow">“테슬라 AI5 수주 가시화” 두산테스나, 2027년 영업이익 220% 증가 전망</a></td></tr><tr><td class="n">Mon, 19 Oct</td><td>한국금융신문</td><td><a href="https://news.google.com/rss/articles/CBMifEFVX3lxTE9kX1pVTU9mZVZpbEZ5N0hhQ0ItVlJ1TWQ0TFAwZjRjdEJtQ3dYR3JtR0pUVHZYYnExeEdnamI0QUZZT3NwN2hZRko2Szh3WE5OeUl5djdJellHODdTOUpwZG9UYlFjWVRBNXVKNVV4eUtjTm93SHVkM0tiT04?oc=5" target="_blank" rel="noopener nofollow">박정원 ‘승부수ʼ 두산테스나…사상 최대 실적 전망</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-11-22 기준. 「두산테스나」 로 찾았고 제목에 검색어가 실제로 들어간 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 별개이며, 내용이 서로 다를 수 있다.</p>
+<div class="tblwrap"><table><thead><tr><th class="n">날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Sun, 22 Nov</td><td>뉴스핌</td><td><a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTFAzUDJXTzZmMmtHc0VxejJrMWRVcVk2YkFhaWdTRDFuT1B6S1ViQXdEdS1QbVVKYUdvX29aM29kUmlWMFgwUFZVLVpsWjQ2eTk4N01FTU5BSVhXamdx?oc=5" target="_blank" rel="noopener nofollow">[모닝 리포트] 두산테스나, 목표가 하향…&quot;고부가 신제품 확대는 계획대로&quot;</a></td></tr><tr><td class="n">Sun, 22 Nov</td><td>뉴스웨이</td><td><a href="https://news.google.com/rss/articles/CBMiakFVX3lxTFAwbndyalBJQUFBU1JtUXVUQ3J4dEFHOWtXQTZMNV9EdEVES29Bd2ZDOU85NUdCdEg4dnBkOFNGQi14V2ZHVERFS04tWHBkOHppY002SUd4UlFVVkdhX1ktbV9NcExzcEU2bnc?oc=5" target="_blank" rel="noopener nofollow">두산테스나, SET 출하 부진·비용 부담에 주가 눈높이 &#x27;뚝&#x27;</a></td></tr><tr><td class="n">Sun, 22 Nov</td><td>뉴스핌</td><td><a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTE52NGgyVDZINmNNRC1FVnBfSU1LcndMQldZSExwWnllRG5ZcEUyMGpUWFBxVWdITTN6cTkzV190UlViRVd6dG1hVkdxZ1I1WkNxcVVtU18ySThPM1pi?oc=5" target="_blank" rel="noopener nofollow">[리포트 브리핑]두산테스나, &#x27;NDR 후기: 계획대로 탄탄하게&#x27; 목표가 100,000원 - 교보증권</a></td></tr><tr><td class="n">Tue, 17 Nov</td><td>금융소비자뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiakFVX3lxTE5jVzVGRTNDTEk2cXU5cjA5endtSi1ubzVyZ3FaY1JkV2ZuSTB4bGpQM2p5Z0t1V2JBR2t3OTlUcllOa0lmc0diandseUVpWWlWOXRrU0Q3R054NEIxcklheVk2N18yZ2xuTGc?oc=5" target="_blank" rel="noopener nofollow">‘실적 쇼크’ 두산테스나, ‘신사업 LPU 테스트’ 11월 본격 매출</a></td></tr><tr><td class="n">Tue, 13 Oct</td><td>한국경제</td><td><a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE5OeENqTHYyRGFubmVEeGZJSnpYSnZRY3Z1bFhPeW42MnJGaWlYVnlFSHloelBxRHpybkxORmpnTlhveVpSZVJQdmZmbC1EaXJJMzBLR3dsX0wtZw?oc=5" target="_blank" rel="noopener nofollow">급락장 속 버티는 두산테스나…&quot;4분기부터 실적 반등할 것&quot;</a></td></tr><tr><td class="n">Tue, 13 Oct</td><td>아시아경제</td><td><a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE1GLTRXckRNRUM2WndTWDVVeW9vdE1JTFBSOWFsWFJTbTcyLTZLZjdLRkpIbGx6NWs0WXctc0VCa3VKZTVfUzBQX2RvaG1Jb1AzV3A0VU51eldOa21pd2FNcw?oc=5" target="_blank" rel="noopener nofollow">[클릭 e종목]&quot;두산테스나, &#x27;신제품&#x27; 효과로 실적 개선 기대&quot;</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-11-23 기준. 「두산테스나」 로 찾았고 제목에 검색어가 실제로 들어간 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 별개이며, 내용이 서로 다를 수 있다.</p>
 
 <h2 id="이-페이지의-전제를-검증합니다">이 페이지의 전제를 검증한다</h2><style id="vfcss">
 .vbox{border:1px solid var(--border,rgba(15,23,42,.12));border-radius:12px;
@@ -1106,7 +1106,7 @@ window.__qbRegister=function(){echarts.registerTheme('charlie', {"color": ["#d21
 </div>
 </div>
 <footer>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.
-    · 근거: 이야기꾼 주간 시투 보고서(W46·2026-11-14) 및 자체 실측.</footer>
+    · 근거: 이야기꾼 주간 시투 보고서(W47·2026-11-21) 및 자체 실측.</footer>
 </div>
 
 <script>
