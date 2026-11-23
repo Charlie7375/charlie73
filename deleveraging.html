@@ -313,89 +313,7 @@ a.card:focus-visible,.lst-i:focus-visible{
 .site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
   background:color-mix(in srgb,var(--text) 6%,transparent)}
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/*NAVCSS:END*//* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-/* ⚠⚠ 2026-09-10 상수님 «작은 해상도에서는 제목을 누를 수 없네».
-   아카이브가 29장이 되면서 드롭다운이 1,254px 로 자랐다. 상단바는 sticky 라
-   드롭다운은 화면 위에서 72px 자리에 열리는데, 390px 화면의 보이는 높이가 915px 이니
-   **아래 411px 는 화면 밖이고 스크롤이 없어 닿을 방법이 아예 없었다.**
-   → 화면 높이만큼만 열고 넘치면 그 안에서 스크롤한다.
-   · dvh 를 뒤에 한 번 더 적는다 — 모바일 주소창이 접혔다 펴질 때 100vh 는 화면보다 크다.
-     dvh 를 모르는 브라우저는 앞줄(vh)만 읽고 지나간다.
-   · overscroll-behavior:contain — 목록 끝에서 계속 밀어도 뒤 본문이 따라 스크롤되지 않게.
-   · 120px 은 상단바(2줄, 96px)와 아래 여백 16px 이다. 아카이브·원자료는 메뉴 2번째 줄에
-     달려 있어 104px 자리에서 열린다 — 92px 로 뺐더니 12px 이 화면 밖으로 나갔다. */
-html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);
-  overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
-
-/* ★ 2026-09-14 상수님 «가로 CSS 가 째지지 않게». 숨은 펼침 메뉴(visibility:hidden)가 자리를 차지해 375px 화면에서
-   scrollWidth 427 로 가로 스크롤이 생겼다(전 페이지). 메뉴 폭을 화면 안에 묶고 문서의 가로 넘침을 자른다.
-   ⚠ 상단바 CSS 를 전 페이지에 미치게 하는 자리는 **여기(CENTER)뿐**이다. nav2.py 를 고쳐도 원자료 장에만 닿는다. */
-html body .site-dd{max-width:calc(100vw - 24px)}
-html,body{overflow-x:hidden}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END */
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
-
-/* SEARCH:BEGIN */
-.srch-btn{position:fixed;top:auto;bottom:18px;right:68px;z-index:130;width:42px;height:42px;border-radius:50%;
-  background:var(--surface,#F6F7F9);border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text,#0f172a);
-  cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;
-  box-shadow:0 2px 14px rgba(0,0,0,.10);transition:transform .12s,box-shadow .12s}
-.srch-btn:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(0,0,0,.16)}
-.srch-btn:focus-visible,.srch-in:focus-visible,.srch-r a:focus-visible{outline:2px solid var(--accent,#2563eb);outline-offset:2px}
-.srch-bg{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.38);display:none}
-.srch-bg.on{display:block}
-.srch-box{position:fixed;z-index:201;top:72px;left:50%;transform:translateX(-50%);width:min(680px,calc(100vw - 24px));
-  max-height:calc(100vh - 96px);max-height:calc(100dvh - 96px);display:none;flex-direction:column;
-  background:var(--bg,#fff);color:var(--text,#0f172a);border:1px solid var(--border,rgba(15,23,42,.12));
-  border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.28);overflow:hidden}
-.srch-box.on{display:flex}
-.srch-top{display:flex;gap:8px;align-items:center;padding:12px 14px;border-bottom:1px solid var(--border,rgba(15,23,42,.12))}
-.srch-in{flex:1;min-width:0;font:inherit;font-size:16px;padding:9px 11px;border-radius:9px;
-  border:1px solid var(--border,rgba(15,23,42,.12));background:var(--surface,#F6F7F9);color:var(--text,#0f172a)}
-.srch-x{font:inherit;font-size:13px;padding:8px 10px;border-radius:9px;border:0;background:none;color:var(--text2,#6e6e73);cursor:pointer}
-.srch-meta{padding:8px 16px 0;font-size:12.5px;color:var(--text2,#6e6e73)}
-.srch-r{list-style:none;margin:0;padding:6px 8px 12px;overflow-y:auto;overscroll-behavior:contain}
-.srch-r li{margin:0}
-.srch-r a{display:block;padding:10px 10px;border-radius:9px;color:inherit;text-decoration:none}
-.srch-r a:hover,.srch-r a.cur{background:var(--surface,#F6F7F9)}
-.srch-k{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;padding:1px 6px;border-radius:5px;
-  margin-right:6px;vertical-align:1px;border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text2,#6e6e73)}
-.srch-t{font-weight:700;font-size:14.5px;line-height:1.4}
-.srch-h{font-size:13px;color:var(--text2,#6e6e73);margin-top:2px;line-height:1.4}
-.srch-s{font-size:13px;line-height:1.55;margin-top:4px;color:var(--text,#0f172a);opacity:.86}
-.srch-s mark,.srch-h mark,.srch-t mark{background:rgba(37,99,235,.18);color:inherit;border-radius:3px;padding:0 1px}
-/* 상단 메뉴 «검색» — 드롭다운 버튼(.site-group>button)과 같은 글자로.
-   ⚠ site-group 이 아니라 site-srch 로 감싼다 — 상단바 토글 JS 가 site-group 마다 버튼을 찾다 오류가 났다(2026-10-06). */
-html body .site-srch{position:relative;display:flex;align-items:center}
-html body .site-srch>a.srch-nav{display:flex;align-items:center;font-size:13px;font-weight:600;letter-spacing:-.01em;
-  line-height:normal;color:var(--text-secondary,#475569);padding:8px 12px;border-radius:9px;text-decoration:none}
-html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in srgb,var(--text) 6%,transparent)}
-@media(max-width:760px){.srch-box{top:12px} html body .site-srch>a.srch-nav{padding:8px 8px;font-size:12px}}
-@media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
-/* SEARCH:END */
-
+/*NAVCSS:END*/
 /* KB 판 (2026-11-20) */
 .kbp{margin:14px 0}
 .kbp>.s{font-weight:700;font-size:.92em;color:var(--text-secondary,#6e6e73);margin:0 0 3px}
@@ -458,6 +376,81 @@ td.no .back{display:inline-block;margin-top:4px;padding-left:8px;border-left:2px
 .hchg .ar{white-space:nowrap}
 .to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
 @media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
+/* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+/* ⚠⚠ 2026-09-10 상수님 «작은 해상도에서는 제목을 누를 수 없네».
+   아카이브가 29장이 되면서 드롭다운이 1,254px 로 자랐다. 상단바는 sticky 라
+   드롭다운은 화면 위에서 72px 자리에 열리는데, 390px 화면의 보이는 높이가 915px 이니
+   **아래 411px 는 화면 밖이고 스크롤이 없어 닿을 방법이 아예 없었다.**
+   → 화면 높이만큼만 열고 넘치면 그 안에서 스크롤한다.
+   · dvh 를 뒤에 한 번 더 적는다 — 모바일 주소창이 접혔다 펴질 때 100vh 는 화면보다 크다.
+     dvh 를 모르는 브라우저는 앞줄(vh)만 읽고 지나간다.
+   · overscroll-behavior:contain — 목록 끝에서 계속 밀어도 뒤 본문이 따라 스크롤되지 않게.
+   · 120px 은 상단바(2줄, 96px)와 아래 여백 16px 이다. 아카이브·원자료는 메뉴 2번째 줄에
+     달려 있어 104px 자리에서 열린다 — 92px 로 뺐더니 12px 이 화면 밖으로 나갔다. */
+html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);
+  overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+
+/* ★ 2026-09-14 상수님 «가로 CSS 가 째지지 않게». 숨은 펼침 메뉴(visibility:hidden)가 자리를 차지해 375px 화면에서
+   scrollWidth 427 로 가로 스크롤이 생겼다(전 페이지). 메뉴 폭을 화면 안에 묶고 문서의 가로 넘침을 자른다.
+   ⚠ 상단바 CSS 를 전 페이지에 미치게 하는 자리는 **여기(CENTER)뿐**이다. nav2.py 를 고쳐도 원자료 장에만 닿는다. */
+html body .site-dd{max-width:calc(100vw - 24px)}
+html,body{overflow-x:hidden}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END */
+/* SEARCH:BEGIN */
+.srch-btn{position:fixed;top:auto;bottom:18px;right:68px;z-index:130;width:42px;height:42px;border-radius:50%;
+  background:var(--surface,#F6F7F9);border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text,#0f172a);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;
+  box-shadow:0 2px 14px rgba(0,0,0,.10);transition:transform .12s,box-shadow .12s}
+.srch-btn:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(0,0,0,.16)}
+.srch-btn:focus-visible,.srch-in:focus-visible,.srch-r a:focus-visible{outline:2px solid var(--accent,#2563eb);outline-offset:2px}
+.srch-bg{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.38);display:none}
+.srch-bg.on{display:block}
+.srch-box{position:fixed;z-index:201;top:72px;left:50%;transform:translateX(-50%);width:min(680px,calc(100vw - 24px));
+  max-height:calc(100vh - 96px);max-height:calc(100dvh - 96px);display:none;flex-direction:column;
+  background:var(--bg,#fff);color:var(--text,#0f172a);border:1px solid var(--border,rgba(15,23,42,.12));
+  border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.28);overflow:hidden}
+.srch-box.on{display:flex}
+.srch-top{display:flex;gap:8px;align-items:center;padding:12px 14px;border-bottom:1px solid var(--border,rgba(15,23,42,.12))}
+.srch-in{flex:1;min-width:0;font:inherit;font-size:16px;padding:9px 11px;border-radius:9px;
+  border:1px solid var(--border,rgba(15,23,42,.12));background:var(--surface,#F6F7F9);color:var(--text,#0f172a)}
+.srch-x{font:inherit;font-size:13px;padding:8px 10px;border-radius:9px;border:0;background:none;color:var(--text2,#6e6e73);cursor:pointer}
+.srch-meta{padding:8px 16px 0;font-size:12.5px;color:var(--text2,#6e6e73)}
+.srch-r{list-style:none;margin:0;padding:6px 8px 12px;overflow-y:auto;overscroll-behavior:contain}
+.srch-r li{margin:0}
+.srch-r a{display:block;padding:10px 10px;border-radius:9px;color:inherit;text-decoration:none}
+.srch-r a:hover,.srch-r a.cur{background:var(--surface,#F6F7F9)}
+.srch-k{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;padding:1px 6px;border-radius:5px;
+  margin-right:6px;vertical-align:1px;border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text2,#6e6e73)}
+.srch-t{font-weight:700;font-size:14.5px;line-height:1.4}
+.srch-h{font-size:13px;color:var(--text2,#6e6e73);margin-top:2px;line-height:1.4}
+.srch-s{font-size:13px;line-height:1.55;margin-top:4px;color:var(--text,#0f172a);opacity:.86}
+.srch-s mark,.srch-h mark,.srch-t mark{background:rgba(37,99,235,.18);color:inherit;border-radius:3px;padding:0 1px}
+/* 상단 메뉴 «검색» — 드롭다운 버튼(.site-group>button)과 같은 글자로.
+   ⚠ site-group 이 아니라 site-srch 로 감싼다 — 상단바 토글 JS 가 site-group 마다 버튼을 찾다 오류가 났다(2026-10-06). */
+html body .site-srch{position:relative;display:flex;align-items:center}
+html body .site-srch>a.srch-nav{display:flex;align-items:center;font-size:13px;font-weight:600;letter-spacing:-.01em;
+  line-height:normal;color:var(--text-secondary,#475569);padding:8px 12px;border-radius:9px;text-decoration:none}
+html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in srgb,var(--text) 6%,transparent)}
+@media(max-width:760px){.srch-box{top:12px} html body .site-srch>a.srch-nav{padding:8px 8px;font-size:12px}}
+@media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
+/* SEARCH:END */
 /*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
@@ -1175,7 +1168,7 @@ FTD(팔로스루 데이)는 바닥 뒤 며칠 지나 거래량이 늘며 크게 
 </section>
 </article>
 </div>
-<div class="wrap"><!--TOPICNEWS:BEGIN--><style id="tnewscss">.tnews{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 10px;margin:34px 0 10px}.tnews h3{margin:0 0 10px;font-size:1.02rem}.tnews table{width:100%;border-collapse:collapse;font-size:.9rem}.tnews td{padding:5px 8px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}.tnews td.d{white-space:nowrap;color:var(--text-secondary)}.tnews p.cap{margin:10px 0 8px;font-size:.8rem;color:var(--text-secondary);line-height:1.6}</style><div class="tnews"><h3>관련 뉴스</h3><p class="cap">제목에 검색어가 실제로 들어간 기사만 골랐다. 제목을 누르면 원문으로 간다.</p><p class="cap">국내: 「신용융자 반대매매」 로 찾았다.</p><div class="tblwrap"><table><tbody><tr><td class="d">Mon, 23 Nov</td><td class="d">뉴시스</td><td><a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE0zcnY5RmtZUUtaTDBMWkdfeERWSmFMTV9lV2hZRlpEa1lwRDExRUdEWlhPZXZNZWVpbDN0ZnEyRngyX2pvWXZTNHRjRVlUZmRKX2NUOEM5a1I0ejdZNHBnbtIBeEFVX3lxTE51S2w5QjFrUkNXZm00T0xEX0VuZFk0T2J4VHd3Nzd4VVZlSklHQkRyTi1PbENqa205Z0xQVnRJOTN2SExUNFQ1SEtfNXRQejJVM20xZ3pvREMxQnE0alVnWUp5ZzR0YmNVcmk3X1BfWm1FU3N4YlJwRw?oc=5" target="_blank" rel="noopener nofollow">코스피 4700선 붕괴…'빚투 개미' 강제 청산 우려 커진다</a></td></tr><tr><td class="d">Mon, 23 Nov</td><td class="d">콕스뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiakFVX3lxTE9DRTdTSkwtV3I1THVpNGtBR2ZPS1pMUXlHMUlUM2p2SjRxdWRBSVk5Z2VWNG9CWGY2dXFFZmFXa29teUpxc1FSY3pKdThnMUxtQUVUYWZGWlBwSmFBSmx5UG12THQyY2JhV1E?oc=5" target="_blank" rel="noopener nofollow">[조타수] 중국은 '빚투' 문 열고, 한국은 반대매매 늦춰…같은 급락, 다른 처방</a></td></tr><tr><td class="d">Fri, 06 Nov</td><td class="d">연합뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTFBpbU82MEtwSWJGeDFPR2hvVFdmSi1MbnRHSGVsMFVjLW54UkJGcnFZM3VFdGtJNmhhSl8zX3dFby1qOW9DdzJYczNVMUFTUjRpZUZjV0lCMUJQTjjSAWBBVV95cUxQWlZWNXNKb3ZjRVFSUnRZZE9PY3JCRUlNdFlBZFBKLXQ2VUZBdnVPOHR4a2hoNmN4NmxZYS16S21MNXh3X2pZb1N2OC1OVWZLWTAtZGlsRjJWeWxLa18zWTk?oc=5" target="_blank" rel="noopener nofollow">증권사들, 신용융자 담보비율↓·반대매매 유예…'빚투 강제처분 완화' 호응</a></td></tr><tr><td class="d">Tue, 17 Nov</td><td class="d">머니투데이</td><td><a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTFBnRWppMWxqTEtJemdyWENEdVl0MXd5ZkhRM0lLTm5sa1pGN0cxVW1RLUVENkpGR3U4QUJ4OHo2M05hLVZ1YTRTYkE1b3dmNFdHUDBUa2F4WVBDX3hvRTkxSkowUkZCT3BC0gFuQVVfeXFMTl85ZWVsdmRRdGdpYUtRYjNJQWVTMHkySHhGanhlUE5VQTF2UzhTNi1rTUJfdmRVOFRmSHF2MVByUWtIdWcwVjBWMmZBNVBYUlZGcmxJWnE3SXBwVVNfNjZkY2tSdTFfeFBXQktDaFE?oc=5" target="_blank" rel="noopener nofollow">미수금 대비 반대매매 231% 급증…140% 규제 풀어도 역부족 - 머니투데이</a></td></tr><tr><td class="d">Fri, 06 Nov</td><td class="d">대한민국 정책브리핑</td><td><a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE01YU1jWjFWM0w3QXN0Y1pJVUNBNnU4aTJtQUkteEFULWxYM3lhWXlHYS1qbE9DdjU1eWNXYk1BUW9fQXhqcnkwTE5vMmR6ZTloOFlHaDRaa0ZudjJPMmdjaE1tVTczVHBVMXdWNA?oc=5" target="_blank" rel="noopener nofollow">증권사 신용융자 담보비율 의무 '3개월 면제'…증시 변동성 대응</a></td></tr><tr><td class="d">Fri, 06 Nov</td><td class="d">YTN</td><td><a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE5kendLOFZnZFpJeVNlT3NQc3ZGYXI2V2JTdG9RU0VEMjByYmlBMXZrWXgwUGVYb3lRdzRWSm5iNHNiNzN3TlhqUkRvaGFqekdSeW13dFhNd2d0NWp0aC1OTDBmbm1YNmNFVWhrS181TDUyYXc3RXc?oc=5" target="_blank" rel="noopener nofollow">반대매매 억제...증권사 신용융자 담보비율 규제 석 달 면제</a></td></tr></tbody></table></div><p class="cap">출처 구글 뉴스 · 2026-11-23 기준. 뉴스는 이 글의 분석과 별개이며, 내용이 서로 다를 수 있다.</p></div><!--TOPICNEWS:END--><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="flow-extremes.html">개인과 외국인의 대량 매매</a> 신용융자 대신 개인 순매도 금액으로 같은 질문을 묻는다. 개인이 크게 판 39일은 전부 지수가 오른 날이었다.</p><p><a href="treasury-trust.html">미국 국채 바이백</a> 강제청산을 부르는 금리가 어디서 오는지를 재무부 쪽에서 본 페이지다.</p><p><a href="flow-crashes.html">폭락의 구조</a> 같은 사건을 수급 쪽에서 본다. 빌린 돈이 빠지는 것과 외국인이 파는 것은 다른 일이다.</p><p><a href="sentiment.html">빚과 현금</a> 강제청산은 심리가 꺾인 뒤에 오는가 먼저 오는가를 견줄 페이지다.</p><p><a href="rates-crashes.html">금리 5%와 공황</a> ⚠ 반대편 증거. 강제청산이 금리 때문이라면 금리 수준으로 미리 알 수 있어야 한다.</p></div><!--RELATED:END--><!--GLOSSARY:BEGIN--><style id="glocss">.glo{margin:34px 0 8px}.glo h3{font-size:1.02rem;margin:0 0 12px}.glo dl{margin:0;font-size:.9rem;line-height:1.62}.glo dt{font-weight:800;margin-top:10px}.glo dd{margin:2px 0 0 0;color:var(--text-secondary,#555)}</style><div class="glo"><h3>용어 설명</h3><dl><dt>국면</dt><dd>시장이 지금 어느 상태에 있는가를 가리키는 말. 몇 개 단계로 구분하고, 한 단계는 여러 달에서 몇 해까지 이어진다고 본다. 하루하루의 등락이 아니라 그 등락이 놓인 큰 흐름을 가리킨다.</dd><dt>표본</dt><dd>실제로 확인한 사례의 묶음. 표본이 적으면 우연히 그렇게 보였을 가능성을 배제하기 어렵다. 그래서 이 사이트는 사례가 몇 번인지를 늘 함께 적는다.</dd><dt>신용융자</dt><dd>증권사에서 대출을 받아 주식을 매수하는 것. 잔고가 늘면 시장에 레버리지가 쌓인다는 뜻이다.</dd><dt>반대매매</dt><dd>대출을 받아 매수한 주식의 담보 가치가 기준 아래로 하락하면 증권사가 강제로 매도하는 것. 하락을 스스로 키우는 매도라 바닥 판정의 재료가 된다.</dd><dt>FTD</dt><dd>Follow-Through Day(팔로스루 데이). 저점에서 반등을 시도한 지 4~10일째에 큰 상승이 평소보다 많은 거래량과 함께 나오면 새 상승 추세의 시작으로 보는 윌리엄 오닐의 판정 방법. 이 사이트는 +1.5% 이상 상승과 50일 평균 이상 거래량을 요건으로 쓴다.</dd><dt>셀링 클라이맥스</dt><dd>공포가 절정에 달해 대량 거래와 함께 쏟아지는 마지막 투매. 매도 물량이 소진되는 자리라 역사적 바닥이 이 '근처'에서 나왔다.</dd><dt>거래대금</dt><dd>주식 수가 아니라 돈으로 나타낸 하루 거래 규모. 이 사이트의 버블 차트에서 점 크기가 이것이다.</dd></dl><p style="font-size:.8rem;color:var(--text-secondary,#777);margin-top:12px">이 글에 나온 용어만 실었다.</p></div><!--GLOSSARY:END--></div>
+<div class="wrap"><!--TOPICNEWS:BEGIN--><style id="tnewscss">.tnews{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 10px;margin:34px 0 10px}.tnews h3{margin:0 0 10px;font-size:1.02rem}.tnews table{width:100%;border-collapse:collapse;font-size:.9rem}.tnews td{padding:5px 8px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}.tnews td.d{white-space:nowrap;color:var(--text-secondary)}.tnews p.cap{margin:10px 0 8px;font-size:.8rem;color:var(--text-secondary);line-height:1.6}</style><div class="tnews"><h3>관련 뉴스</h3><p class="cap">제목에 검색어가 실제로 들어간 기사만 골랐다. 제목을 누르면 원문으로 간다.</p><p class="cap">국내: 「신용융자 반대매매」 로 찾았다.</p><div class="tblwrap"><table><tbody><tr><td class="d">Mon, 23 Nov</td><td class="d">시사저널e</td><td><a href="https://news.google.com/rss/articles/CBMickFVX3lxTFBHczI4VmtyUHZkb3l5X2sxTTc4a2xBRDN4UTdCZ0hWaDM3Qk9tVHN3Zm5xTW16Z2FFTTVvTktPNlRfZjNDTmRiU01Yblc5WkVaVWhwRzBYWmxfQVlFbll5aUpBbWZWcFZYdHoyWXUtRk5jQdIBdkFVX3lxTE4yNTVCQzFJajI4X3M3RTU3dGFPNW1uNFhCYmM1bEVzLXd5T3lrVF9jNVVhT1duNXBhdGI3V2J6TzA1ZFkzcy1nQnFFaEl5ckdLdHdPamtQSVlCd1Iwa19MUmFKTU5NOFVYTEIwYWhmM3R4QUViN2c?oc=5" target="_blank" rel="noopener nofollow">코스피 연속 급락에 반대매매 우려 확산···삼전닉스 신용잔고만 ‘6.9兆’</a></td></tr><tr><td class="d">Mon, 23 Nov</td><td class="d">뉴시스</td><td><a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE0zcnY5RmtZUUtaTDBMWkdfeERWSmFMTV9lV2hZRlpEa1lwRDExRUdEWlhPZXZNZWVpbDN0ZnEyRngyX2pvWXZTNHRjRVlUZmRKX2NUOEM5a1I0ejdZNHBnbtIBeEFVX3lxTE51S2w5QjFrUkNXZm00T0xEX0VuZFk0T2J4VHd3Nzd4VVZlSklHQkRyTi1PbENqa205Z0xQVnRJOTN2SExUNFQ1SEtfNXRQejJVM20xZ3pvREMxQnE0alVnWUp5ZzR0YmNVcmk3X1BfWm1FU3N4YlJwRw?oc=5" target="_blank" rel="noopener nofollow">코스피 4700선 붕괴…'빚투 개미' 강제 청산 우려 커진다</a></td></tr><tr><td class="d">Mon, 23 Nov</td><td class="d">콕스뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiakFVX3lxTE9DRTdTSkwtV3I1THVpNGtBR2ZPS1pMUXlHMUlUM2p2SjRxdWRBSVk5Z2VWNG9CWGY2dXFFZmFXa29teUpxc1FSY3pKdThnMUxtQUVUYWZGWlBwSmFBSmx5UG12THQyY2JhV1E?oc=5" target="_blank" rel="noopener nofollow">[조타수] 중국은 '빚투' 문 열고, 한국은 반대매매 늦춰…같은 급락, 다른 처방</a></td></tr><tr><td class="d">Fri, 06 Nov</td><td class="d">연합뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTFBpbU82MEtwSWJGeDFPR2hvVFdmSi1MbnRHSGVsMFVjLW54UkJGcnFZM3VFdGtJNmhhSl8zX3dFby1qOW9DdzJYczNVMUFTUjRpZUZjV0lCMUJQTjjSAWBBVV95cUxQWlZWNXNKb3ZjRVFSUnRZZE9PY3JCRUlNdFlBZFBKLXQ2VUZBdnVPOHR4a2hoNmN4NmxZYS16S21MNXh3X2pZb1N2OC1OVWZLWTAtZGlsRjJWeWxLa18zWTk?oc=5" target="_blank" rel="noopener nofollow">증권사들, 신용융자 담보비율↓·반대매매 유예…'빚투 강제처분 완화' 호응</a></td></tr><tr><td class="d">Tue, 17 Nov</td><td class="d">머니투데이</td><td><a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTFBnRWppMWxqTEtJemdyWENEdVl0MXd5ZkhRM0lLTm5sa1pGN0cxVW1RLUVENkpGR3U4QUJ4OHo2M05hLVZ1YTRTYkE1b3dmNFdHUDBUa2F4WVBDX3hvRTkxSkowUkZCT3BC0gFuQVVfeXFMTl85ZWVsdmRRdGdpYUtRYjNJQWVTMHkySHhGanhlUE5VQTF2UzhTNi1rTUJfdmRVOFRmSHF2MVByUWtIdWcwVjBWMmZBNVBYUlZGcmxJWnE3SXBwVVNfNjZkY2tSdTFfeFBXQktDaFE?oc=5" target="_blank" rel="noopener nofollow">미수금 대비 반대매매 231% 급증…140% 규제 풀어도 역부족 - 머니투데이</a></td></tr><tr><td class="d">Fri, 06 Nov</td><td class="d">대한민국 정책브리핑</td><td><a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE01YU1jWjFWM0w3QXN0Y1pJVUNBNnU4aTJtQUkteEFULWxYM3lhWXlHYS1qbE9DdjU1eWNXYk1BUW9fQXhqcnkwTE5vMmR6ZTloOFlHaDRaa0ZudjJPMmdjaE1tVTczVHBVMXdWNA?oc=5" target="_blank" rel="noopener nofollow">증권사 신용융자 담보비율 의무 '3개월 면제'…증시 변동성 대응</a></td></tr></tbody></table></div><p class="cap">출처 구글 뉴스 · 2026-11-23 기준. 뉴스는 이 글의 분석과 별개이며, 내용이 서로 다를 수 있다.</p></div><!--TOPICNEWS:END--><!--RELATED:BEGIN--><style id="relcss">.rel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px 8px;margin:34px 0 10px}.rel h3{margin:0 0 10px;font-size:1.02rem}.rel p{margin:0 0 12px;font-size:.92rem;line-height:1.66}.rel a{font-weight:700}</style><div class="rel"><h3>같이 볼 것</h3><p><a href="flow-extremes.html">개인과 외국인의 대량 매매</a> 신용융자 대신 개인 순매도 금액으로 같은 질문을 묻는다. 개인이 크게 판 39일은 전부 지수가 오른 날이었다.</p><p><a href="treasury-trust.html">미국 국채 바이백</a> 강제청산을 부르는 금리가 어디서 오는지를 재무부 쪽에서 본 페이지다.</p><p><a href="flow-crashes.html">폭락의 구조</a> 같은 사건을 수급 쪽에서 본다. 빌린 돈이 빠지는 것과 외국인이 파는 것은 다른 일이다.</p><p><a href="sentiment.html">빚과 현금</a> 강제청산은 심리가 꺾인 뒤에 오는가 먼저 오는가를 견줄 페이지다.</p><p><a href="rates-crashes.html">금리 5%와 공황</a> ⚠ 반대편 증거. 강제청산이 금리 때문이라면 금리 수준으로 미리 알 수 있어야 한다.</p></div><!--RELATED:END--><!--GLOSSARY:BEGIN--><style id="glocss">.glo{margin:34px 0 8px}.glo h3{font-size:1.02rem;margin:0 0 12px}.glo dl{margin:0;font-size:.9rem;line-height:1.62}.glo dt{font-weight:800;margin-top:10px}.glo dd{margin:2px 0 0 0;color:var(--text-secondary,#555)}</style><div class="glo"><h3>용어 설명</h3><dl><dt>국면</dt><dd>시장이 지금 어느 상태에 있는가를 가리키는 말. 몇 개 단계로 구분하고, 한 단계는 여러 달에서 몇 해까지 이어진다고 본다. 하루하루의 등락이 아니라 그 등락이 놓인 큰 흐름을 가리킨다.</dd><dt>표본</dt><dd>실제로 확인한 사례의 묶음. 표본이 적으면 우연히 그렇게 보였을 가능성을 배제하기 어렵다. 그래서 이 사이트는 사례가 몇 번인지를 늘 함께 적는다.</dd><dt>신용융자</dt><dd>증권사에서 대출을 받아 주식을 매수하는 것. 잔고가 늘면 시장에 레버리지가 쌓인다는 뜻이다.</dd><dt>반대매매</dt><dd>대출을 받아 매수한 주식의 담보 가치가 기준 아래로 하락하면 증권사가 강제로 매도하는 것. 하락을 스스로 키우는 매도라 바닥 판정의 재료가 된다.</dd><dt>FTD</dt><dd>Follow-Through Day(팔로스루 데이). 저점에서 반등을 시도한 지 4~10일째에 큰 상승이 평소보다 많은 거래량과 함께 나오면 새 상승 추세의 시작으로 보는 윌리엄 오닐의 판정 방법. 이 사이트는 +1.5% 이상 상승과 50일 평균 이상 거래량을 요건으로 쓴다.</dd><dt>셀링 클라이맥스</dt><dd>공포가 절정에 달해 대량 거래와 함께 쏟아지는 마지막 투매. 매도 물량이 소진되는 자리라 역사적 바닥이 이 '근처'에서 나왔다.</dd><dt>거래대금</dt><dd>주식 수가 아니라 돈으로 나타낸 하루 거래 규모. 이 사이트의 버블 차트에서 점 크기가 이것이다.</dd></dl><p style="font-size:.8rem;color:var(--text-secondary,#777);margin-top:12px">이 글에 나온 용어만 실었다.</p></div><!--GLOSSARY:END--></div>
 <footer>본 자료는 정보 제공·교육 목적이며 투자 권유가 아닙니다. 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.
     · 근거: 이야기꾼 주간 시투 보고서(W47·2026-11-21) 및 자체 실측.</footer>
 </div>

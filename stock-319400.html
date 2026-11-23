@@ -313,89 +313,7 @@ a.card:focus-visible,.lst-i:focus-visible{
 .site-group>a.solo:hover,.mg>a.solo:hover{color:var(--text);
   background:color-mix(in srgb,var(--text) 6%,transparent)}
 .site-group>a.solo.here,.mg>a.solo.here{color:var(--text);font-weight:600}
-/*NAVCSS:END*//* BAR:BEGIN */
-/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
-   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
-html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
-  align-items:center;gap:2px;padding:11px 22px 9px}
-html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
-  letter-spacing:-.025em;line-height:1.2}
-html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
-  margin-left:7px;letter-spacing:-.01em}
-html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
-
-/* ⚠⚠ 2026-09-10 상수님 «작은 해상도에서는 제목을 누를 수 없네».
-   아카이브가 29장이 되면서 드롭다운이 1,254px 로 자랐다. 상단바는 sticky 라
-   드롭다운은 화면 위에서 72px 자리에 열리는데, 390px 화면의 보이는 높이가 915px 이니
-   **아래 411px 는 화면 밖이고 스크롤이 없어 닿을 방법이 아예 없었다.**
-   → 화면 높이만큼만 열고 넘치면 그 안에서 스크롤한다.
-   · dvh 를 뒤에 한 번 더 적는다 — 모바일 주소창이 접혔다 펴질 때 100vh 는 화면보다 크다.
-     dvh 를 모르는 브라우저는 앞줄(vh)만 읽고 지나간다.
-   · overscroll-behavior:contain — 목록 끝에서 계속 밀어도 뒤 본문이 따라 스크롤되지 않게.
-   · 120px 은 상단바(2줄, 96px)와 아래 여백 16px 이다. 아카이브·원자료는 메뉴 2번째 줄에
-     달려 있어 104px 자리에서 열린다 — 92px 로 뺐더니 12px 이 화면 밖으로 나갔다. */
-html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);
-  overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
-
-/* ★ 2026-09-14 상수님 «가로 CSS 가 째지지 않게». 숨은 펼침 메뉴(visibility:hidden)가 자리를 차지해 375px 화면에서
-   scrollWidth 427 로 가로 스크롤이 생겼다(전 페이지). 메뉴 폭을 화면 안에 묶고 문서의 가로 넘침을 자른다.
-   ⚠ 상단바 CSS 를 전 페이지에 미치게 하는 자리는 **여기(CENTER)뿐**이다. nav2.py 를 고쳐도 원자료 장에만 닿는다. */
-html body .site-dd{max-width:calc(100vw - 24px)}
-html,body{overflow-x:hidden}
-
-@media(max-width:760px){
-  html body .site-brand{font-size:14px}
-  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
-  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
-  html body .site-bar-in{padding:9px 14px 7px}
-}
-/* BAR:END */
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
-
-/* SEARCH:BEGIN */
-.srch-btn{position:fixed;top:auto;bottom:18px;right:68px;z-index:130;width:42px;height:42px;border-radius:50%;
-  background:var(--surface,#F6F7F9);border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text,#0f172a);
-  cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;
-  box-shadow:0 2px 14px rgba(0,0,0,.10);transition:transform .12s,box-shadow .12s}
-.srch-btn:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(0,0,0,.16)}
-.srch-btn:focus-visible,.srch-in:focus-visible,.srch-r a:focus-visible{outline:2px solid var(--accent,#2563eb);outline-offset:2px}
-.srch-bg{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.38);display:none}
-.srch-bg.on{display:block}
-.srch-box{position:fixed;z-index:201;top:72px;left:50%;transform:translateX(-50%);width:min(680px,calc(100vw - 24px));
-  max-height:calc(100vh - 96px);max-height:calc(100dvh - 96px);display:none;flex-direction:column;
-  background:var(--bg,#fff);color:var(--text,#0f172a);border:1px solid var(--border,rgba(15,23,42,.12));
-  border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.28);overflow:hidden}
-.srch-box.on{display:flex}
-.srch-top{display:flex;gap:8px;align-items:center;padding:12px 14px;border-bottom:1px solid var(--border,rgba(15,23,42,.12))}
-.srch-in{flex:1;min-width:0;font:inherit;font-size:16px;padding:9px 11px;border-radius:9px;
-  border:1px solid var(--border,rgba(15,23,42,.12));background:var(--surface,#F6F7F9);color:var(--text,#0f172a)}
-.srch-x{font:inherit;font-size:13px;padding:8px 10px;border-radius:9px;border:0;background:none;color:var(--text2,#6e6e73);cursor:pointer}
-.srch-meta{padding:8px 16px 0;font-size:12.5px;color:var(--text2,#6e6e73)}
-.srch-r{list-style:none;margin:0;padding:6px 8px 12px;overflow-y:auto;overscroll-behavior:contain}
-.srch-r li{margin:0}
-.srch-r a{display:block;padding:10px 10px;border-radius:9px;color:inherit;text-decoration:none}
-.srch-r a:hover,.srch-r a.cur{background:var(--surface,#F6F7F9)}
-.srch-k{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;padding:1px 6px;border-radius:5px;
-  margin-right:6px;vertical-align:1px;border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text2,#6e6e73)}
-.srch-t{font-weight:700;font-size:14.5px;line-height:1.4}
-.srch-h{font-size:13px;color:var(--text2,#6e6e73);margin-top:2px;line-height:1.4}
-.srch-s{font-size:13px;line-height:1.55;margin-top:4px;color:var(--text,#0f172a);opacity:.86}
-.srch-s mark,.srch-h mark,.srch-t mark{background:rgba(37,99,235,.18);color:inherit;border-radius:3px;padding:0 1px}
-/* 상단 메뉴 «검색» — 드롭다운 버튼(.site-group>button)과 같은 글자로.
-   ⚠ site-group 이 아니라 site-srch 로 감싼다 — 상단바 토글 JS 가 site-group 마다 버튼을 찾다 오류가 났다(2026-10-06). */
-html body .site-srch{position:relative;display:flex;align-items:center}
-html body .site-srch>a.srch-nav{display:flex;align-items:center;font-size:13px;font-weight:600;letter-spacing:-.01em;
-  line-height:normal;color:var(--text-secondary,#475569);padding:8px 12px;border-radius:9px;text-decoration:none}
-html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in srgb,var(--text) 6%,transparent)}
-@media(max-width:760px){.srch-box{top:12px} html body .site-srch>a.srch-nav{padding:8px 8px;font-size:12px}}
-@media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
-/* SEARCH:END */
-
+/*NAVCSS:END*/
 /* KB 판 (2026-11-20) */
 .kbp{margin:14px 0}
 .kbp>.s{font-weight:700;font-size:.92em;color:var(--text-secondary,#6e6e73);margin:0 0 3px}
@@ -458,6 +376,81 @@ td.no .back{display:inline-block;margin-top:4px;padding-left:8px;border-left:2px
 .hchg .ar{white-space:nowrap}
 .to-b-on{color:#e11d48}.to-b-wa{color:#b45309}.to-b-ob{color:#475569}.to-b-sf{color:#047857}
 @media(max-width:720px){.hist{padding-left:18px}.hw{padding:16px 16px}.hw::before{left:-17px}}
+/* BAR:BEGIN */
+/* 상단바 2줄 — 1행 제목, 2행 메뉴. 둘 다 가운데.
+   flex-wrap + 브랜드 100% 폭이면 마크업을 안 바꾸고도 행이 갈린다. */
+html body .site-bar-in{max-width:none;height:auto;flex-wrap:wrap;justify-content:center;
+  align-items:center;gap:2px;padding:11px 22px 9px}
+html body .site-brand{flex:0 0 100%;text-align:center;font-size:16px;font-weight:700;
+  letter-spacing:-.025em;line-height:1.2}
+html body .site-brand .feat{font-weight:500;color:var(--text2,#6e6e73);font-size:.8em;
+  margin-left:7px;letter-spacing:-.01em}
+html body .site-nav{margin:0;justify-content:center;flex-wrap:wrap}
+
+/* ⚠⚠ 2026-09-10 상수님 «작은 해상도에서는 제목을 누를 수 없네».
+   아카이브가 29장이 되면서 드롭다운이 1,254px 로 자랐다. 상단바는 sticky 라
+   드롭다운은 화면 위에서 72px 자리에 열리는데, 390px 화면의 보이는 높이가 915px 이니
+   **아래 411px 는 화면 밖이고 스크롤이 없어 닿을 방법이 아예 없었다.**
+   → 화면 높이만큼만 열고 넘치면 그 안에서 스크롤한다.
+   · dvh 를 뒤에 한 번 더 적는다 — 모바일 주소창이 접혔다 펴질 때 100vh 는 화면보다 크다.
+     dvh 를 모르는 브라우저는 앞줄(vh)만 읽고 지나간다.
+   · overscroll-behavior:contain — 목록 끝에서 계속 밀어도 뒤 본문이 따라 스크롤되지 않게.
+   · 120px 은 상단바(2줄, 96px)와 아래 여백 16px 이다. 아카이브·원자료는 메뉴 2번째 줄에
+     달려 있어 104px 자리에서 열린다 — 92px 로 뺐더니 12px 이 화면 밖으로 나갔다. */
+html body .site-dd{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);
+  overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+
+/* ★ 2026-09-14 상수님 «가로 CSS 가 째지지 않게». 숨은 펼침 메뉴(visibility:hidden)가 자리를 차지해 375px 화면에서
+   scrollWidth 427 로 가로 스크롤이 생겼다(전 페이지). 메뉴 폭을 화면 안에 묶고 문서의 가로 넘침을 자른다.
+   ⚠ 상단바 CSS 를 전 페이지에 미치게 하는 자리는 **여기(CENTER)뿐**이다. nav2.py 를 고쳐도 원자료 장에만 닿는다. */
+html body .site-dd{max-width:calc(100vw - 24px)}
+html,body{overflow-x:hidden}
+
+@media(max-width:760px){
+  html body .site-brand{font-size:14px}
+  /* 더 좁아지면 'feat. 이야기꾼'을 제목 아래로 */
+  html body .site-brand .feat{display:block;margin-left:0;font-size:.78em;margin-top:1px}
+  html body .site-bar-in{padding:9px 14px 7px}
+}
+/* BAR:END */
+/* SEARCH:BEGIN */
+.srch-btn{position:fixed;top:auto;bottom:18px;right:68px;z-index:130;width:42px;height:42px;border-radius:50%;
+  background:var(--surface,#F6F7F9);border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text,#0f172a);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;
+  box-shadow:0 2px 14px rgba(0,0,0,.10);transition:transform .12s,box-shadow .12s}
+.srch-btn:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(0,0,0,.16)}
+.srch-btn:focus-visible,.srch-in:focus-visible,.srch-r a:focus-visible{outline:2px solid var(--accent,#2563eb);outline-offset:2px}
+.srch-bg{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.38);display:none}
+.srch-bg.on{display:block}
+.srch-box{position:fixed;z-index:201;top:72px;left:50%;transform:translateX(-50%);width:min(680px,calc(100vw - 24px));
+  max-height:calc(100vh - 96px);max-height:calc(100dvh - 96px);display:none;flex-direction:column;
+  background:var(--bg,#fff);color:var(--text,#0f172a);border:1px solid var(--border,rgba(15,23,42,.12));
+  border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.28);overflow:hidden}
+.srch-box.on{display:flex}
+.srch-top{display:flex;gap:8px;align-items:center;padding:12px 14px;border-bottom:1px solid var(--border,rgba(15,23,42,.12))}
+.srch-in{flex:1;min-width:0;font:inherit;font-size:16px;padding:9px 11px;border-radius:9px;
+  border:1px solid var(--border,rgba(15,23,42,.12));background:var(--surface,#F6F7F9);color:var(--text,#0f172a)}
+.srch-x{font:inherit;font-size:13px;padding:8px 10px;border-radius:9px;border:0;background:none;color:var(--text2,#6e6e73);cursor:pointer}
+.srch-meta{padding:8px 16px 0;font-size:12.5px;color:var(--text2,#6e6e73)}
+.srch-r{list-style:none;margin:0;padding:6px 8px 12px;overflow-y:auto;overscroll-behavior:contain}
+.srch-r li{margin:0}
+.srch-r a{display:block;padding:10px 10px;border-radius:9px;color:inherit;text-decoration:none}
+.srch-r a:hover,.srch-r a.cur{background:var(--surface,#F6F7F9)}
+.srch-k{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;padding:1px 6px;border-radius:5px;
+  margin-right:6px;vertical-align:1px;border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text2,#6e6e73)}
+.srch-t{font-weight:700;font-size:14.5px;line-height:1.4}
+.srch-h{font-size:13px;color:var(--text2,#6e6e73);margin-top:2px;line-height:1.4}
+.srch-s{font-size:13px;line-height:1.55;margin-top:4px;color:var(--text,#0f172a);opacity:.86}
+.srch-s mark,.srch-h mark,.srch-t mark{background:rgba(37,99,235,.18);color:inherit;border-radius:3px;padding:0 1px}
+/* 상단 메뉴 «검색» — 드롭다운 버튼(.site-group>button)과 같은 글자로.
+   ⚠ site-group 이 아니라 site-srch 로 감싼다 — 상단바 토글 JS 가 site-group 마다 버튼을 찾다 오류가 났다(2026-10-06). */
+html body .site-srch{position:relative;display:flex;align-items:center}
+html body .site-srch>a.srch-nav{display:flex;align-items:center;font-size:13px;font-weight:600;letter-spacing:-.01em;
+  line-height:normal;color:var(--text-secondary,#475569);padding:8px 12px;border-radius:9px;text-decoration:none}
+html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in srgb,var(--text) 6%,transparent)}
+@media(max-width:760px){.srch-box{top:12px} html body .site-srch>a.srch-nav{padding:8px 8px;font-size:12px}}
+@media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
+/* SEARCH:END */
 /*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
@@ -478,7 +471,14 @@ h2[id],h3[id],[id]:target{scroll-margin-top:92px}
 .ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
 .ptoc a:hover{border-bottom-color:var(--text-secondary)}
 @media(min-width:900px){.ptoc ol{columns:2;column-gap:30px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*/</style><link rel="stylesheet" href="vendor/fonts.css"><style id="glancecss">
+/*TOCCSS:END*/
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
+</style><link rel="stylesheet" href="vendor/fonts.css"><style id="glancecss">
 .glance{margin:26px 0 8px;padding:18px 20px 14px;border:1px solid var(--border);border-radius:14px;background:var(--surface)}
 .glance .gl-h{font-size:.78rem;font-weight:800;letter-spacing:.08em;color:var(--text-secondary);margin-bottom:12px}
 .gl-lights{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
@@ -855,7 +855,7 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 <thead><tr><th class="n">종가</th><th class="n">전일비</th><th class="n">시총</th><th class="n">52주 고점 대비</th><th class="n">PER(최근 4분기)</th><th class="n">오디션</th></tr></thead>
 <tbody><tr class="cur">
 <td class="n"><b>15,760원</b></td><td class="n good">+4.79%</td><td class="n">1.8조</td>
-<td class="n bad"><b>−66.0%</b></td><td class="n"> </td><td class="n"><b>6위</b><br><span class="dim">11/20 저점 기준</span></td>
+<td class="n bad"><b>−66.0%</b></td><td class="n">216.4배</td><td class="n"><b>6위</b><br><span class="dim">11/20 저점 기준</span></td>
 </tr></tbody></table></div>
 <figcaption>오늘 종가는 KIS 정규장 15:30 봉이고, 다음 날 KRX 확정치로 덮는다. 과거 시계열은 KRX 전종목이다. 휴장일에는 마지막 거래일이 기준일이다. 52주 고점 대비는 최근 252거래일 최고 종가에서 지금까지 하락한 비율이다. PER은 아래 '실적과 가치평가'에서 계산했다.</figcaption></figure>
 
@@ -868,7 +868,7 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 <p class="kb-note">※ RSI는 14일 동안의 평균 상승폭과 평균 하락폭을 견준 값이다. 볼린저 %B는 20일선 ± 2표준편차 밴드 안의 자리다. 두 지표 모두 업계에서 쓰는 표준 기준을 그대로 썼다. 강한 추세에서는 두 값이 과열·과매도 구간에 오래 머문다. 그래서 20주선 아래 하락 추세에서는 과매도가 더 깊어질 수 있다.</p>
 
 <h2 id="매수-5원칙-판정">매수 5원칙 판정</h2>
-<figure class="fig"><div class="tblwrap"><table class="tw"><thead><tr><th class="n">판정</th><th>원칙</th><th>근거</th></tr></thead><tbody><tr><td class="n"><span class="mut"> </span></td><td><b>① 시나리오 모델 (M)</b></td><td>거시 국면. <a href="jeonjo.html">중공황 전조현상</a>·<a href="jeoji-kospi.html">제오지산수</a>에서 본다</td></tr><tr><td class="n"><span class="mut"> </span></td><td><b>② 초고성장 내러티브 (N)</b></td><td>메가트렌드·주도업종인가. 사람이 판단한다</td></tr><tr class="bad"><td class="n"><span class="no">✕</span></td><td><b>③ 재무 QVG</b></td><td>실적 미확인. 10% 이상을 기준으로 본다</td></tr><tr class="good"><td class="n"><span class="ok">○</span></td><td><b>④ 수급 DS</b></td><td>최근 20일 외국인 +40만주 · 기관 +70만주. <b>쌍끌이</b>가 기준</td></tr><tr class="bad"><td class="n"><span class="no">✕</span></td><td><b>⑤ 추세 T</b></td><td><b>20주선 20,029원</b> · 종가 대비 −21.3%. 20주선 위여야 매수 구간</td></tr></tbody></table></div><figcaption>이야기꾼 <a href="methodology.html">매수 5원칙</a>. ①②는 기계가 판정할 수 없어 비워 둔다. 억지로 표시하면 근거 없는 확신이 된다.</figcaption></figure>
+<figure class="fig"><div class="tblwrap"><table class="tw"><thead><tr><th class="n">판정</th><th>원칙</th><th>근거</th></tr></thead><tbody><tr><td class="n"><span class="mut"> </span></td><td><b>① 시나리오 모델 (M)</b></td><td>거시 국면. <a href="jeonjo.html">중공황 전조현상</a>·<a href="jeoji-kospi.html">제오지산수</a>에서 본다</td></tr><tr><td class="n"><span class="mut"> </span></td><td><b>② 초고성장 내러티브 (N)</b></td><td>메가트렌드·주도업종인가. 사람이 판단한다</td></tr><tr class="bad"><td class="n"><span class="no">✕</span></td><td><b>③ 재무 QVG</b></td><td>영업이익률 4.6%. 10% 이상을 기준으로 본다</td></tr><tr class="good"><td class="n"><span class="ok">○</span></td><td><b>④ 수급 DS</b></td><td>최근 20일 외국인 +40만주 · 기관 +70만주. <b>쌍끌이</b>가 기준</td></tr><tr class="bad"><td class="n"><span class="no">✕</span></td><td><b>⑤ 추세 T</b></td><td><b>20주선 20,029원</b> · 종가 대비 −21.3%. 20주선 위여야 매수 구간</td></tr></tbody></table></div><figcaption>이야기꾼 <a href="methodology.html">매수 5원칙</a>. ①②는 기계가 판정할 수 없어 비워 둔다. 억지로 표시하면 근거 없는 확신이 된다.</figcaption></figure>
 
 <div class="verdict"><p>⚠ 지표가 서로 다른 말을 하는 곳 2군데</p><ul><li>오디션 6위인데 미너비니 추세 템플릿은 1/8이다.<br><span class="sm">순위는 과거 상승의 결과이고 템플릿은 현재 추세를 본다. 많이 올랐지만 추세는 이미 깨진 상태일 수 있다.</span></li><li>VCP 수축 수열이 13.6% → 18.1% → 23.8%로 거꾸로 간다.<br><span class="sm">조정폭이 줄어야 매물 소진인데 오히려 커졌다. 베이스가 아니라 하락 국면의 모양이다.</span></li></ul><p class="note">사실을 대조한 것이지 매매 판단이 아니다. 어느 쪽이 맞는지는 이 페이지가 답하지 않는다.</p></div>
 
@@ -1036,17 +1036,29 @@ window.__qbRegister=function(){echarts.registerTheme('charlie', {"color": ["#d21
 </script>
 
 <h2 id="실적과-가치평가">실적과 가치평가</h2>
-<p class="note">DART 분기 실적을 아직 받지 않았다. 받으면 다음 갱신부터 이 자리에 나온다.</p>
 
+<figure class="fig"><div class="tblwrap"><table class="tw">
+<thead><tr><th>분기</th><th class="n">매출</th><th class="n">YoY</th><th class="n">영업이익</th><th class="n">YoY</th><th class="n">OPM</th></tr></thead>
+<tbody><tr><td>2024 3Q</td><td class="n">840억</td><td class="n"> </td><td class="n">73억</td><td class="n"> </td><td class="n">8.7%</td></tr><tr><td>2024 4Q</td><td class="n">1,240억</td><td class="n"> </td><td class="n">83억</td><td class="n"> </td><td class="n">6.7%</td></tr><tr><td>2025 1Q</td><td class="n">777억</td><td class="n">+27.8%</td><td class="n">52억</td><td class="n">+24.2%</td><td class="n">6.7%</td></tr><tr><td>2025 2Q</td><td class="n">989억</td><td class="n">+36.1%</td><td class="n">45억</td><td class="n">-8.2%</td><td class="n">4.5%</td></tr><tr><td>2025 3Q</td><td class="n">1,035억</td><td class="n">+23.2%</td><td class="n">67억</td><td class="n">-7.6%</td><td class="n">6.5%</td></tr><tr><td>2025 4Q</td><td class="n">1,139억</td><td class="n">-8.1%</td><td class="n">19억</td><td class="n">-77.5%</td><td class="n">1.6%</td></tr><tr><td>2026 1Q</td><td class="n">750억</td><td class="n">-3.5%</td><td class="n">-6억</td><td class="n">-112.4%</td><td class="n">-0.9%</td></tr><tr><td>2026 2Q</td><td class="n">1,004억</td><td class="n">+1.5%</td><td class="n">32억</td><td class="n">-28.2%</td><td class="n">3.2%</td></tr><tr class="cur"><td>2026 3Q</td><td class="n">939억</td><td class="n">-9.3%</td><td class="n">43억</td><td class="n">-36.0%</td><td class="n">4.6%</td></tr></tbody></table></div>
+<figcaption>최근 9개 분기. 단일 분기이다(누적 아님): 분기 합과 연간을 대조해 확인했다.
+4Q는 연간에서 1~3Q를 뺀 값이다. 출처 DART.</figcaption></figure>
+
+<figure class="fig"><div class="tblwrap"><table class="tw">
+<thead><tr><th>연도</th><th class="n">매출</th><th class="n">YoY</th><th class="n">영업이익</th><th class="n">OPM</th></tr></thead>
+<tbody><tr><td>2024</td><td class="n">3,414억</td><td class="n"> </td><td class="n">246억</td><td class="n">7.2%</td></tr><tr><td>2025</td><td class="n">3,939억</td><td class="n">+15.4%</td><td class="n">182억</td><td class="n">4.6%</td></tr></tbody></table></div>
+<figcaption>연간 추이. 받은 날 2026-11-23.</figcaption></figure>
+
+<p>최근 4분기 PER은 216.4배다. 지난해 실적 기준 PER은 159.2배다.</p>
 <p class="kb-cap">표 1. 가치평가: 최근 4분기와 지난해 실적</p>
-<div class="tblwrap"><table class="tw"><thead><tr><th>지표</th><th class="n">최근 4분기</th><th class="n">지난해 실적(KIS)</th></tr></thead><tbody><tr class="cur"><td><b>PER</b> <span class="dim">업종 관행</span></td><td class="n"> </td><td class="n">159.2배</td></tr><tr><td>PBR</td><td class="n"> </td><td class="n">10.83배</td></tr><tr><td>EV/EBIT</td><td class="n"> </td><td class="n"> </td></tr><tr><td>ROE</td><td class="n"> </td><td class="n"> </td></tr><tr><td>영업이익률</td><td class="n"> </td><td class="n"> </td></tr><tr><td>순현금</td><td class="n"> </td><td class="n"> </td></tr></tbody></table></div>
+<div class="tblwrap"><table class="tw"><thead><tr><th>지표</th><th class="n">최근 4분기 · 2026년 3분기</th><th class="n">지난해 실적(KIS)</th></tr></thead><tbody><tr class="cur"><td><b>PER</b> <span class="dim">업종 관행</span></td><td class="n">216.4배</td><td class="n">159.2배</td></tr><tr><td>PBR</td><td class="n">10.81배</td><td class="n">10.83배</td></tr><tr><td>EV/EBIT</td><td class="n">199.8배</td><td class="n"> </td></tr><tr><td>ROE</td><td class="n">5.0%</td><td class="n"> </td></tr><tr><td>영업이익률</td><td class="n">2.3%</td><td class="n"> </td></tr><tr><td>순현금</td><td class="n">순현금 128억</td><td class="n"> </td></tr></tbody></table></div>
+<p>현대무벡스의 분기말 PER은 2024년 4분기부터 8개 분기 동안 14.8배에서 279.4배 사이였다. 중앙값은 170.0배다. 지금 216.4배는 그 범위에서 낮은 쪽부터 75% 자리다.</p>
 <p class="kb-note">※ 최근 4분기 값은 DART 분기 실적(4분기는 연간에서 1~3분기를 뺀 값)과 KRX 보통주 시가총액으로 계산했다. 순이익은 연결 재무제표의 당기순이익이다. 지난해 실적 값은 KIS가 주는 PER·PBR이다(2026-11-23). 업종 묶음은 이 사이트가 사업 설명으로 나눴다. 목표주가와 적정가는 계산하지 않는다.</p>
 
 <h2 id="증권사-목표가">증권사 목표가</h2>
 <p class="note">최근 6개월 증권사 목표가가 없다. KIS <code>invest-opbysec</code> 기준이다.</p>
 
 <h2 id="관련-기사">관련 기사</h2>
-<p class="note">제목에 「현대무벡스」이(가) 든 기사를 아직 찾지 못했다. 다음 갱신에 다시 찾는다.</p>
+<div class="tblwrap"><table><thead><tr><th class="n">날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Sun, 22 Nov</td><td>머니투데이</td><td><a href="https://news.google.com/rss/articles/CBMibEFVX3lxTFAtSHdORlhHa1NrU1B5dlhMSWJEYlE4SUdvd3U2M19NYy1tWE8zd0JJRllyT2Jnc0lPb3NTSjFSWHhjRXg3b21xZUtackcwc2dUNGx6dVBRSFE0RGEyUzRUMDhXOTItLWVFcFAyctIBckFVX3lxTE5EWHNxclFlQjlsMzE3X1dyQjRkRFRPR3VwXzd0Y3hGV19lU0VMZW9Oczh2Q1ZuZ0hmeHNwd0I5ejg4eVlYZmJqQ2xFX3FXSFZLTFIwTklFSHY2ejJpY1c4T3pWblJtTEZTQnpWRWtlTGVfQQ?oc=5" target="_blank" rel="noopener nofollow">현대엘리베이터, 현대무벡스 지분 1026억원에 매각 - 머니투데이</a></td></tr><tr><td class="n">Mon, 23 Nov</td><td>한국건설신문</td><td><a href="https://news.google.com/rss/articles/CBMia0FVX3lxTE9sRmJzcUpvUlF2dTFZNVI1RVVEcVFiQXFpSDVzSVI1R2NGRnhMYmhhbGVRQ2dRZFVVdnhFS0pqd0xidXN4eEVEa1VHeFZfUHBnXzViOVpfLVZraHRJMXc0dndyQ01GMW5UNkdZ?oc=5" target="_blank" rel="noopener nofollow">현대엘리베이터, 현대무벡스 지분 1,026억원 규모 매각</a></td></tr><tr><td class="n">Sun, 22 Nov</td><td>서울파이낸스</td><td><a href="https://news.google.com/rss/articles/CBMiakFVX3lxTE5iYldyenJURm93blFzM0RnRXpYY3Ffakp6Yi1yd29EeEw1cHNGNGFaRmRyN0I2a0VDcTJZZWRvWUkybGY4Q0YyZW9yYWhDQ2VNUzVzLXhxaHJtX3VKVGMzR1BwbGdBenNFMEE?oc=5" target="_blank" rel="noopener nofollow">&quot;현대무벡스 지분 1026억 매각&quot;···현대엘리베이터, 주주환원 재원 확보</a></td></tr><tr><td class="n">Sun, 22 Nov</td><td>신아일보</td><td><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTE9nSk5xeWRXMmFFSHZHYVZfRVNCbHMzdVVEYVhyZVBCQzZrWnFOVHFYeEJQNmpMeWNkNll6VVdoek5pVHhzUWowVnIwRnZ3Vk1kU0NCYXA4Q2hzYmFlVDg3NXBtbE5qaXpncG1kMFdRS2g?oc=5" target="_blank" rel="noopener nofollow">현대엘베, 현대무벡스 지분 1026억 매각…배당 확대 재원 확보</a></td></tr><tr><td class="n">Mon, 23 Nov</td><td>여성소비자신문</td><td><a href="https://news.google.com/rss/articles/CBMiZkFVX3lxTE9mbTB4X0E4LVV1eHFBSXd3Q09oTF9ReWNaeUZWTzRZSjBWRWVjT2JrRVU5TWpiRUtfOEJQNFRXb3lGTFpYRlA3YWs5dW9HX2xKd1V5bGZSb2JzWmJHdzROZGdRWG9CZw?oc=5" target="_blank" rel="noopener nofollow">현대엘리베이터, 현대무벡스 지분 1026억원 규모 매각·건설경기 침체 속 유지관리 부문 실적 견인</a></td></tr><tr><td class="n">Sun, 22 Nov</td><td>스마트투데이</td><td><a href="https://news.google.com/rss/articles/CBMiX0FVX3lxTE1Wd2g2N1hEOHhnN2pYcEdMaF96QlFBZjM5VzdtXzg4NWhqa0pZMGdzZnZYQ1ZKWXBmVTRSOGJzYS05LTIxSnRaNi15S2dPQzVqb2hsZ0FlZFo4R2p2Q0p3?oc=5" target="_blank" rel="noopener nofollow">현대엘리베이터, 현대무벡스 지분 5.8% 1026억에 매각 확정</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-11-23 기준. 「현대무벡스」 로 찾았고 제목에 검색어가 실제로 들어간 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 별개이며, 내용이 서로 다를 수 있다.</p>
 
 <h2 id="이-페이지의-전제를-검증합니다">이 페이지의 전제를 검증한다</h2><style id="vfcss">
 .vbox{border:1px solid var(--border,rgba(15,23,42,.12));border-radius:12px;
