@@ -538,8 +538,6 @@ html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in 
 @media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
 /* SEARCH:END */
 
-
-
 .kbp{margin:14px 0}
 .kbp>.s{font-weight:700;font-size:.92em;color:var(--text-secondary,#6e6e73);margin:0 0 3px}
 .kbp>div>p{margin:0 0 8px}
@@ -906,7 +904,7 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 
 <p>아래 그림을 보자. 굵은 선이 경기선행지수다. 회색 선은 코스피 전년비다.</p>
 
-<div class="panel" data-reveal><div class="panel-head"><div><h3>OECD 경기선행지수와 코스피 전년비: 1990~2026-10</h3></div><div class="rng" role="group" aria-label="기간 선택"><button class="on" onclick="ckRange(&#39;g1&#39;,0,this)">전체 1990~</button><button onclick="ckRange(&#39;g1&#39;,1,this)">최근 10년</button></div></div><div class="kpis"><div class="kpi hl"><div class="k">상관계수</div><div class="v">0.691</div><div class="s">같은 달 비교 · 거시 지표로는 높은 편</div></div><div class="kpi"><div class="k">지금 지수</div><div class="v">101.52</div><div class="s">2026-10 · 442개월 중 상위 12.4%</div></div><div class="kpi hl"><div class="k">102 넘은 뒤 12개월</div><div class="v">-18.1%</div><div class="s">중앙값 · 표본 21개월</div></div><div class="kpi"><div class="k">정점 뒤 공황 고점까지</div><div class="v">0~9개월</div><div class="s">정점 8번 중 공황 7번 · 중앙값 3개월</div></div></div><figure class="fig"><div class="cbox" style="height:400px"><canvas id="g1"></canvas></div><figcaption>굵은 황금색이 경기선행지수(우축, 100이 장기추세), 회색이 코스피 전년비(좌축)다. 2개 선이 거의 겹친다. 아래에서 상관계수 0.691로 확인한다.</figcaption></figure><p class="panel-cap rngnote" style="margin-top:12px">이 그래프는 1990년부터 전 구간이다. 2개 선은 거의 겹친다.</p><div class="srcline"><span class="lbl">출처</span><span>OECD Composite Leading Indicator (한국) · OECD 한국 주가지수 월별 원계열</span><a href="https://data-explorer.oecd.org/" target="_blank" rel="noopener">OECD Data Explorer · DSD_STES@DF_CLI 4.1 &#8599;</a></div></div>
+<div class="panel" data-reveal><div class="panel-head"><div><h3>OECD 경기선행지수와 코스피 전년비: 1990~2026-10</h3></div><div class="rng" role="group" aria-label="기간 선택"><button class="on" onclick="ckRange(&#39;g1&#39;,0,this)">전체 1990~</button><button onclick="ckRange(&#39;g1&#39;,1,this)">최근 10년</button></div></div><div class="kpis"><div class="kpi hl"><div class="k">상관계수</div><div class="v">0.691</div><div class="s">같은 달 비교 · 거시 지표로는 높은 편</div></div><div class="kpi"><div class="k">지금 지수</div><div class="v">101.52</div><div class="s">2026-10 · 442개월 중 상위 12.4%</div></div><div class="kpi hl"><div class="k">102 넘은 뒤 12개월</div><div class="v">-18.1%</div><div class="s">중앙값 · 표본 21개월</div></div><div class="kpi"><div class="k">정점 뒤 공황 고점까지</div><div class="v">0~9개월</div><div class="s">정점 8번 중 공황 7번 · 중앙값 3개월</div></div></div><figure class="fig"><div class="cbox" style="height:400px"><canvas id="g1"></canvas></div><figcaption><span class="freq m">월간</span>굵은 황금색이 경기선행지수(우축, 100이 장기추세), 회색이 코스피 전년비(좌축)다. 2개 선이 거의 겹친다. 아래에서 상관계수 0.691로 확인한다.</figcaption></figure><p class="panel-cap rngnote" style="margin-top:12px">이 그래프는 1990년부터 전 구간이다. 2개 선은 거의 겹친다.</p><div class="srcline"><span class="lbl">출처</span><span>OECD Composite Leading Indicator (한국) · OECD 한국 주가지수 월별 원계열</span><a href="https://data-explorer.oecd.org/" target="_blank" rel="noopener">OECD Data Explorer · DSD_STES@DF_CLI 4.1 &#8599;</a></div></div>
 
 <div class="kbp"><div class="s">2개 선은 거의 겹친다</div><div><p>2개 선은 거의 겹친다. 이 글은 먼저 2개 선이 얼마나 안정적으로 겹치는지 확인한다. 그다음 이 글은 102라는 선과 정점을 지나는 순간이 실제로 무엇을 알려 주는지 확인한다.</p></div></div>
 
@@ -937,7 +935,7 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 
 <p>아래 그림을 보자. 막대는 정점마다 공황의 고점까지 걸린 개월 수다.</p>
 
-<figure class="fig"><div class="cbox" style="height:320px"><canvas id="g5"></canvas></div><figcaption>가로축은 자료에서 잡은 정점 월이고 세로축은 그 뒤 첫 코스피 공황의 고점까지 걸린 개월 수다. 빨강이 중공황, 황금색이 소공황, 회색이 플래시 크래시이다. 2013년은 공황이 없어 막대가 없다.</figcaption></figure>
+<figure class="fig"><div class="cbox" style="height:320px"><canvas id="g5"></canvas></div><figcaption><span class="freq m">월간</span>가로축은 자료에서 잡은 정점 월이고 세로축은 그 뒤 첫 코스피 공황의 고점까지 걸린 개월 수다. 빨강이 중공황, 황금색이 소공황, 회색이 플래시 크래시이다. 2013년은 공황이 없어 막대가 없다.</figcaption></figure>
 
 <div class="kbp"><div class="s">신호이지 시점은 아니다</div><div><p>경기선행지수는 공황이 올 수 있다는 신호로는 맞았다. 하지만 경기선행지수는 공황의 고점이 어느 달에 오는지를 알려 주지 않았다. 시점은 <a href="bottom-top.html">바닥·천장 추적</a>에서 따로 다룬다.</p></div></div>
 
@@ -977,7 +975,7 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 <th class="n">+12개월</th><th class="n">+24개월</th></tr></thead>
 <tbody><tr><td>저점에서 매수했다면</td><td class="n good">+4.1%<span class="dim"> · 9/14</span></td><td class="n good">+5.0%<span class="dim"> · 8/14</span></td><td class="n good">+14.0%<span class="dim"> · 13/14</span></td><td class="n good">+32.7%<span class="dim"> · 11/13</span></td></tr><tr><td>정점에서 보유했다면</td><td class="n good">+0.4%<span class="dim"> · 7/13</span></td><td class="n bad">-6.3%<span class="dim"> · 4/13</span></td><td class="n bad">-3.6%<span class="dim"> · 5/13</span></td><td class="n good">+2.5%<span class="dim"> · 8/13</span></td></tr></tbody></table></div>
 
-<figure class="fig"><div class="cbox" style="height:340px"><canvas id="g4"></canvas></div><figcaption>황금색이 저점에서 매수했을 때, 회색이 정점에서 보유했을 때다.</figcaption></figure>
+<figure class="fig"><div class="cbox" style="height:340px"><canvas id="g4"></canvas></div><figcaption><span class="freq m">월간</span>황금색이 저점에서 매수했을 때, 회색이 정점에서 보유했을 때다.</figcaption></figure>
 
 <div class="kbp"><div class="s">플러스로 끝난 횟수</div><div><p>저점 매수는 12개월 뒤 14번 중 13번이 플러스로 끝났다. 정점 보유는 13번 중 5번이 플러스로 끝났다.</p></div></div>
 
@@ -991,7 +989,7 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 
 <p>이 글은 그 달의 선행지수 수준별로, 그때 코스피를 매수했다면 12개월 뒤 수익률이 얼마였는지를 집계했다. 아래 그림을 보자.</p>
 
-<figure class="fig"><div class="cbox" style="height:340px"><canvas id="g2"></canvas></div><figcaption>왼쪽이 지수가 낮을 때, 오른쪽이 높을 때다. 중앙값이 마이너스인 칸은 붉은색이다. 101을 넘으면서 중앙값이 마이너스가 된다.</figcaption></figure>
+<figure class="fig"><div class="cbox" style="height:340px"><canvas id="g2"></canvas></div><figcaption><span class="freq m">월간</span>왼쪽이 지수가 낮을 때, 오른쪽이 높을 때다. 중앙값이 마이너스인 칸은 붉은색이다. 101을 넘으면서 중앙값이 마이너스가 된다.</figcaption></figure>
 
 <p>칸은 그 달의 선행지수 수준별 개월 수, 12개월 뒤 수익률 중앙값, 플러스로 끝난 비율이다.</p>
 <p class="kb-cap">표 3. 경기선행지수 수준별 코스피 12개월 뒤 수익률: 101을 넘으면 중앙값이 마이너스</p>
@@ -1036,7 +1034,7 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 
 <p>아래 그림을 보자. 막대 하나가 상승 국면 하나다.</p>
 
-<figure class="fig"><div class="cbox" style="height:360px"><canvas id="g3"></canvas></div><figcaption>막대 하나가 상승 국면 하나다. 가로축은 국면이 시작된 달이다. 최대 하락폭이 20%보다 작았던 국면은 회색, 20% 이상이었던 국면은 황금색이다. 맨 오른쪽 '지금'은 2025년 1월에 시작해 아직 끝나지 않은 국면이다. 미국 제조업지수보다 20% 이상 하락한 국면이 많은 이유는 아래 문단에 있다.</figcaption></figure>
+<figure class="fig"><div class="cbox" style="height:360px"><canvas id="g3"></canvas></div><figcaption><span class="freq m">월간</span>막대 하나가 상승 국면 하나다. 가로축은 국면이 시작된 달이다. 최대 하락폭이 20%보다 작았던 국면은 회색, 20% 이상이었던 국면은 황금색이다. 맨 오른쪽 '지금'은 2025년 1월에 시작해 아직 끝나지 않은 국면이다. 미국 제조업지수보다 20% 이상 하락한 국면이 많은 이유는 아래 문단에 있다.</figcaption></figure>
 
 <div class="kbp"><div class="s">중앙값 14.6%</div><div><p>완료된 13개 상승 국면의 최대 하락폭 중앙값은 14.6%다.</p></div></div>
 
