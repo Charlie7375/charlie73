@@ -413,44 +413,12 @@ html,body{overflow-x:hidden}
   html body .site-bar-in{padding:9px 14px 7px}
 }
 /* BAR:END */
-/* SEARCH:BEGIN */
-.srch-btn{position:fixed;top:auto;bottom:18px;right:68px;z-index:130;width:42px;height:42px;border-radius:50%;
-  background:var(--surface,#F6F7F9);border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text,#0f172a);
-  cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;
-  box-shadow:0 2px 14px rgba(0,0,0,.10);transition:transform .12s,box-shadow .12s}
-.srch-btn:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(0,0,0,.16)}
-.srch-btn:focus-visible,.srch-in:focus-visible,.srch-r a:focus-visible{outline:2px solid var(--accent,#2563eb);outline-offset:2px}
-.srch-bg{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.38);display:none}
-.srch-bg.on{display:block}
-.srch-box{position:fixed;z-index:201;top:72px;left:50%;transform:translateX(-50%);width:min(680px,calc(100vw - 24px));
-  max-height:calc(100vh - 96px);max-height:calc(100dvh - 96px);display:none;flex-direction:column;
-  background:var(--bg,#fff);color:var(--text,#0f172a);border:1px solid var(--border,rgba(15,23,42,.12));
-  border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.28);overflow:hidden}
-.srch-box.on{display:flex}
-.srch-top{display:flex;gap:8px;align-items:center;padding:12px 14px;border-bottom:1px solid var(--border,rgba(15,23,42,.12))}
-.srch-in{flex:1;min-width:0;font:inherit;font-size:16px;padding:9px 11px;border-radius:9px;
-  border:1px solid var(--border,rgba(15,23,42,.12));background:var(--surface,#F6F7F9);color:var(--text,#0f172a)}
-.srch-x{font:inherit;font-size:13px;padding:8px 10px;border-radius:9px;border:0;background:none;color:var(--text2,#6e6e73);cursor:pointer}
-.srch-meta{padding:8px 16px 0;font-size:12.5px;color:var(--text2,#6e6e73)}
-.srch-r{list-style:none;margin:0;padding:6px 8px 12px;overflow-y:auto;overscroll-behavior:contain}
-.srch-r li{margin:0}
-.srch-r a{display:block;padding:10px 10px;border-radius:9px;color:inherit;text-decoration:none}
-.srch-r a:hover,.srch-r a.cur{background:var(--surface,#F6F7F9)}
-.srch-k{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;padding:1px 6px;border-radius:5px;
-  margin-right:6px;vertical-align:1px;border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text2,#6e6e73)}
-.srch-t{font-weight:700;font-size:14.5px;line-height:1.4}
-.srch-h{font-size:13px;color:var(--text2,#6e6e73);margin-top:2px;line-height:1.4}
-.srch-s{font-size:13px;line-height:1.55;margin-top:4px;color:var(--text,#0f172a);opacity:.86}
-.srch-s mark,.srch-h mark,.srch-t mark{background:rgba(37,99,235,.18);color:inherit;border-radius:3px;padding:0 1px}
-/* 상단 메뉴 «검색» — 드롭다운 버튼(.site-group>button)과 같은 글자로.
-   ⚠ site-group 이 아니라 site-srch 로 감싼다 — 상단바 토글 JS 가 site-group 마다 버튼을 찾다 오류가 났다(2026-10-06). */
-html body .site-srch{position:relative;display:flex;align-items:center}
-html body .site-srch>a.srch-nav{display:flex;align-items:center;font-size:13px;font-weight:600;letter-spacing:-.01em;
-  line-height:normal;color:var(--text-secondary,#475569);padding:8px 12px;border-radius:9px;text-decoration:none}
-html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in srgb,var(--text) 6%,transparent)}
-@media(max-width:760px){.srch-box{top:12px} html body .site-srch>a.srch-nav{padding:8px 8px;font-size:12px}}
-@media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
-/* SEARCH:END */
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
 /*TOCCSS:BEGIN*/
 /* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
 
@@ -471,14 +439,7 @@ h2[id],h3[id],[id]:target{scroll-margin-top:92px}
 .ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
 .ptoc a:hover{border-bottom-color:var(--text-secondary)}
 @media(min-width:900px){.ptoc ol{columns:2;column-gap:30px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*/
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
-</style><link rel="stylesheet" href="vendor/fonts.css"><style id="glancecss">
+/*TOCCSS:END*/</style><link rel="stylesheet" href="vendor/fonts.css"><style id="glancecss">
 .glance{margin:26px 0 8px;padding:18px 20px 14px;border:1px solid var(--border);border-radius:14px;background:var(--surface)}
 .glance .gl-h{font-size:.78rem;font-weight:800;letter-spacing:.08em;color:var(--text-secondary);margin-bottom:12px}
 .gl-lights{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
@@ -840,7 +801,7 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 <h1>안랩</h1>
 <p class="sub">코스닥 · 오디션 생존 1위(11/20 저점 기준) · RS 99</p>
 <p class="pauth">기준일 2026-11-25 · 안랩 일별 시세·투자자 매매동향(한투 KIS) · 매일 갱신</p>
-<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>안랩 후보 종목(오디션 생존 1위(11/20 저점 기준) · RS 99)이다. 이 페이지는 이 종목이 매수 5원칙에 맞는지 매일 다시 판정한다. 추세는 20주선과의 거리로, 수급은 투자자별 누적 순매수로 판정한다. 재무는 분기 실적으로, 시장의 기대는 증권사 목표가로 본다. 관심종목이 아니라 오디션과 상대강도 표에서 들어오는 종목이다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#매수-5원칙-판정">매수 5원칙 판정</a></li><li><a href="#추세-20주선-추세-템플릿-vcp">추세: 20주선 · 추세 템플릿 · VCP</a></li><li><a href="#바닥-이야기꾼-바닥-7단계">바닥: 이야기꾼 바닥 7단계</a></li><li><a href="#수급-누가-사고-누가-팔았나">수급: 누가 사고 누가 팔았나</a></li><li><a href="#개인-수급-사분면-nbsp-11-25-4분면-상승-개인-순매도">개인 수급 사분면 &nbsp;· 11/25 4분면 (상승 + 개인 순매도)</a></li><li><a href="#실적과-가치평가">실적과 가치평가</a></li><li><a href="#증권사-목표가">증권사 목표가</a></li><li><a href="#관련-기사">관련 기사</a></li><li><a href="#이-페이지의-전제를-검증합니다">이 페이지의 전제를 검증한다</a></li></ol></div><!--TOC:END--></header>
+<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>안랩 후보 종목(오디션 생존 1위(11/20 저점 기준) · RS 99)이다. 이 페이지는 이 종목이 매수 5원칙에 맞는지 매일 다시 판정한다. 추세는 20주선과의 거리로, 수급은 투자자별 누적 순매수로 판정한다. 재무는 분기 실적으로, 시장의 기대는 증권사 목표가로 본다. 관심종목이 아니라 오디션과 상대강도 표에서 들어오는 종목이다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#매수-5원칙-판정">매수 5원칙 판정</a></li><li><a href="#추세-20주선-추세-템플릿-vcp">추세: 20주선 · 추세 템플릿 · VCP</a></li><li><a href="#바닥-이야기꾼-바닥-7단계">바닥: 이야기꾼 바닥 7단계</a></li><li><a href="#수급-누가-사고-누가-팔았나">수급: 누가 사고 누가 팔았나?</a></li><li><a href="#개인-수급-사분면-nbsp-11-25-4분면-상승-개인-순매도">개인 수급 사분면 &nbsp;· 11/25 4분면 (상승 + 개인 순매도)</a></li><li><a href="#실적과-가치평가">실적과 가치평가</a></li><li><a href="#증권사-목표가">증권사 목표가</a></li><li><a href="#관련-기사">관련 기사</a></li><li><a href="#이-페이지의-전제를-검증합니다">이 페이지의 전제를 검증한다</a></li></ol></div><!--TOC:END--></header>
 
 <!-- GLANCE:BEGIN --><div class="glance" id="한-눈에"><div class="gl-h">안랩 · 2026-11-25</div><div class="gl-lights"><div class="gl-l on"><span class="gl-dot"></span><div><div class="gl-n">가격</div><div class="gl-v">종가 <b>157,900</b> · 20주선 78,530 <b>위</b></div></div></div><div class="gl-l on"><span class="gl-dot"></span><div><div class="gl-n">상대강도</div><div class="gl-v">60거래일 <b>+177.5%</b> · 코스피 -32.0% <b>이김</b></div></div></div><div class="gl-l on"><span class="gl-dot"></span><div><div class="gl-n">거래량</div><div class="gl-v">11/25 거래량 50일 평균의 <b>4.55배</b> · 1배 이상</div></div></div></div><p class="gl-one">안랩 신호 3개 가운데 충족 3개, 미충족 0개다.</p><div class="gl-rec tblwrap"><table class="mini"><thead><tr><th>회복률</th><th>52주 고점</th><th>고점 → 저점</th><th>저점</th><th>오늘</th><th>하락폭의 회복</th><th>전고점까지</th></tr></thead><tbody><tr><td>안랩</td><td>157,900 <span class="dim">(11/25)</span></td><td colspan="5">오늘이 52주 고점이다</td></tr></tbody></table></div><p class="gl-note">종목 줄의 가격은 종가와 주봉 20주 평균(이야기꾼의 생명선)을 견주고, 상대강도는 최근 60거래일 수익률이 코스피를 이겼는지, 거래량은 최근 거래일 거래량을 50일 평균으로 나눈 값이다. 종목 줄은 충족 개수만 적고 판정 낱말은 쓰지 않는다. 하락폭의 회복은 52주 고점에서 그 뒤 저점까지 하락한 폭 가운데 오늘까지 되찾은 비율이다.</p></div><!-- GLANCE:END -->
 
@@ -1051,7 +1012,7 @@ window.__qbRegister=function(){echarts.registerTheme('charlie', {"color": ["#d21
 <p class="note">최근 6개월 증권사 목표가가 없다. KIS <code>invest-opbysec</code> 기준이다.</p>
 
 <h2 id="관련-기사">관련 기사</h2>
-<div class="tblwrap"><table><thead><tr><th class="n">날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Wed, 25 Nov</td><td>머니투데이</td><td><a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTE5pWlhhOC1wOXo1aDlyYWszLTRuX3B6dDhwemlPb2Z1NDU2Y1EtMFFLd1Y5WEhjSXdiTVYzUzZ5OEV1ck1BejZyUHJKMGdyM0xlcHJZdEVuSjBqQWVWWnhxU21aZW9xQ0VN0gFuQVVfeXFMTVhKQUh2U18ta241SHdnSldqZk5HVkE2bVpEWFJBejlPRFVGNTFRT1BKemFaMG1RZC1QUmxWWkVyX3pDeXNfY0lnd0hTb1NUNnpKYnN3TW9ISmU4TWV4anBqcXlPMDU3WFJRR0hSeHc?oc=5" target="_blank" rel="noopener nofollow">해킹에 보안주 또 들썩…안랩 52주 신고가 - 머니투데이</a></td></tr><tr><td class="n">Wed, 25 Nov</td><td>브릿지경제</td><td><a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE9Rc05DMlN1VHAxQmtxRC1tbU1iZF8tOXRvQktYakdKWjljRUJoT1BkMWdEaWJwNGl5RGd4SHRQSWtJdTlaNDk4M2NYRzVPVnNYRnEzbm5hbzNNQQ?oc=5" target="_blank" rel="noopener nofollow">[특징주] 美 정보기관 잇단 해킹에 보안주 강세…안랩·이글루 11%↑</a></td></tr><tr><td class="n">Mon, 23 Nov</td><td>아시아경제</td><td><a href="https://news.google.com/rss/articles/CBMiYkFVX3lxTE5oQ3JyOHJkQnJxaGhmNGRaNGViYWNLVFdoQldMcE03dWFhd0I2YzFmTkt4UXlGZDhZeUNqakxsbkRibHhrbFlxSU5Fd19NazAzYUY0T0ZiNjBGU05xbzNCYnNn?oc=5" target="_blank" rel="noopener nofollow">해킹 늘자 보안 수요도 쑥…안랩, 내년 영업익 38% 증가 전망[클릭 e종목]</a></td></tr><tr><td class="n">Tue, 24 Nov</td><td>지디넷코리아</td><td><a href="https://news.google.com/rss/articles/CBMiVkFVX3lxTE8yNENpNVdyNWw0dGh4S21iT2ZvMnZNN2lHbnBKRjhUQ1QtRE4yT2xIU29nUExLbnlJY0RMd0kxczc0MFpsY0c1NW82czJyYjNoaG5ocDJn?oc=5" target="_blank" rel="noopener nofollow">더존비즈온-안랩 손잡았다…ERP 사이버보안 강화</a></td></tr><tr><td class="n">Tue, 24 Nov</td><td>전자신문</td><td><a href="https://news.google.com/rss/articles/CBMiTkFVX3lxTE5iNUhhS0xJeTd5WEFsYUlBSmZyMG1ZeXpuUERCUjRFRlBwSWxMZXRJdjI5dFhaazVXSXhzbkZWdGpUNWxzYkY2WkdsNnlWZw?oc=5" target="_blank" rel="noopener nofollow">[제13회 대한민국 SW제품 품질대상] 우수상-안랩클라우드메이트 &#x27;시큐어브리지 v2.0&#x27;</a></td></tr><tr><td class="n">Tue, 24 Nov</td><td>뉴스와이어</td><td><a href="https://news.google.com/rss/articles/CBMiX0FVX3lxTE5lY2pOQ3pmNGdZRnVZc1NTcWVZeU4xbm4yYjJsR2RKQm1mU0ZIQzU2V2FkNHJoMXdndWk0Ym9WV3F5NS1LYzl4bmo3UUkwTXZEZlRKWXZPX2IyNUNMUmdN?oc=5" target="_blank" rel="noopener nofollow">더존비즈온, 안랩과 정보보안 협력 업무협약 체결</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-11-25 기준. 「안랩」 로 찾았고 제목에 검색어가 실제로 들어간 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 별개이며, 내용이 서로 다를 수 있다.</p>
+<div class="tblwrap"><table><thead><tr><th class="n">날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Wed, 25 Nov</td><td>네이버 프리미엄콘텐츠</td><td><a href="https://news.google.com/rss/articles/CBMiiwFBVV95cUxPa05hMmFVYjdTUHdVeENfZVJLMndNXzVpa29wMC1td2lEbWphZzRMX3FsQ0hvMl9fMW82YlhkWFJtNUZ6QnJVNnIyMGVBN3hRUVdSMkRTbl9keWp3b3NPN0pSYkFiT2JhMjBEMEM3Zm9KRWZuWEtHSWFGUkxVZTNBSWU5a1NxTzFDUGlj?oc=5" target="_blank" rel="noopener nofollow">11/25일 공략주 Review _ 안랩</a></td></tr><tr><td class="n">Wed, 25 Nov</td><td>머니투데이</td><td><a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTE5pWlhhOC1wOXo1aDlyYWszLTRuX3B6dDhwemlPb2Z1NDU2Y1EtMFFLd1Y5WEhjSXdiTVYzUzZ5OEV1ck1BejZyUHJKMGdyM0xlcHJZdEVuSjBqQWVWWnhxU21aZW9xQ0VN0gFuQVVfeXFMTVhKQUh2U18ta241SHdnSldqZk5HVkE2bVpEWFJBejlPRFVGNTFRT1BKemFaMG1RZC1QUmxWWkVyX3pDeXNfY0lnd0hTb1NUNnpKYnN3TW9ISmU4TWV4anBqcXlPMDU3WFJRR0hSeHc?oc=5" target="_blank" rel="noopener nofollow">해킹에 보안주 또 들썩…안랩 52주 신고가 - 머니투데이</a></td></tr><tr><td class="n">Tue, 24 Nov</td><td>지디넷코리아</td><td><a href="https://news.google.com/rss/articles/CBMiVkFVX3lxTE8yNENpNVdyNWw0dGh4S21iT2ZvMnZNN2lHbnBKRjhUQ1QtRE4yT2xIU29nUExLbnlJY0RMd0kxczc0MFpsY0c1NW82czJyYjNoaG5ocDJn?oc=5" target="_blank" rel="noopener nofollow">더존비즈온-안랩 손잡았다…ERP 사이버보안 강화</a></td></tr><tr><td class="n">Tue, 24 Nov</td><td>전자신문</td><td><a href="https://news.google.com/rss/articles/CBMiTkFVX3lxTE5LWTdRRnNlRm9KWGJacERHUDdCbXIyMVRZOWdiVEoyN1drNGQ0cmZxUmJtbDhmUDJ1allrajVqV0lnTFlKbjE0MGJuYnVDZw?oc=5" target="_blank" rel="noopener nofollow">더존비즈온, 안랩과 맞손…정보보호 역량 고도화</a></td></tr><tr><td class="n">Tue, 24 Nov</td><td>서울경제</td><td><a href="https://news.google.com/rss/articles/CBMiUkFVX3lxTE5ab2xxelJLaUhIVWd3VUQtcFhYdGJFVlRWaVZpT0o4OElUTTdMVy1JVHdEeFdaZ2psWUtYYVA1cFpXeTkzck84VWxtWXVGREs2WFHSAVNBVV95cUxNTW5KZXpOWUh5bjZFbG1mQUtKRUlQYkNvLWxFVlNJMkJXZW9oRXd6V0xYTVIzb2psM0xuVVA0Z29DeUxtd3RpUVprZUU1Y3Ixamx0NA?oc=5" target="_blank" rel="noopener nofollow">더존비즈온, 안랩과 사이버 보안 강화 기술·사업 협력</a></td></tr><tr><td class="n">Tue, 24 Nov</td><td>전자신문</td><td><a href="https://news.google.com/rss/articles/CBMiTkFVX3lxTE5iNUhhS0xJeTd5WEFsYUlBSmZyMG1ZeXpuUERCUjRFRlBwSWxMZXRJdjI5dFhaazVXSXhzbkZWdGpUNWxzYkY2WkdsNnlWZw?oc=5" target="_blank" rel="noopener nofollow">[제13회 대한민국 SW제품 품질대상] 우수상-안랩클라우드메이트 &#x27;시큐어브리지 v2.0&#x27;</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-11-25 기준. 「안랩」 로 찾았고 제목에 검색어가 실제로 들어간 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 별개이며, 내용이 서로 다를 수 있다.</p>
 
 <h2 id="이-페이지의-전제를-검증합니다">이 페이지의 전제를 검증한다</h2><style id="vfcss">
 .vbox{border:1px solid var(--border,rgba(15,23,42,.12));border-radius:12px;
@@ -1126,7 +1087,6 @@ window.__qbRegister=function(){echarts.registerTheme('charlie', {"color": ["#d21
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
-<!--SEARCH:BEGIN--><button class="srch-btn" type="button" aria-label="아카이브·원자료 검색 (단축키 /)" title="아카이브·원자료 검색 (/)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></button><script src="search.js?v=8509ea17c1" defer></script><!--SEARCH:END-->
 <script src="vendor/chart-4.4.1.umd.js"></script>
 <!-- CHARTTHEME:BEGIN -->
 <script src="chart-theme.js?v=78def56d"></script>
