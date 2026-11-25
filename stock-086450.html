@@ -413,62 +413,6 @@ html,body{overflow-x:hidden}
   html body .site-bar-in{padding:9px 14px 7px}
 }
 /* BAR:END */
-/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
-.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
- margin:18px 0 20px;text-align:left}
-.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
- color:var(--accent);margin-bottom:5px}
-.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
-/*TOCCSS:BEGIN*/
-/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
-
-/* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
-   원인은 상단바다. .site-bar 가 position:sticky · 높이 78px 로 화면 맨 위를 덮는데
-   앵커로 이동하면 제목이 정확히 그 아래에 깔린다. 그래서 독자는 제목을 못 보고
-   그 다음 문단부터 보게 된다. 눌러 간 곳과 보이는 글이 어긋나는 것이 이 때문이다.
-   scroll-margin-top 이 0 이었다. 78 에 여백 14 를 더해 92 로 둔다.
-   ⚠ 상단바 높이를 바꾸면 이 값도 같이 바꾼다. 측정: .site-bar 의 getBoundingClientRect().height */
-h2[id],h3[id],[id]:target{scroll-margin-top:92px}
-@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
- margin:22px 0 24px;background:var(--surface);text-align:left}
-.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
- color:var(--text-secondary);margin-bottom:7px;text-align:left}
-.ptoc ol{margin:0;padding-left:28px;line-height:1.8}   /* 28px — «10.» 같은 2자리 번호가 상자·옆 단으로 넘어가지 않게(2026-11-11 kospi-bottom 13절에서 2번째 단의 «13.»이 1번째 단 글자와 겹쳤다) */
-.ptoc li{font-size:.9rem}
-.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
-.ptoc a:hover{border-bottom-color:var(--text-secondary)}
-@media(min-width:900px){.ptoc ol{columns:2;column-gap:30px}.ptoc li{break-inside:avoid}}
-/*TOCCSS:END*/</style><link rel="stylesheet" href="vendor/fonts.css"><style id="glancecss">
-.glance{margin:26px 0 8px;padding:18px 20px 14px;border:1px solid var(--border);border-radius:14px;background:var(--surface)}
-.glance .gl-h{font-size:.78rem;font-weight:800;letter-spacing:.08em;color:var(--text-secondary);margin-bottom:12px}
-.gl-lights{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.gl-l{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:var(--bg)}
-.gl-dot{flex:0 0 14px;width:14px;height:14px;border-radius:50%;margin-top:5px;box-shadow:0 0 0 4px color-mix(in srgb,currentColor 18%,transparent);background:currentColor}
-.gl-l.on{color:var(--pos,#059669)}.gl-l.off{color:var(--neg,#e11d48)}
-.gl-n{font-size:.8rem;font-weight:800;color:var(--text)}
-.gl-v{font-size:.92rem;color:var(--text);margin-top:2px;line-height:1.5}
-.gl-v b{font-weight:800}
-.gl-one{margin:14px 0 4px;font-size:clamp(16px,2vw,18px);line-height:1.65;font-weight:600;color:var(--text)}
-.gl-one .verd{padding:2px 10px;border-radius:999px;font-weight:800}
-.gl-one .verd.go{color:var(--pos,#059669);background:color-mix(in srgb,var(--pos,#059669) 14%,transparent)}
-.gl-one .verd.stop{color:var(--neg,#e11d48);background:color-mix(in srgb,var(--neg,#e11d48) 14%,transparent)}
-.gl-one .verd.wait{color:var(--warn,#d97706);background:color-mix(in srgb,var(--warn,#d97706) 18%,transparent)}
-.gl-rec{margin-top:12px}.gl-rec table.mini td,.gl-rec table.mini th{padding:8px 10px}
-.gl-note{font-size:.82rem;color:var(--text-secondary);line-height:1.65;margin-top:10px}
-details.fold{margin:30px 0 10px;border-top:1px solid var(--border)}
-details.fold>summary{cursor:pointer;list-style:none;padding:16px 0;font-size:1rem;font-weight:700;color:var(--accent)}
-details.fold>summary::-webkit-details-marker{display:none}
-details.fold>summary::before{content:'▸';font-size:.8rem;margin-right:8px;display:inline-block;transition:transform .18s}
-details.fold[open]>summary::before{transform:rotate(90deg)}
-@media(max-width:760px){.gl-lights{grid-template-columns:1fr}}
-</style><style id="freqcss">
-.freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
- padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
- border:1px solid currentColor;opacity:.85}
-.freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
-.freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
-
 /* SEARCH:BEGIN */
 .srch-btn{position:fixed;top:auto;bottom:18px;right:68px;z-index:130;width:42px;height:42px;border-radius:50%;
   background:var(--surface,#F6F7F9);border:1px solid var(--border,rgba(15,23,42,.12));color:var(--text,#0f172a);
@@ -507,6 +451,56 @@ html body .site-srch>a.srch-nav:hover{color:var(--text);background:color-mix(in 
 @media(max-width:760px){.srch-box{top:12px} html body .site-srch>a.srch-nav{padding:8px 8px;font-size:12px}}
 @media(prefers-reduced-motion:reduce){.srch-btn:hover{transform:none}}
 /* SEARCH:END */
+/*TOCCSS:BEGIN*/
+/* 글머리 목차 — 2026-08-24. 본문보다 작고 조용하게. 읽기 전에 지도를 준다. */
+
+/* ⚠⚠ 2026-08-24 상수님 «목차를 눌렀을 때 보이는 글이 매칭이 안돼».
+   원인은 상단바다. .site-bar 가 position:sticky · 높이 78px 로 화면 맨 위를 덮는데
+   앵커로 이동하면 제목이 정확히 그 아래에 깔린다. 그래서 독자는 제목을 못 보고
+   그 다음 문단부터 보게 된다. 눌러 간 곳과 보이는 글이 어긋나는 것이 이 때문이다.
+   scroll-margin-top 이 0 이었다. 78 에 여백 14 를 더해 92 로 둔다.
+   ⚠ 상단바 높이를 바꾸면 이 값도 같이 바꾼다. 측정: .site-bar 의 getBoundingClientRect().height */
+h2[id],h3[id],[id]:target{scroll-margin-top:92px}
+@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+.ptoc{border:1px solid var(--border);border-radius:12px;padding:12px 16px 10px;
+ margin:22px 0 24px;background:var(--surface);text-align:left}
+.ptoc .h{font-size:.74rem;font-weight:800;letter-spacing:.04em;
+ color:var(--text-secondary);margin-bottom:7px;text-align:left}
+.ptoc ol{margin:0;padding-left:28px;line-height:1.8}   /* 28px — «10.» 같은 2자리 번호가 상자·옆 단으로 넘어가지 않게(2026-11-11 kospi-bottom 13절에서 2번째 단의 «13.»이 1번째 단 글자와 겹쳤다) */
+.ptoc li{font-size:.9rem}
+.ptoc a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent}
+.ptoc a:hover{border-bottom-color:var(--text-secondary)}
+@media(min-width:900px){.ptoc ol{columns:2;column-gap:30px}.ptoc li{break-inside:avoid}}
+/*TOCCSS:END*/
+/* 장 머리 결론 — 2026-08-24. 훑는 사람이 처음 만나는 문단이다. */
+.pclaim{border-left:3px solid var(--accent);padding:2px 0 2px 15px;
+ margin:18px 0 20px;text-align:left}
+.pclaim .h{font-size:.72rem;font-weight:800;letter-spacing:.05em;
+ color:var(--accent);margin-bottom:5px}
+.pclaim p{margin:0;line-height:1.8;font-size:1.0rem}
+</style><link rel="stylesheet" href="vendor/fonts.css"><style id="glancecss">
+.glance{margin:26px 0 8px;padding:18px 20px 14px;border:1px solid var(--border);border-radius:14px;background:var(--surface)}
+.glance .gl-h{font-size:.78rem;font-weight:800;letter-spacing:.08em;color:var(--text-secondary);margin-bottom:12px}
+.gl-lights{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.gl-l{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:var(--bg)}
+.gl-dot{flex:0 0 14px;width:14px;height:14px;border-radius:50%;margin-top:5px;box-shadow:0 0 0 4px color-mix(in srgb,currentColor 18%,transparent);background:currentColor}
+.gl-l.on{color:var(--pos,#059669)}.gl-l.off{color:var(--neg,#e11d48)}
+.gl-n{font-size:.8rem;font-weight:800;color:var(--text)}
+.gl-v{font-size:.92rem;color:var(--text);margin-top:2px;line-height:1.5}
+.gl-v b{font-weight:800}
+.gl-one{margin:14px 0 4px;font-size:clamp(16px,2vw,18px);line-height:1.65;font-weight:600;color:var(--text)}
+.gl-one .verd{padding:2px 10px;border-radius:999px;font-weight:800}
+.gl-one .verd.go{color:var(--pos,#059669);background:color-mix(in srgb,var(--pos,#059669) 14%,transparent)}
+.gl-one .verd.stop{color:var(--neg,#e11d48);background:color-mix(in srgb,var(--neg,#e11d48) 14%,transparent)}
+.gl-one .verd.wait{color:var(--warn,#d97706);background:color-mix(in srgb,var(--warn,#d97706) 18%,transparent)}
+.gl-rec{margin-top:12px}.gl-rec table.mini td,.gl-rec table.mini th{padding:8px 10px}
+.gl-note{font-size:.82rem;color:var(--text-secondary);line-height:1.65;margin-top:10px}
+details.fold{margin:30px 0 10px;border-top:1px solid var(--border)}
+details.fold>summary{cursor:pointer;list-style:none;padding:16px 0;font-size:1rem;font-weight:700;color:var(--accent)}
+details.fold>summary::-webkit-details-marker{display:none}
+details.fold>summary::before{content:'▸';font-size:.8rem;margin-right:8px;display:inline-block;transition:transform .18s}
+details.fold[open]>summary::before{transform:rotate(90deg)}
+@media(max-width:760px){.gl-lights{grid-template-columns:1fr}}
 /* PAPER:BEGIN */
 /* ── 논문 판형 ─────────────────────────────────────────────── */
 
@@ -835,8 +829,14 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
   .paper table{font-size:12.5px}
   .paper p.note{padding-left:11px}
 }
-/* PAPER:END */</style>
-<!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --></head><body>
+/* PAPER:END */</style><!-- NOINDEX:BEGIN --><meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot-news" content="noindex"><meta name="bingbot" content="noindex, nofollow, noarchive"><meta name="Yeti" content="noindex, nofollow"><meta name="Daumoa" content="noindex, nofollow"><meta name="naverbot" content="noindex, nofollow"><!-- NOINDEX:END --><style id="freqcss">
+.freq{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.02em;
+ padding:1px 7px;border-radius:999px;margin-right:7px;vertical-align:1px;
+ border:1px solid currentColor;opacity:.85}
+.freq.d{color:#1161c4}.freq.w{color:#0f7b8a}.freq.m{color:#b45309}
+.freq.q{color:#6d28d9}.freq.y{color:#7c7a73}
+</style>
+</head><body>
 <div class="site-bar"><div class="site-bar-in">
   <a class="site-brand" href="index.html">찰리의 시투 추종<span class="feat">feat. 이야기꾼</span></a>
   <nav class="site-nav"><!-- NAV:BEGIN --><div class="site-group"><button class="" type="button">오늘의 시장 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="kospi-skhynix.html">코스피</a><a href="kosdaq.html">코스닥</a><a href="sp500.html">S&P 500</a><a href="nasdaq.html">나스닥</a><a href="sentiment-daily.html">투자심리 3종</a><a href="bottom-watch.html">바닥 추적</a><a href="bottom-top.html">바닥·천장 추적 분석</a><a href="breadth-rs.html">52주 신고가와 상대강도</a><a href="audition.html">오디션 피라미딩</a><a href="supply.html">투자자 수급</a><a href="minervini-x.html">마크 미너비니 X 추적</a><a href="experts.html">전문가 의견 추적</a></div></div><div class="site-group"><button class="" type="button">판단 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">주 1회</span><a href="jeonjo.html">중공황 전조현상</a><a href="macro-timeline.html">거시 이벤트 연대기</a><a href="supply-analysis.html">수급 심층 분석</a><a href="foreign-share.html">외국인 비중</a></div></div><div class="site-group"><button class="" type="button">관심종목 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="stock-samsung.html">삼성전자</a><a href="stock-skhynix.html">SK하이닉스</a><a href="stock-wonik-ips.html">원익IPS</a><a href="stock-hanmi-semi.html">한미반도체</a><a href="stock-isu-petasys.html">이수페타시스</a><a href="stock-samsung-electro.html">삼성전기</a><a href="stock-psk-holdings.html">피에스케이홀딩스</a><a href="stock-samsung-sdi.html">삼성SDI</a><a href="stock-hyundai-motor.html">현대차</a><a href="stock-apr.html">에이피알</a><a href="stock-samyang.html">삼양식품</a><a href="stock-doosan-enerbility.html">두산에너빌리티</a><a href="stock-hd-hyundai-elec.html">HD현대일렉트릭</a><a href="stock-hive.html">하이브</a><a href="stock-sk-telecom.html">SK텔레콤</a><a href="stock-lig-defense.html">LIG디펜스앤에어로</a><a href="stock-nhn.html">NHN</a><a href="stock-kolmar.html">한국콜마</a><a href="stock-cosmax.html">코스맥스</a><a href="stock-pharmaresearch.html">파마리서치</a><a href="stock-jyp.html">JYP Ent.</a><a href="stock-sm-ent.html">에스엠</a><a href="stock-yg-ent.html">와이지엔터테인먼트</a></div></div><div class="site-group"><button class="" type="button">방법론 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><a href="methodology.html">이야기꾼의 방법론</a><a href="minervini.html">마크 미너비니의 방법론</a><a href="marks.html">하워드 막스의 방법론</a><a href="marks-glossary.html">사이클 용어사전</a><a href="masters.html">대가의 투자법</a><a href="psychology.html">투자심리</a><a href="cycle-rope.html">사이클과 규칙</a></div></div><div class="site-group"><button class="" type="button">아카이브 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">갱신 없음</span><span class="nav-h sub">시장 국면</span><a href="stabilization-fund.html">증안펀드와 코스피</a><a href="kosdaq-seasonality.html">해와 달의 코스닥</a><a href="kospi-bottom.html">코스피 바닥 판별</a><a href="sp500-ftd.html">S&P 500 팔로스루 데이</a><a href="kospi-ftd.html">팔로스루 데이</a><a href="kospi-panics.html">코스피 역대 공황</a><a href="rally-angle.html">상승 각도</a><a href="kospi-seasonality-down.html">해와 달의 코스피 · 역편</a><a href="kospi-drivers.html">코스피 선행 변수</a><a href="kospi-seasonality.html">해와 달의 코스피</a><a href="breadth-concentration.html">신고가 쏠림</a><a href="kospi-analog.html">닮은 과거</a><a href="audition-history.html">오디션 히스토리</a><a href="disparity-archive.html">두 버블의 이격도</a><a href="stage-analysis.html">와인스타인 스테이지</a><a href="kospi-dotcom-1998-2000.html">코스피 닷컴 랠리</a><span class="nav-h sub">금리와 통화</span><a href="rate-crash-inflation-2.html">인플레 시대 공황 2</a><a href="rate-crash-inflation.html">인플레 시대 금리-공황</a><a href="us10y-breakouts.html">미 10년물 금리 전고점 돌파</a><a href="us-panic-rates.html">미국 공황과 미 10년물 금리</a><a href="rate-crash-primer.html">금리-공황 프로세스 읽기</a><a href="nikkei-rates.html">닛케이와 미국 금리</a><a href="kospi-spx-gap.html">코스피와 S&P 500</a><a href="rate-crash-process.html">금리-공황 프로세스</a><a href="gold-rates.html">금리와 금값</a><a href="treasury-trust.html">미국 국채 바이백</a><a href="inflation-playbook.html">인플레 시대의 자산</a><a href="rates-century.html">미국 금리 100년</a><a href="liquidity.html">미국 유동성</a><a href="fed-kospi.html">연준 기준금리와 코스피</a><a href="rates-101.html">금리 기초</a><a href="rates-crashes.html">금리 5%와 공황</a><a href="dollar-kospi.html">달러와 코스피</a><span class="nav-h sub">경기와 수출</span><a href="china-import-prices.html">중국산 수입물가와 주가</a><a href="jp-cci-kospi.html">일본 소비심리와 코스피</a><a href="us-elections.html">미국 선거와 증시</a><a href="export-kospi.html">수출과 코스피</a><a href="cli-kospi.html">OECD CLI 와 코스피</a><a href="ism-kospi.html">ISM 과 코스피</a><a href="jeoji-kospi.html">제오지산수</a><span class="nav-h sub">신용과 청산</span><a href="credit-lag.html">미 은행 대출 태도와 가산금리</a><a href="us-credit-spread.html">미국 신용스프레드</a><a href="deleveraging.html">강제청산</a><a href="credit-spread.html">신용스프레드와 코스피</a><a href="sentiment.html">빚과 현금</a><span class="nav-h sub">수급과 폭락</span><a href="flow-quadrant.html">개인 수급 사분면</a><a href="foreign-flow.html">외국인 수급</a><a href="flow-extremes.html">개인과 외국인의 대량 매매</a><a href="flow-crashes.html">폭락의 구조</a><span class="nav-h sub">개별 종목</span><a href="memory-price.html">D램 가격과 삼성전자</a><a href="leadlag.html">하이닉스의 선행과 후행</a><a href="samsung-long.html">삼성전자 27년</a></div></div><div class="site-group"><button class="" type="button">원자료 <span class="cv">▼</span></button><div class="site-dd"><span class="nav-h">매일 갱신</span><a href="data.html">전체 155계열</a><a href="data-kr-market.html">한국 시장</a><a href="data-kr-flow.html">한국 수급·심리</a><a href="data-kr-rates.html">한국 금리</a><a href="data-us-market.html">미국 시장</a><a href="data-us-rates.html">미국 금리</a><a href="data-us-liq.html">미국 유동성</a><a href="data-fx.html">환율·원자재·암호</a><a href="data-macro.html">재정·거시</a><a href="data-world.html">세계 증시</a></div></div><div class="site-srch"><a class="srch-nav" href="#search" role="button">검색</a></div><!-- NAV:END --></nav>
@@ -847,9 +847,9 @@ html body > footer{max-width:calc(var(--w-col) - 64px);width:calc(100% - 64px);
 <h1>동국제약</h1>
 <p class="sub">코스닥 · RS 96</p>
 <p class="pauth">기준일 2026-11-24 · 동국제약 일별 시세·투자자 매매동향(한투 KIS) · 매일 갱신</p>
-<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>동국제약 후보 종목(RS 96)이다. 이 페이지는 이 종목이 매수 5원칙에 맞는지 매일 다시 판정한다. 추세는 20주선과의 거리로, 수급은 투자자별 누적 순매수로 판정한다. 재무는 분기 실적으로, 시장의 기대는 증권사 목표가로 본다. 관심종목이 아니라 오디션과 상대강도 표에서 들어오는 종목이다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#매수-5원칙-판정">매수 5원칙 판정</a></li><li><a href="#추세-20주선-추세-템플릿-vcp">추세: 20주선 · 추세 템플릿 · VCP</a></li><li><a href="#바닥-이야기꾼-바닥-7단계">바닥: 이야기꾼 바닥 7단계</a></li><li><a href="#수급-누가-사고-누가-팔았나">수급: 누가 사고 누가 팔았나?</a></li><li><a href="#개인-수급-사분면-nbsp-11-24-4분면-상승-개인-순매도">개인 수급 사분면 &nbsp;· 11/24 4분면 (상승 + 개인 순매도)</a></li><li><a href="#실적과-가치평가">실적과 가치평가</a></li><li><a href="#증권사-목표가">증권사 목표가</a></li><li><a href="#관련-기사">관련 기사</a></li><li><a href="#이-페이지의-전제를-검증합니다">이 페이지의 전제를 검증한다</a></li></ol></div><!--TOC:END--></header>
+</header>
 
-<!-- GLANCE:BEGIN --><div class="glance" id="한-눈에"><div class="gl-h">동국제약 · 2026-11-24</div><div class="gl-lights"><div class="gl-l on"><span class="gl-dot"></span><div><div class="gl-n">가격</div><div class="gl-v">종가 <b>25,400</b> · 20주선 21,660 <b>위</b></div></div></div><div class="gl-l on"><span class="gl-dot"></span><div><div class="gl-n">상대강도</div><div class="gl-v">60거래일 <b>+32.3%</b> · 코스피 -26.5% <b>이김</b></div></div></div><div class="gl-l off"><span class="gl-dot"></span><div><div class="gl-n">거래량</div><div class="gl-v">11/24 거래량 50일 평균의 <b>0.63배</b> · 1배 아래</div></div></div></div><p class="gl-one">동국제약 신호 3개 가운데 충족 2개, 미충족 1개다. 미충족은 거래량이다.</p><div class="gl-rec tblwrap"><table class="mini"><thead><tr><th>회복률</th><th>52주 고점</th><th>고점 → 저점</th><th>저점</th><th>오늘</th><th>하락폭의 회복</th><th>전고점까지</th></tr></thead><tbody><tr><td>동국제약</td><td>29,900 <span class="dim">(4/6)</span></td><td class="neg">-44.7%</td><td>16,540 <span class="dim">(6/8)</span></td><td>25,400</td><td><b>66%</b></td><td>17.7%</td></tr></tbody></table></div><p class="gl-note">종목 줄의 가격은 종가와 주봉 20주 평균(이야기꾼의 생명선)을 견주고, 상대강도는 최근 60거래일 수익률이 코스피를 이겼는지, 거래량은 최근 거래일 거래량을 50일 평균으로 나눈 값이다. 종목 줄은 충족 개수만 적고 판정 낱말은 쓰지 않는다. 하락폭의 회복은 52주 고점에서 그 뒤 저점까지 하락한 폭 가운데 오늘까지 되찾은 비율이다.</p></div><!-- GLANCE:END -->
+<!--PCLAIM:BEGIN--><div class="pclaim"><div class="h">이 글의 결론</div><p>동국제약 후보 종목(RS 96)이다. 이 페이지는 이 종목이 매수 5원칙에 맞는지 매일 다시 판정한다. 추세는 20주선과의 거리로, 수급은 투자자별 누적 순매수로 판정한다. 재무는 분기 실적으로, 시장의 기대는 증권사 목표가로 본다. 관심종목이 아니라 오디션과 상대강도 표에서 들어오는 종목이다.</p></div><!--PCLAIM:END--><!--TOC:BEGIN--><div class="ptoc"><div class="h">이 글의 차례</div><ol><li><a href="#매수-5원칙-판정">매수 5원칙 판정</a></li><li><a href="#추세-20주선-추세-템플릿-vcp">추세: 20주선 · 추세 템플릿 · VCP</a></li><li><a href="#바닥-이야기꾼-바닥-7단계">바닥: 이야기꾼 바닥 7단계</a></li><li><a href="#수급-누가-사고-누가-팔았나">수급: 누가 사고 누가 팔았나</a></li><li><a href="#개인-수급-사분면-nbsp-11-24-4분면-상승-개인-순매도">개인 수급 사분면 &nbsp;· 11/24 4분면 (상승 + 개인 순매도)</a></li><li><a href="#실적과-가치평가">실적과 가치평가</a></li><li><a href="#증권사-목표가">증권사 목표가</a></li><li><a href="#관련-기사">관련 기사</a></li><li><a href="#이-페이지의-전제를-검증합니다">이 페이지의 전제를 검증한다</a></li></ol></div><!--TOC:END--><!-- GLANCE:BEGIN --><div class="glance" id="한-눈에"><div class="gl-h">동국제약 · 2026-11-24</div><div class="gl-lights"><div class="gl-l on"><span class="gl-dot"></span><div><div class="gl-n">가격</div><div class="gl-v">종가 <b>25,400</b> · 20주선 21,660 <b>위</b></div></div></div><div class="gl-l on"><span class="gl-dot"></span><div><div class="gl-n">상대강도</div><div class="gl-v">60거래일 <b>+32.3%</b> · 코스피 -26.5% <b>이김</b></div></div></div><div class="gl-l off"><span class="gl-dot"></span><div><div class="gl-n">거래량</div><div class="gl-v">11/24 거래량 50일 평균의 <b>0.63배</b> · 1배 아래</div></div></div></div><p class="gl-one">동국제약 신호 3개 가운데 충족 2개, 미충족 1개다. 미충족은 거래량이다.</p><div class="gl-rec tblwrap"><table class="mini"><thead><tr><th>회복률</th><th>52주 고점</th><th>고점 → 저점</th><th>저점</th><th>오늘</th><th>하락폭의 회복</th><th>전고점까지</th></tr></thead><tbody><tr><td>동국제약</td><td>29,900 <span class="dim">(4/6)</span></td><td class="neg">-44.7%</td><td>16,540 <span class="dim">(6/8)</span></td><td>25,400</td><td><b>66%</b></td><td>17.7%</td></tr></tbody></table></div><p class="gl-note">종목 줄의 가격은 종가와 주봉 20주 평균(이야기꾼의 생명선)을 견주고, 상대강도는 최근 60거래일 수익률이 코스피를 이겼는지, 거래량은 최근 거래일 거래량을 50일 평균으로 나눈 값이다. 종목 줄은 충족 개수만 적고 판정 낱말은 쓰지 않는다. 하락폭의 회복은 52주 고점에서 그 뒤 저점까지 하락한 폭 가운데 오늘까지 되찾은 비율이다.</p></div><!-- GLANCE:END -->
 
 <figure class="fig"><div class="tblwrap"><table class="tw">
 <thead><tr><th class="n">종가</th><th class="n">전일비</th><th class="n">시총</th><th class="n">52주 고점 대비</th><th class="n">PER(최근 4분기)</th><th class="n">오디션</th></tr></thead>
@@ -1076,7 +1076,7 @@ window.__qbRegister=function(){echarts.registerTheme('charlie', {"color": ["#d21
 매수 의견 비율이 높은 것은 국내 리서치의 구조적 특성이기도 한다. 매도 리포트가 드물다. 목표가 자체보다 최근 방향(상향/하향)이 정보에 가깝다.</p>
 
 <h2 id="관련-기사">관련 기사</h2>
-<div class="tblwrap"><table><thead><tr><th class="n">날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Mon, 23 Nov</td><td>의학신문</td><td><a href="https://news.google.com/rss/articles/CBMiakFVX3lxTFBETTNvcWNPWm8yOUgwYTg4TGY1ckZTWGFtUEhWcThud0gxZGpRWW0zTnVrOUtrejJQQkZwV0g1dkJ4T2UxcTdCRXYtdjI4eUN3WmtyYWxPR2F6dzhpcGs2aVNnT3FHT1dNQkE?oc=5" target="_blank" rel="noopener nofollow">동화약품·동국제약 등 6개사 혁신형 제약기업 인증 연장</a></td></tr><tr><td class="n">Tue, 24 Nov</td><td>뉴스1</td><td><a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTFBFQklDdmNpNmZsWXlsWjByaHBhb0JKMG1hY2duLWZsYmV2NDJYZkpkMTdIaDl0ZTFGc0dsb0Z4QmduR0lsVU40S1U0NlBUMUtkWFM0RHRxaVg5WmI5Wnp0Ng?oc=5" target="_blank" rel="noopener nofollow">동국제약, 윤종신과 함께한 &#x27;인사돌&#x27; 신규 TV 광고 공개</a></td></tr><tr><td class="n">Tue, 24 Nov</td><td>주간한국</td><td><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTFBMMURoSTZmRGxFYWp4WnQxUktVRG5HV0dGbGZxYWRrc0hoSS02UUNMU01HVTJ6RE56ei0yY0ZDeV95ZzVzZmZKbkhuV3Q2OGI5MjRoaXIyV1Z4Zlh1MzVySEEtaFE0YTB2ZWEzakxjX0_SAXRBVV95cUxPT3djX0ZfX2xIRHYxel90aUVyTTlMOWRUcllZVXYxX19BTWVYb045SGpfNzRoZnN3MExnS0dHZXVleDFRS0dsMkhMczE4c0IwV1piaUFIckpHV2Fjc2JWMTE0Ym5tV1hqRzN6QzRyOHpkaU5vQg?oc=5" target="_blank" rel="noopener nofollow">동국제약, 윤종신과 함께한 ‘인사돌’ 신규 TV광고 공개</a></td></tr><tr><td class="n">Tue, 24 Nov</td><td>천지일보</td><td><a href="https://news.google.com/rss/articles/CBMiakFVX3lxTFBzMEtqcnRNYlBUT21oQXFGcl9pUHhTRzFzMS1aRWFNUEZ2OUFieDE2czAwcUtxMXVlck9rWWx2Mi14a1gzR0FrcFpteUJ2LWFHelZDMzZDMGcyMDRlUlJzX2Q0cTd4WXJ5cnc?oc=5" target="_blank" rel="noopener nofollow">동국제약, 윤종신 모델 인사돌 신규 광고 공개</a></td></tr><tr><td class="n">Mon, 23 Nov</td><td>마이데일리</td><td><a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE9ROTExc3pYN3FJcmdXRkNtMmNkZ1NPNV9GWjdwLWgxZ0lOVHRiaEJrNkpFTkJtUTlmOWNKcVJBWl9DMG1iS2s2WGhQb2lIS3dwel9oS1pLSk40QlFpSVdWVQ?oc=5" target="_blank" rel="noopener nofollow">창사 첫 ‘1조 클럽’ 도전…동국제약·SK바이오팜, 연말 실적에 쏠린 눈</a></td></tr><tr><td class="n">Tue, 24 Nov</td><td>더밸류뉴스</td><td><a href="https://news.google.com/rss/articles/CBMiVEFVX3lxTE9QSm5EUmtteHowdHBOWDk4NFRiRTBUcEc4LW1oYTljUng0T29waXBGU1FfVldkX1d6LUVsTXBNdHdpcU1UNTRYU0ZMX2hJMDZPalpCUA?oc=5" target="_blank" rel="noopener nofollow">[제약 레이더] JW이종호재단·가톨릭대 간호대학·동국제약, 지원 사업과 광고로 대중 접점 넓히기</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-11-24 기준. 「동국제약」 로 찾았고 제목에 검색어가 실제로 들어간 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 별개이며, 내용이 서로 다를 수 있다.</p>
+<div class="tblwrap"><table><thead><tr><th class="n">날짜</th><th>언론사</th><th>제목</th></tr></thead><tbody><tr><td class="n">Wed, 25 Nov</td><td>녹색경제신문</td><td><a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTE83RWw4ZGlXbHdsQzN5d3VXbDA3ZUl6aFlmcWVMZ3lNS1JscDdVQV9KdWV0UTRidkRtZEVpVGozTFh3eUdaVVk3dm0yZDRUcEhyUTYzcDVPZ2ZsMGt2RFAySDE1VllSdE16?oc=5" target="_blank" rel="noopener nofollow">동국제약, 시지메드텍 맞손 &#x27;ECM 스킨부스터&#x27; 개발…인체조직 시장 공략</a></td></tr><tr><td class="n">Wed, 25 Nov</td><td>뉴스타운</td><td><a href="https://news.google.com/rss/articles/CBMibkFVX3lxTE9TNDNOd0hUVUg3aVNlRjRpTXpXZDd6RS1KMGc3WnlVZjNEMk5WSkEwNENmN3hJQm1FYTVIN3RhdkFPVHI1UF9YcVhKOVZiNk5BMExtTUlya3hVTUo1dzdXelZhLVlhQ0pRN2xyd0V3?oc=5" target="_blank" rel="noopener nofollow">동국제약-시지메드텍, 인체조직 ECM 스킨부스터 출시 위한 협약</a></td></tr><tr><td class="n">Wed, 25 Nov</td><td>머니투데이</td><td><a href="https://news.google.com/rss/articles/CBMiakFVX3lxTFBVQlZKUUNzaENRLVYwbnlFS2lTMHpsZnhGa0dWWTU4Q0xUeHlvSUlpT1VuRXM5UkliOFdVMFZsLWJCemVheEd2N1NDU2V2V1Q2MmFkWnMzRENIQkxqN3BKc1p1OHN6ZEdXcmfSAW9BVV95cUxNTGNPMGcyS0VzRUdDb1Z3dXAtR1UzZnRuakwyWGVoUnhUZDFHU1lweDMyTGJhVzNKRDhfNTJLN2pyWHp3TUdnUVFhS09sTndFaGNtNE8xTTJyQV9fYTN5RXBTRksxSzhpejgxVk5Ubms?oc=5" target="_blank" rel="noopener nofollow">동국제약-시지메드텍, &#x27;ECM 스킨부스터&#x27; 출시 협약 체결 - 머니투데이</a></td></tr><tr><td class="n">Tue, 24 Nov</td><td>브릿지경제</td><td><a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTFBoaldwNTdwR0tsTTBnNnZBVWdSd2czUG9OclRiV1BXMndNS1pxNWN6SnJZa0JEMkw3bVAyQ0RIT1AzcGhlM2lMZFg0YWlQRUFESnpjNnZoVGdidw?oc=5" target="_blank" rel="noopener nofollow">동국제약·SK바이오팜 ‘1조 클럽’ 눈앞⋯ 화장품·신약이 성장 견인</a></td></tr><tr><td class="n">Tue, 24 Nov</td><td>뉴스핌</td><td><a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTFBVZk9nR3pNcWw5X2NBQjJwTFkyWGs2c2F1NVd4LUZWLXA2X2tvWmNBNXgweVA3SnQzc3YtWks3T1N4aGEzcnRPbnMyNnB4eE9XZ2dabnpYbE1rendL?oc=5" target="_blank" rel="noopener nofollow">동국제약, 윤종신 모델 잇몸약 &#x27;인사돌&#x27; 신규 광고 공개</a></td></tr><tr><td class="n">Mon, 23 Nov</td><td>의학신문</td><td><a href="https://news.google.com/rss/articles/CBMiakFVX3lxTFBETTNvcWNPWm8yOUgwYTg4TGY1ckZTWGFtUEhWcThud0gxZGpRWW0zTnVrOUtrejJQQkZwV0g1dkJ4T2UxcTdCRXYtdjI4eUN3WmtyYWxPR2F6dzhpcGs2aVNnT3FHT1dNQkE?oc=5" target="_blank" rel="noopener nofollow">동화약품·동국제약 등 6개사 혁신형 제약기업 인증 연장</a></td></tr></tbody></table></div><p class="note">출처 구글 뉴스 · 2026-11-25 기준. 「동국제약」 로 찾았고 제목에 검색어가 실제로 들어간 기사만 골랐다. 제목을 누르면 원문으로 간다.<br>⚠ 제목은 기사 내용을 요약하지 않는다. 뉴스는 이 페이지의 분석과 별개이며, 내용이 서로 다를 수 있다.</p>
 
 <h2 id="이-페이지의-전제를-검증합니다">이 페이지의 전제를 검증한다</h2><style id="vfcss">
 .vbox{border:1px solid var(--border,rgba(15,23,42,.12));border-radius:12px;
@@ -1151,6 +1151,7 @@ window.__qbRegister=function(){echarts.registerTheme('charlie', {"color": ["#d21
   }).observe(h,{attributes:true,attributeFilter:['class']});
 })();
 /* THEME:END */</script>
+<!--SEARCH:BEGIN--><button class="srch-btn" type="button" aria-label="아카이브·원자료 검색 (단축키 /)" title="아카이브·원자료 검색 (/)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></button><script src="search.js?v=8509ea17c1" defer></script><!--SEARCH:END-->
 <script src="vendor/chart-4.4.1.umd.js"></script>
 <!-- CHARTTHEME:BEGIN -->
 <script src="chart-theme.js?v=78def56d"></script>
@@ -1190,8 +1191,7 @@ new MutationObserver(function(){var t=__tone();
           title:{display:!!c.y1t,text:c.y1t||''}},
       x:{grid:{display:false},ticks:{maxTicksLimit:c.xt||12}}}}}));
 });
-</script><!--SEARCH:BEGIN--><button class="srch-btn" type="button" aria-label="아카이브·원자료 검색 (단축키 /)" title="아카이브·원자료 검색 (/)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></button><script src="search.js?v=8509ea17c1" defer></script><!--SEARCH:END-->
-<button class="toggle" onclick="__toggleTheme()">&#9728;</button>
+</script><button class="toggle" onclick="__toggleTheme()">&#9728;</button>
 <!--TOCJS:BEGIN--><script>
 /* 목차 클릭 보정 — 2026-08-24
    ⚠ 해시가 이미 그 값이면 브라우저가 클릭을 무시한다. 스크롤을 내린 뒤
